@@ -16,112 +16,121 @@
 
 
 <style>
-    /* Card Grid Layout */
-    .judgment-card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 24px;
-        margin-top: 30px;
-        margin-bottom: 40px;
+    /* Responsive Display Logic */
+    .mobile-view {
+        display: none;
     }
 
-    /* Card Style */
+    .desktop-view {
+        display: block;
+        overflow-x: auto;
+        /* Handle potential overflow on smaller desktop/tablet */
+    }
+
+    @media (max-width: 768px) {
+        .mobile-view {
+            display: grid;
+        }
+
+        .desktop-view {
+            display: none;
+        }
+    }
+
+    /* --- Desktop Table Styling --- */
+    .nowrap-col {
+        white-space: nowrap;
+        width: 1%;
+        /* Shrink to fit content */
+        min-width: 110px;
+        /* Ensure enough space */
+    }
+
+    /* --- Mobile Card Styling --- */
+    .judgment-card-grid {
+        grid-template-columns: 1fr;
+        /* Single column on mobile is standard */
+        gap: 16px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    /* Use grid for larger inputs if mobile view is active on tablets */
+    @media (min-width: 600px) and (max-width: 768px) {
+        .judgment-card-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
     .judgment-card {
         background: white;
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        /* More subtle border */
+        border-radius: 12px;
+        padding: 16px;
+        /* Tighter padding */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        /* Softer shadow */
+        border: 1px solid rgba(0, 0, 0, 0.06);
         display: flex;
         flex-direction: column;
-        height: 100%;
         position: relative;
-        /* For stretched link */
         overflow: hidden;
-        /* For hover effects */
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .judgment-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        border-color: rgba(0, 51, 102, 0.15);
-        /* Primary color hint */
+    .judgment-card:active {
+        transform: scale(0.98);
     }
 
     .judgment-card-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 16px;
-        font-size: 0.9rem;
+        margin-bottom: 10px;
+        /* Reduced margin */
+        font-size: 0.85rem;
         color: #666;
     }
 
     .judgment-card-date {
-        background-color: #f8f9fa;
-        padding: 6px 10px;
-        border-radius: 8px;
-        font-size: 0.8rem;
-        font-weight: 500;
-        color: #5f6368;
-        letter-spacing: 0.5px;
+        color: #757575;
+        font-size: 0.85rem;
     }
 
     .judgment-card-case-number {
         font-family: 'Courier New', Courier, monospace;
-        /* Monospace for numbers */
         font-weight: 700;
         color: var(--primary-color);
         background: rgba(0, 51, 102, 0.05);
-        padding: 4px 8px;
-        border-radius: 6px;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.9rem;
     }
 
     .judgment-card-title {
-        font-size: 1.35rem;
-        /* Slightly larger */
+        font-size: 1.1rem;
+        /* Smaller font as requested */
         font-weight: 700;
-        margin: 0 0 16px 0;
-        line-height: 1.4;
-        color: #1a1a1a;
+        margin: 0 0 10px 0;
+        line-height: 1.35;
+        color: #202124;
         flex-grow: 1;
-        /* Push content down */
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-        /* Limit text lines */
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        /* Ensure distinct from body text but not overwhelming */
     }
 
-    /* Link styling inside card */
     .judgment-card-title a {
         color: inherit;
         text-decoration: none;
-        background-image: linear-gradient(var(--primary-color), var(--primary-color));
-        background-position: 0% 100%;
-        background-repeat: no-repeat;
-        background-size: 0% 2px;
-        transition: background-size .3s;
-    }
-
-    .judgment-card:hover .judgment-card-title a {
-        color: var(--primary-color);
     }
 
     .judgment-card-subject {
-        display: inline-flex;
-        align-items: center;
-        padding: 6px 12px;
-        background-color: #e3f2fd;
-        color: #0d47a1;
-        border-radius: 50px;
-        font-size: 0.85rem;
+        display: inline-block;
+        padding: 4px 10px;
+        background-color: #e8f0fe;
+        /* Google blue tint */
+        color: #1967d2;
+        border-radius: 16px;
+        font-size: 0.75rem;
         font-weight: 600;
-        margin-top: auto;
-        /* Push to bottom */
         align-self: flex-start;
         max-width: 100%;
         white-space: nowrap;
@@ -129,7 +138,7 @@
         text-overflow: ellipsis;
     }
 
-    /* Make the whole card clickable */
+    /* Stretched Link */
     .judgment-card a.main-link::after {
         content: '';
         position: absolute;
@@ -139,8 +148,6 @@
         bottom: 0;
         z-index: 1;
     }
-
-    /* Ensure specific relative z-index for other interactive elements if any */
 </style>
 
 
@@ -437,7 +444,1123 @@
             10)</p>
     </div>
 
-    <div class="judgment-card-grid">
+    <div class="desktop-view">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col" class="nowrap-col">תאריך</th>
+                    <th scope="col" class="nowrap-col">מספר הליך</th>
+                    <th scope="col">נושא</th>
+                    <th scope="col">כותרת</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-28</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/48997-09-25.html">48997-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/48997-09-25.html">אלרגבי(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-28</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/69392-09-25.html">69392-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/69392-09-25.html">אבו חלתם(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-28</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/64006-09-25.html">64006-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/64006-09-25.html">ערוג(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-28</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/1668-05-25.html">1668-05-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/1668-05-25.html">אלמסרי נ&#39; -</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-28</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/67770-09-25.html">67770-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/67770-09-25.html">בדוי(עציר) נ&#39; צבאי לאזור איו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-28</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/71080-09-25.html">71080-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/71080-09-25.html">חסאן(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-28</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/58151-09-25.html">58151-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/58151-09-25.html">סלאמה(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-28</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/64129-09-25.html">64129-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/64129-09-25.html">סמארה(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-28</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/63613-09-25.html">63613-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/63613-09-25.html">מסאלמה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-28</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/32477-09-25.html">32477-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/32477-09-25.html">גואברה(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-28</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/69048-09-25.html">69048-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/69048-09-25.html">חמאד(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/46245-09-25.html">46245-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/46245-09-25.html">חמאד(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/63652-09-25.html">63652-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/63652-09-25.html">אבו רדאחה(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/74242-07-25.html">74242-07-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/74242-07-25.html">רוזנבלט נ&#39; המרכז לגביית קנסות אגרות והוצאות</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/64218-09-25.html">64218-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/64218-09-25.html">גנאם(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/45950-09-25.html">45950-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/45950-09-25.html">אלנואפלה(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/66333-09-25.html">66333-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/66333-09-25.html">בעארה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/63695-09-25.html">63695-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/63695-09-25.html">אלחסנאת(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/64533-09-25.html">64533-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/64533-09-25.html">עבאס(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/44942-09-25.html">44942-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/44942-09-25.html">פשאפשה(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/46277-09-25.html">46277-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/46277-09-25.html">אלגנידי(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/64061-09-25.html">64061-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/64061-09-25.html">שריף(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/66603-09-25.html">66603-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/66603-09-25.html">כנעאן(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/62900-09-25.html">62900-09-25</a>
+                    </td>
+                    <td>פגישה עם עורך דין</td>
+                    <td>
+                        <a href="judgments/62900-09-25.html">סעיד נ&#39; הכללי</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/44797-09-25.html">44797-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/44797-09-25.html">שאער(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/47227-05-25.html">47227-05-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/47227-05-25.html">גפני רוזינס נ&#39; המדינה ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/54231-09-25.html">54231-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/54231-09-25.html">שמלאוי(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/44852-09-25.html">44852-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/44852-09-25.html">גבארין(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/25944-09-25.html">25944-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/25944-09-25.html">עסאף(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/13341-09-25.html">13341-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/13341-09-25.html">בשאראת(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/13337-09-25.html">13337-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/13337-09-25.html">יחיא(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/63863-09-25.html">63863-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/63863-09-25.html">צאלח(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/13336-09-25.html">13336-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/13336-09-25.html">עטא(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/30539-08-25.html">30539-08-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/30539-08-25.html">אלומיניום קונסטרקשן סי. אל. ישראל (1992) בע&#34;מ נ&#39; משטרת ישראל/ מחוז ירושלים ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/71273-11-24.html">71273-11-24</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/71273-11-24.html">מחאריק נ&#39; לאיזור הגדה המערבית</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/63832-09-25.html">63832-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/63832-09-25.html">עלאונה(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/63880-09-25.html">63880-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/63880-09-25.html">עודה(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-25</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/63079-09-25.html">63079-09-25</a>
+                    </td>
+                    <td>פגישה עם עורך דין</td>
+                    <td>
+                        <a href="judgments/63079-09-25.html">ראשד נ&#39; הכללי</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-22</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/18895-09-25.html">18895-09-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/18895-09-25.html">תל&#34;ם - התנועה ליהדות מתקדמת בישראל (ע&#34;ר) ואח&#39; נ&#39; המשרד לשירותי דת</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/12842-01-25.html">12842-01-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/12842-01-25.html">מ. מ. קציר-חריש ואח&#39; נ&#39; יפרח ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/30959-09-25.html">30959-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/30959-09-25.html">אלאטרש(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/46954-09-25.html">46954-09-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/46954-09-25.html">כהן נ&#39; מי שבע - תאגיד אזורי למים וביוב בע&#34;מ ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/62805-08-25.html">62805-08-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/62805-08-25.html">הימוני ואח&#39; נ&#39; המפקד הצבאי לאיזור הגדה המערבית ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/14363-09-25.html">14363-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/14363-09-25.html">פלוני נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/32513-09-25.html">32513-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/32513-09-25.html">קרעאן(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/60248-09-25.html">60248-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/60248-09-25.html">מסאד(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/45822-09-25.html">45822-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/45822-09-25.html">מעלא(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/58397-09-25.html">58397-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/58397-09-25.html">חתנאוי(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/784-05-25.html">784-05-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/784-05-25.html">מגרש ביתי - חוזרים למעגל החברתי ואח&#39; נ&#39; המוסד לביטוח לאומי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/50195-09-25.html">50195-09-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/50195-09-25.html">סבן ואח&#39; נ&#39; השר לביטחון לאומי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/13326-09-25.html">13326-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/13326-09-25.html">ג&#39;בר(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/55712-09-25.html">55712-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/55712-09-25.html">חג חמדאן(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/48649-09-25.html">48649-09-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/48649-09-25.html">אלצוץ ואח&#39; נ&#39; ישראל ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/46324-09-25.html">46324-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/46324-09-25.html">כוסא(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-21</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/49454-09-25.html">49454-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/49454-09-25.html">גראדאת(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-19</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/11451-06-25.html">11451-06-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/11451-06-25.html">אמת ליעקב בישראל בע&#34;מ (חל&#34;צ) נ&#39; העבודה ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-19</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/46210-03-25.html">46210-03-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/46210-03-25.html">אור לאור בע&#34;מ ואח&#39; נ&#39; ורישום מקרקעין במנהל האזר</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-19</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/18148-09-25.html">18148-09-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/18148-09-25.html">מרכז &#34;מוסאוא&#34; לזכויות האזרחים הערבים בישראל (ע&#34;ר) נ&#39; חברתי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/8647-22.html">8647/22</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/8647-22.html">האגודה לזכויות האזרח בישראל  נ&#39; משרד הרווחה והביטחון החברתי  ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/54340-09-25.html">54340-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/54340-09-25.html">אבו אלרוב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/22891-06-25.html">22891-06-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/22891-06-25.html">הסתדרות העובדים הכללית החדשה נ&#39; משרד הבריאות/המשרד הראשי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/55678-09-25.html">55678-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/55678-09-25.html">עלאונה(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/54109-09-25.html">54109-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/54109-09-25.html">תאיה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/42284-09-25.html">42284-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/42284-09-25.html">דמידי(עציר) נ&#39; שופט צבאי משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/16726-09-25.html">16726-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/16726-09-25.html">מנצור(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/51495-09-25.html">51495-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/51495-09-25.html">אבו חמאד(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/55679-09-25.html">55679-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/55679-09-25.html">טהה(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/45729-09-25.html">45729-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/45729-09-25.html">עבד אללה(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/45654-09-25.html">45654-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/45654-09-25.html">חאמד(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-18</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/16433-09-25.html">16433-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/16433-09-25.html">אלעישאוי(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-17</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/28811-09-25.html">28811-09-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/28811-09-25.html">חסין חושיה נ&#39; הבטחון ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-17</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/41534-09-25.html">41534-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/41534-09-25.html">אלנגאר(עציר) נ&#39; שופט צבאי משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-17</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/41498-09-25.html">41498-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/41498-09-25.html">ברגותי(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-17</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/25307-09-25.html">25307-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/25307-09-25.html">ערוג(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-17</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/25181-09-25.html">25181-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/25181-09-25.html">צאלח(עציר) נ&#39; שופט צבאי משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-17</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/16756-09-25.html">16756-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/16756-09-25.html">גנידי(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-17</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/1067-24.html">1067/24</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/1067-24.html">סחיווסחורדר  נ&#39; נתיבי ישראל- החברה הלאומית לתשתיות תחבורה  ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-17</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/13250-09-25.html">13250-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/13250-09-25.html">מוסא(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/30369-09-25.html">30369-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/30369-09-25.html">נופל(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/31424-07-25.html">31424-07-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/31424-07-25.html">&#34;עזון אלעתמה&#34; ואח&#39; נ&#39; בגדה המערבית</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/4324-06-25.html">4324-06-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/4324-06-25.html">מלחם נ&#39; המפקד הצבאי באזור הגדה המערבית ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/33404-09-25.html">33404-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/33404-09-25.html">אבו אלרוב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/30927-09-25.html">30927-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/30927-09-25.html">אבו גאזי(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/30875-09-25.html">30875-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/30875-09-25.html">עוכה(עציר) נ&#39; איו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/33409-09-25.html">33409-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/33409-09-25.html">גהאלין(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/30140-09-25.html">30140-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/30140-09-25.html">יאסין(עציר) נ&#39; באיו&#34;ש ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/30034-08-25.html">30034-08-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/30034-08-25.html">ויצמן ואח&#39; נ&#39; הפנים ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/29964-09-25.html">29964-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/29964-09-25.html">דואבשה(עציר) נ&#39; באיו&#34;ש ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/1086-07-25.html">1086-07-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/1086-07-25.html">תיים נ&#39; האזרחי באיו&#34;ש ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/33411-09-25.html">33411-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/33411-09-25.html">זין(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/38553-09-25.html">38553-09-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/38553-09-25.html">מועצה אזורית מטה בנימין נ&#39; משרד הפנים ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/14122-09-25.html">14122-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/14122-09-25.html">אלקאדי(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/33376-09-25.html">33376-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/33376-09-25.html">אבו אלרוב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/32130-09-25.html">32130-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/32130-09-25.html">זיד(עציר) נ&#39; באיו&#34;ש ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/33422-09-25.html">33422-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/33422-09-25.html">טקאטקה(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/4076-06-25.html">4076-06-25</a>
+                    </td>
+                    <td>עתירות לבג&#34;צ</td>
+                    <td>
+                        <a href="judgments/4076-06-25.html">כליבי נ&#39; המפקד הצבאי באזור הגדה המערבית ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/16743-09-25.html">16743-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/16743-09-25.html">גנידי(עציר) נ&#39; משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/25096-09-25.html">25096-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/25096-09-25.html">אלרגבי(עציר) נ&#39; שופט צבאי משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/25018-09-25.html">25018-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/25018-09-25.html">רואגבה(עציר) נ&#39; שופט צבאי משפטאי ואח&#39;</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="nowrap-col">2025-09-16</td>
+                    <td class="nowrap-col">
+                        <a href="judgments/16717-09-25.html">16717-09-25</a>
+                    </td>
+                    <td>מעצרים מינהליים</td>
+                    <td>
+                        <a href="judgments/16717-09-25.html">מזהר(עציר) נ&#39; באיו&#34;ש</a>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mobile-view judgment-card-grid">
         
         <article class="judgment-card">
             <header class="judgment-card-header">
