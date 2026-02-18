@@ -16,210 +16,185 @@
 
 
 <style>
-    /* Responsive Display Logic */
-    .mobile-view {
-        display: none;
-    }
-
-    .desktop-view {
-        display: block;
-        overflow-x: auto;
-        /* Handle potential overflow on smaller desktop/tablet */
-    }
-
-    @media (max-width: 768px) {
-        .mobile-view {
-            display: grid;
-        }
-
-        .desktop-view {
-            display: none;
-        }
-    }
-
     /* --- Page Title --- */
     .page-title {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
+        font-size: 2.2rem;
+        margin-bottom: 30px;
         color: var(--primary-color);
+        text-align: center;
     }
 
     @media (max-width: 768px) {
         .page-title {
-            font-size: 1.3rem;
-            /* Further reduced for mobile to fit one line */
-            line-height: 1.3;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
     }
 
-    /* --- Desktop Table Styling --- */
-    .nowrap-col {
-        white-space: nowrap;
-        width: 1%;
-        /* Shrink to fit content */
-        min-width: 110px;
-        /* Ensure enough space */
+    /* --- Unified Brick Styling (Clean Card) --- */
+    .judgments-container {
+        max-width: 900px;
+        margin: 0 auto;
     }
 
-    /* --- Mobile Card Styling --- */
-    .judgment-card-grid {
-        grid-template-columns: 1fr;
-        /* Single column on mobile is standard */
-        gap: 16px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-    }
-
-    /* Use grid for larger inputs if mobile view is active on tablets */
-    @media (min-width: 600px) and (max-width: 768px) {
-        .judgment-card-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    .judgment-card {
+    .judgment-brick {
         background: white;
+        border: 1px solid #eee;
         border-radius: 12px;
-        padding: 16px;
-        /* Tighter padding */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        /* Softer shadow */
-        border: 1px solid rgba(0, 0, 0, 0.06);
-        display: flex;
-        flex-direction: column;
+        padding: 24px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin-bottom: 24px;
         position: relative;
-        overflow: hidden;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: block;
+        text-decoration: none;
+        color: inherit;
     }
 
-    .judgment-card:active {
-        transform: scale(0.98);
+    .judgment-brick:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     }
 
-    .judgment-card-header {
+    .brick-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 10px;
-        /* Reduced margin */
-        font-size: 0.9rem;
-        /* Increased base size for better readability */
-        background-color: transparent;
-        /* Explicitly remove background to fix contrast */
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #f5f5f5;
+        padding-bottom: 12px;
     }
 
-    .judgment-card-date {
-        color: #222;
-        /* Almost black for maximum contrast */
-        font-weight: 500;
-        background-color: transparent;
-        /* Explicitly remove background */
-    }
-
-    .judgment-card-case-number {
+    .brick-case-number {
         font-family: 'Courier New', Courier, monospace;
         font-weight: 700;
-        color: var(--primary-color);
-        /* Dark blue on white */
-        font-size: 1rem;
-        background-color: transparent;
-        /* Explicitly remove background */
-        padding: 0;
+        color: #333;
+        font-size: 1.05rem;
+        direction: ltr;
+        /* Ensure numbers don't flip */
     }
 
-    .judgment-card-title {
-        font-size: 1.1rem;
-        /* Smaller font as requested */
-        font-weight: 700;
-        margin: 0 0 10px 0;
-        line-height: 1.35;
-        color: #202124;
-        flex-grow: 1;
-        /* Ensure distinct from body text but not overwhelming */
+    .brick-date {
+        color: #555;
     }
 
-    .judgment-card-title a {
-        color: inherit;
-        text-decoration: none;
+    .brick-badges {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
-    .judgment-card-subject {
+    .badge-topic {
         display: inline-block;
-        padding: 6px 12px;
-        background-color: #e8f0fe;
-        /* Google blue tint */
-        color: #1967d2;
-        border-radius: 16px;
-        font-size: 0.8rem;
+        padding: 4px 10px;
+        background-color: #e3f2fd;
+        color: #1565c0;
+        border-radius: 6px;
+        font-size: 0.85rem;
         font-weight: 600;
-        align-self: flex-start;
-        max-width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 
-    .subject-label {
-        color: #5f6368;
-        /* Distinct gray color for label */
-        font-weight: 400;
-        margin-left: 4px;
+    .wide-imp-icon {
+        color: #fbc02d;
+        font-size: 1.1rem;
+        margin-right: 4px;
     }
 
-    /* Stretched Link */
-    .judgment-card a.main-link::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+    .brick-title {
+        margin: 8px 0 12px;
+        font-size: 1.3rem;
+        /* Slightly reduced as requested (was 1.5ish in mockup) */
+        font-weight: 700;
+        color: #202124;
+        line-height: 1.3;
     }
 
-    /* --- Pagination Styling --- */
+    .brick-claim {
+        color: #555;
+        font-style: italic;
+        margin-bottom: 16px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .brick-outcome {
+        text-align: left;
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    .text-red {
+        color: #d32f2f;
+    }
+
+    .text-green {
+        color: #2e7d32;
+    }
+
+    .text-gray {
+        color: #616161;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+        .judgment-brick {
+            padding: 16px;
+        }
+
+        .brick-header {
+            font-size: 0.85rem;
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .brick-case-number {
+            font-size: 1rem;
+        }
+
+        .brick-title {
+            font-size: 1.2rem;
+        }
+    }
+
+    /* --- Pagination --- */
     .pagination-container {
-        margin: 20px 0;
+        margin: 40px 0;
+        text-align: center;
     }
 
     .pagination-container nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: nowrap;
+        display: inline-flex;
         gap: 8px;
+        align-items: center;
     }
 
     .pagination-container .btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 44px;
-        /* Fixed width for consistency */
-        height: 44px;
-        padding: 0;
-        margin: 0;
-        font-size: 1.5rem;
-        line-height: 1;
+        width: 40px;
+        height: 40px;
         border: 1px solid #ddd;
         border-radius: 8px;
-        background-color: white;
+        background: white;
         color: var(--primary-color);
-        transition: background-color 0.2s, border-color 0.2s;
-        flex-shrink: 0;
-        /* Prevent buttons from squishing */
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all 0.2s;
     }
 
     .pagination-container .btn:hover {
-        background-color: #f8f9fa;
-        border-color: #c0c0c0;
-        text-decoration: none;
+        background: #f8f9fa;
+        border-color: #bbb;
     }
 
     .pagination-info {
         font-weight: 500;
-        white-space: nowrap;
-        margin: 0 4px;
-        display: inline-block;
+        margin: 0 8px;
     }
 </style>
 
@@ -510,9 +485,9 @@
     <main id="main-content" class="container">
         
 <div class="index-page">
-    <div style="text-align: center; margin-bottom: 40px;">
-        <h2 class="page-title">בגץ - חיפוש ועיון בתיקים משפטיים</h2>
-        
+    <h2 class="page-title">בגץ - חיפוש ועיון בתיקים משפטיים</h2>
+
+    
 <div class="pagination-container">
     <nav aria-label="Pagination">
         
@@ -535,2628 +510,2211 @@
     </nav>
 </div>
 
+
+    <div class="judgments-container">
+        
+        <a href="judgments/23042-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    31/03/2025
+                    
+                    | 10:02
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 23042-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">סרסק(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/22670-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    31/03/2025
+                    
+                    | 09:57
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 22670-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">זידאן(עציר) נ&#39; לאזור ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/22718-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    30/03/2025
+                    
+                    | 09:59
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 22718-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אלזהור(עציר) נ&#39; לאיזור ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/2280-24.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/03/2025
+                    
+                    | 04:34
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 2280/24
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">גישה - מרכז לשמירה על הזכות לנוע ואח&#39; נ&#39; ממשלת ישראל ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/18494-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/03/2025
+                    
+                    | 07:28
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 18494-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עמרו(עציר) נ&#39; צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/19557-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/03/2025
+                    
+                    | 07:28
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 19557-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אלחמור(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/23207-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/03/2025
+                    
+                    | 10:03
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 23207-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">דראגמה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/23304-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/03/2025
+                    
+                    | 10:04
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 23304-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">טביב(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/19493-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/03/2025
+                    
+                    | 07:28
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 19493-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו מאריה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/16374-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    25/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 16374-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">סבע(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/20153-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    25/03/2025
+                    
+                    | 09:04
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 20153-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ברגותי(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/61574-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    25/03/2025
+                    
+                    | 17:24
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 61574-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">צדק פיננסי (ע&#34;ר) ואח&#39; נ&#39; ממשלת ישראל ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/56146-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    25/03/2025
+                    
+                    | 16:23
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 56146-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עואד(עציר) נ&#39; לאזור ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/22946-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    25/03/2025
+                    
+                    | 10:02
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 22946-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אלגבארי(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/14550-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    25/03/2025
+                    
+                    | 06:43
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 14550-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חויל(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/16442-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    25/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 16442-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עיסאוי(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/23367-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    24/03/2025
+                    
+                    | 10:05
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 23367-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">סבאענה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/48952-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    23/03/2025
+                    
+                    | 15:23
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 48952-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מלש(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/8958-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    23/03/2025
+                    
+                    | 17:53
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 8958/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">המכון לרפורמות מבניות בע&#34;מ ואח&#39; נ&#39; כנסת ישראל ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/28450-08-24.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    23/03/2025
+                    
+                    | 14:09
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 28450-08-24
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">איובי נ&#39; בית משפט המחוזי ירושלים ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/54651-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    23/03/2025
+                    
+                    | 17:17
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 54651-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">סתיתי ואח&#39; נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/28841-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    21/03/2025
+                    
+                    | 14:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 28841-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">התנועה למען איכות השלטון בישראל נ&#39; המשפטים ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5253-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    21/03/2025
+                    
+                    | 17:18
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5253-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">גמגום(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/69442-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    20/03/2025
+                    
+                    | 15:43
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 69442-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מחלוף(עציר) נ&#39; צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/44727-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    20/03/2025
+                    
+                    | 15:30
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 44727-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">שפר ואח&#39; נ&#39; היועץ המשפטי לממשלה ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/19529-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    19/03/2025
+                    
+                    | 07:28
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 19529-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">בני עודה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/23226-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    19/03/2025
+                    
+                    | 10:03
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 23226-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">צרצור(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/22986-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    19/03/2025
+                    
+                    | 10:02
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 22986-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חנני(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/22915-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    19/03/2025
+                    
+                    | 10:01
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 22915-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו לטיפה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/22878-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    19/03/2025
+                    
+                    | 10:01
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 22878-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו עקר(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/18746-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    19/03/2025
+                    
+                    | 07:28
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 18746-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מבארך(עציר) נ&#39; באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/23254-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 10:04
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 23254-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">נאבולסי(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/14299-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 06:37
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 14299-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">משה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/28262-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 14:07
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 28262-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עישה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/16410-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 16410-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ענבץ(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/14863-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 06:54
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 14863-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">דעאגנה רומי(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/14323-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 06:38
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 14323-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חטיב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/15878-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 15878-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">צקר(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/2328-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 10:04
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 2328-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חמאמרה(עציר) נ&#39; צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/14232-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 06:35
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 14232-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אל שלאלדה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/14498-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 06:43
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 14498-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">קנאזע(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/14524-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 06:43
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 14524-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">שעור(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/16430-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 16430-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">לדאדוה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/14166-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 06:35
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 14166-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אל חטיב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/14089-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/03/2025
+                    
+                    | 06:34
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 14089-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו שריפה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/16218-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    16/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 16218-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אסמאעיל ואח&#39; נ&#39; האזרחי בגדה המערבית ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/15753-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    13/03/2025
+                    
+                    | 07:09
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 15753-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אלרגבי(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/15969-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    13/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 15969-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">צאלח(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/16129-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    13/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 16129-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">שיח&#39; אבראהים(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/20243-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    13/03/2025
+                    
+                    | 09:05
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 20243-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עבד אללטיף(עציר) נ&#39; צבאי לאזור איו&#34;ש ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/16123-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    13/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 16123-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">נופל(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/16100-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    13/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 16100-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו אלרוב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/32867-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    13/03/2025
+                    
+                    | 16:20
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 32867-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אלמטאחן(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/15720-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    13/03/2025
+                    
+                    | 07:09
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 15720-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עסאכרה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/15762-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/03/2025
+                    
+                    | 07:09
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 15762-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מוסא משעל(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/16414-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 16414-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ח&#39;טאטבה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/16078-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/03/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 16078-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">זכארנה(עציר) נ&#39; צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/18797-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/03/2025
+                    
+                    | 07:28
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 18797-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חדור(עציר) נ&#39; באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/18772-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/03/2025
+                    
+                    | 07:28
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 18772-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">יוסף(עציר) נ&#39; באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/10859-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/03/2025
+                    
+                    | 04:45
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 10859-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">תלאחמה(עציר) נ&#39; לאיזור ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/19454-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    10/03/2025
+                    
+                    | 07:28
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 19454-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">דבור(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/12427-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    10/03/2025
+                    
+                    | 06:16
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 12427-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">בשנאק(עציר) נ&#39; נתנאל בנישו ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/22268-01-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    10/03/2025
+                    
+                    | 09:51
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 22268-01-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מילר ואח&#39; נ&#39; משרד הביטחון ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/66591-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/03/2025
+                    
+                    | 17:36
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 66591-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">נגם(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/30559-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/03/2025
+                    
+                    | 14:50
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 30559-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו תרכי(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/31238-09-24.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/03/2025
+                    
+                    | 04:35
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 31238-09-24
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">לאומי ח&#34;כ איתמר בן גביר נ&#39; המשפטית לממשלה ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/30506-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/03/2025
+                    
+                    | 14:48
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 30506-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">צאיג(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/27213-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/03/2025
+                    
+                    | 13:21
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 27213-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">דויכאת(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/27678-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/03/2025
+                    
+                    | 14:00
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 27678-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">גריב(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/30607-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/03/2025
+                    
+                    | 14:52
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 30607-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">כמיל(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/27262-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/03/2025
+                    
+                    | 13:22
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 27262-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">שלאלדה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/27412-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/03/2025
+                    
+                    | 13:39
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 27412-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מוחמד(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/13726-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/03/2025
+                    
+                    | 06:30
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 13726-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עיריית קרית שמונה ואח&#39; נ&#39; ישראל ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/21813-10-24.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    06/03/2025
+                    
+                    | 09:47
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 21813-10-24
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אמיצים נ&#39; לקביעת ייעודם של עזבונות</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/14428-03-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    06/03/2025
+                    
+                    | 06:42
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 14428-03-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">קטנאני(עציר) נ&#39; צה&#34;ל באיו&#34;ש ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/24245-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    05/03/2025
+                    
+                    | 12:32
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 24245-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">בני מופלח(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/24212-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    04/03/2025
+                    
+                    | 12:32
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 24212-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו פנאר(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/24478-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    04/03/2025
+                    
+                    | 12:35
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 24478-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">זעקיק(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/24359-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    04/03/2025
+                    
+                    | 12:33
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 24359-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מסלם(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/23602-01-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    28/02/2025
+                    
+                    | 10:08
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 23602-01-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">העמותה לקידום זכויות הכלבים (ע&#34;ר) נ&#39; החקלאות</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/31752-11-24.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 15:02
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 31752-11-24
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מטר ואח&#39; נ&#39; משרד האוצר/המשרד הראשי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/15190-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 06:59
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 15190-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">צומאן(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/23518-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 10:07
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 23518-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מג&#39;אלסה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/2745-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 13:55
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 2745-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חטיב(עציר) נ&#39; בגדה המערבית</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/23909-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 12:28
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 23909-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אולאד מחמד(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/1086-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 04:45
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 1086-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אל סבאח(עציר) נ&#39; באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/12045-01-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 05:00
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 12045-01-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">בדראן(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/1594-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 07:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 1594-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו חמד(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/13235-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 06:24
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 13235-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">טרדה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/15085-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 06:58
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 15085-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חמידה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/1258-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 06:18
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 1258-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אל דמאריה(עציר) נ&#39; באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/27149-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/02/2025
+                    
+                    | 13:19
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 27149-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">פריג(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/19287-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/02/2025
+                    
+                    | 07:28
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 19287-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">כמאל(עציר) נ&#39; באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/30574-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/02/2025
+                    
+                    | 14:50
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 30574-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">בני עודה(עציר) נ&#39; צבאי משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/12674-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/02/2025
+                    
+                    | 06:19
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 12674-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חזיין(עציר) נ&#39; משפטאי</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/23829-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/02/2025
+                    
+                    | 10:16
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 23829-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עטאאללה(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/12424-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/02/2025
+                    
+                    | 06:16
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 12424-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">שרבי(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/23801-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/02/2025
+                    
+                    | 10:15
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 23801-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">קריב(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/13201-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/02/2025
+                    
+                    | 06:24
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 13201-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו ח&#39;לף(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/24003-02-25.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/02/2025
+                    
+                    | 12:30
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 24003-02-25
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו שלאל(עציר) נ&#39; משפטאי ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
     </div>
 
-    <div class="desktop-view">
-        <table>
-            <thead>
-                <tr>
-                    <th scope="col" class="nowrap-col">תאריך</th>
-                    <th scope="col" class="nowrap-col">מספר תיק</th>
-                    <th scope="col">נושא</th>
-                    <th scope="col">כותרת</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-31</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/23042-03-25.html">23042-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/23042-03-25.html">סרסק(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-31</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/22670-03-25.html">22670-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/22670-03-25.html">זידאן(עציר) נ&#39; לאזור ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-30</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/22718-03-25.html">22718-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/22718-03-25.html">אלזהור(עציר) נ&#39; לאיזור ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/2280-24.html">2280/24</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/2280-24.html">גישה - מרכז לשמירה על הזכות לנוע ואח&#39; נ&#39; ממשלת ישראל ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/18494-03-25.html">18494-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/18494-03-25.html">עמרו(עציר) נ&#39; צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/19557-03-25.html">19557-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/19557-03-25.html">אלחמור(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/23207-03-25.html">23207-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/23207-03-25.html">דראגמה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/23304-03-25.html">23304-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/23304-03-25.html">טביב(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/19493-03-25.html">19493-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/19493-03-25.html">אבו מאריה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-25</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/16374-03-25.html">16374-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/16374-03-25.html">סבע(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-25</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/20153-03-25.html">20153-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/20153-03-25.html">ברגותי(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-25</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/61574-03-25.html">61574-03-25</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/61574-03-25.html">צדק פיננסי (ע&#34;ר) ואח&#39; נ&#39; ממשלת ישראל ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-25</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/56146-03-25.html">56146-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/56146-03-25.html">עואד(עציר) נ&#39; לאזור ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-25</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/22946-03-25.html">22946-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/22946-03-25.html">אלגבארי(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-25</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/14550-03-25.html">14550-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/14550-03-25.html">חויל(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-25</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/16442-03-25.html">16442-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/16442-03-25.html">עיסאוי(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-24</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/23367-03-25.html">23367-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/23367-03-25.html">סבאענה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-23</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/48952-03-25.html">48952-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/48952-03-25.html">מלש(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-23</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/8958-21.html">8958/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/8958-21.html">המכון לרפורמות מבניות בע&#34;מ ואח&#39; נ&#39; כנסת ישראל ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-23</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/28450-08-24.html">28450-08-24</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/28450-08-24.html">איובי נ&#39; בית משפט המחוזי ירושלים ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-23</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/54651-03-25.html">54651-03-25</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/54651-03-25.html">סתיתי ואח&#39; נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-21</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/28841-02-25.html">28841-02-25</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/28841-02-25.html">התנועה למען איכות השלטון בישראל נ&#39; המשפטים ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-21</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5253-03-25.html">5253-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/5253-03-25.html">גמגום(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-20</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/69442-02-25.html">69442-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/69442-02-25.html">מחלוף(עציר) נ&#39; צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-20</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/44727-03-25.html">44727-03-25</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/44727-03-25.html">שפר ואח&#39; נ&#39; היועץ המשפטי לממשלה ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-19</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/19529-03-25.html">19529-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/19529-03-25.html">בני עודה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-19</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/23226-03-25.html">23226-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/23226-03-25.html">צרצור(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-19</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/22986-03-25.html">22986-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/22986-03-25.html">חנני(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-19</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/22915-03-25.html">22915-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/22915-03-25.html">אבו לטיפה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-19</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/22878-03-25.html">22878-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/22878-03-25.html">אבו עקר(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-19</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/18746-03-25.html">18746-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/18746-03-25.html">מבארך(עציר) נ&#39; באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/23254-03-25.html">23254-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/23254-03-25.html">נאבולסי(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/14299-03-25.html">14299-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/14299-03-25.html">משה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/28262-03-25.html">28262-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/28262-03-25.html">עישה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/16410-03-25.html">16410-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/16410-03-25.html">ענבץ(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/14863-03-25.html">14863-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/14863-03-25.html">דעאגנה רומי(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/14323-03-25.html">14323-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/14323-03-25.html">חטיב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/15878-03-25.html">15878-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/15878-03-25.html">צקר(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/2328-03-25.html">2328-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/2328-03-25.html">חמאמרה(עציר) נ&#39; צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/14232-03-25.html">14232-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/14232-03-25.html">אל שלאלדה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/14498-03-25.html">14498-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/14498-03-25.html">קנאזע(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/14524-03-25.html">14524-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/14524-03-25.html">שעור(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/16430-03-25.html">16430-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/16430-03-25.html">לדאדוה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/14166-03-25.html">14166-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/14166-03-25.html">אל חטיב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/14089-03-25.html">14089-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/14089-03-25.html">אבו שריפה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-16</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/16218-03-25.html">16218-03-25</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/16218-03-25.html">אסמאעיל ואח&#39; נ&#39; האזרחי בגדה המערבית ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-13</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/15753-03-25.html">15753-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/15753-03-25.html">אלרגבי(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-13</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/15969-03-25.html">15969-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/15969-03-25.html">צאלח(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-13</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/16129-03-25.html">16129-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/16129-03-25.html">שיח&#39; אבראהים(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-13</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/20243-03-25.html">20243-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/20243-03-25.html">עבד אללטיף(עציר) נ&#39; צבאי לאזור איו&#34;ש ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-13</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/16123-03-25.html">16123-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/16123-03-25.html">נופל(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-13</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/16100-03-25.html">16100-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/16100-03-25.html">אבו אלרוב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-13</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/32867-03-25.html">32867-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/32867-03-25.html">אלמטאחן(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-13</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/15720-03-25.html">15720-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/15720-03-25.html">עסאכרה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/15762-03-25.html">15762-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/15762-03-25.html">מוסא משעל(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/16414-03-25.html">16414-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/16414-03-25.html">ח&#39;טאטבה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/16078-03-25.html">16078-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/16078-03-25.html">זכארנה(עציר) נ&#39; צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/18797-03-25.html">18797-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/18797-03-25.html">חדור(עציר) נ&#39; באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/18772-03-25.html">18772-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/18772-03-25.html">יוסף(עציר) נ&#39; באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/10859-03-25.html">10859-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/10859-03-25.html">תלאחמה(עציר) נ&#39; לאיזור ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-10</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/19454-03-25.html">19454-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/19454-03-25.html">דבור(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-10</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/12427-03-25.html">12427-03-25</a>
-                    </td>
-                    <td>עתירת אסיר</td>
-                    <td>
-                        <a href="judgments/12427-03-25.html">בשנאק(עציר) נ&#39; נתנאל בנישו ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-10</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/22268-01-25.html">22268-01-25</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/22268-01-25.html">מילר ואח&#39; נ&#39; משרד הביטחון ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/66591-02-25.html">66591-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/66591-02-25.html">נגם(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/30559-02-25.html">30559-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/30559-02-25.html">אבו תרכי(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/31238-09-24.html">31238-09-24</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/31238-09-24.html">לאומי ח&#34;כ איתמר בן גביר נ&#39; המשפטית לממשלה ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/30506-02-25.html">30506-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/30506-02-25.html">צאיג(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/27213-02-25.html">27213-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/27213-02-25.html">דויכאת(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/27678-02-25.html">27678-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/27678-02-25.html">גריב(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/30607-02-25.html">30607-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/30607-02-25.html">כמיל(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/27262-02-25.html">27262-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/27262-02-25.html">שלאלדה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/27412-02-25.html">27412-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/27412-02-25.html">מוחמד(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/13726-02-25.html">13726-02-25</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/13726-02-25.html">עיריית קרית שמונה ואח&#39; נ&#39; ישראל ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-06</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/21813-10-24.html">21813-10-24</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/21813-10-24.html">אמיצים נ&#39; לקביעת ייעודם של עזבונות</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-06</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/14428-03-25.html">14428-03-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/14428-03-25.html">קטנאני(עציר) נ&#39; צה&#34;ל באיו&#34;ש ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-05</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/24245-02-25.html">24245-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/24245-02-25.html">בני מופלח(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-04</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/24212-02-25.html">24212-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/24212-02-25.html">אבו פנאר(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-04</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/24478-02-25.html">24478-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/24478-02-25.html">זעקיק(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-03-04</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/24359-02-25.html">24359-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/24359-02-25.html">מסלם(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-28</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/23602-01-25.html">23602-01-25</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/23602-01-25.html">העמותה לקידום זכויות הכלבים (ע&#34;ר) נ&#39; החקלאות</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/31752-11-24.html">31752-11-24</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/31752-11-24.html">מטר ואח&#39; נ&#39; משרד האוצר/המשרד הראשי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/15190-02-25.html">15190-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/15190-02-25.html">צומאן(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/23518-02-25.html">23518-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/23518-02-25.html">מג&#39;אלסה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/2745-02-25.html">2745-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/2745-02-25.html">חטיב(עציר) נ&#39; בגדה המערבית</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/23909-02-25.html">23909-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/23909-02-25.html">אולאד מחמד(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/1086-02-25.html">1086-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/1086-02-25.html">אל סבאח(עציר) נ&#39; באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/12045-01-25.html">12045-01-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/12045-01-25.html">בדראן(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/1594-02-25.html">1594-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/1594-02-25.html">אבו חמד(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/13235-02-25.html">13235-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/13235-02-25.html">טרדה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/15085-02-25.html">15085-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/15085-02-25.html">חמידה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/1258-02-25.html">1258-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/1258-02-25.html">אל דמאריה(עציר) נ&#39; באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/27149-02-25.html">27149-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/27149-02-25.html">פריג(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/19287-02-25.html">19287-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/19287-02-25.html">כמאל(עציר) נ&#39; באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/30574-02-25.html">30574-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/30574-02-25.html">בני עודה(עציר) נ&#39; צבאי משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/12674-02-25.html">12674-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/12674-02-25.html">חזיין(עציר) נ&#39; משפטאי</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/23829-02-25.html">23829-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/23829-02-25.html">עטאאללה(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/12424-02-25.html">12424-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/12424-02-25.html">שרבי(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/23801-02-25.html">23801-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/23801-02-25.html">קריב(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/13201-02-25.html">13201-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/13201-02-25.html">אבו ח&#39;לף(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2025-02-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/24003-02-25.html">24003-02-25</a>
-                    </td>
-                    <td>מעצרים מינהליים</td>
-                    <td>
-                        <a href="judgments/24003-02-25.html">אבו שלאל(עציר) נ&#39; משפטאי ואח&#39;</a>
-                    </td>
-                </tr>
-                
-            </tbody>
-        </table>
-    </div>
-
-    <div class="mobile-view judgment-card-grid">
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 23042-03-25</span>
-                <span class="judgment-card-date">31/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/23042-03-25.html" class="main-link">סרסק(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 22670-03-25</span>
-                <span class="judgment-card-date">31/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/22670-03-25.html" class="main-link">זידאן(עציר) נ&#39; לאזור ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 22718-03-25</span>
-                <span class="judgment-card-date">30/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/22718-03-25.html" class="main-link">אלזהור(עציר) נ&#39; לאיזור ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 2280/24</span>
-                <span class="judgment-card-date">27/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/2280-24.html" class="main-link">גישה - מרכז לשמירה על הזכות לנוע ואח&#39; נ&#39; ממשלת ישראל ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 18494-03-25</span>
-                <span class="judgment-card-date">27/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/18494-03-25.html" class="main-link">עמרו(עציר) נ&#39; צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 19557-03-25</span>
-                <span class="judgment-card-date">27/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/19557-03-25.html" class="main-link">אלחמור(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 23207-03-25</span>
-                <span class="judgment-card-date">26/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/23207-03-25.html" class="main-link">דראגמה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 23304-03-25</span>
-                <span class="judgment-card-date">26/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/23304-03-25.html" class="main-link">טביב(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 19493-03-25</span>
-                <span class="judgment-card-date">26/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/19493-03-25.html" class="main-link">אבו מאריה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 16374-03-25</span>
-                <span class="judgment-card-date">25/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/16374-03-25.html" class="main-link">סבע(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 20153-03-25</span>
-                <span class="judgment-card-date">25/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/20153-03-25.html" class="main-link">ברגותי(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 61574-03-25</span>
-                <span class="judgment-card-date">25/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/61574-03-25.html" class="main-link">צדק פיננסי (ע&#34;ר) ואח&#39; נ&#39; ממשלת ישראל ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 56146-03-25</span>
-                <span class="judgment-card-date">25/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/56146-03-25.html" class="main-link">עואד(עציר) נ&#39; לאזור ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 22946-03-25</span>
-                <span class="judgment-card-date">25/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/22946-03-25.html" class="main-link">אלגבארי(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 14550-03-25</span>
-                <span class="judgment-card-date">25/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/14550-03-25.html" class="main-link">חויל(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 16442-03-25</span>
-                <span class="judgment-card-date">25/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/16442-03-25.html" class="main-link">עיסאוי(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 23367-03-25</span>
-                <span class="judgment-card-date">24/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/23367-03-25.html" class="main-link">סבאענה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 48952-03-25</span>
-                <span class="judgment-card-date">23/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/48952-03-25.html" class="main-link">מלש(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 8958/21</span>
-                <span class="judgment-card-date">23/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/8958-21.html" class="main-link">המכון לרפורמות מבניות בע&#34;מ ואח&#39; נ&#39; כנסת ישראל ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 28450-08-24</span>
-                <span class="judgment-card-date">23/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/28450-08-24.html" class="main-link">איובי נ&#39; בית משפט המחוזי ירושלים ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 54651-03-25</span>
-                <span class="judgment-card-date">23/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/54651-03-25.html" class="main-link">סתיתי ואח&#39; נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 28841-02-25</span>
-                <span class="judgment-card-date">21/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/28841-02-25.html" class="main-link">התנועה למען איכות השלטון בישראל נ&#39; המשפטים ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5253-03-25</span>
-                <span class="judgment-card-date">21/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5253-03-25.html" class="main-link">גמגום(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 69442-02-25</span>
-                <span class="judgment-card-date">20/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/69442-02-25.html" class="main-link">מחלוף(עציר) נ&#39; צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 44727-03-25</span>
-                <span class="judgment-card-date">20/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/44727-03-25.html" class="main-link">שפר ואח&#39; נ&#39; היועץ המשפטי לממשלה ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 19529-03-25</span>
-                <span class="judgment-card-date">19/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/19529-03-25.html" class="main-link">בני עודה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 23226-03-25</span>
-                <span class="judgment-card-date">19/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/23226-03-25.html" class="main-link">צרצור(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 22986-03-25</span>
-                <span class="judgment-card-date">19/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/22986-03-25.html" class="main-link">חנני(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 22915-03-25</span>
-                <span class="judgment-card-date">19/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/22915-03-25.html" class="main-link">אבו לטיפה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 22878-03-25</span>
-                <span class="judgment-card-date">19/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/22878-03-25.html" class="main-link">אבו עקר(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 18746-03-25</span>
-                <span class="judgment-card-date">19/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/18746-03-25.html" class="main-link">מבארך(עציר) נ&#39; באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 23254-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/23254-03-25.html" class="main-link">נאבולסי(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 14299-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/14299-03-25.html" class="main-link">משה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 28262-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/28262-03-25.html" class="main-link">עישה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 16410-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/16410-03-25.html" class="main-link">ענבץ(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 14863-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/14863-03-25.html" class="main-link">דעאגנה רומי(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 14323-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/14323-03-25.html" class="main-link">חטיב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 15878-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/15878-03-25.html" class="main-link">צקר(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 2328-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/2328-03-25.html" class="main-link">חמאמרה(עציר) נ&#39; צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 14232-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/14232-03-25.html" class="main-link">אל שלאלדה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 14498-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/14498-03-25.html" class="main-link">קנאזע(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 14524-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/14524-03-25.html" class="main-link">שעור(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 16430-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/16430-03-25.html" class="main-link">לדאדוה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 14166-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/14166-03-25.html" class="main-link">אל חטיב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 14089-03-25</span>
-                <span class="judgment-card-date">17/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/14089-03-25.html" class="main-link">אבו שריפה(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 16218-03-25</span>
-                <span class="judgment-card-date">16/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/16218-03-25.html" class="main-link">אסמאעיל ואח&#39; נ&#39; האזרחי בגדה המערבית ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 15753-03-25</span>
-                <span class="judgment-card-date">13/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/15753-03-25.html" class="main-link">אלרגבי(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 15969-03-25</span>
-                <span class="judgment-card-date">13/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/15969-03-25.html" class="main-link">צאלח(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 16129-03-25</span>
-                <span class="judgment-card-date">13/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/16129-03-25.html" class="main-link">שיח&#39; אבראהים(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 20243-03-25</span>
-                <span class="judgment-card-date">13/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/20243-03-25.html" class="main-link">עבד אללטיף(עציר) נ&#39; צבאי לאזור איו&#34;ש ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 16123-03-25</span>
-                <span class="judgment-card-date">13/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/16123-03-25.html" class="main-link">נופל(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 16100-03-25</span>
-                <span class="judgment-card-date">13/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/16100-03-25.html" class="main-link">אבו אלרוב(עציר) נ&#39; כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 32867-03-25</span>
-                <span class="judgment-card-date">13/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/32867-03-25.html" class="main-link">אלמטאחן(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 15720-03-25</span>
-                <span class="judgment-card-date">13/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/15720-03-25.html" class="main-link">עסאכרה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 15762-03-25</span>
-                <span class="judgment-card-date">12/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/15762-03-25.html" class="main-link">מוסא משעל(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 16414-03-25</span>
-                <span class="judgment-card-date">12/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/16414-03-25.html" class="main-link">ח&#39;טאטבה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 16078-03-25</span>
-                <span class="judgment-card-date">12/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/16078-03-25.html" class="main-link">זכארנה(עציר) נ&#39; צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 18797-03-25</span>
-                <span class="judgment-card-date">12/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/18797-03-25.html" class="main-link">חדור(עציר) נ&#39; באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 18772-03-25</span>
-                <span class="judgment-card-date">12/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/18772-03-25.html" class="main-link">יוסף(עציר) נ&#39; באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 10859-03-25</span>
-                <span class="judgment-card-date">12/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/10859-03-25.html" class="main-link">תלאחמה(עציר) נ&#39; לאיזור ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 19454-03-25</span>
-                <span class="judgment-card-date">10/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/19454-03-25.html" class="main-link">דבור(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 12427-03-25</span>
-                <span class="judgment-card-date">10/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/12427-03-25.html" class="main-link">בשנאק(עציר) נ&#39; נתנאל בנישו ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירת אסיר</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 22268-01-25</span>
-                <span class="judgment-card-date">10/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/22268-01-25.html" class="main-link">מילר ואח&#39; נ&#39; משרד הביטחון ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 66591-02-25</span>
-                <span class="judgment-card-date">09/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/66591-02-25.html" class="main-link">נגם(עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 30559-02-25</span>
-                <span class="judgment-card-date">09/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/30559-02-25.html" class="main-link">אבו תרכי(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 31238-09-24</span>
-                <span class="judgment-card-date">09/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/31238-09-24.html" class="main-link">לאומי ח&#34;כ איתמר בן גביר נ&#39; המשפטית לממשלה ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 30506-02-25</span>
-                <span class="judgment-card-date">09/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/30506-02-25.html" class="main-link">צאיג(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 27213-02-25</span>
-                <span class="judgment-card-date">09/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/27213-02-25.html" class="main-link">דויכאת(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 27678-02-25</span>
-                <span class="judgment-card-date">09/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/27678-02-25.html" class="main-link">גריב(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 30607-02-25</span>
-                <span class="judgment-card-date">09/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/30607-02-25.html" class="main-link">כמיל(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 27262-02-25</span>
-                <span class="judgment-card-date">09/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/27262-02-25.html" class="main-link">שלאלדה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 27412-02-25</span>
-                <span class="judgment-card-date">09/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/27412-02-25.html" class="main-link">מוחמד(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 13726-02-25</span>
-                <span class="judgment-card-date">09/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/13726-02-25.html" class="main-link">עיריית קרית שמונה ואח&#39; נ&#39; ישראל ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 21813-10-24</span>
-                <span class="judgment-card-date">06/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/21813-10-24.html" class="main-link">אמיצים נ&#39; לקביעת ייעודם של עזבונות</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 14428-03-25</span>
-                <span class="judgment-card-date">06/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/14428-03-25.html" class="main-link">קטנאני(עציר) נ&#39; צה&#34;ל באיו&#34;ש ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 24245-02-25</span>
-                <span class="judgment-card-date">05/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/24245-02-25.html" class="main-link">בני מופלח(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 24212-02-25</span>
-                <span class="judgment-card-date">04/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/24212-02-25.html" class="main-link">אבו פנאר(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 24478-02-25</span>
-                <span class="judgment-card-date">04/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/24478-02-25.html" class="main-link">זעקיק(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 24359-02-25</span>
-                <span class="judgment-card-date">04/03/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/24359-02-25.html" class="main-link">מסלם(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 23602-01-25</span>
-                <span class="judgment-card-date">28/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/23602-01-25.html" class="main-link">העמותה לקידום זכויות הכלבים (ע&#34;ר) נ&#39; החקלאות</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 31752-11-24</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/31752-11-24.html" class="main-link">מטר ואח&#39; נ&#39; משרד האוצר/המשרד הראשי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 15190-02-25</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/15190-02-25.html" class="main-link">צומאן(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 23518-02-25</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/23518-02-25.html" class="main-link">מג&#39;אלסה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 2745-02-25</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/2745-02-25.html" class="main-link">חטיב(עציר) נ&#39; בגדה המערבית</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 23909-02-25</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/23909-02-25.html" class="main-link">אולאד מחמד(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 1086-02-25</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/1086-02-25.html" class="main-link">אל סבאח(עציר) נ&#39; באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 12045-01-25</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/12045-01-25.html" class="main-link">בדראן(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 1594-02-25</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/1594-02-25.html" class="main-link">אבו חמד(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 13235-02-25</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/13235-02-25.html" class="main-link">טרדה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 15085-02-25</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/15085-02-25.html" class="main-link">חמידה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 1258-02-25</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/1258-02-25.html" class="main-link">אל דמאריה(עציר) נ&#39; באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 27149-02-25</span>
-                <span class="judgment-card-date">27/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/27149-02-25.html" class="main-link">פריג(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 19287-02-25</span>
-                <span class="judgment-card-date">26/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/19287-02-25.html" class="main-link">כמאל(עציר) נ&#39; באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 30574-02-25</span>
-                <span class="judgment-card-date">26/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/30574-02-25.html" class="main-link">בני עודה(עציר) נ&#39; צבאי משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 12674-02-25</span>
-                <span class="judgment-card-date">26/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/12674-02-25.html" class="main-link">חזיין(עציר) נ&#39; משפטאי</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 23829-02-25</span>
-                <span class="judgment-card-date">26/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/23829-02-25.html" class="main-link">עטאאללה(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 12424-02-25</span>
-                <span class="judgment-card-date">26/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/12424-02-25.html" class="main-link">שרבי(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 23801-02-25</span>
-                <span class="judgment-card-date">26/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/23801-02-25.html" class="main-link">קריב(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 13201-02-25</span>
-                <span class="judgment-card-date">26/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/13201-02-25.html" class="main-link">אבו ח&#39;לף(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 24003-02-25</span>
-                <span class="judgment-card-date">26/02/2025</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/24003-02-25.html" class="main-link">אבו שלאל(עציר) נ&#39; משפטאי ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>מעצרים מינהליים</span>
-            
-        </article>
-        
-    </div>
-    <!-- Bottom Pagination -->
     
 <div class="pagination-container">
     <nav aria-label="Pagination">

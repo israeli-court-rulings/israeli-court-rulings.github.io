@@ -16,210 +16,185 @@
 
 
 <style>
-    /* Responsive Display Logic */
-    .mobile-view {
-        display: none;
-    }
-
-    .desktop-view {
-        display: block;
-        overflow-x: auto;
-        /* Handle potential overflow on smaller desktop/tablet */
-    }
-
-    @media (max-width: 768px) {
-        .mobile-view {
-            display: grid;
-        }
-
-        .desktop-view {
-            display: none;
-        }
-    }
-
     /* --- Page Title --- */
     .page-title {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
+        font-size: 2.2rem;
+        margin-bottom: 30px;
         color: var(--primary-color);
+        text-align: center;
     }
 
     @media (max-width: 768px) {
         .page-title {
-            font-size: 1.3rem;
-            /* Further reduced for mobile to fit one line */
-            line-height: 1.3;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
     }
 
-    /* --- Desktop Table Styling --- */
-    .nowrap-col {
-        white-space: nowrap;
-        width: 1%;
-        /* Shrink to fit content */
-        min-width: 110px;
-        /* Ensure enough space */
+    /* --- Unified Brick Styling (Clean Card) --- */
+    .judgments-container {
+        max-width: 900px;
+        margin: 0 auto;
     }
 
-    /* --- Mobile Card Styling --- */
-    .judgment-card-grid {
-        grid-template-columns: 1fr;
-        /* Single column on mobile is standard */
-        gap: 16px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-    }
-
-    /* Use grid for larger inputs if mobile view is active on tablets */
-    @media (min-width: 600px) and (max-width: 768px) {
-        .judgment-card-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    .judgment-card {
+    .judgment-brick {
         background: white;
+        border: 1px solid #eee;
         border-radius: 12px;
-        padding: 16px;
-        /* Tighter padding */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        /* Softer shadow */
-        border: 1px solid rgba(0, 0, 0, 0.06);
-        display: flex;
-        flex-direction: column;
+        padding: 24px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin-bottom: 24px;
         position: relative;
-        overflow: hidden;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: block;
+        text-decoration: none;
+        color: inherit;
     }
 
-    .judgment-card:active {
-        transform: scale(0.98);
+    .judgment-brick:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     }
 
-    .judgment-card-header {
+    .brick-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 10px;
-        /* Reduced margin */
-        font-size: 0.9rem;
-        /* Increased base size for better readability */
-        background-color: transparent;
-        /* Explicitly remove background to fix contrast */
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #f5f5f5;
+        padding-bottom: 12px;
     }
 
-    .judgment-card-date {
-        color: #222;
-        /* Almost black for maximum contrast */
-        font-weight: 500;
-        background-color: transparent;
-        /* Explicitly remove background */
-    }
-
-    .judgment-card-case-number {
+    .brick-case-number {
         font-family: 'Courier New', Courier, monospace;
         font-weight: 700;
-        color: var(--primary-color);
-        /* Dark blue on white */
-        font-size: 1rem;
-        background-color: transparent;
-        /* Explicitly remove background */
-        padding: 0;
+        color: #333;
+        font-size: 1.05rem;
+        direction: ltr;
+        /* Ensure numbers don't flip */
     }
 
-    .judgment-card-title {
-        font-size: 1.1rem;
-        /* Smaller font as requested */
-        font-weight: 700;
-        margin: 0 0 10px 0;
-        line-height: 1.35;
-        color: #202124;
-        flex-grow: 1;
-        /* Ensure distinct from body text but not overwhelming */
+    .brick-date {
+        color: #555;
     }
 
-    .judgment-card-title a {
-        color: inherit;
-        text-decoration: none;
+    .brick-badges {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
-    .judgment-card-subject {
+    .badge-topic {
         display: inline-block;
-        padding: 6px 12px;
-        background-color: #e8f0fe;
-        /* Google blue tint */
-        color: #1967d2;
-        border-radius: 16px;
-        font-size: 0.8rem;
+        padding: 4px 10px;
+        background-color: #e3f2fd;
+        color: #1565c0;
+        border-radius: 6px;
+        font-size: 0.85rem;
         font-weight: 600;
-        align-self: flex-start;
-        max-width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 
-    .subject-label {
-        color: #5f6368;
-        /* Distinct gray color for label */
-        font-weight: 400;
-        margin-left: 4px;
+    .wide-imp-icon {
+        color: #fbc02d;
+        font-size: 1.1rem;
+        margin-right: 4px;
     }
 
-    /* Stretched Link */
-    .judgment-card a.main-link::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+    .brick-title {
+        margin: 8px 0 12px;
+        font-size: 1.3rem;
+        /* Slightly reduced as requested (was 1.5ish in mockup) */
+        font-weight: 700;
+        color: #202124;
+        line-height: 1.3;
     }
 
-    /* --- Pagination Styling --- */
+    .brick-claim {
+        color: #555;
+        font-style: italic;
+        margin-bottom: 16px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .brick-outcome {
+        text-align: left;
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    .text-red {
+        color: #d32f2f;
+    }
+
+    .text-green {
+        color: #2e7d32;
+    }
+
+    .text-gray {
+        color: #616161;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+        .judgment-brick {
+            padding: 16px;
+        }
+
+        .brick-header {
+            font-size: 0.85rem;
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .brick-case-number {
+            font-size: 1rem;
+        }
+
+        .brick-title {
+            font-size: 1.2rem;
+        }
+    }
+
+    /* --- Pagination --- */
     .pagination-container {
-        margin: 20px 0;
+        margin: 40px 0;
+        text-align: center;
     }
 
     .pagination-container nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: nowrap;
+        display: inline-flex;
         gap: 8px;
+        align-items: center;
     }
 
     .pagination-container .btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 44px;
-        /* Fixed width for consistency */
-        height: 44px;
-        padding: 0;
-        margin: 0;
-        font-size: 1.5rem;
-        line-height: 1;
+        width: 40px;
+        height: 40px;
         border: 1px solid #ddd;
         border-radius: 8px;
-        background-color: white;
+        background: white;
         color: var(--primary-color);
-        transition: background-color 0.2s, border-color 0.2s;
-        flex-shrink: 0;
-        /* Prevent buttons from squishing */
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all 0.2s;
     }
 
     .pagination-container .btn:hover {
-        background-color: #f8f9fa;
-        border-color: #c0c0c0;
-        text-decoration: none;
+        background: #f8f9fa;
+        border-color: #bbb;
     }
 
     .pagination-info {
         font-weight: 500;
-        white-space: nowrap;
-        margin: 0 4px;
-        display: inline-block;
+        margin: 0 8px;
     }
 </style>
 
@@ -510,9 +485,9 @@
     <main id="main-content" class="container">
         
 <div class="index-page">
-    <div style="text-align: center; margin-bottom: 40px;">
-        <h2 class="page-title">בגץ - חיפוש ועיון בתיקים משפטיים</h2>
-        
+    <h2 class="page-title">בגץ - חיפוש ועיון בתיקים משפטיים</h2>
+
+    
 <div class="pagination-container">
     <nav aria-label="Pagination">
         
@@ -535,2628 +510,2211 @@
     </nav>
 </div>
 
+
+    <div class="judgments-container">
+        
+        <a href="judgments/1081-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    07/12/2022
+                    
+                    | 15:48
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 1081/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">הניחן  נ&#39; מנהל יחידת הפיקוח במנהל האזרחי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/8207-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    06/12/2022
+                    
+                    | 16:35
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 8207/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מכון אור שמריהו  נ&#39; מדינת ישראל- משרד החינוך</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/8171-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    05/12/2022
+                    
+                    | 16:29
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 8171/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">דראגמה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7988-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    01/12/2022
+                    
+                    | 16:32
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7988/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אוסאמה עמור (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6438-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    28/11/2022
+                    
+                    | 15:30
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6438/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">איובי  נ&#39; קרן אזולאי רשמת בית המשפט העליון  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7743-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    22/11/2022
+                    
+                    | 16:34
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7743/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">זונה  נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7030-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    15/11/2022
+                    
+                    | 17:32
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7030/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">כוכב השחר(תפעול) בע&#34;מ  נ&#39; מפקד כוחות צה&#34;ל באזור יהודה ושומרון  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/3221-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/11/2022
+                    
+                    | 15:36
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 3221/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">צואפטה  ואח&#39; נ&#39; מפקד כוחות צה&#34;ל בגדה המערבית  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7017-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    03/11/2022
+                    
+                    | 15:15
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7017/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עדאל (עציר) נ&#39; מפקד צבאי לאזור  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7108-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    31/10/2022
+                    
+                    | 17:42
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7108/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ברגותי  נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7085-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/10/2022
+                    
+                    | 16:44
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7085/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">בלאל אחמד סלימאן גהלין (עציר) נ&#39; שר הביטחון  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6421-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    06/10/2022
+                    
+                    | 17:13
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6421/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חובאם אניס חרב (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6107-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    28/09/2022
+                    
+                    | 16:21
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6107/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">קסאם מגד ברגותי (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/3636-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    13/09/2022
+                    
+                    | 17:16
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 3636/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ד&#34;ר משה וינברג ושות&#39;, עורכי דין ונוטריונים  נ&#39; מדינת ישראל - המחלקה הכלכלית בפרקליטות המדינה  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/614-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    07/09/2022
+                    
+                    | 06:12
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 614/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">התנועה לחופש המידע  ואח&#39; נ&#39; משרד ראש הממשלה  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7091-19.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    31/08/2022
+                    
+                    | 17:50
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7091/19
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">&#34;לי בר קייטרינג יפרח בע&#34;מ&#34;  ואח&#39; נ&#39; מועצת הרבנות הראשית לישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5642-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    24/08/2022
+                    
+                    | 17:32
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5642/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">פורום קהלת  נ&#39; ראש הממשלה  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5248-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    15/08/2022
+                    
+                    | 16:28
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5248/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו גחישה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6510-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    10/08/2022
+                    
+                    | 15:42
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6510/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">בתיה כהנא דרור  נ&#39; נשיא בית הדין הרבני הגדול, הרהר דוד לאו  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5347-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    10/08/2022
+                    
+                    | 16:21
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5347/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עבאהרה (עציר) נ&#39; שר הביטחון  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4972-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    02/08/2022
+                    
+                    | 17:33
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4972/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ערמאן (עציר) נ&#39; מפקד צבאי לאזור  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4863-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/07/2022
+                    
+                    | 16:54
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4863/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מוחמד גית (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5038-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/07/2022
+                    
+                    | 16:30
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5038/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">בדואן  ואח&#39; נ&#39; אלוף פיקוד הדרום</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/554-20.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    17/07/2022
+                    
+                    | 17:06
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 554/20
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">שישא  ואח&#39; נ&#39; שר הביטחון  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4513-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    10/07/2022
+                    
+                    | 16:15
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4513/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ד&#34;ר סמיון קושניר  נ&#39; משטרת ישראל- חולית הסמכות</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4588-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    07/07/2022
+                    
+                    | 17:09
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4588/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">יוסף גראדאת (עציר) נ&#39; שר הביטחון  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7983-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    04/07/2022
+                    
+                    | 17:26
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7983/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">גד ראובן אנג&#39;ל  נ&#39; בית הדין הארצי לעבודה (פורמלי) ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/3055-16.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    04/07/2022
+                    
+                    | 16:27
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 3055/16
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עיריית קריית אתא  נ&#39; שר הפנים</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4335-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    29/06/2022
+                    
+                    | 16:27
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4335/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">רומי  ואח&#39; נ&#39; משטרת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/1170-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    16/06/2022
+                    
+                    | 16:22
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 1170/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עו&#34;ד משה תורג&#39;מן  נ&#39; הוועדה הציבורית לגיבוש רשימת נאמנים יחידים</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/3148-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    02/06/2022
+                    
+                    | 16:36
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 3148/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">לאור  נ&#39; המוסד לביטוח לאומי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/1038-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    02/06/2022
+                    
+                    | 15:25
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 1038/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חברת אלפלוגה למוצרי מזון  נ&#39; משרד הכלכלה והתעשיה  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5434-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    18/05/2022
+                    
+                    | 06:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5434/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">דוד קמחי ואח&#39;  נ&#39; משרד ראש הממשלה  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5318-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    18/05/2022
+                    
+                    | 06:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5318/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עיריית רעננה  ואח&#39; נ&#39; משטרת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7841-19.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    15/05/2022
+                    
+                    | 15:29
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7841/19
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ארגון עמק שווה ו-22 עותרים נוספים  נ&#39; ממשלת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/2253-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    10/05/2022
+                    
+                    | 16:59
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 2253/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו עמשה  נ&#39; מדינת ישראל, משרד הכלכלה והתעשייה  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/2563-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    10/05/2022
+                    
+                    | 17:42
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 2563/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">שומרי הבית ע.ר  נ&#39; מנכלי&#34;ת הרשות השנייה לטלוויזיה ולרדיו  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/2984-17.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    01/05/2022
+                    
+                    | 17:14
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 2984/17
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מירב מלכי  ואח&#39; נ&#39; מנהל מנהל האוכלוסין במשרד הפנים  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/1322-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    31/03/2022
+                    
+                    | 16:59
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 1322/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">כהן  נ&#39; כבוד השופט מר שמואל מלמד  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/945-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    29/03/2022
+                    
+                    | 16:55
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 945/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">בן דוב  ואח&#39; נ&#39; מדינת ישראל- מנהל הסיעוד משרד הבריאות  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4343-19.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    16/03/2022
+                    
+                    | 06:12
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4343/19
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">כן לזקן - לקידום זכויות הזקנים (ע&#34;ר)  ואח&#39; נ&#39; כנסת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/1534-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/03/2022
+                    
+                    | 17:43
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 1534/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מועצה מקומית בית דגן  נ&#39; השר לשירותי דת</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/1313-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    22/02/2022
+                    
+                    | 16:31
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 1313/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">בעל צדקה  נ&#39; משרד ראש הממשלה  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/745-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    20/02/2022
+                    
+                    | 17:17
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 745/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ג&#39;רדאת  ואח&#39; נ&#39; המפקד הצבאי לאיזור הגדה המערבית</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/3667-20.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/02/2022
+                    
+                    | 15:49
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 3667/20
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">כעאבנה  ואח&#39; נ&#39; מפקד כוחות צה&#34;ל בגדה המערבית  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/873-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    06/02/2022
+                    
+                    | 17:26
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 873/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">סאלם אריה  נ&#39; בית הדין הארצי לעבודה  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/546-22.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/01/2022
+                    
+                    | 16:55
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 546/22
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אלימלך- 15 אח&#39;  נ&#39; משטרת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4415-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/01/2022
+                    
+                    | 17:18
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4415/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מועצה אזורית בקעת הירדן  ואח&#39; נ&#39; הרשות הממשלתית למים ולביוב  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/8300-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    18/01/2022
+                    
+                    | 17:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 8300/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אליהו  נ&#39; שר הבטחון  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/8782-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    16/01/2022
+                    
+                    | 17:09
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 8782/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">הרימי (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5800-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/01/2022
+                    
+                    | 17:20
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5800/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אמת ליעקב בישראל בע&#34;מ (חל&#34;צ)  ואח&#39; נ&#39; שר האוצר  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/1280-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    16/12/2021
+                    
+                    | 17:26
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 1280/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עאדל מחמד בכרי  נ&#39; המפקד הצבאי לאזור הגדה המערבית  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/9123-20.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    14/12/2021
+                    
+                    | 17:39
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 9123/20
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עיר עמים  ואח&#39; נ&#39; האפוטרופוס הכללי והכונס הרשמי</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6103-17.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/12/2021
+                    
+                    | 04:53
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6103/17
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">גו&#39;זפין הרבך  ואח&#39; נ&#39; מדינת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/8216-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    02/12/2021
+                    
+                    | 17:34
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 8216/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עיריית חולון  נ&#39; הוועדה הארצית לתכנון ובניה של תשתיות לאומיות  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/8063-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    28/11/2021
+                    
+                    | 16:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 8063/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">משולמי  נ&#39; מדינת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7545-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    14/11/2021
+                    
+                    | 17:29
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7545/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חדר (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7577-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/11/2021
+                    
+                    | 17:35
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7577/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מצעב בלאל אבראהים אלברי (עציר) נ&#39; שר הביטחון  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/427-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    03/11/2021
+                    
+                    | 15:31
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 427/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">דקל עובדים זרים בע&#34;מ  ואח&#39; נ&#39; כנסת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7302-20.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/10/2021
+                    
+                    | 17:06
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7302/20
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">יאסין  ואח&#39; נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6364-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    18/10/2021
+                    
+                    | 15:33
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6364/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עלאא סמיח מוצטפא אלאערג&#39; (אסיר) נ&#39; המפקד הצבאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6481-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    18/10/2021
+                    
+                    | 15:31
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6481/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">פאדי מוחמד נצראללה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/1749-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    11/10/2021
+                    
+                    | 17:03
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 1749/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עיריית רמת גן  ואח&#39; נ&#39; שר האוצר  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4407-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    03/10/2021
+                    
+                    | 15:41
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4407/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">לוי  נ&#39; משטרת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4928-19.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    30/09/2021
+                    
+                    | 16:59
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4928/19
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חדו&#34;ש - לחופש דת ושוויון (ע&#34;ר)  נ&#39; השר לשירותי דת  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6279-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    30/09/2021
+                    
+                    | 16:26
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6279/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חאלד דויב (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/7936-18.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    19/09/2021
+                    
+                    | 17:02
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 7936/18
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מועצה איזורית מטה בנימין  נ&#39; בית המשפט לעניינים מקומיים  של ערכאת ערעור בירושלי (פורמלי) ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6295-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    15/09/2021
+                    
+                    | 17:40
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6295/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">זדורוב (עציר) נ&#39; כב&#39; השופט אשר קולה  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5625-19.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    30/08/2021
+                    
+                    | 16:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5625/19
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">חשב  ( י.ג.ע) שירותי ביקורת פנים  ואח&#39; נ&#39; הממונה על שוק ההון, ביטוח וחסכון</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5558-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    19/08/2021
+                    
+                    | 15:42
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5558/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מוחמד דיב אבו עאדי (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4810-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    19/08/2021
+                    
+                    | 16:11
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4810/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מוטהדה  נ&#39; המוסד לביטוח לאומי</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5375-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    15/08/2021
+                    
+                    | 17:01
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5375/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבחיץ (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5285-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    09/08/2021
+                    
+                    | 15:47
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5285/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מחמוד כאמל עבד אלגליל אלעיה (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5223-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/08/2021
+                    
+                    | 16:42
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5223/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עאוני עדנאן כמיל (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4972-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/08/2021
+                    
+                    | 05:06
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4972/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">יאסין  ואח&#39; נ&#39; היחידה הארצית לאכיפת דיני התכנון והבניה  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5355-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    04/08/2021
+                    
+                    | 15:43
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5355/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">כאסר קבלאוי (עציר) נ&#39; שר הביטחון  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5332-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    03/08/2021
+                    
+                    | 15:37
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5332/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אירינה טוליק  נ&#39; בית הדן הארצי לעבודה  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5185-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    02/08/2021
+                    
+                    | 16:31
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5185/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו אלריש (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/91-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    29/07/2021
+                    
+                    | 16:12
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 91/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אנימלס (ע&#34;ר)  נ&#39; משרד החקלאות ופיתוח הכפר - יחידת התביעות</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4918-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    28/07/2021
+                    
+                    | 17:08
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4918/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">סיאערה (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/3789-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    27/07/2021
+                    
+                    | 16:56
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 3789/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">רבאיעה  ואח&#39; נ&#39; המפקד הצבאי בגדה המערבית  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4037-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/07/2021
+                    
+                    | 15:41
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4037/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אל&#34;מ (מיל&#39;) עו&#34;ד אורלי דרי-ירון  ואח&#39; נ&#39; שר הבריאות  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4920-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    26/07/2021
+                    
+                    | 17:49
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4920/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אבו עקר (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4584-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    25/07/2021
+                    
+                    | 15:44
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4584/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ראשד מחמד מרשד חאמד (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5120-18.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    21/07/2021
+                    
+                    | 09:40
+                    
+                </span>
+                <span class="brick-case-number">
+                    דיון נוסף בג&#34;ץ (דנג&#34;ץ) 5120/18
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">נשים קוראות ללדת- למען חופש בחירה בלידה  ואח&#39; נ&#39; מדינת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4376-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/07/2021
+                    
+                    | 04:55
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4376/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עבד רבה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/8010-16.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/07/2021
+                    
+                    | 06:13
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 8010/16
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ברזון מלכה נעמה  ואח&#39; נ&#39; מדינת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/2922-20.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/07/2021
+                    
+                    | 06:14
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 2922/20
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">סיעת מרצ  נ&#39; הכנסת  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/2941-20.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/07/2021
+                    
+                    | 06:13
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 2941/20
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">אביגדור  עו&#34;ד  ואח&#39; נ&#39; נתניהו  ח&#34;כ  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/2905-20.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    12/07/2021
+                    
+                    | 06:13
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 2905/20
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">התנועה למען איכות השלטון בישראל  נ&#39; כנסת ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/4-19.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/07/2021
+                    
+                    | 08:42
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 4/19
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">סמי מיכאל ו-55 עותרים נוספים  נ&#39; הכנסת  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5555-18.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/07/2021
+                    
+                    | 08:13
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5555/18
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ח&#34;כ אכרם חסון  ואח&#39; נ&#39; כנסת ירושלים  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/684-21.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/07/2021
+                    
+                    | 17:43
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 684/21
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">התנועה לטוהר המידות (ע&#34;ר)  נ&#39; שר הדיגיטלי הלאומי, ח&#34;כ דוד אמסלם  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6710-18.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/07/2021
+                    
+                    | 08:13
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6710/18
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מריו טרקטינסקי ו-38 אח&#39;  נ&#39; כנסת ישראל</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5866-18.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/07/2021
+                    
+                    | 08:14
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5866/18
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">ועדת המעקב העליונה לענייני הערבים בישראל  ואח&#39; נ&#39; כנסת  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/9257-18.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/07/2021
+                    
+                    | 08:14
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 9257/18
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">התנועה לטוהר המידות  נ&#39; הכנסת  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6939-18.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/07/2021
+                    
+                    | 08:15
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6939/18
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">גבריהו  ואח&#39; נ&#39; הכנסת  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/6622-18.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/07/2021
+                    
+                    | 08:42
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 6622/18
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">עזאם  ואח&#39; נ&#39; כנסת  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5741-18.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/07/2021
+                    
+                    | 08:42
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5741/18
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">מרצ  ואח&#39; נ&#39; כנסת  ישראל  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
+        <a href="judgments/5624-18.html" class="judgment-brick">
+            <div class="brick-header">
+                <span class="brick-date">
+                    08/07/2021
+                    
+                    | 08:43
+                    
+                </span>
+                <span class="brick-case-number">
+                    עתירה לבג&#34;ץ (בג&#34;ץ) 5624/18
+                </span>
+            </div>
+
+            
+
+            <h3 class="brick-title">פרופ&#39; ריאד אגבאריה  ואח&#39; נ&#39; הכנסת  ואח&#39;</h3>
+
+            
+
+            
+        </a>
+        
     </div>
 
-    <div class="desktop-view">
-        <table>
-            <thead>
-                <tr>
-                    <th scope="col" class="nowrap-col">תאריך</th>
-                    <th scope="col" class="nowrap-col">מספר תיק</th>
-                    <th scope="col">נושא</th>
-                    <th scope="col">כותרת</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                <tr>
-                    <td class="nowrap-col">2022-12-07</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/1081-22.html">1081/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/1081-22.html">הניחן  נ&#39; מנהל יחידת הפיקוח במנהל האזרחי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-12-06</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/8207-22.html">8207/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/8207-22.html">מכון אור שמריהו  נ&#39; מדינת ישראל- משרד החינוך</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-12-05</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/8171-22.html">8171/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/8171-22.html">דראגמה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-12-01</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7988-22.html">7988/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7988-22.html">אוסאמה עמור (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-11-28</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6438-22.html">6438/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6438-22.html">איובי  נ&#39; קרן אזולאי רשמת בית המשפט העליון  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-11-22</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7743-22.html">7743/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7743-22.html">זונה  נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-11-15</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7030-21.html">7030/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7030-21.html">כוכב השחר(תפעול) בע&#34;מ  נ&#39; מפקד כוחות צה&#34;ל באזור יהודה ושומרון  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-11-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/3221-22.html">3221/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/3221-22.html">צואפטה  ואח&#39; נ&#39; מפקד כוחות צה&#34;ל בגדה המערבית  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-11-03</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7017-22.html">7017/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7017-22.html">עדאל (עציר) נ&#39; מפקד צבאי לאזור  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-10-31</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7108-22.html">7108/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7108-22.html">ברגותי  נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-10-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7085-22.html">7085/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7085-22.html">בלאל אחמד סלימאן גהלין (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-10-06</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6421-22.html">6421/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6421-22.html">חובאם אניס חרב (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-09-28</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6107-22.html">6107/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6107-22.html">קסאם מגד ברגותי (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-09-13</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/3636-22.html">3636/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/3636-22.html">ד&#34;ר משה וינברג ושות&#39;, עורכי דין ונוטריונים  נ&#39; מדינת ישראל - המחלקה הכלכלית בפרקליטות המדינה  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-09-07</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/614-21.html">614/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/614-21.html">התנועה לחופש המידע  ואח&#39; נ&#39; משרד ראש הממשלה  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-08-31</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7091-19.html">7091/19</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7091-19.html">&#34;לי בר קייטרינג יפרח בע&#34;מ&#34;  ואח&#39; נ&#39; מועצת הרבנות הראשית לישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-08-24</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5642-22.html">5642/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5642-22.html">פורום קהלת  נ&#39; ראש הממשלה  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-08-15</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5248-22.html">5248/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5248-22.html">אבו גחישה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-08-10</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6510-21.html">6510/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6510-21.html">בתיה כהנא דרור  נ&#39; נשיא בית הדין הרבני הגדול, הרהר דוד לאו  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-08-10</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5347-22.html">5347/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5347-22.html">עבאהרה (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-08-02</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4972-22.html">4972/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4972-22.html">ערמאן (עציר) נ&#39; מפקד צבאי לאזור  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-07-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4863-22.html">4863/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4863-22.html">מוחמד גית (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-07-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5038-22.html">5038/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5038-22.html">בדואן  ואח&#39; נ&#39; אלוף פיקוד הדרום</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-07-17</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/554-20.html">554/20</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/554-20.html">שישא  ואח&#39; נ&#39; שר הביטחון  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-07-10</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4513-22.html">4513/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4513-22.html">ד&#34;ר סמיון קושניר  נ&#39; משטרת ישראל- חולית הסמכות</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-07-07</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4588-22.html">4588/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4588-22.html">יוסף גראדאת (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-07-04</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7983-21.html">7983/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7983-21.html">גד ראובן אנג&#39;ל  נ&#39; בית הדין הארצי לעבודה (פורמלי) ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-07-04</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/3055-16.html">3055/16</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/3055-16.html">עיריית קריית אתא  נ&#39; שר הפנים</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-06-29</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4335-22.html">4335/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4335-22.html">רומי  ואח&#39; נ&#39; משטרת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-06-16</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/1170-22.html">1170/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/1170-22.html">עו&#34;ד משה תורג&#39;מן  נ&#39; הוועדה הציבורית לגיבוש רשימת נאמנים יחידים</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-06-02</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/3148-22.html">3148/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/3148-22.html">לאור  נ&#39; המוסד לביטוח לאומי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-06-02</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/1038-22.html">1038/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/1038-22.html">חברת אלפלוגה למוצרי מזון  נ&#39; משרד הכלכלה והתעשיה  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-05-18</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5434-21.html">5434/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5434-21.html">דוד קמחי ואח&#39;  נ&#39; משרד ראש הממשלה  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-05-18</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5318-21.html">5318/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5318-21.html">עיריית רעננה  ואח&#39; נ&#39; משטרת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-05-15</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7841-19.html">7841/19</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7841-19.html">ארגון עמק שווה ו-22 עותרים נוספים  נ&#39; ממשלת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-05-10</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/2253-22.html">2253/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/2253-22.html">אבו עמשה  נ&#39; מדינת ישראל, משרד הכלכלה והתעשייה  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-05-10</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/2563-22.html">2563/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/2563-22.html">שומרי הבית ע.ר  נ&#39; מנכלי&#34;ת הרשות השנייה לטלוויזיה ולרדיו  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-05-01</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/2984-17.html">2984/17</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/2984-17.html">מירב מלכי  ואח&#39; נ&#39; מנהל מנהל האוכלוסין במשרד הפנים  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-03-31</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/1322-22.html">1322/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/1322-22.html">כהן  נ&#39; כבוד השופט מר שמואל מלמד  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-03-29</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/945-22.html">945/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/945-22.html">בן דוב  ואח&#39; נ&#39; מדינת ישראל- מנהל הסיעוד משרד הבריאות  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-03-16</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4343-19.html">4343/19</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4343-19.html">כן לזקן - לקידום זכויות הזקנים (ע&#34;ר)  ואח&#39; נ&#39; כנסת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-03-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/1534-22.html">1534/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/1534-22.html">מועצה מקומית בית דגן  נ&#39; השר לשירותי דת</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-02-22</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/1313-22.html">1313/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/1313-22.html">בעל צדקה  נ&#39; משרד ראש הממשלה  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-02-20</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/745-22.html">745/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/745-22.html">ג&#39;רדאת  ואח&#39; נ&#39; המפקד הצבאי לאיזור הגדה המערבית</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-02-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/3667-20.html">3667/20</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/3667-20.html">כעאבנה  ואח&#39; נ&#39; מפקד כוחות צה&#34;ל בגדה המערבית  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-02-06</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/873-22.html">873/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/873-22.html">סאלם אריה  נ&#39; בית הדין הארצי לעבודה  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-01-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/546-22.html">546/22</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/546-22.html">אלימלך- 15 אח&#39;  נ&#39; משטרת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-01-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4415-21.html">4415/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4415-21.html">מועצה אזורית בקעת הירדן  ואח&#39; נ&#39; הרשות הממשלתית למים ולביוב  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-01-18</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/8300-21.html">8300/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/8300-21.html">אליהו  נ&#39; שר הבטחון  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-01-16</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/8782-21.html">8782/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/8782-21.html">הרימי (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2022-01-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5800-21.html">5800/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5800-21.html">אמת ליעקב בישראל בע&#34;מ (חל&#34;צ)  ואח&#39; נ&#39; שר האוצר  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-12-16</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/1280-21.html">1280/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/1280-21.html">עאדל מחמד בכרי  נ&#39; המפקד הצבאי לאזור הגדה המערבית  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-12-14</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/9123-20.html">9123/20</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/9123-20.html">עיר עמים  ואח&#39; נ&#39; האפוטרופוס הכללי והכונס הרשמי</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-12-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6103-17.html">6103/17</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6103-17.html">גו&#39;זפין הרבך  ואח&#39; נ&#39; מדינת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-12-02</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/8216-21.html">8216/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/8216-21.html">עיריית חולון  נ&#39; הוועדה הארצית לתכנון ובניה של תשתיות לאומיות  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-11-28</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/8063-21.html">8063/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/8063-21.html">משולמי  נ&#39; מדינת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-11-14</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7545-21.html">7545/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7545-21.html">חדר (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-11-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7577-21.html">7577/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7577-21.html">מצעב בלאל אבראהים אלברי (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-11-03</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/427-21.html">427/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/427-21.html">דקל עובדים זרים בע&#34;מ  ואח&#39; נ&#39; כנסת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-10-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7302-20.html">7302/20</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7302-20.html">יאסין  ואח&#39; נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-10-18</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6364-21.html">6364/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6364-21.html">עלאא סמיח מוצטפא אלאערג&#39; (אסיר) נ&#39; המפקד הצבאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-10-18</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6481-21.html">6481/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6481-21.html">פאדי מוחמד נצראללה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-10-11</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/1749-21.html">1749/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/1749-21.html">עיריית רמת גן  ואח&#39; נ&#39; שר האוצר  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-10-03</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4407-21.html">4407/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4407-21.html">לוי  נ&#39; משטרת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-09-30</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4928-19.html">4928/19</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4928-19.html">חדו&#34;ש - לחופש דת ושוויון (ע&#34;ר)  נ&#39; השר לשירותי דת  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-09-30</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6279-21.html">6279/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6279-21.html">חאלד דויב (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-09-19</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/7936-18.html">7936/18</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/7936-18.html">מועצה איזורית מטה בנימין  נ&#39; בית המשפט לעניינים מקומיים  של ערכאת ערעור בירושלי (פורמלי) ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-09-15</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6295-21.html">6295/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6295-21.html">זדורוב (עציר) נ&#39; כב&#39; השופט אשר קולה  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-08-30</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5625-19.html">5625/19</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5625-19.html">חשב  ( י.ג.ע) שירותי ביקורת פנים  ואח&#39; נ&#39; הממונה על שוק ההון, ביטוח וחסכון</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-08-19</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5558-21.html">5558/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5558-21.html">מוחמד דיב אבו עאדי (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-08-19</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4810-21.html">4810/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4810-21.html">מוטהדה  נ&#39; המוסד לביטוח לאומי</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-08-15</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5375-21.html">5375/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5375-21.html">אבחיץ (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-08-09</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5285-21.html">5285/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5285-21.html">מחמוד כאמל עבד אלגליל אלעיה (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-08-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5223-21.html">5223/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5223-21.html">עאוני עדנאן כמיל (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-08-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4972-21.html">4972/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4972-21.html">יאסין  ואח&#39; נ&#39; היחידה הארצית לאכיפת דיני התכנון והבניה  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-08-04</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5355-21.html">5355/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5355-21.html">כאסר קבלאוי (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-08-03</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5332-21.html">5332/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5332-21.html">אירינה טוליק  נ&#39; בית הדן הארצי לעבודה  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-08-02</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5185-21.html">5185/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5185-21.html">אבו אלריש (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-29</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/91-21.html">91/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/91-21.html">אנימלס (ע&#34;ר)  נ&#39; משרד החקלאות ופיתוח הכפר - יחידת התביעות</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-28</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4918-21.html">4918/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4918-21.html">סיאערה (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-27</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/3789-21.html">3789/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/3789-21.html">רבאיעה  ואח&#39; נ&#39; המפקד הצבאי בגדה המערבית  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4037-21.html">4037/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4037-21.html">אל&#34;מ (מיל&#39;) עו&#34;ד אורלי דרי-ירון  ואח&#39; נ&#39; שר הבריאות  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-26</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4920-21.html">4920/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4920-21.html">אבו עקר (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-25</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4584-21.html">4584/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4584-21.html">ראשד מחמד מרשד חאמד (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-21</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5120-18.html">5120/18</a>
-                    </td>
-                    <td>דיון נוסף בג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5120-18.html">נשים קוראות ללדת- למען חופש בחירה בלידה  ואח&#39; נ&#39; מדינת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4376-21.html">4376/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4376-21.html">עבד רבה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/8010-16.html">8010/16</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/8010-16.html">ברזון מלכה נעמה  ואח&#39; נ&#39; מדינת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/2922-20.html">2922/20</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/2922-20.html">סיעת מרצ  נ&#39; הכנסת  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/2941-20.html">2941/20</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/2941-20.html">אביגדור  עו&#34;ד  ואח&#39; נ&#39; נתניהו  ח&#34;כ  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-12</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/2905-20.html">2905/20</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/2905-20.html">התנועה למען איכות השלטון בישראל  נ&#39; כנסת ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/4-19.html">4/19</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/4-19.html">סמי מיכאל ו-55 עותרים נוספים  נ&#39; הכנסת  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5555-18.html">5555/18</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5555-18.html">ח&#34;כ אכרם חסון  ואח&#39; נ&#39; כנסת ירושלים  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/684-21.html">684/21</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/684-21.html">התנועה לטוהר המידות (ע&#34;ר)  נ&#39; שר הדיגיטלי הלאומי, ח&#34;כ דוד אמסלם  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6710-18.html">6710/18</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6710-18.html">מריו טרקטינסקי ו-38 אח&#39;  נ&#39; כנסת ישראל</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5866-18.html">5866/18</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5866-18.html">ועדת המעקב העליונה לענייני הערבים בישראל  ואח&#39; נ&#39; כנסת  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/9257-18.html">9257/18</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/9257-18.html">התנועה לטוהר המידות  נ&#39; הכנסת  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6939-18.html">6939/18</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6939-18.html">גבריהו  ואח&#39; נ&#39; הכנסת  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/6622-18.html">6622/18</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/6622-18.html">עזאם  ואח&#39; נ&#39; כנסת  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5741-18.html">5741/18</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5741-18.html">מרצ  ואח&#39; נ&#39; כנסת  ישראל  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="nowrap-col">2021-07-08</td>
-                    <td class="nowrap-col">
-                        <a href="judgments/5624-18.html">5624/18</a>
-                    </td>
-                    <td>עתירות לבג&#34;צ</td>
-                    <td>
-                        <a href="judgments/5624-18.html">פרופ&#39; ריאד אגבאריה  ואח&#39; נ&#39; הכנסת  ואח&#39;</a>
-                    </td>
-                </tr>
-                
-            </tbody>
-        </table>
-    </div>
-
-    <div class="mobile-view judgment-card-grid">
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 1081/22</span>
-                <span class="judgment-card-date">07/12/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/1081-22.html" class="main-link">הניחן  נ&#39; מנהל יחידת הפיקוח במנהל האזרחי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 8207/22</span>
-                <span class="judgment-card-date">06/12/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/8207-22.html" class="main-link">מכון אור שמריהו  נ&#39; מדינת ישראל- משרד החינוך</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 8171/22</span>
-                <span class="judgment-card-date">05/12/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/8171-22.html" class="main-link">דראגמה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7988/22</span>
-                <span class="judgment-card-date">01/12/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7988-22.html" class="main-link">אוסאמה עמור (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6438/22</span>
-                <span class="judgment-card-date">28/11/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6438-22.html" class="main-link">איובי  נ&#39; קרן אזולאי רשמת בית המשפט העליון  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7743/22</span>
-                <span class="judgment-card-date">22/11/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7743-22.html" class="main-link">זונה  נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7030/21</span>
-                <span class="judgment-card-date">15/11/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7030-21.html" class="main-link">כוכב השחר(תפעול) בע&#34;מ  נ&#39; מפקד כוחות צה&#34;ל באזור יהודה ושומרון  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 3221/22</span>
-                <span class="judgment-card-date">08/11/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/3221-22.html" class="main-link">צואפטה  ואח&#39; נ&#39; מפקד כוחות צה&#34;ל בגדה המערבית  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7017/22</span>
-                <span class="judgment-card-date">03/11/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7017-22.html" class="main-link">עדאל (עציר) נ&#39; מפקד צבאי לאזור  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7108/22</span>
-                <span class="judgment-card-date">31/10/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7108-22.html" class="main-link">ברגותי  נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7085/22</span>
-                <span class="judgment-card-date">27/10/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7085-22.html" class="main-link">בלאל אחמד סלימאן גהלין (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6421/22</span>
-                <span class="judgment-card-date">06/10/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6421-22.html" class="main-link">חובאם אניס חרב (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6107/22</span>
-                <span class="judgment-card-date">28/09/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6107-22.html" class="main-link">קסאם מגד ברגותי (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 3636/22</span>
-                <span class="judgment-card-date">13/09/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/3636-22.html" class="main-link">ד&#34;ר משה וינברג ושות&#39;, עורכי דין ונוטריונים  נ&#39; מדינת ישראל - המחלקה הכלכלית בפרקליטות המדינה  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 614/21</span>
-                <span class="judgment-card-date">07/09/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/614-21.html" class="main-link">התנועה לחופש המידע  ואח&#39; נ&#39; משרד ראש הממשלה  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7091/19</span>
-                <span class="judgment-card-date">31/08/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7091-19.html" class="main-link">&#34;לי בר קייטרינג יפרח בע&#34;מ&#34;  ואח&#39; נ&#39; מועצת הרבנות הראשית לישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5642/22</span>
-                <span class="judgment-card-date">24/08/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5642-22.html" class="main-link">פורום קהלת  נ&#39; ראש הממשלה  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5248/22</span>
-                <span class="judgment-card-date">15/08/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5248-22.html" class="main-link">אבו גחישה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6510/21</span>
-                <span class="judgment-card-date">10/08/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6510-21.html" class="main-link">בתיה כהנא דרור  נ&#39; נשיא בית הדין הרבני הגדול, הרהר דוד לאו  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5347/22</span>
-                <span class="judgment-card-date">10/08/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5347-22.html" class="main-link">עבאהרה (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4972/22</span>
-                <span class="judgment-card-date">02/08/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4972-22.html" class="main-link">ערמאן (עציר) נ&#39; מפקד צבאי לאזור  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4863/22</span>
-                <span class="judgment-card-date">26/07/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4863-22.html" class="main-link">מוחמד גית (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5038/22</span>
-                <span class="judgment-card-date">26/07/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5038-22.html" class="main-link">בדואן  ואח&#39; נ&#39; אלוף פיקוד הדרום</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 554/20</span>
-                <span class="judgment-card-date">17/07/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/554-20.html" class="main-link">שישא  ואח&#39; נ&#39; שר הביטחון  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4513/22</span>
-                <span class="judgment-card-date">10/07/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4513-22.html" class="main-link">ד&#34;ר סמיון קושניר  נ&#39; משטרת ישראל- חולית הסמכות</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4588/22</span>
-                <span class="judgment-card-date">07/07/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4588-22.html" class="main-link">יוסף גראדאת (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7983/21</span>
-                <span class="judgment-card-date">04/07/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7983-21.html" class="main-link">גד ראובן אנג&#39;ל  נ&#39; בית הדין הארצי לעבודה (פורמלי) ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 3055/16</span>
-                <span class="judgment-card-date">04/07/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/3055-16.html" class="main-link">עיריית קריית אתא  נ&#39; שר הפנים</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4335/22</span>
-                <span class="judgment-card-date">29/06/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4335-22.html" class="main-link">רומי  ואח&#39; נ&#39; משטרת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 1170/22</span>
-                <span class="judgment-card-date">16/06/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/1170-22.html" class="main-link">עו&#34;ד משה תורג&#39;מן  נ&#39; הוועדה הציבורית לגיבוש רשימת נאמנים יחידים</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 3148/22</span>
-                <span class="judgment-card-date">02/06/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/3148-22.html" class="main-link">לאור  נ&#39; המוסד לביטוח לאומי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 1038/22</span>
-                <span class="judgment-card-date">02/06/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/1038-22.html" class="main-link">חברת אלפלוגה למוצרי מזון  נ&#39; משרד הכלכלה והתעשיה  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5434/21</span>
-                <span class="judgment-card-date">18/05/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5434-21.html" class="main-link">דוד קמחי ואח&#39;  נ&#39; משרד ראש הממשלה  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5318/21</span>
-                <span class="judgment-card-date">18/05/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5318-21.html" class="main-link">עיריית רעננה  ואח&#39; נ&#39; משטרת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7841/19</span>
-                <span class="judgment-card-date">15/05/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7841-19.html" class="main-link">ארגון עמק שווה ו-22 עותרים נוספים  נ&#39; ממשלת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 2253/22</span>
-                <span class="judgment-card-date">10/05/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/2253-22.html" class="main-link">אבו עמשה  נ&#39; מדינת ישראל, משרד הכלכלה והתעשייה  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 2563/22</span>
-                <span class="judgment-card-date">10/05/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/2563-22.html" class="main-link">שומרי הבית ע.ר  נ&#39; מנכלי&#34;ת הרשות השנייה לטלוויזיה ולרדיו  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 2984/17</span>
-                <span class="judgment-card-date">01/05/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/2984-17.html" class="main-link">מירב מלכי  ואח&#39; נ&#39; מנהל מנהל האוכלוסין במשרד הפנים  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 1322/22</span>
-                <span class="judgment-card-date">31/03/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/1322-22.html" class="main-link">כהן  נ&#39; כבוד השופט מר שמואל מלמד  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 945/22</span>
-                <span class="judgment-card-date">29/03/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/945-22.html" class="main-link">בן דוב  ואח&#39; נ&#39; מדינת ישראל- מנהל הסיעוד משרד הבריאות  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4343/19</span>
-                <span class="judgment-card-date">16/03/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4343-19.html" class="main-link">כן לזקן - לקידום זכויות הזקנים (ע&#34;ר)  ואח&#39; נ&#39; כנסת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 1534/22</span>
-                <span class="judgment-card-date">09/03/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/1534-22.html" class="main-link">מועצה מקומית בית דגן  נ&#39; השר לשירותי דת</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 1313/22</span>
-                <span class="judgment-card-date">22/02/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/1313-22.html" class="main-link">בעל צדקה  נ&#39; משרד ראש הממשלה  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 745/22</span>
-                <span class="judgment-card-date">20/02/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/745-22.html" class="main-link">ג&#39;רדאת  ואח&#39; נ&#39; המפקד הצבאי לאיזור הגדה המערבית</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 3667/20</span>
-                <span class="judgment-card-date">09/02/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/3667-20.html" class="main-link">כעאבנה  ואח&#39; נ&#39; מפקד כוחות צה&#34;ל בגדה המערבית  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 873/22</span>
-                <span class="judgment-card-date">06/02/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/873-22.html" class="main-link">סאלם אריה  נ&#39; בית הדין הארצי לעבודה  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 546/22</span>
-                <span class="judgment-card-date">26/01/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/546-22.html" class="main-link">אלימלך- 15 אח&#39;  נ&#39; משטרת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4415/21</span>
-                <span class="judgment-card-date">26/01/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4415-21.html" class="main-link">מועצה אזורית בקעת הירדן  ואח&#39; נ&#39; הרשות הממשלתית למים ולביוב  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 8300/21</span>
-                <span class="judgment-card-date">18/01/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/8300-21.html" class="main-link">אליהו  נ&#39; שר הבטחון  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 8782/21</span>
-                <span class="judgment-card-date">16/01/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/8782-21.html" class="main-link">הרימי (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5800/21</span>
-                <span class="judgment-card-date">12/01/2022</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5800-21.html" class="main-link">אמת ליעקב בישראל בע&#34;מ (חל&#34;צ)  ואח&#39; נ&#39; שר האוצר  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 1280/21</span>
-                <span class="judgment-card-date">16/12/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/1280-21.html" class="main-link">עאדל מחמד בכרי  נ&#39; המפקד הצבאי לאזור הגדה המערבית  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 9123/20</span>
-                <span class="judgment-card-date">14/12/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/9123-20.html" class="main-link">עיר עמים  ואח&#39; נ&#39; האפוטרופוס הכללי והכונס הרשמי</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6103/17</span>
-                <span class="judgment-card-date">12/12/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6103-17.html" class="main-link">גו&#39;זפין הרבך  ואח&#39; נ&#39; מדינת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 8216/21</span>
-                <span class="judgment-card-date">02/12/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/8216-21.html" class="main-link">עיריית חולון  נ&#39; הוועדה הארצית לתכנון ובניה של תשתיות לאומיות  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 8063/21</span>
-                <span class="judgment-card-date">28/11/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/8063-21.html" class="main-link">משולמי  נ&#39; מדינת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7545/21</span>
-                <span class="judgment-card-date">14/11/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7545-21.html" class="main-link">חדר (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7577/21</span>
-                <span class="judgment-card-date">08/11/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7577-21.html" class="main-link">מצעב בלאל אבראהים אלברי (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 427/21</span>
-                <span class="judgment-card-date">03/11/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/427-21.html" class="main-link">דקל עובדים זרים בע&#34;מ  ואח&#39; נ&#39; כנסת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7302/20</span>
-                <span class="judgment-card-date">27/10/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7302-20.html" class="main-link">יאסין  ואח&#39; נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6364/21</span>
-                <span class="judgment-card-date">18/10/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6364-21.html" class="main-link">עלאא סמיח מוצטפא אלאערג&#39; (אסיר) נ&#39; המפקד הצבאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6481/21</span>
-                <span class="judgment-card-date">18/10/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6481-21.html" class="main-link">פאדי מוחמד נצראללה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 1749/21</span>
-                <span class="judgment-card-date">11/10/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/1749-21.html" class="main-link">עיריית רמת גן  ואח&#39; נ&#39; שר האוצר  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4407/21</span>
-                <span class="judgment-card-date">03/10/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4407-21.html" class="main-link">לוי  נ&#39; משטרת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4928/19</span>
-                <span class="judgment-card-date">30/09/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4928-19.html" class="main-link">חדו&#34;ש - לחופש דת ושוויון (ע&#34;ר)  נ&#39; השר לשירותי דת  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6279/21</span>
-                <span class="judgment-card-date">30/09/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6279-21.html" class="main-link">חאלד דויב (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 7936/18</span>
-                <span class="judgment-card-date">19/09/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/7936-18.html" class="main-link">מועצה איזורית מטה בנימין  נ&#39; בית המשפט לעניינים מקומיים  של ערכאת ערעור בירושלי (פורמלי) ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6295/21</span>
-                <span class="judgment-card-date">15/09/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6295-21.html" class="main-link">זדורוב (עציר) נ&#39; כב&#39; השופט אשר קולה  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5625/19</span>
-                <span class="judgment-card-date">30/08/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5625-19.html" class="main-link">חשב  ( י.ג.ע) שירותי ביקורת פנים  ואח&#39; נ&#39; הממונה על שוק ההון, ביטוח וחסכון</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5558/21</span>
-                <span class="judgment-card-date">19/08/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5558-21.html" class="main-link">מוחמד דיב אבו עאדי (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4810/21</span>
-                <span class="judgment-card-date">19/08/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4810-21.html" class="main-link">מוטהדה  נ&#39; המוסד לביטוח לאומי</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5375/21</span>
-                <span class="judgment-card-date">15/08/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5375-21.html" class="main-link">אבחיץ (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5285/21</span>
-                <span class="judgment-card-date">09/08/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5285-21.html" class="main-link">מחמוד כאמל עבד אלגליל אלעיה (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5223/21</span>
-                <span class="judgment-card-date">08/08/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5223-21.html" class="main-link">עאוני עדנאן כמיל (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4972/21</span>
-                <span class="judgment-card-date">08/08/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4972-21.html" class="main-link">יאסין  ואח&#39; נ&#39; היחידה הארצית לאכיפת דיני התכנון והבניה  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5355/21</span>
-                <span class="judgment-card-date">04/08/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5355-21.html" class="main-link">כאסר קבלאוי (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5332/21</span>
-                <span class="judgment-card-date">03/08/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5332-21.html" class="main-link">אירינה טוליק  נ&#39; בית הדן הארצי לעבודה  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5185/21</span>
-                <span class="judgment-card-date">02/08/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5185-21.html" class="main-link">אבו אלריש (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 91/21</span>
-                <span class="judgment-card-date">29/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/91-21.html" class="main-link">אנימלס (ע&#34;ר)  נ&#39; משרד החקלאות ופיתוח הכפר - יחידת התביעות</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4918/21</span>
-                <span class="judgment-card-date">28/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4918-21.html" class="main-link">סיאערה (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 3789/21</span>
-                <span class="judgment-card-date">27/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/3789-21.html" class="main-link">רבאיעה  ואח&#39; נ&#39; המפקד הצבאי בגדה המערבית  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4037/21</span>
-                <span class="judgment-card-date">26/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4037-21.html" class="main-link">אל&#34;מ (מיל&#39;) עו&#34;ד אורלי דרי-ירון  ואח&#39; נ&#39; שר הבריאות  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4920/21</span>
-                <span class="judgment-card-date">26/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4920-21.html" class="main-link">אבו עקר (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4584/21</span>
-                <span class="judgment-card-date">25/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4584-21.html" class="main-link">ראשד מחמד מרשד חאמד (עציר) נ&#39; מפקד כוחות צה&#34;ל באיו&#34;ש  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5120/18</span>
-                <span class="judgment-card-date">21/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5120-18.html" class="main-link">נשים קוראות ללדת- למען חופש בחירה בלידה  ואח&#39; נ&#39; מדינת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>דיון נוסף בג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4376/21</span>
-                <span class="judgment-card-date">12/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4376-21.html" class="main-link">עבד רבה (עציר) נ&#39; שופט צבאי משפטאי  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 8010/16</span>
-                <span class="judgment-card-date">12/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/8010-16.html" class="main-link">ברזון מלכה נעמה  ואח&#39; נ&#39; מדינת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 2922/20</span>
-                <span class="judgment-card-date">12/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/2922-20.html" class="main-link">סיעת מרצ  נ&#39; הכנסת  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 2941/20</span>
-                <span class="judgment-card-date">12/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/2941-20.html" class="main-link">אביגדור  עו&#34;ד  ואח&#39; נ&#39; נתניהו  ח&#34;כ  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 2905/20</span>
-                <span class="judgment-card-date">12/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/2905-20.html" class="main-link">התנועה למען איכות השלטון בישראל  נ&#39; כנסת ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 4/19</span>
-                <span class="judgment-card-date">08/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/4-19.html" class="main-link">סמי מיכאל ו-55 עותרים נוספים  נ&#39; הכנסת  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5555/18</span>
-                <span class="judgment-card-date">08/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5555-18.html" class="main-link">ח&#34;כ אכרם חסון  ואח&#39; נ&#39; כנסת ירושלים  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 684/21</span>
-                <span class="judgment-card-date">08/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/684-21.html" class="main-link">התנועה לטוהר המידות (ע&#34;ר)  נ&#39; שר הדיגיטלי הלאומי, ח&#34;כ דוד אמסלם  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6710/18</span>
-                <span class="judgment-card-date">08/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6710-18.html" class="main-link">מריו טרקטינסקי ו-38 אח&#39;  נ&#39; כנסת ישראל</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5866/18</span>
-                <span class="judgment-card-date">08/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5866-18.html" class="main-link">ועדת המעקב העליונה לענייני הערבים בישראל  ואח&#39; נ&#39; כנסת  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 9257/18</span>
-                <span class="judgment-card-date">08/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/9257-18.html" class="main-link">התנועה לטוהר המידות  נ&#39; הכנסת  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6939/18</span>
-                <span class="judgment-card-date">08/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6939-18.html" class="main-link">גבריהו  ואח&#39; נ&#39; הכנסת  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 6622/18</span>
-                <span class="judgment-card-date">08/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/6622-18.html" class="main-link">עזאם  ואח&#39; נ&#39; כנסת  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5741/18</span>
-                <span class="judgment-card-date">08/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5741-18.html" class="main-link">מרצ  ואח&#39; נ&#39; כנסת  ישראל  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-        <article class="judgment-card">
-            <header class="judgment-card-header">
-                <span class="judgment-card-case-number">תיק: 5624/18</span>
-                <span class="judgment-card-date">08/07/2021</span>
-            </header>
-
-            <h3 class="judgment-card-title">
-                <a href="judgments/5624-18.html" class="main-link">פרופ&#39; ריאד אגבאריה  ואח&#39; נ&#39; הכנסת  ואח&#39;</a>
-            </h3>
-
-            
-            <span class="judgment-card-subject"><span class="subject-label">עניין:</span>עתירות לבג&#34;צ</span>
-            
-        </article>
-        
-    </div>
-    <!-- Bottom Pagination -->
     
 <div class="pagination-container">
     <nav aria-label="Pagination">
