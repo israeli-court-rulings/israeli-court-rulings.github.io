@@ -120,7 +120,7 @@
         background: white;
         padding: 1.5rem;
         border-radius: 8px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         margin-bottom: 1.5rem;
     }
 
@@ -148,39 +148,57 @@
     }
 
     .nested-container {
-        margin-top: 0.5rem;
-        padding-right: 1rem;
-        border-right: 2px solid #e0e0e0;
         position: relative;
+        padding-right: 1.5rem;
+        margin: 0.25rem 0;
     }
 
-    .collapse-btn {
+    .collapsible>.collapse-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
         background: #f0f0f0;
         border: 1px solid #ddd;
         border-radius: 4px;
-        width: 24px;
-        height: 24px;
-        display: inline-flex;
+        width: 20px;
+        height: 20px;
+        display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
         font-weight: bold;
-        margin-left: 0.5rem;
-        font-size: 1.2rem;
-        vertical-align: middle;
         user-select: none;
+        z-index: 10;
+        font-size: 1rem;
     }
 
-    .collapse-btn:hover {
-        background: #e0e0e0;
-    }
-
-    .collapsed > .nested-content {
+    .collapsible.collapsed>.nested-content {
         display: none;
     }
 
-    .collapsed > .collapse-btn::before {
-        content: "+";
+    .field-label.toggleable {
+        cursor: pointer;
+        color: var(--primary-color);
+        display: inline-block;
+    }
+
+    .field-label.toggleable:hover {
+        text-decoration: underline;
+    }
+
+    .analysis-list {
+        margin: 0.25rem 0;
+        padding-right: 0.5rem;
+        list-style-type: none;
+    }
+
+    .analysis-list li {
+        padding: 0.25rem 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .analysis-list li:last-child {
+        border-bottom: none;
     }
 
     /* Responsive adjustments */
@@ -188,6 +206,7 @@
         .judgment-header {
             padding: 1rem;
         }
+
         .full-text {
             padding: 1rem;
             font-size: 1rem;
@@ -196,13 +215,30 @@
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggleButtons = document.querySelectorAll('.collapse-btn');
-        toggleButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const container = this.closest('.nested-container');
+    document.addEventListener('DOMContentLoaded', function () {
+        // Handle collapse button clicks
+        document.querySelectorAll('.collapsible > .collapse-btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const container = this.closest('.collapsible');
                 container.classList.toggle('collapsed');
+                container.classList.toggle('expanded');
                 this.textContent = container.classList.contains('collapsed') ? '+' : '-';
+            });
+        });
+
+        // Handle toggleable label clicks
+        document.querySelectorAll('.field-label.toggleable').forEach(label => {
+            label.addEventListener('click', function (e) {
+                e.stopPropagation();
+                // Find the collapsible container that follows or contains this label's content
+                const container = this.parentElement.querySelector('.collapsible');
+                if (container) {
+                    container.classList.toggle('collapsed');
+                    container.classList.toggle('expanded');
+                    const btn = container.querySelector(':scope > .collapse-btn');
+                    if (btn) btn.textContent = container.classList.contains('collapsed') ? '+' : '-';
+                }
             });
         });
     });
@@ -566,656 +602,471 @@
         <div class="analysis-card">
             
             
-            
-            
-                
-                <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        Quote
-                    </h4>
-                    <div class="field-value">
-            
-                
-                    אשר על כן, העתירה נדחית. העותרים יישאו בהוצאות המשיבה בסך 5,000 ש&#34;ח. 
 
-ניתן היום, ‏ב&#39; באדר התשפ&#34;ו (‏19.2.2026).
-                
             
+            
+            <div class="analysis-item">
+                <h4 class="field-label toggleable"
+                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
+                    תוצאת ההליך
+                </h4>
+                <div class="field-value">
+        
+        
+        נדחה (לטובת הנתבע/המשיב)
+        
+        
         </div>
-                </div>
-                
+            </div>
             
-                
-                <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        Decision
-                    </h4>
-                    <div class="field-value">
             
-                
-                    נדחה (לטובת הנתבע/המשיב)
-                
             
-        </div>
-                </div>
-                
             
-                
             
-                
-                <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        Plaintiffs
-                    </h4>
-                    <div class="field-value">
-            
-                <ul style="padding-right: 1.5rem; margin: 0.5rem 0;">
+            <div class="analysis-item">
+                <h4 class="field-label toggleable"
+                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
+                    תובעים
+                </h4>
+                <div class="field-value">
+        
+        <div class="nested-container collapsible expanded">
+            <span class="collapse-btn">-</span>
+            <div class="nested-content">
+                <ul class="analysis-list">
                     
-                        <li>
-            
-                <div class="nested-container collapsible">
-                    
-                    <span class="collapse-btn">-</span>
-                    
-                    <div class="nested-content">
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Name</span>
-                                <div class="field-value">
-            
-                
-                    יגדל אך
-                
-            
-        </div>
-                            </div>
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Type</span>
-                                <div class="field-value">
-            
-                
-                    אדם פרטי
-                
-            
-        </div>
-                            </div>
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Represented by</span>
-                                <div class="field-value">
-            
-                <ul style="padding-right: 1.5rem; margin: 0.5rem 0;">
-                    
-                        <li>
-            
-                
-                    עו&#34;ד שחר הררי
-                
-            
+                    <li>
+        
+        
+        יגדל אך
+        
+        
         </li>
                     
-                        <li>
-            
-                
-                    עו&#34;ד שי אברג&#39;ל
-                
-            
+                    <li>
+        
+        
+        גלובל גרין גרופ (אך דוד) בע&#34;מ
+        
+        
         </li>
                     
                 </ul>
-            
+            </div>
         </div>
-                            </div>
-                        
-                    </div>
-                </div>
+        
+        </div>
+            </div>
             
+            
+            
+            <div class="analysis-item">
+                <h4 class="field-label toggleable"
+                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
+                    נתבעים
+                </h4>
+                <div class="field-value">
+        
+        <div class="nested-container collapsible expanded">
+            <span class="collapse-btn">-</span>
+            <div class="nested-content">
+                <ul class="analysis-list">
+                    
+                    <li>
+        
+        
+        בית משפט השלום ברמלה - כבוד השופט הישאם אבו שחאדה
+        
+        
         </li>
                     
-                        <li>
-            
-                <div class="nested-container collapsible">
-                    
-                    <span class="collapse-btn">-</span>
-                    
-                    <div class="nested-content">
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Name</span>
-                                <div class="field-value">
-            
-                
-                    גלובל גרין גרופ (אך דוד) בע&#34;מ
-                
-            
-        </div>
-                            </div>
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Type</span>
-                                <div class="field-value">
-            
-                
-                    חברה/תאגיד עסקי
-                
-            
-        </div>
-                            </div>
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Represented by</span>
-                                <div class="field-value">
-            
-                <ul style="padding-right: 1.5rem; margin: 0.5rem 0;">
-                    
-                        <li>
-            
-                
-                    עו&#34;ד שחר הררי
-                
-            
+                    <li>
+        
+        
+        ועדה מקומית לתכנון שוהם
+        
+        
         </li>
                     
-                        <li>
-            
-                
-                    עו&#34;ד שי אברג&#39;ל
-                
-            
+                    <li>
+        
+        
+        מועצה מקומית שהם
+        
+        
         </li>
                     
                 </ul>
-            
+            </div>
         </div>
-                            </div>
-                        
-                    </div>
-                </div>
+        
+        </div>
+            </div>
             
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="analysis-item">
+                <h4 class="field-label toggleable"
+                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
+                     טענות הצדדים
+                </h4>
+                <div class="field-value">
+        
+        <div class="nested-container collapsible expanded">
+            <span class="collapse-btn">-</span>
+            <div class="nested-content">
+                
+                <div class="analysis-item">
+                    
+                    <span
+                        class="field-label toggleable">טיעוני ההגנה</span>
+                    
+                    <div class="field-value">
+        
+        <div class="nested-container collapsible expanded">
+            <span class="collapse-btn">-</span>
+            <div class="nested-content">
+                <ul class="analysis-list">
+                    
+                    <li>
+        
+        
+        החלטת הביניים של בית משפט קמא פוגעת בזכותם של העותרים להליך הוגן.
+        
+        
+        </li>
+                    
+                    <li>
+        
+        
+        החלטת הביניים חורגת מהכללים הנוהגים על פי סדר הדין הפלילי.
+        
+        
+        </li>
+                    
+                    <li>
+        
+        
+        בית המשפט קמא חרג מסמכותו.
+        
+        
+        </li>
+                    
+                    <li>
+        
+        
+        יש למנוע נזק בלתי הדיר להגנת העותרים על ידי התערבות בג&#34;ץ.
+        
+        
         </li>
                     
                 </ul>
-            
+            </div>
+        </div>
+        
         </div>
                 </div>
                 
-            
-                
-                <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        Defendants
-                    </h4>
-                    <div class="field-value">
-            
-                <ul style="padding-right: 1.5rem; margin: 0.5rem 0;">
-                    
-                        <li>
-            
-                <div class="nested-container collapsible">
-                    
-                    <span class="collapse-btn">-</span>
-                    
-                    <div class="nested-content">
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Name</span>
-                                <div class="field-value">
-            
-                
-                    בית משפט השלום ברמלה - כבוד השופט הישאם אבו שחאדה
-                
-            
+            </div>
         </div>
-                            </div>
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Type</span>
-                                <div class="field-value">
-            
-                
-                    לא ידוע/אחר
-                
-            
+        
         </div>
-                            </div>
-                        
-                    </div>
-                </div>
+            </div>
             
-        </li>
+            
+            
+            <div class="analysis-item">
+                <h4 class="field-label toggleable"
+                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
+                    הדגשים פרוצדורליים
+                </h4>
+                <div class="field-value">
+        
+        <div class="nested-container collapsible expanded">
+            <span class="collapse-btn">-</span>
+            <div class="nested-content">
+                <ul class="analysis-list">
                     
-                        <li>
-            
-                <div class="nested-container collapsible">
-                    
-                    <span class="collapse-btn">-</span>
-                    
-                    <div class="nested-content">
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Name</span>
-                                <div class="field-value">
-            
-                
-                    ועדה מקומית לתכנון שוהם
-                
-            
-        </div>
-                            </div>
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Type</span>
-                                <div class="field-value">
-            
-                
-                    מדינה/רשות מקומית/גוף ציבורי
-                
-            
-        </div>
-                            </div>
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Represented by</span>
-                                <div class="field-value">
-            
-                <ul style="padding-right: 1.5rem; margin: 0.5rem 0;">
-                    
-                        <li>
-            
-                
-                    עו&#34;ד אמיר ברק
-                
-            
+                    <li>
+        
+        
+        העתירה הוגשה כנגד החלטת ביניים בהליך פלילי.
+        
+        
         </li>
                     
                 </ul>
-            
+            </div>
         </div>
-                            </div>
-                        
-                    </div>
-                </div>
+        
+        </div>
+            </div>
             
+            
+            
+            <div class="analysis-item">
+                <h4 class="field-label toggleable"
+                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
+                    הפניות לתיקים אחרים
+                </h4>
+                <div class="field-value">
+        
+        <div class="nested-container collapsible expanded">
+            <span class="collapse-btn">-</span>
+            <div class="nested-content">
+                
+                <div class="analysis-item">
+                    
+                    <span
+                        class="field-label toggleable">תקדימים משפטיים</span>
+                    
+                    <div class="field-value">
+        
+        <div class="nested-container collapsible expanded">
+            <span class="collapse-btn">-</span>
+            <div class="nested-content">
+                <ul class="analysis-list">
+                    
+                    <li>
+        
+        
+        בג&#34;ץ 4922/19 נוה נ&#39; מדינת ישראל-פרקליטות מחוז מרכז, פסקה 9
+        
+        
         </li>
                     
-                        <li>
-            
-                <div class="nested-container collapsible">
+                    <li>
+        
+        
+        בג&#34;ץ 12427-03-25 בושנאק נ&#39; בנישו, פסקה 3
+        
+        
+        </li>
                     
-                    <span class="collapse-btn">-</span>
-                    
-                    <div class="nested-content">
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Name</span>
-                                <div class="field-value">
-            
-                
-                    מועצה מקומית שהם
-                
-            
-        </div>
-                            </div>
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Type</span>
-                                <div class="field-value">
-            
-                
-                    מדינה/רשות מקומית/גוף ציבורי
-                
-            
-        </div>
-                            </div>
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Represented by</span>
-                                <div class="field-value">
-            
-                <ul style="padding-right: 1.5rem; margin: 0.5rem 0;">
-                    
-                        <li>
-            
-                
-                    עו&#34;ד אמיר ברק
-                
-            
+                    <li>
+        
+        
+        בג&#34;ץ 34745-10-24 חג&#39; יחיא נ&#39; בית משפט השלום כפר סבא
+        
+        
         </li>
                     
                 </ul>
-            
+            </div>
         </div>
-                            </div>
-                        
-                    </div>
+        
+        </div>
                 </div>
+                
+                <div class="analysis-item">
+                    
+                    <span
+                        class="field-label ">הסבר על אזכור התיקים</span>
+                    
+                    <div class="field-value">
+        
+        
+        התקבלו כמקרים המדגימים את ההלכה המושרשת שלפיה עתירה לבג&#34;ץ אינה יכולה לשמש כ&#34;מסלול עוקף&#34; לבירורן של טענות המופנות כלפי החלטות ביניים בהליך הפלילי, אלא במקרים חריגים ונדירים.
+        
+        
+        </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        </div>
+            </div>
             
+            
+            
+            <div class="analysis-item">
+                <h4 class="field-label toggleable"
+                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
+                    תגיות נושא
+                </h4>
+                <div class="field-value">
+        
+        <div class="nested-container collapsible expanded">
+            <span class="collapse-btn">-</span>
+            <div class="nested-content">
+                <ul class="analysis-list">
+                    
+                    <li>
+        
+        
+        הליך פלילי
+        
+        
+        </li>
+                    
+                    <li>
+        
+        
+        תכנון ובנייה
+        
+        
+        </li>
+                    
+                    <li>
+        
+        
+        רישוי עסקים
+        
+        
+        </li>
+                    
+                    <li>
+        
+        
+        החלטת ביניים
+        
+        
+        </li>
+                    
+                    <li>
+        
+        
+        הליך הוגן
+        
+        
+        </li>
+                    
+                    <li>
+        
+        
+        סמכות שיפוט
+        
+        
         </li>
                     
                 </ul>
-            
+            </div>
         </div>
-                </div>
-                
+        
+        </div>
+            </div>
             
-                
             
-                
             
-                
+            <div class="analysis-item">
+                <h4 class="field-label toggleable"
+                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
+                    שלב ההליך
+                </h4>
+                <div class="field-value">
+        
+        
+        עתירה
+        
+        
+        </div>
+            </div>
             
+            
+            
+            
+            
+            <div class="analysis-item">
+                <h4 class="field-label toggleable"
+                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
+                    סכום הוצאות משפט
+                </h4>
+                <div class="field-value">
+        
+        
+        5000
+        
+        
+        </div>
+            </div>
+            
+            
+            
+            <div class="analysis-item">
+                <h4 class="field-label toggleable"
+                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
+                    טענות מנהליות
+                </h4>
+                <div class="field-value">
+        
+        <div class="nested-container collapsible expanded">
+            <span class="collapse-btn">-</span>
+            <div class="nested-content">
                 
                 <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        Arguments
-                    </h4>
+                    
+                    <span
+                        class="field-label ">חריגה מסמכות</span>
+                    
                     <div class="field-value">
-            
-                <div class="nested-container ">
-                    
-                    <div class="nested-content">
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Defense arguments</span>
-                                <div class="field-value">
-            
-                <ul style="padding-right: 1.5rem; margin: 0.5rem 0;">
-                    
-                        <li>
-            
-                
-                    החלטת הביניים של בית משפט קמא פוגעת בזכותם של העותרים להליך הוגן.
-                
-            
-        </li>
-                    
-                        <li>
-            
-                
-                    החלטת הביניים חורגת מהכללים הנוהגים על פי סדר הדין הפלילי.
-                
-            
-        </li>
-                    
-                        <li>
-            
-                
-                    בית המשפט קמא חרג מסמכותו.
-                
-            
-        </li>
-                    
-                        <li>
-            
-                
-                    יש למנוע נזק בלתי הדיר להגנת העותרים על ידי התערבות בג&#34;ץ.
-                
-            
-        </li>
-                    
-                </ul>
-            
-        </div>
-                            </div>
-                        
-                    </div>
-                </div>
-            
+        
+        
+        הטענה הועלתה ונדחתה
+        
+        
         </div>
                 </div>
-                
-            
                 
                 <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        Procedural highlights
-                    </h4>
+                    
+                    <span
+                        class="field-label ">פגמים בהליך</span>
+                    
                     <div class="field-value">
-            
-                <ul style="padding-right: 1.5rem; margin: 0.5rem 0;">
-                    
-                        <li>
-            
-                
-                    העתירה הוגשה כנגד החלטת ביניים בהליך פלילי.
-                
-            
-        </li>
-                    
-                </ul>
-            
+        
+        
+        הטענה הועלתה ונדחתה
+        
+        
         </div>
                 </div>
                 
+            </div>
+        </div>
+        
+        </div>
+            </div>
             
+            
+            
+            <div class="analysis-item">
+                <h4 class="field-label toggleable"
+                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
+                    צווים וסעדים
+                </h4>
+                <div class="field-value">
+        
+        <div class="nested-container collapsible expanded">
+            <span class="collapse-btn">-</span>
+            <div class="nested-content">
                 
                 <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        References
-                    </h4>
+                    
+                    <span
+                        class="field-label ">צו ביניים</span>
+                    
                     <div class="field-value">
-            
-                <div class="nested-container ">
-                    
-                    <div class="nested-content">
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Precedents</span>
-                                <div class="field-value">
-            
-                <ul style="padding-right: 1.5rem; margin: 0.5rem 0;">
-                    
-                        <li>
-            
-                
-                    בג&#34;ץ 4922/19 נוה נ&#39; מדינת ישראל-פרקליטות מחוז מרכז, פסקה 9
-                
-            
-        </li>
-                    
-                        <li>
-            
-                
-                    בג&#34;ץ 12427-03-25 בושנאק נ&#39; בנישו, פסקה 3
-                
-            
-        </li>
-                    
-                        <li>
-            
-                
-                    בג&#34;ץ 34745-10-24 חג&#39; יחיא נ&#39; בית משפט השלום כפר סבא
-                
-            
-        </li>
-                    
-                </ul>
-            
-        </div>
-                            </div>
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Reference reasoning</span>
-                                <div class="field-value">
-            
-                
-                    התקבלו כמקרים המדגימים את ההלכה המושרשת שלפיה עתירה לבג&#34;ץ אינה יכולה לשמש כ&#34;מסלול עוקף&#34; לבירורן של טענות המופנות כלפי החלטות ביניים בהליך הפלילי, אלא במקרים חריגים ונדירים.
-                
-            
-        </div>
-                            </div>
-                        
-                    </div>
-                </div>
-            
+        
+        
+        הטענה הועלתה והתקבלה
+        
+        
         </div>
                 </div>
                 
-            
-                
-                <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        Tags
-                    </h4>
-                    <div class="field-value">
-            
-                <ul style="padding-right: 1.5rem; margin: 0.5rem 0;">
-                    
-                        <li>
-            
-                
-                    הליך פלילי
-                
-            
-        </li>
-                    
-                        <li>
-            
-                
-                    תכנון ובנייה
-                
-            
-        </li>
-                    
-                        <li>
-            
-                
-                    רישוי עסקים
-                
-            
-        </li>
-                    
-                        <li>
-            
-                
-                    החלטת ביניים
-                
-            
-        </li>
-                    
-                        <li>
-            
-                
-                    הליך הוגן
-                
-            
-        </li>
-                    
-                        <li>
-            
-                
-                    סמכות שיפוט
-                
-            
-        </li>
-                    
-                </ul>
-            
+            </div>
         </div>
-                </div>
-                
-            
-                
-                <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        Procedural stage
-                    </h4>
-                    <div class="field-value">
-            
-                
-                    עתירה
-                
-            
+        
         </div>
-                </div>
-                
+            </div>
             
-                
-            
-                
-                <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        Legal expenses
-                    </h4>
-                    <div class="field-value">
-            
-                
-                    5000
-                
-            
-        </div>
-                </div>
-                
-            
-                
-                <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        Administrative arguments
-                    </h4>
-                    <div class="field-value">
-            
-                <div class="nested-container ">
-                    
-                    <div class="nested-content">
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Authority</span>
-                                <div class="field-value">
-            
-                
-                    הטענה הועלתה ונדחתה
-                
-            
-        </div>
-                            </div>
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Procedural defects</span>
-                                <div class="field-value">
-            
-                
-                    הטענה הועלתה ונדחתה
-                
-            
-        </div>
-                            </div>
-                        
-                    </div>
-                </div>
-            
-        </div>
-                </div>
-                
-            
-                
-                <div class="analysis-item">
-                    <h4 style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                        Administrative orders
-                    </h4>
-                    <div class="field-value">
-            
-                <div class="nested-container ">
-                    
-                    <div class="nested-content">
-                        
-                            <div class="analysis-item">
-                                <span class="field-label">Interim order</span>
-                                <div class="field-value">
-            
-                
-                    הטענה הועלתה והתקבלה
-                
-            
-        </div>
-                            </div>
-                        
-                    </div>
-                </div>
-            
-        </div>
-                </div>
-                
             
         </div>
     </section>
