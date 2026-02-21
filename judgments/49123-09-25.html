@@ -222,30 +222,41 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Unified handler: any .collapse-btn toggles its closest .collapsible ancestor
+        function findTarget(btn) {
+            // If this button is inside an .analysis-item's header,
+            // collapse only that item's value (.field-value > .collapsible), not the whole section.
+            const analysisItem = btn.closest('.analysis-item');
+            if (analysisItem) {
+                return analysisItem.querySelector(':scope > .field-value > .collapsible');
+            }
+            // Otherwise (section-level header), collapse the whole section/.nested-content
+            return btn.closest('.collapsible');
+        }
+
         document.querySelectorAll('.collapse-btn').forEach(btn => {
             btn.addEventListener('click', function (e) {
                 e.stopPropagation();
-                const container = this.closest('.collapsible');
-                if (!container) return;
-                container.classList.toggle('collapsed');
-                container.classList.toggle('expanded');
-                this.textContent = container.classList.contains('collapsed') ? '+' : '-';
+                const target = findTarget(this);
+                if (!target) return;
+                target.classList.toggle('collapsed');
+                target.classList.toggle('expanded');
+                this.textContent = target.classList.contains('collapsed') ? '+' : '-';
             });
         });
 
-        // Handle toggleable label clicks — find the adjacent .collapsible sibling or child
+        // Clicking the label text also toggles, consistent with the button
         document.querySelectorAll('.field-label.toggleable').forEach(label => {
             label.addEventListener('click', function (e) {
                 e.stopPropagation();
-                const item = this.closest('.analysis-item');
-                const container = item ? item.querySelector('.collapsible') : null;
-                if (container) {
-                    container.classList.toggle('collapsed');
-                    container.classList.toggle('expanded');
-                    const btn = container.querySelector('.collapse-btn');
-                    if (btn) btn.textContent = container.classList.contains('collapsed') ? '+' : '-';
-                }
+                const analysisItem = this.closest('.analysis-item');
+                const target = analysisItem
+                    ? analysisItem.querySelector(':scope > .field-value > .collapsible')
+                    : null;
+                if (!target) return;
+                target.classList.toggle('collapsed');
+                target.classList.toggle('expanded');
+                const btn = analysisItem.querySelector(':scope > .collapsible-header > .collapse-btn');
+                if (btn) btn.textContent = target.classList.contains('collapsed') ? '+' : '-';
             });
         });
     });
@@ -550,7 +561,7 @@
             
         </div>
 
-        <h2 style="margin-top: 1rem; color: #333;">יגדל אך נ. בית משפט השלום ברמלה - כבוד השופט הישאם אבו שחאדה</h2>
+        <h2 style="margin-top: 0.75rem; color: #333; font-size: 1.1rem; font-weight: 600; line-height: 1.4;">יגדל אך נ. בית משפט השלום ברמלה - כבוד השופט הישאם אבו שחאדה</h2>
 
         
         <p
