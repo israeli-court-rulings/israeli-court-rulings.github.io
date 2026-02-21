@@ -193,28 +193,34 @@
     }
 
     .nested-container {
-        position: relative;
-        padding-right: 1.5rem;
         margin: 0.25rem 0;
     }
 
-    .collapsible>.collapse-btn {
-        position: absolute;
-        right: 0;
-        top: 0;
+    /* Header row that puts the collapse button inline to the right of the title */
+    .collapsible-header {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        flex-direction: row-reverse;
+        /* title on right, button immediately left of it in RTL */
+        justify-content: flex-end;
+    }
+
+    .collapse-btn {
         cursor: pointer;
         background: #f0f0f0;
         border: 1px solid #ddd;
         border-radius: 4px;
-        width: 20px;
+        min-width: 20px;
         height: 20px;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
         font-weight: bold;
         user-select: none;
-        z-index: 10;
         font-size: 1rem;
+        flex-shrink: 0;
+        padding: 0 4px;
     }
 
     .collapsible.collapsed>.nested-content {
@@ -261,27 +267,28 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Handle collapse button clicks
-        document.querySelectorAll('.collapsible > .collapse-btn').forEach(btn => {
+        // Unified handler: any .collapse-btn toggles its closest .collapsible ancestor
+        document.querySelectorAll('.collapse-btn').forEach(btn => {
             btn.addEventListener('click', function (e) {
                 e.stopPropagation();
                 const container = this.closest('.collapsible');
+                if (!container) return;
                 container.classList.toggle('collapsed');
                 container.classList.toggle('expanded');
                 this.textContent = container.classList.contains('collapsed') ? '+' : '-';
             });
         });
 
-        // Handle toggleable label clicks
+        // Handle toggleable label clicks — find the adjacent .collapsible sibling or child
         document.querySelectorAll('.field-label.toggleable').forEach(label => {
             label.addEventListener('click', function (e) {
                 e.stopPropagation();
-                // Find the collapsible container that follows or contains this label's content
-                const container = this.parentElement.querySelector('.collapsible');
+                const item = this.closest('.analysis-item');
+                const container = item ? item.querySelector('.collapsible') : null;
                 if (container) {
                     container.classList.toggle('collapsed');
                     container.classList.toggle('expanded');
-                    const btn = container.querySelector(':scope > .collapse-btn');
+                    const btn = container.querySelector('.collapse-btn');
                     if (btn) btn.textContent = container.classList.contains('collapsed') ? '+' : '-';
                 }
             });
@@ -590,11 +597,27 @@
 
         <h2 style="margin-top: 1rem; color: #333;">העמותה לדמוקרטיה מתקדמת  נ&#39; סיעת הליכוד בכנסת ה-23  ואח&#39;</h2>
 
+        
+        <p
+            style="font-size: 1.1rem; color: #555; font-style: italic; margin-top: 0.5rem; border-right: 3px solid #ddd; padding-right: 1rem;">
+            עתירות נגד הטלת מלאכת הרכבת הממשלה על בנימין נתניהו בשל כתב אישום נגדו ונגד סעיפים בהסכם הקואליציוני.
+        </p>
+        
+
         <div class="meta-grid">
             <div class="meta-item">
                 <strong>תאריך פסק הדין</strong>
                 2020-05-27
             </div>
+
+            
+            <div class="meta-item">
+                <strong>סוג הליך</strong>
+                
+                עתירה לבג&#34;ץ (בג&#34;ץ)
+                
+            </div>
+            
 
             
             <div class="meta-item">
@@ -628,27 +651,26 @@
                 דוד מינץ
                 
             </div>
+
+            
+            
+            
+            <div class="meta-item">
+                <strong>בדעת רוב</strong>
+                11/11
+            </div>
+            
             
         </div>
     </div>
 
     
     <section class="summary-section">
-        <h3 style="margin-top: 0; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem;">תקציר</h3>
+        <h3 style="margin-top: 0; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem;">סיכום פסק הדין
+        </h3>
 
         
-        <h4>התביעה במשפט אחד</h4>
-        <p>עתירות נגד הטלת מלאכת הרכבת הממשלה על בנימין נתניהו בשל כתב אישום נגדו ונגד סעיפים בהסכם הקואליציוני.</p>
-        
-
-        
-        <h4>סיכום מורחב</h4>
         <p>בית המשפט העליון, בהרכב מורחב של 11 שופטים, דן בשמונה עתירות שביקשו למנוע את הטלת מלאכת הרכבת הממשלה על בנימין נתניהו בשל כתבי האישום התלויים נגדו, וכן לפסול סעיפים בהסכם הקואליציוני בין הליכוד לכחול לבן. השופטים קבעו פה אחד כי למרות הקושי הציבורי והערכי בכהונת ראש ממשלה תחת כתב אישום, אין מניעה משפטית לכך בחוקי היסוד הקיימים. בית המשפט הדגיש כי בשלב שבו רוב חברי הכנסת (72 ח&#34;כים) מבקשים מהנשיא להטיל את המנדט על חבר כנסת מסוים, מדובר בהחלטה פוליטית-משטרית שבית המשפט יתערב בה רק במקרים קיצוניים ביותר. לגבי ההסכם הקואליציוני, נקבע כי רוב הטענות מוקדמות וייבחנו אם וכאשר יחוקקו חוקים ספציפיים בעקבותיו.</p>
-        
-
-        
-        <h4>נימוקי הרוב</h4>
-        <p>החוק הישראלי לא אוסר על חבר כנסת עם כתב אישום להרכיב ממשלה, ובית המשפט לא יכול להחליף את שיקול הדעת של נבחרי הציבור (חברי הכנסת) שקיבלו מנדט מהעם.</p>
         
 
         
@@ -656,899 +678,926 @@
         <p>קביעה תקדימית כי נאשם בפלילים יכול להרכיב ממשלה ולכהן כראש ממשלה, תוך שרטוט גבולות הביקורת השיפוטית על החלטות פוליטיות של הכנסת.</p>
         
     </section>
+    
 
+    
     <!-- Generic Analysis Builder -->
-    <section class="analysis-details">
-        <h3 style="margin-bottom: 1.5rem;">פרטי ניתוח מעמיקים</h3>
+    <section class="analysis-details collapsible expanded">
+        <div class="collapsible-header" style="margin-bottom: 1.5rem;">
+            <h3 class="toggleable" style="margin: 0; cursor: pointer; color: var(--primary-color);">ניתוח/פירוק פסק הדין
+            </h3>
+            <span class="collapse-btn">-</span>
+        </div>
 
-        
-
-        <div class="analysis-card">
-            
-            
+        <div class="nested-content">
 
             
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    תוצאת ההליך
-                </h4>
-                <div class="field-value">
-        
-        
-        נדחה (לטובת הנתבע/המשיב)
-        
-        
-        </div>
-            </div>
-            
-            
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    תובעים
-                </h4>
-                <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
-                    
-                    <li>
-        
-        
-        התנועה למען איכות השלטון בישראל
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        ד&#34;ר ארנה ברי ו-122 אח&#39;
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        עמותת חוזה חדש
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        משמר הדמוקרטיה הישראלית
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        עו&#34;ד שפיק רפול
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        התנועה לטוהר המידות
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        סיעת יש עתיד-תל&#34;ם
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        העמותה לדמוקרטיה מתקדמת
-        
-        
-        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-        </div>
-            </div>
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    נתבעים
-                </h4>
-                <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
-                    
-                    <li>
-        
-        
-        היועץ המשפטי לממשלה
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        ראש הממשלה בנימין נתניהו
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        הכנסת
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        סיעת הליכוד
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        סיעת כחול לבן
-        
-        
-        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-        </div>
-            </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                     טענות הצדדים
-                </h4>
-                <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
+
+            <div class="analysis-card">
+                
+                
+
+                
                 
                 <div class="analysis-item">
-                    
-                    <span
-                        class="field-label toggleable">טיעוני התביעה</span>
-                    
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">תובעים
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
                     <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
-                    
-                    <li>
-        
-        
-        לא יעלה על הדעת שאדם הנאשם בשוחד יכהן בתפקיד הרם ביותר בשירות הציבורי.
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        הלכת דרעי-פנחסי מחייבת פסילת מינוי שר הנאשם בפלילים, ועל דרך קל וחומר יש להחילה על ראש ממשלה.
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        כהונת נאשם בפלילים כראש ממשלה פוגעת אנושות באמון הציבור בשלטון ובטוהר המידות.
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        ההסכם הקואליציוני כולל סעיפים המנוגדים לתקנת הציבור ומשנים סדרי משטר בסיסיים.
-        
-        
-        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-        </div>
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            התנועה למען איכות השלטון בישראל
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            ד&#34;ר ארנה ברי ו-122 אח&#39;
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            עמותת חוזה חדש
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            משמר הדמוקרטיה הישראלית
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            עו&#34;ד שפיק רפול
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            התנועה לטוהר המידות
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            סיעת יש עתיד-תל&#34;ם
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            העמותה לדמוקרטיה מתקדמת
+            
+            
+            </li>
+                        
+                    </ul>
                 </div>
+            </div>
+            
+            </div>
+                </div>
+                
+                
                 
                 <div class="analysis-item">
-                    
-                    <span
-                        class="field-label toggleable">טיעוני ההגנה</span>
-                    
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">נתבעים
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
                     <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
-                    
-                    <li>
-        
-        
-        חוק יסוד: הממשלה קובע הסדר ממצה לפיו ראש ממשלה יכול לכהן עד פסק דין חלוט.
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        החלטת חברי הכנסת להמליץ על מועמד היא החלטה פוליטית מובהקת שאינה שפיטה.
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        התערבות בית המשפט תהווה פגיעה קשה ברצון הבוחר ובריבונות הכנסת.
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        חזקת החפות עומדת לראש הממשלה כל עוד לא הורשע.
-        
-        
-        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-        </div>
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            היועץ המשפטי לממשלה
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            ראש הממשלה בנימין נתניהו
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            הכנסת
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            סיעת הליכוד
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            סיעת כחול לבן
+            
+            
+            </li>
+                        
+                    </ul>
                 </div>
+            </div>
+            
+            </div>
+                </div>
+                
+                
                 
                 <div class="analysis-item">
-                    
-                    <span
-                        class="field-label toggleable">מחלוקות עובדתיות</span>
-                    
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);"> טענות הצדדים
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
                     <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
                     
-                    <li>
-        
-        
-        האם סעיפי ההסכם הקואליציוני מהווים שינוי משטרי בלתי חוקתי.
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        האם קיימת מניעה מעשית לניהול משפט פלילי במקביל לניהול המדינה.
-        
-        
-        </li>
-                    
-                </ul>
+                    <div class="analysis-item">
+                        
+                        <div class="collapsible-header" style="margin-bottom: 0.15rem;">
+                            <span
+                                class="field-label toggleable">טיעוני התביעה</span>
+                            
+                            <span class="collapse-btn">-</span>
+                            
+                        </div>
+                        
+                        <div class="field-value">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            לא יעלה על הדעת שאדם הנאשם בשוחד יכהן בתפקיד הרם ביותר בשירות הציבורי.
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            הלכת דרעי-פנחסי מחייבת פסילת מינוי שר הנאשם בפלילים, ועל דרך קל וחומר יש להחילה על ראש ממשלה.
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            כהונת נאשם בפלילים כראש ממשלה פוגעת אנושות באמון הציבור בשלטון ובטוהר המידות.
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            ההסכם הקואליציוני כולל סעיפים המנוגדים לתקנת הציבור ומשנים סדרי משטר בסיסיים.
+            
+            
+            </li>
+                        
+                    </ul>
+                </div>
             </div>
-        </div>
-        
-        </div>
+            
+            </div>
+                    </div>
+                    
+                    <div class="analysis-item">
+                        
+                        <div class="collapsible-header" style="margin-bottom: 0.15rem;">
+                            <span
+                                class="field-label toggleable">טיעוני ההגנה</span>
+                            
+                            <span class="collapse-btn">-</span>
+                            
+                        </div>
+                        
+                        <div class="field-value">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            חוק יסוד: הממשלה קובע הסדר ממצה לפיו ראש ממשלה יכול לכהן עד פסק דין חלוט.
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            החלטת חברי הכנסת להמליץ על מועמד היא החלטה פוליטית מובהקת שאינה שפיטה.
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            התערבות בית המשפט תהווה פגיעה קשה ברצון הבוחר ובריבונות הכנסת.
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            חזקת החפות עומדת לראש הממשלה כל עוד לא הורשע.
+            
+            
+            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            </div>
+                    </div>
+                    
+                    <div class="analysis-item">
+                        
+                        <div class="collapsible-header" style="margin-bottom: 0.15rem;">
+                            <span
+                                class="field-label toggleable">מחלוקות עובדתיות</span>
+                            
+                            <span class="collapse-btn">-</span>
+                            
+                        </div>
+                        
+                        <div class="field-value">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            האם סעיפי ההסכם הקואליציוני מהווים שינוי משטרי בלתי חוקתי.
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            האם קיימת מניעה מעשית לניהול משפט פלילי במקביל לניהול המדינה.
+            
+            
+            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            </div>
                 </div>
                 
-            </div>
-        </div>
-        
-        </div>
-            </div>
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    ראיות משפטיות
-                </h4>
-                <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
+                
                 
                 <div class="analysis-item">
-                    
-                    <span
-                        class="field-label toggleable">ראיות מרכזיות שהתקבלו</span>
-                    
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">ראיות משפטיות
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
                     <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
                     
-                    <li>
-        
-        
-        כתב האישום נגד בנימין נתניהו בעבירות שוחד, מרמה והפרת אמונס.
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        הסכם קואליציוני חתום בין הליכוד לכחול לבן.
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        חתימות של 72 חברי כנסת הממליצים על נתניהו.
-        
-        
-        </li>
-                    
-                </ul>
+                    <div class="analysis-item">
+                        
+                        <div class="collapsible-header" style="margin-bottom: 0.15rem;">
+                            <span
+                                class="field-label toggleable">ראיות מרכזיות שהתקבלו</span>
+                            
+                            <span class="collapse-btn">-</span>
+                            
+                        </div>
+                        
+                        <div class="field-value">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            כתב האישום נגד בנימין נתניהו בעבירות שוחד, מרמה והפרת אמונס.
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            הסכם קואליציוני חתום בין הליכוד לכחול לבן.
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            חתימות של 72 חברי כנסת הממליצים על נתניהו.
+            
+            
+            </li>
+                        
+                    </ul>
+                </div>
             </div>
-        </div>
-        
-        </div>
+            
+            </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            </div>
                 </div>
                 
-            </div>
-        </div>
-        
-        </div>
-            </div>
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    הדגשים פרוצדורליים
-                </h4>
-                <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
-                    
-                    <li>
-        
-        
-        דיון בהרכב מורחב של 11 שופטים.
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        מתן פסק דין משלים המפרט את הנימוקים לאחר פסק דין קצר שניתן בשל דחיפות הזמנים.
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        איחוד של 8 עתירות שונות העוסקות באותו נושא.
-        
-        
-        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-        </div>
-            </div>
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    הפניות לתיקים אחרים
-                </h4>
-                <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
+                
                 
                 <div class="analysis-item">
-                    
-                    <span
-                        class="field-label toggleable">תקדימים משפטיים</span>
-                    
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">הדגשים פרוצדורליים
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
                     <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
-                    
-                    <li>
-        
-        
-        בג&#34;ץ 3094/93 התנועה למען איכות השלטון נ&#39; ממשלת ישראל (הלכת דרעי)
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        בג&#34;ץ 4267/93 אמיתי נ&#39; יצחק רבין (הלכת פנחסי)
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        בג&#34;ץ 4921/13 אומ&#34;ץ נ&#39; ראש עיריית רמת השרון (הלכת ראשי הערים)
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        בג&#34;ץ 1635/90 ז&#39;רז&#39;בסקי נ&#39; ראש הממשלה
-        
-        
-        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-        </div>
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            דיון בהרכב מורחב של 11 שופטים.
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            מתן פסק דין משלים המפרט את הנימוקים לאחר פסק דין קצר שניתן בשל דחיפות הזמנים.
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            איחוד של 8 עתירות שונות העוסקות באותו נושא.
+            
+            
+            </li>
+                        
+                    </ul>
                 </div>
+            </div>
+            
+            </div>
+                </div>
+                
+                
                 
                 <div class="analysis-item">
-                    
-                    <span
-                        class="field-label toggleable">תיקים שאוחדו</span>
-                    
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">הפניות לתיקים אחרים
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
                     <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
                     
-                    <li>
-        
-        
-        בג&#34;ץ 2592/20
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        בג&#34;ץ 2593/20
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        בג&#34;ץ 2594/20
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        בג&#34;ץ 2609/20
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        בג&#34;ץ 2612/20
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        בג&#34;ץ 2649/20
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        בג&#34;ץ 2675/20
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        בג&#34;ץ 2677/20
-        
-        
-        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-        </div>
+                    <div class="analysis-item">
+                        
+                        <div class="collapsible-header" style="margin-bottom: 0.15rem;">
+                            <span
+                                class="field-label toggleable">תקדימים משפטיים</span>
+                            
+                            <span class="collapse-btn">-</span>
+                            
+                        </div>
+                        
+                        <div class="field-value">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 3094/93 התנועה למען איכות השלטון נ&#39; ממשלת ישראל (הלכת דרעי)
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 4267/93 אמיתי נ&#39; יצחק רבין (הלכת פנחסי)
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 4921/13 אומ&#34;ץ נ&#39; ראש עיריית רמת השרון (הלכת ראשי הערים)
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 1635/90 ז&#39;רז&#39;בסקי נ&#39; ראש הממשלה
+            
+            
+            </li>
+                        
+                    </ul>
                 </div>
+            </div>
+            
+            </div>
+                    </div>
+                    
+                    <div class="analysis-item">
+                        
+                        <div class="collapsible-header" style="margin-bottom: 0.15rem;">
+                            <span
+                                class="field-label toggleable">תיקים שאוחדו</span>
+                            
+                            <span class="collapse-btn">-</span>
+                            
+                        </div>
+                        
+                        <div class="field-value">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 2592/20
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 2593/20
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 2594/20
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 2609/20
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 2612/20
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 2649/20
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 2675/20
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            בג&#34;ץ 2677/20
+            
+            
+            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            </div>
+                    </div>
+                    
+                    <div class="analysis-item">
+                        
+                        <div class="collapsible-header" style="margin-bottom: 0.15rem;">
+                            <span
+                                class="field-label toggleable">הפניות לפסקי דין אחרים</span>
+                            
+                            <span class="collapse-btn">-</span>
+                            
+                        </div>
+                        
+                        <div class="field-value">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            חוק יסוד: הממשלה
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            חוק יסוד: הכנסת
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            חוק הממשלה, התשס&#34;א-2001
+            
+            
+            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            </div>
+                </div>
+                
+                
                 
                 <div class="analysis-item">
-                    
-                    <span
-                        class="field-label toggleable">הפניות לפסקי דין אחרים</span>
-                    
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">תגיות נושא
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
                     <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
-                    
-                    <li>
-        
-        
-        חוק יסוד: הממשלה
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        חוק יסוד: הכנסת
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        חוק הממשלה, התשס&#34;א-2001
-        
-        
-        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-        </div>
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            משפט חוקתי
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            טוהר המידות
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            כשירות ראש ממשלה
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            הסכם קואליציוני
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            אמון הציבור
+            
+            
+            </li>
+                        
+                        <li>
+            
+            
+            בג&#34;ץ
+            
+            
+            </li>
+                        
+                    </ul>
                 </div>
+            </div>
+            
+            </div>
+                </div>
+                
+                
                 
                 <div class="analysis-item">
-                    
-                    <span
-                        class="field-label ">הסבר על אזכור התיקים</span>
-                    
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">שלב ההליך
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
                     <div class="field-value">
-        
-        
-        הסתמכות על הלכות קודמות בעניין טוהר המידות וניתוח חוקי היסוד הרלוונטיים.
-        
-        
-        </div>
+            
+            
+            עתירה
+            
+            
+            </div>
                 </div>
                 
-            </div>
-        </div>
-        
-        </div>
-            </div>
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    תגיות נושא
-                </h4>
-                <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
-                    
-                    <li>
-        
-        
-        משפט חוקתי
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        טוהר המידות
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        כשירות ראש ממשלה
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        הסכם קואליציוני
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        אמון הציבור
-        
-        
-        </li>
-                    
-                    <li>
-        
-        
-        בג&#34;ץ
-        
-        
-        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-        </div>
-            </div>
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    שלב ההליך
-                </h4>
-                <div class="field-value">
-        
-        
-        עתירה
-        
-        
-        </div>
-            </div>
-            
-            
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    סכום הוצאות משפט
-                </h4>
-                <div class="field-value">
-        
-        
-        0
-        
-        
-        </div>
-            </div>
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    הוראות וסעדים אופרטיביים
-                </h4>
-                <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
-                <ul class="analysis-list">
-                    
-                    <li>
-        
-        
-        דחיית העתירות נגד ההסכם הקואליציוני תוך שמירת הזכות לתקוף חקיקה עתידית שתנבע ממנו.
-        
-        
-        </li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-        </div>
-            </div>
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    טענות מנהליות
-                </h4>
-                <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
+                
+                
+                
                 
                 <div class="analysis-item">
-                    
-                    <span
-                        class="field-label ">עילת הסבירות</span>
-                    
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">סכום הוצאות משפט
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
                     <div class="field-value">
-        
-        
-        הטענה הועלתה ונדחתה
-        
-        
-        </div>
+            
+            
+            0
+            
+            
+            </div>
                 </div>
                 
-            </div>
-        </div>
-        
-        </div>
-            </div>
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    טענות חוקתיות
-                </h4>
-                <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
+                
                 
                 <div class="analysis-item">
-                    
-                    <span
-                        class="field-label ">דוקטרינת המבנה הבסיסי</span>
-                    
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">הוראות וסעדים אופרטיביים
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
                     <div class="field-value">
-        
-        
-        הטענה הועלתה ונדחתה
-        
-        
-        </div>
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    <ul class="analysis-list">
+                        
+                        <li>
+            
+            
+            דחיית העתירות נגד ההסכם הקואליציוני תוך שמירת הזכות לתקוף חקיקה עתידית שתנבע ממנו.
+            
+            
+            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            </div>
                 </div>
                 
-            </div>
-        </div>
-        
-        </div>
-            </div>
-            
-            
-            
-            <div class="analysis-item">
-                <h4 class="field-label toggleable"
-                    style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem; color: var(--primary-color);">
-                    צווים וסעדים
-                </h4>
-                <div class="field-value">
-        
-        <div class="nested-container collapsible expanded">
-            <span class="collapse-btn">-</span>
-            <div class="nested-content">
+                
                 
                 <div class="analysis-item">
-                    
-                    <span
-                        class="field-label ">צו על תנאי</span>
-                    
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">טענות מנהליות
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
                     <div class="field-value">
-        
-        
-        הטענה הועלתה ונדחתה
-        
-        
-        </div>
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    
+                    <div class="analysis-item">
+                        
+                        <div class="collapsible-header" style="margin-bottom: 0.15rem;">
+                            <span
+                                class="field-label ">עילת הסבירות</span>
+                            
+                        </div>
+                        
+                        <div class="field-value">
+            
+            
+            הטענה הועלתה ונדחתה
+            
+            
+            </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            </div>
                 </div>
                 
-            </div>
-        </div>
-        
-        </div>
-            </div>
+                
+                
+                <div class="analysis-item">
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">טענות חוקתיות
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
+                    <div class="field-value">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    
+                    <div class="analysis-item">
+                        
+                        <div class="collapsible-header" style="margin-bottom: 0.15rem;">
+                            <span
+                                class="field-label ">דוקטרינת המבנה הבסיסי</span>
+                            
+                        </div>
+                        
+                        <div class="field-value">
             
             
+            הטענה הועלתה ונדחתה
+            
+            
+            </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            </div>
+                </div>
+                
+                
+                
+                <div class="analysis-item">
+                    <div class="collapsible-header"
+                        style="margin-top: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.25rem;">
+                        <h4 class="field-label toggleable" style="margin: 0; color: var(--primary-color);">צווים וסעדים
+                        </h4>
+                        <span class="collapse-btn">-</span>
+                    </div>
+                    <div class="field-value">
+            
+            <div class="nested-container collapsible expanded">
+                <div class="nested-content">
+                    
+                    <div class="analysis-item">
+                        
+                        <div class="collapsible-header" style="margin-bottom: 0.15rem;">
+                            <span
+                                class="field-label ">צו על תנאי</span>
+                            
+                        </div>
+                        
+                        <div class="field-value">
+            
+            
+            הטענה הועלתה ונדחתה
+            
+            
+            </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            </div>
+                </div>
+                
+                
+            </div>
         </div>
     </section>
     
 
-    <section class="full-text">
-        <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">פסק הדין המלא</h3>
-        <div style="line-height: 1.8;">
+    <section class="full-text collapsible expanded">
+        <div class="collapsible-header"
+            style="border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
+            <h3 class="toggleable" style="margin: 0; cursor: pointer; color: var(--primary-color);">פסק הדין המלא</h3>
+            <span class="collapse-btn">-</span>
+        </div>
+        <div class="nested-content" style="line-height: 1.8;">
             5
 
 
