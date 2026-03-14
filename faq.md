@@ -8,7 +8,7 @@ description: שאלות נפוצות על בית המשפט העליון, סוג
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "name": "שאלות נפוצות - בגץ-AI",
-  "url": "https://israeli-court-rulings.github.io/faq.html",
+  "url": "https://bagats.org.il/faq.html",
   "description": "שאלות נפוצות על בית המשפט העליון, סוגי החלטות, הליכים משפטיים, ומאגר פסקי דין מובנים ומסוכמים",
   "inLanguage": "he",
   "mainEntity": [
