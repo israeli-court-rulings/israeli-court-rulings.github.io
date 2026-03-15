@@ -27,7 +27,7 @@ description: הצהרת הנגישות של אתר מאגר פסקי דין מו
 **פרטי רכז הנגישות באתר:**
 
 * **שם:** מיכאל סויקיס
-* **דואר אלקטרוני:** msoikis@gmail.com
+* **דואר אלקטרוני:** [contact@bagats.org.il](mailto:contact@bagats.org.il)
 
 ---
 

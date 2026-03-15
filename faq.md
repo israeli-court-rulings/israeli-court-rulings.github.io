@@ -243,4 +243,4 @@ description: שאלות נפוצות על בית המשפט העליון, סוג
 
 ## יצירת קשר
 
-דיווח על בעיות, טעויות, רעיונות לשיפור והרחבות — ניתן לפנות למייל: [msoikis@gmail.com](mailto:msoikis@gmail.com)
+דיווח על בעיות, טעויות, רעיונות לשיפור והרחבות — ניתן לפנות למייל: [contact@bagats.org.il](mailto:contact@bagats.org.il)
