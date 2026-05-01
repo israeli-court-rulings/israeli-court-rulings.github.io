@@ -9,23 +9,109 @@
     <meta name="description" content="{{ page.description }}">
     {% endif %}
     <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            max-width: 800px;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-container {
+            max-width: 800px;
             padding: 20px;
-            color: #333;
             background-color: #fff;
         }
 
-        /* Make images fit the screen */
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            gap: 20px;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .site-title a,
+        .nav-item a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .site-subtitle {
+            min-width: 0;
+            color: #fff;
+            font-size: clamp(0.875rem, 1.7vw, 1.15rem);
+            font-weight: 650;
+            line-height: 1.2;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 16px;
+        }
+
+        .nav-item a {
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .site-title a:hover,
+        .nav-item a:hover {
+            text-decoration: underline;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
         img {
             max-width: 100%;
             height: auto;
         }
 
-        /* Make links look nice */
         a {
             color: #0066cc;
             text-decoration: none;
@@ -34,12 +120,128 @@
         a:hover {
             text-decoration: underline;
         }
+
+        footer {
+            margin-top: 3rem;
+            background-color: var(--secondary-color);
+            padding: 1.5rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer a {
+            margin: 0 10px;
+            color: var(--text-color);
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            header .container {
+                grid-template-columns: auto minmax(0, 1fr) auto;
+                gap: 10px;
+            }
+
+            .site-title {
+                font-size: 1.4rem;
+                line-height: 1.2;
+            }
+
+            .site-subtitle {
+                font-size: 0.86rem;
+                white-space: normal;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .navbar {
+                grid-column: 1 / -1;
+                width: 100%;
+                display: none;
+                flex-direction: column;
+                margin-top: 10px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 0;
+            }
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-item a {
+                display: block;
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <header>
+        <div class="container">
+            <div class="site-title"><a href="/index.html">בגץ-AI</a></div>
+            <div class="site-subtitle">פסקי דין בית המשפט העליון</div>
 
-    {{ content }}
+            <button class="menu-toggle" aria-label="תפריט" aria-expanded="false">
+                &#9776;
+            </button>
+
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/index.html">פסיקות אחרונות</a></li>
+                    <li class="nav-item"><a href="/search-ai.html">חיפוש AI</a></li>
+                    <li class="nav-item"><a href="/topics/index.html">לפי נושאים</a></li>
+                    <li class="nav-item"><a href="/about.html">אודות</a></li>
+                    <li class="nav-item"><a href="/faq.html">שאלות נפוצות</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content-container">
+        {{ content }}
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="/index.html">פסיקות אחרונות</a> |
+            <a href="/search-ai.html">חיפוש AI</a> |
+            <a href="/topics/index.html">לפי נושאים</a> |
+            <a href="/about.html">אודות</a> |
+            <a href="/faq.html">שאלות נפוצות</a> |
+            <a href="/methodology.html">מתודולוגיה</a> |
+            <a href="/terms.html">תנאי שימוש</a> |
+            <a href="/accessibility.html">הצהרת נגישות</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navbar = document.querySelector('.navbar');
+
+            if (menuToggle && navbar) {
+                menuToggle.addEventListener('click', function () {
+                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                    menuToggle.setAttribute('aria-expanded', !isExpanded);
+                    navbar.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 
 </body>
 

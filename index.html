@@ -14,10 +14,13 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>בגץ-AI</title>
+    <title>פסיקות אחרונות - בגץ-AI</title>
     <meta name="description" content="מאגר חינמי של 96693 פסקי דין של בית המשפט העליון ובג&#34;ץ עם סיכומים וניתוחים שנוצרו בבינה מלאכותית. כולל תגיות נושאיות, תקדימים וחיפוש חכם. מתעדכן מדי יום.">
 
     <link rel="alternate" type="application/rss+xml" title="מאגר פסקי דין — עדכונים" href="./feed.xml">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
     
 <link rel="canonical" href="https://bagats.org.il/">
@@ -28,14 +31,14 @@
     <meta property="og:locale" content="he_IL">
     
     <meta property="og:type" content="website">
-    <meta property="og:title" content="בגץ-AI">
+    <meta property="og:title" content="פסיקות אחרונות - בגץ-AI">
     <meta property="og:description" content="מאגר AI חינמי של 96693 פסקי דין של בית המשפט העליון. סיכומים, ניתוחים, תגיות נושאיות ותקדימים משפטיים — הכל מובנה ונגיש.">
     
 
     
     <meta name="twitter:card" content="summary">
     
-    <meta name="twitter:title" content="בגץ-AI">
+    <meta name="twitter:title" content="פסיקות אחרונות - בגץ-AI">
     <meta name="twitter:description" content="מאגר AI של פסקי דין של בית המשפט העליון עם ניתוחים, סיכומים ותגיות נושאיות">
     
 
@@ -314,8 +317,9 @@
         }
 
         header .container {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            gap: 20px;
             align-items: center;
             padding: 1rem 20px;
         }
@@ -330,11 +334,22 @@
         .site-title {
             font-size: 1.5rem;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         .site-title a {
             color: white;
             text-decoration: none;
+        }
+
+        .site-subtitle {
+            min-width: 0;
+            color: white;
+            font-size: clamp(0.875rem, 1.7vw, 1.15rem);
+            font-weight: 650;
+            line-height: 1.2;
+            text-align: center;
+            white-space: nowrap;
         }
 
         a {
@@ -473,13 +488,14 @@
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 20px;
+            gap: 16px;
         }
 
         .nav-item a {
             color: white;
             font-weight: 500;
             transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
         .nav-item a:hover {
@@ -515,9 +531,10 @@
         }
 
         /* Mobile styles */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             header .container {
-                flex-wrap: wrap;
+                grid-template-columns: auto minmax(0, 1fr) auto;
+                gap: 10px;
             }
 
             header .site-title {
@@ -525,10 +542,14 @@
                 line-height: 1.2;
             }
 
+            .site-subtitle {
+                font-size: 0.86rem;
+                white-space: normal;
+            }
+
             .menu-toggle {
                 display: block;
                 /* Show hamburger on mobile */
-                order: -1;
                 /* Move toggle to right (RTL) or left depending on direction. 
                               Since we are dir=rtl, flex-start is right. 
                               We want the logo on Right and Menu on Left? 
@@ -547,6 +568,7 @@
             */
 
             .navbar {
+                grid-column: 1 / -1;
                 width: 100%;
                 display: none;
                 /* Hidden by default on mobile */
@@ -585,6 +607,7 @@
     <header>
         <div class="container">
             <div class="site-title"><a href="./index.html">בגץ-AI</a></div>
+            <div class="site-subtitle">פסקי דין בית המשפט העליון</div>
 
             <button class="menu-toggle" aria-label="תפריט" aria-expanded="false">
                 &#9776; <!-- Sandwich icon -->
@@ -592,7 +615,9 @@
 
             <nav class="navbar">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="./topics/index.html">נושאים</a></li>
+                    <li class="nav-item"><a href="./index.html">פסיקות אחרונות</a></li>
+                    <li class="nav-item"><a href="./search-ai.html">חיפוש AI</a></li>
+                    <li class="nav-item"><a href="./topics/index.html">לפי נושאים</a></li>
                     <li class="nav-item"><a href="./about.html">אודות</a></li>
                     <li class="nav-item"><a href="./faq.html">שאלות נפוצות</a></li>
 <!--                    <li class="nav-item"><a href="https://www.bagats-poc.win" class="cta-button">בגץ-AI</a></li>-->
@@ -604,13 +629,13 @@
     <main id="main-content" class="container">
         
 <div class="index-page">
-    <h1 class="page-title">פסקי דין בית המשפט העליון - הפסיקות האחרונות</h1>
+    <h1 class="page-title">פסיקות אחרונות</h1>
     
 <div class="pagination-container">
     <nav aria-label="Pagination">
         
 
-        <span class="pagination-info" dir="rtl">הפסיקות האחרונות</span>
+        <span class="pagination-info" dir="rtl">פסיקות אחרונות</span>
 
         
 
@@ -626,8 +651,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -669,8 +692,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -710,8 +731,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -754,8 +773,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -796,8 +813,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -840,8 +855,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -882,8 +895,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -926,8 +937,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -968,8 +977,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1012,8 +1019,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1054,8 +1059,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1098,8 +1101,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1139,8 +1140,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1183,8 +1182,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1224,8 +1221,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1267,8 +1262,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1308,8 +1301,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1352,8 +1343,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1394,8 +1383,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1438,8 +1425,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1480,8 +1465,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1524,8 +1507,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1566,8 +1547,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1610,8 +1589,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1652,8 +1629,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1696,8 +1671,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1738,8 +1711,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1782,8 +1753,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1824,8 +1793,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1868,8 +1835,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1910,8 +1875,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -1954,8 +1917,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -1996,8 +1957,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2040,8 +1999,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -2082,8 +2039,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2126,8 +2081,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -2168,8 +2121,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2212,8 +2163,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -2254,8 +2203,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2298,8 +2245,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -2340,8 +2285,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2384,8 +2327,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -2426,8 +2367,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2470,8 +2409,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -2512,8 +2449,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2556,8 +2491,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -2597,8 +2530,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2641,8 +2572,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -2683,8 +2612,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2727,8 +2654,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -2769,8 +2694,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2813,8 +2736,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -2854,8 +2775,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2898,8 +2817,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -2940,8 +2857,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -2984,8 +2899,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3027,8 +2940,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3068,8 +2979,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -3112,8 +3021,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3153,8 +3060,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -3197,8 +3102,6 @@
                 <span class="brick-date">
                     30/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3239,8 +3142,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     30/04/2026
-                    
-                    | 01:00
                     
                 </span>
                 <span class="brick-case-number">
@@ -3283,8 +3184,6 @@
                 <span class="brick-date">
                     29/04/2026
                     
-                    | 01:00
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3324,8 +3223,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     29/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -3370,8 +3267,6 @@
                 <span class="brick-date">
                     29/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3411,8 +3306,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     29/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -3457,8 +3350,6 @@
                 <span class="brick-date">
                     29/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3499,8 +3390,6 @@
                 <span class="brick-date">
                     29/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3540,8 +3429,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     29/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -3584,8 +3471,6 @@
                 <span class="brick-date">
                     29/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3626,8 +3511,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     29/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -3670,8 +3553,6 @@
                 <span class="brick-date">
                     29/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3712,8 +3593,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     29/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -3756,8 +3635,6 @@
                 <span class="brick-date">
                     29/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3799,8 +3676,6 @@
                 <span class="brick-date">
                     29/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3841,8 +3716,6 @@
                 <span class="brick-date">
                     29/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3882,8 +3755,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     29/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -3928,8 +3799,6 @@
                 <span class="brick-date">
                     29/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -3971,8 +3840,6 @@
                 <span class="brick-date">
                     29/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4013,8 +3880,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     29/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -4058,8 +3923,6 @@
                 <span class="brick-date">
                     28/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4099,8 +3962,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     28/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -4144,8 +4005,6 @@
                 <span class="brick-date">
                     28/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4187,8 +4046,6 @@
                 <span class="brick-date">
                     28/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4228,8 +4085,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     28/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -4271,8 +4126,6 @@
                 <span class="brick-date">
                     28/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4312,8 +4165,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     28/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -4355,8 +4206,6 @@
                 <span class="brick-date">
                     28/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4396,8 +4245,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     28/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -4439,8 +4286,6 @@
                 <span class="brick-date">
                     28/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4480,8 +4325,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     28/04/2026
-                    
-                    | 15:22
                     
                 </span>
                 <span class="brick-case-number">
@@ -4523,8 +4366,6 @@
                 <span class="brick-date">
                     28/04/2026
                     
-                    | 15:22
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4564,8 +4405,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     28/04/2026
-                    
-                    | 15:32
                     
                 </span>
                 <span class="brick-case-number">
@@ -4608,8 +4447,6 @@
                 <span class="brick-date">
                     28/04/2026
                     
-                    | 15:32
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4651,8 +4488,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     28/04/2026
-                    
-                    | 15:32
                     
                 </span>
                 <span class="brick-case-number">
@@ -4697,8 +4532,6 @@
                 <span class="brick-date">
                     27/04/2026
                     
-                    | 15:32
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4738,8 +4571,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     27/04/2026
-                    
-                    | 09:20
                     
                 </span>
                 <span class="brick-case-number">
@@ -4782,8 +4613,6 @@
                 <span class="brick-date">
                     27/04/2026
                     
-                    | 09:20
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4825,8 +4654,6 @@
                 <span class="brick-date">
                     27/04/2026
                     
-                    | 09:20
-                    
                 </span>
                 <span class="brick-case-number">
                     
@@ -4867,8 +4694,6 @@
             <div class="brick-header">
                 <span class="brick-date">
                     27/04/2026
-                    
-                    | 09:20
                     
                 </span>
                 <span class="brick-case-number">
@@ -4913,7 +4738,7 @@
     <nav aria-label="Pagination">
         
 
-        <span class="pagination-info" dir="rtl">הפסיקות האחרונות</span>
+        <span class="pagination-info" dir="rtl">פסיקות אחרונות</span>
 
         
 
@@ -4929,7 +4754,9 @@
     <footer>
         <div class="container">
 <!--            <a href="https://www.bagats-poc.win" style="font-weight: bold;">בגץ-AI</a> |-->
-            <a href="./topics/index.html">נושאים</a> |
+            <a href="./index.html">פסיקות אחרונות</a> |
+            <a href="./search-ai.html">חיפוש AI</a> |
+            <a href="./topics/index.html">לפי נושאים</a> |
             <a href="./about.html">אודות</a> |
             <a href="./faq.html">שאלות נפוצות</a> |
             <a href="./methodology.html">מתודולוגיה</a> |
