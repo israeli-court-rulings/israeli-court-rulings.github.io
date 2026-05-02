@@ -13,6 +13,15 @@
       gtag('config', 'G-2QFG6EYCC7');
     </script>
 
+    <!-- Microsoft (clarity) -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wkgcotdzoe");
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
@@ -603,8 +612,9 @@
         }
 
         header .container {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            gap: 20px;
             align-items: center;
             padding: 1rem 20px;
         }
@@ -619,11 +629,22 @@
         .site-title {
             font-size: 1.5rem;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         .site-title a {
             color: white;
             text-decoration: none;
+        }
+
+        .site-subtitle {
+            min-width: 0;
+            color: white;
+            font-size: clamp(0.875rem, 1.7vw, 1.15rem);
+            font-weight: 650;
+            line-height: 1.2;
+            text-align: center;
+            white-space: nowrap;
         }
 
         a {
@@ -762,13 +783,14 @@
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 20px;
+            gap: 16px;
         }
 
         .nav-item a {
             color: white;
             font-weight: 500;
             transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
         .nav-item a:hover {
@@ -804,9 +826,10 @@
         }
 
         /* Mobile styles */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             header .container {
-                flex-wrap: wrap;
+                grid-template-columns: auto minmax(0, 1fr) auto;
+                gap: 10px;
             }
 
             header .site-title {
@@ -814,10 +837,14 @@
                 line-height: 1.2;
             }
 
+            .site-subtitle {
+                font-size: 0.86rem;
+                white-space: normal;
+            }
+
             .menu-toggle {
                 display: block;
                 /* Show hamburger on mobile */
-                order: -1;
                 /* Move toggle to right (RTL) or left depending on direction. 
                               Since we are dir=rtl, flex-start is right. 
                               We want the logo on Right and Menu on Left? 
@@ -836,6 +863,7 @@
             */
 
             .navbar {
+                grid-column: 1 / -1;
                 width: 100%;
                 display: none;
                 /* Hidden by default on mobile */
@@ -874,6 +902,7 @@
     <header>
         <div class="container">
             <div class="site-title"><a href="../index.html">בגץ-AI</a></div>
+            <div class="site-subtitle">פסקי דין בית המשפט העליון</div>
 
             <button class="menu-toggle" aria-label="תפריט" aria-expanded="false">
                 &#9776; <!-- Sandwich icon -->
@@ -881,7 +910,10 @@
 
             <nav class="navbar">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="../topics/index.html">נושאים</a></li>
+                    <li class="nav-item"><a href="../index.html">פסיקות אחרונות</a></li>
+                    <li class="nav-item"><a href="../search-ai.html">חיפוש AI</a></li>
+                    <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
+                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
 <!--                    <li class="nav-item"><a href="https://www.bagats-poc.win" class="cta-button">בגץ-AI</a></li>-->
@@ -1619,16 +1651,16 @@
     <footer>
         <div class="container">
 <!--            <a href="https://www.bagats-poc.win" style="font-weight: bold;">בגץ-AI</a> |-->
-            <a href="../topics/index.html">נושאים</a> |
+            <a href="../index.html">פסיקות אחרונות</a> |
+            <a href="../search-ai.html">חיפוש AI</a> |
+            <a href="../topics/index.html">לפי נושאים</a> |
             <a href="../about.html">אודות</a> |
             <a href="../faq.html">שאלות נפוצות</a> |
-            <a href="../methodology.html">מתודולוגיה</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
             <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
-            <a href="mailto:msoikis@gmail.com">דיווח על בעייה</a> |
-            <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש
-                באתר הרשות השופטת</a>
+            <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
+            <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>
     </footer>
 
