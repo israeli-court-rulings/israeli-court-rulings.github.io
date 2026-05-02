@@ -61,28 +61,12 @@
 
 
 <style>
-    /* --- Page Title --- */
-    .page-title {
-        font-size: 2.2rem;
-        margin-bottom: 30px;
-        color: var(--primary-color);
-        text-align: center;
-    }
-
-    @media (max-width: 768px) {
-        .page-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-    }
-
-    /* --- Unified Brick Styling (Clean Card) --- */
     .judgments-container {
         max-width: 900px;
         margin: 0 auto;
     }
 
-    .judgment-brick {
+    .judgment-card {
         background: white;
         border: 1px solid #eee;
         border-radius: 12px;
@@ -96,7 +80,7 @@
         color: inherit;
     }
 
-    .judgment-brick:hover {
+    .judgment-card:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     }
@@ -118,7 +102,7 @@
         color: #333;
         font-size: 1.05rem;
         direction: ltr;
-        /* Ensure numbers don't flip */
+        text-decoration: none;
     }
 
     .brick-date {
@@ -140,6 +124,12 @@
         border-radius: 6px;
         font-size: 0.85rem;
         font-weight: 600;
+        text-decoration: none;
+    }
+
+    .badge-topic:hover {
+        background-color: #d4ebfc;
+        text-decoration: underline;
     }
 
     .wide-imp-icon {
@@ -150,10 +140,20 @@
 
     .brick-title {
         margin: 8px 0 12px;
-        font-size: 1.0rem;
+        font-size: 1rem;
         font-weight: 700;
         color: #202124;
         line-height: 1.3;
+    }
+
+    .brick-title-link {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .brick-title-link:hover,
+    .brick-case-number:hover {
+        text-decoration: underline;
     }
 
     .brick-claim {
@@ -164,22 +164,11 @@
         line-height: 1.5;
     }
 
-    .brick-outcome {
-        text-align: left;
+    .decision-row {
+        margin-bottom: 12px;
         font-weight: 700;
         font-size: 1rem;
-    }
-
-    .text-red {
-        color: #d32f2f;
-    }
-
-    .text-green {
-        color: #2e7d32;
-    }
-
-    .text-gray {
-        color: #616161;
+        text-align: left;
     }
 
     .decision-badge {
@@ -208,9 +197,19 @@
         border: 1px solid #ddd;
     }
 
-    /* Mobile adjustments */
+    .badge-pending-analysis {
+        display: inline-block;
+        padding: 3px 10px;
+        background-color: #fff8e1;
+        color: #f57f17;
+        border: 1px solid #ffe082;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
     @media (max-width: 600px) {
-        .judgment-brick {
+        .judgment-card {
             padding: 16px;
         }
 
@@ -224,21 +223,23 @@
         .brick-case-number {
             font-size: 1rem;
         }
+    }
+</style>
 
-        .brick-title {
-            font-size: 1.0rem;
-        }
+<style>
+    /* --- Page Title --- */
+    .page-title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+        color: var(--primary-color);
+        text-align: center;
     }
 
-    .badge-pending-analysis {
-        display: inline-block;
-        padding: 3px 10px;
-        background-color: #fff8e1;
-        color: #f57f17;
-        border: 1px solid #ffe082;
-        border-radius: 6px;
-        font-size: 0.8rem;
-        font-weight: 600;
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
     }
 
     /* --- Pagination --- */
@@ -643,3157 +644,4559 @@
 
 
 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    .legend-strip {
+        background: linear-gradient(180deg, #f5faff 0%, #eef5fc 100%);
+        border: 1px solid #cfe2f3;
+        border-radius: 12px;
+        margin: 0 auto 16px;
+        max-width: 900px;
+        box-shadow: 0 2px 6px rgba(21, 101, 192, 0.06);
+        font-size: 14px;
+    }
+
+    .legend-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 16px;
+        cursor: pointer;
+        color: var(--primary-color, #003366);
+        font-weight: 600;
+        user-select: none;
+        background: none;
+        border: 0;
+        width: 100%;
+        text-align: right;
+        font-family: inherit;
+        font-size: inherit;
+    }
+
+    .legend-bar .left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .legend-bar .icon {
+        font-size: 16px;
+    }
+
+    .legend-bar .chev {
+        transition: transform 0.2s ease;
+    }
+
+    .legend-strip.open .legend-bar .chev {
+        transform: rotate(180deg);
+    }
+
+    .legend-body {
+        display: none;
+        padding: 6px 20px 20px;
+        border-top: 1px dashed #cfe2f3;
+    }
+
+    .legend-strip.open .legend-body {
+        display: block;
+    }
+
+    .legend-intro {
+        font-size: 13px;
+        color: #555;
+        margin: 12px 0 14px;
+        line-height: 1.5;
+    }
+
+    .legend-example {
+        display: grid;
+        grid-template-columns: minmax(260px, 1fr) minmax(220px, 320px);
+        gap: 16px;
+        align-items: start;
+    }
+
+    /* The example slot wraps the shared card. We dim the card slightly and
+       outline matching fields when a chip is hovered/focused. */
+    .legend-example-card {
+        position: relative;
+    }
+
+    .legend-example-card .judgment-card {
+        margin-bottom: 0;
+        cursor: default;
+    }
+
+    .legend-example-card .judgment-card:hover {
+        transform: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .legend-example-card.hl-date .brick-date,
+    .legend-example-card.hl-case .brick-case-number,
+    .legend-example-card.hl-topic .badge-topic,
+    .legend-example-card.hl-star .wide-imp-icon,
+    .legend-example-card.hl-pending .badge-pending-analysis,
+    .legend-example-card.hl-title .brick-title,
+    .legend-example-card.hl-claim .brick-claim,
+    .legend-example-card.hl-decision .decision-row {
+        outline: 2px solid #1565c0;
+        background-color: rgba(21, 101, 192, 0.08);
+        border-radius: 4px;
+    }
+
+    /* Chip = one annotation. Hovering it highlights the matching field. */
+    .legend-chips {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .legend-chip {
+        background: white;
+        border: 1px solid #cfe2f3;
+        border-right: 4px solid var(--primary-color, #1565c0);
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 12.5px;
+        line-height: 1.45;
+        cursor: default;
+        transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .legend-chip:hover,
+    .legend-chip:focus-within {
+        box-shadow: 0 2px 8px rgba(21, 101, 192, 0.12);
+        border-color: #90caf9;
+    }
+
+    .legend-chip b.label {
+        display: block;
+        color: var(--primary-color, #1565c0);
+        font-size: 11.5px;
+        margin-bottom: 2px;
+    }
+
+    .legend-chip.star-chip {
+        background: #fffbea;
+        border-color: #ffe082;
+        border-right-color: #fbc02d;
+    }
+
+    .legend-chip.star-chip b.label {
+        color: #f57c00;
+    }
+
+    .legend-chip.pending-chip {
+        background: #fff8e1;
+        border-color: #ffe082;
+        border-right-color: #f57f17;
+    }
+
+    .legend-chip.pending-chip b.label {
+        color: #b06a00;
+    }
+
+    .legend-chip-quote {
+        display: block;
+        margin-top: 4px;
+        padding: 4px 8px;
+        background: #f8f9fa;
+        border-right: 2px solid #cfd8dc;
+        color: #444;
+        font-style: italic;
+    }
+
+    .legend-decision-link {
+        display: inline-block;
+        margin-top: 4px;
+        color: var(--primary-color, #1565c0);
+        text-decoration: underline;
+        font-size: 11.5px;
+        font-weight: 600;
+        cursor: pointer;
+        background: none;
+        border: 0;
+        padding: 0;
+        font-family: inherit;
+    }
+
+    .legend-foot {
+        font-size: 11px;
+        color: #888;
+        margin-top: 14px;
+        text-align: center;
+    }
+
+    @media (max-width: 720px) {
+        .legend-example {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ----- Decisions modal ----- */
+    .legend-modal-back {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1000;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 60px 12px;
+    }
+
+    .legend-modal-back.open {
+        display: flex;
+    }
+
+    .legend-modal {
+        background: white;
+        border-radius: 14px;
+        max-width: 560px;
+        width: 100%;
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .legend-modal-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .legend-modal-head h3 {
+        margin: 0;
+        font-size: 16px;
+        color: var(--primary-color, #1565c0);
+    }
+
+    .legend-modal-head .x {
+        background: none;
+        border: 0;
+        font-size: 22px;
+        color: #999;
+        cursor: pointer;
+        padding: 0 6px;
+        line-height: 1;
+    }
+
+    .legend-modal-body {
+        padding: 8px 20px 20px;
+    }
+
+    .legend-modal-row {
+        display: flex;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid #f5f5f5;
+        align-items: flex-start;
+    }
+
+    .legend-modal-row:last-child {
+        border-bottom: 0;
+    }
+
+    .legend-modal-row .badge {
+        flex-shrink: 0;
+        padding: 3px 10px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 12px;
+        height: fit-content;
+        white-space: nowrap;
+    }
+
+    .legend-modal-row .desc {
+        font-size: 12.5px;
+        color: #444;
+        line-height: 1.45;
+    }
+
+    .legend-modal-foot {
+        margin-top: 14px;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .badge.bg-green {
+        background: #e8f5e9;
+        color: #1b5e20;
+        border: 1px solid #c3e6cb;
+    }
+
+    .badge.bg-red {
+        background: #fdecea;
+        color: #b71c1c;
+        border: 1px solid #f5c6cb;
+    }
+
+    .badge.bg-gray {
+        background: #f5f5f5;
+        color: #424242;
+        border: 1px solid #ddd;
+    }
+
+    .badge.bg-yellow {
+        background: #fff8e1;
+        color: #a06800;
+        border: 1px solid #ffe082;
+    }
+
+    .badge.bg-blue {
+        background: #e3f2fd;
+        color: #1565c0;
+        border: 1px solid #cfe2f3;
+    }
+</style>
+
+<div class="legend-strip" id="legend-strip" data-legend-version="v2">
+    <button type="button" class="legend-bar" id="legend-toggle" aria-expanded="false" aria-controls="legend-body">
+        <span class="left"><span class="icon" aria-hidden="true">📖</span> איך לקרוא את הכרטיסים?</span>
+        <span class="chev" aria-hidden="true">▾</span>
+    </button>
+    <div class="legend-body" id="legend-body">
+        <p class="legend-intro">
+            כל כרטיס מציג בקצרה את עיקרי פסק הדין. הנה דוגמה מהפסיקה הראשונה בעמוד —
+            ריחוף/לחיצה על תווית הסבר מדגיש את האזור המתאים בכרטיס.
+        </p>
+
+        <div class="legend-example">
+            <div class="legend-example-card" id="legend-card-example">
+                
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-29">29/04/1999</time>
+            
+        </span>
+        
+        
+        <span class="brick-case-number">
+            בג&#34;ץ 2573/99
+        </span>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        הרב יוסף בא -גד נ. ועדת הבחירות לכנסת
+        
+    </h3>
+
+    
+
+    
+</article>
+
+            </div>
+
+            <div class="legend-chips">
+                <div class="legend-chip" data-target="date" tabindex="0">
+                    <b class="label">תאריך פרסום</b>
+                    
+                    29/04/1999 (לפני 9865 ימים)
+                    
+                </div>
+
+                <div class="legend-chip" data-target="case" tabindex="0">
+                    <b class="label">סוג התיק</b>
+                    <b>בג&#34;ץ</b> — עתירה לבית משפט גבוה לצדק.
+                </div>
+
+                <div class="legend-chip" data-target="case" tabindex="0">
+                    <b class="label">מספר התיק</b>
+                    <b dir="ltr" style="display:inline-block">2573/99</b> — פורמט ישן: מספר סידורי / שנה.
+                </div>
+
+                
+
+                
+
+                
+                <div class="legend-chip pending-chip" data-target="pending" tabindex="0">
+                    <b class="label">טרם נותח</b>
+                    פסק הדין נאסף אך עוד לא עבר ניתוח אוטומטי. סיכום, נושא והחלטה יופיעו כאן ברגע שהניתוח יסתיים.
+                </div>
+                
+
+                <div class="legend-chip" data-target="title" tabindex="0">
+                    <b class="label">שם התיק (הצדדים)</b>
+                    
+                    שם התיק כולל את שמות הצדדים. הקיצור "נ׳" שביניהם = "<b>נגד</b>".
+                    
+                </div>
+
+                
+
+                
+            </div>
+        </div>
+
+        <p class="legend-foot">הסבר זה לא ייפתח אוטומטית בביקורים הבאים. תמיד אפשר לפתוח אותו שוב מהפס בראש הרשימה.</p>
+    </div>
+</div>
+
+<div class="legend-modal-back" id="legend-decisions-modal" role="dialog" aria-modal="true" aria-labelledby="legend-decisions-title">
+    <div class="legend-modal">
+        <div class="legend-modal-head">
+            <h3 id="legend-decisions-title">סוגי החלטות אפשריים</h3>
+            <button type="button" class="x" id="legend-decisions-close" aria-label="סגירה">✕</button>
+        </div>
+        <div class="legend-modal-body">
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-green">התקבל במלואו</span>
+                <div class="desc">בית המשפט קיבל את ההליך לטובת הצד הפותח (התובע/העותר/המערער).</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-green">התקבל חלקית</span>
+                <div class="desc">חלק מהסעדים שהתבקש התקבל וחלק נדחה.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-red">נדחה</span>
+                <div class="desc">בית המשפט דחה את ההליך לטובת הצד שכנגד (הנתבע/המשיב).</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-red">נדחה על הסף</span>
+                <div class="desc">ההליך נדחה ללא דיון לגופו, מסיבה פרוצדורלית (למשל חוסר סמכות או איחור).</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-gray">נמחק / חזרה</span>
+                <div class="desc">המבקש חזר בו מההליך, או שההליך נמחק טכנית מהתיק.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-blue">הסכם פשרה</span>
+                <div class="desc">הצדדים הגיעו ביניהם להסכמה והוסכם על פתרון.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-blue">תוקף לפסק דין מוסכם</span>
+                <div class="desc">בית המשפט נתן תוקף משפטי להסכמה שהושגה בין הצדדים.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-gray">נמחק (התייתרות)</span>
+                <div class="desc">ההכרעה התייתרה — אין עוד צורך בהכרעה שיפוטית.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-yellow">הוחזר לערכאה הקודמת</span>
+                <div class="desc">בית המשפט החזיר את התיק לדיון נוסף בערכאה שמתחתיו.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-yellow">החלטת ביניים</span>
+                <div class="desc">החלטה דיונית במהלך ההליך — אינה הכרעה סופית בתיק.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-gray">אחר</span>
+                <div class="desc">תוצאה שאינה משתייכת לאחת מהקטגוריות המקובלות.</div>
+            </div>
+            
+            <p class="legend-modal-foot">
+                <a href="./faq.html#decision-types">להסבר מורחב — דף השאלות הנפוצות ←</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        var strip = document.getElementById('legend-strip');
+        if (!strip) return;
+        var toggle = document.getElementById('legend-toggle');
+        var card = document.getElementById('legend-card-example');
+        var modal = document.getElementById('legend-decisions-modal');
+        var openModalBtn = document.getElementById('legend-decisions-open');
+        var closeModalBtn = document.getElementById('legend-decisions-close');
+
+        // Versioned key — bump 'data-legend-version' on the strip when the
+        // legend's content changes meaningfully so users see it once again.
+        var version = strip.getAttribute('data-legend-version') || 'v1';
+        var storageKey = 'bagatsai.legend.dismissed';
+
+        // Dismissal is sticky: we set the flag the first time the user
+        // collapses the strip and never clear it afterward. Re-opening on a
+        // later visit (or even on the same page) is a temporary one-shot read
+        // that should NOT cause the next page to auto-expand again. The only
+        // way the flag clears is a version bump (data-legend-version), which
+        // re-introduces the strip once for everyone after a content change.
+        function setOpen(isOpen, persist) {
+            strip.classList.toggle('open', isOpen);
+            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (persist && !isOpen) {
+                try {
+                    localStorage.setItem(storageKey, version);
+                } catch (e) { /* localStorage may be blocked; fail silently */ }
+            }
+        }
+
+        // Open by default unless this exact version was dismissed before.
+        var dismissed = '';
+        try { dismissed = localStorage.getItem(storageKey) || ''; } catch (e) {}
+        setOpen(dismissed !== version, false);
+
+        toggle.addEventListener('click', function () {
+            setOpen(!strip.classList.contains('open'), true);
+        });
+
+        // Hover/focus a chip → highlight the matching part of the example card.
+        // The card is rendered by the shared macro, so we toggle a class on the
+        // wrapping element and target nested fields via CSS.
+        strip.querySelectorAll('.legend-chip[data-target]').forEach(function (chip) {
+            var target = chip.getAttribute('data-target');
+            var cls = 'hl-' + target;
+            function on() { card.classList.add(cls); }
+            function off() { card.classList.remove(cls); }
+            chip.addEventListener('mouseenter', on);
+            chip.addEventListener('mouseleave', off);
+            chip.addEventListener('focus', on);
+            chip.addEventListener('blur', off);
+        });
+
+        if (openModalBtn && modal) {
+            openModalBtn.addEventListener('click', function () { modal.classList.add('open'); });
+        }
+        if (closeModalBtn && modal) {
+            closeModalBtn.addEventListener('click', function () { modal.classList.remove('open'); });
+        }
+        if (modal) {
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) modal.classList.remove('open');
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') modal.classList.remove('open');
+            });
+        }
+    })();
+</script>
+
+
     <div class="judgments-container">
         
-        <a href="judgments/2573-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    29/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 2573/99
-                </span>
-            </div>
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-29">29/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/2573-99.html" class="brick-case-number">
+            בג&#34;ץ 2573/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/2573-99.html" class="brick-title-link">הרב יוסף בא -גד נ. ועדת הבחירות לכנסת</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-28">28/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/643-97.html" class="brick-case-number">
+            ע&#34;א 643/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/643-97.html" class="brick-title-link">קדמי נחום נ. עזבונות המנוחות גילה ואיימי עמוס</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-28">28/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/2328-97.html" class="brick-case-number">
+            בש&#34;פ 2328/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/2328-97.html" class="brick-title-link">כוכבי דן-עו&#34;ד נ. ארנפלד אוריאל-עו&#34;ד</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-28">28/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/4364-97.html" class="brick-case-number">
+            בג&#34;ץ 4364/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/4364-97.html" class="brick-title-link">יו&#34;ר סיעת מר&#34;צ במועצת עירית ראשל&#34;צ נ. ראש עיריית ראשל&#34;צ</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-28">28/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/7236-97.html" class="brick-case-number">
+            ע&#34;פ 7236/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/7236-97.html" class="brick-title-link">שטרית מאיר נ. עירית חיפה</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-28">28/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/176-99.html" class="brick-case-number">
+            רע&#34;א 176/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/176-99.html" class="brick-title-link">נועם פדרמן נ. שר המשפטים</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-28">28/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/2687-99.html" class="brick-case-number">
+            ע&#34;א 2687/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/2687-99.html" class="brick-title-link">מאיר ריחניאן נ. רשות השיפוט הארצית</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-27">27/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/5435-93.html" class="brick-case-number">
+            ע&#34;א 5435/93
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/5435-93.html" class="brick-title-link">דנקנר השקעות בע&#34;מ נ. פשמ&#34;ג</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-27">27/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/4085-97.html" class="brick-case-number">
+            בג&#34;ץ 4085/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/4085-97.html" class="brick-title-link">סרוג&#39;י פריד זכר נ. חברת עווד טורס בע&#34;מ</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-27">27/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/5350-97.html" class="brick-case-number">
+            בג&#34;ץ 5350/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/5350-97.html" class="brick-title-link">דפנה דוידזון נ. שר הפנים</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-27">27/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/5916-97.html" class="brick-case-number">
+            בש&#34;פ 5916/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/5916-97.html" class="brick-title-link">פלוני נ. שירות הביטחון הכללי</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-27">27/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/6079-97.html" class="brick-case-number">
+            בג&#34;ץ 6079/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/6079-97.html" class="brick-title-link">אמתי מוצרי איכות לכלבים בע&#34;מ נ. ווי.טי.אי.אצ&#39; בע&#34;מ</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-27">27/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/7874-98.html" class="brick-case-number">
+            ע&#34;א 7874/98
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/7874-98.html" class="brick-title-link">מיכאל מיכאלוביץ נ. בנק עצמאות למשכנתאות ופיתוח בע&#34;מ</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-27">27/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/2570-99.html" class="brick-case-number">
+            רע&#34;א 2570/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/2570-99.html" class="brick-title-link">יוסף אללו נ. ועדת המכרזים של עיריית ירושלים</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-27">27/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/2656-99.html" class="brick-case-number">
+            בש&#34;פ 2656/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/2656-99.html" class="brick-title-link">מפלגת עם אחד בראשות עמיר פרץ נ. ועדת הבחירות המרכזית לכנסת ה</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-26">26/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/7066-98.html" class="brick-case-number">
+            בג&#34;ץ 7066/98
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/7066-98.html" class="brick-title-link">אבי מצנר נ. עיריית נתניה</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/5717-97.html" class="brick-case-number">
+            ע&#34;פ 5717/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/5717-97.html" class="brick-title-link">טורנר צבי נ. טורנר מאיר</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/670-98.html" class="brick-case-number">
+            בג&#34;ץ 670/98
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/670-98.html" class="brick-title-link">שטרית מאיר נ. עירית חיפה</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/7181-98.html" class="brick-case-number">
+            בג&#34;ץ 7181/98
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/7181-98.html" class="brick-title-link">נורית אריכא נ. בית הדין הרבני הגדול</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/7311-98.html" class="brick-case-number">
+            בג&#34;ץ 7311/98
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/7311-98.html" class="brick-title-link">דב שמעון ד&#34;ר נ. משרד הבריאות</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/8255-98.html" class="brick-case-number">
+            בג&#34;ץ 8255/98
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/8255-98.html" class="brick-title-link">סיעת נצרת המאוחדת נ. עיריית נצרת</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/794-99.html" class="brick-case-number">
+            ע&#34;א 794/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/794-99.html" class="brick-title-link">שי דעבול נ. מדינת ישראל</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/977-99.html" class="brick-case-number">
+            רע&#34;א 977/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/977-99.html" class="brick-title-link">טטיאנה קרסנצ&#34;ובנקו נ. שר הפנים</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1741-99.html" class="brick-case-number">
+            בה&#34;ן 1741/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1741-99.html" class="brick-title-link">סעיד יוסף נ. מדינת ישראל</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1781-99.html" class="brick-case-number">
+            רע&#34;א 1781/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1781-99.html" class="brick-title-link">שלמה מסלוואי נ. ראש עיריית תל אביב</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1996-99.html" class="brick-case-number">
+            בש&#34;פ 1996/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1996-99.html" class="brick-title-link">אדם טבע ודין - אגודה ישראלית להגנת הסביבה נ. השופט א.מצא - י</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/2009-99.html" class="brick-case-number">
+            ע&#34;א 2009/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/2009-99.html" class="brick-title-link">חאלד פאקוסה נ. שר הבטחון</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/2073-99.html" class="brick-case-number">
+            רע&#34;א 2073/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/2073-99.html" class="brick-title-link">עלי זבידאת נ. מדינת ישראל - משרד הפנים</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-25">25/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1555-99.html" class="brick-case-number">
+            בש&#34;א 1555/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1555-99.html" class="brick-title-link">עזבון המנוח משה אבטיחי ז&#34;ל נ. רנה רוזנבלום</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1578-97.html" class="brick-case-number">
+            בג&#34;ץ 1578/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1578-97.html" class="brick-title-link">חוזה עמוס נ. להב נחמיה</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/5198-97.html" class="brick-case-number">
+            בש&#34;פ 5198/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/5198-97.html" class="brick-title-link">וונדרמן סוזי נ. הועדה לבחירת שופטים</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/7087-98.html" class="brick-case-number">
+            בג&#34;ץ 7087/98
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/7087-98.html" class="brick-title-link">חסן חוואג&#39;ה נ. צה&#34;ל</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/7820-98.html" class="brick-case-number">
+            בג&#34;ץ 7820/98
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/7820-98.html" class="brick-title-link">המועצה הדתית אבן יהודה נ. המועצה המקומית אבן יהודה</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/359-99.html" class="brick-case-number">
+            בג&#34;ץ 359/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/359-99.html" class="brick-title-link">לי מעון בע&#34;מ נ. אלי באקל</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/412-99.html" class="brick-case-number">
+            רע&#34;א 412/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/412-99.html" class="brick-title-link">דניאלה י.אורן נ. סלקום ישראל בע&#39;&#39;מ</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/619-99.html" class="brick-case-number">
+            רע&#34;א 619/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/619-99.html" class="brick-title-link">B.G.ASSISTANCE LTD נ. חרובי מרדכי</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1173-99.html" class="brick-case-number">
+            בג&#34;ץ 1173/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1173-99.html" class="brick-title-link">מאג&#39;דה סלאמין נ. שר הפנים</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1230-99.html" class="brick-case-number">
+            בג&#34;ץ 1230/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1230-99.html" class="brick-title-link">בלומה וגנהיים נ. מינהל מקרקעי ישראל</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1314-99.html" class="brick-case-number">
+            בג&#34;ץ 1314/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1314-99.html" class="brick-title-link">מאיר מנחם גילברט נ. רוזלי גלברט</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1335-99.html" class="brick-case-number">
+            רע&#34;א 1335/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1335-99.html" class="brick-title-link">ש. ח. שוקי שווק ועבודות בע&#34;מ נ. בנק לאומי לישראל בע&#34;מ</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1497-99.html" class="brick-case-number">
+            רע&#34;א 1497/99
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1497-99.html" class="brick-title-link">אמיר שושני עו&#34;ד נ. שרה בצלאל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">הרב יוסף בא -גד נ. ועדת הבחירות לכנסת</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-22">22/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1937-99.html" class="brick-case-number">
+            רע&#34;א 1937/99
         </a>
         
-        <a href="judgments/643-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    28/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 643/97
-                </span>
-            </div>
+    </div>
 
-            <div class="brick-badges">
-                
+    <div class="brick-badges">
+        
 
-                
+        
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-            <h3 class="brick-title">קדמי נחום נ. עזבונות המנוחות גילה ואיימי עמוס</h3>
+    <h3 class="brick-title">
+        
+        <a href="judgments/1937-99.html" class="brick-title-link">מרדכי בן צבי נ. שרות בתי הסוהר</a>
+        
+    </h3>
 
-            
+    
 
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-22">22/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/2039-99.html" class="brick-case-number">
+            רע&#34;א 2039/99
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
         
-        <a href="judgments/2328-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    28/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;פ 2328/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
 
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    <h3 class="brick-title">
+        
+        <a href="judgments/2039-99.html" class="brick-title-link">שלמה גולן נ. נילי גולן</a>
+        
+    </h3>
 
-            <h3 class="brick-title">כוכבי דן-עו&#34;ד נ. ארנפלד אוריאל-עו&#34;ד</h3>
+    
 
-            
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/2366-99.html" class="brick-case-number">
+            בג&#34;ץ 2366/99
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
         
-        <a href="judgments/4364-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    28/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 4364/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/2366-99.html" class="brick-title-link">אסמעיל ג&#39;עברי נ. שירות הבטחון הכללי</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">יו&#34;ר סיעת מר&#34;צ במועצת עירית ראשל&#34;צ נ. ראש עיריית ראשל&#34;צ</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-22">22/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/2530-99.html" class="brick-case-number">
+            בג&#34;ץ 2530/99
         </a>
         
-        <a href="judgments/7236-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    28/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;פ 7236/97
-                </span>
-            </div>
+    </div>
 
-            <div class="brick-badges">
-                
+    <div class="brick-badges">
+        
+
+        
 
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    <h3 class="brick-title">
+        
+        <a href="judgments/2530-99.html" class="brick-title-link">שגיא רותם נ. היועץ המשפטי לממשלה</a>
+        
+    </h3>
 
-            <h3 class="brick-title">שטרית מאיר נ. עירית חיפה</h3>
+    
 
-            
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
+            <time datetime="1999-04-22">22/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/133-99.html" class="brick-case-number">
+            ע&#34;א 133/99
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
         
-        <a href="judgments/176-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    28/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 176/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/133-99.html" class="brick-title-link"></a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">נועם פדרמן נ. שר המשפטים</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-19">19/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/3884-98.html" class="brick-case-number">
+            ע&#34;א 3884/98
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
         
-        <a href="judgments/2687-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    28/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 2687/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/3884-98.html" class="brick-title-link">צפורה רון נ. הועדה לבניה למגורים ותעשיה מחוז ירושלים</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">מאיר ריחניאן נ. רשות השיפוט הארצית</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-19">19/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/6250-98.html" class="brick-case-number">
+            רע&#34;א 6250/98
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
         
-        <a href="judgments/5435-93.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    27/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 5435/93
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
 
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    <h3 class="brick-title">
+        
+        <a href="judgments/6250-98.html" class="brick-title-link">NORDLAND PAPIER AG נ. מפעלי ייצור והוצאה לאור (ירושלים) מ.ס.</a>
+        
+    </h3>
 
-            <h3 class="brick-title">דנקנר השקעות בע&#34;מ נ. פשמ&#34;ג</h3>
+    
 
-            
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-19">19/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/8075-98.html" class="brick-case-number">
+            ע&#34;א 8075/98
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
         
-        <a href="judgments/4085-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    27/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 4085/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/8075-98.html" class="brick-title-link">רפאל בן קיקי נ. יוסי פרץ</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">סרוג&#39;י פריד זכר נ. חברת עווד טורס בע&#34;מ</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-19">19/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/8203-98.html" class="brick-case-number">
+            רע&#34;פ 8203/98
         </a>
         
-        <a href="judgments/5350-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    27/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 5350/97
-                </span>
-            </div>
+    </div>
 
-            <div class="brick-badges">
-                
+    <div class="brick-badges">
+        
 
-                
+        
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-            <h3 class="brick-title">דפנה דוידזון נ. שר הפנים</h3>
+    <h3 class="brick-title">
+        
+        <a href="judgments/8203-98.html" class="brick-title-link">יעקב יונסי נ. מדינת ישראל</a>
+        
+    </h3>
 
-            
+    
 
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-19">19/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/237-99.html" class="brick-case-number">
+            רע&#34;א 237/99
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
         
-        <a href="judgments/5916-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    27/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;פ 5916/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
 
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    <h3 class="brick-title">
+        
+        <a href="judgments/237-99.html" class="brick-title-link">מלי בן-ארי נ. ++++</a>
+        
+    </h3>
 
-            <h3 class="brick-title">פלוני נ. שירות הביטחון הכללי</h3>
+    
 
-            
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
+            <time datetime="1999-04-19">19/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/478-99.html" class="brick-case-number">
+            רע&#34;א 478/99
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
         
-        <a href="judgments/6079-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    27/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 6079/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/478-99.html" class="brick-title-link">עוזי משלי נ. דנה בוקשפן משלי</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">אמתי מוצרי איכות לכלבים בע&#34;מ נ. ווי.טי.אי.אצ&#39; בע&#34;מ</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-19">19/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1239-99.html" class="brick-case-number">
+            בש&#34;פ 1239/99
         </a>
         
-        <a href="judgments/7874-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    27/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 7874/98
-                </span>
-            </div>
+    </div>
 
-            <div class="brick-badges">
-                
+    <div class="brick-badges">
+        
+
+        
 
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    <h3 class="brick-title">
+        
+        <a href="judgments/1239-99.html" class="brick-title-link">פהמי נעים לולו נ. ודאד ג&#39;יריס ח&#39;ורי</a>
+        
+    </h3>
 
-            <h3 class="brick-title">מיכאל מיכאלוביץ נ. בנק עצמאות למשכנתאות ופיתוח בע&#34;מ</h3>
+    
 
-            
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
+            <time datetime="1999-04-19">19/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/2300-99.html" class="brick-case-number">
+            בג&#34;ץ 2300/99
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
         
-        <a href="judgments/2570-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    27/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 2570/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/2300-99.html" class="brick-title-link">שמואל צדוק נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">יוסף אללו נ. ועדת המכרזים של עיריית ירושלים</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-18">18/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/545-96.html" class="brick-case-number">
+            בג&#34;ץ 545/96
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
         
-        <a href="judgments/2656-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    27/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;פ 2656/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/545-96.html" class="brick-title-link">SHERIDON EXIM LTD. נ. רשות הנמלים והרכבות</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">מפלגת עם אחד בראשות עמיר פרץ נ. ועדת הבחירות המרכזית לכנסת ה</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
+            <time datetime="1999-04-18">18/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/6334-96.html" class="brick-case-number">
+            רע&#34;א 6334/96
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
+    <h3 class="brick-title">
+        
+        <a href="judgments/6334-96.html" class="brick-title-link">לאה אליהו נ. בית הדין ברבני האזורי</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-18">18/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/7451-96.html" class="brick-case-number">
+            בש&#34;פ 7451/96
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
         
-        <a href="judgments/7066-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    26/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 7066/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/7451-96.html" class="brick-title-link">אביבה אברהם נ. בנק מסד בע&#34;מ - סניף רשל&#34;צ</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">אבי מצנר נ. עיריית נתניה</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
+            <time datetime="1999-04-18">18/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/4063-97.html" class="brick-case-number">
+            בג&#34;ץ 4063/97
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
+    <h3 class="brick-title">
+        
+        <a href="judgments/4063-97.html" class="brick-title-link">מדינת ישראל נ. עבדאלחאלק עומר</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-18">18/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/4391-98.html" class="brick-case-number">
+            רע&#34;א 4391/98
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
         
-        <a href="judgments/5717-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;פ 5717/97
-                </span>
-            </div>
+    </div>
 
-            <div class="brick-badges">
-                
-
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/4391-98.html" class="brick-title-link">קצין התגמולים נ. מאיר עמר</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">טורנר צבי נ. טורנר מאיר</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-18">18/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/6582-98.html" class="brick-case-number">
+            ע&#34;פ 6582/98
         </a>
         
-        <a href="judgments/670-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 670/98
-                </span>
-            </div>
+    </div>
 
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">שטרית מאיר נ. עירית חיפה</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/7181-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 7181/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/6582-98.html" class="brick-title-link">גבריאל בן שלוש נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">נורית אריכא נ. בית הדין הרבני הגדול</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-16">16/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/2402-99.html" class="brick-case-number">
+            רע&#34;א 2402/99
         </a>
         
-        <a href="judgments/7311-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 7311/98
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    </div>
 
-            <h3 class="brick-title">דב שמעון ד&#34;ר נ. משרד הבריאות</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/8255-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 8255/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/2402-99.html" class="brick-title-link">איתן בן יעקב נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">סיעת נצרת המאוחדת נ. עיריית נצרת</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-15">15/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/7688-97.html" class="brick-case-number">
+            רע&#34;א 7688/97
         </a>
         
-        <a href="judgments/794-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 794/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">שי דעבול נ. מדינת ישראל</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/977-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 977/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/7688-97.html" class="brick-title-link">דבלאן טרבין נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">טטיאנה קרסנצ&#34;ובנקו נ. שר הפנים</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-15">15/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/6780-98.html" class="brick-case-number">
+            ע&#34;פ 6780/98
         </a>
         
-        <a href="judgments/1741-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בה&#34;ן 1741/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
+    </div>
 
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">סעיד יוסף נ. מדינת ישראל</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1781-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 1781/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/6780-98.html" class="brick-title-link">טורס ברוך נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">שלמה מסלוואי נ. ראש עיריית תל אביב</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-15">15/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/7474-98.html" class="brick-case-number">
+            בג&#34;ץ 7474/98
         </a>
         
-        <a href="judgments/1996-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;פ 1996/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">אדם טבע ודין - אגודה ישראלית להגנת הסביבה נ. השופט א.מצא - י</h3>
+    </div>
 
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/2009-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 2009/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/7474-98.html" class="brick-title-link">היאם זעאתרה נ. שר הפנים</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">חאלד פאקוסה נ. שר הבטחון</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-14">14/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/4001-97.html" class="brick-case-number">
+            בג&#34;ץ 4001/97
         </a>
         
-        <a href="judgments/2073-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 2073/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    </div>
 
-            <h3 class="brick-title">עלי זבידאת נ. מדינת ישראל - משרד הפנים</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1555-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    25/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;א 1555/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/4001-97.html" class="brick-title-link">גור אש אמנון נ. גור אש רונית ואח&#39;</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">עזבון המנוח משה אבטיחי ז&#34;ל נ. רנה רוזנבלום</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-14">14/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/7377-97.html" class="brick-case-number">
+            רע&#34;א 7377/97
         </a>
         
-        <a href="judgments/1578-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 1578/97
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">חוזה עמוס נ. להב נחמיה</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/5198-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;פ 5198/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/7377-97.html" class="brick-title-link">אבו פדאלי סאמר נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">וונדרמן סוזי נ. הועדה לבחירת שופטים</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-14">14/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1018-99.html" class="brick-case-number">
+            רע&#34;א 1018/99
         </a>
         
-        <a href="judgments/7087-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 7087/98
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
+    </div>
 
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">חסן חוואג&#39;ה נ. צה&#34;ל</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/7820-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 7820/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1018-99.html" class="brick-title-link">גלינה דזוצב נ. שר הפנים</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">המועצה הדתית אבן יהודה נ. המועצה המקומית אבן יהודה</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-14">14/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1118-99.html" class="brick-case-number">
+            בג&#34;ץ 1118/99
         </a>
         
-        <a href="judgments/359-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 359/99
-                </span>
-            </div>
+    </div>
 
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">לי מעון בע&#34;מ נ. אלי באקל</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/412-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 412/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1118-99.html" class="brick-title-link">ענת הופמן נ. אהוד אולמרט - ראש עיריית ירושלים</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">דניאלה י.אורן נ. סלקום ישראל בע&#39;&#39;מ</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-14">14/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1482-99.html" class="brick-case-number">
+            בש&#34;פ 1482/99
         </a>
         
-        <a href="judgments/619-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 619/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    </div>
 
-            <h3 class="brick-title">B.G.ASSISTANCE LTD נ. חרובי מרדכי</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1173-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 1173/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1482-99.html" class="brick-title-link">דוד חן נ. שר התחבורה</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">מאג&#39;דה סלאמין נ. שר הפנים</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-14">14/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/2062-99.html" class="brick-case-number">
+            רע&#34;א 2062/99
         </a>
         
-        <a href="judgments/1230-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 1230/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">בלומה וגנהיים נ. מינהל מקרקעי ישראל</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1314-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 1314/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/2062-99.html" class="brick-title-link">יעקב נוסבאום נ. שר החינוך התרבות והספורט</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">מאיר מנחם גילברט נ. רוזלי גלברט</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1507-97.html" class="brick-case-number">
+            בג&#34;ץ 1507/97
         </a>
         
-        <a href="judgments/1335-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 1335/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
+    </div>
 
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">ש. ח. שוקי שווק ועבודות בע&#34;מ נ. בנק לאומי לישראל בע&#34;מ</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1497-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 1497/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1507-97.html" class="brick-title-link">בן דוד רפאל נ. פקיד שומה ירושלים</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">אמיר שושני עו&#34;ד נ. שרה בצלאל</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1861-97.html" class="brick-case-number">
+            בג&#34;ץ 1861/97
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
         
-        <a href="judgments/1937-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 1937/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1861-97.html" class="brick-title-link">גוז פנינה נ. פייגנבויים שמחה</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">מרדכי בן צבי נ. שרות בתי הסוהר</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1594-98.html" class="brick-case-number">
+            ע&#34;פ 1594/98
         </a>
         
-        <a href="judgments/2039-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 2039/99
-                </span>
-            </div>
+    </div>
 
-            <div class="brick-badges">
-                
+    <div class="brick-badges">
+        
 
-                
+        
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-            <h3 class="brick-title">שלמה גולן נ. נילי גולן</h3>
+    <h3 class="brick-title">
+        
+        <a href="judgments/1594-98.html" class="brick-title-link">ארז קמינר נ. מדינת ישראל</a>
+        
+    </h3>
 
-            
+    
 
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1684-98.html" class="brick-case-number">
+            ע&#34;א 1684/98
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
         
-        <a href="judgments/2366-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 2366/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
 
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    <h3 class="brick-title">
+        
+        <a href="judgments/1684-98.html" class="brick-title-link">נחום פרמינגר מהנדס נ. אזולאי איציק ואח&#39;</a>
+        
+    </h3>
 
-            <h3 class="brick-title">אסמעיל ג&#39;עברי נ. שירות הבטחון הכללי</h3>
+    
 
-            
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
+            <time datetime="1999-04-13">13/04/1999</time>
+            
+        </span>
+        
+        
+        <a href="judgments/6191-98.html" class="brick-case-number">
+            בג&#34;ץ 6191/98
         </a>
         
-        <a href="judgments/2530-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 2530/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
+    </div>
 
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">שגיא רותם נ. היועץ המשפטי לממשלה</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/133-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    22/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 133/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/6191-98.html" class="brick-title-link">פלונית נ. הפרקליט הצבאי הראשי - תא&#34;ל אורי שהם</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title"></h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/7053-98.html" class="brick-case-number">
+            ע&#34;פ 7053/98
         </a>
         
-        <a href="judgments/3884-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    19/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 3884/98
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
+    </div>
 
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">צפורה רון נ. הועדה לבניה למגורים ותעשיה מחוז ירושלים</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/6250-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    19/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 6250/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/7053-98.html" class="brick-title-link">חוג&#39;יראת סעוד נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">NORDLAND PAPIER AG נ. מפעלי ייצור והוצאה לאור (ירושלים) מ.ס.</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/246-99.html" class="brick-case-number">
+            רע&#34;א 246/99
         </a>
         
-        <a href="judgments/8075-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    19/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 8075/98
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">רפאל בן קיקי נ. יוסי פרץ</h3>
+    </div>
 
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/8203-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    19/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;פ 8203/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/246-99.html" class="brick-title-link">חברת הסטיה בע&#34;מ נ. ברוך שוגול עו&#34;ד מפרק זמני ומנהל מיוחד</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">יעקב יונסי נ. מדינת ישראל</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/996-99.html" class="brick-case-number">
+            בש&#34;פ 996/99
         </a>
         
-        <a href="judgments/237-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    19/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 237/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    </div>
 
-            <h3 class="brick-title">מלי בן-ארי נ. ++++</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/478-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    19/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 478/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/996-99.html" class="brick-title-link">מוחמד בירו נ. סגן נשיא ביהמ&#34;ש המחוזי בנצרת</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">עוזי משלי נ. דנה בוקשפן משלי</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1046-99.html" class="brick-case-number">
+            רע&#34;א 1046/99
         </a>
         
-        <a href="judgments/1239-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    19/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;פ 1239/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">פהמי נעים לולו נ. ודאד ג&#39;יריס ח&#39;ורי</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/2300-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    19/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 2300/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1046-99.html" class="brick-title-link">עלי אלקדיים נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">שמואל צדוק נ. מדינת ישראל</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1091-99.html" class="brick-case-number">
+            ע&#34;א 1091/99
         </a>
         
-        <a href="judgments/545-96.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    18/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 545/96
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
+    </div>
 
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">SHERIDON EXIM LTD. נ. רשות הנמלים והרכבות</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/6334-96.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    18/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 6334/96
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1091-99.html" class="brick-title-link">עלי אל עוקבי נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">לאה אליהו נ. בית הדין ברבני האזורי</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1561-99.html" class="brick-case-number">
+            רע&#34;א 1561/99
         </a>
         
-        <a href="judgments/7451-96.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    18/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;פ 7451/96
-                </span>
-            </div>
+    </div>
 
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">אביבה אברהם נ. בנק מסד בע&#34;מ - סניף רשל&#34;צ</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/4063-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    18/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 4063/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1561-99.html" class="brick-title-link">קלוב התעופה לישראל - מרכז נ. שר התחבורה</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">מדינת ישראל נ. עבדאלחאלק עומר</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1594-99.html" class="brick-case-number">
+            ע&#34;א 1594/99
         </a>
         
-        <a href="judgments/4391-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    18/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 4391/98
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    </div>
 
-            <h3 class="brick-title">קצין התגמולים נ. מאיר עמר</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/6582-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    18/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;פ 6582/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1594-99.html" class="brick-title-link">איליה סבנקוב נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">גבריאל בן שלוש נ. מדינת ישראל</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1794-99.html" class="brick-case-number">
+            רע&#34;א 1794/99
         </a>
         
-        <a href="judgments/2402-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    16/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 2402/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">איתן בן יעקב נ. מדינת ישראל</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/7688-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    15/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 7688/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1794-99.html" class="brick-title-link">מוחמד אבו הלאל נ. יו&#34;ר הועדה המחוזית לתכנון ובניה חיפה</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">דבלאן טרבין נ. מדינת ישראל</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-13">13/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/2000-99.html" class="brick-case-number">
+            רע&#34;א 2000/99
         </a>
         
-        <a href="judgments/6780-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    15/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;פ 6780/98
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
+    </div>
 
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">טורס ברוך נ. מדינת ישראל</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/7474-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    15/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 7474/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/2000-99.html" class="brick-title-link">ח&#39;אלד בטעט נ. שרות הבטחון הכללי</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">היאם זעאתרה נ. שר הפנים</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-12">12/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1162-96.html" class="brick-case-number">
+            בש&#34;פ 1162/96
         </a>
         
-        <a href="judgments/4001-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    14/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 4001/97
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">גור אש אמנון נ. גור אש רונית ואח&#39;</h3>
+    </div>
 
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/7377-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    14/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 7377/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1162-96.html" class="brick-title-link">הילה וייס - קטינה באמצעות הוריה נ. אביעד יוסף מאק</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">אבו פדאלי סאמר נ. מדינת ישראל</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-12">12/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/4492-96.html" class="brick-case-number">
+            בג&#34;ץ 4492/96
         </a>
         
-        <a href="judgments/1018-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    14/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 1018/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    </div>
 
-            <h3 class="brick-title">גלינה דזוצב נ. שר הפנים</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1118-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    14/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 1118/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/4492-96.html" class="brick-title-link">חדד חי נ. רשם האגודות השיתופיות.</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">ענת הופמן נ. אהוד אולמרט - ראש עיריית ירושלים</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-12">12/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/4583-97.html" class="brick-case-number">
+            בג&#34;ץ 4583/97
         </a>
         
-        <a href="judgments/1482-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    14/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;פ 1482/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">דוד חן נ. שר התחבורה</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/2062-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    14/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 2062/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/4583-97.html" class="brick-title-link">דן יואל,עו&#34;ד מנהל עזבון המנוחה סילביה (אסתר)שטרן ז נ. שטרן ר</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">יעקב נוסבאום נ. שר החינוך התרבות והספורט</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-12">12/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/16-98.html" class="brick-case-number">
+            ע&#34;א 16/98
         </a>
         
-        <a href="judgments/1507-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 1507/97
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
+    </div>
 
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">בן דוד רפאל נ. פקיד שומה ירושלים</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1861-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 1861/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/16-98.html" class="brick-title-link">אברהם מאיר נ. אורי מאיר</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">גוז פנינה נ. פייגנבויים שמחה</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-12">12/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/504-98.html" class="brick-case-number">
+            ע&#34;א 504/98
         </a>
         
-        <a href="judgments/1594-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;פ 1594/98
-                </span>
-            </div>
+    </div>
 
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">ארז קמינר נ. מדינת ישראל</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1684-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 1684/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/504-98.html" class="brick-title-link">זגורי סימון, חברה לבנין ופיתוח בע&#34;מ נ. המועצה האזורית חוף עז</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">נחום פרמינגר מהנדס נ. אזולאי איציק ואח&#39;</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-11">11/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/219-99.html" class="brick-case-number">
+            בג&#34;ץ 219/99
         </a>
         
-        <a href="judgments/6191-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 6191/98
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    </div>
 
-            <h3 class="brick-title">פלונית נ. הפרקליט הצבאי הראשי - תא&#34;ל אורי שהם</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/7053-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;פ 7053/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/219-99.html" class="brick-title-link">שמעון ברנס נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">חוג&#39;יראת סעוד נ. מדינת ישראל</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-11">11/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/2049-99.html" class="brick-case-number">
+            רע&#34;א 2049/99
         </a>
         
-        <a href="judgments/246-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 246/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    </div>
 
-            <h3 class="brick-title">חברת הסטיה בע&#34;מ נ. ברוך שוגול עו&#34;ד מפרק זמני ומנהל מיוחד</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/996-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;פ 996/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/2049-99.html" class="brick-title-link">ניסים חדד נ. שר הבריאות</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">מוחמד בירו נ. סגן נשיא ביהמ&#34;ש המחוזי בנצרת</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-08">08/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/5716-97.html" class="brick-case-number">
+            בש&#34;א 5716/97
         </a>
         
-        <a href="judgments/1046-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 1046/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">עלי אלקדיים נ. מדינת ישראל</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1091-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 1091/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/5716-97.html" class="brick-title-link">אגודת הגליל למחקר ושירותי בריאות נ. שר החינוך</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">עלי אל עוקבי נ. מדינת ישראל</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-08">08/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/5858-97.html" class="brick-case-number">
+            בג&#34;ץ 5858/97
         </a>
         
-        <a href="judgments/1561-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 1561/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
+    </div>
 
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">קלוב התעופה לישראל - מרכז נ. שר התחבורה</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1594-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 1594/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/5858-97.html" class="brick-title-link">עפאף הניני נ. שר הפנים</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">איליה סבנקוב נ. מדינת ישראל</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-08">08/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/184-98.html" class="brick-case-number">
+            בג&#34;ץ 184/98
         </a>
         
-        <a href="judgments/1794-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 1794/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">מוחמד אבו הלאל נ. יו&#34;ר הועדה המחוזית לתכנון ובניה חיפה</h3>
+    </div>
 
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/2000-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    13/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 2000/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/184-98.html" class="brick-title-link">חסן דעיס נ. שר הבטחון</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">ח&#39;אלד בטעט נ. שרות הבטחון הכללי</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-08">08/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/4528-98.html" class="brick-case-number">
+            בג&#34;ץ 4528/98
         </a>
         
-        <a href="judgments/1162-96.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    12/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;פ 1162/96
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    </div>
 
-            <h3 class="brick-title">הילה וייס - קטינה באמצעות הוריה נ. אביעד יוסף מאק</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/4492-96.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    12/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 4492/96
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/4528-98.html" class="brick-title-link">יצחק אבידני עו&#34;ד נ. סגן שר השיכון והבינוי</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">חדד חי נ. רשם האגודות השיתופיות.</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-08">08/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/8230-98.html" class="brick-case-number">
+            בג&#34;ץ 8230/98
         </a>
         
-        <a href="judgments/4583-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    12/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 4583/97
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">דן יואל,עו&#34;ד מנהל עזבון המנוחה סילביה (אסתר)שטרן ז נ. שטרן ר</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/16-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    12/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 16/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/8230-98.html" class="brick-title-link">המועצה המקומית רמות השבים נ. שר הפנים</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">אברהם מאיר נ. אורי מאיר</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-08">08/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/797-99.html" class="brick-case-number">
+            בג&#34;ץ 797/99
         </a>
         
-        <a href="judgments/504-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    12/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;א 504/98
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
+    </div>
 
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">זגורי סימון, חברה לבנין ופיתוח בע&#34;מ נ. המועצה האזורית חוף עז</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/219-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    11/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 219/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/797-99.html" class="brick-title-link">אביחי לוי נ. הפרקליט הצבאי הראשי</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">שמעון ברנס נ. מדינת ישראל</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-08">08/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1998-99.html" class="brick-case-number">
+            רע&#34;א 1998/99
         </a>
         
-        <a href="judgments/2049-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    11/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 2049/99
-                </span>
-            </div>
+    </div>
 
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">ניסים חדד נ. שר הבריאות</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/5716-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    08/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בש&#34;א 5716/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1998-99.html" class="brick-title-link">פאר ויסנר נ. רשם המפלגות - עו&#34;ד זאב בונה</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">אגודת הגליל למחקר ושירותי בריאות נ. שר החינוך</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-08">08/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/2006-99.html" class="brick-case-number">
+            רע&#34;א 2006/99
         </a>
         
-        <a href="judgments/5858-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    08/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 5858/97
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    </div>
 
-            <h3 class="brick-title">עפאף הניני נ. שר הפנים</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/184-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    08/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 184/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/2006-99.html" class="brick-title-link">עסאם סייד אחמד נ. שר הבטחון</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">חסן דעיס נ. שר הבטחון</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-08">08/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/2242-99.html" class="brick-case-number">
+            רע&#34;א 2242/99
         </a>
         
-        <a href="judgments/4528-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    08/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 4528/98
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">יצחק אבידני עו&#34;ד נ. סגן שר השיכון והבינוי</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/8230-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    08/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 8230/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/2242-99.html" class="brick-title-link">יעקב שקד נ. אברהם קסירד - שופט השלום</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">המועצה המקומית רמות השבים נ. שר הפנים</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-08">08/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/6389-97.html" class="brick-case-number">
+            ע&#34;פ 6389/97
         </a>
         
-        <a href="judgments/797-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    08/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 797/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
+    </div>
 
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">אביחי לוי נ. הפרקליט הצבאי הראשי</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1998-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    08/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 1998/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/6389-97.html" class="brick-title-link">מורד מרעב נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">פאר ויסנר נ. רשם המפלגות - עו&#34;ד זאב בונה</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-06">06/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/1135-98.html" class="brick-case-number">
+            בג&#34;ץ 1135/98
         </a>
         
-        <a href="judgments/2006-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    08/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 2006/99
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">עסאם סייד אחמד נ. שר הבטחון</h3>
+    </div>
 
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/2242-99.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    08/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    רע&#34;א 2242/99
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/1135-98.html" class="brick-title-link">מילואות חברה לפיתוח משקי מפרץ חיפה בע&#34;מ נ. שר החקלאות-רפאל א</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">יעקב שקד נ. אברהם קסירד - שופט השלום</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-06">06/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/6663-98.html" class="brick-case-number">
+            בג&#34;ץ 6663/98
         </a>
         
-        <a href="judgments/6389-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    08/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;פ 6389/97
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
-
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    </div>
 
-            <h3 class="brick-title">מורד מרעב נ. מדינת ישראל</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/1135-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    06/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 1135/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/6663-98.html" class="brick-title-link">זאב שמעון בע&#34;מ נ. שר התעשיה והמסחר</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">מילואות חברה לפיתוח משקי מפרץ חיפה בע&#34;מ נ. שר החקלאות-רפאל א</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-06">06/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/7730-98.html" class="brick-case-number">
+            ע&#34;פ 7730/98
         </a>
         
-        <a href="judgments/6663-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    06/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 6663/98
-                </span>
-            </div>
-
-            <div class="brick-badges">
-                
-
-                
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
-
-            <h3 class="brick-title">זאב שמעון בע&#34;מ נ. שר התעשיה והמסחר</h3>
-
-            
+    <div class="brick-badges">
+        
 
-            
-        </a>
         
-        <a href="judgments/7730-98.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    06/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    ע&#34;פ 7730/98
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
+    <h3 class="brick-title">
+        
+        <a href="judgments/7730-98.html" class="brick-title-link">קונסטנטין שייבסקי נ. מדינת ישראל</a>
+        
+    </h3>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    
 
-            <h3 class="brick-title">קונסטנטין שייבסקי נ. מדינת ישראל</h3>
+    
+</article>
 
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
             
-
+            <time datetime="1999-04-05">05/04/1999</time>
             
+        </span>
+        
+        
+        <a href="judgments/5990-97.html" class="brick-case-number">
+            בג&#34;ץ 5990/97
         </a>
+        
+    </div>
+
+    <div class="brick-badges">
         
-        <a href="judgments/5990-97.html" class="judgment-brick">
-            <div class="brick-header">
-                <span class="brick-date">
-                    05/04/1999
-                    
-                </span>
-                <span class="brick-case-number">
-                    
-                    
-                    בג&#34;ץ 5990/97
-                </span>
-            </div>
 
-            <div class="brick-badges">
-                
+        
 
-                
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
 
-                
-                <span class="badge-pending-analysis">טרם נותח</span>
-                
-            </div>
+    <h3 class="brick-title">
+        
+        <a href="judgments/5990-97.html" class="brick-title-link">עבד אלמאלכ דהאמשה- ח&#34;כ נ. השר לבטחון פנים</a>
+        
+    </h3>
 
-            <h3 class="brick-title">עבד אלמאלכ דהאמשה- ח&#34;כ נ. השר לבטחון פנים</h3>
+    
 
-            
+    
+</article>
 
-            
-        </a>
         
     </div>
 

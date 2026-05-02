@@ -156,16 +156,30 @@
 </script>
 
 <style>
-    .judgment-header {
+    .judgments-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .judgment-card {
         background: white;
         border: 1px solid #eee;
         border-radius: 12px;
         padding: 24px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        margin-bottom: 2rem;
+        margin-bottom: 24px;
+        position: relative;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: block;
+        text-decoration: none;
+        color: inherit;
     }
 
-    /* Brick sub-elements — same classes as index.html */
+    .judgment-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
     .brick-header {
         display: flex;
         justify-content: space-between;
@@ -183,6 +197,7 @@
         color: #333;
         font-size: 1.05rem;
         direction: ltr;
+        text-decoration: none;
     }
 
     .brick-date {
@@ -204,34 +219,51 @@
         border-radius: 6px;
         font-size: 0.85rem;
         font-weight: 600;
+        text-decoration: none;
+    }
+
+    .badge-topic:hover {
+        background-color: #d4ebfc;
+        text-decoration: underline;
     }
 
     .wide-imp-icon {
         color: #fbc02d;
         font-size: 1.1rem;
+        margin-right: 4px;
     }
 
-    .brick-outcome {
-        font-weight: 700;
+    .brick-title {
+        margin: 8px 0 12px;
         font-size: 1rem;
-        text-align: left;
-        margin-bottom: 4px;
+        font-weight: 700;
+        color: #202124;
+        line-height: 1.3;
     }
 
-    .text-red {
-        color: #d32f2f;
+    .brick-title-link {
+        color: inherit;
+        text-decoration: none;
     }
 
-    .text-green {
-        color: #2e7d32;
+    .brick-title-link:hover,
+    .brick-case-number:hover {
+        text-decoration: underline;
     }
 
-    .text-gray {
-        color: #616161;
+    .brick-claim {
+        color: #555;
+        font-style: italic;
+        margin-bottom: 16px;
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
 
     .decision-row {
         margin-bottom: 12px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-align: left;
     }
 
     .decision-badge {
@@ -239,7 +271,7 @@
         padding: 0.3rem 0.9rem;
         border-radius: 6px;
         font-weight: 700;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .decision-badge.bg-red {
@@ -258,6 +290,44 @@
         background-color: #f5f5f5;
         color: #424242;
         border: 1px solid #ddd;
+    }
+
+    .badge-pending-analysis {
+        display: inline-block;
+        padding: 3px 10px;
+        background-color: #fff8e1;
+        color: #f57f17;
+        border: 1px solid #ffe082;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+        .judgment-card {
+            padding: 16px;
+        }
+
+        .brick-header {
+            font-size: 0.85rem;
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .brick-case-number {
+            font-size: 1rem;
+        }
+    }
+</style>
+<style>
+    .judgment-meta-card {
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 16px 24px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
     }
 
     .meta-grid {
@@ -452,17 +522,6 @@
         margin-top: 0.2rem;
     }
 
-    .badge-pending-analysis {
-        display: inline-block;
-        padding: 3px 10px;
-        background-color: #fff8e1;
-        color: #f57f17;
-        border: 1px solid #ffe082;
-        border-radius: 6px;
-        font-size: 0.8rem;
-        font-weight: 600;
-    }
-
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
@@ -477,7 +536,7 @@
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
-        .judgment-header {
+        .judgment-meta-card {
             padding: 16px;
         }
 
@@ -862,39 +921,611 @@
     <main id="main-content" class="container">
         
 <article>
-    <div class="judgment-header">
+    
 
-        
-        <div class="brick-header">
-            <span class="brick-date">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    .legend-strip {
+        background: linear-gradient(180deg, #f5faff 0%, #eef5fc 100%);
+        border: 1px solid #cfe2f3;
+        border-radius: 12px;
+        margin: 0 auto 16px;
+        max-width: 900px;
+        box-shadow: 0 2px 6px rgba(21, 101, 192, 0.06);
+        font-size: 14px;
+    }
+
+    .legend-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 16px;
+        cursor: pointer;
+        color: var(--primary-color, #003366);
+        font-weight: 600;
+        user-select: none;
+        background: none;
+        border: 0;
+        width: 100%;
+        text-align: right;
+        font-family: inherit;
+        font-size: inherit;
+    }
+
+    .legend-bar .left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .legend-bar .icon {
+        font-size: 16px;
+    }
+
+    .legend-bar .chev {
+        transition: transform 0.2s ease;
+    }
+
+    .legend-strip.open .legend-bar .chev {
+        transform: rotate(180deg);
+    }
+
+    .legend-body {
+        display: none;
+        padding: 6px 20px 20px;
+        border-top: 1px dashed #cfe2f3;
+    }
+
+    .legend-strip.open .legend-body {
+        display: block;
+    }
+
+    .legend-intro {
+        font-size: 13px;
+        color: #555;
+        margin: 12px 0 14px;
+        line-height: 1.5;
+    }
+
+    .legend-example {
+        display: grid;
+        grid-template-columns: minmax(260px, 1fr) minmax(220px, 320px);
+        gap: 16px;
+        align-items: start;
+    }
+
+    /* The example slot wraps the shared card. We dim the card slightly and
+       outline matching fields when a chip is hovered/focused. */
+    .legend-example-card {
+        position: relative;
+    }
+
+    .legend-example-card .judgment-card {
+        margin-bottom: 0;
+        cursor: default;
+    }
+
+    .legend-example-card .judgment-card:hover {
+        transform: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .legend-example-card.hl-date .brick-date,
+    .legend-example-card.hl-case .brick-case-number,
+    .legend-example-card.hl-topic .badge-topic,
+    .legend-example-card.hl-star .wide-imp-icon,
+    .legend-example-card.hl-pending .badge-pending-analysis,
+    .legend-example-card.hl-title .brick-title,
+    .legend-example-card.hl-claim .brick-claim,
+    .legend-example-card.hl-decision .decision-row {
+        outline: 2px solid #1565c0;
+        background-color: rgba(21, 101, 192, 0.08);
+        border-radius: 4px;
+    }
+
+    /* Chip = one annotation. Hovering it highlights the matching field. */
+    .legend-chips {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .legend-chip {
+        background: white;
+        border: 1px solid #cfe2f3;
+        border-right: 4px solid var(--primary-color, #1565c0);
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 12.5px;
+        line-height: 1.45;
+        cursor: default;
+        transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .legend-chip:hover,
+    .legend-chip:focus-within {
+        box-shadow: 0 2px 8px rgba(21, 101, 192, 0.12);
+        border-color: #90caf9;
+    }
+
+    .legend-chip b.label {
+        display: block;
+        color: var(--primary-color, #1565c0);
+        font-size: 11.5px;
+        margin-bottom: 2px;
+    }
+
+    .legend-chip.star-chip {
+        background: #fffbea;
+        border-color: #ffe082;
+        border-right-color: #fbc02d;
+    }
+
+    .legend-chip.star-chip b.label {
+        color: #f57c00;
+    }
+
+    .legend-chip.pending-chip {
+        background: #fff8e1;
+        border-color: #ffe082;
+        border-right-color: #f57f17;
+    }
+
+    .legend-chip.pending-chip b.label {
+        color: #b06a00;
+    }
+
+    .legend-chip-quote {
+        display: block;
+        margin-top: 4px;
+        padding: 4px 8px;
+        background: #f8f9fa;
+        border-right: 2px solid #cfd8dc;
+        color: #444;
+        font-style: italic;
+    }
+
+    .legend-decision-link {
+        display: inline-block;
+        margin-top: 4px;
+        color: var(--primary-color, #1565c0);
+        text-decoration: underline;
+        font-size: 11.5px;
+        font-weight: 600;
+        cursor: pointer;
+        background: none;
+        border: 0;
+        padding: 0;
+        font-family: inherit;
+    }
+
+    .legend-foot {
+        font-size: 11px;
+        color: #888;
+        margin-top: 14px;
+        text-align: center;
+    }
+
+    @media (max-width: 720px) {
+        .legend-example {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ----- Decisions modal ----- */
+    .legend-modal-back {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1000;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 60px 12px;
+    }
+
+    .legend-modal-back.open {
+        display: flex;
+    }
+
+    .legend-modal {
+        background: white;
+        border-radius: 14px;
+        max-width: 560px;
+        width: 100%;
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .legend-modal-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .legend-modal-head h3 {
+        margin: 0;
+        font-size: 16px;
+        color: var(--primary-color, #1565c0);
+    }
+
+    .legend-modal-head .x {
+        background: none;
+        border: 0;
+        font-size: 22px;
+        color: #999;
+        cursor: pointer;
+        padding: 0 6px;
+        line-height: 1;
+    }
+
+    .legend-modal-body {
+        padding: 8px 20px 20px;
+    }
+
+    .legend-modal-row {
+        display: flex;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid #f5f5f5;
+        align-items: flex-start;
+    }
+
+    .legend-modal-row:last-child {
+        border-bottom: 0;
+    }
+
+    .legend-modal-row .badge {
+        flex-shrink: 0;
+        padding: 3px 10px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 12px;
+        height: fit-content;
+        white-space: nowrap;
+    }
+
+    .legend-modal-row .desc {
+        font-size: 12.5px;
+        color: #444;
+        line-height: 1.45;
+    }
+
+    .legend-modal-foot {
+        margin-top: 14px;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .badge.bg-green {
+        background: #e8f5e9;
+        color: #1b5e20;
+        border: 1px solid #c3e6cb;
+    }
+
+    .badge.bg-red {
+        background: #fdecea;
+        color: #b71c1c;
+        border: 1px solid #f5c6cb;
+    }
+
+    .badge.bg-gray {
+        background: #f5f5f5;
+        color: #424242;
+        border: 1px solid #ddd;
+    }
+
+    .badge.bg-yellow {
+        background: #fff8e1;
+        color: #a06800;
+        border: 1px solid #ffe082;
+    }
+
+    .badge.bg-blue {
+        background: #e3f2fd;
+        color: #1565c0;
+        border: 1px solid #cfe2f3;
+    }
+</style>
+
+<div class="legend-strip" id="legend-strip" data-legend-version="v2">
+    <button type="button" class="legend-bar" id="legend-toggle" aria-expanded="false" aria-controls="legend-body">
+        <span class="left"><span class="icon" aria-hidden="true">📖</span> איך לקרוא את הכרטיסים?</span>
+        <span class="chev" aria-hidden="true">▾</span>
+    </button>
+    <div class="legend-body" id="legend-body">
+        <p class="legend-intro">
+            כל כרטיס מציג בקצרה את עיקרי פסק הדין. הנה דוגמה מהפסיקה הראשונה בעמוד —
+            ריחוף/לחיצה על תווית הסבר מדגיש את האזור המתאים בכרטיס.
+        </p>
+
+        <div class="legend-example">
+            <div class="legend-example-card" id="legend-card-example">
                 
-                <time datetime="2016-01-11">11/01/2016</time>
-                
-            </span>
-            <span class="brick-case-number">
-                ע&#34;א 9027/14
-            </span>
-        </div>
-
-        
-        <div class="brick-badges">
-            <span class="badge-pending-analysis">טרם נותח</span>
-        </div>
-        
-
-        <h1 style="margin: 8px 0 12px; font-size: 1.1rem; font-weight: 600; color: #202124; line-height: 1.4;">פלוני נ. פלוני</h1>
-
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2016-01-11">11/01/2016</time>
+            
+        </span>
         
         
-
+        <span class="brick-case-number">
+            ע&#34;א 9027/14
+        </span>
         
     </div>
 
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        פלוני נ. פלוני
+        
+    </h3>
+
+    
+
+    
+</article>
+
+            </div>
+
+            <div class="legend-chips">
+                <div class="legend-chip" data-target="date" tabindex="0">
+                    <b class="label">תאריך פרסום</b>
+                    
+                    11/01/2016 (לפני 3764 ימים)
+                    
+                </div>
+
+                <div class="legend-chip" data-target="case" tabindex="0">
+                    <b class="label">סוג התיק</b>
+                    <b>ע&#34;א</b> — ערעור אזרחי.
+                </div>
+
+                <div class="legend-chip" data-target="case" tabindex="0">
+                    <b class="label">מספר התיק</b>
+                    <b dir="ltr" style="display:inline-block">9027/14</b> — פורמט ישן: מספר סידורי / שנה.
+                </div>
+
+                
+
+                
+
+                
+                <div class="legend-chip pending-chip" data-target="pending" tabindex="0">
+                    <b class="label">טרם נותח</b>
+                    פסק הדין נאסף אך עוד לא עבר ניתוח אוטומטי. סיכום, נושא והחלטה יופיעו כאן ברגע שהניתוח יסתיים.
+                </div>
+                
+
+                <div class="legend-chip" data-target="title" tabindex="0">
+                    <b class="label">שם התיק (הצדדים)</b>
+                    
+                    שם התיק כולל את שמות הצדדים. הקיצור "נ׳" שביניהם = "<b>נגד</b>".
+                    
+                </div>
+
+                
+
+                
+            </div>
+        </div>
+
+        <p class="legend-foot">הסבר זה לא ייפתח אוטומטית בביקורים הבאים. תמיד אפשר לפתוח אותו שוב מהפס בראש הרשימה.</p>
+    </div>
+</div>
+
+<div class="legend-modal-back" id="legend-decisions-modal" role="dialog" aria-modal="true" aria-labelledby="legend-decisions-title">
+    <div class="legend-modal">
+        <div class="legend-modal-head">
+            <h3 id="legend-decisions-title">סוגי החלטות אפשריים</h3>
+            <button type="button" class="x" id="legend-decisions-close" aria-label="סגירה">✕</button>
+        </div>
+        <div class="legend-modal-body">
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-green">התקבל במלואו</span>
+                <div class="desc">בית המשפט קיבל את ההליך לטובת הצד הפותח (התובע/העותר/המערער).</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-green">התקבל חלקית</span>
+                <div class="desc">חלק מהסעדים שהתבקש התקבל וחלק נדחה.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-red">נדחה</span>
+                <div class="desc">בית המשפט דחה את ההליך לטובת הצד שכנגד (הנתבע/המשיב).</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-red">נדחה על הסף</span>
+                <div class="desc">ההליך נדחה ללא דיון לגופו, מסיבה פרוצדורלית (למשל חוסר סמכות או איחור).</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-gray">נמחק / חזרה</span>
+                <div class="desc">המבקש חזר בו מההליך, או שההליך נמחק טכנית מהתיק.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-blue">הסכם פשרה</span>
+                <div class="desc">הצדדים הגיעו ביניהם להסכמה והוסכם על פתרון.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-blue">תוקף לפסק דין מוסכם</span>
+                <div class="desc">בית המשפט נתן תוקף משפטי להסכמה שהושגה בין הצדדים.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-gray">נמחק (התייתרות)</span>
+                <div class="desc">ההכרעה התייתרה — אין עוד צורך בהכרעה שיפוטית.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-yellow">הוחזר לערכאה הקודמת</span>
+                <div class="desc">בית המשפט החזיר את התיק לדיון נוסף בערכאה שמתחתיו.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-yellow">החלטת ביניים</span>
+                <div class="desc">החלטה דיונית במהלך ההליך — אינה הכרעה סופית בתיק.</div>
+            </div>
+            
+            <div class="legend-modal-row">
+                <span class="badge bg-gray">אחר</span>
+                <div class="desc">תוצאה שאינה משתייכת לאחת מהקטגוריות המקובלות.</div>
+            </div>
+            
+            <p class="legend-modal-foot">
+                <a href="../faq.html#decision-types">להסבר מורחב — דף השאלות הנפוצות ←</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        var strip = document.getElementById('legend-strip');
+        if (!strip) return;
+        var toggle = document.getElementById('legend-toggle');
+        var card = document.getElementById('legend-card-example');
+        var modal = document.getElementById('legend-decisions-modal');
+        var openModalBtn = document.getElementById('legend-decisions-open');
+        var closeModalBtn = document.getElementById('legend-decisions-close');
+
+        // Versioned key — bump 'data-legend-version' on the strip when the
+        // legend's content changes meaningfully so users see it once again.
+        var version = strip.getAttribute('data-legend-version') || 'v1';
+        var storageKey = 'bagatsai.legend.dismissed';
+
+        // Dismissal is sticky: we set the flag the first time the user
+        // collapses the strip and never clear it afterward. Re-opening on a
+        // later visit (or even on the same page) is a temporary one-shot read
+        // that should NOT cause the next page to auto-expand again. The only
+        // way the flag clears is a version bump (data-legend-version), which
+        // re-introduces the strip once for everyone after a content change.
+        function setOpen(isOpen, persist) {
+            strip.classList.toggle('open', isOpen);
+            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (persist && !isOpen) {
+                try {
+                    localStorage.setItem(storageKey, version);
+                } catch (e) { /* localStorage may be blocked; fail silently */ }
+            }
+        }
+
+        // Open by default unless this exact version was dismissed before.
+        var dismissed = '';
+        try { dismissed = localStorage.getItem(storageKey) || ''; } catch (e) {}
+        setOpen(dismissed !== version, false);
+
+        toggle.addEventListener('click', function () {
+            setOpen(!strip.classList.contains('open'), true);
+        });
+
+        // Hover/focus a chip → highlight the matching part of the example card.
+        // The card is rendered by the shared macro, so we toggle a class on the
+        // wrapping element and target nested fields via CSS.
+        strip.querySelectorAll('.legend-chip[data-target]').forEach(function (chip) {
+            var target = chip.getAttribute('data-target');
+            var cls = 'hl-' + target;
+            function on() { card.classList.add(cls); }
+            function off() { card.classList.remove(cls); }
+            chip.addEventListener('mouseenter', on);
+            chip.addEventListener('mouseleave', off);
+            chip.addEventListener('focus', on);
+            chip.addEventListener('blur', off);
+        });
+
+        if (openModalBtn && modal) {
+            openModalBtn.addEventListener('click', function () { modal.classList.add('open'); });
+        }
+        if (closeModalBtn && modal) {
+            closeModalBtn.addEventListener('click', function () { modal.classList.remove('open'); });
+        }
+        if (modal) {
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) modal.classList.remove('open');
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') modal.classList.remove('open');
+            });
+        }
+    })();
+</script>
+
+
+    
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2016-01-11">11/01/2016</time>
+            
+        </span>
+        
+        
+        <span class="brick-case-number">
+            ע&#34;א 9027/14
+        </span>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h1 class="brick-title">
+        
+        פלוני נ. פלוני
+        
+    </h1>
+
+    
+
+    
+</article>
+
+
     
     
 
     
-    <div class="judgment-header" style="padding: 16px 24px;">
+    <div class="judgment-meta-card">
         <div class="meta-grid" style="margin-top: 0; padding-top: 0; border-top: none;">
             
             <div class="meta-item">
