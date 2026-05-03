@@ -23,7 +23,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>פסיקות אחרונות - בגץ-AI</title>
+    <title>ארכיון: 2022-02 - בגץ-AI</title>
     <meta name="description" content="ארכיון חודש 2022-02: 236 פסקי דין של בית המשפט העליון עם סיכומים וניתוחים מבוססי AI. צפו בפסקי דין, תוצאות ותקדימים.">
 
     <link rel="alternate" type="application/rss+xml" title="מאגר פסקי דין — עדכונים" href="./feed.xml">
@@ -40,14 +40,14 @@
     <meta property="og:locale" content="he_IL">
     
     <meta property="og:type" content="website">
-    <meta property="og:title" content="פסיקות אחרונות - בגץ-AI">
+    <meta property="og:title" content="ארכיון: 2022-02 - בגץ-AI">
     <meta property="og:description" content="ארכיון 2022-02 — 236 פסקי דין של בית המשפט העליון עם סיכומים וניתוחים מבוססי AI.">
     
 
     
     <meta name="twitter:card" content="summary">
     
-    <meta name="twitter:title" content="פסיקות אחרונות - בגץ-AI">
+    <meta name="twitter:title" content="ארכיון: 2022-02 - בגץ-AI">
     <meta name="twitter:description" content="מאגר AI של פסקי דין של בית המשפט העליון עם ניתוחים, סיכומים ותגיות נושאיות">
     
 
@@ -227,6 +227,220 @@
 </style>
 
 <style>
+    /* --- AI Search --- */
+    .ai-search {
+        max-width: 760px;
+        margin: 0 auto 36px;
+        padding: 24px;
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .ai-search__title {
+        color: var(--primary-color);
+        font-size: 2rem;
+        line-height: 1.25;
+        margin-bottom: 0.75rem;
+        text-align: center;
+    }
+
+    .ai-search__intro {
+        color: #555;
+        margin: 0 0 1rem;
+    }
+
+    .ai-search__scope {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.35rem;
+        color: #555;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+
+    .ai-search__help {
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .ai-search__help-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #e6edf5;
+        color: var(--primary-color);
+        font-size: 0.82rem;
+        font-weight: 700;
+        line-height: 1;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .ai-search__help-button::-webkit-details-marker {
+        display: none;
+    }
+
+    .ai-search__help-text {
+        position: absolute;
+        z-index: 20;
+        top: 28px;
+        inset-inline-start: 0;
+        width: min(520px, calc(100vw - 56px));
+        padding: 0.85rem 1rem;
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+        color: var(--text-color);
+        line-height: 1.55;
+    }
+
+    .ai-search__form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .ai-search__textarea {
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 130px;
+        padding: 0.75rem;
+        font: inherit;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        resize: vertical;
+    }
+
+    .ai-search__textarea:disabled {
+        background: #f0f0f0;
+        color: #888;
+    }
+
+    .ai-search__meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    .ai-search__counter--over {
+        color: #b00020;
+        font-weight: 600;
+    }
+
+    .ai-search__button {
+        align-self: flex-start;
+        background: var(--primary-color);
+        color: #fff;
+        border: 0;
+        border-radius: 6px;
+        padding: 0.6rem 1.4rem;
+        font: inherit;
+        cursor: pointer;
+    }
+
+    .ai-search__button:disabled {
+        background: #999;
+        cursor: not-allowed;
+    }
+
+    .ai-search__banner {
+        margin: 1rem 0;
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        border: 1px solid transparent;
+    }
+
+    .ai-search__banner--error {
+        background: #fdecea;
+        border-color: #f5c2c0;
+        color: #6b1815;
+    }
+
+    .ai-search__banner--info {
+        background: #eef4fb;
+        border-color: #c7d8ee;
+        color: #1e3a5f;
+    }
+
+    .ai-search__results {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0 0;
+    }
+
+    .ai-search__result {
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        padding: 0.9rem 1rem;
+        margin-bottom: 0.75rem;
+        background: #fff;
+    }
+
+    .ai-search__result a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .ai-search__result a:hover {
+        text-decoration: underline;
+    }
+
+    .ai-search__result-meta {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.85rem;
+        color: #666;
+        margin-top: 0.25rem;
+    }
+
+    .ai-search__similarity {
+        font-weight: 600;
+    }
+
+    .ai-search__spinner {
+        display: none;
+        margin-inline-start: 0.5rem;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #ccc;
+        border-top-color: var(--primary-color);
+        border-radius: 50%;
+        animation: ai-search-spin 0.7s linear infinite;
+        vertical-align: middle;
+    }
+
+    .ai-search__spinner.is-active {
+        display: inline-block;
+    }
+
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    @keyframes ai-search-spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
     /* --- Page Title --- */
     .page-title {
         font-size: 2.2rem;
@@ -236,6 +450,22 @@
     }
 
     @media (max-width: 768px) {
+        .ai-search {
+            padding: 18px;
+            margin-bottom: 28px;
+        }
+
+        .ai-search__title {
+            font-size: 1.45rem;
+        }
+
+        .ai-search__scope,
+        .ai-search__meta,
+        .ai-search__result-meta {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         .page-title {
             font-size: 1.5rem;
             margin-bottom: 20px;
@@ -612,13 +842,11 @@
 
             <nav class="navbar">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="./index.html">פסיקות אחרונות</a></li>
-                    <li class="nav-item"><a href="./search-ai.html">חיפוש AI</a></li>
+                    <li class="nav-item"><a href="./index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="./topics/index.html">לפי נושאים</a></li>
                     <li class="nav-item"><a href="./sitemap_index.html">ארכיון</a></li>
                     <li class="nav-item"><a href="./about.html">אודות</a></li>
                     <li class="nav-item"><a href="./faq.html">שאלות נפוצות</a></li>
-<!--                    <li class="nav-item"><a href="https://www.bagats-poc.win" class="cta-button">בגץ-AI</a></li>-->
                 </ul>
             </nav>
         </div>
@@ -627,6 +855,7 @@
     <main id="main-content" class="container">
         
 <div class="index-page">
+    
     <h1 class="page-title">ארכיון: 2022-02</h1>
     
 
@@ -1674,8 +1903,8 @@
         </span>
         
         
-        <a href="judgments/8217-21.html" class="brick-case-number">
-            בג&#34;ץ 8217/21
+        <a href="judgments/8284-21.html" class="brick-case-number">
+            בג&#34;ץ 8284/21
         </a>
         
     </div>
@@ -1692,83 +1921,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/8217-21.html" class="brick-title-link">גאבר  נ&#39; לשכת עורכי הדין  מחוז  הצפון - נצרת</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-27">27/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/6110-21.html" class="brick-case-number">
-            בג&#34;ץ 6110/21
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/6110-21.html" class="brick-title-link">עיריית הרצליה  ואח&#39; נ&#39; שרת התחבורה  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-27">27/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/1060-21.html" class="brick-case-number">
-            בג&#34;ץ 1060/21
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/1060-21.html" class="brick-title-link">להב- לשכת ארגוני העצמאים והעסקים בישראל (ע&#34;ר)  ואח&#39; נ&#39; כנסת ישראל  ואח&#39;</a>
+        <a href="judgments/8284-21.html" class="brick-title-link">תזמורת ירושלים מזרח ומערב  נ&#39; משרד התרבות והספורט- מדינת ישראל  ואח&#39;</a>
         
     </h3>
 
@@ -1826,8 +1979,8 @@
         </span>
         
         
-        <a href="judgments/8284-21.html" class="brick-case-number">
-            בג&#34;ץ 8284/21
+        <a href="judgments/8217-21.html" class="brick-case-number">
+            בג&#34;ץ 8217/21
         </a>
         
     </div>
@@ -1844,7 +1997,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/8284-21.html" class="brick-title-link">תזמורת ירושלים מזרח ומערב  נ&#39; משרד התרבות והספורט- מדינת ישראל  ואח&#39;</a>
+        <a href="judgments/8217-21.html" class="brick-title-link">גאבר  נ&#39; לשכת עורכי הדין  מחוז  הצפון - נצרת</a>
         
     </h3>
 
@@ -1883,6 +2036,82 @@
     <h3 class="brick-title">
         
         <a href="judgments/8479-21.html" class="brick-title-link">ג&#39;אבר באסמה חליל עבד אלרחים  נ&#39; ראש המינהל האזרחי בגדה המערבית  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-27">27/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1060-21.html" class="brick-case-number">
+            בג&#34;ץ 1060/21
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1060-21.html" class="brick-title-link">להב- לשכת ארגוני העצמאים והעסקים בישראל (ע&#34;ר)  ואח&#39; נ&#39; כנסת ישראל  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-27">27/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/6110-21.html" class="brick-case-number">
+            בג&#34;ץ 6110/21
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/6110-21.html" class="brick-title-link">עיריית הרצליה  ואח&#39; נ&#39; שרת התחבורה  ואח&#39;</a>
         
     </h3>
 
@@ -2282,8 +2511,8 @@
         </span>
         
         
-        <a href="judgments/1367-22.html" class="brick-case-number">
-            בג&#34;ץ 1367/22
+        <a href="judgments/1364-22.html" class="brick-case-number">
+            בג&#34;ץ 1364/22
         </a>
         
     </div>
@@ -2300,273 +2529,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/1367-22.html" class="brick-title-link">ראמז בשיר רפיק צדקה (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-24">24/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/870-22.html" class="brick-case-number">
-            בג&#34;ץ 870/22
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/870-22.html" class="brick-title-link">מוראד סלאימה  נ&#39; משטרת ישראל  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-24">24/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/62-22.html" class="brick-case-number">
-            בג&#34;ץ 62/22
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/62-22.html" class="brick-title-link">קלאסיק הוטל מנג&#39;מנט בע&#34;מ  נ&#39; בית הדין הארצי לעבודה  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-24">24/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/3383-20.html" class="brick-case-number">
-            בג&#34;ץ 3383/20
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/3383-20.html" class="brick-title-link">מימן  ואח&#39; נ&#39; ראש מנהל רפואה במשרד הבריאות  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-24">24/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/1365-22.html" class="brick-case-number">
-            בג&#34;ץ 1365/22
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/1365-22.html" class="brick-title-link">חסאן עבד אללה אחמד אלשרבתאוי (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-24">24/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/8871-20.html" class="brick-case-number">
-            בג&#34;ץ 8871/20
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/8871-20.html" class="brick-title-link">המועצה המקומית מעלה עירון  ואח&#39; נ&#39; שר המשפטים  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-24">24/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/925-22.html" class="brick-case-number">
-            בג&#34;ץ 925/22
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/925-22.html" class="brick-title-link">גראדאת  ואח&#39; נ&#39; המפקד הצבאי לאזור הגדה המערבית</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-24">24/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/1362-22.html" class="brick-case-number">
-            בג&#34;ץ 1362/22
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/1362-22.html" class="brick-title-link">קצי מאמון שאפע אעמור (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
+        <a href="judgments/1364-22.html" class="brick-title-link">עז אלדין נאיף צדקה (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
         
     </h3>
 
@@ -2624,8 +2587,8 @@
         </span>
         
         
-        <a href="judgments/1364-22.html" class="brick-case-number">
-            בג&#34;ץ 1364/22
+        <a href="judgments/1362-22.html" class="brick-case-number">
+            בג&#34;ץ 1362/22
         </a>
         
     </div>
@@ -2642,7 +2605,235 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/1364-22.html" class="brick-title-link">עז אלדין נאיף צדקה (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
+        <a href="judgments/1362-22.html" class="brick-title-link">קצי מאמון שאפע אעמור (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-24">24/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/925-22.html" class="brick-case-number">
+            בג&#34;ץ 925/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/925-22.html" class="brick-title-link">גראדאת  ואח&#39; נ&#39; המפקד הצבאי לאזור הגדה המערבית</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-24">24/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/8871-20.html" class="brick-case-number">
+            בג&#34;ץ 8871/20
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/8871-20.html" class="brick-title-link">המועצה המקומית מעלה עירון  ואח&#39; נ&#39; שר המשפטים  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-24">24/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1365-22.html" class="brick-case-number">
+            בג&#34;ץ 1365/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1365-22.html" class="brick-title-link">חסאן עבד אללה אחמד אלשרבתאוי (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-24">24/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/3383-20.html" class="brick-case-number">
+            בג&#34;ץ 3383/20
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/3383-20.html" class="brick-title-link">מימן  ואח&#39; נ&#39; ראש מנהל רפואה במשרד הבריאות  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-24">24/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/62-22.html" class="brick-case-number">
+            בג&#34;ץ 62/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/62-22.html" class="brick-title-link">קלאסיק הוטל מנג&#39;מנט בע&#34;מ  נ&#39; בית הדין הארצי לעבודה  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-24">24/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/870-22.html" class="brick-case-number">
+            בג&#34;ץ 870/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/870-22.html" class="brick-title-link">מוראד סלאימה  נ&#39; משטרת ישראל  ואח&#39;</a>
         
     </h3>
 
@@ -2681,6 +2872,44 @@
     <h3 class="brick-title">
         
         <a href="judgments/5966-21.html" class="brick-title-link">סולימן  נ&#39; מפקד יחידת מיטב  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-24">24/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1367-22.html" class="brick-case-number">
+            בג&#34;ץ 1367/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1367-22.html" class="brick-title-link">ראמז בשיר רפיק צדקה (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
         
     </h3>
 
@@ -3498,8 +3727,8 @@
         </span>
         
         
-        <a href="judgments/2337-21.html" class="brick-case-number">
-            בג&#34;ץ 2337/21
+        <a href="judgments/6190-21.html" class="brick-case-number">
+            בג&#34;ץ 6190/21
         </a>
         
     </div>
@@ -3516,7 +3745,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/2337-21.html" class="brick-title-link">התנועה למען איכות השלטון בישראל  נ&#39; היועמ&#34;ש  ואח&#39;</a>
+        <a href="judgments/6190-21.html" class="brick-title-link">פואה, יו&#34;ר תנועת &#34;בוחרים במשפחה&#34;  נ&#39; הורביץ - משרד הבריאות  ואח&#39;</a>
         
     </h3>
 
@@ -3574,8 +3803,8 @@
         </span>
         
         
-        <a href="judgments/1313-22.html" class="brick-case-number">
-            בג&#34;ץ 1313/22
+        <a href="judgments/2337-21.html" class="brick-case-number">
+            בג&#34;ץ 2337/21
         </a>
         
     </div>
@@ -3592,7 +3821,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/1313-22.html" class="brick-title-link">בעל צדקה  נ&#39; משרד ראש הממשלה  ואח&#39;</a>
+        <a href="judgments/2337-21.html" class="brick-title-link">התנועה למען איכות השלטון בישראל  נ&#39; היועמ&#34;ש  ואח&#39;</a>
         
     </h3>
 
@@ -3612,8 +3841,8 @@
         </span>
         
         
-        <a href="judgments/6190-21.html" class="brick-case-number">
-            בג&#34;ץ 6190/21
+        <a href="judgments/1313-22.html" class="brick-case-number">
+            בג&#34;ץ 1313/22
         </a>
         
     </div>
@@ -3630,7 +3859,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/6190-21.html" class="brick-title-link">פואה, יו&#34;ר תנועת &#34;בוחרים במשפחה&#34;  נ&#39; הורביץ - משרד הבריאות  ואח&#39;</a>
+        <a href="judgments/1313-22.html" class="brick-title-link">בעל צדקה  נ&#39; משרד ראש הממשלה  ואח&#39;</a>
         
     </h3>
 
@@ -3916,44 +4145,6 @@
         </span>
         
         
-        <a href="judgments/4985-20.html" class="brick-case-number">
-            בג&#34;ץ 4985/20
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/4985-20.html" class="brick-title-link">עבד אלחיי נימר זיר  נ&#39; היועץ המשפטי לממשלה  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-21">21/02/2022</time>
-            
-        </span>
-        
-        
         <a href="judgments/2852-19.html" class="brick-case-number">
             בג&#34;ץ 2852/19
         </a>
@@ -3973,6 +4164,44 @@
     <h3 class="brick-title">
         
         <a href="judgments/2852-19.html" class="brick-title-link">חליל שוויקי  נ&#39; מפקד כוחות צה&#34;ל בגדה המערבית  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-21">21/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/4985-20.html" class="brick-case-number">
+            בג&#34;ץ 4985/20
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/4985-20.html" class="brick-title-link">עבד אלחיי נימר זיר  נ&#39; היועץ המשפטי לממשלה  ואח&#39;</a>
         
     </h3>
 
@@ -4334,44 +4563,6 @@
         </span>
         
         
-        <a href="judgments/745-22.html" class="brick-case-number">
-            בג&#34;ץ 745/22
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/745-22.html" class="brick-title-link">ג&#39;רדאת  ואח&#39; נ&#39; המפקד הצבאי לאיזור הגדה המערבית</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-20">20/02/2022</time>
-            
-        </span>
-        
-        
         <a href="judgments/6736-21.html" class="brick-case-number">
             בג&#34;ץ 6736/21
         </a>
@@ -4391,6 +4582,44 @@
     <h3 class="brick-title">
         
         <a href="judgments/6736-21.html" class="brick-title-link">מי בקעת הירדן- אגודת מים שיתופית חקלאית  נ&#39; הממונה על הרכוש הממשלתי והנטוש באזור יהודה ושומרון  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-20">20/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/745-22.html" class="brick-case-number">
+            בג&#34;ץ 745/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/745-22.html" class="brick-title-link">ג&#39;רדאת  ואח&#39; נ&#39; המפקד הצבאי לאיזור הגדה המערבית</a>
         
     </h3>
 
@@ -4448,8 +4677,8 @@
         </span>
         
         
-        <a href="judgments/1216-22.html" class="brick-case-number">
-            בג&#34;ץ 1216/22
+        <a href="judgments/1213-22.html" class="brick-case-number">
+            בג&#34;ץ 1213/22
         </a>
         
     </div>
@@ -4466,7 +4695,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/1216-22.html" class="brick-title-link">מחמד עדנאן סלים אלזיוד (אסיר) נ&#39; שר הביטחון  ואח&#39;</a>
+        <a href="judgments/1213-22.html" class="brick-title-link">יזן מוהנד שוקרי עאבד (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
         
     </h3>
 
@@ -4524,8 +4753,8 @@
         </span>
         
         
-        <a href="judgments/1213-22.html" class="brick-case-number">
-            בג&#34;ץ 1213/22
+        <a href="judgments/1216-22.html" class="brick-case-number">
+            בג&#34;ץ 1216/22
         </a>
         
     </div>
@@ -4542,7 +4771,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/1213-22.html" class="brick-title-link">יזן מוהנד שוקרי עאבד (עציר) נ&#39; שר הביטחון  ואח&#39;</a>
+        <a href="judgments/1216-22.html" class="brick-title-link">מחמד עדנאן סלים אלזיוד (אסיר) נ&#39; שר הביטחון  ואח&#39;</a>
         
     </h3>
 
@@ -4714,44 +4943,6 @@
         </span>
         
         
-        <a href="judgments/1121-22.html" class="brick-case-number">
-            בג&#34;ץ 1121/22
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/1121-22.html" class="brick-title-link">אייזנברג  נ&#39; בית הדין הרבני תל אביב  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-17">17/02/2022</time>
-            
-        </span>
-        
-        
         <a href="judgments/907-22.html" class="brick-case-number">
             בג&#34;ץ 907/22
         </a>
@@ -4771,6 +4962,44 @@
     <h3 class="brick-title">
         
         <a href="judgments/907-22.html" class="brick-title-link">בכיר  נ&#39; המפקד הצבאי באזור הגדה המערבית  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-17">17/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/1121-22.html" class="brick-case-number">
+            בג&#34;ץ 1121/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/1121-22.html" class="brick-title-link">אייזנברג  נ&#39; בית הדין הרבני תל אביב  ואח&#39;</a>
         
     </h3>
 
@@ -5132,8 +5361,8 @@
         </span>
         
         
-        <a href="judgments/4204-21.html" class="brick-case-number">
-            בג&#34;ץ 4204/21
+        <a href="judgments/8777-21.html" class="brick-case-number">
+            בג&#34;ץ 8777/21
         </a>
         
     </div>
@@ -5150,7 +5379,45 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/4204-21.html" class="brick-title-link">יצחק דסה  נ&#39; שר החינוך  ואח&#39;</a>
+        <a href="judgments/8777-21.html" class="brick-title-link">ורדי  נ&#39; מדינת ישראל  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-16">16/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/511-22.html" class="brick-case-number">
+            בג&#34;ץ 511/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/511-22.html" class="brick-title-link">חמידאן  נ&#39; משטרת ישראל  ואח&#39;</a>
         
     </h3>
 
@@ -5246,6 +5513,44 @@
         </span>
         
         
+        <a href="judgments/4204-21.html" class="brick-case-number">
+            בג&#34;ץ 4204/21
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/4204-21.html" class="brick-title-link">יצחק דסה  נ&#39; שר החינוך  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-16">16/02/2022</time>
+            
+        </span>
+        
+        
         <a href="judgments/714-22.html" class="brick-case-number">
             בג&#34;ץ 714/22
         </a>
@@ -5284,44 +5589,6 @@
         </span>
         
         
-        <a href="judgments/8777-21.html" class="brick-case-number">
-            בג&#34;ץ 8777/21
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/8777-21.html" class="brick-title-link">ורדי  נ&#39; מדינת ישראל  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-16">16/02/2022</time>
-            
-        </span>
-        
-        
         <a href="judgments/348-22.html" class="brick-case-number">
             בג&#34;ץ 348/22
         </a>
@@ -5341,44 +5608,6 @@
     <h3 class="brick-title">
         
         <a href="judgments/348-22.html" class="brick-title-link">נאור  נ&#39; משרד השיכון</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-16">16/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/511-22.html" class="brick-case-number">
-            בג&#34;ץ 511/22
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/511-22.html" class="brick-title-link">חמידאן  נ&#39; משטרת ישראל  ואח&#39;</a>
         
     </h3>
 
@@ -5778,44 +6007,6 @@
         </span>
         
         
-        <a href="judgments/194-22.html" class="brick-case-number">
-            בג&#34;ץ 194/22
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/194-22.html" class="brick-title-link">מוריס  ואח&#39; נ&#39; מפקד פיקוד העורף</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-15">15/02/2022</time>
-            
-        </span>
-        
-        
         <a href="judgments/7544-21.html" class="brick-case-number">
             בג&#34;ץ 7544/21
         </a>
@@ -5835,6 +6026,44 @@
     <h3 class="brick-title">
         
         <a href="judgments/7544-21.html" class="brick-title-link">אמסלם  נ&#39; ראש הממשלה  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-15">15/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/194-22.html" class="brick-case-number">
+            בג&#34;ץ 194/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/194-22.html" class="brick-title-link">מוריס  ואח&#39; נ&#39; מפקד פיקוד העורף</a>
         
     </h3>
 
@@ -6652,44 +6881,6 @@
         </span>
         
         
-        <a href="judgments/6652-21.html" class="brick-case-number">
-            בג&#34;ץ 6652/21
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/6652-21.html" class="brick-title-link">עיזבון המנוח עומר סאלח ברגותי  ואח&#39; נ&#39; המפקד הצבאי לאזור הגדה המערבית</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-13">13/02/2022</time>
-            
-        </span>
-        
-        
         <a href="judgments/836-22.html" class="brick-case-number">
             בג&#34;ץ 836/22
         </a>
@@ -6709,6 +6900,44 @@
     <h3 class="brick-title">
         
         <a href="judgments/836-22.html" class="brick-title-link">ניוויז&#39;ין שרות מוניציפאלי בע&#34;מ  נ&#39; רשות המיסים בישראל , מס הכנסה חיפה ,חוליית ניכויים  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-13">13/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/6652-21.html" class="brick-case-number">
+            בג&#34;ץ 6652/21
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/6652-21.html" class="brick-title-link">עיזבון המנוח עומר סאלח ברגותי  ואח&#39; נ&#39; המפקד הצבאי לאזור הגדה המערבית</a>
         
     </h3>
 
@@ -7108,82 +7337,6 @@
         </span>
         
         
-        <a href="judgments/5783-20.html" class="brick-case-number">
-            בג&#34;ץ 5783/20
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/5783-20.html" class="brick-title-link">Taub Center for Israel Studies at New York Univers  נ&#39; ארכיון המדינה  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-10">10/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/996-22.html" class="brick-case-number">
-            בג&#34;ץ 996/22
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/996-22.html" class="brick-title-link">מלחם (עציר) נ&#39; שירות הביטחון הכללי</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-10">10/02/2022</time>
-            
-        </span>
-        
-        
         <a href="judgments/7881-21.html" class="brick-case-number">
             בג&#34;ץ 7881/21
         </a>
@@ -7241,6 +7394,82 @@
     <h3 class="brick-title">
         
         <a href="judgments/983-22.html" class="brick-title-link">חאמד (עציר) נ&#39; בית המשפט הצבאי בעופר  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-10">10/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/996-22.html" class="brick-case-number">
+            בג&#34;ץ 996/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/996-22.html" class="brick-title-link">מלחם (עציר) נ&#39; שירות הביטחון הכללי</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-10">10/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/5783-20.html" class="brick-case-number">
+            בג&#34;ץ 5783/20
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/5783-20.html" class="brick-title-link">Taub Center for Israel Studies at New York Univers  נ&#39; ארכיון המדינה  ואח&#39;</a>
         
     </h3>
 
@@ -8058,44 +8287,6 @@
         </span>
         
         
-        <a href="judgments/596-22.html" class="brick-case-number">
-            בג&#34;ץ 596/22
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/596-22.html" class="brick-title-link">שיליאן  נ&#39; הוועדה להעברת כלואים לבית סוהר אזרחי  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-07">07/02/2022</time>
-            
-        </span>
-        
-        
         <a href="judgments/773-21.html" class="brick-case-number">
             בג&#34;ץ 773/21
         </a>
@@ -8115,6 +8306,44 @@
     <h3 class="brick-title">
         
         <a href="judgments/773-21.html" class="brick-title-link">ירוק 2000 ד.ק.- תשומות וידע לחקלאות בע&#34;מ-  ו- 48 א  נ&#39; המועצה לענף הלול  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-07">07/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/596-22.html" class="brick-case-number">
+            בג&#34;ץ 596/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/596-22.html" class="brick-title-link">שיליאן  נ&#39; הוועדה להעברת כלואים לבית סוהר אזרחי  ואח&#39;</a>
         
     </h3>
 
@@ -8286,8 +8515,8 @@
         </span>
         
         
-        <a href="judgments/840-22.html" class="brick-case-number">
-            בג&#34;ץ 840/22
+        <a href="judgments/7118-20.html" class="brick-case-number">
+            בג&#34;ץ 7118/20
         </a>
         
     </div>
@@ -8304,7 +8533,45 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/840-22.html" class="brick-title-link">עמותת האמת תנצח  נ&#39; ראש הממשלה  ואח&#39;</a>
+        <a href="judgments/7118-20.html" class="brick-title-link">חביבאלא  ואח&#39; נ&#39; פרקליטות מחוז  צפון  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-06">06/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/225-22.html" class="brick-case-number">
+            בג&#34;ץ 225/22
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/225-22.html" class="brick-title-link">כוכבי  נ&#39; כנסת ישראל  ואח&#39;</a>
         
     </h3>
 
@@ -8362,44 +8629,6 @@
         </span>
         
         
-        <a href="judgments/7118-20.html" class="brick-case-number">
-            בג&#34;ץ 7118/20
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/7118-20.html" class="brick-title-link">חביבאלא  ואח&#39; נ&#39; פרקליטות מחוז  צפון  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-06">06/02/2022</time>
-            
-        </span>
-        
-        
         <a href="judgments/4874-21.html" class="brick-case-number">
             בג&#34;ץ 4874/21
         </a>
@@ -8438,8 +8667,8 @@
         </span>
         
         
-        <a href="judgments/225-22.html" class="brick-case-number">
-            בג&#34;ץ 225/22
+        <a href="judgments/840-22.html" class="brick-case-number">
+            בג&#34;ץ 840/22
         </a>
         
     </div>
@@ -8456,7 +8685,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/225-22.html" class="brick-title-link">כוכבי  נ&#39; כנסת ישראל  ואח&#39;</a>
+        <a href="judgments/840-22.html" class="brick-title-link">עמותת האמת תנצח  נ&#39; ראש הממשלה  ואח&#39;</a>
         
     </h3>
 
@@ -9426,8 +9655,8 @@
         </span>
         
         
-        <a href="judgments/4411-21.html" class="brick-case-number">
-            בג&#34;ץ 4411/21
+        <a href="judgments/1798-21.html" class="brick-case-number">
+            בג&#34;ץ 1798/21
         </a>
         
     </div>
@@ -9444,7 +9673,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/4411-21.html" class="brick-title-link">רגבים  נ&#39; ראש ממשלת ישראל נפתלי בנט  ואח&#39;</a>
+        <a href="judgments/1798-21.html" class="brick-title-link">משמר הדמוקרטיה הישראלית  נ&#39; היועץ המשפטי לממשלה  ואח&#39;</a>
         
     </h3>
 
@@ -9502,8 +9731,8 @@
         </span>
         
         
-        <a href="judgments/4068-21.html" class="brick-case-number">
-            בג&#34;ץ 4068/21
+        <a href="judgments/4411-21.html" class="brick-case-number">
+            בג&#34;ץ 4411/21
         </a>
         
     </div>
@@ -9520,7 +9749,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/4068-21.html" class="brick-title-link">רגבים ע&#34;ר  נ&#39; שר הביטחון  ואח&#39;</a>
+        <a href="judgments/4411-21.html" class="brick-title-link">רגבים  נ&#39; ראש ממשלת ישראל נפתלי בנט  ואח&#39;</a>
         
     </h3>
 
@@ -9540,8 +9769,8 @@
         </span>
         
         
-        <a href="judgments/1798-21.html" class="brick-case-number">
-            בג&#34;ץ 1798/21
+        <a href="judgments/4068-21.html" class="brick-case-number">
+            בג&#34;ץ 4068/21
         </a>
         
     </div>
@@ -9558,7 +9787,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/1798-21.html" class="brick-title-link">משמר הדמוקרטיה הישראלית  נ&#39; היועץ המשפטי לממשלה  ואח&#39;</a>
+        <a href="judgments/4068-21.html" class="brick-title-link">רגבים ע&#34;ר  נ&#39; שר הביטחון  ואח&#39;</a>
         
     </h3>
 
@@ -9882,6 +10111,44 @@
         </span>
         
         
+        <a href="judgments/8253-21.html" class="brick-case-number">
+            בג&#34;ץ 8253/21
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/8253-21.html" class="brick-title-link">עותמאן עבד אלהאדי  נ&#39; הממונה על הרכוש הממשלתי והנטוש</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-01">01/02/2022</time>
+            
+        </span>
+        
+        
         <a href="judgments/321-22.html" class="brick-case-number">
             בג&#34;ץ 321/22
         </a>
@@ -9901,120 +10168,6 @@
     <h3 class="brick-title">
         
         <a href="judgments/321-22.html" class="brick-title-link">קורטין  נ&#39; הנהלת בתי המשפט</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-01">01/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/4869-20.html" class="brick-case-number">
-            בג&#34;ץ 4869/20
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/4869-20.html" class="brick-title-link">כפר אדומים כפר שיתופי להתיישבות קהילתית בע&#34;מ  ואח&#39; נ&#39; השרה להגנת הסביבה, גב&#39; גילה גמליאל  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-01">01/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/8714-21.html" class="brick-case-number">
-            בג&#34;ץ 8714/21
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/8714-21.html" class="brick-title-link">שחר  ואח&#39; נ&#39; ראש הממשלה  ואח&#39;</a>
-        
-    </h3>
-
-    
-
-    
-</article>
-
-        
-        
-<article class="judgment-card">
-    <div class="brick-header">
-        <span class="brick-date">
-            
-            <time datetime="2022-02-01">01/02/2022</time>
-            
-        </span>
-        
-        
-        <a href="judgments/8710-21.html" class="brick-case-number">
-            בג&#34;ץ 8710/21
-        </a>
-        
-    </div>
-
-    <div class="brick-badges">
-        
-
-        
-
-        
-        <span class="badge-pending-analysis">טרם נותח</span>
-        
-    </div>
-
-    <h3 class="brick-title">
-        
-        <a href="judgments/8710-21.html" class="brick-title-link">התאחדות משרדי הנסיעות ויועצי התיירות בישראל  ואח&#39; נ&#39; ראש הממשלה  ואח&#39;</a>
         
     </h3>
 
@@ -10110,8 +10263,8 @@
         </span>
         
         
-        <a href="judgments/8253-21.html" class="brick-case-number">
-            בג&#34;ץ 8253/21
+        <a href="judgments/8714-21.html" class="brick-case-number">
+            בג&#34;ץ 8714/21
         </a>
         
     </div>
@@ -10128,7 +10281,7 @@
 
     <h3 class="brick-title">
         
-        <a href="judgments/8253-21.html" class="brick-title-link">עותמאן עבד אלהאדי  נ&#39; הממונה על הרכוש הממשלתי והנטוש</a>
+        <a href="judgments/8714-21.html" class="brick-title-link">שחר  ואח&#39; נ&#39; ראש הממשלה  ואח&#39;</a>
         
     </h3>
 
@@ -10176,6 +10329,82 @@
 </article>
 
         
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-01">01/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/8710-21.html" class="brick-case-number">
+            בג&#34;ץ 8710/21
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/8710-21.html" class="brick-title-link">התאחדות משרדי הנסיעות ויועצי התיירות בישראל  ואח&#39; נ&#39; ראש הממשלה  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
+        
+<article class="judgment-card">
+    <div class="brick-header">
+        <span class="brick-date">
+            
+            <time datetime="2022-02-01">01/02/2022</time>
+            
+        </span>
+        
+        
+        <a href="judgments/4869-20.html" class="brick-case-number">
+            בג&#34;ץ 4869/20
+        </a>
+        
+    </div>
+
+    <div class="brick-badges">
+        
+
+        
+
+        
+        <span class="badge-pending-analysis">טרם נותח</span>
+        
+    </div>
+
+    <h3 class="brick-title">
+        
+        <a href="judgments/4869-20.html" class="brick-title-link">כפר אדומים כפר שיתופי להתיישבות קהילתית בע&#34;מ  ואח&#39; נ&#39; השרה להגנת הסביבה, גב&#39; גילה גמליאל  ואח&#39;</a>
+        
+    </h3>
+
+    
+
+    
+</article>
+
+        
     </div>
 
     
@@ -10193,15 +10422,14 @@
 </div>
 
 
+    
 </div>
 
     </main>
 
     <footer>
         <div class="container">
-<!--            <a href="https://www.bagats-poc.win" style="font-weight: bold;">בגץ-AI</a> |-->
-            <a href="./index.html">פסיקות אחרונות</a> |
-            <a href="./search-ai.html">חיפוש AI</a> |
+            <a href="./index.html">חיפוש</a> |
             <a href="./topics/index.html">לפי נושאים</a> |
             <a href="./about.html">אודות</a> |
             <a href="./faq.html">שאלות נפוצות</a> |
