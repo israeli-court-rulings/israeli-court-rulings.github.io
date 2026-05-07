@@ -59,13 +59,97 @@
   "@type": "WebSite",
   "name": "בגץ-AI",
   "url": "https://bagats.org.il",
-  "description": "מאגר AI של פסקי דין של בגץ עם ניתוחים, סיכומים ותגיות נושאיות",
+  "description": "מאגר פסקי הדין של בית המשפט העליון עם ניתוחים, סיכומים ותגיות נושאיות",
   "inLanguage": "he",
   "publisher": {
     "@type": "Organization",
     "@id": "https://bagats.org.il/#publisher",
     "name": "בגץ-AI",
     "url": "https://bagats.org.il"
+  },
+  "potentialAction": [
+    {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://bagats.org.il/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://bagats.org.il/?case={case_number}"
+      },
+      "query-input": "required name=case_number"
+    }
+  ]
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://bagats.org.il/#dataset",
+  "name": "מאגר פסקי הדין של בית המשפט העליון ובג״ץ",
+  "alternateName": "BagatsAI — Israeli Supreme Court Judgments Dataset",
+  "description": "מאגר פסקי דין מקיף וחינמי של בית המשפט העליון ובית המשפט הגבוה לצדק (בג״ץ) של מדינת ישראל, עם סיכומים וניתוחים מבוססי בינה מלאכותית, תגיות נושאיות, פירוט שופטים, אזכורי תקדימים וחיפוש סמנטי.",
+  "url": "https://bagats.org.il",
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "isAccessibleForFree": true,
+  "inLanguage": "he",
+  "numberOfItems": 96750,
+  "dateModified": "2026-05-07T12:12:19+03:00",
+  "keywords": [
+    "פסקי דין",
+    "בית המשפט העליון",
+    "בג״ץ",
+    "בגץ",
+    "בית המשפט הגבוה לצדק",
+    "משפט ישראלי",
+    "Israeli Supreme Court",
+    "High Court of Justice",
+    "legal judgments",
+    "court decisions"
+  ],
+  "creator": {
+    "@type": "Organization",
+    "@id": "https://bagats.org.il/#publisher",
+    "name": "בגץ-AI",
+    "url": "https://bagats.org.il"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://bagats.org.il/#publisher",
+    "name": "בגץ-AI",
+    "url": "https://bagats.org.il"
+  },
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Israeli Court Judgments",
+    "url": "https://supreme.court.gov.il"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://bagats.org.il/sitemap.xml",
+      "encodingFormat": "application/xml",
+      "description": "Sitemap index listing all judgment page URLs with modification timestamps"
+    },
+    {
+      "@type": "DataDownload",
+      "contentUrl": "https://bagats.org.il/feed.xml",
+      "encodingFormat": "application/rss+xml",
+      "description": "RSS 2.0 feed of the 50 most recently published judgments"
+    }
+  ],
+  "isBasedOn": {
+    "@type": "WebSite",
+    "name": "הרשות השופטת — בית המשפט העליון",
+    "url": "https://supreme.court.gov.il"
   }
 }
 </script>
@@ -301,6 +385,85 @@
         .ai-search__result-meta {
             flex-direction: column;
             align-items: flex-start;
+        }
+    }
+
+    /* --- Case number search --- */
+    .case-search {
+        max-width: 760px;
+        margin: 0 auto 36px;
+        padding: 20px 24px;
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .case-search__title {
+        color: var(--primary-color);
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin: 0 0 0.35rem;
+    }
+
+    .case-search__intro {
+        color: #555;
+        font-size: 0.92rem;
+        margin: 0 0 0.9rem;
+        line-height: 1.5;
+    }
+
+    .case-search__row {
+        display: flex;
+        gap: 8px;
+        align-items: stretch;
+    }
+
+    .case-search__input {
+        flex: 1;
+        min-width: 0;
+        padding: 0.55rem 0.75rem;
+        font: inherit;
+        font-size: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        text-align: left;
+    }
+
+    .case-search__input:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 1px;
+    }
+
+    .case-search__button {
+        background: var(--primary-color);
+        color: #fff;
+        border: 0;
+        border-radius: 6px;
+        padding: 0.55rem 1.2rem;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .case-search__button:hover {
+        background: #002244;
+    }
+
+    .case-search__error {
+        color: #6b1815;
+        background: #fdecea;
+        border: 1px solid #f5c2c0;
+        border-radius: 6px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+
+    @media (max-width: 768px) {
+        .case-search {
+            padding: 16px 18px;
         }
     }
 </style>
@@ -639,7 +802,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="./index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="./topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="./sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="./archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="./about.html">אודות</a></li>
                     <li class="nav-item"><a href="./faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -671,7 +834,7 @@
                 ההגבלה נובעת מכך שמדובר בחיפוש סמנטי שפועל אך ורק על פסקי דין שעברו ניתוח AI מקדים.
                 מכיוון שחלק גדול מפסקי הדין של השנים הקודמות טרם עברו ניתוח AI מקדים, הם עדיין אינם נכללים בחיפוש.
                 ניתוח זה כרוך בעלויות כספיות והשקעת משאבי מחשוב, והוא מתוכנן לקרות בהדרגה ולאורך זמן.
-                ניתן לראות את הסטאטוס ומיפוי פסקי הדין שעברו ניתוח AI מתוך כלל פסקי הדין ב-<a href="./sitemap_index.html">ארכיון</a>.
+                ניתן לראות את הסטאטוס ומיפוי פסקי הדין שעברו ניתוח AI מתוך כלל פסקי הדין ב-<a href="./archives.html">לפי תאריכים</a>.
             </div>
         </details>
     </div>
@@ -705,6 +868,31 @@
     <ol id="ai-search-results" class="ai-search__results" aria-live="polite"></ol>
 </section>
 
+<section class="case-search" aria-labelledby="case-search-title">
+    <h2 id="case-search-title" class="case-search__title">חיפוש לפי מספר תיק</h2>
+    <p class="case-search__intro">
+         הזינו מספר תיק למעבר ישיר לפסק הדין — פורמט חדש (44230-01-26) או פורמט ישן (1234/24)
+    </p>
+    <div id="case-search-error" class="case-search__error" hidden role="alert"></div>
+    <form id="case-search-form" class="case-search__form">
+        <label for="case-search-input" class="visually-hidden">מספר תיק</label>
+        <div class="case-search__row">
+            <input
+                id="case-search-input"
+                class="case-search__input"
+                type="text"
+                dir="ltr"
+                placeholder="לדוגמה: 44230-01-26"
+                autocomplete="off"
+                autocorrect="off"
+                spellcheck="false"
+                aria-label="מספר תיק"
+            >
+            <button type="submit" class="case-search__button">פתח</button>
+        </div>
+    </form>
+</section>
+
 <script>
 (function () {
     var metaEndpoint = document.querySelector('meta[name="ai-search-endpoint"]');
@@ -712,6 +900,17 @@
     var INPUT_MIN = 20;
     var INPUT_MAX = 800;
     var HEALTH_TIMEOUT_MS = 3000;
+
+    var params = new URLSearchParams(window.location.search);
+
+    // ?case= takes priority — redirect immediately without waiting for the health check.
+    // Uses a relative path (./judgments/) so it works both on the production server and
+    // when browsing the built site locally via file:// protocol.
+    var urlCase = params.get('case');
+    if (urlCase && urlCase.trim()) {
+        var caseSlug = urlCase.trim().replace(/\//g, '-').replace(/\s+/g, '');
+        window.location.replace('./judgments/' + caseSlug + '.html');
+    }
 
     var form = document.getElementById('ai-search-form');
     var input = document.getElementById('ai-search-input');
@@ -721,6 +920,15 @@
     var spinner = document.getElementById('ai-search-spinner');
     var resultsEl = document.getElementById('ai-search-results');
     var banner = document.getElementById('ai-search-banner');
+
+    // Pre-fill search from ?q= URL parameter (enables SearchAction deep-links).
+    // Cap to INPUT_MAX because programmatic value assignment bypasses the HTML maxlength.
+    var urlQ = params.get('q');
+    var pendingQuery = (urlQ && urlQ.trim()) || null;
+    if (pendingQuery) {
+        input.value = pendingQuery.slice(0, INPUT_MAX);
+        updateCounter();
+    }
 
     function showBanner(message, level) {
         banner.textContent = message;
@@ -812,6 +1020,9 @@
             }
             clearBanner();
             enableForm();
+            if (pendingQuery) {
+                form.dispatchEvent(new Event('submit'));
+            }
         })
         .catch(function () {
             disableForm('שירות החיפוש אינו זמין כעת. אנא נסו שוב מאוחר יותר.');
@@ -866,6 +1077,61 @@
                 setBusy(false);
             });
     });
+
+    // --- Case number search ---
+    var caseForm = document.getElementById('case-search-form');
+    var caseInput = document.getElementById('case-search-input');
+    var caseError = document.getElementById('case-search-error');
+
+    // Pre-fill from ?case= if present (redirect above may not have fired for very old browsers)
+    if (urlCase && urlCase.trim()) {
+        caseInput.value = urlCase.trim();
+    }
+
+    caseForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var caseNum = caseInput.value.trim();
+        if (!caseNum) {
+            caseError.textContent = 'יש להזין מספר תיק.';
+            caseError.hidden = false;
+            caseInput.focus();
+            return;
+        }
+        caseError.hidden = true;
+        // Normalise: old format "1234/24" → "1234-24", strip whitespace
+        var slug = caseNum.replace(/\//g, '-').replace(/\s+/g, '');
+        var judgmentUrl = './judgments/' + slug + '.html';
+
+        // On file:// protocol the Fetch API cannot make any requests — it throws a
+        // security error for all files including existing ones.  There is no way to
+        // distinguish "exists" from "not found" without a real HTTP server, so we skip
+        // the HEAD check and navigate directly; the browser shows ERR_FILE_NOT_FOUND
+        // when the file is missing.  On http:// and https:// the check works correctly.
+        if (window.location.protocol === 'file:') {
+            window.location.href = judgmentUrl;
+            return;
+        }
+
+        // Verify the judgment exists before navigating; avoids a jarring 404.
+        fetch(judgmentUrl, { method: 'HEAD' })
+            .then(function (resp) {
+                if (resp.ok) {
+                    window.location.href = judgmentUrl;
+                } else {
+                    caseError.textContent = 'לא נמצא פסק דין עם מספר תיק "' + caseNum + '". בדקו את המספר ונסו שוב.';
+                    caseError.hidden = false;
+                    caseInput.focus();
+                }
+            })
+            .catch(function () {
+                // Network error (e.g. offline) — navigate directly and let the server handle it
+                window.location.href = judgmentUrl;
+            });
+    });
+
+    caseInput.addEventListener('input', function () {
+        caseError.hidden = true;
+    });
 })();
 </script>
 </div>
@@ -880,7 +1146,7 @@
             <a href="./faq.html">שאלות נפוצות</a> |
             <a href="./terms.html">תנאי שימוש</a> |
             <a href="./accessibility.html">הצהרת נגישות</a> |
-            <a href="./sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="./archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>
