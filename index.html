@@ -70,6 +70,7 @@
   "potentialAction": [
     {
       "@type": "SearchAction",
+      "description": "חיפוש פסקי דין לפי נושא, סוגיה משפטית או תיאור המקרה. השתמשו בשאילתות חופשיות על מה שקרה או על השאלה המשפטית שהתעוררה — לא עבור מספרי תיקים ידועים. תיאורים מפורטים יותר יניבו תוצאות מדויקות יותר.",
       "target": {
         "@type": "EntryPoint",
         "urlTemplate": "https://bagats.org.il/?q={search_term_string}"
@@ -78,6 +79,7 @@
     },
     {
       "@type": "SearchAction",
+      "description": "איתור פסק דין ספציפי לפי מספר התיק הישראלי (למשל 1234/24 או 44230-01-26). השתמשו רק כאשר מספר התיק המדויק ידוע.",
       "target": {
         "@type": "EntryPoint",
         "urlTemplate": "https://bagats.org.il/?case={case_number}"
@@ -850,7 +852,7 @@
             class="ai-search__textarea"
             placeholder="לדוגמה: עתירה כנגד החלטת רשות מקרקעי ישראל לסרב להאריך חוזה חכירה לחקלאי בנגב..."
             maxlength="800"
-            minlength="20"
+            minlength="2"
             required
             disabled
             aria-describedby="ai-search-counter ai-search-scope-note"
@@ -899,7 +901,7 @@
 (function () {
     var metaEndpoint = document.querySelector('meta[name="ai-search-endpoint"]');
     var ENDPOINT_BASE = (metaEndpoint && metaEndpoint.content) || 'https://middleware.bagats-poc.win';
-    var INPUT_MIN = 20;
+    var INPUT_MIN = 2;
     var INPUT_MAX = 800;
     var HEALTH_TIMEOUT_MS = 3000;
 
@@ -1035,17 +1037,20 @@
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
+        clearBanner();
         var query = (input.value || '').trim();
         if (query.length < INPUT_MIN) {
             showBanner('יש להזין לפחות ' + INPUT_MIN + ' תווים.', 'error');
             return;
+        }
+        if (query.length < 20) {
+            showBanner('תיאור מפורט של פסק הדין יניב תוצאות מדויקות יותר.', 'info');
         }
         if (query.length > INPUT_MAX) {
             showBanner('הטקסט ארוך מדי - מקסימום ' + INPUT_MAX + ' תווים.', 'error');
             return;
         }
 
-        clearBanner();
         setBusy(true);
         resultsEl.innerHTML = '';
 
