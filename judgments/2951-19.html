@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    26/11/2019 (לפני 2352 ימים)
+                    26/11/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/2951-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="2951/19 - המיזם הרב מגזרי למיגור העישון נ. כנסת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F2951-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/510/029/b11&amp;fileName=19029510.B11&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/510/029/b11&amp;fileName=19029510.B11&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/510/029/b11&amp;fileName=19029510.B11&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/510/029/b11&amp;fileName=19029510.B11&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,43 +1827,19 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 2951/19
 
+בג&#34;ץ 4657/19
 
-
-
-1
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
-
-בג&#34;ץ  2951/19
-
-בג&#34;ץ  4657/19
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופט מ&#39; מזוז
 
-
-
 כבוד השופט ד&#39; מינץ
-
-
 
 העותר בבג&#34;ץ 2951/19:
 
@@ -1602,271 +1849,127 @@
 
 פורום יבואני ויצרני מוצרי איוד בלשכת המסחר בתל אביב
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה 2 בבג&#34;ץ 4657/19 והמשיבה 1 בבג&#34;ץ 2951/19:
 
-
-
 המשיב 1 בבג&#34;ץ 4657/19 והמשיב 3 בבג&#34;ץ 2951/19:
-
- 
 
 כנסת ישראל
 
-
-
-
-
 משרד הבריאות
-
-
 
 המשיבה 2 בבג&#34;ץ 2951/19:
 
-
-
 המשיבה 3 בבג&#34;ץ 4657/19:
-
-
 
 ממשלת ישראל
 
-
-
 ועדת הכלכלה של הכנסת
 
-
-
 המשיבות 5-4 בבג&#34;ץ 2951/19:
-
-
-
-
 
 ידיעות אחרונות בע&#34;מ
 
 הוצאת עיתון הארץ בע&#34;מ
 
-
-
 עתירה למתן צו על תנאי
-
-
 
 תאריך הישיבה:
 
-כ&#34;ז בחשון התש&#34;ף       
+כ&#34;ז בחשון התש&#34;ף
 
-(25.11.2019) 
+(25.11.2019)
 
-
-
-בשם העותר בבג&#34;ץ 2951/19 (המיזם הרב מגזרי למיגור העישון): 
-
-
-
-
+בשם העותר בבג&#34;ץ 2951/19 (המיזם הרב מגזרי למיגור העישון):
 
 עו&#34;ד אפי מיכאלי
 
-
-
 בשם העותר בבג&#34;ץ 4657/19 (פורום יבואני ויצרני מוצרי איוד):
 
-
-
-
-
-עו&#34;ד רנאטו יאראק; עו&#34;ד אוהד יאראק; 
-
-
+עו&#34;ד רנאטו יאראק; עו&#34;ד אוהד יאראק;
 
 בשם המשיב 1 בבג&#34;ץ 4657/19 והמשיבים 3-2 בבג&#34;ץ 2951/19 (משרד הבריאות וממשלת ישראל):
 
-
-
-
-
-
-
-
-
-
-
 עו&#34;ד עמרי אפשטיין; עו&#34;ד לירון הופפלד
-
-
 
 בשם המשיבות 3-2 בבג&#34;ץ 4657/19 ומשיבה 1 בבג&#34;ץ 2951/19 (הכנסת וועדת הכלכלה):
 
-
-
-
-
-
-
-
-
 עו&#34;ד ניצן פליטמן
-
-
 
 בשם המשיבות 5-4 בבג&#34;ץ 2951/19 (ידיעות אחרונות והארץ):
 
-
-
-
-
 עו&#34;ד פז מוזר; עו&#34;ד שירה בריק-חיימוביץ&#39;
-
-
 
 בשם המבקשת להצטרף כ&#34;ידיד בית משפט&#34; (הסתדרות הרופאים):
 
-
-
-
-
-
-
 עו&#34;ד רותי הוסטבסקי
-
-	
-
-	
 
 פסק-דין
 
-
-
 השופט מ&#39; מזוז:
-
-
 
 עניינן של שתי עתירות אלה בחוק הגבלת הפרסומת והשיווק של מוצרי טבק (תיקון מס&#39; 7), התשע&#34;ט-2010 (להלן: התיקון לחוק), אשר התקבל בכנסת ביום 31.12.2018 ופורסם בספר החוקים ביום 8.1.2019 (ס&#34;ח התשע&#34;ט 166). התיקון לחוק ערך תיקונים נרחבים בחוק איסור פרסומת והגבלת השיווק של מוצרי טבק ועישון, תשמ&#34;ג-1983 (להלן: החוק המקורי) וכולל הטלת מגבלות ואיסורים על פרסום ושיווק של מוצרי עישון לסוגיהם, לרבות מוצרי איוד (סיגריות אלקטרוניות). תכלית התיקון לחוק, כפי שנקבע בסעיף המטרה, היא:
 
-
-
-&#34;מטרתו של חוק זה להגן על בריאות הציבור, ובייחוד על בריאותם של קטינים, באמצעות קביעת איסורים, הגבלות וחובות לעניין פרסומת ושיווק של מוצרי עישון, ובהם איסור עשיית פרסומת למוצרי עישון והגבלת פעולות העשויות לעודד התחלת שימוש במוצרי עישון או להקל את השימוש בהם, וכן באמצעות מתן מידע לציבור, והכול בשל הנזקים הקשים והקטלניים שנגרמים לבריאות עקב שימוש במוצרי עישון.&#34; 
-
-
+&#34;מטרתו של חוק זה להגן על בריאות הציבור, ובייחוד על בריאותם של קטינים, באמצעות קביעת איסורים, הגבלות וחובות לעניין פרסומת ושיווק של מוצרי עישון, ובהם איסור עשיית פרסומת למוצרי עישון והגבלת פעולות העשויות לעודד התחלת שימוש במוצרי עישון או להקל את השימוש בהם, וכן באמצעות מתן מידע לציבור, והכול בשל הנזקים הקשים והקטלניים שנגרמים לבריאות עקב שימוש במוצרי עישון.&#34;
 
 העתירה בבג&#34;ץ 4657/19, של פורום יבואני ויצרני מוצרי איוד בלשכת המסחר בתל אביב (להלן: הפורום), תוקפת את החלת האיסורים והמגבלות גם על מוצרי איוד. הטענה המרכזית בעתירה הינה כי מוצרי איוד מזיקים פחות ממוצרי עישון טבק, והם מהווים תחליף ראוי לעישון רגיל, ויש לעודד מעבר מעשנים למוצרי איוד. לכן, כך נטען, אין הצדקה להטיל איסורים ומגבלות על פרסומם של מוצרי איוד, והטלת מגבלות כאלה היא בגדר פגיעה, שלא לתכלית ראויה ובמידה העולה על הנדרש, בזכות הקנין ובחופש העיסוק של חברי הפורום. יצוין כי לצד עתירה זו הוגשה עתירה נוספת דומה של ג&#39;ול לאבס אנד פרודקטס בע&#34;מ (בג&#34;ץ 1532/19), אך העותרת משכה את עתירתה ביום 21.11.2019, ימים ספורים קודם לדיון בעתירות.
 
+מנגד, העתירה בבג&#34;ץ 2951/19, של המיזם הרב מגזרי למיגור העישון (להלן: המיזם), תוקפת את ההחרגה (החלקית) בתיקון לחוק של העיתונות המודפסת מהאיסור על פרסום מוצרי טבק ועישון. לטענת המיזם, החרגה זו פוגעת בזכות לחיים ולבריאות של הציבור ואינה עומדת בתנאי פסקת ההגבלה. כן נטען שהתיקון לחוק לענין זה נפגם מאחר שהושפע מעמדת סגן שר הבריאות, הנגוע כנטען בניגוד עניינים.
 
+לעתירות הוגשו תגובות מקיפות ומפורטות מטעם הכנסת ומטעם הממשלה, בהן פורטו הרקע העובדתי והנורמטיבי של התיקון לחוק, וכן התייחסות מפורטת לטענות שבעתירות. עמדת הכנסת והממשלה הינה כי דין העתירות להידחות באשר אינן מבססות כל עילה חוקתית העשויה להצדיק התערבות בית המשפט בחוק של הכנסת. לעמדת הכנסת והממשלה, התיקון לחוק נחקק לתכלית ראויה של צמצום הנזקים החמורים של העישון לסוגיו, והוא מידתי ומאזן נכונה בין השיקולים והאינטרסים השונים.
 
-	מנגד, העתירה בבג&#34;ץ 2951/19, של המיזם הרב מגזרי למיגור העישון (להלן: המיזם), תוקפת את ההחרגה (החלקית) בתיקון לחוק של העיתונות המודפסת מהאיסור על פרסום מוצרי טבק ועישון. לטענת המיזם, החרגה זו פוגעת בזכות לחיים ולבריאות של הציבור ואינה עומדת בתנאי פסקת ההגבלה. כן נטען שהתיקון לחוק לענין זה נפגם מאחר שהושפע מעמדת סגן שר הבריאות, הנגוע כנטען בניגוד עניינים. 
+הסתדרות הרופאים בישראל (הר&#34;י) ביקשה להצטרף כ&#34;ידיד בית המשפט&#34; לעתירת הפורום לשם תמיכה בעמדת הכנסת והממשלה. לגישתה - הנתמכת בחוות דעת וניירות עמדה מקצועיים שצירפה - התיקון לחוק הוא חשוב וחיוני להגנת בריאות הציבור, ואין כל עילה לבטלו.
 
-
-
-לעתירות הוגשו תגובות מקיפות ומפורטות מטעם הכנסת ומטעם הממשלה, בהן פורטו הרקע העובדתי והנורמטיבי של התיקון לחוק, וכן התייחסות מפורטת לטענות שבעתירות. עמדת הכנסת והממשלה הינה כי דין העתירות להידחות באשר אינן מבססות כל עילה חוקתית העשויה להצדיק התערבות בית המשפט בחוק של הכנסת. לעמדת הכנסת והממשלה, התיקון לחוק נחקק לתכלית ראויה של צמצום הנזקים החמורים של העישון לסוגיו, והוא מידתי ומאזן נכונה בין השיקולים והאינטרסים השונים. 
-
-
-
-	הסתדרות הרופאים בישראל (הר&#34;י) ביקשה להצטרף כ&#34;ידיד בית המשפט&#34; לעתירת הפורום לשם תמיכה בעמדת הכנסת והממשלה. לגישתה - הנתמכת  בחוות דעת וניירות עמדה מקצועיים שצירפה - התיקון לחוק הוא חשוב וחיוני להגנת בריאות הציבור, ואין כל עילה לבטלו.
-
-
-
-	המוציאים לאור של העיתונים המודפסים &#34;הארץ&#34; ו&#34;ידיעות אחרונות&#34; ביקשו להצטרף וצורפו כמשיבים בעתירת המיזם, לשם תמיכה בהחרגה החלקית של העיתונות המודפסת מאיסור הפרסום של מוצרי עישון.
-
-
+המוציאים לאור של העיתונים המודפסים &#34;הארץ&#34; ו&#34;ידיעות אחרונות&#34; ביקשו להצטרף וצורפו כמשיבים בעתירת המיזם, לשם תמיכה בהחרגה החלקית של העיתונות המודפסת מאיסור הפרסום של מוצרי עישון.
 
 לאחר ששמענו ארוכות את טיעוני באי-כוח כל הצדדים ובחינת החומר הרב שהוגש הבענו עמדתנו בפני הצדדים כי אין אנו סבורים כי העתירות מניחות תשתית עובדתית או משפטית, ולו בקירוב, לעילה חוקתית להתערבות בתוקפו של התיקון לחוק.
 
+לאחר התייעצות, הודיע בא-כוח הפורום כי הפורום חוזר בו מעתירתו וביקש כי בנסיבות הענין לא יוטלו הוצאות.
 
+אשר על כן אנו דוחים את העתירה בבג&#34;ץ 4657/19. בנסיבות הענין יישא העותר בהוצאות מופחתות - למשיב 1 (משרד הבריאות) בסך 5,000 ₪, וסכום זהה למשיבות 3-2 (הכנסת).
 
-לאחר התייעצות, הודיע בא-כוח הפורום כי הפורום חוזר בו מעתירתו וביקש כי בנסיבות הענין לא יוטלו הוצאות. 
-
-
-
-	אשר על כן אנו דוחים את העתירה בבג&#34;ץ 4657/19. בנסיבות הענין יישא העותר בהוצאות מופחתות - למשיב 1 (משרד הבריאות) בסך 5,000 ₪, וסכום זהה למשיבות 3-2 (הכנסת).
-
-
-
-אשר לעתירת המיזם – בג&#34;ץ 2951/19 
-
-
+אשר לעתירת המיזם – בג&#34;ץ 2951/19
 
 בא-כוח המיזם הודיע כי מרשו עומד על עתירתו. על כן נדרשת הכרעתנו.
 
-
-
 לאחר עיון ושמיעת טענות הצדדים בעל-פה הגענו כאמור למסקנה כי העתירה אינה מבססת כל עילה חוקתית להתערבות בתיקון לחוק. נבהיר בקצרה.
 
-
-
 התיקון לחוק אוסר בין היתר על פרסומת למוצרי עישון, וזאת תוך קביעת מספר חריגים. אחד החריגים הוא &#34;פרסומת בעיתון מודפס&#34;, אך זאת בכפוף למגבלות אלה:
-
-
 
 &#34;(א)	 הפרסומת אינה בעיתון, במדור או במוסף בעיתון המיועד בעיקר לילדים ולבני נוער עד גיל 18 או המוקדש בעיקרי לבריאות, לספורט, לבידור, לבילוי או לפנאי;
 
 (ב)	בעיתון תפורסם, בצמוד לפרסומת למוצר העישון, מודעה בדבר נזקי העישון ובה הסבר או מסר אחר בנושא זה, בשפה שבה מתפרסם העיתון ובשטח זהה בגודלו לשטח הפרסומת לרבות שטח האזהרה לפי סעיף 7; ואולם ניתן לפרסם מודעה כאמור לא בצמוד לפרסומת בהתקיים כל אלה:
 
-	(1)	המודעה תפורסם באותו חלק או מוסף ובאותו מספר עמוד שבו פורסמה הפרסומת ולא יאוחר משבעה ימים מהמועד שבו פורסמה;
+(1)	המודעה תפורסם באותו חלק או מוסף ובאותו מספר עמוד שבו פורסמה הפרסומת ולא יאוחר משבעה ימים מהמועד שבו פורסמה;
 
-	(2)	פורסמה הפרסומת ביום שישי או בערב חג – תפורסם המודעה באחד הימים האמורים&#34; (סעיף 4 לחוק המתקן).
+(2)	פורסמה הפרסומת ביום שישי או בערב חג – תפורסם המודעה באחד הימים האמורים&#34; (סעיף 4 לחוק המתקן).
 
+הסוגיה של ההחרגה החלקית של העיתונות המודפסת נדונה ארוכות בדיוני ועדת הכלכלה של הכנסת, והשיקולים להחרגה זו הוצגו גם בפני מליאת הכנסת בעת אישור הצעת החוק בקריאה שניה ושלישית. החרגה זו נומקה כך: מאחר שתכליתו העיקרית של החוק היא להגביל פרסומת למוצרי עישון העשויה לעודד צעירים וקטינים להתחיל שימוש במוצרי עישון, ומאחר שצעירים חשופים פחות לעיתונות המודפסת, הרי שההחרגה החלקית של העיתונות המודפסת מאיסור פרסומת, תוך הטלת מגבלות קשות, תשפיע באופן מוגבל בלבד על תכלית החוק; ומאידך, נוכח המצב הקשה של העיתונות המודפסת, שאין חולק על חשיבותה בחברה דמוקרטית, קיים חשש מפני פגיעה משמעותית באיתנותה ככל שהאיסור יחול עליה באופן מלא, מה שיפגע בהכנסותיה מפרסום. יצוין, כי נציגי משרד המשפטים בדיוני ועדת הכלכלה וכן הייעוץ המשפטי לכנסת הביעו עמדתם המשפטית כי נוכח השיקולים האמורים אין מניעה משפטית להחרגה המוצעת של העיתונות המודפסת.
 
-
-הסוגיה של ההחרגה החלקית של העיתונות המודפסת נדונה ארוכות בדיוני ועדת הכלכלה של הכנסת, והשיקולים להחרגה זו הוצגו גם בפני מליאת הכנסת בעת אישור הצעת החוק בקריאה שניה ושלישית. החרגה זו נומקה כך: מאחר שתכליתו העיקרית של החוק היא להגביל פרסומת למוצרי עישון העשויה לעודד צעירים וקטינים להתחיל שימוש במוצרי עישון, ומאחר שצעירים חשופים פחות לעיתונות המודפסת, הרי שההחרגה החלקית של העיתונות המודפסת מאיסור פרסומת, תוך הטלת מגבלות קשות, תשפיע באופן מוגבל בלבד על תכלית החוק; ומאידך, נוכח המצב הקשה של העיתונות המודפסת, שאין חולק על חשיבותה בחברה דמוקרטית, קיים חשש מפני פגיעה משמעותית  באיתנותה ככל שהאיסור יחול עליה באופן מלא, מה שיפגע בהכנסותיה מפרסום. יצוין, כי נציגי משרד המשפטים בדיוני ועדת הכלכלה וכן הייעוץ המשפטי לכנסת הביעו עמדתם המשפטית כי נוכח השיקולים האמורים אין מניעה משפטית להחרגה המוצעת של העיתונות המודפסת.
-
-
-
-	בתגובות המפורטות מטעם הכנסת והממשלה נטען לענין עתירת המיזם בין היתר גם, כי העתירה אינה מבססת כל פגיעה חוקתית של התיקון לחוק, שכן התיקון לחוק החמיר את ההגבלות על פרסומת בעיתונות המודפסת שנהגו ערב חקיקתו, וממילא לא ניתן לומר שהחוק המתקן הוא מקור הפגיעה הנטענת. כן נטען כי מדובר למעשה בעתירה להורות לכנסת לחוקק חוק (חוק שיחמיר את המגבלות על העיתונות המודפסת), דבר שנשלל באופן עקבי בפסיקתו של בית משפט זה. עוד נטען כי מעולם לא הוכרה זכות חוקתית &#34;שלא לעמוד בפני סיכון בריאותי&#34; כטענת העותר. ולבסוף נטען, כי  ההחרגה החלקית של העיתונות המודפסת עומדת בהוראות פסקת ההגבלה.
-
-
+בתגובות המפורטות מטעם הכנסת והממשלה נטען לענין עתירת המיזם בין היתר גם, כי העתירה אינה מבססת כל פגיעה חוקתית של התיקון לחוק, שכן התיקון לחוק החמיר את ההגבלות על פרסומת בעיתונות המודפסת שנהגו ערב חקיקתו, וממילא לא ניתן לומר שהחוק המתקן הוא מקור הפגיעה הנטענת. כן נטען כי מדובר למעשה בעתירה להורות לכנסת לחוקק חוק (חוק שיחמיר את המגבלות על העיתונות המודפסת), דבר שנשלל באופן עקבי בפסיקתו של בית משפט זה. עוד נטען כי מעולם לא הוכרה זכות חוקתית &#34;שלא לעמוד בפני סיכון בריאותי&#34; כטענת העותר. ולבסוף נטען, כי ההחרגה החלקית של העיתונות המודפסת עומדת בהוראות פסקת ההגבלה.
 
 טענות אלה מטעם הכנסת והממשלה מקובלות עלינו בעיקרן, ואין אנו רואים צורך להאריך ולפרט לענין זה שכן אנו סבורים כי מכל מקום הוראת ההחרגה הנדונה צולחת במובהק את הוראות פסקת ההגבלה.
 
-
-
 נעיר בשולי הדברים כי איננו רואים מקום להיזקק לטענת העותר בדבר ניגוד עניינים של סגן שר הבריאות, הן מפני שהעותר לא טרח לצרף את סגן השר כמשיב לעתירה על מנת לאפשר לו להגיב לטענות אלה, והן משום שאין אנו סבורים כי לטענה זו יכולה להיות השלכה על תוקפו של החוק המתקן. נזכיר כי החוק המתקן הוגש כהצעת חוק פרטית ואושר על ידי הכנסת ברוב גדול בשלוש קריאות, לאחר לא פחות משמונה דיונים בוועדת הכלכלה של הכנסת, במסגרתם נדונה כאמור ארוכות סוגיית ההחרגה של העיתונות המודפסת ונומקה כאמור.
 
+אשר על כן החלטנו לדחות את העתירה.
 
+העותר יישא בהוצאות בסך 4000 ₪ לכל אחת מקבוצות המשיבים - המשיבה 1 (הכנסת), המשיבים 3-2 (הממשלה) והמשיבים 5-4 (הוצאות הארץ וידיעות אחרונות).
 
-אשר על כן החלטנו לדחות את העתירה. 
-
-
-
-	העותר יישא בהוצאות בסך 4000 ₪ לכל אחת מקבוצות המשיבים - המשיבה 1 (הכנסת), המשיבים 3-2 (הממשלה) והמשיבים 5-4 (הוצאות הארץ וידיעות אחרונות).
-
-
-
-		ניתן היום, ‏כ&#34;ח בחשון התש&#34;פ (‏26.11.2019).
-
-
-
-
+ניתן היום, ‏כ&#34;ח בחשון התש&#34;פ (‏26.11.2019).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
 
 _________________________
 
-   19029510_B11.docx   אב
+19029510_B11.docx אב
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1885,7 +1988,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

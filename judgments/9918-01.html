@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    09/04/2002 (לפני 8792 ימים)
+                    09/04/2002 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/9918-01.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="9918/01 - פאוזי ג&#39;ולאני נ. התובעת בבית הדין המקומי למשמעת של עובדי עיר"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F9918-01.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/180/099/N06&amp;fileName=01099180_N06.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/180/099/N06&amp;fileName=01099180_N06.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/180/099/N06&amp;fileName=01099180_N06.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/180/099/N06&amp;fileName=01099180_N06.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1562,136 +1833,65 @@
 
 בפני: כבוד השופטת ד&#39; ביניש
 
-המערער: פאוזי
-ג&#39;ולאני
+המערער: פאוזי ג&#39;ולאני
 
 נגד
 
-המשיבה: התובעת
-בבית הדין המקומי למשמעת
+המשיבה: התובעת בבית הדין המקומי למשמעת
 
-של
-עובדי עיריית ירושלים
+של עובדי עיריית ירושלים
 
-ערעור על גזר הדין של בית הדין למשמעת של עובדי
-עיריית ירושלים מיום 13.11.01 בתיק 3/99 שניתן על ידי כבוד השופטים:עו&#34;ד ח&#39;
-פרנקל, מר י&#39; קמינצקי וגב&#39; ל&#39; שוורץ
+ערעור על גזר הדין של בית הדין למשמעת של עובדי עיריית ירושלים מיום 13.11.01 בתיק 3/99 שניתן על ידי כבוד השופטים:עו&#34;ד ח&#39; פרנקל, מר י&#39; קמינצקי וגב&#39; ל&#39; שוורץ
 
-תאריך
-הישיבה: י&#34;א בשבט התשס&#34;ב (24.1.2002)
+תאריך הישיבה: י&#34;א בשבט התשס&#34;ב (24.1.2002)
 
-בשם
-המערער: עו&#34;ד מאיר אבירם
+בשם המערער: עו&#34;ד מאיר אבירם
 
-בשם
-המשיבה: עו&#34;ד תמר קרניאל
+בשם המשיבה: עו&#34;ד תמר קרניאל
 
 פסק-דין
 
-1. המערער עבד בעיריית ירושלים כנהג בשירות
-הוטרינרי. בשנת 1994 הוגש נגדו כתב אישום בבית המשפט השלום בירושלים. לפי כתב
-האישום נטל המערער דלק ממיכלי רכבים השייכים לעיריית ירושלים, ולפיכך נתבקשה הרשעת
-המערער לפי סעיף 384 לחוק העונשין. המערער הודה בעובדות כתב האישום, וזאת בעקבות
-הסדר טיעון. בית המשפט החליט להטיל על המערער עונש של שירות לתועלת הציבור, בהיקף
-של 100 שעות, וזאת ללא הרשעה.
+1. המערער עבד בעיריית ירושלים כנהג בשירות הוטרינרי. בשנת 1994 הוגש נגדו כתב אישום בבית המשפט השלום בירושלים. לפי כתב האישום נטל המערער דלק ממיכלי רכבים השייכים לעיריית ירושלים, ולפיכך נתבקשה הרשעת המערער לפי סעיף 384 לחוק העונשין. המערער הודה בעובדות כתב האישום, וזאת בעקבות הסדר טיעון. בית המשפט החליט להטיל על המערער עונש של שירות לתועלת הציבור, בהיקף של 100 שעות, וזאת ללא הרשעה.
 
-2. לאחר שבית המשפט גזר את דינו של המערער, הוא
-הועמד לדין משמעתי בפני בית הדין למשמעת של עובדי עיריית ירושלים. בתובענה שהוגשה
-לבית הדין יוחסו למערער מספר אירועים נוספים, בהם נטל דלק מרכבי העירייה. בית הדין
-למשמעת קבע בהכרעת הדין כי הוכחו בפניו 5 אירועים בהם גנב המערער דלק מרכבי
-העירייה, והרשיע את המערער בעבירות משמעת לפי סעיפים 9(1), 9(3) ו-9(4) לחוק
-הרשויות המקומיות (משמעת), התשל&#34;ח–1978. לפיכך, הוחלט להטיל על המערער את
-אמצעי המשמעת הבאים:
+2. לאחר שבית המשפט גזר את דינו של המערער, הוא הועמד לדין משמעתי בפני בית הדין למשמעת של עובדי עיריית ירושלים. בתובענה שהוגשה לבית הדין יוחסו למערער מספר אירועים נוספים, בהם נטל דלק מרכבי העירייה. בית הדין למשמעת קבע בהכרעת הדין כי הוכחו בפניו 5 אירועים בהם גנב המערער דלק מרכבי העירייה, והרשיע את המערער בעבירות משמעת לפי סעיפים 9(1), 9(3) ו-9(4) לחוק הרשויות המקומיות (משמעת), התשל&#34;ח–1978. לפיכך, הוחלט להטיל על המערער את אמצעי המשמעת הבאים:
 
-&#34;1. פיטורין מיידיים מעבודתו בעיריית ירושלים,
-ללא תשלום פיצויים, וכמובן ללא זכות לגימלה.
+&#34;1. פיטורין מיידיים מעבודתו בעיריית ירושלים, ללא תשלום פיצויים, וכמובן ללא זכות לגימלה.
 
 2. פסילה לצמיתות מעבודה בעיריית ירושלים.
 
 3. פרסום תמצית גזר הדין ללא ציון שם הנאשם&#34;.
 
-3. על הכרעת הדין וגזר הדין הוגש ערעור לבית-משפט
-זה בער&#34;ם 4601/00. הערעור נידון בפני השופט זמיר אשר קבע לעניין הכרעת הדין,
-כי מן הראוי לזכות את המערער, מחמת הספק מעבירה של גניבת דלק בשלושה מתוך חמשת
-המקרים בהם הורשע. לעניין גזר הדין קבע השופט זמיר כי הוא דוחה את הערעור בכל הנוגע
-לעונש הפיטורין, ואף דחה את הערעור ככל שהוא נוגע להחלטה לשלול מהמערער פיצויי
-פיטורין. לעניין תשלום המשכורת בתקופת ההשעיה, קבע בית המשפט כי היה על המערער
-להעלות טענה זו בפני בית הדין למשמעת, ומאחר והמערער לא העלה טענה זו בפני בית
-הדין אין להעלות הטענה בערעור בפניו. בית המשפט החליט לצמצם את תקופת הפסילה
-משירות שהוטלה על המערער, והעמיד אותה על חמש שנים מיום מתן פסק הדין. בעקבות
-קביעה זו התעוררה השאלה בדבר הזכות לגימלה של המערער, ובית המשפט החליט להחזיר את
-התיק לבית הדין למשמעת כדי שידון בטענת המערער בדבר שלילת זכותו לגימלה.
+3. על הכרעת הדין וגזר הדין הוגש ערעור לבית-משפט זה בער&#34;ם 4601/00. הערעור נידון בפני השופט זמיר אשר קבע לעניין הכרעת הדין, כי מן הראוי לזכות את המערער, מחמת הספק מעבירה של גניבת דלק בשלושה מתוך חמשת המקרים בהם הורשע. לעניין גזר הדין קבע השופט זמיר כי הוא דוחה את הערעור בכל הנוגע לעונש הפיטורין, ואף דחה את הערעור ככל שהוא נוגע להחלטה לשלול מהמערער פיצויי פיטורין. לעניין תשלום המשכורת בתקופת ההשעיה, קבע בית המשפט כי היה על המערער להעלות טענה זו בפני בית הדין למשמעת, ומאחר והמערער לא העלה טענה זו בפני בית הדין אין להעלות הטענה בערעור בפניו. בית המשפט החליט לצמצם את תקופת הפסילה משירות שהוטלה על המערער, והעמיד אותה על חמש שנים מיום מתן פסק הדין. בעקבות קביעה זו התעוררה השאלה בדבר הזכות לגימלה של המערער, ובית המשפט החליט להחזיר את התיק לבית הדין למשמעת כדי שידון בטענת המערער בדבר שלילת זכותו לגימלה.
 
-4. בתאריך: 13/11/01 תיקן בית הדין למשמעת את פסק
-דינו בעקבות החלטתו של השופט זמיר בער&#34;ם 4601/00. בית הדין קבע כי המערער
-יהיה זכאי לגימלה בגין תקופת עבודתו בפועל בעירייה, וזאת החל מיום הגיעו לגיל 60.
-כן קבע כי בתקופה שמגיל 60 ועד גיל 65 יקבל המערער 80% מהגימלה המגיעה לו, ואילו
-מגיל 65 ואילך יקבל את שיעור הגימלה המלא לפי צבירת זכויותיו בעירייה. בית הדין
-נמנע מלהתייחס לשאלת סמכותו לדון בשכר המערער בתקופת השעייתו, אך עם זאת אמר אגב
-אורחא, שאין כל מקום להשלים את משכורת המערער בתקופת השעייתו. בפסק הדין המתוקן
-נקבע כי המערער לא יהיה זכאי למענק פרישה.
+4. בתאריך: 13/11/01 תיקן בית הדין למשמעת את פסק דינו בעקבות החלטתו של השופט זמיר בער&#34;ם 4601/00. בית הדין קבע כי המערער יהיה זכאי לגימלה בגין תקופת עבודתו בפועל בעירייה, וזאת החל מיום הגיעו לגיל 60. כן קבע כי בתקופה שמגיל 60 ועד גיל 65 יקבל המערער 80% מהגימלה המגיעה לו, ואילו מגיל 65 ואילך יקבל את שיעור הגימלה המלא לפי צבירת זכויותיו בעירייה. בית הדין נמנע מלהתייחס לשאלת סמכותו לדון בשכר המערער בתקופת השעייתו, אך עם זאת אמר אגב אורחא, שאין כל מקום להשלים את משכורת המערער בתקופת השעייתו. בפסק הדין המתוקן נקבע כי המערער לא יהיה זכאי למענק פרישה.
 
-5. על החלטה זו של בית הדין הוגשו הערעור והערעור
-שכנגד המונחים לפניי. המערער טוען כנגד החלטת בית הדין שלא להעניק לו גימלת פרישה
-עד גיל 60, וכן כנגד ההפחתה בשיעור הגימלה בין גיל 60 לגיל 65. עוד טען המערער כי
-הוא זכאי למענק פרישה, עקב פרישתו מעבודתו בעירייה, וכן טען כי יש להשלים משכורתו
-בתקופת השעייתו. המערער אף הסב את תשומת לבי לנסיבותיו האישיות הייחודיות, ובעיקר
-למצב בריאותו הקשה. התובעת בבית הדין למשמעת ערערה אף היא על החלטת בית הדין.
-לטענתה טעה בית הדין בכך שהקל עם המערער בקבעו אמצעי משמעת כאמור., והיה עליו
-לשלול את גמלאות המערער. לחילופין טוענת המערערת כי יש לשלול את הגימלה עד גיל 65,
-ולא להעניק למערער פרס על העבירות שביצע.
+5. על החלטה זו של בית הדין הוגשו הערעור והערעור שכנגד המונחים לפניי. המערער טוען כנגד החלטת בית הדין שלא להעניק לו גימלת פרישה עד גיל 60, וכן כנגד ההפחתה בשיעור הגימלה בין גיל 60 לגיל 65. עוד טען המערער כי הוא זכאי למענק פרישה, עקב פרישתו מעבודתו בעירייה, וכן טען כי יש להשלים משכורתו בתקופת השעייתו. המערער אף הסב את תשומת לבי לנסיבותיו האישיות הייחודיות, ובעיקר למצב בריאותו הקשה. התובעת בבית הדין למשמעת ערערה אף היא על החלטת בית הדין. לטענתה טעה בית הדין בכך שהקל עם המערער בקבעו אמצעי משמעת כאמור., והיה עליו לשלול את גמלאות המערער. לחילופין טוענת המערערת כי יש לשלול את הגימלה עד גיל 65, ולא להעניק למערער פרס על העבירות שביצע.
 
-6. בית משפט זה חזר והדגיש את חומרתה של עבירת
-הגניבה בידי עובד ציבור, ויפים לעניין זה דבריו של השופט זמיר עת עסק בענייננו זה
-בער&#34;ם 4601/00 ג&#39;ולאני פאוזי נ&#39; התובעת בביה&#34;ד המקומי פ&#34;ד
-נד(3) 673:
+6. בית משפט זה חזר והדגיש את חומרתה של עבירת הגניבה בידי עובד ציבור, ויפים לעניין זה דבריו של השופט זמיר עת עסק בענייננו זה בער&#34;ם 4601/00 ג&#39;ולאני פאוזי נ&#39; התובעת בביה&#34;ד המקומי פ&#34;ד נד(3) 673:
 
-&#34;מבחינות אלה נודעת חומרה רבה לעבירה של גניבה
-על ידי עובד ציבור מן המעביד הציבורי, שהוא בעצם הציבור, ובמיוחד כאשר מדובר ביותר
-מגניבה אחת, שאז ניתן לדבר על גניבה שיטתית. הגניבה על ידי עובד, לרבות גניבה של
-סכום קטן, היא גם מעילה באמון. גניבה חוזרת היא לא מעידה חד-פעמית אלא מעילה רבתי.
-בדרך כלל, עובד ציבור שנמצא אשם בגניבה כזאת אינו ראוי יותר לאמון המעביד, שחובתו
-כלפי הציבור היא, בין היתר, לשמור על רכוש הציבור ועל טוהר המידות בשירות
-הציבורי&#34;.
+&#34;מבחינות אלה נודעת חומרה רבה לעבירה של גניבה על ידי עובד ציבור מן המעביד הציבורי, שהוא בעצם הציבור, ובמיוחד כאשר מדובר ביותר מגניבה אחת, שאז ניתן לדבר על גניבה שיטתית. הגניבה על ידי עובד, לרבות גניבה של סכום קטן, היא גם מעילה באמון. גניבה חוזרת היא לא מעידה חד-פעמית אלא מעילה רבתי. בדרך כלל, עובד ציבור שנמצא אשם בגניבה כזאת אינו ראוי יותר לאמון המעביד, שחובתו כלפי הציבור היא, בין היתר, לשמור על רכוש הציבור ועל טוהר המידות בשירות הציבורי&#34;.
 
-7. כאמור, בערעור הנ&#34;ל קבע השופט זמיר כי
-שאלת שלילת הגמלאות תוחזר לדיון בפני בית הדין למשמעת, ואכן היה על בית הדין
-להישאר בתחום ד&#39; אמות אלו שהתווה השופט זמיר בפסק דינו. הן הדיון בבית הדין, והן
-דיוננו זה מוגבלים, איפוא, לשאלת הגימלה, ולשאלת מענק הפרישה המתעוררת בעקבות
-החלטת השופט זמיר לצמצם את תקופת הפסילה לחמש שנים. בדרך כלל בית משפט זה אינו
-נוטה להתערב באמצעי המשמעת שהוטלו על-ידי בית הדין למשמעת, וכך גם ראוי לנהוג
-במקרה זה, לפיכך לא ראיתי להתערב בהחלטה שלא ליתן למערער מענק פרישה, ואף לא
-בהחלטה לאשר למערער גימלה כאשר ימלאו לו 60 שנה. עם זאת בהתחשב בנסיבותיו האישיות
-הקשות, ובעיקר במצבו הרפואי של המערער, איני רואה כי יש הצדקה להפחית מאחוזי
-הגילמה למשך חמש שנים מיום תחילת תשלום הגימלה כאמור.
+7. כאמור, בערעור הנ&#34;ל קבע השופט זמיר כי שאלת שלילת הגמלאות תוחזר לדיון בפני בית הדין למשמעת, ואכן היה על בית הדין להישאר בתחום ד&#39; אמות אלו שהתווה השופט זמיר בפסק דינו. הן הדיון בבית הדין, והן דיוננו זה מוגבלים, איפוא, לשאלת הגימלה, ולשאלת מענק הפרישה המתעוררת בעקבות החלטת השופט זמיר לצמצם את תקופת הפסילה לחמש שנים. בדרך כלל בית משפט זה אינו נוטה להתערב באמצעי המשמעת שהוטלו על-ידי בית הדין למשמעת, וכך גם ראוי לנהוג במקרה זה, לפיכך לא ראיתי להתערב בהחלטה שלא ליתן למערער מענק פרישה, ואף לא בהחלטה לאשר למערער גימלה כאשר ימלאו לו 60 שנה. עם זאת בהתחשב בנסיבותיו האישיות הקשות, ובעיקר במצבו הרפואי של המערער, איני רואה כי יש הצדקה להפחית מאחוזי הגילמה למשך חמש שנים מיום תחילת תשלום הגימלה כאמור.
 
-8. לפיכך, שני הערעורים נדחים בכפוף לכך שגימלתו
-המלאה של המערער תשולם לו החל מגיל 60.
+8. לפיכך, שני הערעורים נדחים בכפוף לכך שגימלתו המלאה של המערער תשולם לו החל מגיל 60.
 
-ניתן היום, כ&#34;ז בניסן התשס&#34;ב
-(9.4.2002).
+ניתן היום, כ&#34;ז בניסן התשס&#34;ב (9.4.2002).
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
 _________________
 
-העתק
-מתאים למקור 01099180 /צש
+העתק מתאים למקור 01099180 /צש
 
-נוסח
-זה כפוף לשינויי עריכה וניסוח.
+נוסח זה כפוף לשינויי עריכה וניסוח.
 
 רשם
 
-בבית
-המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
+בבית המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
 
-בית
-המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
+בית המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
 
-לבתי
-המשפט אתר באינטרנט: www.court.gov.il
+לבתי המשפט אתר באינטרנט: www.court.gov.il
         </div>
     </section>
     
@@ -1710,7 +1910,7 @@ _________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

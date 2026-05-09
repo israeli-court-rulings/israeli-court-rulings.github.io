@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    15/04/2001 (לפני 9151 ימים)
+                    15/04/2001 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8384-99.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8384/99 - ניר פדידה נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8384-99.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/840/083/O09&amp;fileName=99083840_O09.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/840/083/O09&amp;fileName=99083840_O09.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/840/083/O09&amp;fileName=99083840_O09.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/840/083/O09&amp;fileName=99083840_O09.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,42 +1829,31 @@
         <div class="nested-content" style="line-height: 1.8;">
             בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
-ע&#34;פ
-8384/99
+ע&#34;פ 8384/99
 
-בפני: כבוד
-השופטת ט&#39; שטרסברג-כהן
+בפני: כבוד השופטת ט&#39; שטרסברג-כהן
 
-כבוד
-השופטת א&#39; פרוקצ&#39;יה
+כבוד השופטת א&#39; פרוקצ&#39;יה
 
-כבוד
-השופט א&#39; א&#39; לוי
+כבוד השופט א&#39; א&#39; לוי
 
-המערער: ניר
-פדידה
+המערער: ניר פדידה
 
 נגד
 
 המשיבה: מדינת ישראל
 
-ערעור
-על גזר דין שניתן בת.פ. 261/99
+ערעור על גזר דין שניתן בת.פ. 261/99
 
-בבית
-המשפט המחוזי בנצרת מיום 11.11.99
+בבית המשפט המחוזי בנצרת מיום 11.11.99
 
-בפני
-השופטים: אהרון אמינוף, יצחק כהן,
+בפני השופטים: אהרון אמינוף, יצחק כהן,
 
-זיאד
-הווארי
+זיאד הווארי
 
-תאריך הישיבה: ו&#39; בשבט תשס&#34;א
-(30.1.01)
+תאריך הישיבה: ו&#39; בשבט תשס&#34;א (30.1.01)
 
-בשם
-המערער: עו&#34;ד עומרי ראיד
+בשם המערער: עו&#34;ד עומרי ראיד
 
 בשם המשיבה: עו&#34;ד אפרת ברזילי
 
@@ -1603,83 +1863,39 @@
 
 1. העובדות
 
-בעת שהמערער היה בן 21 שנים, הוא הכיר קטינה
-שאותה עת הייתה בת 13. בין השניים התקיים קשר טלפוני שנמשך כשבוע, ובאחד הימים של
-חודש מרץ 1999, הוא הפציר בקטינה לפגוש אותו, באמתלה שהוא מבקש לומר לה דבר מה שלא
-באמצעות הטלפון.
+בעת שהמערער היה בן 21 שנים, הוא הכיר קטינה שאותה עת הייתה בת 13. בין השניים התקיים קשר טלפוני שנמשך כשבוע, ובאחד הימים של חודש מרץ 1999, הוא הפציר בקטינה לפגוש אותו, באמתלה שהוא מבקש לומר לה דבר מה שלא באמצעות הטלפון.
 
-המפגש בין השניים התקיים בשעה 23:00 לערך,
-והמערער שהגיע עם רכבו הזמין את הקטינה להיכנס, וזו עשתה כן בהניחה ששם הוא יאמר
-לה את אשר על לבו. אך המערער החל בנסיעה, ולא שעה לבקשתה של הקטינה להחזירה לבית
-חברתה, שם שהתה עובר למפגש עמו.
+המפגש בין השניים התקיים בשעה 23:00 לערך, והמערער שהגיע עם רכבו הזמין את הקטינה להיכנס, וזו עשתה כן בהניחה ששם הוא יאמר לה את אשר על לבו. אך המערער החל בנסיעה, ולא שעה לבקשתה של הקטינה להחזירה לבית חברתה, שם שהתה עובר למפגש עמו.
 
-המערער הסיע את הקטינה ליער מבודד, שם ביצע בה
-מעשים מגונים, ואף ניסה להפשיטה מבגדיה, אך היא מנעה זאת על ידי התנגדותה. לאחר כל
-אלה הסיע המערער את הקטינה לבית חברתה.
+המערער הסיע את הקטינה ליער מבודד, שם ביצע בה מעשים מגונים, ואף ניסה להפשיטה מבגדיה, אך היא מנעה זאת על ידי התנגדותה. לאחר כל אלה הסיע המערער את הקטינה לבית חברתה.
 
 2. פסק דינו של בית המשפט המחוזי
 
-המערער הודה בעובדותיו של כתב האישום המתוקן
-שהוגש לבית המשפט המחוזי בנצרת, ובעקבות כך הורשע בביצוען של שתי עבירות: חטיפה
-ומעשה מגונה בנסיבות מחמירות, עבירות לפי סעיף 369, ו348-(ב) בשילוב עם סעיף
-345(ב)(1) לחוק העונשין, התשל&#34;ז1977-.
+המערער הודה בעובדותיו של כתב האישום המתוקן שהוגש לבית המשפט המחוזי בנצרת, ובעקבות כך הורשע בביצוען של שתי עבירות: חטיפה ומעשה מגונה בנסיבות מחמירות, עבירות לפי סעיף 369, ו348-(ב) בשילוב עם סעיף 345(ב)(1) לחוק העונשין, התשל&#34;ז1977-.
 
-בהמשך, גזר בית המשפט למערער שלוש וחצי שנות
-מאסר, מאסר על תנאי למשך שלוש שנים, וכן חויב לשלם למתלוננת פיצוי בסכום של 10,000
-ש&#34;ח. כמו כן הורה בית המשפט כי המערער יהיה בפיקוח שרות המבחן במשך שנה וחצי
-לאחר שישוחרר ממאסרו.
+בהמשך, גזר בית המשפט למערער שלוש וחצי שנות מאסר, מאסר על תנאי למשך שלוש שנים, וכן חויב לשלם למתלוננת פיצוי בסכום של 10,000 ש&#34;ח. כמו כן הורה בית המשפט כי המערער יהיה בפיקוח שרות המבחן במשך שנה וחצי לאחר שישוחרר ממאסרו.
 
 הערעור מופנה כנגד העונש.
 
 3. נימוקי הערעור
 
-בא-כוח המערער, שעתר להקל בעונש, טען כי
-הערכאה הראשונה לא ייחסה משקל נאות לגילו הצעיר של שולחו, תקופת מעצר הבית הממושכת
-בה שהה, ושהמאסר הנוכחי הוא מאסרו הראשון, ולזה נלוות בדרך כלל השלכות קשות על
-הנדון ובני משפחתו. כמו כן נטען, שלמתלוננת לא נגרם נזק של ממש.
+בא-כוח המערער, שעתר להקל בעונש, טען כי הערכאה הראשונה לא ייחסה משקל נאות לגילו הצעיר של שולחו, תקופת מעצר הבית הממושכת בה שהה, ושהמאסר הנוכחי הוא מאסרו הראשון, ולזה נלוות בדרך כלל השלכות קשות על הנדון ובני משפחתו. כמו כן נטען, שלמתלוננת לא נגרם נזק של ממש.
 
-עניין אחר שנטען על ידי בא-כוח המערער, התבסס
-על תסקירו של שרות המבחן שהוגש לבית משפט קמא, ועל החלטתו של בית המשפט לפנות
-ולבקש, עוד בטרם טענו הצדדים לעונש, את חוות דעתו של הממונה על עבודות שרות בשאלת
-התאמתו של המערער לשאת בעונש מאסר בדרך זו.
+עניין אחר שנטען על ידי בא-כוח המערער, התבסס על תסקירו של שרות המבחן שהוגש לבית משפט קמא, ועל החלטתו של בית המשפט לפנות ולבקש, עוד בטרם טענו הצדדים לעונש, את חוות דעתו של הממונה על עבודות שרות בשאלת התאמתו של המערער לשאת בעונש מאסר בדרך זו.
 
-באשר לתסקיר, טען בא-כוח המערער, כי אף
-שבהתחלה לא נמצאה דרך לבוא בהמלצה טיפולית, בין היתר על רקע טענתו של המערער שהוא
-הודה בעבירות שיוחסו לו רק עקב חוסר יכולתו לעמוד בתנאי מעצר (ראה התסקיר מחודש
-יוני 1999), הרי בתסקיר מאוחר יותר חלה תפנית ביחסו למעשים אשר ביצע במתלוננת, עד
-ששרות המבחן שינה את עמדתו והמליץ להעמיד את המערער בפיקוחו למשך שנה וחצי.
+באשר לתסקיר, טען בא-כוח המערער, כי אף שבהתחלה לא נמצאה דרך לבוא בהמלצה טיפולית, בין היתר על רקע טענתו של המערער שהוא הודה בעבירות שיוחסו לו רק עקב חוסר יכולתו לעמוד בתנאי מעצר (ראה התסקיר מחודש יוני 1999), הרי בתסקיר מאוחר יותר חלה תפנית ביחסו למעשים אשר ביצע במתלוננת, עד ששרות המבחן שינה את עמדתו והמליץ להעמיד את המערער בפיקוחו למשך שנה וחצי.
 
-באשר לפנייה לממונה על עבודות שירות נטען, כי
-אף שמהחלטת בית המשפט לא משתמע שהוא עתיד ללכת בדרך זו, והנוסח היה מסוייג
-(&#34;אם נחליט על מאסר בדרך של עבודות שרות&#34;), יצרה ההחלטה בלבו של המערער
-&#34;צפייה מסוימת שלא ניתן להתעלם ממנה&#34; (בלשון בא-כוחו של המערער).
+באשר לפנייה לממונה על עבודות שירות נטען, כי אף שמהחלטת בית המשפט לא משתמע שהוא עתיד ללכת בדרך זו, והנוסח היה מסוייג (&#34;אם נחליט על מאסר בדרך של עבודות שרות&#34;), יצרה ההחלטה בלבו של המערער &#34;צפייה מסוימת שלא ניתן להתעלם ממנה&#34; (בלשון בא-כוחו של המערער).
 
-לנוכח כל האמור נתבקשנו להקל בעונש, בעוד
-שבא-כוח המשיבה סברה כי העונש הינו ראוי והולם.
+לנוכח כל האמור נתבקשנו להקל בעונש, בעוד שבא-כוח המשיבה סברה כי העונש הינו ראוי והולם.
 
-4. העונש כשלעצמו איננו חמור כלל ועיקר, ואלמלא
-הנסיבות המיוחדות של המקרה הנדון ושל המערער, לא היינו מוצאים להתערב בו.
+4. העונש כשלעצמו איננו חמור כלל ועיקר, ואלמלא הנסיבות המיוחדות של המקרה הנדון ושל המערער, לא היינו מוצאים להתערב בו.
 
-המערער הוא אדם צעיר, שמעולם לא חטא בעבירות
-דומות. זהו מאסרו הראשון (בעבר ריצה עונש של מחבוש במסגרת השרות הצבאי). הוא מודה
-באשמתו מביע חרטה כנה ורצון להשתקם. המגמה החיובית שהחלה להסתמן בהתנהגותו, כפי
-שהדבר מצא ביטוי בתסקירים המאוחרים שהוגשו לבית המשפט המחוזי, נמשכת, והדבר עולה
-מתסקיר נוסף של שרות המבחן, אשר הוגש לבית משפט זה בחודש דצמבר 2000. בתסקיר זה
-חזר שרות המבחן והביע את הדעה, כי המערער &#34;לוקח אחריות על מעשיו ומפיק תועלת
-מהקשר הטיפולי לשינוי בדפוסי חשיבה והתנהגות בכל הקשור לעבירה&#34;. לנוכח כל אלה
-המליץ שרות המבחן לקצר את מאסרו של המערער, כדי להעביר לו בדרך זו מסר של עידוד
-וחיזוק, דבר העשוי לסייע בשיקומו כאשר ישתחרר.
+המערער הוא אדם צעיר, שמעולם לא חטא בעבירות דומות. זהו מאסרו הראשון (בעבר ריצה עונש של מחבוש במסגרת השרות הצבאי). הוא מודה באשמתו מביע חרטה כנה ורצון להשתקם. המגמה החיובית שהחלה להסתמן בהתנהגותו, כפי שהדבר מצא ביטוי בתסקירים המאוחרים שהוגשו לבית המשפט המחוזי, נמשכת, והדבר עולה מתסקיר נוסף של שרות המבחן, אשר הוגש לבית משפט זה בחודש דצמבר 2000. בתסקיר זה חזר שרות המבחן והביע את הדעה, כי המערער &#34;לוקח אחריות על מעשיו ומפיק תועלת מהקשר הטיפולי לשינוי בדפוסי חשיבה והתנהגות בכל הקשור לעבירה&#34;. לנוכח כל אלה המליץ שרות המבחן לקצר את מאסרו של המערער, כדי להעביר לו בדרך זו מסר של עידוד וחיזוק, דבר העשוי לסייע בשיקומו כאשר ישתחרר.
 
-את ההמלצה הזו, שגם באת-כוח המשיבה לא דחתה,
-החלטנו לקבל, ולא בלי היסוס, מתוך תקווה שהמערער יתמיד ללכת בדרך בה החל לצעוד.
-אנו מקבלים את הערעור, במובן זה שאנו מפחיתים מעונשו של המערער במידת מה ומעמידים
-המאסר בפועל על שלוש שנים, במקום שלוש וחצי שנים, בעוד שהמאסר על תנאי שנגזר
-בערכאה הראשונה ישאר על כנו.
+את ההמלצה הזו, שגם באת-כוח המשיבה לא דחתה, החלטנו לקבל, ולא בלי היסוס, מתוך תקווה שהמערער יתמיד ללכת בדרך בה החל לצעוד. אנו מקבלים את הערעור, במובן זה שאנו מפחיתים מעונשו של המערער במידת מה ומעמידים המאסר בפועל על שלוש שנים, במקום שלוש וחצי שנים, בעוד שהמאסר על תנאי שנגזר בערכאה הראשונה ישאר על כנו.
 
-באשר לפיצוי בו חוייב המערער - לא נעלמה
-מעינינו תגובתם-בכתב של הורי המתלוננת, בה מחלו על זכותה של בתם לפיצוי. חרף זאת,
-לא מצאנו שיש מקום לבטל את החיוב באשר הוא עושה צדק עם הקורבן, ועל כן יהיה זה
-עניינה של המתלוננת והוריה אם לגבותו או לזנוח אותו.
+באשר לפיצוי בו חוייב המערער - לא נעלמה מעינינו תגובתם-בכתב של הורי המתלוננת, בה מחלו על זכותה של בתם לפיצוי. חרף זאת, לא מצאנו שיש מקום לבטל את החיוב באשר הוא עושה צדק עם הקורבן, ועל כן יהיה זה עניינה של המתלוננת והוריה אם לגבותו או לזנוח אותו.
 
 ש ו פ ט
 
@@ -1699,19 +1915,15 @@
 
 ניתן היום, ט&#39; בניסן תשס&#34;א (2.4.01).
 
-ש ו פ ט ת ש ו פ ט
-ת ש ו פ ט
+ש ו פ ט ת ש ו פ ט ת ש ו פ ט
 
 העתק מתאים למקור
 
-נוסח
-זה כפוף לשינויי עריכה טרם פרסומו בקובץ
+נוסח זה כפוף לשינויי עריכה טרם פרסומו בקובץ
 
-פסקי
-הדין של בית המשפט העליון בישראל.
+פסקי הדין של בית המשפט העליון בישראל.
 
-שמריהו
-כהן - מזכיר ראשי
+שמריהו כהן - מזכיר ראשי
 
 99083840.O09/אז
         </div>
@@ -1732,7 +1944,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

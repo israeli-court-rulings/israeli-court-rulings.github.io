@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    04/04/2023 (לפני 1127 ימים)
+                    04/04/2023 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/7768-22.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="7768/22 - יצחק בן משה נ. כונס הנכסים הרשמי"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F7768-22.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/680/077/c04&amp;fileName=22077680.C04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/680/077/c04&amp;fileName=22077680.C04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/680/077/c04&amp;fileName=22077680.C04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/680/077/c04&amp;fileName=22077680.C04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,167 +1827,91 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
-
-
-
-
-
-
-
-
-
-1
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
-
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
 ע&#34;א 7768/22
 
 ע&#34;א 506/23
 
-
-
-לפני:	
+לפני:
 
 כבוד השופטת ד&#39; ברק-ארז
 
-
-
 כבוד השופט ע&#39; גרוסקופף
 
-
-
 כבוד השופט ח&#39; כבוב
-
-
 
 המערער:
 
 יצחק בן משה
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 משיב 1 בע&#34;א 7768/22 ומשיב 2 בע&#34;א 506/23:
 
-
-
 כונס הנכסים הרשמי
-
-
-
-
 
 משיב 2 בע&#34;א 7768/22:
 
 עו&#34;ד דן הלפרט
 
-
-
-
-
 משיב 3 בע&#34;א 7768/22 ומשיב 1 בע&#34;א 506/23:
-
-
 
 בנק המזרחי טפחות בע&#34;מ
 
-
-
-ערעורים על החלטותיו של בית המשפט המחוזי מרכז-לוד מימים 09.11.2022 ו-24.11.2022 בפש&#34;ר 19727-07-21 שניתנו על-ידי כב&#39; השופטת ה&#39; סילש 
-
-
+ערעורים על החלטותיו של בית המשפט המחוזי מרכז-לוד מימים 09.11.2022 ו-24.11.2022 בפש&#34;ר 19727-07-21 שניתנו על-ידי כב&#39; השופטת ה&#39; סילש
 
 תאריך הישיבה:
 
-כ&#34;ג באדר התשפ&#34;ג       
+כ&#34;ג באדר התשפ&#34;ג
 
-(16.03.2023) 
-
-
+(16.03.2023)
 
 בשם המערער:
 
-בעצמו			
-
-
-
-
+בעצמו
 
 בשם משיב 1 בע&#34;א 7768/22 ומשיב 2 בע&#34;א 506/23:
 
-
-
 עו&#34;ד אסף ברקוביץ&#39;
-
-
-
-
 
 בשם משיב 2 בע&#34;א 7768/22:
 
 בעצמו
 
-
-
-
-
 בשם משיב 3 בע&#34;א 7768/22 ומשיב 1 בע&#34;א 506/23:
-
-
 
 עו&#34;ד מרים זפט
 
-	
-
-	
-
 פסק-דין
-
-
 
 השופט ח&#39; כבוב:
 
-	ביום 08.11.2022 נדחו בפסק דין שניתן על ידי, ובהסכמת המשנה לנשיאה ע&#39; פוגלמן והשופט נ&#39; סולברג – חמישה הליכים בהם נקט המערער, שנסובו על החלטות שונות שניתנו על-ידי בית המשפט המחוזי מרכז-לוד (כבוד השופטת ה&#39; סילש) בגדרי פש&#34;ר 24386-07-13. עניינם של אותם הליכים, כמו גם ענייננו, בעיקרו של דבר – בהכרעת המנהל המיוחד בתביעות חוב שהוגשו ביחס למערער (ע&#34;א 3145/21; ע&#34;א 3147/21; רע&#34;א 4422/21; רע&#34;א 4424/21; ו-ע&#34;א 5449/22). יוער, כי מעט לאחר מתן פסק הדין האמור מיום 08.11.2022, הגיש המערער בקשה לעיון חוזר שנדחתה בהחלטה מיום 27.11.2022.
+ביום 08.11.2022 נדחו בפסק דין שניתן על ידי, ובהסכמת המשנה לנשיאה ע&#39; פוגלמן והשופט נ&#39; סולברג – חמישה הליכים בהם נקט המערער, שנסובו על החלטות שונות שניתנו על-ידי בית המשפט המחוזי מרכז-לוד (כבוד השופטת ה&#39; סילש) בגדרי פש&#34;ר 24386-07-13. עניינם של אותם הליכים, כמו גם ענייננו, בעיקרו של דבר – בהכרעת המנהל המיוחד בתביעות חוב שהוגשו ביחס למערער (ע&#34;א 3145/21; ע&#34;א 3147/21; רע&#34;א 4422/21; רע&#34;א 4424/21; ו-ע&#34;א 5449/22). יוער, כי מעט לאחר מתן פסק הדין האמור מיום 08.11.2022, הגיש המערער בקשה לעיון חוזר שנדחתה בהחלטה מיום 27.11.2022.
 
-	אך המערער לא אמר נואש, והוסיף, בסמוך לאחר מתן פסק הדין, להגיש בקשות לבית המשפט המחוזי בעניינו. ויובהר, כי בקשות אלה יסודן בטענותיו שנדחו זה מכבר; וכצפוי, בקשותיו החדשות נדחו בהחלטות בית המשפט המחוזי מושא ענייננו ומכאן הערעורים שבכותרת – שדיון בהם במעמד הצדדים התקיים לפנינו ביום 16.03.2023. 
+אך המערער לא אמר נואש, והוסיף, בסמוך לאחר מתן פסק הדין, להגיש בקשות לבית המשפט המחוזי בעניינו. ויובהר, כי בקשות אלה יסודן בטענותיו שנדחו זה מכבר; וכצפוי, בקשותיו החדשות נדחו בהחלטות בית המשפט המחוזי מושא ענייננו ומכאן הערעורים שבכותרת – שדיון בהם במעמד הצדדים התקיים לפנינו ביום 16.03.2023.
 
-	ביסוד ע&#34;א 7768/22 החלטת בית משפט קמא מיום 09.11.2022. בגדרה, נדחתה בקשת המערער לבטל את ההכרעה בתביעת החוב מיום 24.02.2017, מחמת מרמה. ההחלטה נומקה, בין היתר כך:
+ביסוד ע&#34;א 7768/22 החלטת בית משפט קמא מיום 09.11.2022. בגדרה, נדחתה בקשת המערער לבטל את ההכרעה בתביעת החוב מיום 24.02.2017, מחמת מרמה. ההחלטה נומקה, בין היתר כך:
 
 &#34;טרם יבש הדיו בפסק דינו של כב&#39; בית המשפט העליון אשר התייחס למספר ערעורים אשר הוגשו על ידי החייב [הוא המערער – ח&#39; כ&#39;] ועניינם ההכרעה בתביעת החוב של בנק המזרחי והוגשה בקשה זו. [...] הבקשה הנוכחית אף מצטרפת למספר רב מאוד של בקשות קודמות אשר הוגשו על ידי החייב לעניין תביעת החוב של בנק המזרחי, וכאשר ביחס לכולן ניתנו החלטות. זאת ועוד; בקשות קודמות של החייב, הוגשו, בין היתר, במקביל להליך ארוך מאוד במסגרתו נדונו, עד דק, כלל טענות הצדדים בכל הנוגע לתביעת החוב, וכאשר גם במסגרת הדיון בערעור על ההכרעה בתביעת החוב, הובאה עמדתו של החייב. אין בית משפט זה מהווה ערכאה עודפת או נוספת לפסקי דינו של כב&#39; בית המשפט העליון, אין מקום לשוב ולדון בסוגיות אשר נדונו והוכרעו תוך שההכרעה בהן חלוטה, ולא סביר – בעליל – כי תמשך התנהלות החייב במסגרתה הוא מתעלם, באופן מודע, מפסקי דין והחלטות הניתנים בעניינו, וודאי אלו של כב&#39; בית המשפט העליון&#34;
 
-	ודוק. כל זאת נאמר, בהתייחס לפסק הדין שניתן אך יום קודם לכן, 08.11.2022, בהליכים כמפורט לעיל.
+ודוק. כל זאת נאמר, בהתייחס לפסק הדין שניתן אך יום קודם לכן, 08.11.2022, בהליכים כמפורט לעיל.
 
-	ביסוד ע&#34;א 506/23, ניצבת החלטת בית משפט קמא מיום 24.11.2022. בגדרה, נדחתה בקשה נוספת של המערער, שעניינה תביעת החוב של בנק מזרחי טפחות בע&#34;מ. בקשה זו נדחתה על-ידי בית משפט קמא הן מהטעם שהוגשה בגדרי בקשה אחרת – ובכך דילג המערער על התנאי המחייב הפקדה כספית כנגד בקשה חדשה; והן לגופה &#34;עת היא מהווה חזרה, אינסופית, של בקשות קודמות אשר ביחס אליהן ניתנו החלטות מפורטות וברורות&#34;, כלשון בית המשפט.
+ביסוד ע&#34;א 506/23, ניצבת החלטת בית משפט קמא מיום 24.11.2022. בגדרה, נדחתה בקשה נוספת של המערער, שעניינה תביעת החוב של בנק מזרחי טפחות בע&#34;מ. בקשה זו נדחתה על-ידי בית משפט קמא הן מהטעם שהוגשה בגדרי בקשה אחרת – ובכך דילג המערער על התנאי המחייב הפקדה כספית כנגד בקשה חדשה; והן לגופה &#34;עת היא מהווה חזרה, אינסופית, של בקשות קודמות אשר ביחס אליהן ניתנו החלטות מפורטות וברורות&#34;, כלשון בית המשפט.
 
-	לאחר עיון ובחינת טיעוני הצדדים, בכתב ובעל-פה – מצאנו כי דין הערעורים להידחות בתמצית מכוח סמכותנו שלפי תקנה 148(ב) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018 (להלן: תקסד&#34;א החדשות). שכן, לא ראינו הצדקה לדחות את הממצאים העובדתיים שנקבעו על-ידי הערכאה הדיונית שתומכים במסקנה המשפטית וכי כך או אחרת, אין בהחלטות משום טעות שבחוק המצדיקה את התערבותנו.
+לאחר עיון ובחינת טיעוני הצדדים, בכתב ובעל-פה – מצאנו כי דין הערעורים להידחות בתמצית מכוח סמכותנו שלפי תקנה 148(ב) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018 (להלן: תקסד&#34;א החדשות). שכן, לא ראינו הצדקה לדחות את הממצאים העובדתיים שנקבעו על-ידי הערכאה הדיונית שתומכים במסקנה המשפטית וכי כך או אחרת, אין בהחלטות משום טעות שבחוק המצדיקה את התערבותנו.
 
-	הערה קצרה טרם חתימה ופסיקת הוצאות. לא ניתן להתעלם מכך שהמערער בהתנהלותו חותר במופגן נגד עקרון סופיות הדיון. עקרון, שכידוע, נועד לשים קץ לדיונים המשפטיים, ולמנוע הטרדה חוזרת של בעל הדין היריב, ושל בית המשפט בעניין שכבר בורר ומוצה (ראו מיני רבים: ע&#34;א 718/75 עמרם נ&#39; סקורניק, פ&#34;ד ל&#34;א(1) 29, 35 (1976)). סבורני, כי עקרון סופיות הדיון, שהכה שורש בשיטתנו המשפטית מקדמת דנא, קיבל משנה תוקף משהותקנו תקסד&#34;א החדשות; ואסביר. 
+הערה קצרה טרם חתימה ופסיקת הוצאות. לא ניתן להתעלם מכך שהמערער בהתנהלותו חותר במופגן נגד עקרון סופיות הדיון. עקרון, שכידוע, נועד לשים קץ לדיונים המשפטיים, ולמנוע הטרדה חוזרת של בעל הדין היריב, ושל בית המשפט בעניין שכבר בורר ומוצה (ראו מיני רבים: ע&#34;א 718/75 עמרם נ&#39; סקורניק, פ&#34;ד ל&#34;א(1) 29, 35 (1976)). סבורני, כי עקרון סופיות הדיון, שהכה שורש בשיטתנו המשפטית מקדמת דנא, קיבל משנה תוקף משהותקנו תקסד&#34;א החדשות; ואסביר.
 
-	בתקסד&#34;א החדשות שורטטו הקווים המנחים להליך שיפוטי ראוי והוגן; אופן ניהול המשפט וחובות בעלי הדין אחד לרעהו וביחס לבית המשפט; סוגיית השימוש לרעה בהליכי משפט; וכן הצורך באיזון בין אינטרסים שונים בעת מלאכת השיפוט.
+בתקסד&#34;א החדשות שורטטו הקווים המנחים להליך שיפוטי ראוי והוגן; אופן ניהול המשפט וחובות בעלי הדין אחד לרעהו וביחס לבית המשפט; סוגיית השימוש לרעה בהליכי משפט; וכן הצורך באיזון בין אינטרסים שונים בעת מלאכת השיפוט.
 
-	בהתאם לכך נקבע כי הליך שיפוטי יהיה נגיש לציבור, וכי סכסוכים יוכרעו בתוך זמן סביר על יסוד הטענות ההדדיות, באופן שוויוני, מידתי ויעיל תוך מתן הנמקה מתאימה. כן נקבע, כי בית המשפט אחראי על ניהול ההליך השיפוטי לשם הגשמת המטרות שביסוד התקסד&#34;א החדשות – במטרה לקדם את התנהלותו של הליך ראוי והוגן. זאת ועוד נקבע, כי מוטלת על בעלי הדין ובאי כוחם חובה לסייע לבית המשפט בקיום המוטל עליו לפי התקנות, ועליהם לפעול כאמור בתום לב ובהגינות דיונית, באופן שמסייע במימוש התכלית הדיונית. זאת ועוד נקבע, כי אל לו לבעל דין לעשות שימוש לרעה בהליכי משפט – לרבות פעולה בהליך שמטרתה או תוצאתה להטריד בעל דין. בנוסף מצא מתקין התקנות לקבוע, כי על בית המשפט לאזן, לפי הצורך, בין האינטרס של בעלי הדין ובין האינטרס הציבורי – הטומן בחובו את נגישות הציבור למערכת בתי המשפט ואת קיומו של דיון משפטי צודק, מהיר ויעיל; תוך חיסכון במשאבי זמן ועלויות, ומניעת שימוש לרעה בהליך השיפוטי (להרחבה ראו: יששכר רוזן-צבי הרפורמה בסדר הדין האזרחי מורה נבוכים 65-27 (מהדורה ראשונה, 2021)).
+בהתאם לכך נקבע כי הליך שיפוטי יהיה נגיש לציבור, וכי סכסוכים יוכרעו בתוך זמן סביר על יסוד הטענות ההדדיות, באופן שוויוני, מידתי ויעיל תוך מתן הנמקה מתאימה. כן נקבע, כי בית המשפט אחראי על ניהול ההליך השיפוטי לשם הגשמת המטרות שביסוד התקסד&#34;א החדשות – במטרה לקדם את התנהלותו של הליך ראוי והוגן. זאת ועוד נקבע, כי מוטלת על בעלי הדין ובאי כוחם חובה לסייע לבית המשפט בקיום המוטל עליו לפי התקנות, ועליהם לפעול כאמור בתום לב ובהגינות דיונית, באופן שמסייע במימוש התכלית הדיונית. זאת ועוד נקבע, כי אל לו לבעל דין לעשות שימוש לרעה בהליכי משפט – לרבות פעולה בהליך שמטרתה או תוצאתה להטריד בעל דין. בנוסף מצא מתקין התקנות לקבוע, כי על בית המשפט לאזן, לפי הצורך, בין האינטרס של בעלי הדין ובין האינטרס הציבורי – הטומן בחובו את נגישות הציבור למערכת בתי המשפט ואת קיומו של דיון משפטי צודק, מהיר ויעיל; תוך חיסכון במשאבי זמן ועלויות, ומניעת שימוש לרעה בהליך השיפוטי (להרחבה ראו: יששכר רוזן-צבי הרפורמה בסדר הדין האזרחי מורה נבוכים 65-27 (מהדורה ראשונה, 2021)).
 
-	את כל אלו, המערער מפר בהתנהלותו בצורה בוטה עת הוא מטריד את בתי המשפט ואת הצדדים האחרים בבקשות והליכים אינספור, באותן טענות ממש, פעם אחר פעם. כל זאת, תוך שהוא &#39;נהנה&#39; מפסיקת הוצאות בשיעור נמוך, מפאת היותו חייב בהליך פשיטת רגל. אופן התנהלותו כאמור, פוגע באפשרות של בית המשפט לממש את התכליות שביסוד ההליך השיפוטי כפי שאלה באו לידי ביטוי בתקסד&#34;א החדשות, בגזלו זמן שיפוטי יקר ומשאבים מערכתיים הדרושים לשם טיפול בבקשותיו החוזרות והנשנות. 
+את כל אלו, המערער מפר בהתנהלותו בצורה בוטה עת הוא מטריד את בתי המשפט ואת הצדדים האחרים בבקשות והליכים אינספור, באותן טענות ממש, פעם אחר פעם. כל זאת, תוך שהוא &#39;נהנה&#39; מפסיקת הוצאות בשיעור נמוך, מפאת היותו חייב בהליך פשיטת רגל. אופן התנהלותו כאמור, פוגע באפשרות של בית המשפט לממש את התכליות שביסוד ההליך השיפוטי כפי שאלה באו לידי ביטוי בתקסד&#34;א החדשות, בגזלו זמן שיפוטי יקר ומשאבים מערכתיים הדרושים לשם טיפול בבקשותיו החוזרות והנשנות.
 
-	בראי כל אלה, ובשים לב לכך שבפסק הדין מיום 08.11.2022, הובאה בחשבון בעת פסיקת ההוצאות העובדה שהמבקש מצוי בהליך פשיטת הרגל, תוך שהוער שאם לא היה כן – ראוי היה בנסיבות כי תוטלנה הוצאות בסכום גבוה בהרבה – מצאתי לחייב את המערער, זו הפעם, בהוצאות כל אחד מן המשיבים בסך של 7,000 ש&#34;ח (ובסך הכל 21,000 ש&#34;ח).
+בראי כל אלה, ובשים לב לכך שבפסק הדין מיום 08.11.2022, הובאה בחשבון בעת פסיקת ההוצאות העובדה שהמבקש מצוי בהליך פשיטת הרגל, תוך שהוער שאם לא היה כן – ראוי היה בנסיבות כי תוטלנה הוצאות בסכום גבוה בהרבה – מצאתי לחייב את המערער, זו הפעם, בהוצאות כל אחד מן המשיבים בסך של 7,000 ש&#34;ח (ובסך הכל 21,000 ש&#34;ח).
 
-	ניתן היום, ‏י&#34;ג בניסן התשפ&#34;ג (‏4.4.2023).
-
-
+ניתן היום, ‏י&#34;ג בניסן התשפ&#34;ג (‏4.4.2023).
 
 ש ו פ ט ת
 
@@ -1724,17 +1919,11 @@
 
 ש ו פ ט
 
-
-
 _________________________
 
-   22077680_C04.docx   מש
+22077680_C04.docx מש
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1753,7 +1942,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

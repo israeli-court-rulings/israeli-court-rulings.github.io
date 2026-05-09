@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    23/07/2020 (לפני 2112 ימים)
+                    23/07/2020 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5035-20.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5035/20 - ערוץ 10 החדש בע&#34;מ ואח&#39; נ. שרת התרבות והספורט"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5035-20.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/350/050/e03&amp;fileName=20050350.E03&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/350/050/e03&amp;fileName=20050350.E03&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/350/050/e03&amp;fileName=20050350.E03&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/350/050/e03&amp;fileName=20050350.E03&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,193 +1827,91 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון
 
+ע&#34;א 5035/20
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון
-
-ע&#34;א  5035/20
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
-
-
 
 המערערים:
 
 1. ערוץ 10 החדש בע&#34;מ
 
-
-
 2. חדשות 10 בע&#34;מ
-
-
 
 3. גולן יוכפז
 
-
-
 4. ספי עובדיה
-
-
 
 5. ברוך קרא
 
-
-
 6. נענע 10 בע&#34;מ
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 שרת התרבות והספורט, ח&#34;כ מירי רגב
 
-
-
 ערעור על החלטתו של בית המשפט המחוזי ירושלים בתיק עא 3386-10-19 שניתנה ביום 12.07.2020 על ידי כבוד השופטים ר&#39; וינוגרד, מ&#39; אילני וש&#39; ליבוביץ;
 
 בקשה לעיכוב הליך
-
-
 
 בשם המערערים:
 
 עו&#34;ד תמר תורג&#39;מן-קדם ועו&#34;ד יסמין רובין
 
-
-
-
-
 פסק-דין
 
+ערעור על החלטת בית המשפט המחוזי בירושלים (השופטים ר&#39; וינוגרד, מ&#39; אילני וש&#39; ליבוביץ) מיום 12.7.2020 בע&#34;א 3386-10-19 שלא לפסול את עצמו מלדון בעניינם של המערערים.
 
-
-	ערעור על החלטת בית המשפט המחוזי בירושלים (השופטים ר&#39; וינוגרד, מ&#39; אילני וש&#39; ליבוביץ) מיום 12.7.2020 בע&#34;א 3386-10-19 שלא לפסול את עצמו מלדון בעניינם של המערערים.
-
-
-
-בשנת 2015 הגישה המשיבה, שכיהנה באותה העת כשרת התרבות והספורט בממשלת ישראל, תביעה מכוח חוק איסור לשון הרע, התשכ&#34;ה-1965, בגין סדרת פרסומים שפירסמו המערערים בנוגע להחלטה לבצע את קמפיין הפרסום של פרוייקט &#34;לא לדאוגוסט&#34; שיזם המשרד האמצעות משרד הפרסום &#34;יהושע TBWA&#34; (ת&#34;א (שלום י-ם) 38764-10-15). תביעה זו נדחתה בפסק דינו של בית משפט השלום בירושלים (השופט הבכיר ע&#39; עאסי) ביום 4.7.2019. על פסק הדין הגישה המשיבה את ההליך מושא הערעור דנן. 
-
-
+בשנת 2015 הגישה המשיבה, שכיהנה באותה העת כשרת התרבות והספורט בממשלת ישראל, תביעה מכוח חוק איסור לשון הרע, התשכ&#34;ה-1965, בגין סדרת פרסומים שפירסמו המערערים בנוגע להחלטה לבצע את קמפיין הפרסום של פרוייקט &#34;לא לדאוגוסט&#34; שיזם המשרד האמצעות משרד הפרסום &#34;יהושע TBWA&#34; (ת&#34;א (שלום י-ם) 38764-10-15). תביעה זו נדחתה בפסק דינו של בית משפט השלום בירושלים (השופט הבכיר ע&#39; עאסי) ביום 4.7.2019. על פסק הדין הגישה המשיבה את ההליך מושא הערעור דנן.
 
 ביום 29.6.2020, לאחר שהוגשו בהליך עיקרי טיעון ותיקי מוצגים מטעם הצדדים, קיים בית המשפט המחוזי דיון בערעור ובראשיתו התקיים דיון שלא לפרוטוקול. כעולה מהחלטתו של בית המשפט המחוזי, במהלך דיון בלתי פורמלי זה &#34;חיווה ההרכב דעתו על הקשיים הלכאוריים בפסק-דינו של בית משפט קמא תוך שהוא מבהיר לצדדים כבר בפתח הדיון כי ככל שהערותיו לא יתקבלו תינתן לצדדים האפשרות להשלים טענותיהם לאחר מכן&#34;. בשלב מסוים הציע המותב לצדדים הצעת פשרה שתכלול פרסום הודעת התנצלות מטעם המערערים. במהלך יום הדיונים קיימו הצדדים מגעים, בפיקוח בית המשפט, לשם הגעה לנוסח מוסכם להתנצלות האמורה, אך הדבר לא הסתייע. נוכח האמור, ולאחר שאחת משופטות המותב נאלצה לעזוב את בית המשפט, נקבע דיון המשך בערעור ליום 13.7.2020.
 
-
-
 שבוע לאחר מכן, ביום 6.7.2020, הגישו המערערים את בקשתם להורות על פסילת המותב, בטענה כי הדברים שנאמרו במהלך הדיון מיום 29.6.2020 והתנהלותו באותו דיון מקימים חשש ממשי למשוא פנים בניהול המשפט. לשם תמיכה בטענותיהם, הביאו המערערים אמרות אשר נטען כי נאמרו על ידי המותב אך לא נרשמו בפרוטוקול הדיון, ואשר לשיטתם היו &#34;חד משמעיות ונחרצות ולכולן שורה תחתונה אחת: לקבל את הערעור ולפסוק נגד המשיבים&#34;. עוד נטען כי התנהלות המותב בכל הנוגע להצעת נוסחי ההתנצלות נעשתה &#34;תוך הבעת עמדה חד משמעית ביחס לסיכויי הערעור&#34; ואף היא מקימה חשש ממשי למשוא פנים בניהול המשפט. נטען עוד כי הבעת עמדה זו נעשתה עוד בטרם נשמעו טענות הצדדים, באופן אשר אך מדגיש את &#34;נעילת&#34; דעתו של בית המשפט. כאמור לעיל, ביום 12.7.2020 דחה בית המשפט המחוזי את הבקשה, וזאת לאחר קבלת תגובת המשיבה, אשר התנגדה לבקשה, ותשובת המערערים לתגובה.
-
-
 
 בית המשפט המחוזי קבע כי אין בעצם העלאתה של הצעת הפשרה או בניסיון לשכנע את הצדדים להסכים לה כדי להקים עילה לפסילת המותב, וכי ניהול הדיון והצעת הצעות פשרה הם חלק מסמכותו הטבועה של בית המשפט, לא כל שכן של ערכאת הערעור, אשר הדיון בפניה מתנהל לאחר שהצדדים הביאו את מלוא ראיותיהם וטענותיהם בפני הערכאה המבררת, ולאחר שהגישו עיקרי טיעון מטעמם. בית המשפט המחוזי קבע כי במצב דברים זה &#34;לא רק שבית המשפט שלערעור רשאי להציע לצדדים הצעה לסיום הסכסוך כאשר סבור הוא שניתן לעשות כן, אלא שאף ראוי הוא שיעשה כן&#34;. הובהר כי הדעה שהובעה בתחילת הדיון נאמרה על יסוד מלוא החומר שעמד בפני המותב, על יסוד כל העולה מתיק בית משפט השלום, מפסק הדין ומטיעוני הצדדים, אך כי אין לראות בכך משום גיבוש דעה נחרצת וסופית, אלא יש בהבעת עמדה שכזו כדי לסייע למיקוד הדיון. עוד צוין כי הגם שניתן היה לצפות כי בקשת הפסלות תוגש מייד בתום הדיון שהתקיים, ולא בחלוף שבעה ימים, משהטענה הועלתה בטרם התקיים דיון ההמשך אין בשיהוי זה כשלעצמו כדי להביא לדחיית הבקשה. כן נדחתה בקשת המערערים להורות על הפסקת ההליך על מנת לאפשר להם לשקול אם להגיש ערעור על ההחלטה, וזאת בהתאם להוראת תקנה 471ג(א) לתקנות סדר הדין האזרחי, התשמ&#34;ד-1984. משההליך לא הופסק, ביום 13.7.2020 קיים בית המשפט המחוזי דיון המשך בערעור, ובתומו קבע כי פסק הדין יישלח לצדדים.
 
-
-
 מכאן הערעור שבפניי, בו חוזרים המערערים על טענותיהם שהועלו בפני בית המשפט המחוזי. מן ההיבט העובדתי, נטען כי בית המשפט המחוזי לא חלק על התיאור העובדתי של התנהלותו והתבטאויותיו, אלא קבע כי מדובר בהתנהלות המצויה בגדר סמכותו וכי התנהלות זו אינה מקימה עילת פסלות. המערערים סבורים כי קביעה זו שגויה היא, וכי במקרה דנן קיים חשש ממשי למשוא פנים אשר מצדיק את פסילת המותב. זאת, בעיקר בשל התבטאויותיו הנחרצות והפסקניות של המותב, ובשל התנהלותו כמעין &#34;מגשר&#34; בין הצדדים. לחלופין, נטען כי טעמים של מראית פני הצדק מצדיקים אף הם את הפסילה, ואף &#34;חשש לניגוד עניינים אובייקטיבי מובנה שמתקיים בשל מינויה של המשיבה לחברה בוועדה למינוי שופטים&#34;. יחד עם הערעור, הגישו המערערים בקשה לעיכוב ההליך בפני בית המשפט המחוזי עד להכרעה בהליך דנן. עוד יצוין כי בהתאם להחלטת הנשיאה א&#39; חיות מיום 22.7.2020, הועבר ההליך לטיפולי.
 
+לאחר עיון בערעור ובנספחיו, הגעתי למסקנה כי דינו להידחות.
 
+המבחן לפסילת שופט מלשבת בדין קבוע בסעיף 77א לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984, ולפיו יש לבחון אם קיימות נסיבות שיש בהן כדי ליצור חשש ממשי למשוא פנים מצד המותב. כבר נפסק לא אחת כי אין בניהול יעיל של ההליך, אשר בא לידי ביטוי גם בהבעת עמדה בשאלות שבמחלוקת, כדי להביא לפסילתו של המותב, למעט באותם מקרים נדירים בהם התבטאויות בית המשפט הן בעלות אופי מובהק ונחרץ המלמד על &#34;נעילת&#34; דעתו של המותב (ע&#34;א 4595/19 פלונית נ&#39; פלונית, פסקה 4 (7.8.2019)).
 
-לאחר עיון בערעור ובנספחיו, הגעתי למסקנה כי דינו להידחות. 	
+לא זה המקרה שבפניי. כעולה מהחלטתו של בית המשפט המחוזי, דבריו בפתח הדיון מיום 6.7.2020 נאמרו על מנת לחוות דעתו בנוגע לתיק, וזאת על סמך כתבי בית הדין שהוגשו על ידי הצדדים ומלוא החומר שעמד בפניו ובפני בית משפט השלום. אין כל פסול בהתנהלות זו ובשיקוף רשמיו של המותב בפני המתדיינים.
 
+&#34;שופט ללא דעה קודמת לא רק שאינו מצוי, אלא אף אינו רצוי. רוצים אנו בשופטים חושבים, המגבשים לעצמם דעות ומחשבות. ... פסילת שופט בשל דעה קודמת מוצדקת רק כאשר אותה דעה קודמת הופכת לדעה קדומה, כלומר כאשר קיים חשש ממשי .... כי בשל אותן דעות קדומות תהא דעתו של השופט &#39;נעולה&#39; באופן שאין כל &#39;טעם&#39; בניהול המשפט לפניו&#34; (בג&#34;ץ 2148/94 גלברט נ&#39; יושב-ראש ועדת החקירה לבדיקת אירוע הטבח בחברון, פ&#34;ד מח(3) 573, 606 (1994), הדגשה הוספה – י&#34;ע).
 
+התנהלות המותב במקרה דנן אינה חורגת מן הנהוג בדיונים בערעורים, לרבות בערעורים המתנהלים בפני בית משפט זה, בהם מציע בית המשפט, במקרים המתאימים, הצעת פשרה עוד בטרם שמיעת טענות הצדדים. הדברים נעשים מתוך היכרותו של בית המשפט את ההליך על מנת לשקף לצדדים את דעתו המקדמית (אך לא הקדומה) של בית המשפט בנוגע לתיק, מתוך שאיפה לנהלו באופן יעיל אשר יחסוך משאבים הן לצדדים והן לבית המשפט עצמו. על כך אוסיף, כי כעולה מפרוטוקול דיון ההמשך שהתקיים ביום 13.7.2020, טענות המערערים נשמעו בלב פתוח ובנפש חפצה ועובדה זו מעידה אף היא על כך שלא קמה במקרה דנן עילת פסלות, אף לא בשל מראית פני הצדק.
 
-	המבחן לפסילת שופט מלשבת בדין קבוע בסעיף 77א לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984, ולפיו יש לבחון אם קיימות נסיבות שיש בהן כדי ליצור חשש ממשי למשוא פנים מצד המותב. כבר נפסק לא אחת כי אין בניהול יעיל של ההליך, אשר בא לידי ביטוי גם בהבעת עמדה בשאלות שבמחלוקת, כדי להביא לפסילתו של המותב, למעט באותם מקרים נדירים בהם התבטאויות בית המשפט הן בעלות אופי מובהק ונחרץ המלמד על &#34;נעילת&#34; דעתו של המותב (ע&#34;א 4595/19 פלונית נ&#39; פלונית, פסקה 4 (7.8.2019)). 
+מעשה של יום ביומו הוא שבית המשפט מסייע לצדדים להגיע לפשרה ואף לניסוח הסכם פשרה. והדברים נכונים גם ובמיוחד לניסוח התנצלות בתיקי לשון הרע, על מנת להביא את הצדדים לפשרה ולהביא את הפרשה לכלל סיום. כך יאה וכך נאה וכך עשה בית המשפט המחוזי.
 
+7.	בשולי הדברים אציין כי המערערים הלינו על כך שבית המשפט המחוזי, פתח את הדיון &#34;בציינו כי נוכח משבר הקורונה והמגבלות שהוטלו בגינו, האולם מוקצב עבור שמיעת הערעור לשעה אחת בלבד&#34; (הדגשה במקור – י&#34;ע) וכי אב בית הדין התבטא כי &#34;ההרכב בשל לתת הכרעה מבלי צורך לשמוע טיעונים בעל פה&#34;.
 
-
-	לא זה המקרה שבפניי. כעולה מהחלטתו של בית המשפט המחוזי, דבריו בפתח הדיון מיום 6.7.2020 נאמרו על מנת לחוות דעתו בנוגע לתיק, וזאת על סמך כתבי בית הדין שהוגשו על ידי הצדדים ומלוא החומר שעמד בפניו ובפני בית משפט השלום. אין כל פסול בהתנהלות זו ובשיקוף רשמיו של המותב בפני המתדיינים. 
-
-
-
-&#34;שופט ללא דעה קודמת לא רק שאינו מצוי, אלא אף אינו רצוי. רוצים אנו בשופטים חושבים, המגבשים לעצמם דעות ומחשבות. ... פסילת שופט בשל דעה קודמת מוצדקת רק כאשר אותה דעה קודמת הופכת לדעה קדומה, כלומר כאשר קיים חשש ממשי .... כי בשל אותן דעות קדומות תהא דעתו של השופט &#39;נעולה&#39; באופן שאין כל &#39;טעם&#39; בניהול המשפט לפניו&#34; (בג&#34;ץ 2148/94 גלברט נ&#39; יושב-ראש ועדת החקירה לבדיקת אירוע הטבח בחברון, פ&#34;ד מח(3) 573, 606 (1994), הדגשה הוספה – י&#34;ע). 
-
-
-
-
-
-	התנהלות המותב במקרה דנן אינה חורגת מן הנהוג בדיונים בערעורים, לרבות בערעורים המתנהלים בפני בית משפט זה, בהם מציע בית המשפט, במקרים המתאימים, הצעת פשרה עוד בטרם שמיעת טענות הצדדים. הדברים נעשים מתוך היכרותו של בית המשפט את ההליך על מנת לשקף לצדדים את דעתו המקדמית (אך לא הקדומה) של בית המשפט בנוגע לתיק, מתוך שאיפה לנהלו באופן יעיל אשר יחסוך משאבים הן לצדדים והן לבית המשפט עצמו. על כך אוסיף, כי כעולה מפרוטוקול דיון ההמשך שהתקיים ביום 13.7.2020, טענות המערערים נשמעו בלב פתוח ובנפש חפצה ועובדה זו מעידה אף היא על כך שלא קמה במקרה דנן עילת פסלות, אף לא בשל מראית פני הצדק.
-
-
-
-	מעשה של יום ביומו הוא שבית המשפט מסייע לצדדים להגיע לפשרה ואף לניסוח הסכם פשרה. והדברים נכונים גם ובמיוחד לניסוח התנצלות בתיקי לשון הרע, על מנת להביא את הצדדים לפשרה ולהביא את הפרשה לכלל סיום. כך יאה וכך נאה וכך עשה בית המשפט המחוזי. 
-
-
-
-7.	בשולי הדברים אציין כי המערערים הלינו על כך שבית המשפט המחוזי, פתח את הדיון &#34;בציינו כי נוכח משבר הקורונה והמגבלות שהוטלו בגינו, האולם מוקצב עבור שמיעת הערעור לשעה אחת בלבד&#34; (הדגשה במקור – י&#34;ע) וכי אב בית הדין התבטא כי &#34;ההרכב בשל לתת הכרעה מבלי צורך לשמוע טיעונים בעל פה&#34;. 
-
-
-
-	תקנה 448(א) לתקנות סדר הדין האזרחי, התשמ&#34;ד-1984 קובעת כלהלן:
-
-
+תקנה 448(א) לתקנות סדר הדין האזרחי, התשמ&#34;ד-1984 קובעת כלהלן:
 
 סיכום טענות בכתב
 
 448. (א) נשיא בית המשפט שלערעור או שופט שהוא מינה לכך, רשאי להורות לבעלי הדין, לפני תחילת הדיון בערעור, לסכם את טענותיהם בכתב על הפרשה כולה או על שאלה מסויימת שקבע, בין בנוסף על טענות שבעל פה, כולן או מקצתן, ובין במקומן, ורשאי הוא להגביל את היקפם של סיכומים אלה; בית המשפט היושב לדין בערעור רשאי להורות לבעלי הדין כאמור גם אם התחילו כבר בטענות שבעל פה (ההדגשה הוספה - י&#34;ע).
 
+דיון בעל פה הוא בבחינת השלמת טיעון בלבד, ואינו נדרש בכל ערעור בו הוגשו סיכומים בכתב, אלא בהתאם להחלטת בית המשפט. במקרה דנן, טענו הצדדים על סמך עיקרי טיעון ולא על סמך סיכומים (תקנה 446(ג)), אך כפי שרשאי בית המשפט לגבש דעתו על סמך סיכומי הצדדים בלבד, כך רשאי בית המשפט להגיע לדיון עם דעה מוקדמת (אך לא דעה קדומה) לאחר שהוגשו עיקרי טיעון של הצדדים. מכאן, שאין מקום לטרוניה של המערערים על כך שבית המשפט חיווה דעתו לגבי סיכויי הערעור כבר בפתח הדיון ועל כך שעמד להגביל את הטיעון לשעה אחת &#34;בלבד&#34;.
 
-
-
-
-	דיון בעל פה הוא בבחינת השלמת טיעון בלבד, ואינו נדרש בכל ערעור בו הוגשו סיכומים בכתב, אלא בהתאם להחלטת בית המשפט. במקרה דנן, טענו הצדדים על סמך עיקרי טיעון ולא על סמך סיכומים (תקנה 446(ג)), אך כפי שרשאי בית המשפט לגבש דעתו על סמך סיכומי הצדדים בלבד, כך רשאי בית המשפט להגיע לדיון עם דעה מוקדמת (אך לא דעה קדומה) לאחר שהוגשו עיקרי טיעון של הצדדים. מכאן, שאין מקום לטרוניה של המערערים על כך שבית המשפט חיווה דעתו לגבי סיכויי הערעור כבר בפתח הדיון ועל כך שעמד להגביל את הטיעון לשעה אחת &#34;בלבד&#34;.
-
-
-
-8.	אף איני רואה ממש בטענת המערערים לניגוד עניינים בשל מינויה של המשיבה לחברת הוועדה לבחירת שופטים. לשיטה זו, אין כמעט שופט בישראל שיכול לדון בעניינה של המשיבה או של כל חבר ועדה אחר, באשר אלו עשויים &#34;לחרוץ את גורלו המקצועי בטווח נראה לעין&#34; כטענת המערערים. 	
-
-
+8.	אף איני רואה ממש בטענת המערערים לניגוד עניינים בשל מינויה של המשיבה לחברת הוועדה לבחירת שופטים. לשיטה זו, אין כמעט שופט בישראל שיכול לדון בעניינה של המשיבה או של כל חבר ועדה אחר, באשר אלו עשויים &#34;לחרוץ את גורלו המקצועי בטווח נראה לעין&#34; כטענת המערערים.
 
 אשר על כן, הערעור נדחה, וממילא מתייתרת בקשת המערערים לעיכוב ההליך בפני בית המשפט המחוזי. משלא נתבקשה תגובת המשיבה, לא ייעשה צו להוצאות.
 
-
-
-
-
-	ניתן היום, ‏ב&#39; באב התש&#34;ף (‏23.7.2020).
-
-
-
-
-
-
+ניתן היום, ‏ב&#39; באב התש&#34;ף (‏23.7.2020).
 
 ש ו פ ט
 
-
-
 _________________________
 
-   20050350_E03.docx   עכ
+20050350_E03.docx עכ
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1761,7 +1930,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

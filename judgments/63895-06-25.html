@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    25/09/2025 (לפני 222 ימים)
+                    25/09/2025 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/63895-06-25.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="63895-06-25 - רמזי חאג יחיא נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F63895-06-25.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/9/25/2025-6-63895-1-2&amp;fileName=1dd8574800eb42db8ad005f7a5d75d3b&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/9/25/2025-6-63895-1-2&amp;fileName=1dd8574800eb42db8ad005f7a5d75d3b&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/9/25/2025-6-63895-1-2&amp;fileName=1dd8574800eb42db8ad005f7a5d75d3b&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/9/25/2025-6-63895-1-2&amp;fileName=1dd8574800eb42db8ad005f7a5d75d3b&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,99 +1827,53 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
+            בבית המשפט העליון
 
-
-
-בבית המשפט העליון
-
-עפס&#34;פ 63895-06-25 
-
-
+עפס&#34;פ 63895-06-25
 
 לפני:
 
 כבוד הנשיא יצחק עמית
 
-
-
 המערער:
 
 רמזי חאג יחיא
 
-
-
 נגד
-
-
 
 המשיבה:
 
 מדינת ישראל
 
-
-
-
-
 ערעור על החלטתו של בית המשפט לתעבורה במחוז מרכז בתתע&#34;א 6533-07-23 מיום 24.6.2025 שניתנה על ידי כב&#39; השופטת מגי כהן
-
-
 
 בשם המערער:
 
-עו&#34;ד דמיטרי קריביצקי 
-
-
+עו&#34;ד דמיטרי קריביצקי
 
 פסק-דין
 
-
-
 ערעור על החלטת בית המשפט לתעבורה במחוז מרכז (השופטת מ&#39; כהן) מיום 24.6.2025 בתתע&#34;א 6533-07-23 שלא לפסול עצמו מלדון בעניינו של המערער.
 
-
-
-1.	עניינו של ההליך בכתב אישום שהוגש כנגד המערער ביום 17.7.2023 המייחס לו נהיגה בזמן פסילה, שהוטלה כחלק מגזר דין שניתן במסגרת תת&#34;ע 5527-06-20 (להלן: ההליך הקודם). בהליך הקודם הורשע המערער בביצוע עבירה של נהיגה ברכב לאחר שרישיון הנהיגה פקע (סעיף 10(א) לפקודת התעבורה [נוסח חדש]) ובעבירה של אי-ציות להוראות שוטר (תקנה 23(א)(2) לתקנות התעבורה, התשכ&#34;א-1961). גזר הדין בהליך הקודם ניתן ביום 19.1.2023 במסגרתו הוטל על המערער, בין היתר, עונש מאסר של שלושה חודשים ופסילת רישיון נהיגה לתקופה של 12 חודשים. עוד נקבע כי ריצוי הפסילה יחל בתום שחרורו מבית המאסר. 
-
-
+1.	עניינו של ההליך בכתב אישום שהוגש כנגד המערער ביום 17.7.2023 המייחס לו נהיגה בזמן פסילה, שהוטלה כחלק מגזר דין שניתן במסגרת תת&#34;ע 5527-06-20 (להלן: ההליך הקודם). בהליך הקודם הורשע המערער בביצוע עבירה של נהיגה ברכב לאחר שרישיון הנהיגה פקע (סעיף 10(א) לפקודת התעבורה [נוסח חדש]) ובעבירה של אי-ציות להוראות שוטר (תקנה 23(א)(2) לתקנות התעבורה, התשכ&#34;א-1961). גזר הדין בהליך הקודם ניתן ביום 19.1.2023 במסגרתו הוטל על המערער, בין היתר, עונש מאסר של שלושה חודשים ופסילת רישיון נהיגה לתקופה של 12 חודשים. עוד נקבע כי ריצוי הפסילה יחל בתום שחרורו מבית המאסר.
 
 2.	דיון הקראת כתב האישום התקיים בפני המותב – שגם דן בהליך הקודם – ביום 10.9.2023 במסגרתו הודיעה המדינה על תיקון כתב האישום. בהמשך, ביום 7.3.2024 התקיים דיון הקראה שני, במהלכו ביקש המערער לקבוע את ההליך להוכחות, ובתום הדיון ההליך נקבע לישיבת הוכחות ליום 21.4.2024. לקראת ישיבת ההוכחות, ביום 10.3.2024, הגיש המערער בקשה לזימון עד, שהתקבלה על ידי המותב. עם זאת, ישיבת ההוכחות נדחתה מספר פעמים, ולבסוף נקבעה ליום 22.4.2025.
 
-
-
 3.	כשבועיים לפני הדיון שנקבע, ביום 6.4.2025, הגיש המערער את בקשת הפסלות שבמוקד הערעור שלפניי. המערער טען בבקשתו כי המותב הדן בהליך הוא אותו מותב אשר גזר את דינו בהליך הקודם – דהיינו, בפסילה שאותה הפר לכאורה. עוד ציין המערער כי בהליך הקודם הוא הורשע לאחר ניהול הוכחות, ולאחר שנקבעו בהכרעת הדין ממצאי מהימנות לגביו. בנסיבות אלה, טען המערער כי הוא חש &#34;תחושת חוסר צדק קשה&#34; אם המותב יוסיף וידון בעניינו. בסמוך לכך הורה בית המשפט כי בקשת הפסלות תידון במהלך הדיון שנקבע, חלף ישיבת ההוכחות.
 
+בהמשך, במהלך הדיון ביום 22.4.2025, נדונה בקשת הפסלות. בא-כוח המערער שב על הטענות שבבקשה והוסיף כי במהלך למידת חומר הראיות בתיק &#34;על בוריו&#34; הבין שבהליך הנוכחי דן את המערער המותב שדן אותו בהליך הקודם, וכי מיד שנודע להגנה נתון זה הוגשה בקשת הפסלות.
 
+4.	ביום 24.6.2025 דחה בית המשפט את בקשת הפסלות. בית המשפט עמד על כך שההליך החל בשנת 2023, ומאז התקיימו שני דיונים ואף הוגשה במהלכו בקשה מטעם המערער, בעוד שבקשת הפסלות הוגשה רק בסמוך לדיון ההוכחות. זאת על אף שהיה ביכולתו של המערער לדעת את עילת הפסלות במועד מוקדם יותר, כבר בעת קבלת כתב האישום ובהזדמנויות רבות לאחר מכן. מעבר לכך, בית המשפט הבהיר כי עצם העובדה שבפני אותו מותב התנהל הליך קודם בעניינו של בעל דין אינה מספיקה כשלעצמה כדי לפסול אותו מלדון בהליך של אותו בעל דין פעם נוספת, בין אם פסק לזכותו או לחובתו. בהקשר זה הטעים בית המשפט כי חלפו מספר שנים ממועד מתן גזר הדין בהליך הקודם, וכי הקביעות בהליך הקודם בנוגע למהימנות המערער נקבעו על סמך התשתית הראייתית שעמדה בפניו באותה העת, בעוד שבהליך הנוכחי קביעותיו בנדון יתבססו על התשתית הראייתית שתובא בפניו כעת. תשתית זו, כך קבע בית המשפט, תיבחן באופן אובייקטיבי וללא משוא פנים.
 
-בהמשך, במהלך הדיון ביום 22.4.2025, נדונה בקשת הפסלות. בא-כוח המערער שב על הטענות שבבקשה והוסיף כי במהלך למידת חומר הראיות בתיק &#34;על בוריו&#34; הבין שבהליך הנוכחי דן את המערער המותב שדן אותו בהליך הקודם, וכי מיד שנודע להגנה נתון זה הוגשה בקשת הפסלות. 
+5.	מכאן הערעור שלפניי, שבו חוזר המערער על עיקר טענותיו בבקשת הפסלות. המערער מוסיף ומדגיש כי בהליך הקודם המותב קבע, הלכה למעשה, כי המערער אינו מהימן, ובתוך כך ההליך הנוכחי יעסוק בטענות שההכרעה בהן דורשת קביעות ביחס למהימנות גרסתו. עוד טוען המערער כי במסגרת ההליך יידרש המותב לפרש את קביעותיו שלו בגזר הדין שניתן בהליך הקודם. מעבר לכך, המערער מסביר כי עיתוי הגשת בקשת הפסלות נבע מכך שבכתב האישום לא פורט מי המותב שגזר את דינו של המערער בהליך הקודם, ועילת הפסלות נודעה לבא-כוחו רק לאחר שנחשף למהות הכרעת הדין בהליך הקודם, לקראת דיון ההוכחות.
 
+6.	לאחר שעיינתי בערעור ובנספחיו, הגעתי למסקנה כי דינו להידחות אף מבלי להידרש לתשובה, וזאת מהטעם שבקשת הפסלות הוגשה בשיהוי משמעותי. נזכיר כי על הטוען טענת פסלות להעלות את טענתו &#34;מיד לאחר שנודעה לו עילת הפסלות&#34; (סעיף 146(ג) חוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב-1982).
 
+בענייננו, וכפי שעמד על כך בית המשפט בהחלטתו, כתב האישום הוגש בשנת 2023, התקיימו שני דיונים ולאחר מכן אף הוגשה מטעם המערער בקשה לזימון עד הגנה. כל זאת בעוד שבקשת הפסלות הוגשה במהלך חודש אפריל 2025 ולקראת דיון ההוכחות. כאמור, המערער הסביר את עיתוי הגשת הבקשה בכך שרק לקראת דיון ההוכחות התגלה לבא-כוחו כי המותב הדן בהליך הנוכחי דן גם בהליך הקודם. ואולם, לא מצאתי כי יש בטענה זו כדי להצדיק את השיהוי שדבק בהגשת הבקשה. בפסיקת בית משפט זה הובהר כי בעל דין המעלה טענת פסלות באיחור נדרש לעמוד במבחן &#34;היכולת לדעת&#34;, ועליו להראות כי לא סביר היה שייוודע לעילת הפסלות במועד מוקדם יותר (ראו מני רבים: ע&#34;פ 2785/11 גיאסוב נ&#39; מדינת ישראל, פסקה 5 (15.4.2011); ע&#34;פ 1968/11 אלחואסה נ&#39; מדינת ישראל, פסקה 5 (28.3.2011); ע&#34;פ 1179/94 אשכנזי נ&#39; מדינת ישראל, פ&#34;ד מח(5) 320, 325 (1994)). בנסיבות המקרה, כבר בתחילת הדרך, במועד דיון ההקראה הראשון המערער היה יכול להבחין כי המותב שלפניו מתנהל ההליך הוא אותו המותב שדן בהליך הקודם, וממילא העובדה שבא-כוחו התוודע לנתון זה רק בסמוך לדיון ההוכחות אינה פוטרת את המערער עצמו מחובתו להעלות את טענת הפסלות במועד (השוו: ע&#34;א 585/21 נבוא פיננסים ומשכנתאות בע&#34;מ נ&#39; אולשטיין, פסקה 6 (3.2.2021); ע&#34;פ 3121/20 פלוני נ&#39; מדינת ישראל, פסקה 6 (4.6.2020)). מכאן שהטענות שהועלו בבקשות הפסלות הועלו בשיהוי משמעותי ואין מקום להידרש להן בשלב זה. הרבה למעלה מן הצורך יצוין, כי אין ממש בטענות המערער לגופן וכי הן אינן מעלות חשש ממשי למשוא פנים, ולוּ בקירוב (ראו, למשל ע&#34;פ 4736/22 עאזם נ&#39; מדינת ישראל, פסקה 8 (23.8.2022); ע&#34;פ 4355/22 קימרי נ&#39; מדינת ישראל, פסקה 9 (7.7.2022)).
 
-4.	ביום 24.6.2025 דחה בית המשפט את בקשת הפסלות. בית המשפט עמד על כך שההליך החל בשנת 2023, ומאז התקיימו שני דיונים ואף הוגשה במהלכו בקשה מטעם המערער, בעוד שבקשת הפסלות הוגשה רק בסמוך לדיון ההוכחות. זאת על אף שהיה ביכולתו של המערער לדעת את עילת הפסלות במועד מוקדם יותר, כבר בעת קבלת כתב האישום ובהזדמנויות רבות לאחר מכן. מעבר לכך, בית המשפט הבהיר כי עצם העובדה שבפני אותו מותב התנהל הליך קודם בעניינו של בעל דין אינה מספיקה כשלעצמה כדי לפסול אותו מלדון בהליך של אותו בעל דין פעם נוספת, בין אם פסק לזכותו או לחובתו. בהקשר זה הטעים בית המשפט כי חלפו מספר שנים ממועד מתן גזר הדין בהליך הקודם, וכי הקביעות בהליך הקודם בנוגע למהימנות המערער נקבעו על סמך התשתית הראייתית שעמדה בפניו באותה העת, בעוד שבהליך הנוכחי קביעותיו בנדון יתבססו על התשתית הראייתית שתובא בפניו כעת. תשתית זו, כך קבע בית המשפט, תיבחן באופן אובייקטיבי וללא משוא פנים. 
-
-
-
-5.	מכאן הערעור שלפניי, שבו חוזר המערער על עיקר טענותיו בבקשת הפסלות. המערער מוסיף ומדגיש כי בהליך הקודם המותב קבע, הלכה למעשה, כי המערער אינו מהימן, ובתוך כך ההליך הנוכחי יעסוק בטענות שההכרעה בהן דורשת קביעות ביחס למהימנות גרסתו. עוד טוען המערער כי במסגרת ההליך יידרש המותב לפרש את קביעותיו שלו בגזר הדין שניתן בהליך הקודם. מעבר לכך, המערער מסביר כי עיתוי הגשת בקשת הפסלות נבע מכך שבכתב האישום לא פורט מי המותב שגזר את דינו של המערער בהליך הקודם, ועילת הפסלות נודעה לבא-כוחו רק לאחר שנחשף למהות הכרעת הדין בהליך הקודם, לקראת דיון ההוכחות. 
-
-
-
-6.	לאחר שעיינתי בערעור ובנספחיו, הגעתי למסקנה כי דינו להידחות אף מבלי להידרש לתשובה, וזאת מהטעם שבקשת הפסלות הוגשה בשיהוי משמעותי. נזכיר כי על הטוען טענת פסלות להעלות את טענתו &#34;מיד לאחר שנודעה לו עילת הפסלות&#34; (סעיף 146(ג) חוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב-1982). 
-
-
-
-בענייננו, וכפי שעמד על כך בית המשפט בהחלטתו, כתב האישום הוגש בשנת 2023, התקיימו שני דיונים ולאחר מכן אף הוגשה מטעם המערער בקשה לזימון עד הגנה. כל זאת בעוד שבקשת הפסלות הוגשה במהלך חודש אפריל 2025 ולקראת דיון ההוכחות. כאמור, המערער הסביר את עיתוי הגשת הבקשה בכך שרק לקראת דיון ההוכחות התגלה לבא-כוחו כי המותב הדן בהליך הנוכחי דן גם בהליך הקודם. ואולם, לא מצאתי כי יש בטענה זו כדי להצדיק את השיהוי שדבק בהגשת הבקשה. בפסיקת בית משפט זה הובהר כי בעל דין המעלה טענת פסלות באיחור נדרש לעמוד במבחן &#34;היכולת לדעת&#34;, ועליו להראות כי לא סביר היה שייוודע לעילת הפסלות במועד מוקדם יותר (ראו מני רבים: ע&#34;פ 2785/11 גיאסוב נ&#39; מדינת ישראל, פסקה 5 (15.4.2011); ע&#34;פ 1968/11  אלחואסה נ&#39; מדינת ישראל, פסקה 5 (28.3.2011); ע&#34;פ 1179/94 אשכנזי נ&#39; מדינת ישראל, פ&#34;ד מח(5) 320, 325 (1994)). בנסיבות המקרה, כבר בתחילת הדרך, במועד דיון ההקראה הראשון המערער היה יכול להבחין כי המותב שלפניו מתנהל ההליך הוא אותו המותב שדן בהליך הקודם, וממילא העובדה שבא-כוחו התוודע לנתון זה רק בסמוך לדיון ההוכחות אינה פוטרת את המערער עצמו מחובתו להעלות את טענת הפסלות במועד (השוו: ע&#34;א 585/21 נבוא פיננסים ומשכנתאות בע&#34;מ נ&#39; אולשטיין, פסקה 6 (3.2.2021); ע&#34;פ 3121/20 פלוני נ&#39; מדינת ישראל, פסקה 6 (4.6.2020)). מכאן שהטענות שהועלו בבקשות הפסלות הועלו בשיהוי משמעותי ואין מקום להידרש להן בשלב זה. הרבה למעלה מן הצורך יצוין, כי אין ממש בטענות המערער לגופן וכי הן אינן מעלות חשש ממשי למשוא פנים, ולוּ בקירוב (ראו, למשל ע&#34;פ 4736/22 עאזם נ&#39; מדינת ישראל, פסקה 8 (23.8.2022); ע&#34;פ 4355/22 קימרי נ&#39; מדינת ישראל, פסקה 9 (7.7.2022)).
-
-
-
-אשר על כן, הערעור נדחה. 
+אשר על כן, הערעור נדחה.
 
 ניתן היום, ג&#39; תשרי תשפ&#34;ו (25 ספטמבר 2025).
-
-
-
-
-
-
 
 יצחק עמית
 
@@ -1671,7 +1896,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

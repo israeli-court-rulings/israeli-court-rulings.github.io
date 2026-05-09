@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    06/11/2005 (לפני 7485 ימים)
+                    06/11/2005 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/10312-05.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="10312/05 - דני כהן ,חבר לשכת מפלגת העבודה נ. כב&#39; השופט בדימוס י.בן שלמה"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F10312-05.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/120/103/B01&amp;fileName=05103120_B01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/120/103/B01&amp;fileName=05103120_B01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/120/103/B01&amp;fileName=05103120_B01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/120/103/B01&amp;fileName=05103120_B01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,11 +1829,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק בג&#34;ץ 10312/05
 
-בבית המשפט
-העליון בשבתו כבית משפט גבוה לצדק
+בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
-בג&#34;ץ
-10312/05
+בג&#34;ץ 10312/05
 
 בפני:
 
@@ -1598,8 +1867,7 @@
 
 9. מר דני עטר, ראש המועצה האזורית גלבוע
 
-10. עו&#34;ד מנחם חכמון, יו&#34;ר המוסד לבירור עתירות של מפלגת
-העבודה
+10. עו&#34;ד מנחם חכמון, יו&#34;ר המוסד לבירור עתירות של מפלגת העבודה
 
 11. רו&#34;ח מוריס קנה, יו&#34;ר המוסד לביקורת של מפלגת העבודה
 
@@ -1613,85 +1881,29 @@
 
 השופטת ע&#39; ארבל:
 
-1. זוהי עתירה שבמוקדה הבחירות לראשות מפלגת
-העבודה אשר עתידות להתקיים ביום 9.11.05.
+1. זוהי עתירה שבמוקדה הבחירות לראשות מפלגת העבודה אשר עתידות להתקיים ביום 9.11.05.
 
-העותר הינו חבר לשכת מפלגת העבודה. ביום
-29.9.05 הגיש העותר למשיב 1 עתירה נגד המשיבים הפורמליים 4 – 8, מתמודדים
-ומתמודדים לשעבר על ראשות מפלגת העבודה (להלן גם – המפלגה), בה טען, בתמצית, כי לכאורה חרגו חלק מהמתמודדים על
-ראשות המפלגה מהמגבלות התקציביות המוטלות על מתמודדים בבחירות הפנימיות לראשות
-המפלגה. לפיכך ביקש כי המשיב 1 יעשה שימוש בסמכויות הנתונות לו מכוח חוקת המפלגה
-ויורה למשיבים הפורמליים 4 – 8 להגיש לו תצהיר הכולל דיווח על כל התרומות שנתקבלו
-אצלם במסגרת ההתמודדות בבחירות הפנימיות לראשות המפלגה ולחשוף את כל תנאי ההתקשרות
-של כל נותני השירותים, היועצים והפוקדים הנמנים על מטה הבחירות של כל אחד מהמשיבים
-הפורמליים 4 - 8. כן עתר לכך שהמשיב 1 יורה על דיווח דומה מצדו של משיב פורמלי 9 ביחס
-לתרומות אותן קיבל, על פי הנטען, במסגרת התמודדותו על תפקיד מזכ&#34;ל המפלגה.
-עוד עתר לכך שהמשיב 1 יבחן האם אין פעילותו של מי מהמשיבים 4 – 9 ביחס להתמודדות
-על ראשות המפלגה עומדת בניגוד לתקנון מפלגת העבודה או לכל דין אחר.
+העותר הינו חבר לשכת מפלגת העבודה. ביום 29.9.05 הגיש העותר למשיב 1 עתירה נגד המשיבים הפורמליים 4 – 8, מתמודדים ומתמודדים לשעבר על ראשות מפלגת העבודה (להלן גם – המפלגה), בה טען, בתמצית, כי לכאורה חרגו חלק מהמתמודדים על ראשות המפלגה מהמגבלות התקציביות המוטלות על מתמודדים בבחירות הפנימיות לראשות המפלגה. לפיכך ביקש כי המשיב 1 יעשה שימוש בסמכויות הנתונות לו מכוח חוקת המפלגה ויורה למשיבים הפורמליים 4 – 8 להגיש לו תצהיר הכולל דיווח על כל התרומות שנתקבלו אצלם במסגרת ההתמודדות בבחירות הפנימיות לראשות המפלגה ולחשוף את כל תנאי ההתקשרות של כל נותני השירותים, היועצים והפוקדים הנמנים על מטה הבחירות של כל אחד מהמשיבים הפורמליים 4 - 8. כן עתר לכך שהמשיב 1 יורה על דיווח דומה מצדו של משיב פורמלי 9 ביחס לתרומות אותן קיבל, על פי הנטען, במסגרת התמודדותו על תפקיד מזכ&#34;ל המפלגה. עוד עתר לכך שהמשיב 1 יבחן האם אין פעילותו של מי מהמשיבים 4 – 9 ביחס להתמודדות על ראשות המפלגה עומדת בניגוד לתקנון מפלגת העבודה או לכל דין אחר.
 
-ביום 9.10.05 החליט המשיב 1 כי מהעתירה
-לא עולה כי העותר מייחס כל חשד למשיבים הפורמליים 6 -8 ולפיכך יש למחקם מהעתירה.
-ביחס למשיב הפורמלי 9 קבע המשיב 1 כי הסעד המבוקש נגדו – פסילת צירופו לרשימת
-המתמודדים בבחירות המקדימות – הינו סעד מוקדם מאחר &#34;שטרם הוחלט על קיום ההליך
-ולא ברור כלל אם המשיב...יבקש להיות מועמד&#34;. המשיב 1 הורה למשיבים הפורמליים
-4 – 5 להגיב למיוחס להם בתוך 10 ימים מיום המצאת ההחלטה. העותר מציין כי המשיב 4
-הגיש תגובתו מבלי שזו נתמכת בתצהיר ומבלי שיהא בה, לטעמו של העותר, משום מענה
-לטענות. המשיב 5 לעומת זאת, כך על פי הנטען, כלל לא הגיב לטענות. בבקשה נוספת
-שהגיש העותר ביום 11.10.05 למשיב 1, ביקש להורות למשיבים 4 – 5 להגיש ביחד עם
-תגובתם לעתירה את הדין וחשבון בדבר הכנסותיהם מתרומות, אותו נדרשו הם להגיש על פי
-החלטה קודמת של המשיב 1 מיום 14.6.05. החלטה זו נדחתה על ידי המשיב 1.
+ביום 9.10.05 החליט המשיב 1 כי מהעתירה לא עולה כי העותר מייחס כל חשד למשיבים הפורמליים 6 -8 ולפיכך יש למחקם מהעתירה. ביחס למשיב הפורמלי 9 קבע המשיב 1 כי הסעד המבוקש נגדו – פסילת צירופו לרשימת המתמודדים בבחירות המקדימות – הינו סעד מוקדם מאחר &#34;שטרם הוחלט על קיום ההליך ולא ברור כלל אם המשיב...יבקש להיות מועמד&#34;. המשיב 1 הורה למשיבים הפורמליים 4 – 5 להגיב למיוחס להם בתוך 10 ימים מיום המצאת ההחלטה. העותר מציין כי המשיב 4 הגיש תגובתו מבלי שזו נתמכת בתצהיר ומבלי שיהא בה, לטעמו של העותר, משום מענה לטענות. המשיב 5 לעומת זאת, כך על פי הנטען, כלל לא הגיב לטענות. בבקשה נוספת שהגיש העותר ביום 11.10.05 למשיב 1, ביקש להורות למשיבים 4 – 5 להגיש ביחד עם תגובתם לעתירה את הדין וחשבון בדבר הכנסותיהם מתרומות, אותו נדרשו הם להגיש על פי החלטה קודמת של המשיב 1 מיום 14.6.05. החלטה זו נדחתה על ידי המשיב 1.
 
-2. מכאן העתירה שבפנינו בגדרה מבקש העותר כי
-נורה למשיב 1 לקיים דיון דחוף בעתירה שהגיש לו ולנקוט סנקציות שבסמכותו עוד בטרם
-תתקיימנה הבחירות לראשות המפלגה. כן הוא עותר כי נורה למשיב 1 לחקור את התנהלותו
-של המשיב הפורמלי 9 ביחס לחשדות הנוגעים להפרת המגבלות התקציביות שחלו עליו ביחס
-להתמודדותו לתפקיד מזכ&#34;ל המפלגה. בנוסף מבקש העותר כי נורה למשיב 2, בהתייחס
-למשיבים פורמליים 4 – 5 ו – 9, ליישם את ההנחיות שנתן במסגרת הודעה שפרסם בנושא
-מימון מערכת הבחירות של מועמדים בבחירות המקדימות במפלגות השונות ואף להורות על
-פתיחה בחקירה פלילית נגד משיב פורמלי 9 בגין החשדות המועלים בעתירה. העותר מבקש גם
-להורות למשיב 3 לחקור ולהגיש את המלצותיו באשר להתנהלות המשיבים הפורמליים 4 – 5
-בהתמודדות על ראשות המפלגה. פעולות אלה, טוען העותר, יש לבצע עוד בטרם התקיימו
-הבחירות לראשות המפלגה.
+2. מכאן העתירה שבפנינו בגדרה מבקש העותר כי נורה למשיב 1 לקיים דיון דחוף בעתירה שהגיש לו ולנקוט סנקציות שבסמכותו עוד בטרם תתקיימנה הבחירות לראשות המפלגה. כן הוא עותר כי נורה למשיב 1 לחקור את התנהלותו של המשיב הפורמלי 9 ביחס לחשדות הנוגעים להפרת המגבלות התקציביות שחלו עליו ביחס להתמודדותו לתפקיד מזכ&#34;ל המפלגה. בנוסף מבקש העותר כי נורה למשיב 2, בהתייחס למשיבים פורמליים 4 – 5 ו – 9, ליישם את ההנחיות שנתן במסגרת הודעה שפרסם בנושא מימון מערכת הבחירות של מועמדים בבחירות המקדימות במפלגות השונות ואף להורות על פתיחה בחקירה פלילית נגד משיב פורמלי 9 בגין החשדות המועלים בעתירה. העותר מבקש גם להורות למשיב 3 לחקור ולהגיש את המלצותיו באשר להתנהלות המשיבים הפורמליים 4 – 5 בהתמודדות על ראשות המפלגה. פעולות אלה, טוען העותר, יש לבצע עוד בטרם התקיימו הבחירות לראשות המפלגה.
 
 3. דין העתירה להידחות על הסף.
 
-מפלגה הינה תאגיד הפועל באמצעות האורגנים
-שלו (סעיף 13(א) לחוק המפלגות, התשנ&#34;ב – 1992) ומתנהל על פי תקנונו. מרבית
-טענותיו של העותר מכוונות אמנם נגד התנהלותו של מוסד ממוסדות המפלגה, אולם במוקדה
-של העתירה טענותיו של העותר בדבר חשדות לכאורה שהתעוררו אצלו להפרת הוראות תקנון
-הבחירות המקדימות לראשות מפלגת העבודה, וכן לביצוע עבירות פליליות לפי חוק שירות
-הציבור (מתנות), תש&#34;ם – 1979, חוק העונשין, התשל&#34;ז – 1977 וחוק המפלגות,
-תשנ&#34;ב – 1992. ואכן, נוכח טיבן של טענות אלה צורפו כמשיבים לעתירה גם המשיבים
-2 ו- 3. דא עקא, לא נטען כי העותר פנה למי מאלה והעלה טענותיו בפניהם. עקרון מושרש
-ומקובל הוא מלפנינו כי פניה לרשות המינהלית או הציבורית הנוגעת לעניין הינה בבחינת
-תנאי סף על מנת שבית משפט זה ייזקק לעתירה נגדה. משלא נעשתה פניה כאמור הרי שלא
-המשיב 2 ולא המשיב 3 נתנו דעתם לטענות שמעלה העותר ומשכך, הרי שדין העתירה להידחות
-על הסף מחמת אי מיצוי הליכים.
+מפלגה הינה תאגיד הפועל באמצעות האורגנים שלו (סעיף 13(א) לחוק המפלגות, התשנ&#34;ב – 1992) ומתנהל על פי תקנונו. מרבית טענותיו של העותר מכוונות אמנם נגד התנהלותו של מוסד ממוסדות המפלגה, אולם במוקדה של העתירה טענותיו של העותר בדבר חשדות לכאורה שהתעוררו אצלו להפרת הוראות תקנון הבחירות המקדימות לראשות מפלגת העבודה, וכן לביצוע עבירות פליליות לפי חוק שירות הציבור (מתנות), תש&#34;ם – 1979, חוק העונשין, התשל&#34;ז – 1977 וחוק המפלגות, תשנ&#34;ב – 1992. ואכן, נוכח טיבן של טענות אלה צורפו כמשיבים לעתירה גם המשיבים 2 ו- 3. דא עקא, לא נטען כי העותר פנה למי מאלה והעלה טענותיו בפניהם. עקרון מושרש ומקובל הוא מלפנינו כי פניה לרשות המינהלית או הציבורית הנוגעת לעניין הינה בבחינת תנאי סף על מנת שבית משפט זה ייזקק לעתירה נגדה. משלא נעשתה פניה כאמור הרי שלא המשיב 2 ולא המשיב 3 נתנו דעתם לטענות שמעלה העותר ומשכך, הרי שדין העתירה להידחות על הסף מחמת אי מיצוי הליכים.
 
-בנוסף, לא למותר לציין כי בהתאם למצוות
-סעיף 45(ב) לחוק מבקר המדינה, התשי&#34;ח – 1958 חוק מבקר המדינה,
-תשי&#34;ח-1958 &#34;שום בית משפט לא ייזקק לבקשת סעד נגד החלטותיו וממצאיו של
-נציב תלונות הציבור בענין תלונה&#34; ובית משפט זה נוהג הקפדה רבה בקיומו
-(בג&#34;צ 5398/05 עקרי נ&#39; נציבת תלונות הציבור על
-שופטים (לא פורסם, ניתן ביום 18.7.05) וההפניות שם).
+בנוסף, לא למותר לציין כי בהתאם למצוות סעיף 45(ב) לחוק מבקר המדינה, התשי&#34;ח – 1958 חוק מבקר המדינה, תשי&#34;ח-1958 &#34;שום בית משפט לא ייזקק לבקשת סעד נגד החלטותיו וממצאיו של נציב תלונות הציבור בענין תלונה&#34; ובית משפט זה נוהג הקפדה רבה בקיומו (בג&#34;צ 5398/05 עקרי נ&#39; נציבת תלונות הציבור על שופטים (לא פורסם, ניתן ביום 18.7.05) וההפניות שם).
 
 לפיכך, דין העתירה להידחות.
 
-בשולי הדברים אציין, כי דומה שבדרכים
-עקיפות מבקש העותר להביא לדחיית מועד הבחירות לראשות מפלגת העבודה, באשר ברי גם לו
-כי בדיקות וחקירות מעין אלה שמבקש הוא לבצע לא ניתן להשלימן בפרק הזמן הקצר שבין
-מועד הגשת העתירה למועד שנקבע לקיום הבחירות. החלטת המשיב 1 ניתנה ביום 9.10.05
-ודומה כי לא היה מקום כי העותר ימתין להגשת עתירתו לבית משפט זה עד זמן קצר בלבד
-עובר לקיום הבחירות לראשות המפלגה, גם לו ביקש להמתין ולהיווכח כיצד מטופל הנושא
-על ידי המשיב 3. ככלל ימשוך בית המשפט ידיו מהתערבות בעניינים מעין אלה, וכך נעשה
-גם במקרה זה.
+בשולי הדברים אציין, כי דומה שבדרכים עקיפות מבקש העותר להביא לדחיית מועד הבחירות לראשות מפלגת העבודה, באשר ברי גם לו כי בדיקות וחקירות מעין אלה שמבקש הוא לבצע לא ניתן להשלימן בפרק הזמן הקצר שבין מועד הגשת העתירה למועד שנקבע לקיום הבחירות. החלטת המשיב 1 ניתנה ביום 9.10.05 ודומה כי לא היה מקום כי העותר ימתין להגשת עתירתו לבית משפט זה עד זמן קצר בלבד עובר לקיום הבחירות לראשות המפלגה, גם לו ביקש להמתין ולהיווכח כיצד מטופל הנושא על ידי המשיב 3. ככלל ימשוך בית המשפט ידיו מהתערבות בעניינים מעין אלה, וכך נעשה גם במקרה זה.
 
 העתירה נדחית.
 
 ניתן היום, ‏ד&#39; חשון תשס&#34;ו (‏06.11.2005).
 
-ש ו פ ט ת ש ו פ
-ט ש ו פ ט ת
+ש ו פ ט ת ש ו פ ט ש ו פ ט ת
 
 _________________________
 
@@ -1718,7 +1930,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    18/09/2024 (לפני 594 ימים)
+                    18/09/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/4027-24.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="4027/24 - סידי קליין נ. עו&#34;ד אלי סעדון"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F4027-24.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/9/18/2024-0-4027-4-2&amp;fileName=445ec76719c640d5b1361b6556b37026&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/9/18/2024-0-4027-4-2&amp;fileName=445ec76719c640d5b1361b6556b37026&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/9/18/2024-0-4027-4-2&amp;fileName=445ec76719c640d5b1361b6556b37026&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/9/18/2024-0-4027-4-2&amp;fileName=445ec76719c640d5b1361b6556b37026&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,35 +1827,19 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            2
+            בבית המשפט העליון
 
-
-
-
-
-בבית המשפט העליון
-
- ע&#34;א 4027/24
-
-
-
- 
+ע&#34;א 4027/24
 
 לפני:
 
 כבוד ממלא מקום הנשיא עוזי פוגלמן
 
-
-
 המערערת:
 
 סידי קליין
 
-
-
-  נגד
-
-
+נגד
 
 המשיבים:
 
@@ -1596,81 +1851,35 @@
 
 4. עיריית רחובות
 
-
-
-
-
-
-
 ערעור על החלטת בית משפט השלום בפתח תקווה (כב&#39; השופטת ע&#39; יוסף-קוזין) בת&#34;א 37841-06-19 מיום 13.4.2024
-
-
 
 בשם המערערת:
 
-
-
-בעצמה 
-
-
+בעצמה
 
 פסק-דין
 
-
-
-
-
-	לפניי ערעור על החלטת בית משפט השלום בפתח תקווה (כב&#39; השופטת ע&#39; יוסף-קוזין) בת&#34;א (שלום פ&#34;ת) 37841-06-19 מיום 13.4.2024 שלא לפסול את עצמו מלדון בעניינה של המערערת.
-
-
+לפניי ערעור על החלטת בית משפט השלום בפתח תקווה (כב&#39; השופטת ע&#39; יוסף-קוזין) בת&#34;א (שלום פ&#34;ת) 37841-06-19 מיום 13.4.2024 שלא לפסול את עצמו מלדון בעניינה של המערערת.
 
 מזה מספר שנים מתנהלים בין הצדדים הליכים משפטיים שנוגעים, בין היתר, לתביעה שהגיש המשיב 1 – כונס נכסים שמונה לטובת מימוש זכויותיה של המערערת בנכס מקרקעין בשל חובותיה של האחרונה – שבמסגרתה עתר לפירוק שיתוף בנכס ולמימוש זכויותיה של המערערת (להלן: התובע). להלן יפורטו עיקרי העובדות שצריכות להכרעה בערעור שלפניי. ביום 14.1.2024 הגישה המערערת בקשה לדחיית מועד הדיון שנקבע ליום 21.1.2024 וזאת, בין היתר, בשל סיבות רפואיות. ביום 18.1.2024 קבע המותב כי בשים לב לבקשות קודמות לדחיית מועד דיון שהגישה המערערת, על האחרונה להגיש תעודה רפואית שבמסגרתה יצוין מתי היא צפויה להיות כשירה להתייצב לדיון הוכחות; וכן כי בשלב זה הדיון שקבוע ליום 21.1.2024 יוותר במועדו. בהמשך לכך, ביום 21.1.2024 התקיים דיון במעמד הצדדים, אולם משהמערערת נעדרה מהדיון קבע המותב, בעיקרם של דברים, כי בשים לב לטענתה של המשיבה 2 (היא אחותה של המערערת) בנוגע למצבה הרפואי של המערערת, דיון ההוכחות יידחה למועד אחר. בנוסף, נקבע כי המערערת תגיש &#34;חוות דעת רפואית ערוכה כדין בעניין כשירות [המערערת – ע&#39; פ&#39;] להתייצב לדיון [...]&#34; (פרוטוקול הדיון מיום 21.1.2024, בעמ&#39; 10-9).
 
-
-
 בחודש פברואר 2024 הגישה המערערת מספר בקשות לדחיית מועד דיון ההוכחות שנקבע ליום 10.3.2024, וביום 22.2.2024 קבע המותב כי בשים לב לטענות המערערת בדבר כשירותה הרפואית להתייצב לדיון ההוכחות, וכן לצורך האיזון בין התחשבות במצבה של המערערת מחד גיסא, לבין זכויותיו של התובע וקידום בירורו של ההליך מאידך גיסא, ימונה למערערת אפוטרופוס לדין. ביום 3.3.2024 דחה המותב את בקשותיה של המערערת לדחיית מועד הדיון, ובצד האמור הורה על ביטול ההחלטה למנות אפוטרופוס לדין למערערת, וזאת נוכח התנגדותה של האחרונה ובשים לב לעמדתו של הסיוע המשפטי שלפיה בשלב זה אין מקום למינוי אפוטרופוס כאמור. בנוסף, נקבע כי דיון ההוכחות שקבוע ליום 10.3.2024 יתקיים במועדו, תוך שהמערערת רשאית לפעול באחת מבין מספר אפשרויות מוצעות, ובהן השתתפות בדיון באמצעות היוועדות חזותית; הסמכת בן משפחה או קרוב אחר להתייצב לדיון בשמה לצורך חקירת התובע בחקירה נגדית; והגשת רשימת שאלות שברצונה להציג לתובע, כך שאלה יישאלו בדיון על ידי בית המשפט. בהתאם, ביום 5.3.2024 הודיעה המערערת, בין היתר, כי היא תגיש רשימת שאלות לחקירה נגדית, שאותן יציג בית המשפט לתובע.
-
-
 
 ביום 10.3.2024 התקיים דיון ההוכחות בהליך, שאף ממנו נעדרה המערערת. כעולה מפרוטוקול הדיון, בפתח הדיון מסר המשיב 3 (הוא אחיה של המערערת) מעטפה סגורה לבית המשפט, ובתגובה ציין המותב כי &#34;אני מניחה שאלה שאלותיה של [המערערת – ע&#39; פ&#39;] לתובע, בחקירה הנגדית...&#34; (פרוטוקול הדיון מיום 10.3.2024, בעמ&#39; 10, ש&#39; 20). בשלב מסוים בדיון ההוכחות – לאחר שהתובע נחקר בחקירות נגדיות – ציין המותב כי עם פתיחת המעטפה שנמסרה לו בתחילת הדיון, התברר כי היא מכילה בקשה לפסילתו שהגישה המערערת וכי &#34;בית המשפט כמובן ידרש לבקשה לאחר הדיון&#34; (שם, בעמ&#39; 25, ש&#39; 6-5).
 
-
-
 במסגרת בקשת הפסלות טענה המערערת, בעיקרם של דברים, כי התנהלותו של המותב לאורך ההליך מלמדת על קיומו של חשש ממשי למשוא פנים, וכן על העדפתו את התובע. עוד נטען, כי החלטותיו של המותב, ובהן החלטות שנוגעות לבקשותיה של המערערת לדחיית מועדי דיון, ושלשיטתה נעדרות התייחסות לטענותיה בנוגע להליכים שמתנהלים בעניינה שעניינם בהסדרת ייצוגה, מלמדות על נעילת דעתו בעניינה של האחרונה, באופן שמחייב את העברת הדיון לפני מותב אחר.
 
-
-
-ביום 13.4.2024 דחה בית המשפט את בקשת הפסלות וקבע, בעיקרם של דברים, כי הטענות בבקשה אינן מבססות עילת פסלות. בתוך כך נקבע, כי טענותיה של המערערת ביחס להחלטות שניתנו בהליך מכוונות להחלטות שיפוטיות וככאלה, ככלל, אין בהן כדי להקים עילת פסלות, וממילא יש להשיג עליהן במסגרת הליכי ההשגה שקבועים בחוק. בנוסף, בית המשפט ציין כי הגם שהחלטה לקיים את דיון ההוכחות ללא נוכחות בעל דין  אינה החלטה שגרתית, בנסיבות העניין, ובהן התמשכותו של ההליך והבקשות הרבות שהגישה המערערת לדחיית דיוני ההוכחות, וכן בשל הצורך לאזן בין זכויותיה של המערערת לבין זכותו של התובע לברר את תביעתו, לא היה מקום להורות על דחיית הדיון פעם נוספת. לבסוף, בית המשפט דחה את טענות המערערת בנוגע להיעדר התייחסות להליך שמנהלת האחרונה בעניין ייצוגה, תוך שצוין כי במסגרת החלטה מיום 6.7.2023 נקבע שאין בקיומו של הליך זה כדי להצדיק את דחיית דיון ההוכחות, שכן למערערת הייתה שהות רבה להסדרת ייצוגה.
-
-
+ביום 13.4.2024 דחה בית המשפט את בקשת הפסלות וקבע, בעיקרם של דברים, כי הטענות בבקשה אינן מבססות עילת פסלות. בתוך כך נקבע, כי טענותיה של המערערת ביחס להחלטות שניתנו בהליך מכוונות להחלטות שיפוטיות וככאלה, ככלל, אין בהן כדי להקים עילת פסלות, וממילא יש להשיג עליהן במסגרת הליכי ההשגה שקבועים בחוק. בנוסף, בית המשפט ציין כי הגם שהחלטה לקיים את דיון ההוכחות ללא נוכחות בעל דין אינה החלטה שגרתית, בנסיבות העניין, ובהן התמשכותו של ההליך והבקשות הרבות שהגישה המערערת לדחיית דיוני ההוכחות, וכן בשל הצורך לאזן בין זכויותיה של המערערת לבין זכותו של התובע לברר את תביעתו, לא היה מקום להורות על דחיית הדיון פעם נוספת. לבסוף, בית המשפט דחה את טענות המערערת בנוגע להיעדר התייחסות להליך שמנהלת האחרונה בעניין ייצוגה, תוך שצוין כי במסגרת החלטה מיום 6.7.2023 נקבע שאין בקיומו של הליך זה כדי להצדיק את דחיית דיון ההוכחות, שכן למערערת הייתה שהות רבה להסדרת ייצוגה.
 
 מכאן הערעור שלפניי, שבמסגרתו, בעיקרם של דברים, חוזרת המערערת על טענותיה בבקשת הפסלות נושא הערעור. לטענת המערערת, התנהלות המותב לאורך ההליך מקימה חשש ממשי למשוא פנים שעולה כדי עילה לפסילתו. בהקשר זה נטען, כי החלטות המותב בעניין מועדי הדיונים פגעו באפשרותה של המערערת להסדיר את ייצוגה המשפטי, באופן שמעיד על נעילת דעתו בנוגע לאחרונה; כי ההחלטות שעניינן בהמצאת מסמכים רפואיים אינן ניתנות לביצוע, ואף הן מעידות על דעתו ביחס אליה; וכן כי ההחלטה לקיים את דיון ההוכחות שלא בנוכחותה, פגעה בזכויותיה הדיוניות, ובפרט בשים לב להיעדר יכולתה לחקור את התובע בחקירה נגדית. לבסוף, נטען כי אף לאחר שנודע למותב על הגשת בקשת הפסלות, המשיך המותב לנהל את דיון ההוכחות, וזאת בניגוד להוראות סעיף 77א(ב) לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984 (להלן: חוק בתי המשפט), שלפיו &#34;נטענה טענת פסלות נגד שופט, יחליט בה אותו שופט לאלתר ולפני שיתן כל החלטה אחרת&#34;.
 
-
-
 לאחר שעיינתי בערעור ובצרופותיו, הגעתי לכלל מסקנה כי דינו להידחות. כידוע, סעיף 77א(א) לחוק בתי המשפט קובע כי אמת המידה לפסילת שופט מלשבת בדין היא קיומן של &#34;נסיבות שיש בהן כדי ליצור חשש ממשי למשוא פנים בניהול המשפט&#34; (ע&#34;א 5714/24 עבדאללה נ&#39; פקיד שומה נצרת, פסקה 5 (5.9.2024); ע&#34;א 5939/24 גבעתי נ&#39; עדנאן, פסקה 5 (14.8.2024)). איני סבור כי נסיבות כאמור מתקיימות בענייננו. טענות המערערת מופנות בעיקרן כלפי התנהלותו הדיונית של המותב וכלפי ההחלטות השיפוטיות שניתנו בהליך, אולם כפי שנפסק בעבר, אך במקרים נדירים וחריגים הפעילות השיפוטית כשלעצמה תקים עילת פסלות (ע&#34;א 4606/24 פלוני נ&#39; פלונית, פסקה 12 (24.7.2024); ע&#34;א 2369/24 מזרחי נ&#39; לונדנר, פסקה 7 (14.7.2024)); וזאת, אף כאשר מדובר ברצף של החלטות שאינן לרוחו של בעל דין (ע&#34;א 5244/24 פלונית נ&#39; צוקרמן, פסקה 7 (25.8.2024); ע&#34;א 4784/24 פלוני נ&#39; פלוני, פסקה 5 (24.7.2024); ע&#34;א 3636/24 פלוני נ&#39; פלונית, פסקה 7 (30.6.2024)). החלטות המותב שבבסיס טענותיה של המערערת נוגעות בעיקרן לבקשות לדחיית מועד דיון, ואיני סבור כי הן עולות כדי אותם מקרים חריגים שיקימו עילה לפסילתו של המותב (ע&#34;א 2975/24 סלימאן נ&#39; משק קוניפקל ארז ותומר, פסקה 4 (2.6.2024); ע&#34;א 2155/24 גנות נ&#39; כהן, פסקה 8 (20.5.2024); ע&#34;א 7085/23 אוריון נ&#39; גולדפינגר, פסקה 6 (31.12.2023)); וממילא, כפי שציין המותב בהחלטה נושא הערעור, הדרך להשיג על החלטות מסוג זה היא במסגרת הליכי ההשגה שקבועים בחוק, ולא במסגרת בקשה לפסילת המותב (ע&#34;א 3824/24 אפל נ&#39; קנצפולסקי, פסקה 6 (14.7.2024); ע&#34;א 3877/24 פנץ נ&#39; חרבאוי, פסקה 5 (10.7.2024)).
-
-
 
 אף איני סבור כי יש בטענת המערערת, שלפיה בשים לב להוראות סעיף 77א(ב) לחוק בתי המשפט נפל בהחלטתו של המותב להמשיך את דיון ההוכחות לאחר שנחשף לבקשת הפסלות פגם המצדיק פסילתו. כאמור, לאחר שהתברר למותב כי המערערת הגישה בקשה לפסילתו, נקבע כי הוא יידרש לבקשה לאחר שיסתיים דיון ההוכחות, כשבשלב זה, בעיקרם של דברים, הציג בית המשפט את שאלותיה של המערערת (שאף הן נמסרו למותב במעטפה סגורה) לתובע במסגרת חקירה נגדית, והאחרון השיב עליהן. אף אם היה מקום להכריע בבקשת הפסלות עובר להמשך ניהול דיון ההוכחות, בנסיבות העניין, ובהן התמשכות ההליכים, דחייתו החוזרת של דיון ההוכחות, וכן העובדה כי המותב נחשף לבקשת הפסלות לאחר ביצוע חלק משמעותי מן החקירות במסגרת הדיון, איני סבור שיש בהמשך קיום הדיון כשלעצמו כדי לשנות מן המסקנה שלפיה לא קמה במקרה דנן עילת פסלות (ע&#34;א 587/24 בר-קמא נ&#39; גן נורדאו בע&#34;מ, פסקה 7 (19.2.2024); ע&#34;א 9218/18 הדר נ&#39; גדסי, פסקה 4 (17.1.2019); ע&#34;א 4141/18 קחלון נ&#39; מדינת ישראל - רשות מקרקעי ישראל, פסקה 5 (6.7.2018); ע&#34;א 993/18 פלוני נ&#39; פלונית, פסקה 4 (28.3.2018)). לבסוף, יצוין כי הערעור נוסח בלשון משתלחת כלפי המותב, שאותה אין להלום.
 
-
-
-			הערעור נדחה אפוא. משלא התבקשה תשובה, אין צו להוצאות.
-
-
+הערעור נדחה אפוא. משלא התבקשה תשובה, אין צו להוצאות.
 
 ניתן היום, ט&#34;ו אלול תשפ&#34;ד (18 ספטמבר 2024).
-
-
-
-
-
-
-
-
-
-
 
 עוזי פוגלמן
 
@@ -1693,7 +1902,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

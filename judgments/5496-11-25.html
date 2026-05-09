@@ -433,8 +433,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -524,11 +528,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -541,29 +701,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -603,7 +762,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -618,7 +777,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -649,6 +808,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -986,7 +1212,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1389,7 +1615,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    01/02/2026 (לפני 93 ימים)
+                    01/02/2026 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -2278,13 +2504,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5496-11-25.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5496-11-25 - טולה טליה גולן נ. פרקליטות מחוז דרום"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5496-11-25.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2026/2/1/2025-11-5496-6-2&amp;fileName=c28ba655588c42fea835b81c3d2f9c3e&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2026/2/1/2025-11-5496-6-2&amp;fileName=c28ba655588c42fea835b81c3d2f9c3e&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2026/2/1/2025-11-5496-6-2&amp;fileName=c28ba655588c42fea835b81c3d2f9c3e&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2026/2/1/2025-11-5496-6-2&amp;fileName=c28ba655588c42fea835b81c3d2f9c3e&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -2295,23 +2566,9 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
 בג&#34;ץ 5496-11-25
-
-
-
- 
 
 לפני:
 
@@ -2321,137 +2578,69 @@
 
 כבוד השופטת רות רונן
 
-
-
 העותרת:
 
 טולה טליה גולן
 
-
-
 נגד
-
-
 
 המשיבה:
 
 פרקליטות מחוז דרום
 
-
-
 עתירה למתן צו על תנאי
 
 בשם העותרים:
 
-
-
-עו&#34;ד אשר אוחיון 
+עו&#34;ד אשר אוחיון
 
 בשם המשיבה:
 
-עו&#34;ד אבי מיליקובסקי; עו&#34;ד דניאל רגב 
-
-
-
-
+עו&#34;ד אבי מיליקובסקי; עו&#34;ד דניאל רגב
 
 פסק-דין
 
-
-
 השופט יחיאל כשר:
 
+עניינה של העתירה שלפנינו בחקירה שנפתחה במשטרת ישראל בחשד לביצוע מעשי התעללות, אלימות ואיומים, וכן עבירות של אי דיווח ורשלנות כלפי פעוטות, אשר בוצעו, לפי הנטען, בידי צוות מעון ויצ&#34;ו בקרית גת, בניהולה של העותרת. החקירה נפתחה ביום 5.3.2024, ובחלוף שמונה חודשים ממועד פתיחתה הודיע משרד החינוך לעותרת כי לא תורשה עוד לשמש כמנהלת המעון.
 
+עד למועד הגשת העתירה דנן, ביום 3.11.2025, לא התקבלה החלטה אם להגיש כתב אישום נגד העותרת. על רקע זה, ובהסתמך על טענתה כי חומר החקירה המצוי בתיק לא הצדיק את חקירתה כחשודה, וממילא אינו מצדיק את העמדתה לדין, ביקשה העותרת כי נורה למשיבה, פרקליטות מחוז דרום, להתייצב וליתן טעם מדוע טרם התקבלה החלטה בתיק החקירה שנפתח בעניינה.
 
-עניינה של העתירה שלפנינו בחקירה שנפתחה במשטרת ישראל בחשד לביצוע מעשי התעללות, אלימות ואיומים, וכן עבירות של אי דיווח ורשלנות כלפי פעוטות, אשר בוצעו, לפי הנטען, בידי צוות מעון ויצ&#34;ו בקרית גת, בניהולה של העותרת. החקירה נפתחה ביום 5.3.2024, ובחלוף שמונה חודשים ממועד פתיחתה הודיע משרד החינוך לעותרת כי לא תורשה עוד לשמש כמנהלת המעון. 
+למען שלמות התמונה יצוין כי העותרת הגישה עתירה קודמת בנושא, ביום 19.2.2025, וזו נדחתה בפסק דינו של בית משפט זה (השופטים ד&#39; ברק-ארז, א&#39; שטיין ו-ח&#39; כבוב), מיום 9.4.2025 (ראו: בג&#34;ץ 50655-02-25 גולן נ&#39; פרקליטות מחוז דרום - פלילי (9.4.2025) (להלן: העתירה הקודמת)).
 
+בהחלטתי מיום 3.11.2025, הורתי למשיבה להגיש תגובה מקדמית לעתירה. בתגובתה, אשר הוגשה ביום 16.11.2025, ציינה המשיבה כי ביום 11.11.2025, נשלחה לעותרת הודעה בדבר גניזת תיק החקירה בעניינה מבלי להגיש בו כתב אישום.
 
-
-	עד למועד הגשת העתירה דנן, ביום 3.11.2025, לא התקבלה החלטה אם להגיש כתב אישום נגד העותרת. על רקע זה, ובהסתמך על טענתה כי חומר החקירה המצוי בתיק לא הצדיק את חקירתה כחשודה, וממילא אינו מצדיק את העמדתה לדין, ביקשה העותרת כי נורה למשיבה, פרקליטות מחוז דרום, להתייצב וליתן טעם מדוע טרם התקבלה החלטה בתיק החקירה שנפתח בעניינה.
-
-
-
-	למען שלמות התמונה יצוין כי העותרת הגישה עתירה קודמת בנושא, ביום 19.2.2025, וזו נדחתה בפסק דינו של בית משפט זה (השופטים ד&#39; ברק-ארז, א&#39; שטיין ו-ח&#39; כבוב), מיום 9.4.2025 (ראו: בג&#34;ץ 50655-02-25 גולן נ&#39; פרקליטות מחוז דרום - פלילי (9.4.2025) (להלן: העתירה הקודמת)).
-
-
-
-בהחלטתי מיום 3.11.2025, הורתי למשיבה להגיש תגובה מקדמית לעתירה. בתגובתה, אשר הוגשה ביום 16.11.2025, ציינה המשיבה כי ביום 11.11.2025, נשלחה לעותרת הודעה בדבר גניזת תיק החקירה בעניינה מבלי להגיש בו כתב אישום. 
-
-
-
-	על רקע האמור, בהחלטתי מיום 17.11.2025 הוריתי למשיבה להודיע האם היא עומדת על עתירתה. עוד באותו היום (17.11.2025), הודיעה העותרת כי היא אינה עומדת על עתירתה, אך היא מבקשת כי ייפסקו לזכותה הוצאות משפט ושכר טרחת עו&#34;ד. העותרת טענה כי סמיכות הזמנים בין מועד הגשת עתירתה לבין מועד גניזת תיק החקירה, מלמדת בבירור כי הגשת העתירה היא שהביאה לגניזת התיק. בנוסף, העותרת עמדה על כך שתיק החקירה בעניינה היה פתוח למעלה 20 חודשים, בניגוד להנחיות היועץ המשפטי לממשלה מס&#39; 4.1202, בדבר משך טיפול התביעה עד להגשת כתב אישום (להלן: הנחיות העיומ&#34;ש), הקובעות כי התקופה המרבית לקבלת החלטה סופית בתיק חקירה היא 18 חודשים. כמו כן, נטען כי לאורך מרבית התקופה האמורה, העותרת הושעתה מעבודתה, דבר אשר הסב לה פגיעה חמורה.
-
-
+על רקע האמור, בהחלטתי מיום 17.11.2025 הוריתי למשיבה להודיע האם היא עומדת על עתירתה. עוד באותו היום (17.11.2025), הודיעה העותרת כי היא אינה עומדת על עתירתה, אך היא מבקשת כי ייפסקו לזכותה הוצאות משפט ושכר טרחת עו&#34;ד. העותרת טענה כי סמיכות הזמנים בין מועד הגשת עתירתה לבין מועד גניזת תיק החקירה, מלמדת בבירור כי הגשת העתירה היא שהביאה לגניזת התיק. בנוסף, העותרת עמדה על כך שתיק החקירה בעניינה היה פתוח למעלה 20 חודשים, בניגוד להנחיות היועץ המשפטי לממשלה מס&#39; 4.1202, בדבר משך טיפול התביעה עד להגשת כתב אישום (להלן: הנחיות העיומ&#34;ש), הקובעות כי התקופה המרבית לקבלת החלטה סופית בתיק חקירה היא 18 חודשים. כמו כן, נטען כי לאורך מרבית התקופה האמורה, העותרת הושעתה מעבודתה, דבר אשר הסב לה פגיעה חמורה.
 
 בתגובת המשיבה לבקשת העותרת לפסיקת הוצאות, אשר הוגשה בהתאם להחלטתי מיום 17.11.2025, טוענת המשיבה כי הגשת העתירה לא השפיעה על ההחלטה לגנוז את תיק החקירה, וזאת חרף סמיכות הזמנים בין שני האירועים. לתמיכה בטענתה, מציינת המשיבה כי העתירה הקודמת הוגשה כמעט שנה קודם לכן, וכי החקירה נמשכה גם לאחר הגשתה.
 
+עוד נטען בתגובת המשיבה כי משך הטיפול בחקירה נבע מהיקף חומר החקירה שנדרש מן היחידה החוקרת לעבור עליו. צוין כי במועד הגשת התגובה המקדמית בעתירה הקודמת, בסוף חודש מרץ 2025, הייתה החקירה מצויה בשלב מתקדם, אולם עדיין נדרשו התייעצויות פנימיות עם גורמים בכירים אצל המשיבה, בשים לב לרגישות העניין.
 
-
-	עוד נטען בתגובת המשיבה כי משך הטיפול בחקירה נבע מהיקף חומר החקירה שנדרש מן היחידה החוקרת לעבור עליו. צוין כי במועד הגשת התגובה המקדמית בעתירה הקודמת, בסוף חודש מרץ 2025, הייתה החקירה מצויה בשלב מתקדם, אולם עדיין נדרשו התייעצויות פנימיות עם גורמים בכירים אצל המשיבה, בשים לב לרגישות העניין.
-
-
-
-	לבסוף, צוין כי בסוף חודש ספטמבר 2025 התקיים שימוע עובר להחלטה אם להגיש כתב אישום נגד החשודה העיקרית בפרשה, שאינה העותרת. לאחר קיום השימוע הוחלט לסגור את תיק החקירה נגד כלל החשודות בפרשה, כל אחת בעילה המתאימה לה. על רקע האמור, טוענת המשיבה כי פרק הזמן שנדרש לטיפול בתיק החקירה היה סביר, וכי מכל מקום אין קשר בין הגשת העתירה דנן לבין גניזת תיק החקירה בעניינה של העותרת. לפיכך, נטען כי אין הצדקה לפסיקת הוצאות לחובת המשיבה.
-
-
+לבסוף, צוין כי בסוף חודש ספטמבר 2025 התקיים שימוע עובר להחלטה אם להגיש כתב אישום נגד החשודה העיקרית בפרשה, שאינה העותרת. לאחר קיום השימוע הוחלט לסגור את תיק החקירה נגד כלל החשודות בפרשה, כל אחת בעילה המתאימה לה. על רקע האמור, טוענת המשיבה כי פרק הזמן שנדרש לטיפול בתיק החקירה היה סביר, וכי מכל מקום אין קשר בין הגשת העתירה דנן לבין גניזת תיק החקירה בעניינה של העותרת. לפיכך, נטען כי אין הצדקה לפסיקת הוצאות לחובת המשיבה.
 
 נוכח הסכמת הצדדים ומאחר שהסעד העיקרי בעתירה התייתר, הרי שהעתירה באה לכלל מיצוי ודינה להימחק.
 
-
-
 אשר לסוגיית ההוצאות, בפסיקתו של בית משפט זה נקבע כי לשם הכרעה בשאלה זו יש לבחון האם היה צידוק בהגשת העתירה; האם מוצו הליכים בטרם הוגשה העתירה; האם העתירה הוגשה בשיהוי; והאם הגשת העתירה היא שהובילה לקבלתו של הסעד המבוקש (ראו: בג&#34;ץ 19231-05-25 הקרן להנצחת השבטים ויוסף הצדיק נ&#39; מפקד פיקוד המרכז, פסקה 7 (22.12.2025) (להלן: עניין הקרן להנצחת השבטים יוסף הצדיק); בג&#34;ץ 36721-03-25 גורנלר נ&#39; לשכת הגיוס ירושלים יחידת מיטב 2. שר הביטחון, פסקה 4 (10.8.2025) (להלן: עניין גורנלר); בג&#34;ץ 79191-12-24 מיוחס נ&#39; מדינת ישראל, פסקה 5 (30.4.2025); דפנה ברק-ארז משפט מינהלי – משפט מינהלי דיוני כרך ד 465-464 (2017), להלן: ברק-ארז)). בתוך כך, נקבעה בפסיקה חזקה שלפיה ככל שהעותר קיבל את הסעד לו עתר הרי שהגשת העתירה הייתה מוצדקת, והנטל עובר לכתפיו של המשיב להוכיח כי לא הייתה הצדקה להגשת העתירה או כי לא היה קשר סיבתי בין הגשת העתירה לבין קבלת הסעד המבוקש בה (עניין הקרן להנצחת השבטים יוסף הצדיק, פסקה 7; עניין גורנלר, פסקה 4; בג&#34;ץ 4649/24 התעוררות בירושלים (ע&#34;ר) נ&#39; שר הפנים, פסקה 6 (29.1.2025); ברק-ארז, בעמ&#39; 468-464).
-
-
 
 בענייננו, אף שקיימת סמיכות זמנים בין מועד הגשת העתירה לבין המועד שבו נגנז תיק החקירה בעניינה של העותרת, מכלול הנתונים שעליהם עמדה המשיבה מעלה ספק של ממש האם יש קשר סיבתי בין הגשת העתירה לבין ההחלטה על גניזת תיק החקירה בעניינה של העותרת. בהקשר זה, נראית כרלוונטית העובדה עליה הצביעה המשיבה שלפיה בסוף חודש ספטמבר 2025 התקיים שימוע לחשודה העיקרית בפרשה שבה נחשדה העותרת; וחודש לאחר מכן, חודש שבמהלכו חלו חגי תשרי, התקבלה ההחלטה לסגור את תיקי החקירה נגד כלל החשודות בפרשה, כל אחת מטעמיה. רצף עניינים זה תומך לכאורה בטענת המשיבה כי סגירת התיק הייתה תוצאה של הבשלת התהליך ולא של הגשת העתירה. יחד עם זאת, בשים לב לסמיכות הזמנים בין מועד הגשת העתירה לבין מועד סגירת תיק החקירה בעניינה של העותרת, סבורני כי לא ניתן לשלול כליל קיומו של קשר מסוים בין הדברים.
 
+טעם נוסף אשר מצדיק, לשיטת העותרת, פסיקת הוצאות לטובתה, הינו כי אילו עתירתה הייתה מתנהלת לגופה, היה סיכוי ממשי כי היא הייתה מוכרעת לטובתה. זאת, שכן לטענת העותרת, משך החקירה הכולל חרג מן התקופות הקבועות בהנחיות היועץ המשפטי לממשלה; ומשום שהתמשכות החקירה הסבה לה פגיעה קשה, בין היתר נוכח השעייתה מעבודתה (משלב מסוים).
 
-
-
-
-
-
-טעם נוסף אשר מצדיק, לשיטת העותרת, פסיקת הוצאות לטובתה, הינו כי אילו עתירתה הייתה מתנהלת לגופה, היה סיכוי ממשי כי היא הייתה מוכרעת לטובתה. זאת, שכן לטענת העותרת, משך החקירה הכולל חרג מן התקופות הקבועות בהנחיות היועץ המשפטי לממשלה; ומשום שהתמשכות החקירה הסבה לה פגיעה קשה, בין היתר נוכח השעייתה מעבודתה (משלב מסוים). 
-
-
-
-	ודוק, בבחינת בקשה לפסיקת הוצאות, אגב מחיקת עתירה לאחר שהסעד העיקרי שנתבקש במסגרתה ניתן או הפך לבלתי אקטואלי, אין מקום לערוך מעין &#34;משפט זוטא&#34; בעתירה גופה (עניין גורנלר, פסקה 4). עם זאת, כאמור לעיל, כאשר נמצא כי היה צידוק בהגשת העתירה, יש ליתן לדבר משקל אף במסגרת שאלת ההוצאות. ואמנם, אף שאין בידי לקבוע כי אילו הייתה עתירתה של העותרת מתנהלת עד תומה, בהכרח היה דינה להתקבל; סבורני כי על רקע טענותיה של העותרת ונוכח העובדה שבתגובה המקדמית שהגישה המשיבה בעתירה הקודמת, ביום 26.3.2025, נאמר כי ההחלטה בתיק &#34;צפויה להתקבל במועד קרוב&#34;, לא ניתן לשלול כי היה צידוק להגשת עתירתה.
-
-
+ודוק, בבחינת בקשה לפסיקת הוצאות, אגב מחיקת עתירה לאחר שהסעד העיקרי שנתבקש במסגרתה ניתן או הפך לבלתי אקטואלי, אין מקום לערוך מעין &#34;משפט זוטא&#34; בעתירה גופה (עניין גורנלר, פסקה 4). עם זאת, כאמור לעיל, כאשר נמצא כי היה צידוק בהגשת העתירה, יש ליתן לדבר משקל אף במסגרת שאלת ההוצאות. ואמנם, אף שאין בידי לקבוע כי אילו הייתה עתירתה של העותרת מתנהלת עד תומה, בהכרח היה דינה להתקבל; סבורני כי על רקע טענותיה של העותרת ונוכח העובדה שבתגובה המקדמית שהגישה המשיבה בעתירה הקודמת, ביום 26.3.2025, נאמר כי ההחלטה בתיק &#34;צפויה להתקבל במועד קרוב&#34;, לא ניתן לשלול כי היה צידוק להגשת עתירתה.
 
 על יסוד הנימוקים המפורטים לעיל, סבורני כי יש מקום להיעתר לבקשת העותרת לפסיקת הוצאות, אך זאת על הצד הנמוך. על כן, אציע לחבריי כי נפסוק לזכות העותרת הוצאות בסך של 2,500 ש&#34;ח.
 
- 
-
 סיכומו של דבר: העתירה נמחקת בזאת. על יסוד הנימוקים המופרטים לעיל, המשיבה תישא בהוצאות העותרת בסך של 2,500 ש&#34;ח. החזר אגרה בהתאם לתקנות.
-
-
 
 ניתן היום, י&#34;ד שבט תשפ&#34;ו (01 פברואר 2026).
 
-
-
-
-
-נעם סולברג 
+נעם סולברג
 
 משנה לנשיא
 
-
-
-
-
-
-
-יחיאל כשר 
+יחיאל כשר
 
 שופט
-
-
-
-
-
-
 
 רות רונן
 
@@ -2474,7 +2663,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

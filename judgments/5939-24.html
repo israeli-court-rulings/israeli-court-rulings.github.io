@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    14/08/2024 (לפני 629 ימים)
+                    14/08/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5939-24.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5939/24 - שלומי הרצל גבעתי נ. חרחש עדנאן"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5939-24.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/8/14/2024-0-5939-1-2&amp;fileName=752c689838294e86904ab05ab19562d1&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/8/14/2024-0-5939-1-2&amp;fileName=752c689838294e86904ab05ab19562d1&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/8/14/2024-0-5939-1-2&amp;fileName=752c689838294e86904ab05ab19562d1&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/8/14/2024-0-5939-1-2&amp;fileName=752c689838294e86904ab05ab19562d1&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,37 +1827,19 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            2
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
- ע&#34;א 5939/24
-
-
-
- 
-
-
+ע&#34;א 5939/24
 
 לפני:
 
 כבוד ממלא מקום הנשיא עוזי פוגלמן
 
-
-
 המערער:
 
 שלומי הרצל גבעתי
 
-
-
-  נגד
-
-
+נגד
 
 המשיבים:
 
@@ -1598,69 +1851,31 @@
 
 4. עו&#34;ד ג&#39;ואנה סאלם-זוהר
 
-
-
-
-
 ערעור על החלטת בית משפט השלום בירושלים (כב&#39; השופט ח&#39; פס) בחדל&#34;פ 2287-05-22 מיום 4.7.2024
-
-
 
 בשם המערער:
 
-
-
-עו&#34;ד רועי שעיה 
-
-
+עו&#34;ד רועי שעיה
 
 פסק-דין
 
-
-
-
-
-	לפניי ערעור על החלטת בית משפט השלום בירושלים (כב&#39; השופט ח&#39; פס) בחדל&#34;פ 2287-05-22, מיום 4.7.2024, שלא לפסול את עצמו מלדון בעניינו של המערער.
-
-
+לפניי ערעור על החלטת בית משפט השלום בירושלים (כב&#39; השופט ח&#39; פס) בחדל&#34;פ 2287-05-22, מיום 4.7.2024, שלא לפסול את עצמו מלדון בעניינו של המערער.
 
 ביום 12.12.2022 ניתן במסגרת ההליך נושא הערעור שלפניי צו לפתיחת הליכים נגד המשיב 1 (להלן: החייב), שבמסגרתו מונתה המשיבה 4 כנאמנת ליישום הליכי חדלות הפירעון של החייב (להלן: הנאמנת). בחודש יוני 2023 הגישה הנאמנת בקשה למימוש רכב מסוג &#34;למבורגיני&#34;, שבמסגרתה נטען כי הגם שהרכב רשום על שמו של המערער, בפועל הוא בבעלותו של החייב שעושה בו שימוש בלעדי (להלן: הרכב); וכי רישומו של המערער כבעלים של הרכב נעשה בשל החשש של החייב כי הרכב יעוקל בשים לב לחובותיו של האחרון. המערער התנגד לבקשה, וביום 6.8.2023 קיבל בית המשפט (כב&#39; השופט ד&#39; ש&#39; גבאי ריכטר) את בקשת הנאמנת והורה על מימוש הרכב; זאת, משמצא – על סמך חומר חסוי שהוגש לעיונו במעמד צד אחד – כי הגם שהרכב רשום במשרד הרישוי על שמו של המערער, החייב הוא בעליו בפועל. המערער הגיש ערעור על החלטה זו וביום 27.5.2024, בהסכמת הצדדים, קיבל בית המשפט המחוזי בירושלים את הערעור, והורה על החזרת הדיון בבקשה למימוש הרכב לבית משפט השלום בירושלים. בנוסף, נקבע כי בשים לב לכך שההחלטה באותו עניין ניתנה על בסיס חומר חסוי שלא היה גלוי למערער, הבקשה למימוש הרכב תידון לפני מותב אחר.
 
-
-
 ביום 30.5.2024 נותב ההליך נושא הערעור שלפניי לטיפול כב&#39; השופט ח&#39; פס וביום 4.7.2024 התקיים לפניו דיון בבקשה למימוש הרכב (להלן: הדיון מיום 4.7.2024). בפתח אותו דיון הודיע בא כוח החייב כי האחרון לא יתייצב לדיון בשל סיבות רפואיות, ובהמשך נכתב בפרוטוקול הדיון כי בהסכמת הצדדים התנהל דיון מחוץ לפרוטוקול (שם, בעמ&#39; 1, ש&#39; 18). בסמוך לאחר מכן, הודיע בא כוח המערער כי הוא מבקש לפסול את המותב משהאחרון &#34;אומר לי שהליך סגור, הרי שהדבר נוגד את עמדת הנאמנת ורשות המיסים ולכן אני לא רואה טעם או אפשרות שבית משפט נכבד זה שננעלה דעתו יוכל להמשיך לדון בתיק. לגבי הבקשה של הנאמנת לקבלת מסמכים שעל פניו, משמע שאם [המערער – ע&#39; פ&#39;] יוכיח שהוא ביצע את ההעברות או היה בחו&#34;ל יש לו סיכוי לזכות בתביעה לבית המשפט זה בכלל לא משנה, ולכן אני טוען שננעלה דעתו של בית המשפט&#34; (שם, בעמ&#39; 2, ש&#39; 5-1).
-
-
 
 בו ביום דחה המותב את בקשת הפסלות, וציין כי במהלך הדיון שהתקיים בהסכמת הצדדים מחוץ לפרוטוקול הוא שיקף לבאי כוחם של המערער והחייב את התרשמותו מהראיות והתצהירים שהגישו, וכן הדגיש כי &#34;כמובן מדובר בהתרשמות לכאורית, שכן טרם שמעתי את העדים ושיקפתי לצדדים באופן כללי את הלבטים ואת סיכויי הבקשה&#34; (שם, בעמ&#39; 4, ש&#39; 21-20). עוד צוין במסגרת זו, כי במהלך הדיון שהתקיים מחוץ לפרוטוקול בא כוח המשיב 2 (הוא הממונה על הליכי חדלות פירעון ושיקום כלכלי; להלן: הממונה) הציע הצעה לסיום ההליך וכי המותב הסביר לבא כוח המערער את אותה הצעה משסבר כי &#34;יש צורך בהבהרת הדברים&#34; (שם, בעמ&#39; 4, ש&#39; 24). בהקשר זה נקבע, כי אמירות המותב שנאמרו במהלך הדיון מחוץ לפרוטוקול הן לכאוריות בלבד; כי החלטתו הסופית בהליך נושא הערעור שלפניי תתגבש רק לאחר חקירת המצהירים והתרשמות מעדותם; וממילא אין בעצם שיקוף המצב בתיק לצדדים כדי להקים עילת פסלות.
 
-
-
 מכאן הערעור שלפניי, שבמסגרתו טוען המערער כי במהלך הדיון שהתקיים מחוץ לפרוטוקול ביום 4.7.2024 הציע בא כוח הממונה הצעת פשרה שלפיה המערער והחייב ישלמו סכומים מסוימים לצורך רכישת הרכב, וכי בא כוח המערער התנגד לגובה הסכום שהציע הממונה. לטענתו של המערער, בא כוח הממונה השיב כי בכוונתו לבחון את הצעת בא כוח המערער ובסמוך לאחר מכן בית המשפט אמר, בין היתר, כי &#34;יש בהתנהלות ו/או במעשי המערער [...] התנהגות פלילית&#34;; כי &#34;הצעת ב&#34;כ הממונה [...] היא סופית ואין מקום להפחית ממנה, ואף ייעץ לב&#34;כ הממונה כי אין סיבה להפחית את הסכומים [למערער – ע&#39; פ&#39;]&#34; (סעיף 32 לערעור). עוד נטען כי בהמשך הדיון שהתקיים מחוץ לפרוטוקול, המותב &#34;לפתע קם מכיסאו והבהיר תוך שהוא מנופף בידו: אני עכשיו אהיה יותר ברור ומובן כי נראה שלא הבנת אותי מקודם – אין סיכוי שאקבל את העמדה של [המערער – ע&#39; פ&#39;]&#34; (שם). לשיטת המערער, אמירותיו אלו של המותב מלמדות על נעילת דעתו בעניינו של המערער ומקימות חשש ממשי למשוא פנים שמחייב את פסילתו. בנוסף, נטען כי המותב לא ציין בהחלטת הפסלות נושא הערעור את אמירותיו במסגרת השיח שהתקיים מחוץ לפרוטוקול, באופן שאינו עומד בחובת ההנמקה של החלטות שיפוטיות; וכן כי יש לפסול את המותב גם מטעמים של מראית פני הצדק. לבסוף, במסגרת הערעור דנן ביקש המערער כי הדיון בעניינו יועבר למחוז שיפוט אחר.
-
-
 
 לאחר שעיינתי בערעור על צרופותיו, הגעתי לכלל מסקנה כי דינו להידחות. לפי סעיף 77א(א) לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984, המבחן לפסילת שופט מלשבת בדין הוא התקיימותן של נסיבות אשר מקימות חשש ממשי למשוא פנים בניהול ההליך (ע&#34;א 2369/24 מזרחי נ&#39; לונדנר, פסקה 6 (14.7.2024); ע&#34;א 3049/24 קפלן נ&#39; אילני, פסקה 6 (10.6.2024)). איני סבור כי נסיבות כאמור מתקיימות בענייננו. ראשית, טענות המערער לגבי מרבית אמירותיו, כנטען, של המותב במסגרת הדיון שהתקיים מחוץ לפרוטוקול, ובפרט האמירות שנוגעות להתנהלותו של המערער ולהצעת הפשרה שהציע בא כוחו של הממונה, הועלו לראשונה במסגרת הערעור שלפניי, מבלי שלמותב ניתנה הזדמנות להתייחס לטענות אלו, ובאופן שמצדיק את דחיית הערעור אך מטעם זה (ע&#34;א 3877/24 פנץ נ&#39; חרבאוי, פסקה 4 (10.7.2024); ע&#34;א 7098/22 קליין נ&#39; נטוביץ, פסקה 6 (24.7.2023)).
 
-
-
 אף לגופו של עניין, דין הערעור להידחות. כידוע, אין מניעה שבית המשפט יביע, במתינות הנדרשת, את התרשמותו הלכאורית לגבי הראיות או הטענות של אחד מבעלי הדין, ולא כל הבעת עמדה או ביקורת על התנהלות בעל דין יקימו עילה לפסילת שופט (ע&#34;א 3860/24 נבו נ&#39; ספיריט הפקות עולם בע&#34;מ, פסקה 7 (9.7.2024); ע&#34;א 587/24 בר-קמא נ&#39; גן נורדאו בע&#34;מ, פסקה 6 (19.2.2024)). בנוסף, כפי שנפסק בעבר לא אחת, בעל דין אשר מסכים לקיום שיח מחוץ לפרוטוקול מודע לכך כי הדברים שיאמרו לא יתועדו בפרוטוקול, ועל כן, הנטל להוכיח התבטאות מסוימת הוא נטל כבד במיוחד (ע&#34;א 7692/23 אקסיו מעטפת הון בע&#34;מ נ&#39; יהב מיטב בע&#34;מ, פסקה 9 (7.12.2023); ע&#34;א 7528/22 פלוני נ&#39; פלוני, פסקה 9 (17.11.2022)). בענייננו, המערער מייחס למותב אמירות נחרצות באשר להתנהלותו וכן לגבי אופן ניהול ההליך נושא הערעור שלפניי. ואולם, במסגרת החלטת הפסלות הבהיר המותב כי שיקף לצדדים את הערכתו &#34;בעקבות התצהירים והראיות שהוגשו לתיק עד כה&#34; וכי ממילא עמדתו הסופית תתגבש רק לאחר שמיעת העדים (פרוטוקול הדיון מיום 4.7.2024, בעמ&#39; 5, ש&#39; 30-28). בנסיבות אלו, ובשים לב להבהרות המותב באשר לטיב התבטאויותיו במסגרת השיח שהתקיים מחוץ לפרוטוקול וכן לכך שאותו שיח התקיים, כאמור, בהסכמת הצדדים – איני סבור כי המערער עמד בנטל הכבד להוכיח את טענותיו בהקשר זה, וממילא אף איני סבור כי דעתו של המותב ננעלה בנוגע להמשך ניהול ההליך (ראו: ע&#34;א 8162/21 מאפיית האחים יחזקאל בע&#34;מ נ&#39; אלוף השניצל בע&#34;מ, פסקה 12 (5.12.2021); ע&#34;א 5406/20 מ.י שחם נדל&#34;ן בע&#34;מ נ&#39; ברשן, פסקה 24 (26.11.2020)). משאלה הם פני הדברים, לא מצאתי עילה לפסילת המותב, אף לא מטעמים של מראית פני הצדק. לבסוף, יצוין כי הערעור דנן אינו האכסניה המתאימה לבירור בקשתו של המערער להעברת הדיון בעניינו לבית משפט במחוז אחר.
 
-
-
-	הערעור נדחה אפוא. משלא התבקשה תשובה, אין צו להוצאות.
-
-
+הערעור נדחה אפוא. משלא התבקשה תשובה, אין צו להוצאות.
 
 ניתן היום, י&#39; אב תשפ&#34;ד (14 אוגוסט 2024).
-
-
-
-
-
-
-
-
 
 עוזי פוגלמן
 
@@ -1683,7 +1898,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

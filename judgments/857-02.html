@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    18/02/2002 (לפני 8842 ימים)
+                    18/02/2002 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/857-02.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="857/02 - פלוני נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F857-02.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/570/008/02A&amp;fileName=02008570_02A.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/570/008/02A&amp;fileName=02008570_02A.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/570/008/02A&amp;fileName=02008570_02A.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/570/008/02A&amp;fileName=02008570_02A.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1570,103 +1841,51 @@
 
 ערעור פסלות שופט על החלטתו של בית המשפט
 
-המחוזי
-בחיפה מיום 21.1.2002 בת.פ. 309/98
+המחוזי בחיפה מיום 21.1.2002 בת.פ. 309/98
 
-שניתנה
-על ידי כבוד השופטים: סלים ג&#39;ובראן,
+שניתנה על ידי כבוד השופטים: סלים ג&#39;ובראן,
 
-יצחק
-דר, שושנה שטמר
+יצחק דר, שושנה שטמר
 
-תאריך
-הישיבה: כ&#34;ה בשבט התשס&#34;ב (7.2.2002)
+תאריך הישיבה: כ&#34;ה בשבט התשס&#34;ב (7.2.2002)
 
-בשם
-המערער: עו&#34;ד תמר אולמן
+בשם המערער: עו&#34;ד תמר אולמן
 
-בשם
-המשיבה: עו&#34;ד נעמי גרנות
+בשם המשיבה: עו&#34;ד נעמי גרנות
 
 פסק-דין
 
-לפני ערעור על החלטת בית המשפט המחוזי בחיפה (כבוד השופטים
-ס&#39; ג&#39;ובראן, י&#39; דר, וש&#39; שטמר) מיום 21.1.2002 שלא לפסול עצמו מלדון בעניינו של
-המערער (ת&#34;פ 309/98).
+לפני ערעור על החלטת בית המשפט המחוזי בחיפה (כבוד השופטים ס&#39; ג&#39;ובראן, י&#39; דר, וש&#39; שטמר) מיום 21.1.2002 שלא לפסול עצמו מלדון בעניינו של המערער (ת&#34;פ 309/98).
 
-1. כנגד המערער הוגש כתב אישום בבית המשפט המחוזי
-בחיפה בו יוחסו לו עבירות מין במשפחה (סעיף 351(א) ו-(ג) בנסיבות סעיף 345(א)(1)
-ו-(3) לחוק העונשין, התשל&#34;ז-1977), שבוצעו בבתו
-בין השנים 1983-1991. המערער הורשע בפני בית משפט קמא (ביום 8.11.2001), ובטרם
-נגזר דינו ביקשה באת-כוח המדינה לתקן את הכרעת הדין, ולמחוק את העבירות שיוחסו
-למערער בין השנים 1983-1986. התיקון והמחיקה התבקשו בגין התיישנות עבירות מושא
-שנים אלו. בית-המשפט תיקן את הכרעת הדין בהתאם.
+1. כנגד המערער הוגש כתב אישום בבית המשפט המחוזי בחיפה בו יוחסו לו עבירות מין במשפחה (סעיף 351(א) ו-(ג) בנסיבות סעיף 345(א)(1) ו-(3) לחוק העונשין, התשל&#34;ז-1977), שבוצעו בבתו בין השנים 1983-1991. המערער הורשע בפני בית משפט קמא (ביום 8.11.2001), ובטרם נגזר דינו ביקשה באת-כוח המדינה לתקן את הכרעת הדין, ולמחוק את העבירות שיוחסו למערער בין השנים 1983-1986. התיקון והמחיקה התבקשו בגין התיישנות עבירות מושא שנים אלו. בית-המשפט תיקן את הכרעת הדין בהתאם.
 
-2. באת כוח המערער פנתה לבית משפט קמא בבקשה
-לפסול עצמן מלדון בעניינו של המערער. בקשה זו התבססה על העובדה, כי בית משפט קמא
-שמע ראיות לגבי עבירות עליהן הוסכם כי לא ניתן להרשיע בגינן בשל התישנותן. עובדה
-זו, כך נטען, מבססת חשד למשוא פנים ולדעה מוקדמת כלפי המערער. בית המשפט דחה את הבקשה.
-מכאן הערעור שלפני.
+2. באת כוח המערער פנתה לבית משפט קמא בבקשה לפסול עצמן מלדון בעניינו של המערער. בקשה זו התבססה על העובדה, כי בית משפט קמא שמע ראיות לגבי עבירות עליהן הוסכם כי לא ניתן להרשיע בגינן בשל התישנותן. עובדה זו, כך נטען, מבססת חשד למשוא פנים ולדעה מוקדמת כלפי המערער. בית המשפט דחה את הבקשה. מכאן הערעור שלפני.
 
-3. בערעור שלפני חוזרת באת כוח המערער על נימוקי
-הפסלות שהובאו לפני בית משפט קמא. טענתה העיקרית של בא-כוח המערער נעוצה בקיומו של
-חשש למשוא פנים. חשש זה, כך נטען, מתבסס על העובדה כי &#34;משקבע כבוד בית משפט
-קמא כי המערער אכן בצע את אותן עבירות, הוא חווה את דעתו לעניין אשמתו ואף קבע כי
-ביצוע אותן עבירות הוכח בפניו מעבר לספק סביר&#34;, ומשכך, בית המשפט איננו
-&#34;יכול עוד לנתק עצמו ולהתעלם מכל אותן עבירות בהן הוא הרשיע את המערער&#34;.
+3. בערעור שלפני חוזרת באת כוח המערער על נימוקי הפסלות שהובאו לפני בית משפט קמא. טענתה העיקרית של בא-כוח המערער נעוצה בקיומו של חשש למשוא פנים. חשש זה, כך נטען, מתבסס על העובדה כי &#34;משקבע כבוד בית משפט קמא כי המערער אכן בצע את אותן עבירות, הוא חווה את דעתו לעניין אשמתו ואף קבע כי ביצוע אותן עבירות הוכח בפניו מעבר לספק סביר&#34;, ומשכך, בית המשפט איננו &#34;יכול עוד לנתק עצמו ולהתעלם מכל אותן עבירות בהן הוא הרשיע את המערער&#34;.
 
-4. ביום 7.2.2002 טענו הצדדים לפני. באת כוח
-המערער שבה וטענה, כי לאחר שנחשף בית משפט קמא לכל אותה מסכת עובדתית שנסובה על
-עבירות שהתיישנו, שוב אין הוא מסוגל לעשות משפט צדק בבואו לגזור את דינו של הנאשם.
-לעומתה טענה באת כוח המדינה, כי אין להטיל ספק ביכולתו של בית המשפט להבחין,
-לעניין גזירת העונש, בין המעשים בהם הורשע נאשם וחלה לגביהם התיישנות, לבין מעשים
-אשר הרשעת הנאשם בהם בדין יסודה ואשר לא התיישנו.
+4. ביום 7.2.2002 טענו הצדדים לפני. באת כוח המערער שבה וטענה, כי לאחר שנחשף בית משפט קמא לכל אותה מסכת עובדתית שנסובה על עבירות שהתיישנו, שוב אין הוא מסוגל לעשות משפט צדק בבואו לגזור את דינו של הנאשם. לעומתה טענה באת כוח המדינה, כי אין להטיל ספק ביכולתו של בית המשפט להבחין, לעניין גזירת העונש, בין המעשים בהם הורשע נאשם וחלה לגביהם התיישנות, לבין מעשים אשר הרשעת הנאשם בהם בדין יסודה ואשר לא התיישנו.
 
-5. לאחר שעיינתי בחומר שלפני ובטיעוני הצדדים
-באתי לידי מסקנה כי דין הערעור להידחות. כאמור, עיקר הערעור שלפני מתבסס על החשש
-כי בית משפט שהתייחס והרשיע נאשם בעבירות שהתישנו איננו מסוגל להתעלם מאותן
-עבירות, ואיננו מסוגל לגזור את דינו של הנאשם אך בהתאם לעבירות שההרשעה בגינן בדין
-יסודה. בנוסף טוען המערער לחשש ממשי למשוא פנים בגין עצם הרשעתו בפני בית-משפט קמא
-בעבירות שהתיישנו (הרשעה שתוקנה, כאמור, על-ידי בית המשפט). לא השתכנעתי כי במקרה
-שלפני קיים חשש אובייקטיבי למשוא פנים. כבר נקבע לא פעם, כי דיני הפסילה אינם
-סובבים סביב תחושתו הסובייקטיבית של מבקש הפסילה. זאת ועוד: השופט, ששפיטה היא
-מקצועו ויעודו, מפנים בתוכו את היכולת להבחין בין מידע רלבנטי למידע שאיננו רלבנטי
-(ראו למשל ע&#34;פ 6752/97 פרידן נ&#39; מדינת ישראל, פ&#34;ד נא(5) 329).
-הוא הדין במקרה זה. משפטו של המערער מצוי בשלב גזירת הדין. בשלב זה רשאי בית המשפט
-להתייחס לשיקולים שונים, ובהם, למשל, הרשעותיו הקודמות של הנאשם (ראו סעיף 187
-לחוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב1982-). בה בעת, חזקה על בית משפט
-קמא, כי עונשו של המערער יגזר בגין העבירות בהן הורשע ואשר לא חלה עליהן התיישנות.
-לא שוכנעתי כי בנסיבות המקרה קיים חשש ממשי למשוא פנים בהליך, אך בשל העובדה
-שהמערער הורשע, בטעות, בעבירות שחלה עליהן התיישנות, במובן זה שלא יגזר עונשו
-כראוי. אם יסבור המערער כי העונש שיגזר עליו איננו תואם את חומרת מעשיו או את
-נסיבות הרשעתו, פתוחה לפניו הדרך להגיש ערעור על גזר דינו.
+5. לאחר שעיינתי בחומר שלפני ובטיעוני הצדדים באתי לידי מסקנה כי דין הערעור להידחות. כאמור, עיקר הערעור שלפני מתבסס על החשש כי בית משפט שהתייחס והרשיע נאשם בעבירות שהתישנו איננו מסוגל להתעלם מאותן עבירות, ואיננו מסוגל לגזור את דינו של הנאשם אך בהתאם לעבירות שההרשעה בגינן בדין יסודה. בנוסף טוען המערער לחשש ממשי למשוא פנים בגין עצם הרשעתו בפני בית-משפט קמא בעבירות שהתיישנו (הרשעה שתוקנה, כאמור, על-ידי בית המשפט). לא השתכנעתי כי במקרה שלפני קיים חשש אובייקטיבי למשוא פנים. כבר נקבע לא פעם, כי דיני הפסילה אינם סובבים סביב תחושתו הסובייקטיבית של מבקש הפסילה. זאת ועוד: השופט, ששפיטה היא מקצועו ויעודו, מפנים בתוכו את היכולת להבחין בין מידע רלבנטי למידע שאיננו רלבנטי (ראו למשל ע&#34;פ 6752/97 פרידן נ&#39; מדינת ישראל, פ&#34;ד נא(5) 329). הוא הדין במקרה זה. משפטו של המערער מצוי בשלב גזירת הדין. בשלב זה רשאי בית המשפט להתייחס לשיקולים שונים, ובהם, למשל, הרשעותיו הקודמות של הנאשם (ראו סעיף 187 לחוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב1982-). בה בעת, חזקה על בית משפט קמא, כי עונשו של המערער יגזר בגין העבירות בהן הורשע ואשר לא חלה עליהן התיישנות. לא שוכנעתי כי בנסיבות המקרה קיים חשש ממשי למשוא פנים בהליך, אך בשל העובדה שהמערער הורשע, בטעות, בעבירות שחלה עליהן התיישנות, במובן זה שלא יגזר עונשו כראוי. אם יסבור המערער כי העונש שיגזר עליו איננו תואם את חומרת מעשיו או את נסיבות הרשעתו, פתוחה לפניו הדרך להגיש ערעור על גזר דינו.
 
 דין הערעור להידחות.
 
 ניתן היום, ו&#39; באדר התשס&#34;ב (18.2.2002).
 
-ה
-נ ש י א
+ה נ ש י א
 
 _________________
 
-העתק
-מתאים למקור 02008570.A02 /דז/
+העתק מתאים למקור 02008570.A02 /דז/
 
-נוסח
-זה כפוף לשינויי עריכה וניסוח.
+נוסח זה כפוף לשינויי עריכה וניסוח.
 
-שמריהו
-כהן - מזכיר ראשי
+שמריהו כהן - מזכיר ראשי
 
-בבית
-המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
+בבית המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
 
-בית
-המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
+בית המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
 
-לבתי
-המשפט אתר באינטרנט: www.court.gov.il
+לבתי המשפט אתר באינטרנט: www.court.gov.il
         </div>
     </section>
     
@@ -1685,7 +1904,7 @@ _________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

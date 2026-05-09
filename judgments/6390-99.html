@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    20/03/2000 (לפני 9542 ימים)
+                    20/03/2000 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/6390-99.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="6390/99 - תמר קורן נ. נפתלי קורן"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F6390-99.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/900/063/A03&amp;fileName=99063900_A03.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/900/063/A03&amp;fileName=99063900_A03.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/900/063/A03&amp;fileName=99063900_A03.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/900/063/A03&amp;fileName=99063900_A03.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,8 +1829,7 @@
         <div class="nested-content" style="line-height: 1.8;">
             בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
-ע&#34;א
-6390/99
+ע&#34;א 6390/99
 
 בפני: כבוד הנשיא א&#39; ברק
 
@@ -1567,128 +1837,49 @@
 
 נגד
 
-המשיב: נפתלי
-קורן
+המשיב: נפתלי קורן
 
-ערעור
-פסלות שופט על החלטתו של בית המשפט
+ערעור פסלות שופט על החלטתו של בית המשפט
 
-לענייני
-משפחה ברמת גן, בתמ&#34;ש 309236/96,
+לענייני משפחה ברמת גן, בתמ&#34;ש 309236/96,
 
-מיום
-23.9.99 שניתן ע&#34;י כבוד השופט שמואל
+מיום 23.9.99 שניתן ע&#34;י כבוד השופט שמואל
 
 בוקובסקי
 
-בשם
-המערערת: בעצמה
+בשם המערערת: בעצמה
 
-בשם
-המשיב: עו&#34;ד א&#39; שגיא
+בשם המשיב: עו&#34;ד א&#39; שגיא
 
 פסק-דין
 
-ערעור על החלטת בית משפט לענייני משפחה ברמת
-גן (כב&#39; השופט שמואל בוקובסקי) מיום 23/09/99, (תמ&#34;ש 309236/96) שלא לפסול
-עצמו מלישב בדין.
+ערעור על החלטת בית משפט לענייני משפחה ברמת גן (כב&#39; השופט שמואל בוקובסקי) מיום 23/09/99, (תמ&#34;ש 309236/96) שלא לפסול עצמו מלישב בדין.
 
-1. המערערת והמשיב הם זוג נשוי. קיימים הליכים
-מהליכים שונים התלויים ועומדים בעניינם בבית משפט לענייני משפחה וכן בבית הדין
-הרבני. בשנת 1996 הגישה המערערת לבית משפט לענייני משפחה ברמת גן תביעה להגדלת
-מזונות. עד היום לא התקיים דיון בתובענה פרט לישיבה הראשונה. ביום 09/03/96 הגיש
-המשיב, המתגורר בנפרד מהמערעת, בקשה למתן צו הגנה בתמ&#34;ש 309236/96. באותו יום
-ניתן צו זמני במעמד צד אחד ונקבע דיון ליום 15/3/99 במעמד הצדדים, בו החליט השופט
-שלא יחקרו המצהירים על תצהיריהם. זאת לאור הסכמתה של המערערת שיינתן צו האוסר עליה
-להיכנס לדירת מגורי המשיב, ולהימצא ברדיוס 20 מטר מדירתו. השופט קבע כי יש להגיש
-לבית המשפט תסקיר סעד.
+1. המערערת והמשיב הם זוג נשוי. קיימים הליכים מהליכים שונים התלויים ועומדים בעניינם בבית משפט לענייני משפחה וכן בבית הדין הרבני. בשנת 1996 הגישה המערערת לבית משפט לענייני משפחה ברמת גן תביעה להגדלת מזונות. עד היום לא התקיים דיון בתובענה פרט לישיבה הראשונה. ביום 09/03/96 הגיש המשיב, המתגורר בנפרד מהמערעת, בקשה למתן צו הגנה בתמ&#34;ש 309236/96. באותו יום ניתן צו זמני במעמד צד אחד ונקבע דיון ליום 15/3/99 במעמד הצדדים, בו החליט השופט שלא יחקרו המצהירים על תצהיריהם. זאת לאור הסכמתה של המערערת שיינתן צו האוסר עליה להיכנס לדירת מגורי המשיב, ולהימצא ברדיוס 20 מטר מדירתו. השופט קבע כי יש להגיש לבית המשפט תסקיר סעד.
 
-2. ביום 30/03/99 הוגשה בקשה לפסלות שופט על ידי
-המערערת, בטענה כי יש חשש ממשי למשוא פנים. זאת בשל מספר טעמים. הנימוק העיקרי
-לערעור הוא, כי בישיבה שנערכה ביום 15/03/99, בה נדונה בקשת הבעל לצו הגנה, אמר לה
-השופט בתום הדיון &#34;את עושה לי את המוות, את עושה לבעלך את המוות, את עושה
-לכולם את המוות&#34;. ישיבה זו התקיימה טרם שמיעת הראיות בתיק, כלומר, בשלב מוקדם
-מאוד. אמירה זו הייתה בנוכחות הצדדים. כמו כן, טוענת היא, כי בדיון שהתקיים לא
-נשמעו ראיות והצדדים לא נחקרו על תצהיריהם. דברים אלו לטענתה מקימים חשש ממשי
-למשוא פנים. לטענתה מעיד הדבר על כך שהשופט נקט עמדה ברורה לטובת המשיב וכי לא
-יוכל לשפוט בתיק זה באובייקטיביות.
+2. ביום 30/03/99 הוגשה בקשה לפסלות שופט על ידי המערערת, בטענה כי יש חשש ממשי למשוא פנים. זאת בשל מספר טעמים. הנימוק העיקרי לערעור הוא, כי בישיבה שנערכה ביום 15/03/99, בה נדונה בקשת הבעל לצו הגנה, אמר לה השופט בתום הדיון &#34;את עושה לי את המוות, את עושה לבעלך את המוות, את עושה לכולם את המוות&#34;. ישיבה זו התקיימה טרם שמיעת הראיות בתיק, כלומר, בשלב מוקדם מאוד. אמירה זו הייתה בנוכחות הצדדים. כמו כן, טוענת היא, כי בדיון שהתקיים לא נשמעו ראיות והצדדים לא נחקרו על תצהיריהם. דברים אלו לטענתה מקימים חשש ממשי למשוא פנים. לטענתה מעיד הדבר על כך שהשופט נקט עמדה ברורה לטובת המשיב וכי לא יוכל לשפוט בתיק זה באובייקטיביות.
 
-3. בהחלטתו מיום 18/07/99, דחה בית המשפט את
-הבקשה. בהחלטתו אישר השופט כי אמר הדברים המיוחסים לו. הוא אף ציין, כי יתכן
-וההתבטאויות הללו לא היו ראויות, אך הן באו להביע מורת רוחו מטרחנותה והטרדתה של
-המערערת. לדידו, אין חשש ממשי למשוא פנים ואין כל יסוד לטענה כי גיבש עמדה נחרצת
-בעניין התביעה. השופט ציין, כי:
+3. בהחלטתו מיום 18/07/99, דחה בית המשפט את הבקשה. בהחלטתו אישר השופט כי אמר הדברים המיוחסים לו. הוא אף ציין, כי יתכן וההתבטאויות הללו לא היו ראויות, אך הן באו להביע מורת רוחו מטרחנותה והטרדתה של המערערת. לדידו, אין חשש ממשי למשוא פנים ואין כל יסוד לטענה כי גיבש עמדה נחרצת בעניין התביעה. השופט ציין, כי:
 
-&#34;ההתבטאויות
-הנ&#34;ל אינן מהוות עילה לפסילה, ואין כל יסוד לטענת המבקשת כי גיבשתי עמדה
-נחרצת בעניין התביעה, ולכן לא אוכל לפסוק באובייקטיביות הראויה... אני קובע חד
-משמעית כי לא גיבשתי לעצמי עמדה סופית בעניינים התלויים ועומדים בפני, ואני פתוח
-לשכנוע הן מצד המבקשת והן מצד המשיב&#34;.
+&#34;ההתבטאויות הנ&#34;ל אינן מהוות עילה לפסילה, ואין כל יסוד לטענת המבקשת כי גיבשתי עמדה נחרצת בעניין התביעה, ולכן לא אוכל לפסוק באובייקטיביות הראויה... אני קובע חד משמעית כי לא גיבשתי לעצמי עמדה סופית בעניינים התלויים ועומדים בפני, ואני פתוח לשכנוע הן מצד המבקשת והן מצד המשיב&#34;.
 
-עוד כותב השופט בהחלטתו כי העובדה שהזמין תסקיר מהמחלקה
-לשירותים חברתיים, במסגרת ההחלטה בעניין צו ההגנה, מעידה על כך שאין דעתו מגובשת.
-שהרי אם הייתה מגובשת לא היה טעם בהזמנת תסקיר זה.
+עוד כותב השופט בהחלטתו כי העובדה שהזמין תסקיר מהמחלקה לשירותים חברתיים, במסגרת ההחלטה בעניין צו ההגנה, מעידה על כך שאין דעתו מגובשת. שהרי אם הייתה מגובשת לא היה טעם בהזמנת תסקיר זה.
 
-4. בפני ערעור על החלטה זו. בכתב הערעור הפנתה
-המערערת וחזרה על טענותיה בפני הערכאה הראשונה. עוד הוסיפה, כי המשיב לא צירף
-תצהיר לתגובה לבקשת פסילת השופט. דבר זה לטענתה אמור לפסול התגובה. אולם השופט
-קיבל ועיין בתגובת המשיב על אף שהוגשו ללא תצהיר. בקשת המערערת למחיקת תגובת המשיב
-ולחייבו בהוצאות נדחתה. גם בקשות נוספות שהגישה המערערת כגון בקשה להפסקת הליכים
-בתיק הקשור לאלימות במשפחה, לביטול הכנת תסקיר הסעד וסעדים נוספים, נדחו. השופט
-עיין בפרוטוקול שככל הנראה לא היה אמור להיות מוגש כראיה בהליך שבין הצדדים וזאת
-נוכח החלטה של בית משפט השלום ברחובות. כמו כן טוענת המערערת לדחייה בלתי מוצדקת
-וארוכה עד מאוד של בקשות ודיונים, לרבות הזמן שחלף- לטענתה- עד למתן ההחלטה בעניין
-הפסלות וזאת באופן חד צדדי לטובת המשיב.
+4. בפני ערעור על החלטה זו. בכתב הערעור הפנתה המערערת וחזרה על טענותיה בפני הערכאה הראשונה. עוד הוסיפה, כי המשיב לא צירף תצהיר לתגובה לבקשת פסילת השופט. דבר זה לטענתה אמור לפסול התגובה. אולם השופט קיבל ועיין בתגובת המשיב על אף שהוגשו ללא תצהיר. בקשת המערערת למחיקת תגובת המשיב ולחייבו בהוצאות נדחתה. גם בקשות נוספות שהגישה המערערת כגון בקשה להפסקת הליכים בתיק הקשור לאלימות במשפחה, לביטול הכנת תסקיר הסעד וסעדים נוספים, נדחו. השופט עיין בפרוטוקול שככל הנראה לא היה אמור להיות מוגש כראיה בהליך שבין הצדדים וזאת נוכח החלטה של בית משפט השלום ברחובות. כמו כן טוענת המערערת לדחייה בלתי מוצדקת וארוכה עד מאוד של בקשות ודיונים, לרבות הזמן שחלף- לטענתה- עד למתן ההחלטה בעניין הפסלות וזאת באופן חד צדדי לטובת המשיב.
 
-5. המשיב מתנגד לבקשה זו. נימוקיו הם, כי דבריה
-של המערערת אינם מדויקים. הדיונים נתמשכו ונדחו לטענתו עקב ריבוי הבקשות, התנהגות
-המערערת ואי הופעתה לדיונים רבים. התצהיר אותו הגישה המערערת לבקשת הפסלות הוא
-פגום. לטענתו כל מטרתה של המערערת היא למרר את חייו. לשם כך היא מסרבת לתת לו גט
-משום שברור לה כי משתיתן לו גיטו לא תוכל עוד להמשיך בדיונים המשפטיים שמטרתם
-להכביד על המשיב. הא ותו לא. המשיב בתגובתו מביא דוגמאות מדוגמאות שונות לכך. כמו
-כן, לטענתו, התגובה שלו לבקשת הפסלות והפרוטוקול לא היוו כלל שיקול בהחלטת השופט
-בבקשת הפסילה ומכאן שאין בעיון בהם כל חשש ממשי למשוא פנים. מעבר לכך לטענתו הגשת
-הפרוטוקול הייתה בתום לב על מנת להגיע לחקר האמת ונעשתה בדיון שהתקיים בדלתיים סגורות.
-לא היה צורך בחקירת המצהירים על תצהיריהם בדיון על מתן צו ההגנה משום שהוא ניתן
-בהסכמת המערערת. במהלך דיון זה התחצפה המערערת לשופט תוך זלזול במעמד בו נכחה.
-כתגובה לכך באה התבטאות השופט בתום הדיון. מטעמים אלו, כך נטען, אין כל חשש ממשי
-למשוא פנים.
+5. המשיב מתנגד לבקשה זו. נימוקיו הם, כי דבריה של המערערת אינם מדויקים. הדיונים נתמשכו ונדחו לטענתו עקב ריבוי הבקשות, התנהגות המערערת ואי הופעתה לדיונים רבים. התצהיר אותו הגישה המערערת לבקשת הפסלות הוא פגום. לטענתו כל מטרתה של המערערת היא למרר את חייו. לשם כך היא מסרבת לתת לו גט משום שברור לה כי משתיתן לו גיטו לא תוכל עוד להמשיך בדיונים המשפטיים שמטרתם להכביד על המשיב. הא ותו לא. המשיב בתגובתו מביא דוגמאות מדוגמאות שונות לכך. כמו כן, לטענתו, התגובה שלו לבקשת הפסלות והפרוטוקול לא היוו כלל שיקול בהחלטת השופט בבקשת הפסילה ומכאן שאין בעיון בהם כל חשש ממשי למשוא פנים. מעבר לכך לטענתו הגשת הפרוטוקול הייתה בתום לב על מנת להגיע לחקר האמת ונעשתה בדיון שהתקיים בדלתיים סגורות. לא היה צורך בחקירת המצהירים על תצהיריהם בדיון על מתן צו ההגנה משום שהוא ניתן בהסכמת המערערת. במהלך דיון זה התחצפה המערערת לשופט תוך זלזול במעמד בו נכחה. כתגובה לכך באה התבטאות השופט בתום הדיון. מטעמים אלו, כך נטען, אין כל חשש ממשי למשוא פנים.
 
-6. עיינתי בחומר שבפני ובטענות המערערת. נחה דעתי
-כי דין הערעור להדחות. אשר לטענות שעניינן אי חקירת עדים על תצהיריהם בדיון על צו
-ההגנה, אי שמיעת ראיות, והשהייה של המשפט, הרי שאלו לא הוטלו בפני השופט כעילה
-לפסילתו, ואין להעלותם בפני. גם לגוף הענין יש לדחותן טענות אלה. החלטותיו של בית
-המשפט בענינים אלה הן דיוניות. מבלי להביע כל עמדה לגופן או באשר לנכונותן, הרי
-שאין הן מהוות עילה לפסלות שופט. כך גם אשר לטענה שהזמנת התסקיר הייתה שגויה. (ראו
-ע&#34;פ 77/93 אליהו עובדיה נגד מדינת ישראל, (טרם פורסם), ע&#34;א
-2949/96 כלל חברה לביטוח נגד מנסור אדיב, (טרם פורסם), ע&#34;א 4487/99 מחמד
-כאמל אלקורד נגד ועד עדת הספרדים, (טרם פורסם)). המערערת הדגישה, אמנם, כי כב&#39;
-השופט עיין בפרוטוקול הדיון מבית משפט השלום ברחובות שנאסר לפרסום, אולם לבד מטענה
-זו, לא ביססה המערערת בפני הערכאה הראשונה ובפני, מדוע יש בכך משום חשש מששי למשוא
-פנים בנסיבות המקרה. אשר להתבטאות השופט במהלך הדיון על צו ההגנה, לא השתכנעתי כי
-היא מקימה חשש ממשי למשוא פנים בנסיבות האמורות. אי לכך גם לא ראיתי צורך במתן
-רשות תגובה לתשובת המשיב בערעור. אכן, לא ראוי כי שופט יתבטא באופן כזה כלפי בעל
-דין הבא בפניו. גם השופט עצמו הכיר בכך בהחלטתו. עולה מדברי המערערת כי חשה אי
-נוחות מאופן התנהלות הדיון והתבטאות השופט, אולם המבחן בעניין זה הינו אובייקטיבי
-ואין די בתחושת המערערת כי בית המשפט נוהג כלפיה במשוא פנים. (ראו: ב&#34;ש 48/75
-ידיד נ&#39; מדינת ישראל, פד&#34;י כט (2) 375). נוכח האמור בהחלטתו של בית
-המשפט, בהקשרם של הדברים ובעובדה שטרם נשמעו ראיות בתיק, הרי ששוכנעתי כי אין
-במקרה שבפני חשש ממשי למשוא פנים. אי לכך הערעור נדחה.
+6. עיינתי בחומר שבפני ובטענות המערערת. נחה דעתי כי דין הערעור להדחות. אשר לטענות שעניינן אי חקירת עדים על תצהיריהם בדיון על צו ההגנה, אי שמיעת ראיות, והשהייה של המשפט, הרי שאלו לא הוטלו בפני השופט כעילה לפסילתו, ואין להעלותם בפני. גם לגוף הענין יש לדחותן טענות אלה. החלטותיו של בית המשפט בענינים אלה הן דיוניות. מבלי להביע כל עמדה לגופן או באשר לנכונותן, הרי שאין הן מהוות עילה לפסלות שופט. כך גם אשר לטענה שהזמנת התסקיר הייתה שגויה. (ראו ע&#34;פ 77/93 אליהו עובדיה נגד מדינת ישראל, (טרם פורסם), ע&#34;א 2949/96 כלל חברה לביטוח נגד מנסור אדיב, (טרם פורסם), ע&#34;א 4487/99 מחמד כאמל אלקורד נגד ועד עדת הספרדים, (טרם פורסם)). המערערת הדגישה, אמנם, כי כב&#39; השופט עיין בפרוטוקול הדיון מבית משפט השלום ברחובות שנאסר לפרסום, אולם לבד מטענה זו, לא ביססה המערערת בפני הערכאה הראשונה ובפני, מדוע יש בכך משום חשש מששי למשוא פנים בנסיבות המקרה. אשר להתבטאות השופט במהלך הדיון על צו ההגנה, לא השתכנעתי כי היא מקימה חשש ממשי למשוא פנים בנסיבות האמורות. אי לכך גם לא ראיתי צורך במתן רשות תגובה לתשובת המשיב בערעור. אכן, לא ראוי כי שופט יתבטא באופן כזה כלפי בעל דין הבא בפניו. גם השופט עצמו הכיר בכך בהחלטתו. עולה מדברי המערערת כי חשה אי נוחות מאופן התנהלות הדיון והתבטאות השופט, אולם המבחן בעניין זה הינו אובייקטיבי ואין די בתחושת המערערת כי בית המשפט נוהג כלפיה במשוא פנים. (ראו: ב&#34;ש 48/75 ידיד נ&#39; מדינת ישראל, פד&#34;י כט (2) 375). נוכח האמור בהחלטתו של בית המשפט, בהקשרם של הדברים ובעובדה שטרם נשמעו ראיות בתיק, הרי ששוכנעתי כי אין במקרה שבפני חשש ממשי למשוא פנים. אי לכך הערעור נדחה.
 
-המערערת תישא בהוצאות המשיב בסך 5,000
-ש&#34;ח.
+המערערת תישא בהוצאות המשיב בסך 5,000 ש&#34;ח.
 
-ניתנה היום, י&#34;ב באדר ב&#39; התש&#34;ס
-(19.3.2000).
+ניתנה היום, י&#34;ב באדר ב&#39; התש&#34;ס (19.3.2000).
 
-ה
-נ ש י א
+ה נ ש י א
 
-העתק
-מתאים למקור
+העתק מתאים למקור
 
-שמריהו
-כהן - מזכיר ראשי
+שמריהו כהן - מזכיר ראשי
 
 99063900.A03/דז/
         </div>
@@ -1709,7 +1900,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    11/08/2021 (לפני 1728 ימים)
+                    11/08/2021 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5432-21.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5432/21 - ינון רהב נ. רשות מקרקעי ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5432-21.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/320/054/a06&amp;fileName=21054320.A06&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/320/054/a06&amp;fileName=21054320.A06&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/320/054/a06&amp;fileName=21054320.A06&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/320/054/a06&amp;fileName=21054320.A06&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,93 +1827,45 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            6
+            בבית המשפט העליון
 
+רע&#34;א 5432/21
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-רע&#34;א  5432/21
-
-
-
-לפני:	
+לפני:
 
 כבוד השופטת ד&#39; ברק-ארז
-
-
 
 המבקש:
 
 ינון רהב
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. רשות מקרקעי ישראל
 
-
-
 2. רשות הפיתוח
-
-
 
 3. הקרן הקיימת לישראל
 
-
-
 4. מזל עמרני
-
-
 
 5. מרים משה
 
-
-
 6. הדסה מדר (עמרני)
-
-
 
 7. אליה עמרני
 
-
-
 8. שולמית צדוק (עמרני)
-
-
 
 9. יכין עמרני
 
-
-
 10. בועז עמרני
-
-
 
 11. נחמיה עמרני
 
-
-
 בקשת רשות ערעור על החלטתו של בית המשפט המחוזי מרכז-לוד מיום 29.7.2021 בע&#34;א 63943-07-21 שניתנה על-ידי כבוד השופטת ר&#39; שמולביץ
-
-
 
 בשם המבקש:	בעצמו
 
@@ -1650,125 +1873,59 @@
 
 בשם המשיבים 11-4:	עו&#34;ד יוסף ברונפמן
 
-	
-
 פסק דין
 
-
-
-1. 	זוהי בקשת רשות ערעור על החלטתו של בית המשפט המחוזי מרכז-לוד מיום 29.7.2021 (ע&#34;א 63943-07-21, השופטת ר&#39; שמולביץ). בית המשפט המחוזי דחה בקשה שהגיש המבקש למתן סעד זמני בערעור על החלטתו של בית משפט השלום בפתח תקווה מיום 12.7.2021 (ת&#34;א 54843-08-18, השופט נ&#39; שטרנליכט). 
-
-
-
-
-
-
+1. 	זוהי בקשת רשות ערעור על החלטתו של בית המשפט המחוזי מרכז-לוד מיום 29.7.2021 (ע&#34;א 63943-07-21, השופטת ר&#39; שמולביץ). בית המשפט המחוזי דחה בקשה שהגיש המבקש למתן סעד זמני בערעור על החלטתו של בית משפט השלום בפתח תקווה מיום 12.7.2021 (ת&#34;א 54843-08-18, השופט נ&#39; שטרנליכט).
 
 רקע והליכים קודמים
 
-
-
-2. 	מקורו של ההליך שבפני בתביעה בסדר דין מקוצר שהוגשה לבית משפט השלום בחודש אוגוסט 2018 מטעם רשות מקרקעי ישראל, היא המשיבה 1 (להלן: רמ&#34;י). התביעה כוונה לסילוק ידם של המשיבים 11-4 (להלן: המשיבים) ממקרקעין באבן יהודה שאליהם פלשו, כך נטען, שלא כדין. יצוין כבר עתה, כי המשיבה 4 היא אמם של המשיבים 11-5 ואלמנתו של שלום עמרני ז&#34;ל (להלן: המנוח), שהיה בעל זכויות חכירה במקרקעין סמוכים. שמיעת הראיות בתיק הסתיימה ביום 21.12.2020, וביום 4.2.2021 הגישה רמ&#34;י סיכומים מטעמה, בהתאם להחלטתו של בית משפט השלום. המשיבים לא הגישו את סיכומיהם במועד שנקבע לכך. 
-
-
+2. 	מקורו של ההליך שבפני בתביעה בסדר דין מקוצר שהוגשה לבית משפט השלום בחודש אוגוסט 2018 מטעם רשות מקרקעי ישראל, היא המשיבה 1 (להלן: רמ&#34;י). התביעה כוונה לסילוק ידם של המשיבים 11-4 (להלן: המשיבים) ממקרקעין באבן יהודה שאליהם פלשו, כך נטען, שלא כדין. יצוין כבר עתה, כי המשיבה 4 היא אמם של המשיבים 11-5 ואלמנתו של שלום עמרני ז&#34;ל (להלן: המנוח), שהיה בעל זכויות חכירה במקרקעין סמוכים. שמיעת הראיות בתיק הסתיימה ביום 21.12.2020, וביום 4.2.2021 הגישה רמ&#34;י סיכומים מטעמה, בהתאם להחלטתו של בית משפט השלום. המשיבים לא הגישו את סיכומיהם במועד שנקבע לכך.
 
 3. 	ביום 7.1.2021 הגיש המבקש – שאינו מיוצג – בקשה להצטרף כצד להליך, וכן לעכב את המועד שנקבע להגשת סיכומים על-ידי המשיבים עד להכרעה בבקשתו. המבקש טען כי הוא בנה של המשיבה 4 ואחיהם של המשיבים האחרים, כמו גם היורש של המקרקעין בהתאם לצוואת אביו, וחרף זאת הוא לא צורף כנתבע בתיק. עוד טען המבקש, כי הוא זה שבנה את הבית שמצוי במקרקעין ואף התגורר בו מאז שחרורו מהצבא ועד לשנת 2019. באותה שנה, כך נטען על ידו, חלה במחלה קשה ועבר מספר ניתוחים. לשיטתו, בעת שהיה בטיפולים, אחיו הסתירו ממנו את דבר התביעה, ורק עתה נודע לו על קיומה.
 
-
-
 4. 	רמ&#34;י התנגדה לבקשה לצירוף המבקש להליך, לנוכח השלב הדיוני המתקדם, וכן בשל העובדה שלא צורפו לבקשה תצהיר ואסמכתאות לאימות העובדות הנטענות בה. ממילא, רמ&#34;י טענה כי המבקש עצמו מודה שכיום הוא אינו מחזיק בבית שנבנה בשטח המקרקעין ואינו מתגורר בו. כמו כן טענה רמ&#34;י, כי המבקש והמשיבים משתפים פעולה בחוסר תום לב במטרה לעכב את סיום ההליך. המשיבים מצדם תמכו בבקשת ההצטרפות.
-
-
 
 5. 	בית משפט השלום קבע דיון בבקשת ההצטרפות להליך, וזה נדחה לנוכח מצבו הרפואי של המבקש ואשפוזו בבית החולים. בהמשך, המבקש הגיש שתי בקשות נוספות לדחיית הדיון מפאת מצבו הרפואי, אך אלה נדחו על-ידי בית משפט השלום. המבקש אף הגיש על כך בקשת רשות ערעור לבית המשפט המחוזי, אולם זו נמחקה לאחר שהמבקש לא שילם אגרה ולא הפקיד עירבון כנדרש (רע&#34;א 46720-06-21, השופט מ&#39; קרשן). בסופו של דבר, הדיון בבקשת ההצטרפות התקיים ביום 12.7.2021, והמבקש עצמו לא התייצב אליו. מכר של המבקש שנכח בדיון, אשר ציין כי הוא משפטן, מסר כי המבקש מאושפז בבית החולים, וכי ביקש ממנו &#34;להשמיע את קולו&#34;, אך הוסיף כי אין בידו ייפוי כוח מטעמו. אף אשתו של המבקש נכחה בדיון וביקשה לדחות את הדיון עד שהמבקש עצמו יוכל להתייצב ולהציג את טענותיו.
 
-
-
 6. 	בתום הדיון, דחה בית משפט השלום את בקשת ההצטרפות להליך. בית משפט השלום קבע כי לבקשה לא נלוותה אסמכתה התומכת בגוף הטענות המועלות בה, להוציא תצהיר של המבקש עצמו, שהיה ערוך על דרך הפניה בלבד. כמו כן, צוין כי המשיבים לא עשו דבר לאורך ניהול ההליכים לשם צירוף המבקש להליך, וכי רק משהוגשה הבקשה קודם להגשת את סיכומיהם הם הצטרפו אליה &#34;בלהט רב&#34;. בית משפט השלום ציין כי הוא ער למצבו הרפואי הקשה של המבקש, אולם הוסיף כי אין הצדקה במקרה זה לעיכוב נוסף בבירור הסכסוך העיקרי בתיק. בית משפט השלום ציין בהקשר זה, כי המבקש יכול היה להסמיך מיופה כוח שיטען בשמו במהלך הדיון. לבסוף, בית משפט השלום קבע כי על המשיבים להגיש את סיכומיהם בתוך 30 ימים.
-
-
 
 7. 	ביום 29.7.2021 המבקש הגיש בקשת רשות ערעור על החלטה זו לבית המשפט המחוזי. בצדה של בקשת רשות הערעור, המבקש הגיש בקשה שאותה כינה &#34;בקשה לעכב הליכים&#34;, ובה עתר לצו שיעכב את המשך ההליך המתנהל בבית משפט השלום עד להכרעה בבקשת רשות הערעור. המבקש טען כי אין מקום להגשת הסיכומים בתיק כל עוד קיים סיכוי לכך שהוא יצורף להליך, וכי לא ייגרם נזק לרמ&#34;י אם יעוכב מועד הגשת הסיכומים.
 
-
-
 8. 	בו ביום, דחה בית המשפט המחוזי את הבקשה. בית המשפט המחוזי ציין כי מדובר בבקשה לעכב את ביצועה של החלטה שקבעה מועדים להגשת סיכומי הצדדים בבית משפט השלום – ועל כן היא נמנית עם הבקשות שביחס אליהן אין לתת רשות ערעור לפי סעיף 1(1) לצו בתי המשפט (סוגי החלטות שלא תינתן בהן רשות ערעור), התשס&#34;ט-2009 (להלן: צו בתי המשפט). עוד הוסיף בית המשפט המחוזי, כי אין מקום לעקיפת הוראותיו של צו בתי המשפט באמצעות הגשת בקשה לעיכוב ביצוע.
-
-
 
 9. 	להשלמת התמונה יצוין כי המבקש הגיש שתי בקשות נוספות באותו עניין לבית המשפט המחוזי. ביום 1.8.2021 דחה אותן בית המשפט המחוזי (סגנית הנשיאה ב&#39; טולקובסקי) בהחלטות שבהן צוין כי אין הוא יושב כערכאת ערעור על החלטותיו שלו, וכי מכל מקום אף לגוף הדברים אין הצדקה לשנות מההחלטה שניתנה.
 
-
-
 טענות הצדדים
-
-
 
 10. 	בקשת רשות הערעור דנן נסבה על החלטתו של בית המשפט המחוזי מיום 29.7.2021 כמו גם על ההחלטות הנוספות שניתנו ביום 1.8.2021. המבקש טוען כי מוצדק לעכב את המשך ההליכים לנוכח העובדה שבית משפט השלום עלול לתת פסק דין בתביעה בטרם תוכרע בקשת רשות הערעור שנסבה על בקשת ההצטרפות, וכך עלול להיגרם לו נזק בלתי הפיך. המבקש מדגיש כי הדברים אמורים במשנה תוקף בהתחשב בכך שבית משפט השלום עלול להורות בפסק דינו על סילוק יד מהמקרקעין. המבקש חוזר וטוען כי יש לו זכות להשתתף בהליך לנוכח מעמדו כיורש וכמי שבנה את הבית שפינויו מתבקש.
 
-
-
 11. 	ביום 5.8.2021 הוריתי על הגשת תשובות לבקשת רשות הערעור, ואלו הוגשו ביום 10.8.2021. בתגובתה טוענת רמ&#34;י כי החלטתו של בית המשפט היא נכונה ועל כן דין הבקשה להידחות. לטענת רמ&#34;י, בית המשפט המחוזי צדק בקבעו שאין מקום לעקוף את הוראות צו בתי המשפט באמצעות הגשת בקשה לסעד זמני. מעבר לצורך, ציינה רמ&#34;י בתגובתה כי המבקש לא נתבע מלכתחילה משום שלא אותר בביקור הפיקוח במקרקעין וכן משום שבעת הכנת תיק התביעה הוא לא הופיע כבנו של המנוח ברישום הקיים במשרד הפנים, בניגוד לאחיו. מכל מקום, טוענת רמ&#34;י, ילדיו של המנוח צורפו להליך למען הזהירות שכן תביעה לסילוק יד מוגשת כנגד הפולשים המחזיקים במקרקעין בלבד. לשיטתה של רמ&#34;י, בקשתו של המבקש להצטרף להליך הוגשה בשיהוי ניכר, בשלב דיוני מתקדם, ומבלי שנתמכה בכל אסמכתה או התייחסות למועד שבו נודע למבקש על ההליך המשפטי, וזאת על אף שניתנו לו הזדמנויות לעשות כן. לפיכך, רמ&#34;י סבורה כי סיכויי הערעור שהגיש המבקש הם נמוכים.
-
-
 
 12. 	המשיבים תומכים בבקשה, וטוענים כי משמעות החלטתו של בית המשפט המחוזי היא סגירת דלתות בית המשפט בפני המבקש בהליך כולו, באופן המעורר חשש לעיוות דין.
 
-
-
 דיון והכרעה
 
+13. 	לאחר ששקלתי את הדברים החלטתי לדון בבקשת רשות הערעור כאילו ניתנה רשות והוגש ערעור לפי הרשות שניתנה. לצד זאת, אני סבורה שיש לדחות את הערעור לגופו.
 
-
-13. 	לאחר ששקלתי את הדברים החלטתי לדון בבקשת רשות הערעור כאילו ניתנה רשות והוגש ערעור לפי הרשות שניתנה. לצד זאת, אני סבורה שיש לדחות את הערעור לגופו. 
-
-
-
-14. 	בעיקרו של דבר אני סבורה שלא היה מקום לדחות את בקשתו של המבקש, שהיא במהותה בקשה לסעד זמני בערעור, על הסף, מבלי לבחון את הטענות לגופן. אכן, במסגרת החלטתו של בית משפט השלום, שעליה נסב הערעור שהגיש המבקש לבית המשפט המחוזי, ניתנה גם הוראה הקובעת מועד להגשת סיכומי המשיבים, אשר עליה אין רשות ערעור לפי סעיף 1(1) לצו בתי המשפט. אולם, זו אינה ליבת ההחלטה שעליה המבקש מעוניין להשיג. במהותה, החלטתו של בית משפט השלום היא החלטה לדחות בקשה לצירוף צד להליך, ועל כך נסבה בקשת רשות הערעור שהגיש המבקש. הבקשה שהגיש המבקש, שכאמור אינו מיוצג, אמנם אינה מנוסחת בלשון משפטית. אולם, ניתן להבין ממנה בנקל כי היא מכוונת לעיכוב של המשך ההליך בבית משפט השלום, מתוך חשש שיינתן בו פסק דין בטרם תתקבל הכרעה בערעור על ההחלטה שלא לצרפו כצד, וזאת בשים לב לשלב הדיוני המתקדם שבו מצוי ההליך. בהיבט זה, אין אפוא לראות את הבקשה לסעד זמני כבקשה שנועדה &#34;לעקוף&#34; את הוראת סעיף 1(1) לצו בתי המשפט. 
-
-
+14. 	בעיקרו של דבר אני סבורה שלא היה מקום לדחות את בקשתו של המבקש, שהיא במהותה בקשה לסעד זמני בערעור, על הסף, מבלי לבחון את הטענות לגופן. אכן, במסגרת החלטתו של בית משפט השלום, שעליה נסב הערעור שהגיש המבקש לבית המשפט המחוזי, ניתנה גם הוראה הקובעת מועד להגשת סיכומי המשיבים, אשר עליה אין רשות ערעור לפי סעיף 1(1) לצו בתי המשפט. אולם, זו אינה ליבת ההחלטה שעליה המבקש מעוניין להשיג. במהותה, החלטתו של בית משפט השלום היא החלטה לדחות בקשה לצירוף צד להליך, ועל כך נסבה בקשת רשות הערעור שהגיש המבקש. הבקשה שהגיש המבקש, שכאמור אינו מיוצג, אמנם אינה מנוסחת בלשון משפטית. אולם, ניתן להבין ממנה בנקל כי היא מכוונת לעיכוב של המשך ההליך בבית משפט השלום, מתוך חשש שיינתן בו פסק דין בטרם תתקבל הכרעה בערעור על ההחלטה שלא לצרפו כצד, וזאת בשים לב לשלב הדיוני המתקדם שבו מצוי ההליך. בהיבט זה, אין אפוא לראות את הבקשה לסעד זמני כבקשה שנועדה &#34;לעקוף&#34; את הוראת סעיף 1(1) לצו בתי המשפט.
 
 15. 	יחד עם זאת, כאמור, לאחר שבחנתי את טענות הצדדים איני סבורה כי יש מקום להיעתר לבקשה לסעד זמני, בהתחשב בכך שממילא דין טענות המבקש בעניין זה להידחות. בקשת ההצטרפות להליך מטעם המבקש הוגשה רק בחודש ינואר 2021, והדיון בה התקיים לאחר כחצי שנה, בשל דחיה שהתבקשה מטעמו. כל זאת כאשר ההתדיינות מצויה כבר בשלב הסיכומים. למבקש היו הזדמנויות רבות לתמוך את טענותיו באסמכתאות – ולו בסיסיות – אך הוא לא עשה כן. המשיבים מצדם תמכו אמנם בבקשת ההצטרפות אולם הותירו בשלב זה ללא מענה את השאלה מדוע לא עוררו את הטענה בדבר אי-צירופו של המבקש להליך בשלב מוקדם יותר של ההתדיינות. בהתחשב בכל זאת, ואף כאשר אני מביאה בחשבון את מצבו הרפואי של המבקש, איני סבורה כי ישנה הצדקה לעיכוב נוסף של המשך ההליך בערכאה הדיונית. בהקשר זה אעיר, כי נתתי משקל לעובדה שהמבקש עצמו אינו מתגורר במקרקעין מושא ההליך, ועל כן גם אם יינתן פסק דין המורה על פינוי בטרם הכרעה בערעורו בבית המשפט המחוזי לא יהיה בכך כדי לגרום לו לנזק בלתי הפיך.
 
-
-
 16. 	אדגיש: איני נוקטת כל עמדה באשר לבקשת רשות הערעור התלויה ועומדת בבית המשפט המחוזי, וזכויותיו של המבקש שמורות בכל הנוגע לכך. ניתן אף לומר שזוהי הזדמנות נוספת עבורו להציג אסמכתאות לטענותיו. אולם, בשלב זה די בנתונים הקיימים כדי לדחות את הבקשה לעכב את המשך ההליך בבית משפט השלום.
-
-
 
 17. 	לפני סיום, לא למותר להזכיר בכלליות – מבלי להתייחס לגוף הטענות במקרה זה – כי במקרה שבו ערכאת הערעור נדרשת לבקשת סעד זמני, ויש לה ספקות ביחס להליך הערעורי שעליו היא נסמכת (לרבות בקשת רשות ערעור), היא רשאית לבחון גם את הערעור או בקשת הערעור לגופם. בעשותה כן ערכאת הערעור רשאית לבחון שמא יש מקום לדחותם אף ללא צורך בתשובה (ראו: תקנה 138(א) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018).
 
-
-
 18. 	אשר על כן: הערעור נדחה. במכלול הנסיבות ובהתחשב בנסיבותיו האישיות של המבקש, איני עושה צו להוצאות.
 
-
-
-	ניתן היום, ‏ג&#39; באלול התשפ&#34;א (‏11.8.2021).
-
-
-
-
+ניתן היום, ‏ג&#39; באלול התשפ&#34;א (‏11.8.2021).
 
 ש ו פ ט ת
 
-
-
 _________________________
 
-   21054320_A06.docx   
+21054320_A06.docx
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1787,7 +1944,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

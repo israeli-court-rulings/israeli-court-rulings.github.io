@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    06/09/2022 (לפני 1337 ימים)
+                    06/09/2022 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/4866-22.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="4866/22 - עמוס גבעון נ. עמוס ון אמדן"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F4866-22.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/660/048/v01&amp;fileName=22048660.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/660/048/v01&amp;fileName=22048660.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/660/048/v01&amp;fileName=22048660.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/660/048/v01&amp;fileName=22048660.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,153 +1827,67 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון
 
+ע&#34;א 4866/22
 
-
-
-
-1
-
-
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-ע&#34;א  4866/22
-
-
-
-לפני:	
+לפני:
 
 כבוד הנשיאה א&#39; חיות
-
-
 
 המערער:
 
 עמוס גבעון
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. עמוס ון-אמדן
 
-
-
 2. שלומית הראל- שוורץ
 
-
-
 ערעור על החלטתו של בית משפט השלום בהרצליה מיום 4.7.2022 בת&#34;א 11514-06-19 שניתנה על ידי כבוד השופט צ&#39; אלמוג
-
-
 
 בשם המערער:
 
 עו&#34;ד סתיו גבעון
 
-
-
 פסק-דין
 
+ערעור על החלטתו של בית משפט השלום בהרצליה (השופט צ&#39; אלמוג; להלן: המותב) מיום 4.7.2022 בת&#34;א 11514-06-19 (להלן: ההליך) שלא לפסול עצמו מלדון בעניינו של המערער.
 
+עניינו של ההליך בסכסוך בין המערער והמשיבים, כולם עורכי דין במקצועם, נוכח סירוב המערער להעביר למשיבים כסף שהם טוענים שהוא חייב להם. זהו הערעור השלישי שמגיש המערער על החלטת המותב הדן בהליך שלא לפסול את עצמו (ראו: ע&#34;א 7279/20 גבעון נ&#39; ון-אמדן (16.12.2020); וע&#34;א 2592/21 גבעון נ&#39; ון-אמדן (6.5.2021); להלן בהתאמה: הערעור הראשון והערעור השני)).
 
-	ערעור על החלטתו של בית משפט השלום בהרצליה (השופט צ&#39; אלמוג; להלן: המותב) מיום 4.7.2022 בת&#34;א 11514-06-19 (להלן: ההליך) שלא לפסול עצמו מלדון בעניינו של המערער.
+ההליך הוגש ביום 5.6.2019 ונותב לטיפולו של השופט ג&#39; הס (להלן: המותב הקודם). בהליך התקיימו מספר דיוני קדם משפט והוגשו תצהירים. בחודש מרץ 2022 מונה המותב הקודם לבית המשפט המחוזי תל אביב, וביום 31.5.2022 נתן המותב החלטה בה ציין כי ההליך הועבר לטיפולו.
 
+בהמשך לכך, ביום 13.6.2022 נתן המותב החלטה בשתי בקשות של המערער שהיו תלויות ועומדות: בקשה לזימון שמונה עדים ולהורות על הגשת תעודות עובד ציבור ממוסדות שונים ובקשה להגיש ראיות נוספות (להלן: ההחלטה מיום 13.6.2022). המותב תיאר את השתלשלות ההליך ואת גדרי המחלוקת כפי שאלה תוארו בהחלטה קודמת של המותב הקודם, ועל רקע זה דחה את הבקשה לזימון עדים ברובה, מאחר שלא מצא כי מרבית העדים רלוונטיים לשאלות שבמחלוקת כפי שנקבעו. מטעם זה אף דחה המותב את הבקשה להורות על הגשת תעודות עובד ציבור שונות, וכן את הבקשה להגיש ראיות נוספות. עם זאת, הבקשה לזימון עדים התקבלה ביחס לאחד מתוך שמונת העדים שהתבקשו. כמו כן, חייב המותב את המערער בהוצאות המשיבים בסך של 1,000 ש&#34;ח.
 
+ביום 17.6.2022 הגיש המערער בקשה לעיון חוזר בהחלטה. המערער טען כי המותב הסתמך על החלטה של המותב הקודם, אך לא נתן דעתו לכך שבית המשפט המחוזי &#34;קבע קביעות שונות במספר בקשות רשות ערעור שהוגשו&#34;.
 
-	עניינו של ההליך בסכסוך בין המערער והמשיבים, כולם עורכי דין במקצועם, נוכח סירוב המערער להעביר למשיבים כסף שהם טוענים שהוא חייב להם. זהו הערעור השלישי שמגיש המערער על החלטת המותב הדן בהליך שלא לפסול את עצמו (ראו: ע&#34;א 7279/20 גבעון נ&#39; ון-אמדן (16.12.2020); וע&#34;א 2592/21 גבעון נ&#39; ון-אמדן (6.5.2021); להלן בהתאמה: הערעור הראשון והערעור השני)).
+ביום 19.6.2022 דחה המותב את הבקשה לעיון חוזר בקבעו כי הבקשה מעלה טענות &#34;ערעוריות&#34; וכי לא הוצג שינוי נסיבות המצדיק את שינוי ההחלטה. עם זאת, בנוגע לעדה נוספת מבין שמונת העדים שזימונם התבקש – היא המשיבה 2 – הורה המותב למשיבים להתייחס לשאלה מדוע לא תגיש גם היא תצהיר עדות ראשית.
 
+לאחר קבלת התייחסות המשיבים לעניין הגשת תצהיר עדות ראשית מטעם המשיבה 2, ביום 26.6.2022 הותיר המותב על כנה את החלטתו שלא לחייב את המשיבה 2 להגיש תצהיר מטעמה, בין היתר בשים לב לכך שכבר ענתה בתצהיר &#34;בהרחבה ובפירוט&#34; על שאלון ארוך ששלח לה המערער. המותב קבע כי המערער לא הבהיר במה יש בעדותה כדי להוסיף וכי מתקבל הרושם שהבקשה &#34;נועדה להטריד ולסרבל את ההליך&#34; (להלן: ההחלטה מיום 26.6.2022).
 
+ביום 3.7.2022 הגיש המערער בקשה לפסילת המותב שבה הפנה להחלטות המותב מיום 13.6.2022 ומיום 26.6.2022, וטען, בין היתר, כי המותב לא הציג את כל טענותיו ולא התייחס לכולן; כי המותב קבע ללא בסיס מה הן עמדות חלק מן הגורמים שלא זומנו להעיד או להגיש תעודות עובד ציבור ואף קבע כי הבקשה נועדה להטריד ולסרבל את ההליך ובכך &#34;הטיל דופי&#34; במערער; וכן כי המותב גיבש את עמדתו לגבי המחלוקות העיקריות והכריע בחלק מטענות הצדדים באופן סופי במסגרת החלטת ביניים. כמו כן השיג המערער על כך שבהחלטותיו לא דן המותב בטענה כי בית המשפט המחוזי שינה מקביעותיו של המותב הקודם, אלא הפנה את המערער להליכי ערעור. לבסוף השיג המערער גם על החלטה נוספת שנתן המותב שבה דחה את בקשת המערער לדחיית מועד דיון, ונטען כי נעתר לבקשות להארכת מועד של המשיבים באופן &#34;לא שוויוני&#34;. המערער ביקש כי ככל שתידחה בקשת הפסלות – יעכב המותב את המשך ההליכים בתיק עד להכרעה בערעור על ההחלטה.
 
-	ההליך הוגש ביום 5.6.2019 ונותב לטיפולו של השופט ג&#39; הס (להלן: המותב הקודם). בהליך התקיימו מספר דיוני קדם משפט והוגשו תצהירים. בחודש מרץ 2022 מונה המותב הקודם לבית המשפט המחוזי תל אביב, וביום 31.5.2022 נתן המותב החלטה בה ציין כי ההליך הועבר לטיפולו. 
+למחרת, ביום 4.7.2022, דחה המותב את בקשת הפסלות וחייב את המערער בהוצאות המשיבים בסך של 3,000 ש&#34;ח. המותב סקר את השתלשלות ההליך, וקבע כי &#34;כל טענות ה[מערער] הן ערעוריות וגם אם טעה בית המשפט הרי שאין בהן עילת פסילה&#34;. המותב קבע כי &#34;אין יסוד&#34; לטענה שנהג בחוסר שוויון בין הצדדים וציין כי החלטותיו התקבלו על בסיס הנתונים הרלוונטיים &#34;כפי שפורט ונומק בהרחבה באותן החלטות&#34;. כמו כן ציין המותב כי המערער הגיש בקשה לעיון חוזר בהחלטתו מיום 13.6.2022, והוסיף כי אם סבר המערער שדעתו &#34;ננעלה&#34; – &#34;חזקה עליו כי היה מגיש בקשת פסלות על אתר ולא בקשה לעיון חוזר&#34;.
 
+מכאן הערעור שלפניי, בו חוזר המערער על טענותיו ומוסיף כי לאחר הגשת בקשת הפסלות נוצרו נסיבות נוספות המבססות את עילת הפסלות, והמערער מוסיף כי ככל שייקבע שאין להידרש לאלה במסגרת הערעור דנן יגיש בעניינן בקשה נפרדת. לטענתו, ביום 3.7.2022, ולאחר הגשת בקשת הפסלות, נתן המותב החלטה בה הורה למשיבים להגיב לבקשה אחרת שהגיש המערער. המערער טוען כי באותה החלטה הפנה המותב לאמור בפסק דיני בערעור הראשון, שם ציינתי כי &#34;היה על בית המשפט לדון בבקשת הפסלות הראשונה ולהחליט בה בטרם קיבל החלטות נוספות&#34; (פסקה 10), ולצד זאת הובהר כי אין בכך בלבד כדי להקים עילת פסלות. המערער מציין כי המותב קבע שמדובר בבקשה טכנית-דיונית וכי אין בכוונתו לתת החלטה מהותית טרם שיכריע בבקשת הפסלות, אך בכך שהמותב נתן החלטה טוען המערער כי &#34;פעל בניגוד להוראת כב&#39; הנשיאה אליה הפנה&#34;. עוד טוען המערער כי המותב לא התייחס לבקשתו לעכב את המשך ניהול ההליך עד להכרעה בערעור דנן, ואף לא דן ב&#34;רובן&#34; של הטענות שהעלה המערער, אלא הסתפק בקביעה כי &#34;מקומן בהליכי ערעור, ואין מקום להתנצח עם טענות אלו&#34;, וזאת חרף שהמערער הבהיר, לטענתו, מדוע אין מדובר בטענות &#34;ערעוריות&#34;.
 
+דין הערעור להידחות. עסקינן בערעור הפסלות השלישי שמגיש המערער במסגרת אותו ההליך – המופנה אף הוא כלפי החלטות דיוניות שקיבל המותב. בפסקי הדין בערעור הראשון (פסקה 10) ובערעור השני (פסקה 6) הובהר כי הדרך להשיג על החלטות דיוניות שקיבל המותב היא בהליכי הערעור המתאימים, ולא בהליך פסלות שופט – ואיני רואה מקום לחזור על הדברים. בענייננו טוען אמנם המערער כי &#34;הבהיר&#34; בבקשתו מדוע אין המדובר בטענות &#34;ערעוריות&#34;, אך עיון בטענות המערער מגלה כי חרף ניסיונו לעטות על טענותיו אצטלה אחרת, מדובר, שוב, בהשגות על החלטות שיפוטיות מנומקות שאינן מגלות ולו חשש קל שבקלים למשוא פנים, קל וחומר שאין הן באות בגדר אותם מקרים קיצוניים המצדיקים את פסילת המותב (ראו: ע&#34;א 984/22 פלוני נ&#39; הגלריה בברנר בע&#34;מ, פסקה 14 (13.4.2022)). גם הטענות בנוגע להתרחשויות לאחר הגשת בקשת הפסלות אינן מגלות חשש כלשהו למשוא פנים ומוטב היה אלמלא הועלו כלל.
 
-	בהמשך לכך, ביום 13.6.2022 נתן המותב החלטה בשתי בקשות של המערער שהיו תלויות ועומדות: בקשה לזימון שמונה עדים ולהורות על הגשת תעודות עובד ציבור ממוסדות שונים ובקשה להגיש ראיות נוספות (להלן: ההחלטה מיום 13.6.2022). המותב תיאר את השתלשלות ההליך ואת גדרי המחלוקת כפי שאלה תוארו בהחלטה קודמת של המותב הקודם, ועל רקע זה דחה את הבקשה לזימון עדים ברובה, מאחר שלא מצא כי מרבית העדים רלוונטיים לשאלות שבמחלוקת כפי שנקבעו. מטעם זה אף דחה המותב את הבקשה להורות על הגשת תעודות עובד ציבור שונות, וכן את הבקשה להגיש ראיות נוספות. עם זאת, הבקשה לזימון עדים התקבלה ביחס לאחד מתוך שמונת העדים שהתבקשו. כמו כן, חייב המותב את המערער בהוצאות המשיבים בסך של 1,000 ש&#34;ח. 
+אשר על כן, הערעור נדחה. המערער, אשר זהו ערעור הפסלות השלישי שהוא מגיש על החלטות דיוניות לאחר שכבר הובהר שאלה אינן מקימות עילת פסלות, יישא בהוצאות לטובת אוצר המדינה בסך של 2,500 ש&#34;ח.
 
+ניתן היום, ‏י&#39; באלול התשפ&#34;ב (‏6.9.2022).
 
-
-	 ביום 17.6.2022 הגיש המערער בקשה לעיון חוזר בהחלטה. המערער טען כי המותב הסתמך על החלטה של המותב הקודם, אך לא נתן דעתו לכך שבית המשפט המחוזי &#34;קבע קביעות שונות במספר בקשות רשות ערעור שהוגשו&#34;. 
-
-
-
-	ביום 19.6.2022 דחה המותב את הבקשה לעיון חוזר בקבעו כי הבקשה מעלה טענות &#34;ערעוריות&#34; וכי לא הוצג שינוי נסיבות המצדיק את שינוי ההחלטה. עם זאת, בנוגע לעדה נוספת מבין שמונת העדים שזימונם התבקש – היא המשיבה 2 – הורה המותב למשיבים להתייחס לשאלה מדוע לא תגיש גם היא תצהיר עדות ראשית.
-
-
-
-	לאחר קבלת התייחסות המשיבים לעניין הגשת תצהיר עדות ראשית מטעם המשיבה 2, ביום 26.6.2022 הותיר המותב על כנה את החלטתו שלא לחייב את המשיבה 2 להגיש תצהיר מטעמה, בין היתר בשים לב לכך שכבר ענתה בתצהיר &#34;בהרחבה ובפירוט&#34; על שאלון ארוך ששלח לה המערער. המותב קבע כי המערער לא הבהיר במה יש בעדותה כדי להוסיף וכי מתקבל הרושם שהבקשה &#34;נועדה להטריד ולסרבל את ההליך&#34; (להלן: ההחלטה מיום 26.6.2022). 
-
-
-
-	ביום 3.7.2022 הגיש המערער בקשה לפסילת המותב שבה הפנה להחלטות המותב מיום 13.6.2022 ומיום 26.6.2022, וטען, בין היתר, כי המותב לא הציג את כל טענותיו ולא התייחס לכולן; כי המותב קבע ללא בסיס מה הן עמדות חלק מן הגורמים שלא זומנו להעיד או להגיש תעודות עובד ציבור ואף קבע כי הבקשה נועדה להטריד ולסרבל את ההליך ובכך &#34;הטיל דופי&#34; במערער; וכן כי המותב גיבש את עמדתו לגבי המחלוקות העיקריות והכריע בחלק מטענות הצדדים באופן סופי במסגרת החלטת ביניים. כמו כן השיג המערער על כך שבהחלטותיו לא דן המותב בטענה כי בית המשפט המחוזי שינה מקביעותיו של המותב הקודם, אלא הפנה את המערער להליכי ערעור. לבסוף השיג המערער גם על החלטה נוספת שנתן המותב שבה דחה את בקשת המערער לדחיית מועד דיון, ונטען כי נעתר לבקשות להארכת מועד של המשיבים באופן &#34;לא שוויוני&#34;. המערער ביקש כי ככל שתידחה בקשת הפסלות – יעכב המותב את המשך ההליכים בתיק עד להכרעה בערעור על ההחלטה. 
-
-
-
-	למחרת, ביום 4.7.2022, דחה המותב את בקשת הפסלות וחייב את המערער בהוצאות המשיבים בסך של 3,000 ש&#34;ח. המותב סקר את השתלשלות ההליך, וקבע כי &#34;כל טענות ה[מערער] הן ערעוריות וגם אם טעה בית המשפט הרי שאין בהן עילת פסילה&#34;. המותב קבע כי &#34;אין יסוד&#34; לטענה שנהג בחוסר שוויון בין הצדדים וציין כי החלטותיו התקבלו על בסיס הנתונים הרלוונטיים &#34;כפי שפורט ונומק בהרחבה באותן החלטות&#34;. כמו כן ציין המותב כי המערער הגיש בקשה לעיון חוזר בהחלטתו מיום 13.6.2022, והוסיף כי אם סבר המערער שדעתו &#34;ננעלה&#34; – &#34;חזקה עליו כי היה מגיש בקשת פסלות על אתר ולא בקשה לעיון חוזר&#34;. 
-
-
-
-	מכאן הערעור שלפניי, בו חוזר המערער על טענותיו ומוסיף כי לאחר הגשת בקשת הפסלות נוצרו נסיבות נוספות המבססות את עילת הפסלות, והמערער מוסיף כי ככל שייקבע שאין להידרש לאלה במסגרת הערעור דנן יגיש בעניינן בקשה נפרדת. לטענתו, ביום 3.7.2022, ולאחר הגשת בקשת הפסלות, נתן המותב החלטה בה הורה למשיבים להגיב לבקשה אחרת שהגיש המערער. המערער טוען כי באותה החלטה הפנה המותב לאמור בפסק דיני בערעור הראשון, שם ציינתי כי &#34;היה על בית המשפט לדון בבקשת הפסלות הראשונה ולהחליט בה בטרם קיבל החלטות נוספות&#34; (פסקה 10), ולצד זאת הובהר כי אין בכך בלבד כדי להקים עילת פסלות. המערער מציין כי המותב קבע שמדובר בבקשה טכנית-דיונית וכי אין בכוונתו לתת החלטה מהותית טרם שיכריע בבקשת הפסלות, אך בכך שהמותב נתן החלטה טוען המערער כי &#34;פעל בניגוד להוראת כב&#39; הנשיאה אליה הפנה&#34;. עוד טוען המערער כי המותב לא התייחס לבקשתו לעכב את המשך ניהול ההליך עד להכרעה בערעור דנן, ואף לא דן ב&#34;רובן&#34; של הטענות שהעלה המערער, אלא הסתפק בקביעה כי &#34;מקומן בהליכי ערעור, ואין מקום להתנצח עם טענות אלו&#34;, וזאת חרף שהמערער הבהיר, לטענתו, מדוע אין מדובר בטענות &#34;ערעוריות&#34;. 
-
-
-
-
-
-	דין הערעור להידחות. עסקינן בערעור הפסלות השלישי שמגיש המערער במסגרת אותו ההליך – המופנה אף הוא כלפי החלטות דיוניות שקיבל המותב. בפסקי הדין בערעור הראשון (פסקה 10) ובערעור השני (פסקה 6) הובהר כי הדרך להשיג על החלטות דיוניות שקיבל המותב היא בהליכי הערעור המתאימים, ולא בהליך פסלות שופט – ואיני רואה מקום לחזור על הדברים. בענייננו טוען אמנם המערער כי &#34;הבהיר&#34; בבקשתו מדוע אין המדובר בטענות &#34;ערעוריות&#34;, אך עיון בטענות המערער מגלה כי חרף ניסיונו לעטות על טענותיו אצטלה אחרת, מדובר, שוב, בהשגות על החלטות שיפוטיות מנומקות שאינן מגלות ולו חשש קל שבקלים למשוא פנים, קל וחומר שאין הן באות בגדר אותם מקרים קיצוניים המצדיקים את פסילת המותב (ראו: ע&#34;א 984/22 פלוני נ&#39; הגלריה בברנר בע&#34;מ, פסקה 14 (13.4.2022)). גם הטענות בנוגע להתרחשויות לאחר הגשת בקשת הפסלות אינן מגלות חשש כלשהו למשוא פנים ומוטב היה אלמלא הועלו כלל. 
-
-
-
-	אשר על כן, הערעור נדחה. המערער, אשר זהו ערעור הפסלות השלישי שהוא מגיש על החלטות דיוניות לאחר שכבר הובהר שאלה אינן מקימות עילת פסלות, יישא בהוצאות לטובת אוצר המדינה בסך של 2,500 ש&#34;ח. 
-
-
-
-
-
-
-
-	ניתן היום, ‏י&#39; באלול התשפ&#34;ב (‏6.9.2022).
-
-
-
-
-
-
-
-
-
- ה נ ש י א ה
-
-
+ה נ ש י א ה
 
 _________________________
 
-   22048660_V01.docx   רי
+22048660_V01.docx רי
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1721,7 +1906,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    01/09/2005 (לפני 7551 ימים)
+                    01/09/2005 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/6064-05.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="6064/05 - לירון שרעבי(שומרון) נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F6064-05.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/640/060/B04&amp;fileName=05060640_B04.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/640/060/B04&amp;fileName=05060640_B04.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/640/060/B04&amp;fileName=05060640_B04.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/640/060/B04&amp;fileName=05060640_B04.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,8 +1829,7 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק ע&#34;פ 6064/05
 
-בבית המשפט
-העליון בשבתו כבית משפט לערעורים פליליים
+בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
 ע&#34;פ 6064/05
 
@@ -1581,8 +1851,7 @@
 
 מדינת ישראל
 
-ערעור על פסק דינו של בית המשפט המחוזי בתל-אביב – יפו, אשר ניתן ביום
-9.6.05, בת.פ. 40064/04 על ידי כב&#39; השופט ז&#39; כספי
+ערעור על פסק דינו של בית המשפט המחוזי בתל-אביב – יפו, אשר ניתן ביום 9.6.05, בת.פ. 40064/04 על ידי כב&#39; השופט ז&#39; כספי
 
 תאריך הישיבה:
 
@@ -1602,103 +1871,31 @@
 
 השופטת ע&#39; ארבל:
 
-1. ערעור על גזר דינו של בית המשפט המחוזי
-בתל-אביב – יפו (כב&#39; השופט ז&#39; כספי) שהרשיע את המערער על פי הודאתו במסגרת הסדר
-טיעון בעבירות של גרימת מוות תוך כדי נהיגה ברשלנות, עבירה לפי סעיף 304 לחוק
-העונשין, התשל&#34;ז – 1977 (להלן - החוק) בקשר
-עם סעיפים 40 ו- 64 לפקודת התעבורה [נוסח חדש], תשכ&#34;א – 1961 (להלן - הפקודה).
+1. ערעור על גזר דינו של בית המשפט המחוזי בתל-אביב – יפו (כב&#39; השופט ז&#39; כספי) שהרשיע את המערער על פי הודאתו במסגרת הסדר טיעון בעבירות של גרימת מוות תוך כדי נהיגה ברשלנות, עבירה לפי סעיף 304 לחוק העונשין, התשל&#34;ז – 1977 (להלן - החוק) בקשר עם סעיפים 40 ו- 64 לפקודת התעבורה [נוסח חדש], תשכ&#34;א – 1961 (להלן - הפקודה).
 
-המערער נדון לעונש של 12 חודשי מאסר
-בפועל; 12 חודשי מאסר על תנאי למשך 3 שנים
-שלא יעבור עבירה לפי סעיף 298 לחוק תוך נהיגה ברכב וכן נדון לפסילת רישיון נהיגה
-לפרק זמן של 8 שנים בניכוי תקופות הפסילה המנהליות.
+המערער נדון לעונש של 12 חודשי מאסר בפועל; 12 חודשי מאסר על תנאי למשך 3 שנים שלא יעבור עבירה לפי סעיף 298 לחוק תוך נהיגה ברכב וכן נדון לפסילת רישיון נהיגה לפרק זמן של 8 שנים בניכוי תקופות הפסילה המנהליות.
 
-בהתאם לכתב האישום המתוקן נהג המערער לפנות
-בוקר בעיר חולון ברכבם של הורי חברו, עדי מעוז ז&#34;ל. המנוח ישב לצדו של המערער
-ואילו במושב האחורי ישב חבר נוסף, שלושתם חיילים בשירות סדיר. המערער עבר במהירות
-רכב שנסע מצדו הימני ונכנס במהירות של 80 קמ&#34;ש לפחות לכביש המשתלב עם כיכר הנמצאת במקום, תוך שהוא אינו מציית לתמרור עצור ולבסוף איבד שליטה על הרכב. הרכב עלה על
-רמפת בטון, התרומם באוויר ונחת במהופך על גגו. המנוח נהרג במקום ואילו המערער
-והחבר השלישי נחלצו מהרכב כשהם פצועים.
+בהתאם לכתב האישום המתוקן נהג המערער לפנות בוקר בעיר חולון ברכבם של הורי חברו, עדי מעוז ז&#34;ל. המנוח ישב לצדו של המערער ואילו במושב האחורי ישב חבר נוסף, שלושתם חיילים בשירות סדיר. המערער עבר במהירות רכב שנסע מצדו הימני ונכנס במהירות של 80 קמ&#34;ש לפחות לכביש המשתלב עם כיכר הנמצאת במקום, תוך שהוא אינו מציית לתמרור עצור ולבסוף איבד שליטה על הרכב. הרכב עלה על רמפת בטון, התרומם באוויר ונחת במהופך על גגו. המנוח נהרג במקום ואילו המערער והחבר השלישי נחלצו מהרכב כשהם פצועים.
 
-2. ערעורו של המערער נגד גזר הדין מתבסס על
-כך שעובדות כתב האישום תוקנו ונמחקו ממנו העובדות הבאות: המערער נהג כשהוא שיכור
-וביצע עקיפה מסוכנת. כן שונתה הוראת החיקוק בה הואשם המערער לעבירה של גרם מוות
-ברשלנות, עבירה לפי סעיף 304 לחוק יחד עם סעיפים 40 ו- 64 לפקודה. על אף תיקון כתב
-האישום כאמור, בית המשפט המחוזי, בנמקו את הצורך להחמיר בעונשו של המערער, התבסס
-על תיאור העובדות כפי שהיה בכתב האישום המקורי ובמיוחד על העובדה שהעבירה נעברה
-תוך נהיגה &#34;תחת השפעת משקאות משכרים בכמות העולה על המותר&#34;, לשון בית
-המשפט המחוזי, ועל העקיפה המסוכנת מימין של רכב אחר שנסע לפניו. בית המשפט לא נתן
-משקל מספיק, כך נטען, גם לכך שהמערער הודה ולא ניהל הליכים ממושכים בבית המשפט. הסנגור
-מציין, כי המקום בו אירעה התאונה הינו מקום מועד לפורענות ובחמש השנים שקדמו
-לתאונה אירעו במקום כ- 80 תאונות בהן נפגעו 129 בני אדם, 4 מתוכם נהרגו. הסנגור
-מיקד את עיקר טיעונו לנסיבותיו האישיות של המערער שהינו צעיר נורמטיבי, העובד
-כמשגיח כשרות ומקדיש עצמו ללימודי קודש. משפחתו שרויה במצוקה כלכלית והוא מסייע לה.
-לטענתו, לא ניתן בגזר הדין משקל לצורך בשיקומו של המערער והוא מפנה לתסקיר שירות
-המבחן ולתגובות הפוסט-טראומטיות המאפיינות את התנהגותו והקשיים בהם הוא נתון לאחר
-התאונה. לבסוף נטען כי בית המשפט המחוזי נתן משקל יתר לאינטרס הציבורי. בסיומו של
-טיעונו ביקש הסנגור להמיר את העונש החמור שהוטל על המערער בעונש מאסר בעבודות
-שירות.
+2. ערעורו של המערער נגד גזר הדין מתבסס על כך שעובדות כתב האישום תוקנו ונמחקו ממנו העובדות הבאות: המערער נהג כשהוא שיכור וביצע עקיפה מסוכנת. כן שונתה הוראת החיקוק בה הואשם המערער לעבירה של גרם מוות ברשלנות, עבירה לפי סעיף 304 לחוק יחד עם סעיפים 40 ו- 64 לפקודה. על אף תיקון כתב האישום כאמור, בית המשפט המחוזי, בנמקו את הצורך להחמיר בעונשו של המערער, התבסס על תיאור העובדות כפי שהיה בכתב האישום המקורי ובמיוחד על העובדה שהעבירה נעברה תוך נהיגה &#34;תחת השפעת משקאות משכרים בכמות העולה על המותר&#34;, לשון בית המשפט המחוזי, ועל העקיפה המסוכנת מימין של רכב אחר שנסע לפניו. בית המשפט לא נתן משקל מספיק, כך נטען, גם לכך שהמערער הודה ולא ניהל הליכים ממושכים בבית המשפט. הסנגור מציין, כי המקום בו אירעה התאונה הינו מקום מועד לפורענות ובחמש השנים שקדמו לתאונה אירעו במקום כ- 80 תאונות בהן נפגעו 129 בני אדם, 4 מתוכם נהרגו. הסנגור מיקד את עיקר טיעונו לנסיבותיו האישיות של המערער שהינו צעיר נורמטיבי, העובד כמשגיח כשרות ומקדיש עצמו ללימודי קודש. משפחתו שרויה במצוקה כלכלית והוא מסייע לה. לטענתו, לא ניתן בגזר הדין משקל לצורך בשיקומו של המערער והוא מפנה לתסקיר שירות המבחן ולתגובות הפוסט-טראומטיות המאפיינות את התנהגותו והקשיים בהם הוא נתון לאחר התאונה. לבסוף נטען כי בית המשפט המחוזי נתן משקל יתר לאינטרס הציבורי. בסיומו של טיעונו ביקש הסנגור להמיר את העונש החמור שהוטל על המערער בעונש מאסר בעבודות שירות.
 
-3. באת כוח המדינה הסכימה שהמקרה קשה, בציינה
-כי דמותו של הנאשם הינה כדמותם של עבריינים פוטנציאליים אחרים שרבים מהם באים מרקע
-נורמטיבי. כל מקרה צריך להיבחן לגופו. המערער הודה במסגרת הסדר טיעון שבו הוסכם על
-טווח ענישה לפיו התביעה תטען לעונש של עד שנה וחצי מאסר בפועל, בעוד המערער יטען
-באופן חופשי לעונש. העונש שהוטל הינו במסגרת הטיעון עליו הוסכם ולכן אין מקום
-לערעור ובוודאי שלא להתערבות בית המשפט. העובדות אינן שנויות במחלוקת באשר הנאשם
-הודה בעובדות כתב האישום המתוקן המפרט בסעיפים 4 ו- 6(א) כי עובר לנהיגתו היה
-המערער נתון תחת השפעת משקאות משכרים בכמות העולה על המותר, דבר אשר מנע ממנו
-שליטה ברכב. כתב האישום גם מציין כי בהגיע הנאשם לקצה שדרות לוי אשכול בואך כיכר
-קוגל, נהג המערער במהירות תוך שהוא עובר רכב אחר, מצידו הימני. נסיבות המקרה
-חמורות ולטענתה מגלה המקרה רשלנות גבוהה ביותר. מדובר בנהגים צעירים הנוהגים בסופי
-השבוע, לוקחים סיכון ומסכנים חיי אדם.
+3. באת כוח המדינה הסכימה שהמקרה קשה, בציינה כי דמותו של הנאשם הינה כדמותם של עבריינים פוטנציאליים אחרים שרבים מהם באים מרקע נורמטיבי. כל מקרה צריך להיבחן לגופו. המערער הודה במסגרת הסדר טיעון שבו הוסכם על טווח ענישה לפיו התביעה תטען לעונש של עד שנה וחצי מאסר בפועל, בעוד המערער יטען באופן חופשי לעונש. העונש שהוטל הינו במסגרת הטיעון עליו הוסכם ולכן אין מקום לערעור ובוודאי שלא להתערבות בית המשפט. העובדות אינן שנויות במחלוקת באשר הנאשם הודה בעובדות כתב האישום המתוקן המפרט בסעיפים 4 ו- 6(א) כי עובר לנהיגתו היה המערער נתון תחת השפעת משקאות משכרים בכמות העולה על המותר, דבר אשר מנע ממנו שליטה ברכב. כתב האישום גם מציין כי בהגיע הנאשם לקצה שדרות לוי אשכול בואך כיכר קוגל, נהג המערער במהירות תוך שהוא עובר רכב אחר, מצידו הימני. נסיבות המקרה חמורות ולטענתה מגלה המקרה רשלנות גבוהה ביותר. מדובר בנהגים צעירים הנוהגים בסופי השבוע, לוקחים סיכון ומסכנים חיי אדם.
 
-4. לאחר ששקלנו את טענות הצדדים אשר הוצגו
-בפנינו בהרחבה, בכתב ובעל פה, ולאחר שעיינו בחומר שצורף לתיק, בפסיקה שהוצגה
-בפנינו ובתסקירי שירות המבחן שהוגשו, באנו למסקנה כי דין הערעור להידחות. גם אם
-נותנים את הדעת להודיית המערער במסגרת הסדר הטיעון ולעובדות כתב האישום המתוקן,
-הרי שעדיין העונש שהושת עליו אינו מפליג בחומרתו בהתחשב בנסיבות התאונה וברשלנות
-החמורה שבנהיגתו של המערער, כפי שפורטה בהרחבה בכתב האישום המתוקן ובגזר דינו של
-בית המשפט המחוזי ובמיוחד המהירות המופרזת, מעבר רכב מימין וכניסה לכיכר תוך אי
-ציות לתמרור עצור המוצב משני צדי הכניסה לכיכר. כל אלה הביאו לאיבוד שליטה על הרכב
-ולתוצאה הקטלנית שאירעה. גם נסיבותיו האישיות של המערער היו בפנינו כמו גם הקשיים
-עימם הוא מתמודד מאז קרות התאונה וחששותיו מפני העתיד אם יישלח לבית הסוהר. עם
-זאת, אנו סבורים כי בית המשפט המחוזי איזן בין כל השיקולים הרלוונטיים נכונה והביא
-בחשבון שמדובר בצעיר נורמטיבי שקיפד את חיי חברו ואת התוצאות הקשות שעימן הוא
-מתמודד. עם זאת, בית המשפט המחוזי הדגיש ובצדק כי עם כל הצער שבדבר יש ליתן העדפה
-בנסיבות המקרה לאינטרס הציבורי.
+4. לאחר ששקלנו את טענות הצדדים אשר הוצגו בפנינו בהרחבה, בכתב ובעל פה, ולאחר שעיינו בחומר שצורף לתיק, בפסיקה שהוצגה בפנינו ובתסקירי שירות המבחן שהוגשו, באנו למסקנה כי דין הערעור להידחות. גם אם נותנים את הדעת להודיית המערער במסגרת הסדר הטיעון ולעובדות כתב האישום המתוקן, הרי שעדיין העונש שהושת עליו אינו מפליג בחומרתו בהתחשב בנסיבות התאונה וברשלנות החמורה שבנהיגתו של המערער, כפי שפורטה בהרחבה בכתב האישום המתוקן ובגזר דינו של בית המשפט המחוזי ובמיוחד המהירות המופרזת, מעבר רכב מימין וכניסה לכיכר תוך אי ציות לתמרור עצור המוצב משני צדי הכניסה לכיכר. כל אלה הביאו לאיבוד שליטה על הרכב ולתוצאה הקטלנית שאירעה. גם נסיבותיו האישיות של המערער היו בפנינו כמו גם הקשיים עימם הוא מתמודד מאז קרות התאונה וחששותיו מפני העתיד אם יישלח לבית הסוהר. עם זאת, אנו סבורים כי בית המשפט המחוזי איזן בין כל השיקולים הרלוונטיים נכונה והביא בחשבון שמדובר בצעיר נורמטיבי שקיפד את חיי חברו ואת התוצאות הקשות שעימן הוא מתמודד. עם זאת, בית המשפט המחוזי הדגיש ובצדק כי עם כל הצער שבדבר יש ליתן העדפה בנסיבות המקרה לאינטרס הציבורי.
 
-הקטל בדרכים הינו מכת מדינה ואוכל בנו
-בכל מקום ובכל זמן. מטרה ראשונה במעלה בחשיבותה היא שמירה על חיי אדם ושלמות גופם.
-מכאן נגזר הצורך בשמירה על החוק ועל כללי נהיגה זהירה בכביש. המלחמה בתאונות
-הדרכים מחייבת אמצעים רבים ומגוונים. קשת האמצעים היא רחבה, מחינוך והסברה במטרה
-להגביר את המודעות באשר לצורך לשמור על תרבות נהיגה בטוחה ועד ענישה. מדיניות
-הענישה צריכה אף היא לתרום למאבק בתאונות הדרכים וצריכה להבטיח הענשת העבריין
-הספציפי והרתעת הרבים. העובדה שהעבירה בוצעה על ידי אדם נורמטיבי, כפי שקורה בדרך
-כלל, עם כל ההבנה לקשיים בהם הוא נתון, אינה מקטינה את הצורך במדיניות ענישה נחושה
-ומרתיעה נגד נהגים אשר בנהיגתם יוצרים סיכון לחיי אדם. כחלק מהליך האכיפה השוויוני
-ובמסגרת אינטרס ההרתעה חשוב שבית המשפט בגזר דינו יעביר גם מסר מרתיע, חד משמעי
-וברור &#34;לנהגי ליל שישי&#34; אשר בסופי שבוע יוצאים לבילוי וחוזרים בשעת לילה
-מאוחרת או בשעת בוקר מוקדמת, לעיתים לאחר צריכת משקאות משכרים, לא פעם תוך עייפות
-רבה באופן המסכן אותם, את חבריהם לרכב, את ציבור הנהגים והנוסעים בכלי רכב ואת
-עוברי האורח.
+הקטל בדרכים הינו מכת מדינה ואוכל בנו בכל מקום ובכל זמן. מטרה ראשונה במעלה בחשיבותה היא שמירה על חיי אדם ושלמות גופם. מכאן נגזר הצורך בשמירה על החוק ועל כללי נהיגה זהירה בכביש. המלחמה בתאונות הדרכים מחייבת אמצעים רבים ומגוונים. קשת האמצעים היא רחבה, מחינוך והסברה במטרה להגביר את המודעות באשר לצורך לשמור על תרבות נהיגה בטוחה ועד ענישה. מדיניות הענישה צריכה אף היא לתרום למאבק בתאונות הדרכים וצריכה להבטיח הענשת העבריין הספציפי והרתעת הרבים. העובדה שהעבירה בוצעה על ידי אדם נורמטיבי, כפי שקורה בדרך כלל, עם כל ההבנה לקשיים בהם הוא נתון, אינה מקטינה את הצורך במדיניות ענישה נחושה ומרתיעה נגד נהגים אשר בנהיגתם יוצרים סיכון לחיי אדם. כחלק מהליך האכיפה השוויוני ובמסגרת אינטרס ההרתעה חשוב שבית המשפט בגזר דינו יעביר גם מסר מרתיע, חד משמעי וברור &#34;לנהגי ליל שישי&#34; אשר בסופי שבוע יוצאים לבילוי וחוזרים בשעת לילה מאוחרת או בשעת בוקר מוקדמת, לעיתים לאחר צריכת משקאות משכרים, לא פעם תוך עייפות רבה באופן המסכן אותם, את חבריהם לרכב, את ציבור הנהגים והנוסעים בכלי רכב ואת עוברי האורח.
 
-נהיגתו של המערער המיטה אסון כבד שאין
-ספק שגם הוא כואב אותו. אלא, שכאבו זה אינו מהווה תחליף לענישה. ענישה הולמת היא
-התשובה של בית המשפט למחיר הדמים שגובה הנהיגה הפרועה והמסוכנת.
+נהיגתו של המערער המיטה אסון כבד שאין ספק שגם הוא כואב אותו. אלא, שכאבו זה אינו מהווה תחליף לענישה. ענישה הולמת היא התשובה של בית המשפט למחיר הדמים שגובה הנהיגה הפרועה והמסוכנת.
 
 לא נתערב בעונש.
 
 הערעור נדחה.
 
-המערער יתייצב לריצוי עונשו בבית המשפט
-המחוזי בתל אביב ביום 1.11.05 בשעה 10:00. הערבויות אותן הפקיד בבית המשפט המחוזי
-יישארו בעינן להבטחת התייצבותו לריצוי העונש.
+המערער יתייצב לריצוי עונשו בבית המשפט המחוזי בתל אביב ביום 1.11.05 בשעה 10:00. הערבויות אותן הפקיד בבית המשפט המחוזי יישארו בעינן להבטחת התייצבותו לריצוי העונש.
 
-ניתן היום, כ&#34;ז באב תשס&#34;ה
-(1.9.2005).
+ניתן היום, כ&#34;ז באב תשס&#34;ה (1.9.2005).
 
-ש ו פ ט ש
-ו פ ט ת ש ו פ ט
+ש ו פ ט ש ו פ ט ת ש ו פ ט
 
 _________________________
 
@@ -1723,7 +1920,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

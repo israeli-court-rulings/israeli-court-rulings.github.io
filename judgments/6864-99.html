@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    28/05/2000 (לפני 9473 ימים)
+                    28/05/2000 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/6864-99.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="6864/99 - עאמר טאטור נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F6864-99.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/640/068/G04&amp;fileName=99068640_G04.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/640/068/G04&amp;fileName=99068640_G04.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/640/068/G04&amp;fileName=99068640_G04.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/640/068/G04&amp;fileName=99068640_G04.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,16 +1829,13 @@
         <div class="nested-content" style="line-height: 1.8;">
             בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
-ע&#34;פ
-6864/99
+ע&#34;פ 6864/99
 
 בפני: כבוד השופט מ&#39; חשין
 
-כבוד
-השופט י&#39; טירקל
+כבוד השופט י&#39; טירקל
 
-כבוד
-השופט א&#39; ריבלין
+כבוד השופט א&#39; ריבלין
 
 המערער: עאמר טאטור
 
@@ -1575,115 +1843,49 @@
 
 המשיבה: מדינת ישראל
 
-תאריך הישיבה: כ&#34;ג
-באייר התש&#34;ס (28.5.2000)
+תאריך הישיבה: כ&#34;ג באייר התש&#34;ס (28.5.2000)
 
-בשם
-המערער: עו&#34;ד סאמי דקה
+בשם המערער: עו&#34;ד סאמי דקה
 
-עו&#34;ד
-עבאס עאסי
+עו&#34;ד עבאס עאסי
 
-בשם
-המשיבה: עו&#34;ד נעמי גרנות
+בשם המשיבה: עו&#34;ד נעמי גרנות
 
-ערעור
-על גזר דינו של בית-המשפט המחוזי
+ערעור על גזר דינו של בית-המשפט המחוזי
 
-בנצרת
-מיום 23.9.99 בת&#34;פ 505/98 שניתן
+בנצרת מיום 23.9.99 בת&#34;פ 505/98 שניתן
 
-על-ידי
-כב&#39; השופטת נ&#39; מוניץ
+על-ידי כב&#39; השופטת נ&#39; מוניץ
 
 פסק-דין
 
 השופט מ&#39; חשין:
 
-המערער הורשע בבית-המשפט המחוזי בנצרת, על-פי
-הודאתו, בעבירה של הריגה, עבירה כהגדרתה בסעיף 298 לחוק העונשין,
-התשל&#34;ז1977-; עבירה של נהיגה בקלות ראש, עבירה כהגדרתה בסעיף 338(1) לחוק
-העונשין; עבירה של גרימת חבלה לאדם ונזק לרכוש, עבירה כהגדרתה בתקנות 21(ב)(2)ו-(ג)
-לתקנות התעבורה תשכ&#34;א1961- וסעיפים 68 ו38(2)ו-(3) לפקודת התעבורה [נוסח חדש]
-תשכ&#34;א1961-; ועבירת עקיפה שלא-כדין, עבירה כהגדרתה בתקנה 47(ד)ו-(ה)(1)ו-(5)
-לתקנות התעבורה. בהרשיעו את המערער כך, גזר בית-משפט קמא עליו עונשים אלה: פסילת
-רשיון הנהיגה שהוא מחזיק בו לצמיתות; תשעה חודשי מאסר בפועל; ושתי שנות מאסר
-על-תנאי.
+המערער הורשע בבית-המשפט המחוזי בנצרת, על-פי הודאתו, בעבירה של הריגה, עבירה כהגדרתה בסעיף 298 לחוק העונשין, התשל&#34;ז1977-; עבירה של נהיגה בקלות ראש, עבירה כהגדרתה בסעיף 338(1) לחוק העונשין; עבירה של גרימת חבלה לאדם ונזק לרכוש, עבירה כהגדרתה בתקנות 21(ב)(2)ו-(ג) לתקנות התעבורה תשכ&#34;א1961- וסעיפים 68 ו38(2)ו-(3) לפקודת התעבורה [נוסח חדש] תשכ&#34;א1961-; ועבירת עקיפה שלא-כדין, עבירה כהגדרתה בתקנה 47(ד)ו-(ה)(1)ו-(5) לתקנות התעבורה. בהרשיעו את המערער כך, גזר בית-משפט קמא עליו עונשים אלה: פסילת רשיון הנהיגה שהוא מחזיק בו לצמיתות; תשעה חודשי מאסר בפועל; ושתי שנות מאסר על-תנאי.
 
 הערעור הוא על גזר-הדין.
 
-המערער נהג ברכב, ובהיותו בעקומת-כביש המגבילה
-את שדה הראייה, עקף רכב אשר נסע לפניו תוך שהוא עובר אל צידו השמאלי של קו לבן
-רצוף. אל-מולו באה משאית, וההתנגשות בין שני כלי הרכב היתה בלתי נמנעת. כתוצאה מן
-התאונה נהרג אחיו של המערער, אשר ישב בסמוך לו, ואילו הוא עצמו נפגע באורח קשה
-ביותר.
+המערער נהג ברכב, ובהיותו בעקומת-כביש המגבילה את שדה הראייה, עקף רכב אשר נסע לפניו תוך שהוא עובר אל צידו השמאלי של קו לבן רצוף. אל-מולו באה משאית, וההתנגשות בין שני כלי הרכב היתה בלתי נמנעת. כתוצאה מן התאונה נהרג אחיו של המערער, אשר ישב בסמוך לו, ואילו הוא עצמו נפגע באורח קשה ביותר.
 
-משבא הערעור לדיון לפנינו, טען בא-כוח המערער
-כי אין לשלוח את מרשו לבית האסורים הואיל ומצבו הגופני אינו מאפשר לו להיות בין
-כותלי הכלא. כך, למשל, נדרש הוא למטפל הצמוד אליו במשך 10 שעות ביממה, ולמותר לומר
-כי שירות בתי הסוהר לא יוכל להיות לו לעזר בעניין זה. שקלנו את הדבר והחלטנו כי עד
-שנידרש לערעור לגופו ראוי שעניינו של המערער יעלה ויבוא לפני ועדת השיחרורים
-כסמכותה בסעיף 49(ד) לחוק העונשין, דהיינו, כסמכותה להמליץ לפני שר המשטרה
-&#34;לצוות על שיחרור אסיר בכל עת בשל טעמים מיוחדים כגון חולניותו
-המתמדת.&#34;. אמרנו לעצמנו: מה טעם יישלח המערער לבית האסורים, אם בסמוך לאחר
-מכן אפשר תמליץ ועדת השיחרורים על שיחרורו ממאסר בשל &#34;חולניות מתמדת&#34;?
-משנמצא לנו כי ועדת השיחרורים סמכותה עימה להידרש לשאלת שיחרורו של המערער ממאסר
-כבר בשלב זה, ביקשנו אותה - בהסכמת באת-כוח המדינה - כי תידרש לשאלה ותודיענו את
-דעתה.
+משבא הערעור לדיון לפנינו, טען בא-כוח המערער כי אין לשלוח את מרשו לבית האסורים הואיל ומצבו הגופני אינו מאפשר לו להיות בין כותלי הכלא. כך, למשל, נדרש הוא למטפל הצמוד אליו במשך 10 שעות ביממה, ולמותר לומר כי שירות בתי הסוהר לא יוכל להיות לו לעזר בעניין זה. שקלנו את הדבר והחלטנו כי עד שנידרש לערעור לגופו ראוי שעניינו של המערער יעלה ויבוא לפני ועדת השיחרורים כסמכותה בסעיף 49(ד) לחוק העונשין, דהיינו, כסמכותה להמליץ לפני שר המשטרה &#34;לצוות על שיחרור אסיר בכל עת בשל טעמים מיוחדים כגון חולניותו המתמדת.&#34;. אמרנו לעצמנו: מה טעם יישלח המערער לבית האסורים, אם בסמוך לאחר מכן אפשר תמליץ ועדת השיחרורים על שיחרורו ממאסר בשל &#34;חולניות מתמדת&#34;? משנמצא לנו כי ועדת השיחרורים סמכותה עימה להידרש לשאלת שיחרורו של המערער ממאסר כבר בשלב זה, ביקשנו אותה - בהסכמת באת-כוח המדינה - כי תידרש לשאלה ותודיענו את דעתה.
 
-ועדת השיחרורים עשתה כבקשתנו, והחלטתה מיום
-8.5.2000 מונחת עתה לפנינו. בחוות-דעתה עומדת הוועדה על מצבו הגופני הקשה של
-המערער - שיתוק חלקי בפלג הגוף הימני, כאבים בפלג הגוף הימני, מצב נפשי קשה,
-התפרצויות ריגשיות - ולמרות סיבלו מודיעה היא אותנו כי אין מניעה לכליאתו בין
-כותלי בית האסורים. המערער, כך קובעת ועדת השיחרורים לאחר שקיבלה חוות-דעת רפואית,
-מסוגל להיכנס בעצמו לשירותים, להתלבש כמעט לגמרי, להיכנס למקלחת וכו&#39;, ומעט
-הפעולות שהוא אינו מסוגל לבצע, יכול שירות בתי הסוהר להיות לו לעזר. אכן, המערער
-יתקשה לתפקד בין כותלי הכלא, אך קושי זה יש בו כדי לפגוע ברווחתו אך אין בו כדי
-לסכן את שלומו או לפגוע בתוחלת חייו. במילה אחת: אין מניעה לשלוח את המערער לבית
-האסורים.
+ועדת השיחרורים עשתה כבקשתנו, והחלטתה מיום 8.5.2000 מונחת עתה לפנינו. בחוות-דעתה עומדת הוועדה על מצבו הגופני הקשה של המערער - שיתוק חלקי בפלג הגוף הימני, כאבים בפלג הגוף הימני, מצב נפשי קשה, התפרצויות ריגשיות - ולמרות סיבלו מודיעה היא אותנו כי אין מניעה לכליאתו בין כותלי בית האסורים. המערער, כך קובעת ועדת השיחרורים לאחר שקיבלה חוות-דעת רפואית, מסוגל להיכנס בעצמו לשירותים, להתלבש כמעט לגמרי, להיכנס למקלחת וכו&#39;, ומעט הפעולות שהוא אינו מסוגל לבצע, יכול שירות בתי הסוהר להיות לו לעזר. אכן, המערער יתקשה לתפקד בין כותלי הכלא, אך קושי זה יש בו כדי לפגוע ברווחתו אך אין בו כדי לסכן את שלומו או לפגוע בתוחלת חייו. במילה אחת: אין מניעה לשלוח את המערער לבית האסורים.
 
-על רקע זה שמענו את טיעונו של בא-כוח המערער,
-אשר הפיל את תחנוני המערער ומשפחתו לפנינו כי לא נקיים את גזר-דינו של בית-משפט
-קמא. כך ביקש בא-כוח המערער כי נרחם על האמא אשר שכלה בן אחד ובנה האחר נותר נכה;
-כי נרחם על המערער עצמו אשר נענש דיו, ולבד מכך שהריגת אחיו אינה נותנת לו מנוח,
-נושא הוא עצמו בנכות קשה; כי אין כל מטרת ענישה אשר תושג אם יישלח המערער לבית
-האסורים; ועוד כיוצא-באלו טענות אשר נועדו להקל עם המערער.
+על רקע זה שמענו את טיעונו של בא-כוח המערער, אשר הפיל את תחנוני המערער ומשפחתו לפנינו כי לא נקיים את גזר-דינו של בית-משפט קמא. כך ביקש בא-כוח המערער כי נרחם על האמא אשר שכלה בן אחד ובנה האחר נותר נכה; כי נרחם על המערער עצמו אשר נענש דיו, ולבד מכך שהריגת אחיו אינה נותנת לו מנוח, נושא הוא עצמו בנכות קשה; כי אין כל מטרת ענישה אשר תושג אם יישלח המערער לבית האסורים; ועוד כיוצא-באלו טענות אשר נועדו להקל עם המערער.
 
-מן הצד האחר טוענת באת-כוח המדינה, כי העונש
-שהוטל על המערער עונש קל הוא יחסית, וכי בית-משפט קמא כבר הביא במניין העונש את
-נכותו הקשה. כן הצביעה על תסקיר שירות המבחן ולפיו שליחתו של המערער למאסר בפועל
-לתקופה קצרה &#34;עשויה ולו באורח פרדוקסאלי לסייע [לו] להפגישו עם כישלונותיו
-ולחדד את חומרת מעשיו&#34;; כל זאת, בין השאר, &#34;בגלל חוסר מודעות
-עצמית&#34; ו&#34;היעדר קיום רגשות אשמה לתוצאות&#34;. ערעורו של המערער, כך
-מסכמת באת-כוח המדינה את טיעונה, ראוי לו שיידחה.
+מן הצד האחר טוענת באת-כוח המדינה, כי העונש שהוטל על המערער עונש קל הוא יחסית, וכי בית-משפט קמא כבר הביא במניין העונש את נכותו הקשה. כן הצביעה על תסקיר שירות המבחן ולפיו שליחתו של המערער למאסר בפועל לתקופה קצרה &#34;עשויה ולו באורח פרדוקסאלי לסייע [לו] להפגישו עם כישלונותיו ולחדד את חומרת מעשיו&#34;; כל זאת, בין השאר, &#34;בגלל חוסר מודעות עצמית&#34; ו&#34;היעדר קיום רגשות אשמה לתוצאות&#34;. ערעורו של המערער, כך מסכמת באת-כוח המדינה את טיעונה, ראוי לו שיידחה.
 
-מעשהו של המערער מעשה חמור הוא ביותר. לא זו
-בלבד שהמערער סיכן את עצמו ואת הנוסעים עימו ברכב, אלא שבה-בעת סיכן הוא נוסעים
-תמימים אחרים אשר השתמשו בדרך ציבורית. כפי שהעיר במהלך הדיון חברי הנכבד השופט
-ריבלין: הנה היא משפחה - אם, אב וילדיהם - הנוסעים לחופשה או החוזרים מחופשה.
-נוסעים הם לתומם בדרך, ואנשים כמערער, הנוהגים בפראות ובקלות-דעת, באדישות, בנוטלם
-סיכון בלתי-סביר לתוצאות העלולות לבוא כתוצאה ממעשיהם, ממיטים על המשפחה אסון שלא
-יימחק לעולם: אשה אלמנה וילדים יתומים, אב אלמן, אב ואם שכולים. משפחה זו לא תירפא
-לעולם אך ורק בשל אותה פזיזות נוראה במעשים כמעשיו של המערער. אכן, מעשה קשה
-וחסר-אחריות כמעשה המערער, החברה ושלוחיה - ואנו שלוחי החברה אנו - לא יוכלו
-לעבור על פניה ולומר לא היו דברים. בית-משפט קמא שיקלל כראוי את הגורמים לחומרה
-ולקולה, והגורמים שלקולה הביאו אותו לגזור על המערער עונש קל יחסית. לא מצאנו הצדק
-להתערב בעונש זה, ואנו מחליטים לדחות את הערעור.
+מעשהו של המערער מעשה חמור הוא ביותר. לא זו בלבד שהמערער סיכן את עצמו ואת הנוסעים עימו ברכב, אלא שבה-בעת סיכן הוא נוסעים תמימים אחרים אשר השתמשו בדרך ציבורית. כפי שהעיר במהלך הדיון חברי הנכבד השופט ריבלין: הנה היא משפחה - אם, אב וילדיהם - הנוסעים לחופשה או החוזרים מחופשה. נוסעים הם לתומם בדרך, ואנשים כמערער, הנוהגים בפראות ובקלות-דעת, באדישות, בנוטלם סיכון בלתי-סביר לתוצאות העלולות לבוא כתוצאה ממעשיהם, ממיטים על המשפחה אסון שלא יימחק לעולם: אשה אלמנה וילדים יתומים, אב אלמן, אב ואם שכולים. משפחה זו לא תירפא לעולם אך ורק בשל אותה פזיזות נוראה במעשים כמעשיו של המערער. אכן, מעשה קשה וחסר-אחריות כמעשה המערער, החברה ושלוחיה - ואנו שלוחי החברה אנו - לא יוכלו לעבור על פניה ולומר לא היו דברים. בית-משפט קמא שיקלל כראוי את הגורמים לחומרה ולקולה, והגורמים שלקולה הביאו אותו לגזור על המערער עונש קל יחסית. לא מצאנו הצדק להתערב בעונש זה, ואנו מחליטים לדחות את הערעור.
 
-המערער יתייצב לריצוי עונשו ביום ראשון, 11
-ביוני, עד השעה 12:00 בצהריים, במזכירות הפלילית של בית-המשפט המחוזי בנצרת.
+המערער יתייצב לריצוי עונשו ביום ראשון, 11 ביוני, עד השעה 12:00 בצהריים, במזכירות הפלילית של בית-המשפט המחוזי בנצרת.
 
-היום,
-כ&#34;ג באייר התש&#34;ס (28.5.2000).
+היום, כ&#34;ג באייר התש&#34;ס (28.5.2000).
 
-ש ו פ ט ש ו פ ט ש
-ו פ ט
+ש ו פ ט ש ו פ ט ש ו פ ט
 
-העתק
-מתאים למקור
+העתק מתאים למקור
 
-שמריהו
-כהן - מזכיר ראשי
+שמריהו כהן - מזכיר ראשי
 
 99068640.G04
         </div>
@@ -1704,7 +1906,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

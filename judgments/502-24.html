@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    04/11/2024 (לפני 547 ימים)
+                    04/11/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/502-24.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="502/24 - וג&#39;יה עודה נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F502-24.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/11/4/2024-0-502-3-2&amp;fileName=af0e6b752ff64bdfa1117baab612eada&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/11/4/2024-0-502-3-2&amp;fileName=af0e6b752ff64bdfa1117baab612eada&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/11/4/2024-0-502-3-2&amp;fileName=af0e6b752ff64bdfa1117baab612eada&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/11/4/2024-0-502-3-2&amp;fileName=af0e6b752ff64bdfa1117baab612eada&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,21 +1827,9 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            2
+            בבית המשפט העליון
 
-
-
-
-
-בבית המשפט העליון
-
-
-
-ע&#34;פ 502/24 
-
-
-
- 
+ע&#34;פ 502/24
 
 לפני:
 
@@ -1580,55 +1839,35 @@
 
 כבוד השופט חאלד כבוב
 
-
-
 המערער:
 
-וג&#39;יה חוסאם עודה 
-
-
+וג&#39;יה חוסאם עודה
 
 נגד
-
-
 
 המשיבה:
 
 מדינת ישראל
 
-
-
-
-
 ערעור על הכרעת הדין וגזר הדין של בית המשפט המחוזי בנצרת (כבוד השופט ג&#39; אזולאי) בת&#34;פ 8208-06-23 מיום 29.09.2023 ומיום 26.12.2023 בהתאמה
 
+תאריך ישיבה:
 
-
-תאריך ישיבה: 
-
-ח&#39; בתשרי התשפ&#34;ה    (10.10.2024)
-
-
+ח&#39; בתשרי התשפ&#34;ה (10.10.2024)
 
 בשם המערער:
 
-
-
-עו&#34;ד ראפי מסאלחה 
+עו&#34;ד ראפי מסאלחה
 
 בשם המשיבה:
 
 עו&#34;ד איתי שהם
 
-
-
 פסק-דין
-
-
 
 השופט חאלד כבוב:
 
-הערעור שבכותרת מופנה נגד פסק דינו של בית המשפט המחוזי בנוף הגליל-נצרת (כבוד השופט ג&#39; אזולאי) בת&#34;פ 8208-06-23. 
+הערעור שבכותרת מופנה נגד פסק דינו של בית המשפט המחוזי בנוף הגליל-נצרת (כבוד השופט ג&#39; אזולאי) בת&#34;פ 8208-06-23.
 
 העובדות הדרושות לעניין
 
@@ -1646,49 +1885,35 @@
 
 בפתח כתב הערעור הודגש, כי &#34;המחלוקת היא בשאלת זיהוי הרכב ו/או הנאשם. [וכי] ה[מערער] בחר בדרך דיונית של הגשת כל מסמכי תיק החקירה כמוצגים וסיכום על-פיהם ללא שמיעת עדי תביעה וחקירתם, ללא טיעון נגד מהימנותם&#34;. נטען, כי בית המשפט שגה עת אימץ את טענות המאשימה במלואן, ולא דן, כדבעי, בטענות ההגנה. כן נטען, כי &#34;מדובר במערך של נסיבות שלוקה בחסר, נסיבות שאינן מובילות בהכרח להרשעתו של ה[מערער] [...]&#34;. בנוסף, המערער יצא חוצץ נגד הסתמכות בית המשפט על קביעותיו כי הלה &#34;הזמין רעלות פנים&#34; וכי הוא &#34;השתמש בלוחית זיהוי מזויפת&#34;. עוד נטען כי בית המשפט טעה משקבע &#34;זהות בין רכבו של ה[מערער] לבין הרכב שנראה בסרטון מצלמות האבטחה&#34;, שעה שהמומחה &#34;קבע שקיים רק דמיון, הדרגה הנמוכה ביותר שניתן להסיק [...] שלעולם אינה מגיעה לדרגת ההוכחה במשפט פלילי&#34;. בהקשר אחרון זה נטען, כי ראיות המאשימה לא יכולות לבסס את אשמתו ברף הנדרש במשפט פלילי, וכי פסק הדין הופך את היוצרות ואת נטל ההוכחה; בתוך כך הודגש כי בית משפט קמא טעה &#34;כאשר לא קבע כי המאשימה דבקה בראיה נסיבתית שאינה יכולה להביא למסקנה [...] מרשיעה אחת ויחידה&#34;. לעניין העונש הוטעם, בתמצית, כי הוא &#34;אינו עומד בעיקרון המידתיות והוא חורג לחומרא מהנסיבות האישיות של המערער ונסיבות ביצוע העבירה&#34;; וכי שגה בית המשפט ,כשלא התחשב בגיל המערער, העובדה כי שהה במעצר זמן רב, ואין לו הרשעות פליליות קודמות&#34;.
 
- ביום 10.10.2024 שמענו את טיעוני הצדדים בעל-פה. כבר בפתח הדיון, ציין ראש ההרכב, חברי, השופט י&#39; אלרון, על דעת ההרכב כולו, כי התרשמותנו היא שבפני המערער ניצבת משוכה משמעותית. בהמשך התנהל שיח ושיג עם הסניגור על אודות הראיות שבתיק ואלו שאינן; ובתוך כך ניתנה לסניגור הזדמנות לשטוח טענותיו באריכות. בסופו של דבר, הודיע ראש ההרכב כי אין בכוונתו להתערב לא בהרשעה ולא בעונש; וכי כמובן זכותו לעמוד על מתן פסק דין. הסניגור עמד על זכותו ומכאן הכרעתנו.
+ביום 10.10.2024 שמענו את טיעוני הצדדים בעל-פה. כבר בפתח הדיון, ציין ראש ההרכב, חברי, השופט י&#39; אלרון, על דעת ההרכב כולו, כי התרשמותנו היא שבפני המערער ניצבת משוכה משמעותית. בהמשך התנהל שיח ושיג עם הסניגור על אודות הראיות שבתיק ואלו שאינן; ובתוך כך ניתנה לסניגור הזדמנות לשטוח טענותיו באריכות. בסופו של דבר, הודיע ראש ההרכב כי אין בכוונתו להתערב לא בהרשעה ולא בעונש; וכי כמובן זכותו לעמוד על מתן פסק דין. הסניגור עמד על זכותו ומכאן הכרעתנו.
 
 דיון והכרעה
 
-כפי ששיקפנו במעמד הדיון, לא מצאנו ממש בטענות המערער. 
+כפי ששיקפנו במעמד הדיון, לא מצאנו ממש בטענות המערער.
 
-כמובא בתמצית לעיל ובהרחבה בהכרעת הדין, בפני בית המשפט המחוזי נפרס מארג של ראיות נסיבתיות; בנוסף, בית המשפט המחוזי נתן דעתו לגרסת המערער בחקירותיו. כן נזקפה לחובתו העובדה כי נמנע מלהעיד במשפט. ובהקשר זה יודגש, כי על דרך הבאת הראיות בתיק לא ניתן להלין. 
+כמובא בתמצית לעיל ובהרחבה בהכרעת הדין, בפני בית המשפט המחוזי נפרס מארג של ראיות נסיבתיות; בנוסף, בית המשפט המחוזי נתן דעתו לגרסת המערער בחקירותיו. כן נזקפה לחובתו העובדה כי נמנע מלהעיד במשפט. ובהקשר זה יודגש, כי על דרך הבאת הראיות בתיק לא ניתן להלין.
 
-	בסופו של יום, לאחר ששקלנו את הדברים שבכתב ואת טענות הסניגור בדיון – לא מצאנו כי נפל פגם בדרך הילוכו או במסקנתו של בית המשפט המחוזי, ומשכך לא מצאנו להתערב בהכרעת הדין. ואסביר בתמצית.
+בסופו של יום, לאחר ששקלנו את הדברים שבכתב ואת טענות הסניגור בדיון – לא מצאנו כי נפל פגם בדרך הילוכו או במסקנתו של בית המשפט המחוזי, ומשכך לא מצאנו להתערב בהכרעת הדין. ואסביר בתמצית.
 
-כידוע, כוחן של ראיות נסיבתיות לא נופל מכוחן של ראיות ישירות, ושני סוגי ראיות אלה מהווים אמצעים כשרים לצורך ביסוס הרשעה בפלילים. בכדי להתמודד עם האפשרות שתיפול טעות בהיסק ההגיוני מהראיות הנסיבתיות, לעובדה הדרושה הוכחה, נקבעה פסיקה מתודולוגיה תלת שלבית להסקת מסקנה מפלילה מראיות. 
+כידוע, כוחן של ראיות נסיבתיות לא נופל מכוחן של ראיות ישירות, ושני סוגי ראיות אלה מהווים אמצעים כשרים לצורך ביסוס הרשעה בפלילים. בכדי להתמודד עם האפשרות שתיפול טעות בהיסק ההגיוני מהראיות הנסיבתיות, לעובדה הדרושה הוכחה, נקבעה פסיקה מתודולוגיה תלת שלבית להסקת מסקנה מפלילה מראיות.
 
-	בשלב הראשון, נבחנת כל ראיה נסיבתית בפני עצמה לרבות עוצמתה, מהימנותה ודיותה; זאת, כדי לבסס ממצא עובדתי. שלב זה משותף אף לבחינת ראיות ישירות. בשלב השני, נבחנת המסכת הראייתית כולה, בכדי לקבוע אם זו מערבת לכאורה את הנאשם בביצוע המיוחס לו (ע&#34;פ 9372/03 פון וייזל נ&#39; מדינת ישראל, פ&#34;ד נט(1) 745, 754 (2004)). כמובן, אין הכרח שכל ראיה נסיבתית, כשלעצמה, תספיק לצורך קביעת המסקנה המפלילה. המסקנה עשויה להתגלות מצירופן של מספר ראיות (ע&#34;פ 4656/03 מירופולסקי נ&#39; מדינת ישראל, פסקה 7 (01.12.2004)). שלב זה, והבא אחריו, ייחודיים לבחינת ראיות נסיבתיות, והם מדגישים את העובדה שכוחן של ראיות אלה נובע לא רק מאיכותן, אם כי גם מכמותן, צירופן וצפיפותן. בשלב השלישי, עובר הנטל הטקטי אל כתפי הנאשם להציע תזה חלופית למסקנה העולה מצבר הראיות הנסיבתיות שהובאו בפרשת התביעה, שאינה מאולצת או תאורטית (ע&#34;פ 9201/18 גורבאן נ&#39; מדינת ישראל, פסקה 79 (08.06.2022); להרחבה ראו: ע&#34;פ 2050/21 אלהואשלה נ&#39; מדינת ישראל, פסקאות 59-54 לחוות דעתי (16.05.2023)). כאמור, הנטל המועבר לכתפי הנאשם הוא נטל טקטי בלבד. הנטל להוכיח את אשמתו של נאשם לעולם יהא מוטל על כתפי המאשימה, ועליה לשכנע כי שילובן של כלל הראיות הנסיבתיות מביאה למסקנה אפשרית יחידה – זו המפלילה את הנאשם (ע&#34;פ 3914/05 אלחרר נ&#39; מדינת ישראל, פסקה 16 (10.11.2008)). בהתאם לכך, אף אם נאשם לא סיפק הסבר למארג הראיות הנסיבתיות, או אם ההסבר שהוא סיפק לכך לא &#39;סביר&#39;, ככל שקיימים תרחישים סבירים אחרים, שיש להם עיגון בראיות, שאינם מפלילים אותו במיוחס לו – יש לזכותו מכל אשם. משכך, גם על בית המשפט לבחון את אפשרות קיומם של תרחישים כאמור, וזאת אף אם אלו לא נטענו על-ידי נאשם, ואף אינם מתיישבים עם האנטי-תזה שהציג (ע&#34;פ 2661/13 יחייב נ&#39; מדינת ישראל, פסקה 39 (18.02.2014)).
+בשלב הראשון, נבחנת כל ראיה נסיבתית בפני עצמה לרבות עוצמתה, מהימנותה ודיותה; זאת, כדי לבסס ממצא עובדתי. שלב זה משותף אף לבחינת ראיות ישירות. בשלב השני, נבחנת המסכת הראייתית כולה, בכדי לקבוע אם זו מערבת לכאורה את הנאשם בביצוע המיוחס לו (ע&#34;פ 9372/03 פון וייזל נ&#39; מדינת ישראל, פ&#34;ד נט(1) 745, 754 (2004)). כמובן, אין הכרח שכל ראיה נסיבתית, כשלעצמה, תספיק לצורך קביעת המסקנה המפלילה. המסקנה עשויה להתגלות מצירופן של מספר ראיות (ע&#34;פ 4656/03 מירופולסקי נ&#39; מדינת ישראל, פסקה 7 (01.12.2004)). שלב זה, והבא אחריו, ייחודיים לבחינת ראיות נסיבתיות, והם מדגישים את העובדה שכוחן של ראיות אלה נובע לא רק מאיכותן, אם כי גם מכמותן, צירופן וצפיפותן. בשלב השלישי, עובר הנטל הטקטי אל כתפי הנאשם להציע תזה חלופית למסקנה העולה מצבר הראיות הנסיבתיות שהובאו בפרשת התביעה, שאינה מאולצת או תאורטית (ע&#34;פ 9201/18 גורבאן נ&#39; מדינת ישראל, פסקה 79 (08.06.2022); להרחבה ראו: ע&#34;פ 2050/21 אלהואשלה נ&#39; מדינת ישראל, פסקאות 59-54 לחוות דעתי (16.05.2023)). כאמור, הנטל המועבר לכתפי הנאשם הוא נטל טקטי בלבד. הנטל להוכיח את אשמתו של נאשם לעולם יהא מוטל על כתפי המאשימה, ועליה לשכנע כי שילובן של כלל הראיות הנסיבתיות מביאה למסקנה אפשרית יחידה – זו המפלילה את הנאשם (ע&#34;פ 3914/05 אלחרר נ&#39; מדינת ישראל, פסקה 16 (10.11.2008)). בהתאם לכך, אף אם נאשם לא סיפק הסבר למארג הראיות הנסיבתיות, או אם ההסבר שהוא סיפק לכך לא &#39;סביר&#39;, ככל שקיימים תרחישים סבירים אחרים, שיש להם עיגון בראיות, שאינם מפלילים אותו במיוחס לו – יש לזכותו מכל אשם. משכך, גם על בית המשפט לבחון את אפשרות קיומם של תרחישים כאמור, וזאת אף אם אלו לא נטענו על-ידי נאשם, ואף אינם מתיישבים עם האנטי-תזה שהציג (ע&#34;פ 2661/13 יחייב נ&#39; מדינת ישראל, פסקה 39 (18.02.2014)).
 
-	כך נעשה בענייננו אנו, באופן מפורט על-ידי בית המשפט המחוזי (ראו פסקאות 25-7 להכרעת הדין). למותר לציין, כי משעה שהמערער בחר שלא להעיד במסגרת פרשת ההגנה ובהינתן העובדה שנמנע מלמסור גרסה מלאה עת נחקר במשטרה – הלה לא עמד בנטל הטקטי שהוטל עליו (ראו פסקאות 28-26 להכרעת הדין). ויובהר, כי נוכח הראיות בתיק, לא מצאתי כל תזה-חלופית סבירה אחרת בנדון דידן.
+כך נעשה בענייננו אנו, באופן מפורט על-ידי בית המשפט המחוזי (ראו פסקאות 25-7 להכרעת הדין). למותר לציין, כי משעה שהמערער בחר שלא להעיד במסגרת פרשת ההגנה ובהינתן העובדה שנמנע מלמסור גרסה מלאה עת נחקר במשטרה – הלה לא עמד בנטל הטקטי שהוטל עליו (ראו פסקאות 28-26 להכרעת הדין). ויובהר, כי נוכח הראיות בתיק, לא מצאתי כל תזה-חלופית סבירה אחרת בנדון דידן.
 
 דין הערעור על גזר הדין להידחות אף הוא. כלל נקוט הוא כי בית המשפט שלערעור לא יטה להתערב בעונש שהטילה הערכאה הדיונית, אלא במקרים חריגים בהם מתגלה סטייה ניכרת ממדיניות הענישה הנוהגת, או כאשר נפלה טעות מהותית בגזר הדין (ראו: ע&#34;פ 634/19 גבאי נ&#39; מדינת ישראל, פסקה 11 (26.02.2020); ע&#34;פ 126/22 מדינת ישראל נ&#39; פלוני, פסקה 10 (27.04.2022)). עניינו של המערער לא בא בעדת אותם מקרים חריגים. טענותיו התמציתיות עד מאוד בהקשר זה נטענו בשפה רפה, וללא כל תימוכין. ספק אם המערער עצמו סבור כי יש בסיס להתערבותה החריגה של ערכאת הערעור בהקשר זה, נוכח היקף טיעוניו בנדון.
 
 הערעור נדחה בזאת.
 
-
-
 ניתן היום, ג&#39; חשוון תשפ&#34;ה (04 נובמבר 2024).
-
-
-
-
 
 יוסף אלרון
 
 שופט
 
-
-
-
-
 יעל וילנר
 
 שופטת
-
-
-
-
 
 חאלד כבוב
 
@@ -1711,7 +1936,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

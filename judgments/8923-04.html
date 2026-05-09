@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    20/01/2005 (לפני 7775 ימים)
+                    20/01/2005 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8923-04.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8923/04 - פלוני נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8923-04.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/230/089/03N&amp;fileName=04089230_03N.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/230/089/03N&amp;fileName=04089230_03N.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/230/089/03N&amp;fileName=04089230_03N.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/230/089/03N&amp;fileName=04089230_03N.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,8 +1829,7 @@
         <div class="nested-content" style="line-height: 1.8;">
             החלטה בתיק ע&#34;פ 8923/04
 
-בבית המשפט העליון
-בשבתו כבית משפט לערעורים פליליים
+בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
 ע&#34;פ 8923/04
 
@@ -1581,8 +1851,7 @@
 
 מדינת ישראל
 
-ערעור על פסק הדין של בית המשפט
-המחוזי בחיפה מיום 8.9.04 בת.פ. 515/02 שניתן על ידי כבוד השופט א&#39; שיף
+ערעור על פסק הדין של בית המשפט המחוזי בחיפה מיום 8.9.04 בת.פ. 515/02 שניתן על ידי כבוד השופט א&#39; שיף
 
 תאריך הישיבה:
 
@@ -1602,15 +1871,11 @@
 
 החלטה
 
-המערער נתון במאסר בגין עבירות אחרות ועקב
-טעות לא הוזמן לדיון, אך נתן הסכמתו כי הערעור יישמע בהעדרו, כשהוא מיוצג על ידי
-סנגורו ע&#39; רוזינס.
+המערער נתון במאסר בגין עבירות אחרות ועקב טעות לא הוזמן לדיון, אך נתן הסכמתו כי הערעור יישמע בהעדרו, כשהוא מיוצג על ידי סנגורו ע&#39; רוזינס.
 
-ניתן
-היום, י&#39; בשבט התשס&#34;ה (20.1.2005).
+ניתן היום, י&#39; בשבט התשס&#34;ה (20.1.2005).
 
-ש ו פ ט ת
-ש ו פ ט ש ו פ ט
+ש ו פ ט ת ש ו פ ט ש ו פ ט
 
 _________________________
 
@@ -1618,8 +1883,7 @@ _________________________
 
 מרכז מידע, טל&#39; 02-6750444 ; אתר אינטרנט, www.court.gov.il
 
-בבית המשפט העליון בשבתו כבית משפט
-לערעורים פליליים
+בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
 ע&#34;פ 8923/04
 
@@ -1641,8 +1905,7 @@ _________________________
 
 מדינת ישראל
 
-ערעור על פסק הדין של בית המשפט
-המחוזי בחיפה מיום 8.9.04 בת.פ. 515/02 שניתן על ידי כבוד השופט א&#39; שיף
+ערעור על פסק הדין של בית המשפט המחוזי בחיפה מיום 8.9.04 בת.פ. 515/02 שניתן על ידי כבוד השופט א&#39; שיף
 
 תאריך הישיבה:
 
@@ -1664,95 +1927,23 @@ _________________________
 
 השופטת ד&#39; ביניש:
 
-המערער הורשע בבית המשפט המחוזי בחיפה
-בעבירה של גרימת חבלה חמורה בנסיבות מחמירות, לפי סעיף 333 בצירוף 335(1)(2) לחוק
-העונשין התשל&#34;ז-1977. בהכרעת דין ארוכה ומפורטת קבע בית המשפט קמא (השופט א&#39;
-שיף), כי במהלך תגרה שפרצה בשל ריב של מה בכך, דקר המערער באמצעות סכין שהיתה
-ברשותו את המתלונן עלא עודה בגבו, כאשר באותה עת דקרו את המתלונן חבריו של המערער
-שהיו במקום; בסך הכל נדקר המתלונן חמש דקירות אשר בגינן נפצע ואושפז ונזקק לניתוח.
-באותה פרשה הורשעו שני צעירים נוספים, ושני מעורבים אחרים שמסיבות בלתי ברורות, לא
-נתנו את הדין בקשר למעורבותם.
+המערער הורשע בבית המשפט המחוזי בחיפה בעבירה של גרימת חבלה חמורה בנסיבות מחמירות, לפי סעיף 333 בצירוף 335(1)(2) לחוק העונשין התשל&#34;ז-1977. בהכרעת דין ארוכה ומפורטת קבע בית המשפט קמא (השופט א&#39; שיף), כי במהלך תגרה שפרצה בשל ריב של מה בכך, דקר המערער באמצעות סכין שהיתה ברשותו את המתלונן עלא עודה בגבו, כאשר באותה עת דקרו את המתלונן חבריו של המערער שהיו במקום; בסך הכל נדקר המתלונן חמש דקירות אשר בגינן נפצע ואושפז ונזקק לניתוח. באותה פרשה הורשעו שני צעירים נוספים, ושני מעורבים אחרים שמסיבות בלתי ברורות, לא נתנו את הדין בקשר למעורבותם.
 
-הערעור שלפנינו מופנה בעיקרו כנגד
-ההרשעה. בא-כוחו של המערער, עו&#34;ד עמית רוזינס, העלה טענות בכתב ובעל פה כנגד
-ממצאיו של בית המשפט קמא ועשה כל שניתן לשכנענו כי לא ניתן היה לקבוע מעבר לספק
-סביר שהמערער הוא אכן הדוקר. שקלנו את טענות הערעור ולא מצאנו כי בהרשעתו של
-המערער יצאה שגגה מלפני בית המשפט כנטען.
+הערעור שלפנינו מופנה בעיקרו כנגד ההרשעה. בא-כוחו של המערער, עו&#34;ד עמית רוזינס, העלה טענות בכתב ובעל פה כנגד ממצאיו של בית המשפט קמא ועשה כל שניתן לשכנענו כי לא ניתן היה לקבוע מעבר לספק סביר שהמערער הוא אכן הדוקר. שקלנו את טענות הערעור ולא מצאנו כי בהרשעתו של המערער יצאה שגגה מלפני בית המשפט כנטען.
 
-בקובעו את הממצאים העובדתיים באשר לארוע
-שהתרחש בשעות הלילה ביום 16.7.02, נהג בית המשפט בזהירות רבה; הוא הביא בחשבון כי
-ארוע בו יש משתתפים רבים, כפי שארע כאן, אשר מעורבים בו גם אנשים שנוכחותם פסיבית,
-והכל מתרחש במהירות תוך פרק זמן קצר, הוא ארוע שבו העדויות לא בהכרח מתיישבות זו
-עם זו. בית המשפט עמד על כך כי בקטטה כזו, כל אחד מן העדים ראה רק חלק מההתרחשויות
-ולא תמונה מלאה. מטעם זה ראה בית המשפט לנפות חלק מהעדויות, וליתן משקל רק לאותן
-עדויות שסימני האמת בהן היו, על פי התרשמותו, סימנים ברורים ומשכנעים. העד העיקרי
-אשר על עדותו הסתמך בית המשפט היה העד עלא עודה, אשר השופט מציין כי &#34;עדותו
-היתה ברורה ועקבית, ונכרו בה סימני אמת&#34;. עד זה זיהה את המערער, הן במסדר
-זיהוי תמונות והן במסדר זיהוי חי, וזאת בנוכחות באת-כוח המערער באותה עת. עד זה אף
-זיהה נאשם אחר שדקר אותו בחזהו, ונאשם זה אכן הודה והורשע כמי שהשתתף במעשה. עלא
-העיד כי ראה את פניו של המערער בעת שדקרו בפעם הראשונה בגבו, הוא הסתובב אליו,
-זיהה אותו, וראה אותו בהמשך, בבריחה. יצוין כי המערער היה בעל חזות אופיינית וזוהה
-בשל צבע עיניו ותסרוקתו בשיער אסוף לקוקו. הסנגור טען בפני בית המשפט קמא טענות
-שונות ביחס להליך הזיהוי, והן נדחו. על טענות אלה חזר הסנגור גם בפנינו, הוא הפנה
-את תשומת ליבנו לעובדה שגירסתו הראשונה של עלא ניתנה רק כעבור שבועיים מאז הארוע,
-ולטענתו יכולה היתה להיות מושפעת מכך שהמעורבים שוחחו ביניהם על זהות המבצעים. כן,
-הפנה לכך כי על גבי לוח שהוצג בבית המשפט כלוח התמונות שהוצג למערער בשלב הזיהוי
-במשטרה, מסומנת תמונתו של המערער כמספר 4 בעוד שעל פי הראיות הוא זיהה את תמונתו
-של המסומן 7. לענין זה יש הסבר מניח את הדעת, מתוך עיון בדוחות מסדר הזיהוי,
-והופנינו אליו על ידי באת-כוח המדינה, ולפיו כאשר נערכים מסדרי זיהוי תמונות למספר
-מזהים, נוהגת המשטרה להחליף את סימון התמונות כדי שלא ניתן יהיה להעביר את נתוני
-הזיהוי מעד מזהה אחד לאחר. בצדק ציין בית המשפט קמא כי בשים לב לכך שהמערער היה
-מיוצג בעת עריכת מסדר הזיהוי, ובאת-כוחו לא הצביעה על פגם כל שהוא בהליך הזיהוי,
-והדברים נרשמו בדו&#34;ח מסדר הזיהוי, אין סיבה להטיל דופי בהליכי הזיהוי
-שהתקיימו. גם העובדה שחלף זמן בין הארוע למסירת גירסתו של עלא, אין בה כדי להטיל
-פגם באמינותו. העיכוב במסירת גירסתו של עלא נבע מכך שהוא היה מאושפז ונמנע ממנו
-למסור פרטים במשטרה קודם לכן. אולם נוכח האמון הרב שנתן בית המשפט בעדותו, ובהתחשב
-במאפיינים הניתנים לזיהוי של המערער, אין כל סיבה להטיל דופי בגירסתו המזהה של עד
-זה, רק בשל הזמן שחלף. בית המשפט קמא מצא תמיכה לגירסתו של העד עלה עודה, בגירסתו
-של העד אורי שפירא, כפי שנמסרה במשטרה. בהודעה שמסר שפירא ביוזמתו, לאחר שהכחיש
-קודם לכן את נוכחותו בזירת הארוע, ולאחר שהאליבי שלו עצמו הופרך, עמד על כך כי
-המערער הוא שדקר את המתלונן. בעדותו בבית המשפט התכחש אמנם שפירא לדבריו במשטרה
-וטען כי גירסתו המפלילה את המערער ניתנה תחת לחץ השוטרים; אולם בית המשפט קמא
-העדיף את הודאתו במשטרה, וזאת לאחר ששמע את עדויותיהם של השוטרים אשר גבו את
-ההודאה ומסרו פרטים ביחס לנסיבות בהן סיפר שפירא את גירסתו.
+בקובעו את הממצאים העובדתיים באשר לארוע שהתרחש בשעות הלילה ביום 16.7.02, נהג בית המשפט בזהירות רבה; הוא הביא בחשבון כי ארוע בו יש משתתפים רבים, כפי שארע כאן, אשר מעורבים בו גם אנשים שנוכחותם פסיבית, והכל מתרחש במהירות תוך פרק זמן קצר, הוא ארוע שבו העדויות לא בהכרח מתיישבות זו עם זו. בית המשפט עמד על כך כי בקטטה כזו, כל אחד מן העדים ראה רק חלק מההתרחשויות ולא תמונה מלאה. מטעם זה ראה בית המשפט לנפות חלק מהעדויות, וליתן משקל רק לאותן עדויות שסימני האמת בהן היו, על פי התרשמותו, סימנים ברורים ומשכנעים. העד העיקרי אשר על עדותו הסתמך בית המשפט היה העד עלא עודה, אשר השופט מציין כי &#34;עדותו היתה ברורה ועקבית, ונכרו בה סימני אמת&#34;. עד זה זיהה את המערער, הן במסדר זיהוי תמונות והן במסדר זיהוי חי, וזאת בנוכחות באת-כוח המערער באותה עת. עד זה אף זיהה נאשם אחר שדקר אותו בחזהו, ונאשם זה אכן הודה והורשע כמי שהשתתף במעשה. עלא העיד כי ראה את פניו של המערער בעת שדקרו בפעם הראשונה בגבו, הוא הסתובב אליו, זיהה אותו, וראה אותו בהמשך, בבריחה. יצוין כי המערער היה בעל חזות אופיינית וזוהה בשל צבע עיניו ותסרוקתו בשיער אסוף לקוקו. הסנגור טען בפני בית המשפט קמא טענות שונות ביחס להליך הזיהוי, והן נדחו. על טענות אלה חזר הסנגור גם בפנינו, הוא הפנה את תשומת ליבנו לעובדה שגירסתו הראשונה של עלא ניתנה רק כעבור שבועיים מאז הארוע, ולטענתו יכולה היתה להיות מושפעת מכך שהמעורבים שוחחו ביניהם על זהות המבצעים. כן, הפנה לכך כי על גבי לוח שהוצג בבית המשפט כלוח התמונות שהוצג למערער בשלב הזיהוי במשטרה, מסומנת תמונתו של המערער כמספר 4 בעוד שעל פי הראיות הוא זיהה את תמונתו של המסומן 7. לענין זה יש הסבר מניח את הדעת, מתוך עיון בדוחות מסדר הזיהוי, והופנינו אליו על ידי באת-כוח המדינה, ולפיו כאשר נערכים מסדרי זיהוי תמונות למספר מזהים, נוהגת המשטרה להחליף את סימון התמונות כדי שלא ניתן יהיה להעביר את נתוני הזיהוי מעד מזהה אחד לאחר. בצדק ציין בית המשפט קמא כי בשים לב לכך שהמערער היה מיוצג בעת עריכת מסדר הזיהוי, ובאת-כוחו לא הצביעה על פגם כל שהוא בהליך הזיהוי, והדברים נרשמו בדו&#34;ח מסדר הזיהוי, אין סיבה להטיל דופי בהליכי הזיהוי שהתקיימו. גם העובדה שחלף זמן בין הארוע למסירת גירסתו של עלא, אין בה כדי להטיל פגם באמינותו. העיכוב במסירת גירסתו של עלא נבע מכך שהוא היה מאושפז ונמנע ממנו למסור פרטים במשטרה קודם לכן. אולם נוכח האמון הרב שנתן בית המשפט בעדותו, ובהתחשב במאפיינים הניתנים לזיהוי של המערער, אין כל סיבה להטיל דופי בגירסתו המזהה של עד זה, רק בשל הזמן שחלף. בית המשפט קמא מצא תמיכה לגירסתו של העד עלה עודה, בגירסתו של העד אורי שפירא, כפי שנמסרה במשטרה. בהודעה שמסר שפירא ביוזמתו, לאחר שהכחיש קודם לכן את נוכחותו בזירת הארוע, ולאחר שהאליבי שלו עצמו הופרך, עמד על כך כי המערער הוא שדקר את המתלונן. בעדותו בבית המשפט התכחש אמנם שפירא לדבריו במשטרה וטען כי גירסתו המפלילה את המערער ניתנה תחת לחץ השוטרים; אולם בית המשפט קמא העדיף את הודאתו במשטרה, וזאת לאחר ששמע את עדויותיהם של השוטרים אשר גבו את ההודאה ומסרו פרטים ביחס לנסיבות בהן סיפר שפירא את גירסתו.
 
-בית המשפט קמא ציין, אפוא, כי עדותו של
-שפירא, בגירסתו במשטרה עולה בקנה אחד עם עדותו של עלא והן מחזקות אחת את השניה.
-בית המשפט היה ער לכך כי שפירא הקטין את חלקו שלו בדבר מעורבותו בקטטה, אך התרשם
-כי הדברים שנאמרו ביחס לחברו – המערער – הם דברי אמת. חיזוק נוסף לגירסה המפלילה
-מצא בית המשפט בגירסאותיו הסותרות והשקריות של המערער. בחקירתו במשטרה מסר המערער
-תחילה גירסה שקרית, לפיה שהה בעת הקטטה במקום אחר ביחד עם אותו שפירא, וכי רק לאחר
-הקטטה הגיעו שניהם לאזור הארוע. לאחר שגירסה זו הופרכה על ידי שפירא עצמו, וכשעומת
-המערער עם הדברים בחקירה, סרב להגיב ובהודעה נוספת שמר על זכות השתיקה. בעדותו בבית
-המשפט אישר כי נכח בזירת הארוע בקרבת מקום אך טען כי לא נטל בו חלק. בית המשפט קבע
-כי שקריו של המערער הן בחקירתו במשטרה והן בבית המשפט מצביעים על רצונו להרחיק
-עצמו ממקום הארוע. כששקרים אלה מצטרפים לראיות הפוזיטיביות, קבע בית המשפט כי
-המסקנה המתבקשת היא שהמערער אכן דקר את עלא מספר דקירות בצוותא חדא עם אחרים,
-ולפיכך, היה הוא הדוקר את עלא בגבו, ומבצע בצוותא עם אחרים שדקרו את יתר הדקירות.
+בית המשפט קמא ציין, אפוא, כי עדותו של שפירא, בגירסתו במשטרה עולה בקנה אחד עם עדותו של עלא והן מחזקות אחת את השניה. בית המשפט היה ער לכך כי שפירא הקטין את חלקו שלו בדבר מעורבותו בקטטה, אך התרשם כי הדברים שנאמרו ביחס לחברו – המערער – הם דברי אמת. חיזוק נוסף לגירסה המפלילה מצא בית המשפט בגירסאותיו הסותרות והשקריות של המערער. בחקירתו במשטרה מסר המערער תחילה גירסה שקרית, לפיה שהה בעת הקטטה במקום אחר ביחד עם אותו שפירא, וכי רק לאחר הקטטה הגיעו שניהם לאזור הארוע. לאחר שגירסה זו הופרכה על ידי שפירא עצמו, וכשעומת המערער עם הדברים בחקירה, סרב להגיב ובהודעה נוספת שמר על זכות השתיקה. בעדותו בבית המשפט אישר כי נכח בזירת הארוע בקרבת מקום אך טען כי לא נטל בו חלק. בית המשפט קבע כי שקריו של המערער הן בחקירתו במשטרה והן בבית המשפט מצביעים על רצונו להרחיק עצמו ממקום הארוע. כששקרים אלה מצטרפים לראיות הפוזיטיביות, קבע בית המשפט כי המסקנה המתבקשת היא שהמערער אכן דקר את עלא מספר דקירות בצוותא חדא עם אחרים, ולפיכך, היה הוא הדוקר את עלא בגבו, ומבצע בצוותא עם אחרים שדקרו את יתר הדקירות.
 
-ממצאיו של בית המשפט קמא מעוגנים בחומר
-הראיות, ולא ראינו כי בענין זה יש מקום לסטות מן הכלל, לפיו אין בית המשפט של
-הערעור נוהג להתערב בממצאים עובדתיים המבוססים על התרשמותה של הערכאה אשר שמעה את
-העדים.
+ממצאיו של בית המשפט קמא מעוגנים בחומר הראיות, ולא ראינו כי בענין זה יש מקום לסטות מן הכלל, לפיו אין בית המשפט של הערעור נוהג להתערב בממצאים עובדתיים המבוססים על התרשמותה של הערכאה אשר שמעה את העדים.
 
-העונש אשר הושת על המערער, 8 חודשי מאסר
-בפועל ושנת מאסר מותנית למשך שנתיים אינו חמור כלל ועיקר, בהתחשב בעבירה החמורה
-שהורשע בה. למערער עבר פלילי על אף גילו הצעיר, והוא כולל עבירות רכוש, הצתת רכב
-ושוד. אלמלא גילו הצעיר במיוחד, היותו בן 15 בעת ביצוע העבירה, אין ספק כי בית
-המשפט היה מחמיר עימו יותר. בינתיים הוברר כי המערער הורשע בעבירות נוספות והוא
-מרצה כיום עונש מאסר של 30 חודשים. מתסקיר שירות המבחן עולה כי התנהגותו בכלא היא
-חיובית, כי יש סיכוי שהוא אכן עושה מאמץ לשנות מדרכו, ואין לנו אלא לקוות כי יצליח
-בכך. אולם בשים לב למכלול הנסיבות, איננו רואים כי ניתן להתערב כדי להקל בעונשו
-נוספות.
+העונש אשר הושת על המערער, 8 חודשי מאסר בפועל ושנת מאסר מותנית למשך שנתיים אינו חמור כלל ועיקר, בהתחשב בעבירה החמורה שהורשע בה. למערער עבר פלילי על אף גילו הצעיר, והוא כולל עבירות רכוש, הצתת רכב ושוד. אלמלא גילו הצעיר במיוחד, היותו בן 15 בעת ביצוע העבירה, אין ספק כי בית המשפט היה מחמיר עימו יותר. בינתיים הוברר כי המערער הורשע בעבירות נוספות והוא מרצה כיום עונש מאסר של 30 חודשים. מתסקיר שירות המבחן עולה כי התנהגותו בכלא היא חיובית, כי יש סיכוי שהוא אכן עושה מאמץ לשנות מדרכו, ואין לנו אלא לקוות כי יצליח בכך. אולם בשים לב למכלול הנסיבות, איננו רואים כי ניתן להתערב כדי להקל בעונשו נוספות.
 
-אשר על כן, הערעור על ההרשעה ועל העונש
-נדחה.
+אשר על כן, הערעור על ההרשעה ועל העונש נדחה.
 
-ניתנה
-היום, י&#39; בשבט התשס&#34;ה (20.1.2005).
+ניתנה היום, י&#39; בשבט התשס&#34;ה (20.1.2005).
 
-ש ו פ ט ת
-ש ו פ ט ש ו פ ט
+ש ו פ ט ת ש ו פ ט ש ו פ ט
 
 _________________________
 
@@ -1777,7 +1968,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

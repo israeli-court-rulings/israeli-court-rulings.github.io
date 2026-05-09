@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    13/06/1999 (לפני 9823 ימים)
+                    13/06/1999 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5223-97.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5223/97 - שמואל רוזנטל נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5223-97.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/97/230/052/E05&amp;fileName=97052230_E05.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/97/230/052/E05&amp;fileName=97052230_E05.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/97/230/052/E05&amp;fileName=97052230_E05.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/97/230/052/E05&amp;fileName=97052230_E05.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,162 +1829,71 @@
         <div class="nested-content" style="line-height: 1.8;">
             בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
-ע&#34;פ
-5223/97
+ע&#34;פ 5223/97
 
-בפני: כבוד
-השופט ת&#39; אור
+בפני: כבוד השופט ת&#39; אור
 
-כבוד
-השופט י&#39; אנגלרד
+כבוד השופט י&#39; אנגלרד
 
-כבוד
-השופט ע&#39; זועבי
+כבוד השופט ע&#39; זועבי
 
-המערער: שמואל
-רוזנטל
+המערער: שמואל רוזנטל
 
-נ
-ג ד
+נ ג ד
 
-המשיבה: מדינת
-ישראל
+המשיבה: מדינת ישראל
 
-ערעור
-על גזר דינו של בית המשפט המחוזי בתל אביב יפו מיום 20.7.97 בת&#34;פ 56/97 שניתן
-על ידי כבוד השופט ד&#34;ר ע&#39; מודריק
+ערעור על גזר דינו של בית המשפט המחוזי בתל אביב יפו מיום 20.7.97 בת&#34;פ 56/97 שניתן על ידי כבוד השופט ד&#34;ר ע&#39; מודריק
 
-בשם
-המערער: עו&#34;ד ששי גז ועו&#34;ד שלמה בן
-אריה
+בשם המערער: עו&#34;ד ששי גז ועו&#34;ד שלמה בן אריה
 
-בשם
-המשיבה: עו&#34;ד שרית טובבין
+בשם המשיבה: עו&#34;ד שרית טובבין
 
-בשם
-שרות המבחן: גברת זהבה מור
+בשם שרות המבחן: גברת זהבה מור
 
 פסק-דין
 
-1. המערער הואשם ביחד עם ארבעה אחרים (להלן
-יקראו חמשתם: הנאשמים) בעבירות לפי פקודת הסמים המסוכנים (נוסח חדש),
-התשל&#34;ג1993- (להלן: פקודת הסמים המסוכנים), הכוללות קשירת קשר ליבוא
-וסחר בסם מסוכן ויבוא סם מסוכן.
+1. המערער הואשם ביחד עם ארבעה אחרים (להלן יקראו חמשתם: הנאשמים) בעבירות לפי פקודת הסמים המסוכנים (נוסח חדש), התשל&#34;ג1993- (להלן: פקודת הסמים המסוכנים), הכוללות קשירת קשר ליבוא וסחר בסם מסוכן ויבוא סם מסוכן.
 
-המערער, ביחד עם הנאשמים ועוד שניים אחרים,
-קשרו קשר לייבא ממקסיקו, בדרך הים, כמות של 13 ק&#34;ג קוקאין. לצורך מימוש הדבר
-טס המערער למקסיקו. לאחר מכן הצטרף אליו גם הנאשם יצחק לוי (להלן: לוי).
-במהלך שהייתם במקסיקו רכשו השניים 13 ק&#34;ג קוקאין. את הסם הטמינו ברהיטים
-ובאביזרים ביתיים שונים שנארזו במכולה אשר נשלחה ארצה. עם הגיעה של המכולה ארצה,
-ניסו הנאשמים לשחררה מבלי שתהיה אפשרות לזהות את הנמענים ואת מהלך התכולה לאחר
-מכן. למרות כל מאמצי הנאשמים, והודות לעובדה כי למשטרה נודע דבר יבוא הסם מבעוד
-מועד, לא צלח הדבר בידיהם.
+המערער, ביחד עם הנאשמים ועוד שניים אחרים, קשרו קשר לייבא ממקסיקו, בדרך הים, כמות של 13 ק&#34;ג קוקאין. לצורך מימוש הדבר טס המערער למקסיקו. לאחר מכן הצטרף אליו גם הנאשם יצחק לוי (להלן: לוי). במהלך שהייתם במקסיקו רכשו השניים 13 ק&#34;ג קוקאין. את הסם הטמינו ברהיטים ובאביזרים ביתיים שונים שנארזו במכולה אשר נשלחה ארצה. עם הגיעה של המכולה ארצה, ניסו הנאשמים לשחררה מבלי שתהיה אפשרות לזהות את הנמענים ואת מהלך התכולה לאחר מכן. למרות כל מאמצי הנאשמים, והודות לעובדה כי למשטרה נודע דבר יבוא הסם מבעוד מועד, לא צלח הדבר בידיהם.
 
-עם תחילת משפטו הודה המערער במעשים אשר יוחסו
-לו בכתב האישום, וזאת במסגרת עיסקת טיעון בינו לבין התביעה. במסגרת עיסקת הטיעון,
-הוסכם שהתביעה לא תבקש עונש מאסר העולה על 15 שנים, והמערער חופשי היה לטעון
-לעניין העונש שיוטל עליו. לאחר שימוע טענות בעלי הדין, דן בית המשפט את הנאשם ל15-
-שנות מאסר, שמהן 13 שנים לריצוי בפועל ושנתיים מאסר על תנאי לשלוש שנים מיום
-שחרורו מן המאסר, והתנאי הוא שלא יעבור עבירה לפי פקודת הסמים שהיא פשע.
+עם תחילת משפטו הודה המערער במעשים אשר יוחסו לו בכתב האישום, וזאת במסגרת עיסקת טיעון בינו לבין התביעה. במסגרת עיסקת הטיעון, הוסכם שהתביעה לא תבקש עונש מאסר העולה על 15 שנים, והמערער חופשי היה לטעון לעניין העונש שיוטל עליו. לאחר שימוע טענות בעלי הדין, דן בית המשפט את הנאשם ל15- שנות מאסר, שמהן 13 שנים לריצוי בפועל ושנתיים מאסר על תנאי לשלוש שנים מיום שחרורו מן המאסר, והתנאי הוא שלא יעבור עבירה לפי פקודת הסמים שהיא פשע.
 
-במסגרת הנמקתו לגזר הדין, הדגיש בית המשפט את
-חומרת העבירה לאור כמות הסם הגדולה. אך הוא גם ציין, שאין הוא מתעלם מנסיבותיו
-האישיות המיוחדות של המערער. הוא התרשם מכך שלא מדובר בפושע חסר תקנה, מכך שהמערער
-אכן מתייסר לא מעט בשל מעשיו, וקבע כי ישנה הסתברות ממשית לכך שהוא יחזיר את
-נתיביו לכיוון חיובי. אולם, הוא קבע, כי אפשר למצוא דרך לכך גם במהלך שנות המאסר
-אשר יוטלו על המערער.
+במסגרת הנמקתו לגזר הדין, הדגיש בית המשפט את חומרת העבירה לאור כמות הסם הגדולה. אך הוא גם ציין, שאין הוא מתעלם מנסיבותיו האישיות המיוחדות של המערער. הוא התרשם מכך שלא מדובר בפושע חסר תקנה, מכך שהמערער אכן מתייסר לא מעט בשל מעשיו, וקבע כי ישנה הסתברות ממשית לכך שהוא יחזיר את נתיביו לכיוון חיובי. אולם, הוא קבע, כי אפשר למצוא דרך לכך גם במהלך שנות המאסר אשר יוטלו על המערער.
 
-2. מרבית טענותיו של בא כוח המערער התייחסו
-לנסיבותיו האישיות המיוחדות של המערער, תוך הדגשה שכשלונו היה חד פעמי, הן במובן
-זה שאין לו כל הרשעות קודמות, והן במובן זה שאין חשש אמיתי כי יחזור על מעשים
-דומים. הוא הדגיש בעניין זה את הודאתו של המערער בעובדות המיוחסות לו בכתב האישום,
-ואת חרטתו הכנה, אשר מתחזקת באמור בתסקיר קצינת המבחן לגביו.
+2. מרבית טענותיו של בא כוח המערער התייחסו לנסיבותיו האישיות המיוחדות של המערער, תוך הדגשה שכשלונו היה חד פעמי, הן במובן זה שאין לו כל הרשעות קודמות, והן במובן זה שאין חשש אמיתי כי יחזור על מעשים דומים. הוא הדגיש בעניין זה את הודאתו של המערער בעובדות המיוחסות לו בכתב האישום, ואת חרטתו הכנה, אשר מתחזקת באמור בתסקיר קצינת המבחן לגביו.
 
-מבלי להתעלם מטענות אלה, נראה הדבר שנוכח
-הכמות הגדולה של הסם המסוכן מסוג קוקאין אותה ייבאו המערער ושותפיו ארצה, העונש
-אשר הוטל עליו אינו חורג לכאורה מענישה הולמת. עם זאת, טענה אחת מבין טענותיו של
-בא כוח המערער מצדיקה את התערבותנו בעונש אשר הוטל על המערער על ידי הקלה משמעותית
-בעונש אשר הוטל על המערער.
+מבלי להתעלם מטענות אלה, נראה הדבר שנוכח הכמות הגדולה של הסם המסוכן מסוג קוקאין אותה ייבאו המערער ושותפיו ארצה, העונש אשר הוטל עליו אינו חורג לכאורה מענישה הולמת. עם זאת, טענה אחת מבין טענותיו של בא כוח המערער מצדיקה את התערבותנו בעונש אשר הוטל על המערער על ידי הקלה משמעותית בעונש אשר הוטל על המערער.
 
-3. כשמונה חודשים לאחר שנגזר דינו של המערער,
-נעשתה עיסקת טיעון על ידי התביעה, בין היתר, עם אחד הנאשמים, לוי. על פי עיסקת
-הטיעון, התבקש בית המשפט על ידי התביעה ולוי, להטיל על לוי שש וחצי שנות מאסר
-בפועל, דהיינו מחצית עונש המאסר בפועל אשר הוטל על המערער. עיסקה זו, אשר בית
-המשפט גזר את הדין על פיה, מעוררת תמיהה, נוכח האמור בכתב האישום בו הודה המערער.
-על פי כתב האישום, חלקם בפרשה שלו ושל לוי היה דומה. מתברר, ששניהם הגיעו למקסיקו,
-שם רכשו ביחד את הסמים אותם התכוונו להבריח במכולה ארצה. שניהם הטמינו את הסם
-ברהיטים ובאביזרים אחרים אותם דאגו לשלוח ארצה.
+3. כשמונה חודשים לאחר שנגזר דינו של המערער, נעשתה עיסקת טיעון על ידי התביעה, בין היתר, עם אחד הנאשמים, לוי. על פי עיסקת הטיעון, התבקש בית המשפט על ידי התביעה ולוי, להטיל על לוי שש וחצי שנות מאסר בפועל, דהיינו מחצית עונש המאסר בפועל אשר הוטל על המערער. עיסקה זו, אשר בית המשפט גזר את הדין על פיה, מעוררת תמיהה, נוכח האמור בכתב האישום בו הודה המערער. על פי כתב האישום, חלקם בפרשה שלו ושל לוי היה דומה. מתברר, ששניהם הגיעו למקסיקו, שם רכשו ביחד את הסמים אותם התכוונו להבריח במכולה ארצה. שניהם הטמינו את הסם ברהיטים ובאביזרים אחרים אותם דאגו לשלוח ארצה.
 
-בפני בית המשפט המחוזי נטען, שבנסיונות שחרור
-&#34;הסחורה&#34; אשר הגיעה ארצה, חלקו של המערער היה גדול יותר מזה של לוי. גם
-אם כך הדבר, אין לשכוח שבסופו של דבר הסם נתפס מבלי ששוחרר על ידי שולחיו. לכך יש
-גם להוסיף, שבהיותם במקסיקו היה זה דווקא לוי אשר שימש כמורה דרך של המערער. יוצא,
-איפוא, שאין הבדל משמעותי בין חלקו של כל אחד מהשניים בביצוע הקשר לייבא את הסם
-ארצה, אשר יצדיק פער משמעותי בין העונש שיוטל על כל אחד מהשניים. אכן, בטיעון באת
-כוח המדינה בפנינו בקשנו לברר את פרטי השוני של פעולות כל אחד מהשניים, ונוכל לומר
-שעל פי מה שנמסר לנו, לא יכולנו להתרשם שמעורבותו של המערער בביצוע העבירות היתה
-רבה יותר באופן משמעותי מזו של לוי.
+בפני בית המשפט המחוזי נטען, שבנסיונות שחרור &#34;הסחורה&#34; אשר הגיעה ארצה, חלקו של המערער היה גדול יותר מזה של לוי. גם אם כך הדבר, אין לשכוח שבסופו של דבר הסם נתפס מבלי ששוחרר על ידי שולחיו. לכך יש גם להוסיף, שבהיותם במקסיקו היה זה דווקא לוי אשר שימש כמורה דרך של המערער. יוצא, איפוא, שאין הבדל משמעותי בין חלקו של כל אחד מהשניים בביצוע הקשר לייבא את הסם ארצה, אשר יצדיק פער משמעותי בין העונש שיוטל על כל אחד מהשניים. אכן, בטיעון באת כוח המדינה בפנינו בקשנו לברר את פרטי השוני של פעולות כל אחד מהשניים, ונוכל לומר שעל פי מה שנמסר לנו, לא יכולנו להתרשם שמעורבותו של המערער בביצוע העבירות היתה רבה יותר באופן משמעותי מזו של לוי.
 
-בנסיבות אלה, קשה להבין על שום מה נכונה היתה
-התביעה להסתפק, במסגרת עיסקת הטיעון, בעונש של 6.5 שנות מאסר ללוי, לאור העונש של
-13 שנות מאסר שהוטל על המערער. אכן, בית המשפט המחוזי, על אף שגזר את דינו של לוי
-על פי הסכם הטיעון, חיווה את דעתו שלדידו ההסכמה שהושגה על ידי התביעה עם לוי
-מיטיבה עם לוי יתר על המידה.
+בנסיבות אלה, קשה להבין על שום מה נכונה היתה התביעה להסתפק, במסגרת עיסקת הטיעון, בעונש של 6.5 שנות מאסר ללוי, לאור העונש של 13 שנות מאסר שהוטל על המערער. אכן, בית המשפט המחוזי, על אף שגזר את דינו של לוי על פי הסכם הטיעון, חיווה את דעתו שלדידו ההסכמה שהושגה על ידי התביעה עם לוי מיטיבה עם לוי יתר על המידה.
 
-לכך יש להוסיף, שלמערער אין הרשעות קודמות,
-בעוד שללוי יש מספר הרשעות קודמות, כולל עבירות בנושא סמים. בעבר נדון לוי ל14-
-חודשי מאסר בגין עבירות של החזקת ויבוא סם. בנוסף, בעת שביצע את העבירות הנדונות
-היה תלוי ועומד נגדו הליך פלילי בגין שורה של עבירות, ביניהן עבירה של החזקת סם
-אותה ביצע בשנת 1992. בגין עבירות אלה נדון ביום 17.3.97 ל16- חודשי מאסר בפועל
-ולשישה חודשי מאסר על תנאי. על אף העבירות שיוחסו לו ועל אף הליך פלילי שהיה תלוי
-ועומד נגדו, לא נרתע לוי מלבצע את העבירות המשותפות לו, למערער וליתר הנאשמים.
-עובדה זו יש לראות בחומרה, כמו גם את העובדה שזו פעם שלישית שבה מורשע לוי בעבירות
-סמים ומוטל עליו עונש מאסר בפועל, לעומת המערער אשר לו זו העבירה הראשונה מכל סוג
-שהוא.
+לכך יש להוסיף, שלמערער אין הרשעות קודמות, בעוד שללוי יש מספר הרשעות קודמות, כולל עבירות בנושא סמים. בעבר נדון לוי ל14- חודשי מאסר בגין עבירות של החזקת ויבוא סם. בנוסף, בעת שביצע את העבירות הנדונות היה תלוי ועומד נגדו הליך פלילי בגין שורה של עבירות, ביניהן עבירה של החזקת סם אותה ביצע בשנת 1992. בגין עבירות אלה נדון ביום 17.3.97 ל16- חודשי מאסר בפועל ולשישה חודשי מאסר על תנאי. על אף העבירות שיוחסו לו ועל אף הליך פלילי שהיה תלוי ועומד נגדו, לא נרתע לוי מלבצע את העבירות המשותפות לו, למערער וליתר הנאשמים. עובדה זו יש לראות בחומרה, כמו גם את העובדה שזו פעם שלישית שבה מורשע לוי בעבירות סמים ומוטל עליו עונש מאסר בפועל, לעומת המערער אשר לו זו העבירה הראשונה מכל סוג שהוא.
 
-בנסיבות האמורות, לא היה מקום לאבחן לטובה
-ולקולא את לוי מהמערער. לא היה מקום להגיע עמו לעיסקה על פיה העונש שתבקש המדינה
-להטיל עליו יהיה מחצית מהעונש אשר הוטל על המערער, ולא היה מקום להטיל עליו עונש
-הנופל בחומרתו מזה שהוטל על המערער.
+בנסיבות האמורות, לא היה מקום לאבחן לטובה ולקולא את לוי מהמערער. לא היה מקום להגיע עמו לעיסקה על פיה העונש שתבקש המדינה להטיל עליו יהיה מחצית מהעונש אשר הוטל על המערער, ולא היה מקום להטיל עליו עונש הנופל בחומרתו מזה שהוטל על המערער.
 
-נדגיש, שלא הובאה בפני בית המשפט המחוזי כל
-טענה על פיה בשל קשיים בהוכחת העבירות נגד לוי או בשל נימוקים מיוחדים אחרים - אשר
-אינם נוגעים לנסיבות ביצוע העבירות ונסיבות אישיות של לוי והמערער בהן דנו לעיל -
-יש הצדקה להקל בעונשו של לוי לעומת עונשו של המערער.
+נדגיש, שלא הובאה בפני בית המשפט המחוזי כל טענה על פיה בשל קשיים בהוכחת העבירות נגד לוי או בשל נימוקים מיוחדים אחרים - אשר אינם נוגעים לנסיבות ביצוע העבירות ונסיבות אישיות של לוי והמערער בהן דנו לעיל - יש הצדקה להקל בעונשו של לוי לעומת עונשו של המערער.
 
-4. בנסיבות אלה, ועל סמך כל שאמרנו לעיל, יש טעם
-רב בטענת בא כוח המערער, על פיה נפגעו עיקרון אחידות הענישה ומראית פני הצדק, כשעל
-המערער הוטל עונש מאסר בפועל לתקופה כפולה מזו אשר הוטלה על לוי.
+4. בנסיבות אלה, ועל סמך כל שאמרנו לעיל, יש טעם רב בטענת בא כוח המערער, על פיה נפגעו עיקרון אחידות הענישה ומראית פני הצדק, כשעל המערער הוטל עונש מאסר בפועל לתקופה כפולה מזו אשר הוטלה על לוי.
 
-נאמר על כך בע&#34;פ 392/88 דנזאנשווילי
-נ&#39; מדינת ישראל, פ&#34;ד מב(3) 309:
+נאמר על כך בע&#34;פ 392/88 דנזאנשווילי נ&#39; מדינת ישראל, פ&#34;ד מב(3) 309:
 
-&#34;אשר
-לאחידות העונשים, אכן קיים כלל ושאיפה להטיל במידת האפשר עונשים שווים בחומרתם על
-עבריינים שביצעו עבירות במשותף ובנסיבות דומות וקיימת הקפדת יתר לקיים מדיניות זו
-לגבי עבריינים העומדים לדין באותו כתב אישום&#34;
+&#34;אשר לאחידות העונשים, אכן קיים כלל ושאיפה להטיל במידת האפשר עונשים שווים בחומרתם על עבריינים שביצעו עבירות במשותף ובנסיבות דומות וקיימת הקפדת יתר לקיים מדיניות זו לגבי עבריינים העומדים לדין באותו כתב אישום&#34;
 
-(וראה גם ע&#34;פ 359,344/81 מדינת ישראל נ&#39; סגל,
-פ&#34;ד לה(4) 313; ע&#34;פ 419/81 פייביש נ&#39; מדינת ישראל, פ&#34;ד
-לה(4) 701; וכן ע&#34;פ 462/89 ג&#39;בארה נ&#39; מדינת ישראל, תקדין עליון 89(3)
-1349).
+(וראה גם ע&#34;פ 359,344/81 מדינת ישראל נ&#39; סגל, פ&#34;ד לה(4) 313; ע&#34;פ 419/81 פייביש נ&#39; מדינת ישראל, פ&#34;ד לה(4) 701; וכן ע&#34;פ 462/89 ג&#39;בארה נ&#39; מדינת ישראל, תקדין עליון 89(3) 1349).
 
-על יסוד עיקרון זה של אחידות העונשים, דין
-ערעורו של המערער להתקבל. על מנת שייעשה עמו צדק ולא יופלה לרעה לעומת לוי, אנו
-מקבלים את הערעור במובן זה שעונש המאסר בפועל אשר הוטל על המערער יועמד על תקופה
-של שש וחצי שנות מאסר (במקום שלוש עשרה שנים). עונש המאסר על תנאי אשר הוטל עליו
-ישאר בעינו.
+על יסוד עיקרון זה של אחידות העונשים, דין ערעורו של המערער להתקבל. על מנת שייעשה עמו צדק ולא יופלה לרעה לעומת לוי, אנו מקבלים את הערעור במובן זה שעונש המאסר בפועל אשר הוטל על המערער יועמד על תקופה של שש וחצי שנות מאסר (במקום שלוש עשרה שנים). עונש המאסר על תנאי אשר הוטל עליו ישאר בעינו.
 
 ניתן היום, כט&#39; בסיון התשנ&#34;ט (13.6.99).
 
-ש ו פ
-ט ש ו פ ט ש ו פ ט
+ש ו פ ט ש ו פ ט ש ו פ ט
 
-העתק
-מתאים למקור
+העתק מתאים למקור
 
-שמריהו
-כהן - מזכיר ראשי
+שמריהו כהן - מזכיר ראשי
 
 97052230.E05 /עכב
         </div>
@@ -1734,7 +1914,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

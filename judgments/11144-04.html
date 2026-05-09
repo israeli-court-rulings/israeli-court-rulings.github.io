@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    26/06/2005 (לפני 7618 ימים)
+                    26/06/2005 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/11144-04.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="11144/04 - ניעמאת אל-הייב נ. צבא הגנה לישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F11144-04.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/111/B12&amp;fileName=04111440_B12.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/111/B12&amp;fileName=04111440_B12.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/111/B12&amp;fileName=04111440_B12.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/111/B12&amp;fileName=04111440_B12.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,11 +1829,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק בג&#34;ץ 11144/04
 
-בבית המשפט העליון
-בשבתו כבית משפט גבוה לצדק
+בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
-בג&#34;ץ
-11144/04
+בג&#34;ץ 11144/04
 
 בפני:
 
@@ -1574,8 +1843,7 @@
 
 העותרים:
 
-1. ניעמאת
-אל-הייב
+1. ניעמאת אל-הייב
 
 2. סעוד אל-הייב
 
@@ -1585,8 +1853,7 @@
 
 המשיבים:
 
-1. צבא הגנה
-לישראל
+1. צבא הגנה לישראל
 
 2. אל -הייב תייסירי
 
@@ -1598,109 +1865,33 @@
 
 השופטת ע&#39; ארבל:
 
-1. המשיב 2 הינו חייל צה&#34;ל העומד לדין
-בבית הדין הצבאי המחוזי של מחוז דרום בגין הריגת אזרח בריטי (להלן – המנוח) ברצועת עזה. משפטו מתנהל והוא עצור עד תום ההליכים
-נגדו. המשיב 3 הוא המופקד על הגנתו במשפט.
+1. המשיב 2 הינו חייל צה&#34;ל העומד לדין בבית הדין הצבאי המחוזי של מחוז דרום בגין הריגת אזרח בריטי (להלן – המנוח) ברצועת עזה. משפטו מתנהל והוא עצור עד תום ההליכים נגדו. המשיב 3 הוא המופקד על הגנתו במשפט.
 
-בעתירה שבפנינו מבקשים העותרים, בני
-משפחתו של המשיב 2, כי המשיב 1 יאפשר להם לעיין בחומר החקירה ובראיות שנאספו על
-ידו לצורך הליך המתנהל נגד המשיב 2, וכן כי יתאפשר להם לבצע חקירה עצמאית של
-האירוע בגינו עומד הוא לדין. פניות של העותרים אל המשיב 1 על מנת לאפשר להם חקירה
-עצמאית של האירוע ולעיין לצורך חקירה זו בחומר החקירה שנאסף נגד המשיב 2 נענו
-בשלילה בהתבסס על הוראת סעיף 74 לחוק סדר הדין הפלילי, התשמ&#34;ב – 1982 (להלן –
-החוק), בהתבסס על כך שלמשפחת נאשם אין מעמד
-בהליך הפלילי ותוך שנמסר לעותרים כי אמנם בני משפחת המנוח ביצעו חקירה עצמאית
-בעניין, אולם זו התנהלה ללא כל מעורבות של מי מגורמי המשיב 1. מכאן העתירה
-שבפנינו.
+בעתירה שבפנינו מבקשים העותרים, בני משפחתו של המשיב 2, כי המשיב 1 יאפשר להם לעיין בחומר החקירה ובראיות שנאספו על ידו לצורך הליך המתנהל נגד המשיב 2, וכן כי יתאפשר להם לבצע חקירה עצמאית של האירוע בגינו עומד הוא לדין. פניות של העותרים אל המשיב 1 על מנת לאפשר להם חקירה עצמאית של האירוע ולעיין לצורך חקירה זו בחומר החקירה שנאסף נגד המשיב 2 נענו בשלילה בהתבסס על הוראת סעיף 74 לחוק סדר הדין הפלילי, התשמ&#34;ב – 1982 (להלן – החוק), בהתבסס על כך שלמשפחת נאשם אין מעמד בהליך הפלילי ותוך שנמסר לעותרים כי אמנם בני משפחת המנוח ביצעו חקירה עצמאית בעניין, אולם זו התנהלה ללא כל מעורבות של מי מגורמי המשיב 1. מכאן העתירה שבפנינו.
 
-יצוין, כי בהתאם להחלטתנו הגישו העותרים
-עתירה מתוקנת אליה צורפו כמשיבים המשיב 2 וסנגוריו, באמצעות המשיבה 3.
+יצוין, כי בהתאם להחלטתנו הגישו העותרים עתירה מתוקנת אליה צורפו כמשיבים המשיב 2 וסנגוריו, באמצעות המשיבה 3.
 
-2. עיקר טענותיהם של העותרים הינן כי אין
-לבחון בקשתם בהתבסס על הוראות חוק הקשורות לניהול ההליך הפלילי, לרבות הוראת סעיף
-74 לחוק. לטענתם, גם אם סעיף 74 לחוק עניינו בגילוי חומר חקירה לנאשם ולסנגוריו,
-אין הוא שולל גילוי חומר החקירה לאחר, כל עוד אין בגילוי כדי לפגוע בהליך הפלילי,
-בניהול המשפט על ידי התביעה או בהגנת הנאשם וברי כי משפחת הנאשם מבקשת אך את
-טובתו. לטענתם, מאז החל המשפט אין הם מעודכנים באשר להתפתחויות בו על ידי המשיב 3
-והמשיב 2 עצמו אינו בקיא בפרטי משפטו. טענה נוספת בפי העותרים נוגעת להבחנה שעשה
-המשיב 1, ואשר אינה רלוונטית לטענתם, בין זכויות משפחת הקורבן לזכויות משפחת
-הנאשם. לטענתם, הסכים המשיב 1 להתיר למשפחת המנוח לעיין בחומר הנמצא אצלו לפנים
-משורת הדין ועל כן עליו להיעתר גם לבקשתם. לשיטתם, זכותה של משפחת הנאשם בהקשר זה
-עולה על זכותה של משפחת הקורבן.
+2. עיקר טענותיהם של העותרים הינן כי אין לבחון בקשתם בהתבסס על הוראות חוק הקשורות לניהול ההליך הפלילי, לרבות הוראת סעיף 74 לחוק. לטענתם, גם אם סעיף 74 לחוק עניינו בגילוי חומר חקירה לנאשם ולסנגוריו, אין הוא שולל גילוי חומר החקירה לאחר, כל עוד אין בגילוי כדי לפגוע בהליך הפלילי, בניהול המשפט על ידי התביעה או בהגנת הנאשם וברי כי משפחת הנאשם מבקשת אך את טובתו. לטענתם, מאז החל המשפט אין הם מעודכנים באשר להתפתחויות בו על ידי המשיב 3 והמשיב 2 עצמו אינו בקיא בפרטי משפטו. טענה נוספת בפי העותרים נוגעת להבחנה שעשה המשיב 1, ואשר אינה רלוונטית לטענתם, בין זכויות משפחת הקורבן לזכויות משפחת הנאשם. לטענתם, הסכים המשיב 1 להתיר למשפחת המנוח לעיין בחומר הנמצא אצלו לפנים משורת הדין ועל כן עליו להיעתר גם לבקשתם. לשיטתם, זכותה של משפחת הנאשם בהקשר זה עולה על זכותה של משפחת הקורבן.
 
-המשיב 1 טוען כי לא קמה לעותרים כל זכות
-שבדין או מעמד עצמאי לעיין בחומר החקירה שנאסף נגד המשיב 2. חומר החקירה הועבר
-לסנגורו של המשיב 2 ובמידה שהמשיב 2 מבקש להעביר חומר זה לידי העותרים באפשרותו
-לעשות כן. לעניין זה מפנה המשיב לסעיף 74 לחוק ולעקרונות העומדים ביסודה של הנחיית
-פרקליט המדינה מס&#39; 14.8 שעניינה בבקשה מצד גורמים שונים לעיין בחומר חקירה שבתיק
-משטרה. עוד טוען הוא כי המשיב 2 מיוצג על ידי צוות של שלושה סנגורים ואין ממש
-בהצגתו על ידי העותרים כמי שנותר חסר הגנה אל מול האישומים נגדו. המשיב 1 מבחין
-בין זכויותיה של משפחת הקורבן לזכויות משפחת הנאשם וזאת בהתבסס על הוראות חוק
-זכויות נפגעי עבירה, התשס&#34;א – 2001 (להלן – חוק זכויות נפגעי עבירה). אשר לבקשת העותרים לאפשר להם לערוך
-חקירה עצמאית של נסיבות האירוע מציין המשיב 1 כי הובהר לעותרים כי הדרך פתוחה
-בפניהם לעשות כן, הגם שישנן פעולות חקירה שמבקשים העותרים לבצע שיהא קושי לבצען
-בשל חלוף הזמן ושינוי תנאי הזירה וכן מבהיר הוא כי כל בקשה של העותרים הנוגעת
-לביצוע חקירה עצמאית על ידם תיבחן לגופה, ללא כל קשר לתביעה הצבאית.
+המשיב 1 טוען כי לא קמה לעותרים כל זכות שבדין או מעמד עצמאי לעיין בחומר החקירה שנאסף נגד המשיב 2. חומר החקירה הועבר לסנגורו של המשיב 2 ובמידה שהמשיב 2 מבקש להעביר חומר זה לידי העותרים באפשרותו לעשות כן. לעניין זה מפנה המשיב לסעיף 74 לחוק ולעקרונות העומדים ביסודה של הנחיית פרקליט המדינה מס&#39; 14.8 שעניינה בבקשה מצד גורמים שונים לעיין בחומר חקירה שבתיק משטרה. עוד טוען הוא כי המשיב 2 מיוצג על ידי צוות של שלושה סנגורים ואין ממש בהצגתו על ידי העותרים כמי שנותר חסר הגנה אל מול האישומים נגדו. המשיב 1 מבחין בין זכויותיה של משפחת הקורבן לזכויות משפחת הנאשם וזאת בהתבסס על הוראות חוק זכויות נפגעי עבירה, התשס&#34;א – 2001 (להלן – חוק זכויות נפגעי עבירה). אשר לבקשת העותרים לאפשר להם לערוך חקירה עצמאית של נסיבות האירוע מציין המשיב 1 כי הובהר לעותרים כי הדרך פתוחה בפניהם לעשות כן, הגם שישנן פעולות חקירה שמבקשים העותרים לבצע שיהא קושי לבצען בשל חלוף הזמן ושינוי תנאי הזירה וכן מבהיר הוא כי כל בקשה של העותרים הנוגעת לביצוע חקירה עצמאית על ידם תיבחן לגופה, ללא כל קשר לתביעה הצבאית.
 
-המשיבה 3 מצדה טוענת, כי מאחר וייצוגו של
-המשיב 2 עליה, אין היא רשאית להעביר על דעת עצמה את חומר הראיות שנאסף בתיק לידי
-מאן דהוא, לרבות בני משפחת הנאשם. עוד היא מציינת כי העותרים לא פנו אליה בבקשה
-לקבל את חומר הראיות או בבקשה להתעדכן באשר למשפטו של המשיב 2, וכאשר פנו בשאלות
-בדבר המשפט אל נציג המשיבה 3 בדיונים בעניינו של המשיב 2, נענו במפורט. יתר על כן
-היא מציינת כי פניה למשיב 2 בשאלה האם הוא רוצה שחומר החקירה יועבר לידי העותרים
-נענתה בשלילה.
+המשיבה 3 מצדה טוענת, כי מאחר וייצוגו של המשיב 2 עליה, אין היא רשאית להעביר על דעת עצמה את חומר הראיות שנאסף בתיק לידי מאן דהוא, לרבות בני משפחת הנאשם. עוד היא מציינת כי העותרים לא פנו אליה בבקשה לקבל את חומר הראיות או בבקשה להתעדכן באשר למשפטו של המשיב 2, וכאשר פנו בשאלות בדבר המשפט אל נציג המשיבה 3 בדיונים בעניינו של המשיב 2, נענו במפורט. יתר על כן היא מציינת כי פניה למשיב 2 בשאלה האם הוא רוצה שחומר החקירה יועבר לידי העותרים נענתה בשלילה.
 
-3. לאחר שעיינו בעתירה ובתגובות לה ולאחר
-ששמענו את טיעוני הצדדים הגענו למסקנה כי דין העתירה להידחות. במה דברים אמורים.
+3. לאחר שעיינו בעתירה ובתגובות לה ולאחר ששמענו את טיעוני הצדדים הגענו למסקנה כי דין העתירה להידחות. במה דברים אמורים.
 
-דאגתם העמוקה והכנה של העותרים למשיב 2,
-שהוא בשר מבשרם, ברורה ורצונם לעשות כל שלאל ידם כדי להביא לזיכויו מובן אף הוא.
-באלה אין, עם זאת, כדי להקנות לעותרים מעמד או זכות לעיין בחומר החקירה שנאסף נגד
-המשיב 2. סעיף 74(א) לחוק הוא המסדיר את נושא העיון בחומר חקירה בקבעו:
+דאגתם העמוקה והכנה של העותרים למשיב 2, שהוא בשר מבשרם, ברורה ורצונם לעשות כל שלאל ידם כדי להביא לזיכויו מובן אף הוא. באלה אין, עם זאת, כדי להקנות לעותרים מעמד או זכות לעיין בחומר החקירה שנאסף נגד המשיב 2. סעיף 74(א) לחוק הוא המסדיר את נושא העיון בחומר חקירה בקבעו:
 
-&#34;הוגש כתב אישום בפשע או בעוון, רשאים הנאשם וסנגורו, וכן אדם שהסנגור
-הסמיכו לכך, או, בהסכמת התובע, אדם שהנאשם הסמיכו לכך, לעיין בכל זמן סביר בחומר
-החקירה וכן ברשימת כל החומר שנאסף או שנרשם בידי הרשות החוקרת, והנוגע לאישום,
-שבידי התובע ולהעתיקו&#34;.
+&#34;הוגש כתב אישום בפשע או בעוון, רשאים הנאשם וסנגורו, וכן אדם שהסנגור הסמיכו לכך, או, בהסכמת התובע, אדם שהנאשם הסמיכו לכך, לעיין בכל זמן סביר בחומר החקירה וכן ברשימת כל החומר שנאסף או שנרשם בידי הרשות החוקרת, והנוגע לאישום, שבידי התובע ולהעתיקו&#34;.
 
-הגורמים המנויים בסעיף זה הם אלה הזכאים
-על פי דין לעיין בחומר החקירה. על מנת להצביע על זכותם לעיין בחומר החקירה היה על
-העותרים להצביע על מקור אחר שבדין שיקנה להם זכות שכזו וזאת לא עלה בידם להראות.
-אמנם, העותרים טוענים כי יש להם אינטרס לגיטימי לעיין בחומר – סיוע בהגנת המשיב 2 –
-אלא שכפי שהובהר בפנינו, המשיב 2 זוכה להגנה על ידי המשיב 3 ומיוצג על ידי שלושה
-סנגורים. עוד הובהר על ידי המשיבה 3, כי המשיב 2 מעורה בפרטי משפטו. במצב דברים
-זה, כשנראה כי אין יסוד לחשש כי אין די בייצוג לו זוכה המשיב 2, דומה כי פוחת משקל
-האינטרס של בני משפחת הנאשם לקבל לידיהם את חומר החקירה. בנוסף לא ניתן להתעלם מכך
-שההליך בעניינו של המשיב 2 עומד בפני סיום, שכן ביום 26.6.05 אמורה להינתן הכרעת הדין
-בעניינו. במצב דברים זה, ברי כי יש גם משקל לעיתוי בו תחל החקירה העצמאית על ידי
-העותרים, לאחר שהסתיים כבר הליך שמיעת הראיות המקיף בעניינו. נוסיף, כי אכן,
-המחוקק הכיר בהקשרים מסוימים בזכויותיהם ובמעמדם של גורמים נוספים בהליך הפלילי.
-כך, חוק זכויות נפגעי עבירה מכיר במעמדו של נפגע העבירה במובן זה שהוא זכאי לקבל
-מידע על ההליך הפלילי, הוא זכאי לעיין בכתב האישום, להביע עמדה לעניין עיכוב
-הליכים או הסדר טיעון (סעיפים 9, 10, 16, 17 לחוק זכויות נפגעי עבירה) ועוד. יתרה
-מזאת, החוק מקנה זכויות אלה אף למשפחת נפגע העבירה מקום שהעבירה גרמה למותו (סעיף
-22 לחוק זכויות נפגעי עבירה). אלא שאף חוק זה אינו מרחיב את זכות העיון בחומר
-חקירה כפי שהיא קבועה בסעיף 74 לחוק. יש להדגיש, בהקשר זה כי כפי שמציין המשיב 1,
-ובצדק, באפשרותו של הנאשם, המשיב 2 בענייננו, להורות לסנגוריו להעביר את חומר
-החקירה לעיונם של העותרים, אך הוא מבכר, ככל הנראה, שלא לעשות כן.
+הגורמים המנויים בסעיף זה הם אלה הזכאים על פי דין לעיין בחומר החקירה. על מנת להצביע על זכותם לעיין בחומר החקירה היה על העותרים להצביע על מקור אחר שבדין שיקנה להם זכות שכזו וזאת לא עלה בידם להראות. אמנם, העותרים טוענים כי יש להם אינטרס לגיטימי לעיין בחומר – סיוע בהגנת המשיב 2 – אלא שכפי שהובהר בפנינו, המשיב 2 זוכה להגנה על ידי המשיב 3 ומיוצג על ידי שלושה סנגורים. עוד הובהר על ידי המשיבה 3, כי המשיב 2 מעורה בפרטי משפטו. במצב דברים זה, כשנראה כי אין יסוד לחשש כי אין די בייצוג לו זוכה המשיב 2, דומה כי פוחת משקל האינטרס של בני משפחת הנאשם לקבל לידיהם את חומר החקירה. בנוסף לא ניתן להתעלם מכך שההליך בעניינו של המשיב 2 עומד בפני סיום, שכן ביום 26.6.05 אמורה להינתן הכרעת הדין בעניינו. במצב דברים זה, ברי כי יש גם משקל לעיתוי בו תחל החקירה העצמאית על ידי העותרים, לאחר שהסתיים כבר הליך שמיעת הראיות המקיף בעניינו. נוסיף, כי אכן, המחוקק הכיר בהקשרים מסוימים בזכויותיהם ובמעמדם של גורמים נוספים בהליך הפלילי. כך, חוק זכויות נפגעי עבירה מכיר במעמדו של נפגע העבירה במובן זה שהוא זכאי לקבל מידע על ההליך הפלילי, הוא זכאי לעיין בכתב האישום, להביע עמדה לעניין עיכוב הליכים או הסדר טיעון (סעיפים 9, 10, 16, 17 לחוק זכויות נפגעי עבירה) ועוד. יתרה מזאת, החוק מקנה זכויות אלה אף למשפחת נפגע העבירה מקום שהעבירה גרמה למותו (סעיף 22 לחוק זכויות נפגעי עבירה). אלא שאף חוק זה אינו מרחיב את זכות העיון בחומר חקירה כפי שהיא קבועה בסעיף 74 לחוק. יש להדגיש, בהקשר זה כי כפי שמציין המשיב 1, ובצדק, באפשרותו של הנאשם, המשיב 2 בענייננו, להורות לסנגוריו להעביר את חומר החקירה לעיונם של העותרים, אך הוא מבכר, ככל הנראה, שלא לעשות כן.
 
-4. נציין, כי לא מצאנו ממש בטענה לפיה סייע
-המשיב 1 בידה של משפחת המנוח בעריכת חקירה עצמאית. הכוונה היא להסכמה שהוגשה
-במסגרת בג&#34;ץ 4839/04 הרנדל נ&#39; צה&#34;ל –
-התובעת הצבאית הראשית שם הסכימו הצדדים כי ב&#34;כ משפחת
-המנוח יעיין בחומר החקירה שאצל המשיב 1 במשרדי התביעה. לעניין זה
-נחזור ונדגיש כי אין מעמדה של משפחת נפגע עבירה שהעבירה הביאה למותו זהה למעמדה של
-משפחת הנאשם. חוק זכויות נפגעי עבירה מקנה, כאמור, במפורש את זכויותיו של נפגע
-העבירה, אם קופדו חייו בגין מעשה העבירה, למשפחתו. זאת, מתוך ההכרה בכך שהם באים
-בנעליו ומייצגים אותו ואת האינטרסים שלו. לא כן משפחת נאשם, שעל האינטרסים שלו
-אמון סנגורו.
+4. נציין, כי לא מצאנו ממש בטענה לפיה סייע המשיב 1 בידה של משפחת המנוח בעריכת חקירה עצמאית. הכוונה היא להסכמה שהוגשה במסגרת בג&#34;ץ 4839/04 הרנדל נ&#39; צה&#34;ל – התובעת הצבאית הראשית שם הסכימו הצדדים כי ב&#34;כ משפחת המנוח יעיין בחומר החקירה שאצל המשיב 1 במשרדי התביעה. לעניין זה נחזור ונדגיש כי אין מעמדה של משפחת נפגע עבירה שהעבירה הביאה למותו זהה למעמדה של משפחת הנאשם. חוק זכויות נפגעי עבירה מקנה, כאמור, במפורש את זכויותיו של נפגע העבירה, אם קופדו חייו בגין מעשה העבירה, למשפחתו. זאת, מתוך ההכרה בכך שהם באים בנעליו ומייצגים אותו ואת האינטרסים שלו. לא כן משפחת נאשם, שעל האינטרסים שלו אמון סנגורו.
 
 סוף דבר, העתירה נדחית.
 
 ניתן היום, י&#34;ט בסיון תשס&#34;ה (26.6.05).
 
-ש ו פ ט ת ש ו פ ט ת
-ש ו פ ט ת
+ש ו פ ט ת ש ו פ ט ת ש ו פ ט ת
 
 _________________________
 
@@ -1725,7 +1916,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

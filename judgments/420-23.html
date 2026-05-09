@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    22/01/2024 (לפני 834 ימים)
+                    22/01/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/420-23.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="420/23 - ח&#39;ליל עובייד נ. ראש המינהל האזרחי"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F420-23.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/200/004/m10&amp;fileName=23004200.M10&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/200/004/m10&amp;fileName=23004200.M10&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/200/004/m10&amp;fileName=23004200.M10&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/200/004/m10&amp;fileName=23004200.M10&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,233 +1827,109 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            7
-
-
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים בעניינים מינהליים
-
-
+            בבית המשפט העליון בשבתו כבית משפט לערעורים בעניינים מינהליים
 
 עע&#34;ם 420/23
 
-
-
-לפני:	
+לפני:
 
 כבוד ממלא מקום הנשיא ע&#39; פוגלמן
 
-
-
 כבוד השופט ד&#39; מינץ
 
-
-
 כבוד השופטת י&#39; וילנר
-
-
 
 המערערים:
 
 1. ח&#39;ליל עובייד
 
-
-
 2. ארגון קומט-מי בע&#34;מ
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. ראש המינהל האזרחי
 
-
-
 2. ועדת המשנה לתכנון ורישוי
-
-
 
 3. ועדת המשנה לפיקוח
 
-
-
 ערעור על פסק הדין של בית המשפט לעניינים מינהליים בירושלים (כב&#39; השופט ר&#39; וינוגרד) בעת&#34;ם 40197-11-20 מיום 18.12.2022
-
-
 
 תאריך הישיבה:
 
-כ&#34;א בטבת התשפ&#34;ד       
+כ&#34;א בטבת התשפ&#34;ד
 
-(2.1.2024) 
-
-
+(2.1.2024)
 
 בשם המערערים:
 
 עו&#34;ד מיכאל ספרד; עו&#34;ד שי אילוק
 
-
-
 בשם המשיבים:
 
 עו&#34;ד מיטל בוכמן-שינדל; עו&#34;ד מתניה רוזין
 
-
-
 פסק-דין
-
-
 
 ממלא מקום הנשיא ע&#39; פוגלמן:
 
-
-
-	לפנינו ערעור על פסק דינו של בית המשפט לעניינים מינהליים בירושלים (כב&#39; השופט ר&#39; וינוגרד) בעת&#34;ם 40197-11-20 מיום 18.12.2022 שעניינו בצו סופי להפסקת עבודה והריסה (להלן: הצו או צו ההריסה) שהוציאה ועדת המשנה לפיקוח במועצת התכנון העליונה (היא המשיבה 3; להלן: ועדת הפיקוח) למערכת שמספקת חשמל עבור תושבי הכפר חרבת א-תבאן (להלן: מערכת החשמל ו-חרבת א-תבאן בהתאמה) שנמצא בשטח אש 918 (להלן: שטח האש) באזור דרום הר חברון.
-
-
+לפנינו ערעור על פסק דינו של בית המשפט לעניינים מינהליים בירושלים (כב&#39; השופט ר&#39; וינוגרד) בעת&#34;ם 40197-11-20 מיום 18.12.2022 שעניינו בצו סופי להפסקת עבודה והריסה (להלן: הצו או צו ההריסה) שהוציאה ועדת המשנה לפיקוח במועצת התכנון העליונה (היא המשיבה 3; להלן: ועדת הפיקוח) למערכת שמספקת חשמל עבור תושבי הכפר חרבת א-תבאן (להלן: מערכת החשמל ו-חרבת א-תבאן בהתאמה) שנמצא בשטח אש 918 (להלן: שטח האש) באזור דרום הר חברון.
 
 רקע והשתלשלות ההליכים
 
-
-
 כעולה מן הערעור, בשנת 2012 הקימה חברת &#34;קומט-מי בע&#34;מ&#34; (היא המערערת 2) מערכת לאספקת חשמל שמבוססת על 24 לוחות סולריים ומכשירים נוספים, עבור קהילתו של המערער 1 (להלן: המערער), תושבי חרבת א-תבאן. ביום 25.12.2016 הוציאה ועדת הפיקוח צו להפסקת עבודה למערער כמחזיק של מערכת החשמל, שבמסגרתו צוין, בין היתר, כי ביום 12.1.2017 תקיים הוועדה ישיבה בעניין הריסת המערכת; וכי המערער רשאי להגיש למזכירות הוועדה בקשה להיתר בנייה עבור מערכת זו. במהלך חודש ינואר 2017 הגישו המערערים בקשה להיתר בנייה עבור הצבת לוחות סולריים לטובת ייצור חשמל, וכן בקשה להימנע מביצוע צו ההריסה בשלב זה. ביום 22.6.2020 דחתה ועדת הפיקוח את הבקשה להיתר בנייה, תוך שנקבע כי מערכת החשמל הוקמה ללא היתר, בתחומו של שטח האש, ומבלי שהמערער הציג הוכחה לבעלותו על השטח שעליו נבנתה המערכת (להלן: החלטת ועדת הפיקוח בעניין היתר הבנייה). בהמשך לכך, ביום 16.7.2020 הוציאה ועדת הפיקוח את צו ההריסה נושא הערעור.
-
-
 
 המערערים הגישו ערר על החלטת ועדת הפיקוח בעניין היתר הבנייה, וביום 29.9.2020 דחתה ועדת המשנה לתכנון ורישוי במועצת התכנון העליונה (היא המשיבה 2; להלן: ועדת התכנון והרישוי) את הערר. ועדת התכנון והרישוי קבעה כי אין הצדקה תכנונית לקבל את הערר, וזאת בשים לב, בין היתר, לכך שמערכת החשמל הוקמה בתוך שטח האש מבלי שהתקבל אישור מהמפקד הצבאי, וממילא אין בסמכותה לאשר תכנית בשטח זה ללא אישור כאמור; להיעדר הוכחת בעלות של המערער על השטח שבו הוקמה מערכת החשמל; ולהקמתה של המערכת מחוץ לתחומה של תכנית מאושרת וללא תכנית חלוקה מתאימה.
 
-
-
 ביום 16.11.2020 הגישו המערערים עתירה מינהלית לבית המשפט לעניינים מינהליים בירושלים על צו ההריסה וההחלטה של ועדת הפיקוח בעניין היתר הבנייה, ובצדה בקשה לצו ביניים ולצו ארעי שיורה למשיבים להימנע מביצוע הצו עד להכרעה בעתירה. בו ביום נתן בית המשפט צו ארעי שאוסר על הריסת מערכת החשמל עד למתן ההחלטה בבקשה לצו ביניים, תוך שצוין, בין היתר, כי מעיון בעתירה עולה שאין דחיפות של ממש בהריסת המערכת. ביום 20.1.2021 קבע בית המשפט כי יש להמתין עם בירור העתירה עד להכרעת בית משפט זה בעתירות בבג&#34;ץ 413/13 אבו עראם נ&#39; שר הבטחון (4.5.2022) (להלן: עניין אבו עראם). עניינן של עתירות אלו, בין היתר, בחוקיות ההכרזה על שטח האש כשטח צבאי סגור, ובטענת העותרים שם – שעליהם נמנה גם המערער – כי חל איסור לפנותם מהשטח ולהרוס את המבנים שהקימו בשים לב לפרק הזמן הארוך שהם שוהים בו.
-
-
 
 ביום 4.5.2022 ניתן פסק הדין בעניין אבו עראם שבמסגרתו נדחו העתירות פה אחד (השופט ד&#39; מינץ, בהסכמת השופטים י&#39; עמית וע&#39; גרוסקופף). בית המשפט קבע, בין היתר, כי סמכותו של המפקד הצבאי להכריז על שטח צבאי סגור היא סמכות רחבה; כי אין בזכויות קנייניות בשטח כשלעצמן כדי לאפשר כניסה אליו ללא רישיון כניסה מטעמו; ושממילא העותרים לא צירפו מסמכים שמעידים כי הם בעלי זכויות קנייניות ביחס לשטח האש. בנוסף, נקבע כי בניגוד לטענת העותרים, מהתשתית העובדתית שהוצגה, כמו גם מסמכים שמתעדים את התפתחות האזור, עולה כי עובר להכרזה על סגירת שטח האש לא היו במקום מגורים קבועים, אף לא במערות שנמצאות באזור זה, ומשכך אין מגבלה חוקית שאוסרת את פינויים. בקשה לקיום דיון נוסף על פסק הדין נדחתה בהחלטתה של הנשיאה א&#39; חיות (דנג&#34;ץ 4144/22 אבו עראם נ&#39; שר הביטחון (2.10.2022)).
 
-
-
 ביום 10.5.2022 הגישו המשיבים הודעת עדכון שבמסגרתה טענו כי בהתאם לקביעות בפסק הדין בעניין אבו עראם יש לדחות את העתירה נושא הערעור; וביום 12.11.2022 הגישו המערערים תגובה להודעת העדכון שבמסגרתה נטען, בין היתר, כי בשים לב לכך שצווי הפינוי וההריסה נושא עניין אבו עראם טרם בוצעו, אין מקום בשלב זה לממש את צו ההריסה בנוגע למערכת החשמל, שכנטען מספקת צרכי מחייה בסיסיים של תושבי חרבת א-תבאן, ועולה כדי מתקן הומניטרי שחל איסור לפנותו בהתאם להוראות המשפט הבינלאומי. בהמשך לכך, קבע בית המשפט כי על המשיבים להבהיר האם בכוונתם לממש את צווי הפינוי נגד תושבי חרבת א-תבאן, וככל שכן, לציין את המועד המשוער לביצוע כאמור. ביום 12.12.2022 הגישו המשיבים הודעת עדכון שבמסגרתה ציינו, בין היתר, כי &#34;ביצוע צווי הפינוי ומועד ביצועם, ייקבעו על ידי הגורמים הרלוונטיים, וזאת בהתחשב בכלל השיקולים הרלוונטיים לעניין זה&#34; (שם, בסעיף 1).
-
-
 
 ביום 18.12.2022 דחה בית המשפט לעניינים מינהליים את העתירה וקבע כי בשים לב לקביעות בית משפט זה בעניין אבו עראם, אין מקום להתערבות בצו ההריסה של מערכת החשמל שנבנתה בצורה בלתי חוקית. בנוסף, בנוגע לטענת המערערים שעניינה בהוראות המשפט הבינלאומי ובהגדרתה של מערכת החשמל כמתקן הומניטרי, ציין בית המשפט כי פסק הדין בעניין אבו עראם עסק, בין היתר, בהריסת בורות מים ומבני שירותים, שאף לגביהם ניתן היה לטעון כי מדובר במתקנים הומניטריים; ומשכך, קבע כי לכאורה, אין בהגדרת מתקן מסוים כהומניטרי כדי למנוע הוראה שמורה על פינויו. בצד האמור צוין כי &#34;הדברים נאמרו מעבר לצורך, ולפיכך אין צורך גם להידרש לטענות המשיבים בסוגיה זו ולשאלה שהעלו בעניין דרך חייהם של [המערערים – ע&#39; פ&#39;] עד להקמת [מערכת החשמל – ע&#39; פ&#39;] כמו גם לטיעוניהם בנוגע לסיווג המתקן כמתקן הומניטרי&#34; (שם, בסעיף 4).
 
-
-
 הערעור שלפנינו
-
-
 
 ביום 15.1.2023 הגישו המערערים את הערעור שלפנינו ובצדו בקשה לצו ביניים ולצו ארעי שימנעו את מימוש צו ההריסה ביחס למערכת החשמל; ובו ביום ניתן צו ארעי שאוסר על מימוש צו ההריסה עד להחלטה אחרת. במסגרת הערעור טענו המערערים, בין היתר, כי מערכת החשמל מספקת צרכים בסיסיים עבור תושבי חרבת א-תבאן ומשכך היעדר מתן היתר בנייה עבורה ומימוש צו ההריסה יגרמו נזק רב עבורם. בהקשר זה נטען, כי כל זמן שהמשיבים לא מממשים את צווי הפינוי וההריסה נושא עניין אבו עראם, הריסת מערכת החשמל עולה כדי אמצעי כפייה להעברת תושבי חרבת א-תבאן משטח האש באופן שאינו חוקי ופוגע באופן ממשי בזכויותיהם. בנוסף, המערערים טענו כי מערכת החשמל עולה כדי מתקן הומניטרי שחל איסור לפגוע בו לפי הוראות המשפט הבינלאומי; ושבפסק הדין בעניין אבו עראם נפלו שגיאות משפטיות, שעליהן התבסס בית המשפט לעניינים מינהליים בפסק דינו. לבסוף, לשיטת המערערים, החלטת המשיבים בעניינם עולה כדי אכיפה בררנית, בשים לב לטענתם שלפיה ישנם מתיישבים אחרים באזור שמחוברים למקור אספקת חשמל ושבעניינם נמנעים המשיבים מנקיטת פעולות אכיפה.
 
-
-
 ביום 27.3.2023 הגישו המשיבים תגובה לבקשה לצו ביניים ולצו ארעי שבמסגרתה טענו, בין היתר, כי דין הבקשות להידחות, וזאת בשים לב לכך ש&#34;רשויות האזור אינן מתכוונות לאכוף את צו ההריסה [בעניינה של מערכת החשמל העומדת – ע&#39; פ&#39;] במוקד הליך זה, אלא כאשר ייאכפו צווי ההריסה שיצאו למבנים המחוברים [למערכת החשמל – ע&#39; פ&#39;] האמורה. כלומר, הצווים מושא הערעור ייאכפו רק במקביל לאכיפת צווי ההריסה שיצאו למבנים המחוברים למערכת החשמל מושא הערעור&#34; (שם, בסעיף 22; ההדגשה במקור – ע&#39; פ&#39;). בהמשך לכך, ביום 16.4.2023 הגישו המערערים תשובה לתגובת המשיבים שבמסגרתה טענו, כי חלק מתושבי חרבת א-תבאן מתגוררים במערות שבאזור זה, ומשכך אף אם יממשו המשיבים את צווי ההריסה למבנים שמחוברים למערכת החשמל, אין לאכוף את הריסת המערכת משזו מספקת חשמל גם למתגוררים במערות.
-
-
 
 ביום 27.4.2023 קבעה השופטת ג&#39; כנפי-שטייניץ כי מערכת החשמל לא תיהרס עד להכרעה בערעור, למעט הריסה שמתחייבת משיקולים ביטחוניים מובהקים או צרכי לחימה דחופים; וזאת, בין היתר, משמדובר במערכת חשמל שחיונית לקיום הבסיסי של תושבי חרבת א-תבאן, וממילא המשיבים הדגישו כי עד לאכיפת צווי ההריסה ביחס למבנים שמחוברים למערכת החשמל – אשר אין מועד צפוי לכך – אין בכוונתם לאכוף את צו ההריסה נושא הערעור.
 
-
-
 ביום 14.8.2023 הגישו המשיבים בקשה לסילוק הערעור על הסף שבמסגרתה טענו, בעיקרם של דברים, כי בעניין אבו עראם נדחו טענות העותרים, ובהם המערער, בנוגע למגורי קבע בשטח האש עובר להכרזתו ככזה; כי בקשה לדיון נוסף על פסק דין זה נדחתה; וממילא מערכת החשמל נבנתה ללא היתר בנייה, בניגוד לדין, ותוך שהמערער עושה דין לעצמו. בנוסף, במסגרת בקשה זו הדגישו המשיבים פעם נוספת כי אין בכוונתם לאכוף את צו ההריסה נושא הערעור עובר לאכיפת צווי ההריסה של המבנים בחרבת א-תבאן שמחוברים למערכת החשמל. בעניין זה ציינו המשיבים כי:
-
-
 
 &#34;הודעה זו בעינה עומדת אף ללא קשר לצו המניעה הזמני שניתן בהחלטת בית המשפט הנכבד. קרי, גם אם בית המשפט הנכבד ימצא לנכון לקבל את בקשת המשיבים ולהורות על סילוק הערעור על הסף, אין בכוונת המשיבים לאכוף את צו ההריסה [בעניינה של מערכת החשמל – ע&#39; פ&#39;] שבנדון, אלא כאשר ייאכפו צווי ההריסה שהוצאו למבנים המחוברים [אליה – ע&#39; פ&#39;]&#34; (שם, בסעיף 24).
 
-
-
 ביום 2.1.2024 קיימנו דיון במעמד הצדדים, שבמסגרתו הביעו המערערים את נכונותם למחוק את הערעור בכפוף להתחייבות המשיבים כי לא יאכפו את צו ההריסה למערכת החשמל עד לאכיפת צווי ההריסה והפינוי לתושבי חרבת א-תבאן נושא עניין אבו עראם; וכן כי יסכימו לאפשרות שתימסר להם הודעה על ביצוע צו ההריסה מבעוד מועד, על מנת שיוכלו לפנות לערכאה המוסמכת. לעניין זה הדגישו המערערים את חשיבות המערכת לתושבי חרבת א-תבאן, שכאמור חלקם מתגוררים במערות שבאזור ויזדקקו לאספקת חשמל אף לאחר הריסת המבנים שבשטח האש. המשיבים מצדם הדגישו כי הסכמתם לעניין מועד ביצוע צו ההריסה למערכת החשמל מתוחמת אך לביצוע צווי ההריסה למבנים שמחוברים למערכת.
 
-
-
-	למען שלמות התמונה יצוין, כי ביום 11.1.2024 הגישו המערערים בקשה לצירוף ראיה חדשה בדמות מפה שעליה מסומנים מיקומים בתוך שטח האש שבהם כנטען ישנם מתיישבים שמחוברים לתשתיות חשמל, מים וביוב, ואשר תבהיר לשיטתם את המצב העובדתי לטובת בירור טענתם בדבר האכיפה הבררנית.
-
-
+למען שלמות התמונה יצוין, כי ביום 11.1.2024 הגישו המערערים בקשה לצירוף ראיה חדשה בדמות מפה שעליה מסומנים מיקומים בתוך שטח האש שבהם כנטען ישנם מתיישבים שמחוברים לתשתיות חשמל, מים וביוב, ואשר תבהיר לשיטתם את המצב העובדתי לטובת בירור טענתם בדבר האכיפה הבררנית.
 
 לאחר שבחנו את הערעור והבקשה לסילוקו על הסף, ושמענו את טיעוני הצדדים בדיון שקיימנו לפנינו, לא מצאנו להתערב בהחלטת ועדת הפיקוח בעניין היתר הבנייה ובצו ההריסה שהוציאה למערכת החשמל. במסגרת הערעור שלפנינו התבקשנו להתערב בפסק דינו של בית המשפט לעניינים מינהליים כך שצו ההריסה למערכת החשמל יבוטל, וכן שנורה למשיבים ליתן היתר בנייה עבור המערכת; ולחלופין להורות על הקפאתו של צו ההריסה כל זמן שקהילתו של המערער, הם תושבי חרבת א-תבאן, ממשיכה להתגורר בכפר. כאמור, טענות המערערים שמכוונות לחוקיות ההכרזה על שטח האש כשטח צבאי סגור, כמו גם לחוקיות ההתיישבות והבינוי בשטח זה, ולצווי הפינוי וההריסה ביחס למתיישבי האזור – ובהם תושבי חרבת א-תבאן – הוכרעו בעניין אבו עראם. אף אין מקום, בגדר ההליך דנן, לדון בטענות המערערים בנוגע לשגיאות משפטיות שנפלו לשיטתם בעניין אבו עראם (טענות שהועלו במסגרת הבקשה לדיון נוסף שהוגשה ונדחתה, כאמור לעיל). מכאן, שבמישור התכנוני, לא מצאנו עילה להתערב בפסק הדין של בית המשפט לעניינים מינהליים.
 
-
-
 לצד זאת, רשמנו לפנינו את הצהרת המשיבים שלפיה אין בכוונתם לאכוף את צו ההריסה נושא הערעור עד למועד אכיפת צווי ההריסה למבנים שמחוברים למערכת החשמל. בנוסף, בשים לב לטענת המערערים בהתייחס לתושבי חרבת א-תבאן שמתגוררים במערות, וכן לעובדה שטענה זו, כמו גם הטענות לעניין הגדרתה של מערכת החשמל כמתקן הומניטרי בראי המשפט הבינלאומי ולאכיפה בררנית, לא ניצבו במוקד ההליך התכנוני נושא הערעור דנן, וממילא גם לא הוכרעו בפסק דינו של בית המשפט לעניינים מינהליים, ראינו להורות למשיבים לעדכן את המערערים 30 ימים לפני מועד ביצוע צו ההריסה למערכת החשמל על מנת לאפשר להם לכלכל את צעדיהם – כפי שהתבקש על ידי האחרונים בדיון – וטענותיהם אלו שמורות להם לפני הערכאה המוסמכת.
 
-
-
-	בכך מסתיים ההליך שלפנינו. בנסיבות העניין, לא מצאנו לעשות צו להוצאות בערעור.
-
-
-
-
-
-
-
-
+בכך מסתיים ההליך שלפנינו. בנסיבות העניין, לא מצאנו לעשות צו להוצאות בערעור.
 
 מ&#34;מ הנשיא
 
-
-
 השופט ד&#39; מינץ:
 
-
-
-	אני מסכים.
-
-
-
-
-
-
-
-
+אני מסכים.
 
 ש ו פ ט
 
-
-
 השופטת י&#39; וילנר:
 
-
-
-	אני מסכימה.
-
-
-
-
-
-
-
-
+אני מסכימה.
 
 ש ו פ ט ת
 
+הוחלט כאמור בפסק דינו של ממלא מקום הנשיא ע&#39; פוגלמן.
 
-
-	הוחלט כאמור בפסק דינו של ממלא מקום הנשיא ע&#39; פוגלמן.
-
-
-
-	ניתן היום, ‏י&#34;ב בשבט התשפ&#34;ד (‏22.1.2024).
-
-
-
-
+ניתן היום, ‏י&#34;ב בשבט התשפ&#34;ד (‏22.1.2024).
 
 מ&#34;מ הנשיא
 
@@ -1792,17 +1939,9 @@
 
 _________________________
 
-   23004200_M10.docx   מב
+23004200_M10.docx מב
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1821,7 +1960,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

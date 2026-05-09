@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    14/03/2022 (לפני 1513 ימים)
+                    14/03/2022 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/1154-22.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="1154/22 - פלוני נ. בית הדין הרבני הגדול"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F1154-22.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/540/011/a03&amp;fileName=22011540.A03&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/540/011/a03&amp;fileName=22011540.A03&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/540/011/a03&amp;fileName=22011540.A03&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/540/011/a03&amp;fileName=22011540.A03&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,203 +1827,105 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
-
-
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
 בג&#34;ץ 1154/22
 
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופטת ד&#39; ברק-ארז
 
-
-
 כבוד השופט ע&#39; גרוסקופף
-
-
 
 העותרת:
 
 פלונית
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבים:
 
 1. בית הדין הרבני הגדול
 
-
-
 2. בית הדין הרבני האזורי ירושלים
-
-
 
 3. פלוני
 
-
-
 4. כונס הנכסים – עו&#34;ד משה טננבאום
-
-
 
 5. פלוני
 
-
-
 6. פלונית
-
-	
 
 עתירה למתן צו על-תנאי ובקשה למתן צו ביניים
 
-	
-
 בשם העותרת:
 
-עו&#34;ד איתן ליפסקר  
-
-
+עו&#34;ד איתן ליפסקר
 
 בשם המשיב 3:
 
-עו&#34;ד  שירה דרורי סאלם
-
-	
+עו&#34;ד שירה דרורי סאלם
 
 פסק-דין
 
-
-
 השופטת ד&#39; ברק-ארז:
 
-
-
-1.	בפנינו עתירה המכוונת לביטולה של החלטת המשיב 1, בית הדין הרבני הגדול, מיום 6.2.2022, שניתנה בגדרי הליך חלוקת רכוש המתנהל בין העותרת לבין המשיב 3 (להלן: המשיב). 
-
-
+1.	בפנינו עתירה המכוונת לביטולה של החלטת המשיב 1, בית הדין הרבני הגדול, מיום 6.2.2022, שניתנה בגדרי הליך חלוקת רכוש המתנהל בין העותרת לבין המשיב 3 (להלן: המשיב).
 
 תמצית העובדות
 
+2.	העותרת והמשיב נישאו זה לזו בשנת 2000 ונולדו להם שלושה ילדים. ברקע הדברים מצוי סכסוך גירושין רב-שנים שניטש בין השניים, שבעקבותיו הם מנהלים הליך בבית הדין הרבני האזורי בירושלים, הוא המשיב 2. במסגרת זאת, בחודש ספטמבר 2020 השניים התגרשו, אך ההליך שנסב על איזון המשאבים ביניהם עודנו מתנהל. מבלי להיכנס לפירוט שאינו נדרש כאן, יצוין כי הסכסוך הרכושי נוגע, בין היתר, לזכויות הצדדים בבית המשפחתי (להלן: הבית) שבו מתגוררת כיום העותרת עם ילדיהם של בני הזוג, כמו גם לשאלה האם יש לאזן בין הצדדים את קצבת הפרישה שלה זכאי המשיב על רקע פרישתו לגמלאות.
 
-
-2.	העותרת והמשיב נישאו זה לזו בשנת 2000 ונולדו להם שלושה ילדים. ברקע הדברים מצוי סכסוך גירושין רב-שנים שניטש בין השניים, שבעקבותיו הם מנהלים הליך בבית הדין הרבני האזורי בירושלים, הוא המשיב 2. במסגרת זאת, בחודש ספטמבר 2020 השניים התגרשו, אך ההליך שנסב על איזון המשאבים ביניהם עודנו מתנהל. מבלי להיכנס לפירוט שאינו נדרש כאן, יצוין כי הסכסוך הרכושי נוגע, בין היתר, לזכויות הצדדים בבית המשפחתי (להלן: הבית) שבו מתגוררת כיום העותרת עם ילדיהם של בני הזוג, כמו גם לשאלה האם יש לאזן בין הצדדים את קצבת הפרישה שלה זכאי המשיב על רקע פרישתו לגמלאות. 
-
-
-
-3.	  ביום 17.11.2020 הורה בית הדין הרבני האזורי על מינוי אקטואר לצורך בחינת הזכויות בנות האיזון לפי חוק יחסי ממון בין בני זוג, התשל&#34;ג-1973. בנוסף, ובהתאם להסכמות הצדדים, בית הדין הרבני האזורי הורה על מינוי כונס נכסים (המשיב 4) לצורך ניהול הליכי מכירתו של הבית. בהקשר זה צוין כי לאחר הגשת דו&#34;ח האקטואר בעניינם של הצדדים, תוכל העותרת לבחון האם יש ביכולתה לרכוש את חלקו של המשיב בבית, וכי תינתן לה זכות ראשונים לעשות כן ככל שתשווה את הצעתה להצעה הגבוהה ביותר שתתקבל בהליכי המכר. 
-
-
+3.	 ביום 17.11.2020 הורה בית הדין הרבני האזורי על מינוי אקטואר לצורך בחינת הזכויות בנות האיזון לפי חוק יחסי ממון בין בני זוג, התשל&#34;ג-1973. בנוסף, ובהתאם להסכמות הצדדים, בית הדין הרבני האזורי הורה על מינוי כונס נכסים (המשיב 4) לצורך ניהול הליכי מכירתו של הבית. בהקשר זה צוין כי לאחר הגשת דו&#34;ח האקטואר בעניינם של הצדדים, תוכל העותרת לבחון האם יש ביכולתה לרכוש את חלקו של המשיב בבית, וכי תינתן לה זכות ראשונים לעשות כן ככל שתשווה את הצעתה להצעה הגבוהה ביותר שתתקבל בהליכי המכר.
 
 4.	עוד יצוין בקצרה כי בהמשך ניתנו מספר החלטות נוספות שבהן הכריע בית הדין הרבני האזורי, בין היתר, ביחס למועד הקרע בין בני הזוג, בנוגע להיקף זכויותיה של העותרת בקצבת הפרישה של המשיב וכן בעניין גובה דמי השימוש שעליה לשלם לו עבור התקופה שבה היא התגוררה בבית בעוד הוא הפסיק להתגורר בו. על החלטות אלה הוגשו ערעורים על-ידי שני הצדדים ואלו עודם תלויים ועומדים בפני בית הדין הרבני הגדול. כן יצוין כי בשלב זה, ועל רקע הגשת הערעורים האמורים, טרם הוגש דו&#34;ח האקטואר בעניינם של הצדדים.
 
-
-
-5.	על רקע השתלשלות האירועים האמורה, ביום 23.11.2021 הגישה העותרת בקשה לבית הדין הרבני האזורי ובה עתרה להקפאתו של הליך כינוס הנכסים ביחס לבית. בעיקרו של דבר, העותרת הדגישה כי בשלב זה טרם הסתיים הליך איזון המשאבים וכי בנסיבות אלו השלמתו של הליך הכינוס תוביל לפגיעה קשה בה. זאת, לטענתה, מאחר שתאלץ להשתתף בהליך ההתמחרות לרכישת זכויות המשיב בבית בשלב שבו טרם נקבע היקף זכויותיה הרכושיות ובניגוד למתווה שנקבע ביום 17.11.2020. 
-
-
+5.	על רקע השתלשלות האירועים האמורה, ביום 23.11.2021 הגישה העותרת בקשה לבית הדין הרבני האזורי ובה עתרה להקפאתו של הליך כינוס הנכסים ביחס לבית. בעיקרו של דבר, העותרת הדגישה כי בשלב זה טרם הסתיים הליך איזון המשאבים וכי בנסיבות אלו השלמתו של הליך הכינוס תוביל לפגיעה קשה בה. זאת, לטענתה, מאחר שתאלץ להשתתף בהליך ההתמחרות לרכישת זכויות המשיב בבית בשלב שבו טרם נקבע היקף זכויותיה הרכושיות ובניגוד למתווה שנקבע ביום 17.11.2020.
 
 6.	מנגד, ביום 7.12.2021 הגיש כונס הנכסים הודעה מטעמו ובה התבקש בית הדין הרבני האזורי לאשר את השלמתם של הליכי המכר. כונס הנכסים עדכן כי בסוף חודש אוקטובר 2021 פורסמה הזמנה לציבור להגשת הצעות לרכישת הזכויות בבית, וכי בהמשך לכך ביום 23.11.2021 נערך הליך התמחרות שבסופו התקבלה הצעת רכישה מטעם המשיבים 6-5 (להלן: הרוכשים המיועדים) לפי שווי של 4,312,000 שקלים (סכום הגבוה בכ-250,000 שקלים מהערכת השמאי שניתנה בתיק). כונס הנכסים הוסיף וציין כי העותרת הייתה נוכחת בהליך ההתמחרות ובסופו הובהר לה כי באפשרותה להשוות את ההצעה הזוכה, אלא שבזמן שחלף טרם התקבלה ממנה כל הצעה לעשות כן. בנסיבות אלו, כך נטען, יש לאשר את השלמת החתימה על הסכם המכר עם הרוכשים המיועדים. יצוין כי המשיב תמך בקבלת בקשתו של כונס הנכסים.
 
-
-
 7.	ביום 15.12.2021 אישר בית הדין הרבני האזורי את בקשתו של כונס הנכסים ודחה את בקשת העותרת להקפאתם של הליכי המכר. בעשותו כן ציין בית הדין הרבני האזורי את התרשמותו כי התנהלותה של העותרת נועדה לעכב את מכירת הבית, בהדגישו כי בשלב זה חלפה למעלה משנה מאז הוחלט על מינוי כונס נכסים לצורך קידום הליך המכירה. בית הדין הרבני האזורי הוסיף וקבע כי אין לקבל את הטענה לכך שקיים קשר הכרחי בין מכירתו של הבית לבין השלמתו של הליך איזון המשאבים, שלגביו אף צוין כי כלל לא ידוע מתי יסתיים נוכח הערעורים שהוגשו על-ידי שני הצדדים.
 
-
-
-8.	העותרת לא השלימה עם ההחלטה האמורה וביום 22.12.2021 הגישה בקשת רשות ערעור על כך לבית הדין הרבני הגדול, ובצדה בקשה לעיכוב ביצוע. ביום  26.1.2021 קיבל בית הדין הרבני הגדול בחלקה את הבקשה לעיכוב ביצוע, במובן זה שהורה כי ביצוע ההחלטה יעוכב בחמישה ימים בלבד. בעשותו כן ציין בית הדין הרבני הגדול כי אף שהתרשם שסיכויי הערעור שהגישה העותרת קלושים, יש מקום לעכב את ההחלטה בהתחשב במועד הדיון הקרוב בערעורי הצדדים, שנקבע באותה עת ליום 27.1.2022. בית הדין הרבני הוסיף כי אם בסיום התקופה שנקבעה לא תינתן החלטה אחרת, תהיה העותרת רשאית להגיש בקשה נוספת לעיכוב ביצוע. 
-
-
+8.	העותרת לא השלימה עם ההחלטה האמורה וביום 22.12.2021 הגישה בקשת רשות ערעור על כך לבית הדין הרבני הגדול, ובצדה בקשה לעיכוב ביצוע. ביום 26.1.2021 קיבל בית הדין הרבני הגדול בחלקה את הבקשה לעיכוב ביצוע, במובן זה שהורה כי ביצוע ההחלטה יעוכב בחמישה ימים בלבד. בעשותו כן ציין בית הדין הרבני הגדול כי אף שהתרשם שסיכויי הערעור שהגישה העותרת קלושים, יש מקום לעכב את ההחלטה בהתחשב במועד הדיון הקרוב בערעורי הצדדים, שנקבע באותה עת ליום 27.1.2022. בית הדין הרבני הוסיף כי אם בסיום התקופה שנקבעה לא תינתן החלטה אחרת, תהיה העותרת רשאית להגיש בקשה נוספת לעיכוב ביצוע.
 
 9.	להשלמת התמונה, יצוין כי הדיון בערעורים שהיה קבוע ליום 27.1.2022 בוטל בסופו של דבר, וכעולה מטיעוני הצדדים בשלב זה נקבע מועד דיון חלופי ליום 28.4.2022.
 
+10.	על רקע האמור, העותרת פנתה פעם נוספת בבקשה לעיכוב ביצוע, היא הבקשה העומדת בלב העתירה דנן. זאת הפעם דחה בית הדין הרבני הגדול את הבקשה. בהחלטתו שב וציין בית הדין הרבני הגדול כי סיכויי הערעור שהגישה העותרת קלושים וכי בזמן שחלף לא חל כל שינוי בהתרשמותו זו. בהקשר זה ציין בית הדין הרבני הגדול כי נתן דעתו אף להבהרות שניתנו על-ידי העותרת, מהן עלה כי אין ביכולתה להתחייב להשוות את הצעת הרכש שניתנה ביחס לבית בטרם יושלם הליך איזון המשאבים. נוכח מסקנתו זו, ובשים לב לדחיית מועד הדיון שנקבע לשמיעת הערעורים שהגישו הצדדים, מצא בית הדין הרבני הגדול כי אין עוד הצדקה לעיכוב הליכי מכירת הבית, הכרוך מטבעו בפגיעה נמשכת במשיב וברוכשים המיועדים.
 
-
-10.	על רקע האמור, העותרת פנתה פעם נוספת בבקשה לעיכוב ביצוע, היא הבקשה העומדת בלב העתירה דנן. זאת הפעם דחה בית הדין הרבני הגדול את הבקשה. בהחלטתו שב וציין בית הדין הרבני הגדול כי סיכויי הערעור שהגישה העותרת קלושים וכי בזמן שחלף לא חל כל שינוי בהתרשמותו זו. בהקשר זה ציין בית הדין הרבני הגדול כי נתן דעתו אף להבהרות שניתנו על-ידי העותרת, מהן עלה כי אין ביכולתה להתחייב להשוות את הצעת הרכש שניתנה ביחס לבית בטרם יושלם הליך איזון המשאבים. נוכח מסקנתו זו, ובשים לב לדחיית מועד הדיון שנקבע לשמיעת הערעורים שהגישו הצדדים, מצא בית הדין הרבני הגדול כי אין עוד הצדקה לעיכוב הליכי מכירת הבית, הכרוך מטבעו בפגיעה נמשכת במשיב וברוכשים המיועדים. 
-
-
-
-העתירה 
-
-
+העתירה
 
 11.	בעתירה דנן, שהוגשה ביום 15.2.2022, נטען כי יש מקום להתערב בהחלטתו של בית הדין הרבני הגדול ולהורות על עיכובם של הליכי המכר. בעיקרו של דבר, העותרת טוענת כי הותרת ההחלטה על כנה תוביל לפגיעה קשה בכללי הצדק הטבעי ולעיוות דין חמור. כך הודגש כי בנסיבות העניין, ככל שההחלטה לא תעוכב, הדבר יוביל לאיונה של בקשת רשות הערעור שהגישה העותרת. העותרת מוסיפה כי אף לגוף הדברים סיכויי הערעור שהגישה טובים, ומעלה טענות שונות ביחס להחלטתו של בית הדין הרבני האזורי. בכלל זאת, העותרת טוענת כי ההחלטה התקבלה מבלי שניתנה לה אפשרות להשמיע את מלוא טענותיה בעניין. יצוין כי לצד העתירה הוגשה בקשה למתן צו ביניים במסגרתה התבקשנו להורות על עיכוב ביצוע של ההחלטה שנתן בית הדין האזורי עד למיצוי ההליך בפני בית משפט זה.
 
+12.	בתגובה מקדמית מטעם המשיב, שהוגשה ביום 24.2.2022, נטען כי יש מקום לדחות את העתירה ואת הבקשה למתן צו ביניים גם יחד. בתמצית, המשיב טוען כי החלטתו של בית הדין הרבני הגדול לדחות את הבקשה לעיכוב הליכי המכר ניתנה כדין, ללא חריגה מסמכות, וכי לא נפל בה כל פגם שיש בו להצדיק את התערבותו של בית משפט זה בשבתו כבג&#34;ץ, בהתחשב באמת המידה המצמצמת שנקבעה לכך בפסיקה. העותר מוסיף כי התנהלותה של העותרת אף נגועה בשיהוי, בשים לב לכך שבקשתה להקפאת הליכי המכר הוגשה רק בחלוף שנה לאחר שמונה כונס הנכסים ובשלב שבו הליכי הכינוס הושלמו ברובם. עוד נטען, כי העותרת מציגה את הדברים בעתירה באופן חלקי שעולה כדי חוסר תום לב.
 
-
-12.	בתגובה מקדמית מטעם המשיב, שהוגשה ביום 24.2.2022, נטען כי יש מקום לדחות את העתירה ואת הבקשה למתן צו ביניים גם יחד. בתמצית, המשיב טוען כי החלטתו של בית הדין הרבני הגדול לדחות את הבקשה לעיכוב הליכי המכר ניתנה כדין, ללא חריגה מסמכות, וכי לא נפל בה כל פגם שיש בו להצדיק את התערבותו של בית משפט זה בשבתו כבג&#34;ץ, בהתחשב באמת המידה המצמצמת שנקבעה לכך בפסיקה. העותר מוסיף כי התנהלותה של העותרת אף נגועה בשיהוי, בשים לב לכך שבקשתה להקפאת הליכי המכר הוגשה רק בחלוף שנה לאחר שמונה כונס הנכסים ובשלב שבו הליכי הכינוס הושלמו ברובם. עוד נטען, כי העותרת מציגה את הדברים בעתירה באופן חלקי שעולה כדי חוסר תום לב. 
-
-
-
-13.	להשלמת התמונה, יצוין כי ביום 28.2.2022 הוגשה הודעת עדכון מטעם העותרת. בהודעה צוין כי ביום 24.2.2022 נעתר בית הדין הרבני האזורי לבקשה מטעם כונס הנכסים והורה על דחיית מועד התשלומים הצפויים מצד הרוכשים המיועדים, וזאת עד להכרעה בעתירה דנן. 
-
-
+13.	להשלמת התמונה, יצוין כי ביום 28.2.2022 הוגשה הודעת עדכון מטעם העותרת. בהודעה צוין כי ביום 24.2.2022 נעתר בית הדין הרבני האזורי לבקשה מטעם כונס הנכסים והורה על דחיית מועד התשלומים הצפויים מצד הרוכשים המיועדים, וזאת עד להכרעה בעתירה דנן.
 
 דיון והכרעה
 
+14. לאחר עיון בעתירה ובתגובת המשיב על נספחיהן, אנו סבורים כי דין העתירה להידחות על הסף.
 
-
-14.      לאחר עיון בעתירה ובתגובת המשיב על נספחיהן, אנו סבורים כי דין העתירה להידחות על הסף.  
-
-
-
-15.	כלל ידוע הוא כי בית משפט זה, בשבתו כבית משפט גבוה לצדק, אינו יושב כערכאת ערעור על החלטותיהם של בתי הדין הרבניים אלא בנסיבות חריגות, כגון במקרים קיצוניים של חריגה מסמכות, סטייה מהוראות החוק, פגיעה בעקרונות הצדק הטבעי או כאשר נדרש סעד מן הצדק (ראו: בג&#34;ץ 1370/18 פלונית נ&#39; בית הדין הרבני האזורי בחיפה, פסקה 7 (29.4.2018); בג&#34;ץ 3377/20 פלונית נ&#39; בית הדין הרבני הגדול, פסקה 12 (9.6.2020); בג&#34;ץ 4940/20 פלונית נ&#39; בית הדין הרבני הגדול לערעורים, פסקה 19 (29.4.2021)). 
-
-
+15.	כלל ידוע הוא כי בית משפט זה, בשבתו כבית משפט גבוה לצדק, אינו יושב כערכאת ערעור על החלטותיהם של בתי הדין הרבניים אלא בנסיבות חריגות, כגון במקרים קיצוניים של חריגה מסמכות, סטייה מהוראות החוק, פגיעה בעקרונות הצדק הטבעי או כאשר נדרש סעד מן הצדק (ראו: בג&#34;ץ 1370/18 פלונית נ&#39; בית הדין הרבני האזורי בחיפה, פסקה 7 (29.4.2018); בג&#34;ץ 3377/20 פלונית נ&#39; בית הדין הרבני הגדול, פסקה 12 (9.6.2020); בג&#34;ץ 4940/20 פלונית נ&#39; בית הדין הרבני הגדול לערעורים, פסקה 19 (29.4.2021)).
 
 16.	בנסיבות העניין, לא מצאנו כי המקרה שלפנינו נמנה עם אותם מקרים חריגים המצדיקים התערבות בהחלטתו של בית הדין הרבני הגדול, ודי בכך כדי לדחות את העתירה. בחינת טענות העותרת לגופן מעלה כי אלו נושאות בעיקרן אופי &#34;ערעורי&#34; ומכוונות לטעויות שנפלו לשיטתה בשיקול הדעת שהפעילו בתי הדין הרבניים בנסיבות הקונקרטיות של העניין. על כך יש להוסיף כי לא התרשמנו שיש ממש בטענת העותרת לפיה צפוי להיגרם לה עיוות דין חמור ככל שלא יעוכב הליך מימוש הבית. עיון בהחלטת בית הדין הרבני הגדול מעלה כי זו נתנה משקל לכלל טענות הצדדים, לרבות השלב המתקדם שבו מצוי הליך המכר והשלכותיו על צדדים שלישיים. בנסיבות אלו לא מצאנו כי נפל בהחלטה פגם היורד לשורשו של ההליך, שיש בו להצדיק את קבלת טענותיה של העותרת. אכן, ניתן להבין כי להחלטה נשוא העתירה עשויות להיות השלכות לא מבוטלות על העותרת, אולם אין בכך כדי להקים עילה להתערבותנו.
 
-
-
 17.	סוף דבר: העתירה נדחית אפוא, ועמה גם הבקשה למתן צו ביניים. לפנים משורת הדין, אין צו להוצאות.
 
-
-
-	ניתן היום, ‏י&#34;א באדר ב התשפ&#34;ב (‏14.3.2022).
-
-
+ניתן היום, ‏י&#34;א באדר ב התשפ&#34;ב (‏14.3.2022).
 
 ש ו פ ט
 
 ש ו פ ט ת
 
-                          ש ו פ ט
-
-
+ש ו פ ט
 
 _________________________
 
-   22011540_A03.docx   עכ
+22011540_A03.docx עכ
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1771,7 +1944,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

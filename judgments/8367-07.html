@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    27/11/2007 (לפני 6734 ימים)
+                    27/11/2007 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8367-07.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8367/07 - סטארפלסט תעשיות (1967) בע&#34;מ נ. שלום רוני"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8367-07.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/670/083/N01&amp;fileName=07083670_n01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/670/083/N01&amp;fileName=07083670_n01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/670/083/N01&amp;fileName=07083670_n01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/670/083/N01&amp;fileName=07083670_n01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1576,8 +1847,7 @@
 
 שלום רוני
 
-ערעור על החלטתו של בית
-משפט השלום בבית-שאן
+ערעור על החלטתו של בית משפט השלום בבית-שאן
 
 (כב&#39; השופטת ע&#39; מרדכי) מיום 11.9.2007, שלא לפסול
 
@@ -1587,85 +1857,19 @@
 
 פסק-דין
 
-ערעור על החלטתו של
-בית משפט השלום בבית שאן (כב&#39; השופטת ע&#39; מרדכי) מיום 11.9.2007, שלא לפסול עצמו מלדון בת.א. 307/06.
+ערעור על החלטתו של בית משפט השלום בבית שאן (כב&#39; השופטת ע&#39; מרדכי) מיום 11.9.2007, שלא לפסול עצמו מלדון בת.א. 307/06.
 
-1. המשיב הגיש כנגד המערערת תביעה לבית המשפט קמא. עם קביעתו של
-התיק לדיון בפני השופטת מרדכי, הגישה המערערת בקשה לפסילתה של השופטת מלדון בתביעה
-והעברתה לשופט אחר. את בקשתה נימקה המערערת בטענה כי בין המערערת ומנהלה, לבין גיסה של השופטת התגלע סכסוך אישי קשה ורב שנים, בעת שהגיס
-שימש בתפקיד של מנהל מרכז ההשקעות של משרד המסחר והתעשיה (להלן: מרכז
-ההשקעות). על כן, ועל מנת למנוע ולו חשש להשפעה
-בלתי הוגנת על ניהול ההליכים ועל עשיית דין צדק, ביקשה המערערת מבית המשפט לפסול
-עצמו ולהעביר את התיק לקביעה בפני שופט אחר. בית המשפט, בהחלטה מיום 11.9.2007,
-דחה את בקשת הפסלות. בהחלטתה ציינה השופטת כי בתיק אחר בו היתה המערערת צד וגם בו
-התבקשה על ידה לפסול את עצמה (בש 435/07), מנימוקים זהים, נעתרה לבקשה, למרות
-שציינה כי אין לה כל ידיעה אישית אודות נימוקי הפסילה, ובהעדר עילת פסלות, וזאת
-לפנים משורת הדין. צוין, כי על הסכסוך למדה השופטת מפי
-המערערת בלבד, ועל פי טענותיה של המערערת עצמה מדובר בסכסוך שארע לפני שנים לא
-מעטות. בנסיבות אלו, סברה השופטת כי הבקשה אינה מעלה עילת פסילה ראויה, ועל כן
-דינה להידחות.
+1. המשיב הגיש כנגד המערערת תביעה לבית המשפט קמא. עם קביעתו של התיק לדיון בפני השופטת מרדכי, הגישה המערערת בקשה לפסילתה של השופטת מלדון בתביעה והעברתה לשופט אחר. את בקשתה נימקה המערערת בטענה כי בין המערערת ומנהלה, לבין גיסה של השופטת התגלע סכסוך אישי קשה ורב שנים, בעת שהגיס שימש בתפקיד של מנהל מרכז ההשקעות של משרד המסחר והתעשיה (להלן: מרכז ההשקעות). על כן, ועל מנת למנוע ולו חשש להשפעה בלתי הוגנת על ניהול ההליכים ועל עשיית דין צדק, ביקשה המערערת מבית המשפט לפסול עצמו ולהעביר את התיק לקביעה בפני שופט אחר. בית המשפט, בהחלטה מיום 11.9.2007, דחה את בקשת הפסלות. בהחלטתה ציינה השופטת כי בתיק אחר בו היתה המערערת צד וגם בו התבקשה על ידה לפסול את עצמה (בש 435/07), מנימוקים זהים, נעתרה לבקשה, למרות שציינה כי אין לה כל ידיעה אישית אודות נימוקי הפסילה, ובהעדר עילת פסלות, וזאת לפנים משורת הדין. צוין, כי על הסכסוך למדה השופטת מפי המערערת בלבד, ועל פי טענותיה של המערערת עצמה מדובר בסכסוך שארע לפני שנים לא מעטות. בנסיבות אלו, סברה השופטת כי הבקשה אינה מעלה עילת פסילה ראויה, ועל כן דינה להידחות.
 
-2. על
-החלטה זו הוגש הערעור שבפניי. בערעור מפרטת המערערת על טיבו של הסכסוך בינה לבין
-גיסה של השופטת: לטענתה מאז מינויו של
-הגיס למנהל מרכז ההשקעות בשנת 1999 שונו המדיניות והיחס כלפי המערערת, תוך מתן יחס
-שלילי ובוטה באורח קיצוני מאוד ללא כל סיבה. על רקע זה, כך נטען, נתגלעו חילוקי
-דעות קשים, סכסוכים ומריבות בין הגיס למערערת, כאשר למיטב ידיעת המערערת ומנהלה
-הגיע המצב לכך שהגיס של השופטת הגיש בשנת 1999 או 2000 תלונה כנגד המערערת ומנהלה,
-אשר נגנזה. המערערת סבורה כי גם העובדה שהשופטת פסלה עצמה מלדון בתיק האחר
-שהמערערת היתה צד לו, בעקבות בקשת פסילה שכללה נימוקים זהים לחלוטין, מצדיקה
-פסילתה כעת. לטענת המערערת, קיים חשש
-ממשי שלגיס של השופטת ישנו עניין אישי ממשי בתוצאת התובענה שהוגשה כנגד המערערת
-בשל הסכסוך בין הצדדים, וישנו סיכון של ממש להשפעה בלתי הוגנת של הגיס על השופטת.
-על כן, סבורה המערערת, כי יש לפסול את השופטת ולהעביר את התיק לדיון בפני שופט
-אחר.
+2. על החלטה זו הוגש הערעור שבפניי. בערעור מפרטת המערערת על טיבו של הסכסוך בינה לבין גיסה של השופטת: לטענתה מאז מינויו של הגיס למנהל מרכז ההשקעות בשנת 1999 שונו המדיניות והיחס כלפי המערערת, תוך מתן יחס שלילי ובוטה באורח קיצוני מאוד ללא כל סיבה. על רקע זה, כך נטען, נתגלעו חילוקי דעות קשים, סכסוכים ומריבות בין הגיס למערערת, כאשר למיטב ידיעת המערערת ומנהלה הגיע המצב לכך שהגיס של השופטת הגיש בשנת 1999 או 2000 תלונה כנגד המערערת ומנהלה, אשר נגנזה. המערערת סבורה כי גם העובדה שהשופטת פסלה עצמה מלדון בתיק האחר שהמערערת היתה צד לו, בעקבות בקשת פסילה שכללה נימוקים זהים לחלוטין, מצדיקה פסילתה כעת. לטענת המערערת, קיים חשש ממשי שלגיס של השופטת ישנו עניין אישי ממשי בתוצאת התובענה שהוגשה כנגד המערערת בשל הסכסוך בין הצדדים, וישנו סיכון של ממש להשפעה בלתי הוגנת של הגיס על השופטת. על כן, סבורה המערערת, כי יש לפסול את השופטת ולהעביר את התיק לדיון בפני שופט אחר.
 
-3. לאחר
-שעיינתי בחומר שבפניי, הגעתי לכלל מסקנה כי דין הערעור להידחות. טענתה המרכזית של המערערת היא קיומו של עניין ממשי של
-הגיס שהוא אחי בעלה המנוח של השופטת בהליך או בתוצאותיו, בעקבות הסכסוך שהיה בין
-הגיס כשהיה בתפקיד לבין המערערת ומנהלה, בעבר. בטענותיה מפנה המערערת לסעיף
-77א(א1)(2) לחוק בתי המשפט [נוסח משולב[, התשמ&#34;ד-1984. סעיף זה קובע כי: שופט
-לא ישב בדין כאשר &#34;יש לשופט עניין כספי ממשי או ענין אישי ממשי בהליך או
-בתוצאותיו, בצד להליך, בבא כוחו או בעד מרכזי, או שלבן משפחה מדרגה ראשונה של השופט יש ענין כספי ממשי או ענין אישי ממשי בהליך או
-בתוצאותיו, בצד להליך או בבא כוחו&#34;. החוק מוסיף ומגדיר מיהו &#34;בן משפחה
-מדרגה ראשונה&#34; לעניין סעיף זה: &#34;בן זוג, הורה, ילד, אח וכן ילד או בן
-זוג של כל אחד מאלה ולרבות מי שהיה אפוטרופוס או מי ששימש משפחה אומנת של השופט או
-שהשופט היה אפוטרופסו או שימש משפחה אומנת שלו&#34;. אף כי גיס לא נזכר בהגדרה אך
-מובן הוא, שמידת הקירבה והרלוונטיות העלולה להשפיע על החלטת הפסלות היא תלויית
-נסיבות; בהחלט אפשרי שיהיה מצב שגם קירבה של גיס תצדיק פסלות של שופט. אלא
-שבנסיבות העניין אינני מוצאת עילה לפסול את השופטת: הסכסוך הנטען בין הגיס של
-השופטת למערערת ומנהלה ככל שהיה התרחש לפני שנים לא מעטות, בעת כהונתו של הגיס
-במשרה ציבורית, ובקשר למילוי תפקידו. השופטת כלל לא היתה מודעת לקיומו של הסכסוך
-עד להעלאת הטענה על ידי המערערת, ואין כל בדל ראיה על זיקה בינה לבין טענת הסכסוך
-שהיה לכאורה בעת מילוי תפקידו של הגיס כמנכ&#34;ל מרכז ההשקעות. בנסיבות אלו לא
-ניתן לומר כי קיים חשש ממשי למשוא פנים בניהול ההליך. זאת ועוד, כבר נקבע כי
-חשדות, תחושות והשערות, הנעדרים בסיס עובדתי מעבר לאמירתם,
-אינם יכולים לשמש בסיס לטענת פסלות
-(ע&#34;א 3863/04 הג&#39;ונגל של אלי (1998) פרדסיה בע&#34;מ נ&#39; מנהל מקרקעי ישראל (לא פורסם, 22.6.2004); ע&#34;א 10129/06 פלוני נ&#39; פלונית (לא פורסם, 3.6.2007); יגאל מרזל דיני פסלות שופט 85 (2006)). על כן, אין בחשדות ובחששות שמעלה המערערת בעלמא,
-לפיהם לגיס של השופטת קיים עניין אישי ממשי בתוצאת התובענה שהוגשה כנגד המערערת
-וישנו סיכון של ממש להשפעה בלתי הוגנת שלו על השופטת, כדי להצדיק פסילתה של
-השופטת.
+3. לאחר שעיינתי בחומר שבפניי, הגעתי לכלל מסקנה כי דין הערעור להידחות. טענתה המרכזית של המערערת היא קיומו של עניין ממשי של הגיס שהוא אחי בעלה המנוח של השופטת בהליך או בתוצאותיו, בעקבות הסכסוך שהיה בין הגיס כשהיה בתפקיד לבין המערערת ומנהלה, בעבר. בטענותיה מפנה המערערת לסעיף 77א(א1)(2) לחוק בתי המשפט [נוסח משולב[, התשמ&#34;ד-1984. סעיף זה קובע כי: שופט לא ישב בדין כאשר &#34;יש לשופט עניין כספי ממשי או ענין אישי ממשי בהליך או בתוצאותיו, בצד להליך, בבא כוחו או בעד מרכזי, או שלבן משפחה מדרגה ראשונה של השופט יש ענין כספי ממשי או ענין אישי ממשי בהליך או בתוצאותיו, בצד להליך או בבא כוחו&#34;. החוק מוסיף ומגדיר מיהו &#34;בן משפחה מדרגה ראשונה&#34; לעניין סעיף זה: &#34;בן זוג, הורה, ילד, אח וכן ילד או בן זוג של כל אחד מאלה ולרבות מי שהיה אפוטרופוס או מי ששימש משפחה אומנת של השופט או שהשופט היה אפוטרופסו או שימש משפחה אומנת שלו&#34;. אף כי גיס לא נזכר בהגדרה אך מובן הוא, שמידת הקירבה והרלוונטיות העלולה להשפיע על החלטת הפסלות היא תלויית נסיבות; בהחלט אפשרי שיהיה מצב שגם קירבה של גיס תצדיק פסלות של שופט. אלא שבנסיבות העניין אינני מוצאת עילה לפסול את השופטת: הסכסוך הנטען בין הגיס של השופטת למערערת ומנהלה ככל שהיה התרחש לפני שנים לא מעטות, בעת כהונתו של הגיס במשרה ציבורית, ובקשר למילוי תפקידו. השופטת כלל לא היתה מודעת לקיומו של הסכסוך עד להעלאת הטענה על ידי המערערת, ואין כל בדל ראיה על זיקה בינה לבין טענת הסכסוך שהיה לכאורה בעת מילוי תפקידו של הגיס כמנכ&#34;ל מרכז ההשקעות. בנסיבות אלו לא ניתן לומר כי קיים חשש ממשי למשוא פנים בניהול ההליך. זאת ועוד, כבר נקבע כי חשדות, תחושות והשערות, הנעדרים בסיס עובדתי מעבר לאמירתם, אינם יכולים לשמש בסיס לטענת פסלות (ע&#34;א 3863/04 הג&#39;ונגל של אלי (1998) פרדסיה בע&#34;מ נ&#39; מנהל מקרקעי ישראל (לא פורסם, 22.6.2004); ע&#34;א 10129/06 פלוני נ&#39; פלונית (לא פורסם, 3.6.2007); יגאל מרזל דיני פסלות שופט 85 (2006)). על כן, אין בחשדות ובחששות שמעלה המערערת בעלמא, לפיהם לגיס של השופטת קיים עניין אישי ממשי בתוצאת התובענה שהוגשה כנגד המערערת וישנו סיכון של ממש להשפעה בלתי הוגנת שלו על השופטת, כדי להצדיק פסילתה של השופטת.
 
-4. לפני
-סיום אציין כי העובדה שהשופטת פסלה עצמה מלדון בהליך אחר, בעקבות בקשת פסלות דומה
-שהגישה המערערת אין בה כדי לשנות את המסקנה לפיה לא קמה עילת פסלות במקרה הנוכחי.
-גם בהחלטה הקודמת ציינה השופטת שלא ידוע לה על כל סכסוך. נראה, אפוא, כי כבר במקרה
-הקודם היה על השופטת לבחון האם יש הצדקה לפסילתה בנסיבות אלו ולדחות את הבקשה,
-ואולם אין במחדל זה כדי להביא לפסילת השופטת באופן אוטומטי גם כעת, משהוברר כי
-הבקשה אינה מקימה עילת פסלות. בנסיבות אלו שוכנעתי כי לא עולה כל חשש על פיו ניתן
-לקבוע, כי נבצר מבית המשפט לשפוט את דינם של בעלי הדין באובייקטיביות הדרושה. אפשר
-שבראייתה של המערערת נוצר חשש, כי הסכסוך הנטען בינה לבין גיסה של השופטת, עת כיהן
-האחרון כמנהל מרכז ההשקעות מצביע על קיום משוא פנים כלפיה. עם זאת, בנסיבות
-העניין, חשש זה אינו יוצא מכלל חשש סובייקטיבי גרידא, שאינו מקים עילת פסלות
-(ע&#34;א 3484/01 באן נ&#39; באן (לא פורסם,
-28.6.2001); ע&#34;א 7857/04 צ&#39;רטוק נ&#39; וינקלר (לא
-פורסם, 7.12.2004); מרזל, בעמ&#39; 115).
+4. לפני סיום אציין כי העובדה שהשופטת פסלה עצמה מלדון בהליך אחר, בעקבות בקשת פסלות דומה שהגישה המערערת אין בה כדי לשנות את המסקנה לפיה לא קמה עילת פסלות במקרה הנוכחי. גם בהחלטה הקודמת ציינה השופטת שלא ידוע לה על כל סכסוך. נראה, אפוא, כי כבר במקרה הקודם היה על השופטת לבחון האם יש הצדקה לפסילתה בנסיבות אלו ולדחות את הבקשה, ואולם אין במחדל זה כדי להביא לפסילת השופטת באופן אוטומטי גם כעת, משהוברר כי הבקשה אינה מקימה עילת פסלות. בנסיבות אלו שוכנעתי כי לא עולה כל חשש על פיו ניתן לקבוע, כי נבצר מבית המשפט לשפוט את דינם של בעלי הדין באובייקטיביות הדרושה. אפשר שבראייתה של המערערת נוצר חשש, כי הסכסוך הנטען בינה לבין גיסה של השופטת, עת כיהן האחרון כמנהל מרכז ההשקעות מצביע על קיום משוא פנים כלפיה. עם זאת, בנסיבות העניין, חשש זה אינו יוצא מכלל חשש סובייקטיבי גרידא, שאינו מקים עילת פסלות (ע&#34;א 3484/01 באן נ&#39; באן (לא פורסם, 28.6.2001); ע&#34;א 7857/04 צ&#39;רטוק נ&#39; וינקלר (לא פורסם, 7.12.2004); מרזל, בעמ&#39; 115).
 
-אשר
-על כן, הערעור נדחה.
+אשר על כן, הערעור נדחה.
 
-ניתן
-היום, י&#34;ז בכסלו התשס&#34;ח (27.11.2007).
+ניתן היום, י&#34;ז בכסלו התשס&#34;ח (27.11.2007).
 
 ה נ ש י א ה
 
@@ -1692,7 +1896,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

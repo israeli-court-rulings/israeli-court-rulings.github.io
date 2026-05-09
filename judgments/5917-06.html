@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    12/04/2007 (לפני 6963 ימים)
+                    12/04/2007 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5917-06.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5917/06 - מדינת ישראל נ. פלוני"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5917-06.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/170/059/T01&amp;fileName=06059170_t01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/170/059/T01&amp;fileName=06059170_t01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/170/059/T01&amp;fileName=06059170_t01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/170/059/T01&amp;fileName=06059170_t01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1580,9 +1851,7 @@
 
 פלוני
 
-ערעור על גזר דינו של בית המשפט המחוזי בנצרת בתיק פ&#34;ח 508/06 שניתן ביום 29.5.06 על-ידי סגן הנשיא אהרן
-אמינוף – אב&#34;ד, השופט זיאד הווארי והשופטת
-נחמה מוניץ
+ערעור על גזר דינו של בית המשפט המחוזי בנצרת בתיק פ&#34;ח 508/06 שניתן ביום 29.5.06 על-ידי סגן הנשיא אהרן אמינוף – אב&#34;ד, השופט זיאד הווארי והשופטת נחמה מוניץ
 
 תאריך הישיבה:
 
@@ -1602,106 +1871,33 @@
 
 השופט א&#39; רובינשטיין:
 
-א. ערעור המדינה על קולת העונש שנגזר על המשיב בבית המשפט המחוזי
-בנצרת (השופטים אמינוף – סגן נשיא, הווארי ומוניץ) בתפ&#34;ח 508/00 ביום
-29.5.06, לפיו נדון המשיב ל-30 חודשי מאסר בפועל; כן נצברו לכך שישה חודשי מאסר
-שהושתו על המשיב בת&#34;פ 4302/03 לריצוי בעבודות שירות, ובסך הכל נדון לשלושים
-וששה חודשי מאסר בפועל וכן 24 חודשי מאסר על תנאי ופיצוי למתלוננת בסך 5,000 ₪;
-זאת על עבירת ניסיון למעשה מגונה בנסיבות אינוס (סעיף 348(ב) יחד עם סעיף 25 לחוק
-העונשין, תשל&#34;ז-1977), בה הודה המשיב בכתב אישום מתוקן.
+א. ערעור המדינה על קולת העונש שנגזר על המשיב בבית המשפט המחוזי בנצרת (השופטים אמינוף – סגן נשיא, הווארי ומוניץ) בתפ&#34;ח 508/00 ביום 29.5.06, לפיו נדון המשיב ל-30 חודשי מאסר בפועל; כן נצברו לכך שישה חודשי מאסר שהושתו על המשיב בת&#34;פ 4302/03 לריצוי בעבודות שירות, ובסך הכל נדון לשלושים וששה חודשי מאסר בפועל וכן 24 חודשי מאסר על תנאי ופיצוי למתלוננת בסך 5,000 ₪; זאת על עבירת ניסיון למעשה מגונה בנסיבות אינוס (סעיף 348(ב) יחד עם סעיף 25 לחוק העונשין, תשל&#34;ז-1977), בה הודה המשיב בכתב אישום מתוקן.
 
-ב. כתב האישום המתוקן תיאר כיצד הציע המשיב למתלוננת, קטינה בת
-כ-14.5 שפגש באוטובוס, לאכול בסטיקיה על חשבונו. כשירדו מן האוטובוס, הציעה
-המתלוננת למשיב להראות לו דרך קיצור לסטיקיה, בדרך ביקש ממנה המשיב להראות לו
-יציאה תחתונה מבית ספר קרוב, ותוך תואנת חיפוש יציאות מאותו בית ספר חיבק המשיב, אשר
-ביקש לבצע במתלוננת מעשה מגונה, את המתלוננת בידו השמאלית; המתלוננת ניסתה לברוח,
-אך המשיב הניח ידו על פיה והפעיל כוח, אלא שהמתלוננת התנגדה, היכתה בו ונמלטה.
+ב. כתב האישום המתוקן תיאר כיצד הציע המשיב למתלוננת, קטינה בת כ-14.5 שפגש באוטובוס, לאכול בסטיקיה על חשבונו. כשירדו מן האוטובוס, הציעה המתלוננת למשיב להראות לו דרך קיצור לסטיקיה, בדרך ביקש ממנה המשיב להראות לו יציאה תחתונה מבית ספר קרוב, ותוך תואנת חיפוש יציאות מאותו בית ספר חיבק המשיב, אשר ביקש לבצע במתלוננת מעשה מגונה, את המתלוננת בידו השמאלית; המתלוננת ניסתה לברוח, אך המשיב הניח ידו על פיה והפעיל כוח, אלא שהמתלוננת התנגדה, היכתה בו ונמלטה.
 
-ג. (1) בבית המשפט המחוזי הביע המשיב חרטה, וציין כי גדל במשפחה
-מאמצת.
+ג. (1) בבית המשפט המחוזי הביע המשיב חרטה, וציין כי גדל במשפחה מאמצת.
 
-(2)(א) בית המשפט ציין, כי אמנם אין מדובר במעשה הנמצא במקום
-גבוה בסולם דרגות עבירות המין, אולם אין להקל בניצול תמימותה של נערה בת 14.5 שכל
-רצונה היה לעזור לנאשם למצוא את המקום שחיפש; רק בשל אומץ ליבה של המתלוננת,
-שהתנגדה בכוח, לא צלח נסיונו של הנאשם לבצע במתלוננת מעשה מגונה. עוד צוין, כי
-למשיב הרשעות קודמות כגון מסירת ידיעות כוזבות, שיבוש הליכי משפט, פריצה ברכב
-בכוונה לגנוב, גניבה מרכב ושימוש ברכב ללא רשות.
+(2)(א) בית המשפט ציין, כי אמנם אין מדובר במעשה הנמצא במקום גבוה בסולם דרגות עבירות המין, אולם אין להקל בניצול תמימותה של נערה בת 14.5 שכל רצונה היה לעזור לנאשם למצוא את המקום שחיפש; רק בשל אומץ ליבה של המתלוננת, שהתנגדה בכוח, לא צלח נסיונו של הנאשם לבצע במתלוננת מעשה מגונה. עוד צוין, כי למשיב הרשעות קודמות כגון מסירת ידיעות כוזבות, שיבוש הליכי משפט, פריצה ברכב בכוונה לגנוב, גניבה מרכב ושימוש ברכב ללא רשות.
 
-(ב) בעיקר נאמר,
-כי ב-18.4.02 גזר בית המשפט המחוזי על המשיב בת&#34;פ 1257/00 שישה חודשי מאסר
-בעבודות שירות, מאסר על תנאי ופיצוי למתלונן בגין הרשעה במעשים מגונים בנסיבות
-מחמירות, לאחר פיתוי קטין וביצוע מעשים מגונים בו. בגזר הדין באותו תיק צוינו
-נסיבות אישיות מיוחדות של המשיב, לרבות החשש &#34;בדרגת ודאיות גבוהה&#34; למצב
-נפשי פיסי קשה, הכולל התקפים הנראים כאפילפטיים; המשיב גם לא ריצה עונש שהוטל עליו
-בעבודות השירות (לא ברור האם בת&#34;פ האמור או בת&#34;פ 4302/03). לפיכך נגזר
-העונש כאמור מעלה.
+(ב) בעיקר נאמר, כי ב-18.4.02 גזר בית המשפט המחוזי על המשיב בת&#34;פ 1257/00 שישה חודשי מאסר בעבודות שירות, מאסר על תנאי ופיצוי למתלונן בגין הרשעה במעשים מגונים בנסיבות מחמירות, לאחר פיתוי קטין וביצוע מעשים מגונים בו. בגזר הדין באותו תיק צוינו נסיבות אישיות מיוחדות של המשיב, לרבות החשש &#34;בדרגת ודאיות גבוהה&#34; למצב נפשי פיסי קשה, הכולל התקפים הנראים כאפילפטיים; המשיב גם לא ריצה עונש שהוטל עליו בעבודות השירות (לא ברור האם בת&#34;פ האמור או בת&#34;פ 4302/03). לפיכך נגזר העונש כאמור מעלה.
 
-ד. בערעור המדינה נטען, כי בשעתו נדחה בבית משפט זה ערעור מטעמה
-כנגד קולת העונש שנגזר על המשיב בתיק המין הקודם, וזאת לאחר היסוס רב. נטען כי
-מסוכנות המשיב לציבור ולקטינים בפרט רבה, המשיב לא ניצל את ההזדמנות שניתנה לו
-בעבר, ופיתוי הקרבן הפעם בכחש מעיד על מסוכנותו; על כן אין מקום למסר סלחני, וזאת
-להרתעת הרבים. העבירה – עבירת ניסיון – לא הושלמה אך רק בשל תושיית המתלוננת.
+ד. בערעור המדינה נטען, כי בשעתו נדחה בבית משפט זה ערעור מטעמה כנגד קולת העונש שנגזר על המשיב בתיק המין הקודם, וזאת לאחר היסוס רב. נטען כי מסוכנות המשיב לציבור ולקטינים בפרט רבה, המשיב לא ניצל את ההזדמנות שניתנה לו בעבר, ופיתוי הקרבן הפעם בכחש מעיד על מסוכנותו; על כן אין מקום למסר סלחני, וזאת להרתעת הרבים. העבירה – עבירת ניסיון – לא הושלמה אך רק בשל תושיית המתלוננת.
 
-ה. עיינו בפסק הדין הקודם של בית משפט זה בע&#34;פ 10122/02 מדינת ישראל נ&#39; פלוני (לא פורסם), בו נאמר באשר לעונש שהושת על הנאשם בעבירת המין
-הקודמת בקטין, כי אכן המדובר בעונש קל, אך נבחנה סדרה של שיקולים לקולה – ובהם,
-בין השאר, נסיבות אישיות חריגות של המשיב כעולה מתסקירי שירות המבחן באותו תיק. המשיב
-עזב בגיל 12 את בית הוריו וגדל במשפחה אחרת; אביו נהג באלימות קשה כלפי בני המשפחה,
-שטופלה שנים רבות על-ידי הלשכה לשירותי רווחה; המשיב אובחן בגיל 9 כסובל מאפילפסיה
-(שאחר כך סברו כי היא &#34;היסטריה קונברסיבית&#34;); צוינה עזובה רגשית וחומרית
-ופיגור. בית משפט זה היסס בשעתו, האם העונש יש בו די, וזאת בשל החשש להישנות
-המעשים אף כי חלפו ארבע וחצי שנים מאז העבירה עד לערעור ללא עבירות מין נוספות (כתב
-האישום הוגש כשנתיים לאחר העבירה). עוד נאמר: &#34;נראה כי ראוי שהמשיב יטופל
-במסגרת טיפולית כלשהי, אך למרבה הצער לא נמצאה מסגרת כאמור. החסר במסגרת מתאימה
-מוביל במקרה קשה זה למתן משקל עודף לנסיבות האישיות&#34;.
+ה. עיינו בפסק הדין הקודם של בית משפט זה בע&#34;פ 10122/02 מדינת ישראל נ&#39; פלוני (לא פורסם), בו נאמר באשר לעונש שהושת על הנאשם בעבירת המין הקודמת בקטין, כי אכן המדובר בעונש קל, אך נבחנה סדרה של שיקולים לקולה – ובהם, בין השאר, נסיבות אישיות חריגות של המשיב כעולה מתסקירי שירות המבחן באותו תיק. המשיב עזב בגיל 12 את בית הוריו וגדל במשפחה אחרת; אביו נהג באלימות קשה כלפי בני המשפחה, שטופלה שנים רבות על-ידי הלשכה לשירותי רווחה; המשיב אובחן בגיל 9 כסובל מאפילפסיה (שאחר כך סברו כי היא &#34;היסטריה קונברסיבית&#34;); צוינה עזובה רגשית וחומרית ופיגור. בית משפט זה היסס בשעתו, האם העונש יש בו די, וזאת בשל החשש להישנות המעשים אף כי חלפו ארבע וחצי שנים מאז העבירה עד לערעור ללא עבירות מין נוספות (כתב האישום הוגש כשנתיים לאחר העבירה). עוד נאמר: &#34;נראה כי ראוי שהמשיב יטופל במסגרת טיפולית כלשהי, אך למרבה הצער לא נמצאה מסגרת כאמור. החסר במסגרת מתאימה מוביל במקרה קשה זה למתן משקל עודף לנסיבות האישיות&#34;.
 
-ו. (1)
-בפנינו טען בא כוח המדינה למסוכנות המשיב, וגם הגיש את ההרשעות הקודמות (עבירות מן
-השנים 2003-2000, ובהן עבירת המין הנזכרת). באת כוח המשיב ציינה כי שולחה לא הגיע לדיון
-לאחר שקיבל אתמול התקף אפילפסיה. המשיב, לשיטתה, נופל בין הכיסאות, בהיעדר כלים
-לשירות המבחן להתמודדות ובהיעדר מסגרת טיפולית בכלא, גם בשל האפילפסיה. עוד
-הוסיפה, כי העונש שהושת אינו קל, ולא נגרמה פגיעה פיסית למתלוננת. הוגשו תעודות
-הערכה מבתי הסוהר בהם שהה המשיב עד כה, ובהן ציונים לטובה על התנהגותו ועל לימודיו
-בתחומים שונים ובחוגים (9 תעודות).
+ו. (1) בפנינו טען בא כוח המדינה למסוכנות המשיב, וגם הגיש את ההרשעות הקודמות (עבירות מן השנים 2003-2000, ובהן עבירת המין הנזכרת). באת כוח המשיב ציינה כי שולחה לא הגיע לדיון לאחר שקיבל אתמול התקף אפילפסיה. המשיב, לשיטתה, נופל בין הכיסאות, בהיעדר כלים לשירות המבחן להתמודדות ובהיעדר מסגרת טיפולית בכלא, גם בשל האפילפסיה. עוד הוסיפה, כי העונש שהושת אינו קל, ולא נגרמה פגיעה פיסית למתלוננת. הוגשו תעודות הערכה מבתי הסוהר בהם שהה המשיב עד כה, ובהן ציונים לטובה על התנהגותו ועל לימודיו בתחומים שונים ובחוגים (9 תעודות).
 
-(2)
-נציין כאן כי סבורנו שבמקרה דנא, במיוחד נוכח גזר הדין הקודם, והנאמר לגבי צרכי
-הטיפול במשיב גם בפסק דינו של בית משפט זה כפי שצוין מעלה, היה מקום מלכתחילה להזמנת
-תסקיר משירות המבחן (בתיק המין הקודם הוגש תסקיר). בא כוח המדינה הציע במהלך הדיון
-בבית משפט זה קבלת תסקיר, אך נוכח התוצאה שאליה הגענו לא ראינו מקום לכך בשלב
-הנוכחי.
+(2) נציין כאן כי סבורנו שבמקרה דנא, במיוחד נוכח גזר הדין הקודם, והנאמר לגבי צרכי הטיפול במשיב גם בפסק דינו של בית משפט זה כפי שצוין מעלה, היה מקום מלכתחילה להזמנת תסקיר משירות המבחן (בתיק המין הקודם הוגש תסקיר). בא כוח המדינה הציע במהלך הדיון בבית משפט זה קבלת תסקיר, אך נוכח התוצאה שאליה הגענו לא ראינו מקום לכך בשלב הנוכחי.
 
-ז. לא
-בלי התלבטות, גם הפעם, סבורים אנו כי אין מקום להיעתר לערעור המדינה. אכן, הוברר
-כי המשיב לא עמד בתקוות שנתלו בו, וחזר לסורו בעבירת מין, אמנם לאחר הפסקה של כשבע
-שנים בעבירות מעין זו. למרבה המזל לא צלח מבוקשו של המשיב בידו והעבירה לא הושלמה,
-ובית המשפט קמא השית עליו עונש שאינו קצר, והעולה עם העונש המצטבר יחדיו לשלוש
-שנות מאסר בפועל. לראשונה הושם המשיב מאחורי סורג ובריח, והדבר ראוי בנסיבות בלא
-ספק. פסיקה שהוגשה לנו מצביעה על כך שהעונש אינו חריג לקולה בעבירות דומות. אכן,
-יש חשש להישנות מעשים מגונים, אך חשש זה יעמוד גם אילו הארכנו את המאסר בפועל –
-למשל בעוד שנה; השאלה המהותית היא כיצד יקבל המשיב טיפול, ברוח משאלתו של בית משפט
-זה בהליך הקודם, כדי שיופג ככל הניתן החשש להישנות, מה גם שהיתה כאן לכאורה הפסקה
-גדולה בעבירות מין, דבר הנוטע תקוה. עניין זה חיוני, ואנו מבקשים כי פסק דין זה
-יובא לידיעת רשויות שירות בתי הסוהר כדי שיישקל בהקדם על-ידי גורמים רפואיים,
-פסיכולוגיים וקרימינילוגיים ואנשי השירות הסוציאלי מהו הטיפול הראוי. לא יהא זה מן
-המידה אם לא ייעשה דבר בהקשר זה.
+ז. לא בלי התלבטות, גם הפעם, סבורים אנו כי אין מקום להיעתר לערעור המדינה. אכן, הוברר כי המשיב לא עמד בתקוות שנתלו בו, וחזר לסורו בעבירת מין, אמנם לאחר הפסקה של כשבע שנים בעבירות מעין זו. למרבה המזל לא צלח מבוקשו של המשיב בידו והעבירה לא הושלמה, ובית המשפט קמא השית עליו עונש שאינו קצר, והעולה עם העונש המצטבר יחדיו לשלוש שנות מאסר בפועל. לראשונה הושם המשיב מאחורי סורג ובריח, והדבר ראוי בנסיבות בלא ספק. פסיקה שהוגשה לנו מצביעה על כך שהעונש אינו חריג לקולה בעבירות דומות. אכן, יש חשש להישנות מעשים מגונים, אך חשש זה יעמוד גם אילו הארכנו את המאסר בפועל – למשל בעוד שנה; השאלה המהותית היא כיצד יקבל המשיב טיפול, ברוח משאלתו של בית משפט זה בהליך הקודם, כדי שיופג ככל הניתן החשש להישנות, מה גם שהיתה כאן לכאורה הפסקה גדולה בעבירות מין, דבר הנוטע תקוה. עניין זה חיוני, ואנו מבקשים כי פסק דין זה יובא לידיעת רשויות שירות בתי הסוהר כדי שיישקל בהקדם על-ידי גורמים רפואיים, פסיכולוגיים וקרימינילוגיים ואנשי השירות הסוציאלי מהו הטיפול הראוי. לא יהא זה מן המידה אם לא ייעשה דבר בהקשר זה.
 
-ז. ולבסוף,
-ראוי להזכיר את חוק הגנה על הציבור מפני עברייני מין, תשס&#34;ו-2006, שמטרתו,
-כאמור בסעיף 1 בו &#34;להגן על הציבור מפני ביצוע עבירות מין חוזרות על-ידי
-עברייני מין, באמצעות הערכות מסוכנות בשלבים הראשונים של ההליך המשפטי ותכנית
-פיקוח ומעקב&#34;. לפי הוראות התחולה (סעיף 34(ב)(2) יחול חוק זה לכאורה על המשיב
-לעת שחרורו, ואנו מסבים תשומת לבן של הרשויות לעניין זה, ולאפשרויות שבידיהן לפעול
-לגביו באשר לפיקוח ולמעקב.
+ז. ולבסוף, ראוי להזכיר את חוק הגנה על הציבור מפני עברייני מין, תשס&#34;ו-2006, שמטרתו, כאמור בסעיף 1 בו &#34;להגן על הציבור מפני ביצוע עבירות מין חוזרות על-ידי עברייני מין, באמצעות הערכות מסוכנות בשלבים הראשונים של ההליך המשפטי ותכנית פיקוח ומעקב&#34;. לפי הוראות התחולה (סעיף 34(ב)(2) יחול חוק זה לכאורה על המשיב לעת שחרורו, ואנו מסבים תשומת לבן של הרשויות לעניין זה, ולאפשרויות שבידיהן לפעול לגביו באשר לפיקוח ולמעקב.
 
-ח. בכפוף
-לאמור איננו נעתרים לערעור.
+ח. בכפוף לאמור איננו נעתרים לערעור.
 
-ניתן
-היום, כ&#34;ד בניסן תשס&#34;ז (12.4.07).
+ניתן היום, כ&#34;ד בניסן תשס&#34;ז (12.4.07).
 
-הנשיאה ש
-ו פ ט ש
-ו פ ט
+הנשיאה ש ו פ ט ש ו פ ט
 
 _________________________
 
@@ -1726,7 +1922,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

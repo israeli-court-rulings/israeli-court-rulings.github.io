@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    28/02/2024 (לפני 797 ימים)
+                    28/02/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/804-24.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="804/24 - דב מאיר בנזימן נ. דניאל חיון"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F804-24.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/040/008/k04&amp;fileName=24008040.K04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/040/008/k04&amp;fileName=24008040.K04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/040/008/k04&amp;fileName=24008040.K04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/040/008/k04&amp;fileName=24008040.K04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,197 +1827,89 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
+            בבית המשפט העליון
 
+ע&#34;א 804/24
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-ע&#34;א  804/24
-
-
-
-לפני:	
+לפני:
 
 כבוד הרשמת ליאור משאלי שלומאי
-
-
 
 המערערים:
 
 1. דב מאיר בנזימן
 
-
-
 2. פסיה בנזימן
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. דניאל חיון
 
-
-
 2. אורית חיון
-
-
 
 בקשת המערערים מיום 28.1.2024 למתן ארכה להפקדת ערובה; תשובת המשיבים מיום 8.2.2024; תשובת המערערים לטענת המשיבים בדבר איחור בהגשת הערעור מיום 16.2.2024
 
-
-
-
-
-
-
-	
-
 פסק-דין
 
+1.	הערעור דנא נסוב על פסק דינו של בית המשפט המחוזי בירושלים (כב&#39; השופטת ש&#39; רנר) בת&#34;א 5960-08-21 מיום 27.8.2023 (להלן: פסק הדין) ועל החלטה המאוחרת לפסק הדין מיום 27.9.2024 (להלן גם: ההחלטה המשלימה).
 
-
-1.	הערעור דנא נסוב על פסק דינו של בית המשפט המחוזי בירושלים (כב&#39; השופטת ש&#39; רנר) בת&#34;א 5960-08-21 מיום 27.8.2023 (להלן: פסק הדין) ועל החלטה המאוחרת לפסק הדין מיום 27.9.2024 (להלן גם: ההחלטה המשלימה). 
-
-
-
-2.	בפסק הדין התקבלה תביעת המשיבים לאכיפת הסכם מכר של דירת המערערים למשיבים. בסיומו של פסק הדין נקבע כלהלן: 
-
-
+2.	בפסק הדין התקבלה תביעת המשיבים לאכיפת הסכם מכר של דירת המערערים למשיבים. בסיומו של פסק הדין נקבע כלהלן:
 
 &#34;התביעה לאכיפת ההסכם כנגד תשלום היתרה מתקבלת.
 
-חיובי הצדדים כאמור בסעיף 7.3.1 להסכם (תחת הכותרת 7.4) יבוצעו  בתוך 60 יום מהמצאת פסק דין זה.
+חיובי הצדדים כאמור בסעיף 7.3.1 להסכם (תחת הכותרת 7.4) יבוצעו בתוך 60 יום מהמצאת פסק דין זה.
 
-החיובים כאמור בסעיפים 6 ו-7.5 להסכם יבוצעו בתוך 45 יום לאחר מכן...&#34; (פסקה 55 לפסק הדין). 
+החיובים כאמור בסעיפים 6 ו-7.5 להסכם יבוצעו בתוך 45 יום לאחר מכן...&#34; (פסקה 55 לפסק הדין).
 
+3.	בהמשך לכך, הגישו המשיבים בקשת הבהרה בטענה כי על מנת שהמשיבים יוכלו לשלם למערערים את הסכום הקבוע בהתאם לפסקה 55 בפסק הדין, עליהם לקבל הלוואה מבנק למשכנתאות, המותנה בהעברת &#34;מכתב כוונות&#34; תקף מהבנק שלטובתו רשומה משכנתה על הדירה, ושלפיו בתמורה לתשלום מלוא הסכום הנקוב במכתב הכוונות, הבנק ימחק את המשכנתה הרשומה על שמו במרשם המקרקעין, בחברה המשכנת ואצל רשם המשכונות. המשיבים טענו כי מכתב הכוונות שבידיהם אינו בתוקף, ומשכך נדרשות הוראות משלימות לעניין ביצוע פסק הדין.
 
+4.	לאחר הדיון בבקשת ההבהרה, ביום 27.9.2024 ניתנה ההחלטה המשלימה, בה קבע בית המשפט המחוזי, כלהלן:
 
-3.	בהמשך לכך, הגישו המשיבים בקשת הבהרה בטענה כי על מנת שהמשיבים יוכלו לשלם למערערים את הסכום הקבוע בהתאם לפסקה 55 בפסק הדין, עליהם לקבל הלוואה מבנק למשכנתאות, המותנה בהעברת &#34;מכתב כוונות&#34; תקף מהבנק שלטובתו רשומה משכנתה על הדירה, ושלפיו בתמורה לתשלום מלוא הסכום הנקוב במכתב הכוונות, הבנק ימחק את המשכנתה הרשומה על שמו במרשם המקרקעין, בחברה המשכנת ואצל רשם המשכונות. המשיבים טענו כי מכתב הכוונות שבידיהם אינו בתוקף, ומשכך נדרשות הוראות משלימות לעניין ביצוע פסק הדין. 
+&#34;סעיף 55 לפסק הדין ניתן על יסוד ההנחה כי &#39;מכתב הכוונות&#39; שהומצא לידי התובעים [המשיבים, למ&#34;ש] במסגרת הסעד הזמני, בתוקף. משהתברר שאין הדבר כן ובשים לב ל&#39;פער הזמנים&#39; שבהוראת סעיף 7.3.1 בין המצאת &#39;מכתב הכוונות&#39; והתשלום נשוא אותו סעיף, נדרשת התאמת פסק הדין למציאות כהווייתה והשלמתו. לפיכך &#39;מכתב הכוונות&#39; יומצא בתוך 60 יום מהמצאת פסק הדין ואילו התשלום נשוא סעיף 7.3.1 ישולם בתוך חמישה ימים לאחר מכן&#34;.
 
+5.	הערעור דנא, אשר, כאמור, נסב הן על פסק הדין והן על ההחלטה המשלימה, הוגש ביום 28.1.2024, בחלוף 60 יום מיום מתן ההחלטה המשלימה.
 
+6.	בתשובת המשיבים לבקשת המערערים למתן ארכה להפקדת ערובה נטען כי הערעור הוגש באיחור, שכן אין במתן ההחלטה המשלימה, המאוחרת לפסק הדין, כדי להאריך את המועד להגשת הערעור על פסק הדין עצמו.
 
-4.	לאחר הדיון בבקשת ההבהרה, ביום 27.9.2024 ניתנה ההחלטה המשלימה, בה קבע בית המשפט המחוזי, כלהלן: 
-
-
-
-	&#34;סעיף 55 לפסק הדין ניתן על יסוד ההנחה כי &#39;מכתב הכוונות&#39; שהומצא לידי התובעים [המשיבים, למ&#34;ש] במסגרת הסעד הזמני, בתוקף. משהתברר שאין הדבר כן ובשים לב ל&#39;פער הזמנים&#39; שבהוראת סעיף 7.3.1 בין המצאת &#39;מכתב הכוונות&#39; והתשלום נשוא אותו סעיף, נדרשת התאמת פסק הדין למציאות כהווייתה והשלמתו. לפיכך &#39;מכתב הכוונות&#39; יומצא בתוך 60 יום מהמצאת פסק הדין ואילו התשלום נשוא סעיף 7.3.1 ישולם בתוך חמישה ימים לאחר מכן&#34;.
-
-
-
-5.	הערעור דנא, אשר, כאמור, נסב הן על פסק הדין והן על ההחלטה המשלימה, הוגש ביום 28.1.2024, בחלוף 60 יום מיום מתן ההחלטה המשלימה. 
-
-
-
-6.	בתשובת המשיבים לבקשת המערערים למתן ארכה להפקדת ערובה נטען כי הערעור הוגש באיחור, שכן אין במתן ההחלטה המשלימה, המאוחרת לפסק הדין, כדי להאריך את המועד להגשת הערעור על פסק הדין עצמו. 
-
-
-
-7.	המערערים טוענים כי ההחלטה המשלימה היא פסק דין משלים או החלטה מתקנת בהתאם לסעיף 81(א) לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984 (להלן: חוק בתי המשפט), ומשום כך יש למנות את תקופת הערעור על פסק הדין מיום מתן ההחלטה. 
-
-
+7.	המערערים טוענים כי ההחלטה המשלימה היא פסק דין משלים או החלטה מתקנת בהתאם לסעיף 81(א) לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984 (להלן: חוק בתי המשפט), ומשום כך יש למנות את תקופת הערעור על פסק הדין מיום מתן ההחלטה.
 
 דיון והכרעה
 
-
-
 8.	לאחר העיון בטענות הצדדים, בפסק הדין ובהחלטה המשלימה, הגעתי לכלל מסקנה כי הערעור על פסק הדין אכן הוגש באיחור, כמפורט להלן.
 
+9.	בפתח הדברים אציין כי לא מצאתי לקבל את טענת המערערים כי ההחלטה המשלימה מהווה החלטה בבקשה לתיקון פסק דין מכוח סעיף 81(א) לחוק בתי המשפט. זאת, הן בשים לב לכך שהחלטה זו לא ניתנה בתוך 21 יום מיום שניתן פסק הדין כאמור בסעיף, והן מאחר שתיקון פסק הדין בגדרי ההחלטה המשלימה אינו תיקון של &#34;טעות לשון, טעות בחישוב, פליטת קולמוס, השמטה מקרית, הוספת דבר באקראי וכיוצא באלה&#34;, אלא תיקון הנובע מהנחה שהתבררה כשגויה (כי מכתב הכוונות היה בתוקף) אשר הוביל לתיקון ההוראות האופרטיביות של פסק הדין.
 
-
-9.	בפתח הדברים אציין כי לא מצאתי לקבל את טענת המערערים כי ההחלטה המשלימה מהווה החלטה בבקשה לתיקון פסק דין מכוח סעיף 81(א) לחוק בתי המשפט. זאת, הן בשים לב לכך שהחלטה זו לא ניתנה בתוך 21 יום מיום שניתן פסק הדין כאמור בסעיף, והן מאחר שתיקון פסק הדין בגדרי ההחלטה המשלימה אינו תיקון של &#34;טעות לשון, טעות בחישוב, פליטת קולמוס, השמטה מקרית, הוספת דבר באקראי וכיוצא באלה&#34;, אלא תיקון הנובע מהנחה שהתבררה כשגויה (כי מכתב הכוונות היה בתוקף) אשר הוביל לתיקון ההוראות האופרטיביות של פסק הדין. 
-
-
-
-10.	עוד אציין כי לא מצאתי כי ההחלטה המשלימה מהווה &#34;פסק דין משלים&#34; לפסק הדין כטענת המערערים. בפסק הדין מיום 27.8.2023 הוכרעו כלל המחלוקות בין הצדדים להליך, ואף ניתנו הוראות אופרטיביות ברורות, אשר נועדו להביא לסגירה סופית של המחלוקת בין הצדדים באופן שלא מצריך מבית המשפט להידרש למחלוקת זו שוב (ראו: ע&#34;א8377/22 פלוני נ&#39; הגליל קידוח וביסוס בע&#34;מ, פסקה 11 (2.5.2023)). ההחלטה המשלימה נדרשה רק לאחר שהתברר כי אחת ההוראות הביצועיות בפסק הדין ניתנה על יסוד ההנחה כי &#34;מכתב הכוונות&#34; שהיה בידי המשיבים אינו בתוקף, ולא מאחר שנותרו בפסק הדין שאלות פתוחות שלא הוכרעו. 
-
-
+10.	עוד אציין כי לא מצאתי כי ההחלטה המשלימה מהווה &#34;פסק דין משלים&#34; לפסק הדין כטענת המערערים. בפסק הדין מיום 27.8.2023 הוכרעו כלל המחלוקות בין הצדדים להליך, ואף ניתנו הוראות אופרטיביות ברורות, אשר נועדו להביא לסגירה סופית של המחלוקת בין הצדדים באופן שלא מצריך מבית המשפט להידרש למחלוקת זו שוב (ראו: ע&#34;א8377/22 פלוני נ&#39; הגליל קידוח וביסוס בע&#34;מ, פסקה 11 (2.5.2023)). ההחלטה המשלימה נדרשה רק לאחר שהתברר כי אחת ההוראות הביצועיות בפסק הדין ניתנה על יסוד ההנחה כי &#34;מכתב הכוונות&#34; שהיה בידי המשיבים אינו בתוקף, ולא מאחר שנותרו בפסק הדין שאלות פתוחות שלא הוכרעו.
 
 11.	כיצד, אם כן, יש לסווג את ההחלטה המשלימה, והאם מתן ההחלטה המשלימה מאריך באופן אוטומטי את מועד הערעור על פסק הדין?
 
-
-
-12.	ההחלטה המשלימה היא החלטה מאוחרת לפסק הדין, בגדרו הורה בית המשפט המחוזי על הארכת מועדים שנקבעו בפסק הדין, וזאת בהתאם לסמכותו הטבועה (ראו: בר&#34;מ 10823/07 נור סטאר בע&#34;מ נ&#39; עמותת &#34;פעולה ירוקה&#34;, פסקה 12 (30.12.2007)). 
-
-
+12.	ההחלטה המשלימה היא החלטה מאוחרת לפסק הדין, בגדרו הורה בית המשפט המחוזי על הארכת מועדים שנקבעו בפסק הדין, וזאת בהתאם לסמכותו הטבועה (ראו: בר&#34;מ 10823/07 נור סטאר בע&#34;מ נ&#39; עמותת &#34;פעולה ירוקה&#34;, פסקה 12 (30.12.2007)).
 
 13.	כידוע, ככלל, ובאין הוראת דין מפורשת הקובעת הארכת מועד סטטוטורית, טענה שלפיה יש בה בהחלטה מאוחרת למתן פסק-הדין כדי להאריך באופן אוטומטי את המועד להגשת ערעור עליו – דינה להידחות (ראו: ע&#34;א 4525/20 דעבול נ&#39; מדינת ישראל – רשות מקרקעי ישראל, פסקה 8 וההפניות שם (22.10.2020)). בפרט, נפסק כי מתן החלטות מאוחרות לפסק-הדין הנוגעות לביצועו האופרטיבי ואשר טפלות לפסק-הדין, אינו מאריך את המועד להגשת הערעור על פסק-הדין (ראו: ע&#34;א 1318/19 שגב נ&#39; אזוגי (8.12.2019)). בהקשר זה צוין כלהלן:
 
-
-
-&#34;החלטה, אשר אינה במהלך דיון תלוי ועומד, וכל עניינה מתן הוראות לביצוע פסק-דין, החלטה זו בהכרח תהיה טפלה לפסק הדין שאותו היא באה לבצע, ולפיכך היא &#39;החלטה אחרת&#39;, אשר ערעור עליה טעון מתן רשות להגשתו... אין זה מן הנמנע ש&#39;החלטה אחרת&#39; מהסוג האמור תכריע בזכויות הצדדים ותהיה בעלת משמעות אופראטיבית רבה בעבורם, אולם אין זה משנה מאופייה הטפל לפסק הדין, והוא אשר מקנה לה את הסיווג כ&#39;החלטה אחרת&#39;&#34; (ראו: ע&#34;א 2817/91‏ ‎מימון‎ ‎נ&#39; שאולי, פ&#39;&#39;ד מז(1) 152, 159 (1993)).
-
-
+&#34;החלטה, אשר אינה במהלך דיון תלוי ועומד, וכל עניינה מתן הוראות לביצוע פסק-דין, החלטה זו בהכרח תהיה טפלה לפסק הדין שאותו היא באה לבצע, ולפיכך היא &#39;החלטה אחרת&#39;, אשר ערעור עליה טעון מתן רשות להגשתו... אין זה מן הנמנע ש&#39;החלטה אחרת&#39; מהסוג האמור תכריע בזכויות הצדדים ותהיה בעלת משמעות אופראטיבית רבה בעבורם, אולם אין זה משנה מאופייה הטפל לפסק הדין, והוא אשר מקנה לה את הסיווג כ&#39;החלטה אחרת&#39;&#34; (ראו: ע&#34;א 2817/91‏ ‎מימון‎ ‎נ&#39; שאולי, פ&#39;&#39;ד מז(1) 152, 159 (1993)).
 
 14.	על רקע האמור, ובשים לב שההחלטה המשלימה היא כאמור החלטה שבגדרה נקבעו אך הוראות לביצוע פסק הדין (הארכת המועדים שנקבעו בו), הרי שהיא טפלה לפסק הדין, ומהווה החלטה אחרת שאינה מאריכה את המועד להגשת הערעור על פסק הדין. אשר על כן, בנסיבות אלה, אין מנוס מלקבוע כי הערעור הוגש באיחור, ולהורות על סילוקו על הסף בשל כך.
 
-
-
 15.	אציין כי במקרה הנדון המערערים לא הגישו בקשה למתן ארכה להגשת הליך ערעורי על פסק הדין, אך אין בהחלטה זו כדי למנוע מהם להגיש בקשה כאמור.
 
+16.	סוף דבר: דין הערעור על פסק הדין להימחק מחמת איחור בהגשתו.
 
+המערערים יישאו בהוצאות המשיבים בסך של 3,000 ש&#34;ח.
 
-16.	סוף דבר: דין הערעור על פסק הדין להימחק מחמת איחור בהגשתו. 
-
-
-
-	המערערים יישאו בהוצאות המשיבים בסך של 3,000 ש&#34;ח. 
-
-
-
-	ניתן היום, ‏י&#34;ט באדר א התשפ&#34;ד (‏28.2.2024).
-
-
-
-
-
-
+ניתן היום, ‏י&#34;ט באדר א התשפ&#34;ד (‏28.2.2024).
 
 ליאור משאלי שלומאי
 
-
-
-
-
 ר ש מ ת
-
-
 
 _________________________
 
-   24008040_K04.docx   מש
+24008040_K04.docx מש
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1765,7 +1928,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

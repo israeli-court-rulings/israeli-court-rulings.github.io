@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    12/02/2008 (לפני 6657 ימים)
+                    12/02/2008 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/581-08.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="581/08 - גילה גואטה -אניסימוב,עו&#34;ד נ. השר לבטחון פנים"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F581-08.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/08/810/005/B03&amp;fileName=08005810_B03.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/08/810/005/B03&amp;fileName=08005810_B03.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/08/810/005/B03&amp;fileName=08005810_B03.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/08/810/005/B03&amp;fileName=08005810_B03.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,8 +1829,7 @@
         <div class="nested-content" style="line-height: 1.8;">
             החלטה בתיק בג&#34;ץ 581/08
 
-בבית המשפט העליון
-בשבתו כבית משפט גבוה לצדק
+בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
 בג&#34;ץ 581/08
 
@@ -1579,8 +1849,7 @@
 
 המשיבים:
 
-1. השר לביטחון
-פנים
+1. השר לביטחון פנים
 
 2. מפכ&#34;ל משטרת ישראל
 
@@ -1602,94 +1871,21 @@
 
 השופטת ע&#39; ארבל:
 
-עניינה של העתירה בבקשת העותרת להורות
-למשיבים לחקור אדם פלוני ולהגיש נגדו כתב אישום בגין איומים שאיים על חייה ועל חיי
-בנה וכן לבטל את החלטת המשיבים לבטל כתב אישום שהוגש נגד אותו פלוני בעניין זה.
+עניינה של העתירה בבקשת העותרת להורות למשיבים לחקור אדם פלוני ולהגיש נגדו כתב אישום בגין איומים שאיים על חייה ועל חיי בנה וכן לבטל את החלטת המשיבים לבטל כתב אישום שהוגש נגד אותו פלוני בעניין זה.
 
-1. הרקע לעתירה, כפי שעולה מהעתירה ומתגובת
-המשיבה, הוא כדלקמן: העותרת הינה עורכת דין. ביום 6.6.07 הורשע אחיה ברצח שבוצע
-בשנת 2004, וזאת, בהסתמך, בין היתר, על עדותו של אדם בשם מרדכי ביסמוט (להלן: ביסמוט), אשר בתחילה נחשד גם הוא בביצוע הרצח. יוער, כי בשלבים
-מסוימים של ההליך הפלילי שהתנהל נגד האח הוא יוצג על-ידי העותרת.
+1. הרקע לעתירה, כפי שעולה מהעתירה ומתגובת המשיבה, הוא כדלקמן: העותרת הינה עורכת דין. ביום 6.6.07 הורשע אחיה ברצח שבוצע בשנת 2004, וזאת, בהסתמך, בין היתר, על עדותו של אדם בשם מרדכי ביסמוט (להלן: ביסמוט), אשר בתחילה נחשד גם הוא בביצוע הרצח. יוער, כי בשלבים מסוימים של ההליך הפלילי שהתנהל נגד האח הוא יוצג על-ידי העותרת.
 
-עוד בטרם הורשע אחיה של העותרת, ביום
-26.4.06, פגשה העותרת בביסמוט ברחוב במרכז העיר נתניה, עת שעשתה קניות עם בנה.
-לטענתה, במעמד זה איים ביסמוט על חייה ועל חיי בנה תוך שאמר לה כי &#34;חייה הם
-על זמן שאול&#34; ותוך שהניף את ידו בצורה אקדח כלפי מעלה. אירוע זה התרחש בעת
-שביסמוט היה נתון במעצר בית במסגרת תיק פלילי אחר שהתנהל נגדו, ולפיכך תוך הפרה של
-תנאי השחרור שנקבעו לו.
+עוד בטרם הורשע אחיה של העותרת, ביום 26.4.06, פגשה העותרת בביסמוט ברחוב במרכז העיר נתניה, עת שעשתה קניות עם בנה. לטענתה, במעמד זה איים ביסמוט על חייה ועל חיי בנה תוך שאמר לה כי &#34;חייה הם על זמן שאול&#34; ותוך שהניף את ידו בצורה אקדח כלפי מעלה. אירוע זה התרחש בעת שביסמוט היה נתון במעצר בית במסגרת תיק פלילי אחר שהתנהל נגדו, ולפיכך תוך הפרה של תנאי השחרור שנקבעו לו.
 
-נוכח האיומים הנטענים, הגישה העותרת
-תלונה במשטרה נגד ביסמוט והוא נחקר. בחקירתו, הודה ביסמוט כי הפר את תנאי מעצר
-הבית בו היה נתון אך הכחיש כי איים על העותרת ועל בנה. בהתבסס על ההודעות שמסרו
-העותרת ובנה במשטרה הוגש נגד ביסמוט כתב אישום, בו יוחסה לו עבירה של איומים
-ועבירה של הפרת הוראה חוקית, והוא נעצר עד לתום ההליכים נגדו (ת&#34;פ 5758/06).
-בסופו של דבר, החליטה התביעה כי אין די ראיות להוכיח את עבירות האיומים שיוחסו
-לביסמוט ומסרה על כך הודעה לבית המשפט. בעקבות ההודעה, ובמסגרת הסדר טיעון, זוכה
-ביסמוט מעבירת האיומים והורשע על-פי הודאתו בעבירה של הפרת הוראה חוקית. הוא נדון
-ל-6 חודשי מאסר על-תנאי למשך שלוש שנים ולהתחייבות כספית בסך 5,000 ₪. ביום 3.9.07
-שוחרר ביסמוט מריצוי עונש מאסר שהושת עליו בתיק אחר, ומאז הוא אינו עצור או כלוא.
+נוכח האיומים הנטענים, הגישה העותרת תלונה במשטרה נגד ביסמוט והוא נחקר. בחקירתו, הודה ביסמוט כי הפר את תנאי מעצר הבית בו היה נתון אך הכחיש כי איים על העותרת ועל בנה. בהתבסס על ההודעות שמסרו העותרת ובנה במשטרה הוגש נגד ביסמוט כתב אישום, בו יוחסה לו עבירה של איומים ועבירה של הפרת הוראה חוקית, והוא נעצר עד לתום ההליכים נגדו (ת&#34;פ 5758/06). בסופו של דבר, החליטה התביעה כי אין די ראיות להוכיח את עבירות האיומים שיוחסו לביסמוט ומסרה על כך הודעה לבית המשפט. בעקבות ההודעה, ובמסגרת הסדר טיעון, זוכה ביסמוט מעבירת האיומים והורשע על-פי הודאתו בעבירה של הפרת הוראה חוקית. הוא נדון ל-6 חודשי מאסר על-תנאי למשך שלוש שנים ולהתחייבות כספית בסך 5,000 ₪. ביום 3.9.07 שוחרר ביסמוט מריצוי עונש מאסר שהושת עליו בתיק אחר, ומאז הוא אינו עצור או כלוא.
 
-2. לטענת העותרת, משטרת ישראל הפרה את חובתה
-לחקור את ביסמוט בגין האיומים שאיים על חייה ועל חיי בנה הקטין ובכך מנעה ממנה את
-זכותה להגנה על חייה ועל חיי בנה. בין היתר, טוענת היא כי המשטרה התעלמה ממזכר
-סודי אשר הגיע לידיעתה, ממנו עלה כי קיים סיכון ממשי לחייהם. בנוסף, טוענת העותרת
-כי החלטת התביעה לחזור בה מכתב האישום נעשתה באופן בלתי-חוקי ובלתי-סביר. לדבריה,
-איומיו של ביסמוט על חייה ועל חיי בנה באו על רקע העובדה כי במסגרת ייצוגה את אחיה
-בתיק הרצח הגישה היא ראיות שהצביעו על כך שביסמוט הוא הוא מבצע הרצח ולא אחיה, ואף
-עתרה בעניין לבית משפט זה. לאור שחרורו של ביסמוט לאחרונה ובהעדר כל פיקוח מצד
-המשטרה עליו שוב נשקף כעת, לטענת העותרת, סיכון ממשי מצידו לחייה ולחיי בנה. על
-כן, מבקשת היא כי נורה למשיבים לחקור את האיומים על חייהם מצד ביסמוט, להגיש נגדו
-כתבי אישום בגין העבירות שביצע ולעצרו עד תום ההליכים נגדו. בנוסף, מבקשת היא
-להורות על חידוש ההליכים שהתנהלו נגדו במסגרת ת&#34;פ 5758/06, אשר בוטלו לשיטתה
-ללא כל סיבה מוצדקת.
+2. לטענת העותרת, משטרת ישראל הפרה את חובתה לחקור את ביסמוט בגין האיומים שאיים על חייה ועל חיי בנה הקטין ובכך מנעה ממנה את זכותה להגנה על חייה ועל חיי בנה. בין היתר, טוענת היא כי המשטרה התעלמה ממזכר סודי אשר הגיע לידיעתה, ממנו עלה כי קיים סיכון ממשי לחייהם. בנוסף, טוענת העותרת כי החלטת התביעה לחזור בה מכתב האישום נעשתה באופן בלתי-חוקי ובלתי-סביר. לדבריה, איומיו של ביסמוט על חייה ועל חיי בנה באו על רקע העובדה כי במסגרת ייצוגה את אחיה בתיק הרצח הגישה היא ראיות שהצביעו על כך שביסמוט הוא הוא מבצע הרצח ולא אחיה, ואף עתרה בעניין לבית משפט זה. לאור שחרורו של ביסמוט לאחרונה ובהעדר כל פיקוח מצד המשטרה עליו שוב נשקף כעת, לטענת העותרת, סיכון ממשי מצידו לחייה ולחיי בנה. על כן, מבקשת היא כי נורה למשיבים לחקור את האיומים על חייהם מצד ביסמוט, להגיש נגדו כתבי אישום בגין העבירות שביצע ולעצרו עד תום ההליכים נגדו. בנוסף, מבקשת היא להורות על חידוש ההליכים שהתנהלו נגדו במסגרת ת&#34;פ 5758/06, אשר בוטלו לשיטתה ללא כל סיבה מוצדקת.
 
-3. לטענת המשיבים, דין העתירה להידחות הן על
-הסף והן לגופה. אשר לטעמים לדחיית העתירה על הסף, טוענים המשיבים כי ראשית, דרישת
-העותרת להעמיד את ביסמוט לדין בשנית במסגרת ת&#34;פ 5758/06 סותרת את הוראת סעיף
-5 לחוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב-1982 הקובע כי אין דנים אדם על
-מעשה שלגביו זוכה או הורשע קודם לכן בגין עבירה שבו. שנית, טוענים המשיבים כי דין
-העתירה להידחות על הסף בשל השיהוי הכבד בו היא נגועה. לדבריהם, משהחלטת בית משפט
-השלום בנתניה לזכות את ביסמוט מעבירות האיומים שיוחסו לו התקבלה עוד ביום 11.3.07,
-פניית העותרת בהתייחס להחלטה זו ולפעולות התביעה שקדמו להחלטה כעת - בחלוף כעשרה
-חודשים - ובלא שתנמק השתהות זו בטעם כלשהו, מהווה שיהוי כבד. שלישית, טוענים
-המשיבים כי העותרת לא צירפה כמשיב לעתירה זו את ביסמוט עצמו, וכי נוכח משמעות
-הדיון בעתירה זו והשלכותיו על ביסמוט, דין העתירה להידחות ולו אך בשל עניין זה.
-לגופם של דברים, טוענים המשיבים כי טענות העותרת בדבר הסכנה הנשקפת לחייה מחיי
-ביסמוט נבחנו בקפידה יתרה, ולאחר בחינה זו נמצא כי למשטרת ישראל ולשירות בתי הסוהר
-אין כל מידע מודיעיני עדכני אודות כוונה של ביסמוט לפגוע בעותרת או בבנה. בהקשר זה
-מוסיפים המבקשים ומציינים כי הידיעה המודיעינית שהוזכרה במזכר הסודי שאליו התייחסה
-העותרת בטענותיה נמצאה כבלתי-מהימנה. לאור האמור, טוענים המשיבים כי דין העתירה
-להידחות אף לגופה.
+3. לטענת המשיבים, דין העתירה להידחות הן על הסף והן לגופה. אשר לטעמים לדחיית העתירה על הסף, טוענים המשיבים כי ראשית, דרישת העותרת להעמיד את ביסמוט לדין בשנית במסגרת ת&#34;פ 5758/06 סותרת את הוראת סעיף 5 לחוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב-1982 הקובע כי אין דנים אדם על מעשה שלגביו זוכה או הורשע קודם לכן בגין עבירה שבו. שנית, טוענים המשיבים כי דין העתירה להידחות על הסף בשל השיהוי הכבד בו היא נגועה. לדבריהם, משהחלטת בית משפט השלום בנתניה לזכות את ביסמוט מעבירות האיומים שיוחסו לו התקבלה עוד ביום 11.3.07, פניית העותרת בהתייחס להחלטה זו ולפעולות התביעה שקדמו להחלטה כעת - בחלוף כעשרה חודשים - ובלא שתנמק השתהות זו בטעם כלשהו, מהווה שיהוי כבד. שלישית, טוענים המשיבים כי העותרת לא צירפה כמשיב לעתירה זו את ביסמוט עצמו, וכי נוכח משמעות הדיון בעתירה זו והשלכותיו על ביסמוט, דין העתירה להידחות ולו אך בשל עניין זה. לגופם של דברים, טוענים המשיבים כי טענות העותרת בדבר הסכנה הנשקפת לחייה מחיי ביסמוט נבחנו בקפידה יתרה, ולאחר בחינה זו נמצא כי למשטרת ישראל ולשירות בתי הסוהר אין כל מידע מודיעיני עדכני אודות כוונה של ביסמוט לפגוע בעותרת או בבנה. בהקשר זה מוסיפים המבקשים ומציינים כי הידיעה המודיעינית שהוזכרה במזכר הסודי שאליו התייחסה העותרת בטענותיה נמצאה כבלתי-מהימנה. לאור האמור, טוענים המשיבים כי דין העתירה להידחות אף לגופה.
 
-4. לאחר שעיינו בעתירה ובצרופותיה ובתגובת
-המשיבים לעתירה מצאנו כי דין העתירה להידחות על הסף בהעדר עילה להתערבותנו. עיקר
-טענות העותרת מופנות כאמור כנגד החלטת התביעה לחזור בה מסעיף האישום באיומים שיוחס
-לביסמוט בתחילה. עניין זה הוא מסוג העניינים המצויים בלב סמכותה ושיקול-דעתה של
-התביעה הכללית והלכה היא כי בית משפט זה יתערב בהם, ובשיקול-דעתן של רשויות התביעה
-ואכיפת החוק בנושאי חקירה פלילית והעמדה לדין בכלל, רק במקרים חריגים, בהם ניכר כי
-ההחלטה הנבחנת לוקה בעיוות מהותי או בחוסר סבירות קיצוני (ראו לדוגמה: בג&#34;צ
-8749/06 עמותת &#39;אומץ&#39; – אזרחים למען מינהל תקין
-וצדק חברתי ומשפטי נ&#39; היועץ המשפטי לממשלה (לא פורסם, 27.12.2006)
-וההפניות הרבות המפורטות שם; ראו גם את האמור בנושא זה בעתירת אחיה של העותרת
-להעמיד את ביסמוט לדין: בג&#34;צ 3680/06 גואטה נ&#39;
-עו&#34;ד רחל שיבר – פרקליטות מחוז מרכז (לא פורסם, 5.9.2006)). העניין
-שלפנינו אינו עומד באמות המידה האמורות להתערבותו של בית משפט זה בהחלטות מן הסוג
-הנדון. יתר על כן, כאמור, מתגובת המשיבים עולה כי כתב האישום שהוגש נגד ביסמוט לא
-בוטל, אלא שהתביעה חזרה בה מסעיף האיומים שיוחס לו בתחילה וביסמוט זוכה מאישום זה.
-בנסיבות אלו, ברי כי לא ניתן להעמידו לדין בשנית בגין העבירות הנטענות, ומכאן כי
-אין גם בסיס או טעם לחקרו שוב בעניין זה, לחדש נגדו את ההליכים ובוודאי שלעצרו
-בגין האמור, כפי שמבקשת העותרת כי נורה. בנוסף, משביסמוט זוכה על-ידי בית משפט
-השלום בנתניה כבר לפני קרוב לשנה, דומה כי יש טעם בטענות המשיבים באשר לשיהוי שבו
-לוקה העתירה, וזאת בפרט משלא הובא על-ידי העותרת כל נימוק מהותי לבחירתה להביא את
-טענותיה בפנינו בעניין האמור אך כעת. נוסיף, כי העותרת אף לא ביססה את טענותיה
-באשר לסכנה המיידית והממשית הנשקפת לחייה מצד ביסמוט כיום, משחלפו קרוב לשנתיים
-מאז אירוע האיומים הנטען.
+4. לאחר שעיינו בעתירה ובצרופותיה ובתגובת המשיבים לעתירה מצאנו כי דין העתירה להידחות על הסף בהעדר עילה להתערבותנו. עיקר טענות העותרת מופנות כאמור כנגד החלטת התביעה לחזור בה מסעיף האישום באיומים שיוחס לביסמוט בתחילה. עניין זה הוא מסוג העניינים המצויים בלב סמכותה ושיקול-דעתה של התביעה הכללית והלכה היא כי בית משפט זה יתערב בהם, ובשיקול-דעתן של רשויות התביעה ואכיפת החוק בנושאי חקירה פלילית והעמדה לדין בכלל, רק במקרים חריגים, בהם ניכר כי ההחלטה הנבחנת לוקה בעיוות מהותי או בחוסר סבירות קיצוני (ראו לדוגמה: בג&#34;צ 8749/06 עמותת &#39;אומץ&#39; – אזרחים למען מינהל תקין וצדק חברתי ומשפטי נ&#39; היועץ המשפטי לממשלה (לא פורסם, 27.12.2006) וההפניות הרבות המפורטות שם; ראו גם את האמור בנושא זה בעתירת אחיה של העותרת להעמיד את ביסמוט לדין: בג&#34;צ 3680/06 גואטה נ&#39; עו&#34;ד רחל שיבר – פרקליטות מחוז מרכז (לא פורסם, 5.9.2006)). העניין שלפנינו אינו עומד באמות המידה האמורות להתערבותו של בית משפט זה בהחלטות מן הסוג הנדון. יתר על כן, כאמור, מתגובת המשיבים עולה כי כתב האישום שהוגש נגד ביסמוט לא בוטל, אלא שהתביעה חזרה בה מסעיף האיומים שיוחס לו בתחילה וביסמוט זוכה מאישום זה. בנסיבות אלו, ברי כי לא ניתן להעמידו לדין בשנית בגין העבירות הנטענות, ומכאן כי אין גם בסיס או טעם לחקרו שוב בעניין זה, לחדש נגדו את ההליכים ובוודאי שלעצרו בגין האמור, כפי שמבקשת העותרת כי נורה. בנוסף, משביסמוט זוכה על-ידי בית משפט השלום בנתניה כבר לפני קרוב לשנה, דומה כי יש טעם בטענות המשיבים באשר לשיהוי שבו לוקה העתירה, וזאת בפרט משלא הובא על-ידי העותרת כל נימוק מהותי לבחירתה להביא את טענותיה בפנינו בעניין האמור אך כעת. נוסיף, כי העותרת אף לא ביססה את טענותיה באשר לסכנה המיידית והממשית הנשקפת לחייה מצד ביסמוט כיום, משחלפו קרוב לשנתיים מאז אירוע האיומים הנטען.
 
-העתירה נדחית, איפוא. למותר לציין, כי
-ככל שיש בידי העותרת טענות באשר לאיום עדכני מצד ביסמוט כלפיה או מידע עדכני באשר
-לכוונתו לפגוע בה או בבנה, וכמובן ככל שיהיו בידיה כאלו בעתיד, הצעד המתבקש יהא
-לפנות בעניין זה לגורמי המשטרה. חזקה היא כי אלו יעשו כל שנדרש על מנת להבטיח את
-שלומם של העותרת ובנה.
+העתירה נדחית, איפוא. למותר לציין, כי ככל שיש בידי העותרת טענות באשר לאיום עדכני מצד ביסמוט כלפיה או מידע עדכני באשר לכוונתו לפגוע בה או בבנה, וכמובן ככל שיהיו בידיה כאלו בעתיד, הצעד המתבקש יהא לפנות בעניין זה לגורמי המשטרה. חזקה היא כי אלו יעשו כל שנדרש על מנת להבטיח את שלומם של העותרת ובנה.
 
 ניתן היום, ו&#39; באדר א&#39; תשס&#34;ח (12.2.08).
 
@@ -1722,7 +1918,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

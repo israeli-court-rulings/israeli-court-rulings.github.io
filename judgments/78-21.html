@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    26/07/2022 (לפני 1379 ימים)
+                    26/07/2022 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/78-21.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="78/21 - פלוני נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F78-21.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/780/000/j10&amp;fileName=21000780.J10&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/780/000/j10&amp;fileName=21000780.J10&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/780/000/j10&amp;fileName=21000780.J10&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/780/000/j10&amp;fileName=21000780.J10&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,269 +1827,125 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
+ע&#34;פ 78/21
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
-
-
-
-
-
-ע&#34;פ  78/21
-
-
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; אלרון
 
-
-
 כבוד השופט א&#39; שטיין
 
-
-
 כבוד השופט ח&#39; כבוב
-
-
 
 המערער:
 
 פלוני
 
-	
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-			     	
-
 ערעור על גזר דינו של בית המשפט המחוזי נצרת מיום 19.11.2020 ב-ת&#34;פ 58733-03-19 שניתן על ידי כב&#39; השופט ח&#39; סבאג
-
-	
 
 תאריך הישיבה:
 
-כ&#34;ו בתמוז התשפ&#34;ב       
+כ&#34;ו בתמוז התשפ&#34;ב
 
-(25.07.2022) 
-
-
+(25.07.2022)
 
 בשם המערער:
 
-עו&#34;ד ראפי מסאלחה 
-
-
+עו&#34;ד ראפי מסאלחה
 
 בשם המשיבה:
 
-עו&#34;ד איתי שהם 
-
-
-
-
+עו&#34;ד איתי שהם
 
 בשם שירות המבחן:
 
 עו&#34;ס ברכה וייס
 
-	
-
-	
-
 פסק-דין
-
-
 
 השופט י&#39; אלרון:
 
-
-
 לפנינו ערעור על גזר דינו של בית המשפט המחוזי בנצרת (השופט ח&#39; סבאג) ב-ת&#34;פ 58733-03-19 מיום 19.11.2020. בגדרו נגזרו על המערער 16 חודשי מאסר בפועל, לצד ענישה נלווית, וזאת בגין הרשעתו בעבירות נשק. הערעור נסוב על חומרת העונש.
-
-
 
 על פי המתואר בכתב האישום המתוקן, לאחר שהמערער ואחר קשרו קשר לביצוע עסקת נשק, הגיעו שניהם ביום 7.3.2019 ברכביהם לנקודת מפגש, שבה האחר העביר למערער אקדח מסוג &#34;גלוק&#34;. המערער נטל את האקדח, אשר היה עטוף במגבת, והסתירו ברכבו. לאחר מכן, המערער נסע ברכבו אחרי האחר, כשהוא נושא ומוביל עמו את הנשק. בגין מעשים אלו, יוחסה למערער עבירת נשיאת והובלת נשק שלא כדין לפי סעיף 144(ב) רישא וסעיף 29 לחוק העונשין, התשל&#34;ז-1977; ועבירת הסתייעות ברכב לביצוע פשע לפי סעיף 43 לפקודת התעבורה [נוסח חדש].
 
-
-
-המערער הורשע בעבירות המיוחסות לו בכתב האישום המתוקן, על פי הודאתו במסגרת הסדר טיעון אשר לא כלל הסכמה לעניין העונש.  
-
-
+המערער הורשע בעבירות המיוחסות לו בכתב האישום המתוקן, על פי הודאתו במסגרת הסדר טיעון אשר לא כלל הסכמה לעניין העונש.
 
 בית המשפט המחוזי ציין בגזר דינו את מדיניות הענישה המחמירה ביחס לעבירות נשק. עוד הדגיש את חומרת מעשי המערער, בפרט נוכח נסיבות ביצוע העבירות המלמדות על תכנון שקדם לביצוע העבירות והעובדה כי נזק רב עלול היה להיגרם אילו הנשק היה &#34;מתגלגל&#34; הלאה. כמו כן, בית המשפט נתן דעתו למתחם העונש שנקבע בעניינו של האחר אשר נע בין 18 ל-42 חודשי מאסר, בציינו כי מעשי האחר חמורים ממעשי המערער. בהתחשב באמור, בית המשפט קבע כי מתחם העונש ההולם בעניינו של המערער נע בין 16 ל-36 חודשי מאסר בפועל.
 
+בקביעת עונשו של המערער בגדרי המתחם, בית המשפט המחוזי שקל את הודאתו במעשים והאופן בו נטל אחריות עליהם; העדר הרשעות קודמות לחובתו; וכן כי סיכויי שיקומו אינם גבוהים. בנוסף, ניתן משקל להצהרת המערער לפיה רכש את הנשק מאחר שחש מאוים ולא מצא לנכון לפנות לגורמי אכיפת החוק, וכך הלכה למעשה, נטל את החוק לידיו.
 
+בשקלול האמור לעיל, בית המשפט המחוזי גזר על המערער 16 חודשי מאסר בפועל; 12 חודשי מאסר על תנאי, לבל יעבור עבירת נשק מסוג &#34;פשע&#34;, למשך 3 שנים; וקנס בסך 5,000 ש&#34;ח.
 
-	בקביעת עונשו של המערער בגדרי המתחם, בית המשפט המחוזי שקל את הודאתו במעשים והאופן בו נטל אחריות עליהם; העדר הרשעות קודמות לחובתו; וכן כי סיכויי שיקומו אינם גבוהים. בנוסף, ניתן משקל להצהרת המערער לפיה רכש את הנשק מאחר שחש מאוים ולא מצא לנכון לפנות לגורמי אכיפת החוק, וכך הלכה למעשה, נטל את החוק לידיו.
-
-
-
-	בשקלול האמור לעיל, בית המשפט המחוזי גזר על המערער 16 חודשי מאסר בפועל; 12 חודשי מאסר על תנאי, לבל יעבור עבירת נשק מסוג &#34;פשע&#34;, למשך 3 שנים; וקנס בסך 5,000 ש&#34;ח.
-
-
-
-	מכאן הערעור שלפנינו.
-
-
+מכאן הערעור שלפנינו.
 
 לטענת המערער, בית המשפט המחוזי שגה והחמיר בעונשו יתר על המידה, הן בהתחשב בכך שהעבירה ארכה מספר דקות מועטות ובפועל לא היה כל שימוש בנשק, הן בהתחשב בנסיבותיו האישיות ובכללן אפשרות שיקומו והיעדר הרשעות קודמות לחובתו.
 
+כמו כן נטען כי העונש אינו הולם את מדיניות הענישה הנוהגת; כי בית המשפט המחוזי לא גזר את העונש בהתאם לכללי הבניית שיקול הדעת כנדרש; וכי בית המשפט סטה ללא נימוק מהמלצת שירות המבחן להשית על המערער עונש מאסר לריצוי בדרך של עבודות שירות.
 
-
-	כמו כן נטען כי העונש אינו הולם את מדיניות הענישה הנוהגת; כי בית המשפט המחוזי לא גזר את העונש בהתאם לכללי הבניית שיקול הדעת כנדרש; וכי בית המשפט סטה ללא נימוק מהמלצת שירות המבחן להשית על המערער עונש מאסר לריצוי בדרך של עבודות שירות.
-
-
-
-	בדיון לפנינו ב&#34;כ המערער הוסיף וטען ארוכות בדבר שיקולי השיקום וחשיבותם. בין היתר, הדגיש ב&#34;כ המערער כי לקיחת האחריות על המעשים מצד המערער, והיותו בעל עסק משגשג ויציב לפרנסתו מלמדות על סיכויי שיקומו באופן המצדיק הקלה בעונשו.
-
-
+בדיון לפנינו ב&#34;כ המערער הוסיף וטען ארוכות בדבר שיקולי השיקום וחשיבותם. בין היתר, הדגיש ב&#34;כ המערער כי לקיחת האחריות על המעשים מצד המערער, והיותו בעל עסק משגשג ויציב לפרנסתו מלמדות על סיכויי שיקומו באופן המצדיק הקלה בעונשו.
 
 מנגד, המשיבה סומכת ידיה על פסק דינו של בית המשפט המחוזי. נטען כי העונש אשר נגזר על המערער עולה בקנה אחד עם מדיניות הענישה הנוהגת, בפרט בשים לב לעונשו של האחר אשר נדון ל-36 חודשי מאסר בפועל. עוד הודגש, כי שיקולי השיקום אינם חזות הכול וכי מכל מקום, גם לאחר שלושה תסקירים, שירות המבחן לא בא בהמלצה שיקומית בעניינו של המערער.
 
-
-
 לקראת הדיון, הוגש תסקיר שירות מבחן עדכני בעניינו של המערער, ממנו עולה כי ממועד גזר הדין לא חל שינוי בדפוסי חשיבתו באשר להתנהלותו בביצוע העבירות. משכך, בין היתר, שירות המבחן נמנע מהמלצה שיקומית-טיפולית בעניינו.
-
-
 
 דיון והכרעה
 
-
-
 דין הערעור להידחות.
 
+הלכה היא כי בית המשפט לא יתערב בעונש שהושת על ידי הערכאה הדיונית, אלא במקרים שבהם ניכרת חריגה קיצונית ממדיניות הענישה הנוהגת במקרים דומים, או כאשר נפלה על פני הדברים טעות מהותית ובולטת בגזר הדין (ע&#34;פ 2260/22 פלוני נ&#39; מדינת ישראל, פסקה 8 (18.7.2022)).
 
+בהינתן אמות מידה אלו, ניכר שאין מקום לקבל את הערעור.
 
-	הלכה היא כי בית המשפט לא יתערב בעונש שהושת על ידי הערכאה הדיונית, אלא במקרים שבהם ניכרת חריגה קיצונית ממדיניות הענישה הנוהגת במקרים דומים, או כאשר נפלה על פני הדברים טעות מהותית ובולטת בגזר הדין (ע&#34;פ 2260/22 פלוני נ&#39; מדינת ישראל, פסקה 8 (18.7.2022)).
-
-	
-
-	בהינתן אמות מידה אלו, ניכר שאין מקום לקבל את הערעור.
-
-
-
- בית משפט זה שב פעם אחר פעם על חומרתן של עבירות הנשק, ועל הצורך בענישה הולמת ומרתיעה במקרים אלו נוכח הסיכון הרב הנשקף מהן (ע&#34;פ 587/22 אבו נאעסה נ&#39; מדינת ישראל, פסקה 9 (22.5.2022); ע&#34;פ 6028/21 אטרש נ&#39; מדינת ישראל, פסקה 9 (15.5.2022)).
-
-
+בית משפט זה שב פעם אחר פעם על חומרתן של עבירות הנשק, ועל הצורך בענישה הולמת ומרתיעה במקרים אלו נוכח הסיכון הרב הנשקף מהן (ע&#34;פ 587/22 אבו נאעסה נ&#39; מדינת ישראל, פסקה 9 (22.5.2022); ע&#34;פ 6028/21 אטרש נ&#39; מדינת ישראל, פסקה 9 (15.5.2022)).
 
 כפי שציינתי לא אחת, יש לנקוט בענישה ממשית כלפי &#34;כל חוליות השרשרת העבריינית&#34; של השימוש בנשק לא חוקי (ע&#34;פ 4456/21 מדינת ישראל נ&#39; אבו עבסה, פסקה 15 (23.1.2022); ראו גם: ע&#34;פ 3569/22 מדינת ישראל נ&#39; חדיד, פסקה 8 לחוות דעתו של השופט י&#39; עמית (23.6.2022) אשר אימץ קביעה זו), ומשכך אין להפחית מחומרת מעשי המערער בשל העובדה שאלו אירעו &#34;במסגרת דקות ספורות&#34; ואף &#34;לא היה כל שימוש בנשק&#34; כלשונו. המסר העונשי הנגזר ממדיניות הענישה האמורה הוא כי שומר נפשו ושלומו – ירחק מעבירות הנשק באשר הן, קלות כחמורות.
 
-
-
 גם ביתר טענות המערער איני מוצא ממש. ערכאת הערעור בוחנת את התוצאה העונשית הסופית, וגם אילו נפלה שגגה במלאכת גזירת העונש בידי בית המשפט המחוזי ובאופן יישום מנגנון הבניית שיקול הדעת כנדרש, ואיני סבור כי נפלה שגגה שכזו – אין בכך כדי להצדיק התערבות (ע&#34;פ 5407/21 דלאשי נ&#39; מדינת ישראל, פסקה 9 (15.2.2022)).
 
-
-
-	נוסף על כך, שיקולי שיקום, חרף חשיבותם, אינם חזות הכול, והם נלקחים בחשבון בין יתר שיקולי הענישה (ע&#34;פ 8622/21 הולר נ&#39; מדינת ישראל, פסקה 12 (15.5.2022)). בהקשר זה, אף שירות המבחן לא בא בהמלצה שיקומית-טיפולית בעניינו של המערער, ומכל מקום, המלצתו – כשמה כן היא, בגדר &#34;המלצה&#34; שנועדה רק לסייע לבית המשפט במלאכת גזירת העונש (ע&#34;פ 2260/22 פלוני נ&#39; מדינת ישראל, פסקה 10 (18.7.2022)).
-
-
+נוסף על כך, שיקולי שיקום, חרף חשיבותם, אינם חזות הכול, והם נלקחים בחשבון בין יתר שיקולי הענישה (ע&#34;פ 8622/21 הולר נ&#39; מדינת ישראל, פסקה 12 (15.5.2022)). בהקשר זה, אף שירות המבחן לא בא בהמלצה שיקומית-טיפולית בעניינו של המערער, ומכל מקום, המלצתו – כשמה כן היא, בגדר &#34;המלצה&#34; שנועדה רק לסייע לבית המשפט במלאכת גזירת העונש (ע&#34;פ 2260/22 פלוני נ&#39; מדינת ישראל, פסקה 10 (18.7.2022)).
 
 נוכח האמור, אין מקום להתערב בעונש אשר נגזר על המערער – העונש הולם את חומרת מעשיו; עולה בקנה אחד עם מדיניות הענישה הנוהגת; ומתחשב כראוי במכלול נסיבות העבירה ונסיבותיו האישיות. אשר על כן, אני סבור כי דין הערעור להידחות, וכך אציע לחבריי.
 
-
-
-
-
 ש ו פ ט
-
-
-
-
-
-
-
-
 
 השופט א&#39; שטיין:
 
-
-
-	אני מסכים. 
-
-
+אני מסכים.
 
 ש ו פ ט
-
-
-
-
 
 השופט ח&#39; כבוב:
 
-
-
-	אני מסכים. 
-
-
+אני מסכים.
 
 ש ו פ ט
 
+הוחלט כאמור בפסק דינו של השופט י&#39; אלרון.
 
+המערער יתייצב לשאת בעונש המאסר בפועל שהוטל עליו ביום 18.8.2022 עד השעה 10:00 בבימ&#34;ר קישון, או על פי החלטת שירות בתי הסוהר, כשברשותו תעודת זהות או דרכון. על המערער לתאם את הכניסה למאסר, כולל האפשרות למיון מוקדם, עם ענף אבחון ומיון של שירות בתי הסוהר, בטלפונים: 074-7831077 או 074-7831078.
 
-
-
-	הוחלט כאמור בפסק דינו של השופט י&#39; אלרון. 
-
-
-
-
-
-	המערער יתייצב לשאת בעונש המאסר בפועל שהוטל עליו ביום 18.8.2022 עד השעה 10:00 בבימ&#34;ר קישון, או על פי החלטת שירות בתי הסוהר, כשברשותו תעודת זהות או דרכון. על המערער לתאם את הכניסה למאסר, כולל האפשרות למיון מוקדם, עם ענף אבחון ומיון של שירות בתי הסוהר, בטלפונים: 074-7831077 או 074-7831078.
-
-
-
-	ניתן היום, ‏כ&#34;ז בתמוז התשפ&#34;ב (‏26.7.2022).
-
-
-
-
-
-
+ניתן היום, ‏כ&#34;ז בתמוז התשפ&#34;ב (‏26.7.2022).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
-
-
 
 _________________________
 
-   21000780_J10.docx   עע
+21000780_J10.docx עע
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1837,7 +1964,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

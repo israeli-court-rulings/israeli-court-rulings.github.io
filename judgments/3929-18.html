@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    28/01/2019 (לפני 2654 ימים)
+                    28/01/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/3929-18.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="3929/18 - הפניקס- חברה לביטוח בע&#34;מ נ. פלוני"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F3929-18.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/290/039/e06&amp;fileName=18039290.E06&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/290/039/e06&amp;fileName=18039290.E06&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/290/039/e06&amp;fileName=18039290.E06&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/290/039/e06&amp;fileName=18039290.E06&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,153 +1827,75 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
+ע&#34;א 3929/18
 
+ע&#34;א 3945/18
 
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
-ע&#34;א  3929/18
-
-ע&#34;א  3945/18
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופט נ&#39; סולברג
-
-
 
 כבוד השופטת י&#39; וילנר
 
-
-
 המערערת בע&#34;א 3929/18 והמשיבה בע&#34;א 3945/18:
-
-
 
 הפניקס - חברה לביטוח בע&#34;מ
 
-
-
-
-
-נ  ג  ד
+נ ג ד
 
 המשיבה בע&#34;א 3929/18 והמערערת בע&#34;א 3945/18:
 
-
-
 פלונית
-
-
 
 ערעורים על פסק דינו של בית המשפט המחוזי נצרת בתיק א 041126-12-13 שניתן ביום 08.04.2018 על ידי כבוד השופט י&#39; אברהם
 
-
-
 בשם המערערת בע&#34;א 3929/18 והמשיבה בע&#34;א 3945/18:
-
-
 
 עו&#34;ד משה עבדי ועו&#34;ד שירלי לדשטיינר-מגן
 
-
-
-
-
 בשם המשיבה בע&#34;א 3929/18 והמערערת בע&#34;א 3945/18:
 
-
-
 עו&#34;ד ירון קרו ועו&#34;ד אהוד לביא
-
-
 
 פסק-דין
 
 השופט י&#39; עמית:
 
-
-
-	ערעורים על פסק דינו של בית המשפט המחוזי בנצרת (השופט י&#39; אברהם) מיום 8.4.2018 בת&#34;א 41126-12-13.
-
-
+ערעורים על פסק דינו של בית המשפט המחוזי בנצרת (השופט י&#39; אברהם) מיום 8.4.2018 בת&#34;א 41126-12-13.
 
 1.	המשיבה בע&#34;א 3929/18 והמערערת בע&#34;א 3945/18 (להלן: המשיבה), ילידת 1980, נפגעה ביום 26.4.2012 בתאונת דרכים שהוכרה גם כתאונת עבודה. המשיבה אושפזה כשהיא מורדמת ומונשמת, ובהמשך הועברה לבית לוינשטיין שם שהתה כארבעה חדשים עד ששוחררה לביתה (סה&#34;כ 182 ימי אשפוז). המשיבה תבעה את המערערת בע&#34;א 3929/18 (להלן גם: המבטחת) לפי חוק הפיצויים לנפגעי תאונות דרכים, התשל&#34;ה-1975 (להלן: חוק הפיצויים), והמחלוקת בין הצדדים התמקדה בשאלת גובה הנזק.
 
-
-
 2.	ועדה רפואית של המל&#34;ל, שקביעתה מחייבת מכוח סעיף 6ב לחוק הפיצויים, קבעה כי למשיבה נותרה נכות רפואית בשיעור של 81% כלהלן: 70% נכות נוירולוגית, 20% בגין נזק נפשי ו-20% נוספים בגין שבר באגן (אצטבלום ירך ימין). בנוסף, הפעילה הוועדה הרפואית את תקנה 15 לתקנות המל&#34;ל, כך שנכותה של המשיבה הועמדה על 100%. יצויין כי הנזק הנוירולוגי הוביל גם לפגיעה בכושר הראייה, ובית המשפט קבע כי מדובר ב&#34;ליקוי משמעותי&#34; אשר מהווה את &#34;המחסום העיקרי&#34; מבחינת התפקוד של המשיבה. בנסיבות אלה הנכות התפקודית הועמדה על 100% וכך גם שיעור אבדן כושר ההשתכרות. על יסוד קביעות אלה, הראיות שהובאו, וחוות דעתו של המומחה השיקומי ד&#34;ר זייליג, העריך בית המשפט קמא את הנזק בסכום של כ-6.7 מיליון ₪ על פי הפירוט הבא: עזרת צד ג&#39; לעבר ולעתיד – 4 מיליון ₪; הפסד שכר לעבר ולעתיד (כולל פנסיה) – 1.8 מיליון ₪ (עובר לתאונה המשיבה עבדה כחדרנית במלון והשתכרה 4,371 ₪ לחודש, ובית המשפט העמיד השכר לעתיד על הסך של 5,500 ₪ ברוטו); ניידות – 400,000 ₪; כאב וסבל – 180,000 ₪; הוצאות רפואיות 100,000 ₪; והיתר בגין ראשי נזק נוספים (דיור, מזגן, אביזרי ראיה, עזרה לילדים). לאחר ניכוי גמלאות מל&#34;ל ותשלומים תכופים בסך 2.2 מיליון ₪, נפסק לזכות המשיבה סכום כולל של 4.5 מיליון ₪ בתוספת שכ&#34;ט בשיעור 13% ומע&#34;מ (הסכומים במעוגל).
 
+3. 	על פסק הדין הוגשו ערעורים מזה ומזה. הערעור מטעם המבטחת התמקד בפיצוי בגין עזרת צד ג&#39;. נטען כי הסכומים שנפסקו בגין הוצאות העבר גבוהים מן ההוצאות בפועל; ולעתיד נפסק סכום מופרז שאינו עולה בקנה אחד עם אופי הנכות, עם הראיות שהובאו על העזרה הנדרשת בפועל ועם ההלכה הפסוקה.
 
+המשיבה ערערה על פסק הדין בטענה כי הפיצוי בגין עזרת צד ג&#39; לעתיד אינו הולם את היקף העזרה הנדרשת ואת עלויות השכר; וגם הפיצוי בגין עזרה לילדים והוצאות רפואיות לעתיד – אינו מכסה את הנזק.
 
-3. 	על פסק הדין הוגשו ערעורים מזה ומזה. הערעור מטעם המבטחת התמקד בפיצוי בגין עזרת צד ג&#39;. נטען כי הסכומים שנפסקו בגין הוצאות העבר גבוהים מן ההוצאות בפועל; ולעתיד נפסק סכום מופרז שאינו עולה בקנה אחד עם אופי הנכות, עם הראיות שהובאו על העזרה הנדרשת בפועל ועם ההלכה הפסוקה. 
-
-
-
-	המשיבה ערערה על פסק הדין בטענה כי הפיצוי בגין עזרת צד ג&#39; לעתיד אינו הולם את היקף העזרה הנדרשת ואת עלויות השכר; וגם הפיצוי בגין עזרה לילדים והוצאות רפואיות לעתיד – אינו מכסה את הנזק.
-
-
-
-	בד בבד עם הערעור מטעם המבטחת, הוגשה בקשה לעיכוב ביצוע חלקי של פסק הדין עד להכרעה בערעור. השופטת ד&#39; ברק-ארז קיבלה את הבקשה בהחלטתה מיום 5.6.2018, והורתה על עיכוב תשלום בסך 2.1 מיליון ₪ מתוך הפיצויים.
-
-
+בד בבד עם הערעור מטעם המבטחת, הוגשה בקשה לעיכוב ביצוע חלקי של פסק הדין עד להכרעה בערעור. השופטת ד&#39; ברק-ארז קיבלה את הבקשה בהחלטתה מיום 5.6.2018, והורתה על עיכוב תשלום בסך 2.1 מיליון ₪ מתוך הפיצויים.
 
 4.	על אף הנטייה שלא להתערב בגובה הפיצויים שנפסקו על ידי הערכאה הדיונית, המקרה דנא מצדיק התערבות, שכן הפיצוי שנפסק לזכות המשיבה הוא חריג, בדגש על ראש הנזק של עזרת צד ג&#39;.
 
+5.	המומחה השיקומי, ד&#34;ר זייליג, קבע בחוות דעתו כי המשיבה נזקקת להשגחה ודירבון והעריך כי תזדקק לעזרה ולהשגחה במשך כ-8 שעות ביום ולעוד 4 שעות יומיות לפעולות משק בית (קניות, ניקיון ובישול וכביסה). בית המשפט קמא לא קיבל את ההנחה שמדובר בשעות מצטברות, והעריך כי המשיבה זקוקה לעזרה במשך 10 שעות ביום בממוצע (פסקאות 89-86). עלות העזרה של מטפלת מקומית חושבה לפי שכר מינימום בתוספת שעות נוספות, תנאים סוציאליים (25%), ועלות נפרדת ליום המנוחה השבועי. בסך הכל הועמדה העלות החודשית על 11,226 ₪, כך שלעבר נפסק סכום של כ-700,000 ₪ (62 חודשים) ולעתיד - 3.3 מיליון ₪ (מקדם היוון 295.74).
 
+להשקפתי, תוצאה זו אינה מתיישבת עם הראיות שהוצגו. המשיבה סובלת מפגיעה נוירולוגית שגורמת חולשה גופנית ונזק קוגנטיבי, אך כפי שציין בית המשפט קמא בפסק דינו, המומחה השיקומי ד&#34;ר זייליג אישר בעדותו &#34;כי בעיית חולשת פלג הגוף הינה קלה (עמ&#39; 47 שורה 17), וכי הבעיה הקוגנטיבית של התובעת אף היא קלה (עמ&#39; 58 שורה 23)&#34;. המכשול התפקודי העיקרי הוא לקות הראייה, שחומרתה לא התבררה עד תום אך המומחה התרשם מ&#34;יכולת ראייה מצומצמת&#34;. מבחינת פעולות יומיומיות (ADL) ציין המומחה כי המשיבה &#34;מתרחצת ומתלבשת בישיבה. זקוקה לעזרה בבחירת הבגדים והתאמתם (צבע ואחר). עזרה קלה בפעולות הדורשות הפעלת כתף שמאל: חזיה וכד&#39;&#34; (כך עולה גם מעדותה של המשיבה בעמ&#39; 15-14 לפרוטוקול); כמו כן נדרשת עזרה &#34;מרובה&#34; בפעולות משק בית ועזרה &#34;מלאה&#34; בפעילויות מחוץ לבית. המומחה הוסיף כי הוא לוקח בחשבון את האפשרות שבעתיד יחול שיפור במצב ואף הביע דעתו כי יש אפשרות שתשתלב בעבודה שיקומית מוגנת. עוד אציין כי הערכה תפקודית שנערכה מטעם המל&#34;ל (מוצגים ג-ד) מציירת תמונה קצת יותר חיובית ביחס לפעולות היומיום, וכי במועד השחרור מבית לוינשטיין המשיבה נבדקה ונמצאה &#34;עצמאית בתפקודה הבסיסי, עם מגבלות מסויימות&#34;. אף לא הוכח כי המשיבה נדרשת להשגחה צמודה, ובדו&#34;ח ההערכה התפקודית של המל&#34;ל נכתב כי נמצאת לבדה כאשר בני המשפחה יוצאים לעיסוקיהם.
 
-5.	המומחה השיקומי, ד&#34;ר זייליג, קבע בחוות דעתו כי המשיבה נזקקת להשגחה ודירבון והעריך כי תזדקק לעזרה ולהשגחה במשך כ-8 שעות ביום ולעוד 4 שעות יומיות לפעולות משק בית (קניות, ניקיון ובישול וכביסה).  בית המשפט קמא לא קיבל את ההנחה שמדובר בשעות מצטברות, והעריך כי המשיבה זקוקה לעזרה במשך 10 שעות ביום בממוצע (פסקאות 89-86). עלות העזרה של מטפלת מקומית חושבה לפי שכר מינימום בתוספת שעות נוספות, תנאים סוציאליים (25%), ועלות נפרדת ליום המנוחה השבועי. בסך הכל הועמדה העלות החודשית על 11,226 ₪, כך שלעבר נפסק סכום של כ-700,000 ₪ (62 חודשים) ולעתיד - 3.3 מיליון ₪ (מקדם היוון 295.74).
-
-
-
-	להשקפתי, תוצאה זו אינה מתיישבת עם הראיות שהוצגו. המשיבה סובלת מפגיעה נוירולוגית שגורמת חולשה גופנית ונזק קוגנטיבי, אך כפי שציין בית המשפט קמא בפסק דינו, המומחה השיקומי ד&#34;ר זייליג אישר בעדותו &#34;כי בעיית חולשת פלג הגוף הינה קלה (עמ&#39; 47 שורה 17), וכי הבעיה הקוגנטיבית של התובעת אף היא קלה (עמ&#39; 58 שורה 23)&#34;. המכשול התפקודי העיקרי הוא לקות הראייה, שחומרתה לא התבררה עד תום אך המומחה התרשם מ&#34;יכולת ראייה מצומצמת&#34;. מבחינת פעולות יומיומיות (ADL) ציין המומחה כי המשיבה &#34;מתרחצת ומתלבשת בישיבה. זקוקה לעזרה בבחירת הבגדים והתאמתם (צבע ואחר). עזרה קלה בפעולות הדורשות הפעלת כתף שמאל: חזיה וכד&#39;&#34; (כך עולה גם מעדותה של המשיבה בעמ&#39; 15-14 לפרוטוקול); כמו כן נדרשת עזרה &#34;מרובה&#34; בפעולות משק בית ועזרה &#34;מלאה&#34; בפעילויות מחוץ לבית. המומחה הוסיף כי הוא לוקח בחשבון את האפשרות שבעתיד יחול שיפור במצב ואף הביע דעתו כי יש אפשרות שתשתלב בעבודה שיקומית מוגנת. עוד אציין כי הערכה תפקודית שנערכה מטעם המל&#34;ל (מוצגים ג-ד) מציירת תמונה קצת יותר חיובית ביחס לפעולות היומיום, וכי במועד השחרור מבית לוינשטיין המשיבה נבדקה ונמצאה &#34;עצמאית בתפקודה הבסיסי, עם מגבלות מסויימות&#34;. אף לא הוכח כי המשיבה נדרשת להשגחה צמודה, ובדו&#34;ח ההערכה התפקודית של המל&#34;ל נכתב כי נמצאת לבדה כאשר בני המשפחה יוצאים לעיסוקיהם. 
-
-
-
-	בנסיבות אלה, מקובלת עליי הטענה כי המומחה, ובעקבותיו בית המשפט, נטו להערכת יתר של היקף העזרה הנדרשת. גם אם אקבל את קביעתו של בית המשפט קמא, כי &#34;התובעת נזקקת כיום להשגחה, דרבון והכוונה בחלק ניכר מהתפקודים הבסיסיים&#34; (פסקה 85; ההדגשה במקור), עדיין אינני סבור כי היא הוכיחה נזקקות לסיוע צמוד במשך 10 שעות ביום. אף לא למותר לציין כי לא עלה בידי המשיבה להוכיח את היקף העזרה שקיבלה בתשלום לעבר, עד למתן פסק הדין.  
-
-
+בנסיבות אלה, מקובלת עליי הטענה כי המומחה, ובעקבותיו בית המשפט, נטו להערכת יתר של היקף העזרה הנדרשת. גם אם אקבל את קביעתו של בית המשפט קמא, כי &#34;התובעת נזקקת כיום להשגחה, דרבון והכוונה בחלק ניכר מהתפקודים הבסיסיים&#34; (פסקה 85; ההדגשה במקור), עדיין אינני סבור כי היא הוכיחה נזקקות לסיוע צמוד במשך 10 שעות ביום. אף לא למותר לציין כי לא עלה בידי המשיבה להוכיח את היקף העזרה שקיבלה בתשלום לעבר, עד למתן פסק הדין.
 
 6.	גם בחינה השוואתית מעוררת קושי ביחס לפיצוי שנפסק בגין עזרת צד ג&#39;. לצורך המחשה, קשה להלום כי הפיצוי למשיבה יהיה זהה לפיצוי שנפסק לטובתו של ניזוק &#34;משותק בפלג גופו התחתון מגובה D3 עם ספסטיות ניכרת, חולשה והפרעה בתחושה בידיים בעיקר בצד ימין [...] ישוב בכסא גלגלים, נזקק לצנתורים בגין אי שליטה על הסוגרים&#34; (ע&#34;א 4767/13 המאגר הישראלי לביטוחי רכב נ&#39; שובבו, בפסקה 14 (25.11.2016); והשוו גם לע&#34;א 8074/15 פלוני נ&#39; המאגר הישראלי לביטוח רכב (22.5.2016); ע&#34;א 3222/10 ביטוח ישיר חברה לביטוח בע&#34;מ נ&#39; פלוני (28.6.2012)).
 
+7.	מבלי שיתעורר חשש לקיפוח המשיבה ומבלי לחרוג מן הקביעות העובדתיות בתיק, ומאחר שאין דרכה של ערכאת ערעור למצות את היקף ההתערבות, אחשב את הפיצוי עבור עזרת צד ג&#39; באופן הבא: 8 שעות ביום X40 ₪ לשעה X 30 ימים בחודש = 9,600 ₪. אציין כי המשיבה עבדה לפני התאונה כחדרנית במלון והשתכרה 4,500 ₪ לחודש (כולל שעות נוספות ועבודה בשבתות), כך שהסכום הנקוב נראה לכל הפחות מספק עבור משכורת של מטפלת במקום מגוריה. סכום זה יכול לשמש גם לצורך אומדן עזרת צד ג&#39; לעבר, והוא אף מוטה במידת מה לטובת המשיבה, בשים לב לכך שהוצאותיה לא הוכחו כדבעי, כמפורט בפסקאות 77-73 לפסק דינו של בית המשפט קמא. המשמעות היא כי בגין עזרת צד ג&#39; תזכה המשיבה בסכום של 600,000 ₪ לעבר (חלף הסכום של 696,012 ₪ שנפסק) ו-2,840,000 ₪ לעתיד (במעוגל, חלף הסכום של 3,320,065 ₪ שנפסק). סה&#34;כ הפחתה של 576,077 ₪ ובמעוגל – 576,000 ₪. למען הסר ספק, אין למצוא בדרך החישוב האמורה תמיכה עקרונית בחישוב שעתי של עזרת צד ג&#39;, אלא הסבר נקודתי לגובה הפיצוי במקרה הנוכחי, שגם לאחר הפחתה נותר על הצד הגבוה ביחס לעובדות המקרה.
 
-
-7.	מבלי שיתעורר חשש לקיפוח המשיבה ומבלי לחרוג מן הקביעות העובדתיות בתיק, ומאחר שאין דרכה של ערכאת ערעור למצות את היקף ההתערבות, אחשב את הפיצוי עבור עזרת צד ג&#39; באופן הבא: 8 שעות ביום  X40 ₪ לשעה X 30 ימים בחודש = 9,600 ₪. אציין כי המשיבה עבדה לפני התאונה כחדרנית במלון והשתכרה 4,500 ₪ לחודש (כולל שעות נוספות ועבודה בשבתות), כך שהסכום הנקוב נראה לכל הפחות מספק עבור משכורת של מטפלת במקום מגוריה. סכום זה יכול לשמש גם לצורך אומדן עזרת צד ג&#39; לעבר, והוא אף מוטה במידת מה לטובת המשיבה, בשים לב לכך שהוצאותיה לא הוכחו כדבעי, כמפורט בפסקאות 77-73 לפסק דינו של בית המשפט קמא. המשמעות היא כי בגין עזרת צד ג&#39; תזכה המשיבה בסכום של 600,000 ₪ לעבר (חלף הסכום של 696,012 ₪ שנפסק) ו-2,840,000 ₪ לעתיד (במעוגל, חלף הסכום של 3,320,065 ₪ שנפסק). סה&#34;כ הפחתה של 576,077 ₪ ובמעוגל – 576,000 ₪. למען הסר ספק, אין למצוא בדרך החישוב האמורה תמיכה עקרונית בחישוב שעתי של עזרת צד ג&#39;, אלא הסבר נקודתי לגובה הפיצוי במקרה הנוכחי, שגם לאחר הפחתה נותר על הצד הגבוה ביחס לעובדות המקרה.
-
-
-
-8.	מן האמור נגזרת דחייה של רוב הטענות שנכללו בערעור מטעם המשיבה, שביקשה להגדיל את סכום הפיצוי בגין עזרת צד ג&#39;. גם יתר הטענות בערעור זה אינן מצדיקות שינוי בגובה הסכומים שנפסקו לטובתה. 
-
-
+8.	מן האמור נגזרת דחייה של רוב הטענות שנכללו בערעור מטעם המשיבה, שביקשה להגדיל את סכום הפיצוי בגין עזרת צד ג&#39;. גם יתר הטענות בערעור זה אינן מצדיקות שינוי בגובה הסכומים שנפסקו לטובתה.
 
 9.	אשר על כן, ערעורה של המשיבה נדחה, ואילו ערעור המבטחת מתקבל באופן שמהפיצוי הכולל שנפסק יופחת הסך של 576,000 ₪ בתוספת שכ&#34;ט ומע&#34;מ.
 
+אין צו להוצאות בערכאה זו.
 
-
-	אין צו להוצאות בערכאה זו.
-
-
-
-
-
-	ניתן היום, ‏כ&#34;ב בשבט התשע&#34;ט (‏28.1.2019).
-
-
-
-
+ניתן היום, ‏כ&#34;ב בשבט התשע&#34;ט (‏28.1.2019).
 
 ש ו פ ט
 
@@ -1710,23 +1903,11 @@
 
 ש ו פ ט ת
 
-
-
-
-
-
-
 _________________________
 
-   18039290_E06.docx   עכב
+18039290_E06.docx עכב
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1745,7 +1926,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

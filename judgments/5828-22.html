@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    06/08/2023 (לפני 1003 ימים)
+                    06/08/2023 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5828-22.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5828/22 - מחמוד שלבי נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5828-22.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/280/058/e04&amp;fileName=22058280.E04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/280/058/e04&amp;fileName=22058280.E04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/280/058/e04&amp;fileName=22058280.E04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/280/058/e04&amp;fileName=22058280.E04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,187 +1827,99 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
+ע&#34;פ 5828/22
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
-
-
-
-ע&#34;פ  5828/22
-
-
-
-לפני:	
+לפני:
 
 כבוד הנשיאה א&#39; חיות
 
-
-
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופט ח&#39; כבוב
-
-
 
 המערער:
 
 מחמוד שלבי
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. מדינת ישראל
 
-
-
 2. פלוני
-
-
 
 ערעור על גזר הדין של בית המשפט המחוזי בבאר-שבע, מיום 29.6.2022, בת&#34;פ 17695-06-21, שניתן על-ידי כבוד השופט א&#39; ביתן
 
-
-
 תאריך הישיבה:
 
-י&#34;ג באב התשפ&#34;ג        
+י&#34;ג באב התשפ&#34;ג
 
 (31.7.2023)
 
-
-
 בשם המערער:
 
-עו&#34;ד ויסאם לידאוי 
-
-
+עו&#34;ד ויסאם לידאוי
 
 בשם המשיבים:
 
 עו&#34;ד עינת גדעוני
 
-	
-
-	
-
 בשם שירות המבחן למבוגרים:
 
 עו&#34;ס סיון קוריס
-
-	
 
 מתורגמן לערבית:
 
 מר חיים שגב
 
-	
-
 פסק-דין
-
-
 
 השופט י&#39; עמית:
 
-
-
-	ערעור על גזר דינו של בית המשפט המחוזי בבאר-שבע (כב&#39; השופט א&#39; ביתן) בת&#34;פ 17695-06-21 מיום 29.6.2022, שבו נגזר על המערער, בין היתר, עונש של 20 חודשי מאסר בפועל.
-
-
+ערעור על גזר דינו של בית המשפט המחוזי בבאר-שבע (כב&#39; השופט א&#39; ביתן) בת&#34;פ 17695-06-21 מיום 29.6.2022, שבו נגזר על המערער, בין היתר, עונש של 20 חודשי מאסר בפועל.
 
 1.	המערער, יליד שנת 2001, הורשע על פי הודאתו במסגרת הסדר טיעון בביצוע עבירה של חבלה חמורה בנסיבות מחמירות, לפי סעיף 333 בנסיבות סעיף 335(א)(1) לחוק העונשין, התשל&#34;ז-1977. לפי כתב האישום המתוקן, בליל ה-27.5.2021, לאחר שהמערער והמשיב 2 (להלן: המתלונן) שתו משקאות אלכוהוליים, פרץ ביניהם ויכוח שהתפתח לכדי עימות פיזי, שבמהלכו נטל המערער סכין יפנית ודקר באמצעותה את המתלונן בצדו השמאלי של גבו ובידו הימנית. למתלונן נגרמה פגיעה בגידים המיישרים שתיים מאצבעות ידו, והוא אושפז ונותח לצורך תפירתם.
 
-
-
 2.	בית המשפט המחוזי פירט את הערכים המוגנים שנפגעו כתוצאה ממעשיו של המערער, וכן עמד על חומרת המעשה שביצע המערער והסכנה הטמונה בו, על הפגיעה הגופנית שנגרמה למתלונן בעקבות התקיפה, ועל כך שבאופן מקרי לא נגרמה למתלונן פגיעה קשה בהרבה. לצד זאת, לנוכח האופן שבו נוסח כתב האישום המתוקן, בית המשפט הניח לטובת המערער כי הוא לא הצטייד מראש בכלי התקיפה וכי לא קדם למעשה תכנון מצדו. בנוסף לאמור, בית המשפט פירט את האמור בתסקיר שירות המבחן, שנמנע מלבוא בהמלצה בעניינו של המערער, וזאת לנוכח התרשמותו כי לא ניתן לשלול הישנות עבירות בעתיד וכי המערער אינו בשל להתערבות טיפולית. בשורה התחתונה, לאחר שסקר את מדיניות הענישה במקרים דומים, בית המשפט קבע כי מתחם הענישה ההולם נע בין 18 ל-42 חודשי מאסר בפועל, והעמיד את עונשו של המערער על חלקו התחתון של מתחם הענישה, תוך שהוא גוזר עליו 20 חודשי מאסר בפועל; עונש מאסר על תנאי; ופיצוי למתלונן בסך 30,000 ₪.
-
-
 
 3.	בערעור שלפנינו נטען כי העונש שהושת על המערער מופרז לחומרה, וזאת, בין היתר, לנוכח גילו הצעיר, העדרו של עבר פלילי, הודאתו בביצוע העבירה ונטילת אחריות מצדו, ותרומתו של המתלונן להתרחשות האירוע. לטענת המערער, היה מקום להסתפק בעונש של מאסר על תנאי, ולחלופין בעונש של מספר חודשי מאסר שירוצו בדרך של עבודות שירות. בנוסף לכך, המערער משיג על גובה הפיצוי שהושת עליו, שלדבריו אינו משקף את גובה הנזק שנגרם למתלונן.
 
+במהלך הדיון שהתקיים לפנינו הוסיף בא כוחו של המערער וטען כי הלה עבר תאונת דרכים קשה; כי האירוע התרחש בעת שהמערער היה לראשונה תחת השפעת אלכוהול; כי המערער לא מעל באמון שניתן בו במהלך התקופה שבה היה נתון במעצר בית בתנאים מגבילים; וכי שליחתו למאסר בפועל תחטיא את המטרה. יצויין עוד כי בעת הדיון בא כוח המערער שינה מעט טעמו ואישר כי אף לשיטתו אין מדובר בתיק שניתן להסתפק בו בעונש של מאסר על תנאי. עם זאת, בא כוח המערער עמד על טענתו כי ניתן להסתפק בעונש של מאסר שירוצה בדרך של עבודות שירות. באשר לרכיב הפיצוי, נטען כי הסכום לא הועבר בפועל למתלונן משום שבגזר הדין לא נקבע מועד אחרון לביצוע התשלום.
 
+4.	להשלמת התמונה יצויין כי על פי החלטת חברי, השופט ח&#39; כבוב, עונש המאסר בפועל שנגזר על המערער עוכב עד להכרעה בערעור (החלטה מיום 8.9.2022). עוד נציין כי לקראת הדיון בערעור הוגשו מטעם שירות המבחן תסקירים משלימים, האחד מיום 4.5.2023 ותסקיר עדכני נוסף מיום 30.7.2023. בתמצית, בתסקיר העדכני נאמר כי בטרם קיום המפגש עם המערער, נקבעו לו שתי פגישות שאליהן לא הופיע; כי גם בעת הזו, המערער מחזיק בעמדה מצמצמת ביחס לאחריותו לעבירה ולפגיעה שהסב למתלונן; וכי בשיחה עם המערער הלה התמקד במחירים האישיים ששילם כתוצאה ממעשיו, הגם שביטא חרטה עליהם. התרשמותו של שירות המבחן היתה כי המערער מתקשה לקבל אחריות מלאה על מעשיו ומתמקם בעמדה קורבנית. בשקלול הפרמטרים הרלוונטיים, שירות המבחן התרשם מקיומם של אלמנטים שמעלים את רמת הסיכון להישנות עבירות, ובשורה התחתונה נמנע מלבוא בהמלצה שיקומית בעניינו של המערער. במהלך הדיון שהתקיים לפנינו, נציגת שירות המבחן שבה על עמדה זו.
 
-	במהלך הדיון שהתקיים לפנינו הוסיף בא כוחו של המערער וטען כי הלה עבר תאונת דרכים קשה; כי האירוע התרחש בעת שהמערער היה לראשונה תחת השפעת אלכוהול; כי המערער לא מעל באמון שניתן בו במהלך התקופה שבה היה נתון במעצר בית בתנאים מגבילים; וכי שליחתו למאסר בפועל תחטיא את המטרה. יצויין עוד כי בעת הדיון בא כוח המערער שינה מעט טעמו ואישר כי אף לשיטתו אין מדובר בתיק שניתן להסתפק בו בעונש של מאסר על תנאי. עם זאת, בא כוח המערער עמד על טענתו כי ניתן להסתפק בעונש של מאסר שירוצה בדרך של עבודות שירות. באשר לרכיב הפיצוי, נטען כי הסכום לא הועבר בפועל למתלונן משום שבגזר הדין לא נקבע מועד אחרון לביצוע התשלום. 
-
-
-
-4.	להשלמת התמונה יצויין כי על פי החלטת חברי, השופט ח&#39; כבוב, עונש המאסר בפועל שנגזר על המערער עוכב עד להכרעה בערעור (החלטה מיום 8.9.2022). עוד נציין  כי לקראת הדיון בערעור הוגשו מטעם שירות המבחן תסקירים משלימים, האחד מיום 4.5.2023 ותסקיר עדכני נוסף מיום 30.7.2023. בתמצית, בתסקיר העדכני נאמר כי בטרם קיום המפגש עם המערער, נקבעו לו שתי פגישות שאליהן לא הופיע; כי גם בעת הזו, המערער מחזיק בעמדה מצמצמת ביחס לאחריותו לעבירה ולפגיעה שהסב למתלונן; וכי בשיחה עם המערער הלה התמקד במחירים האישיים ששילם כתוצאה ממעשיו, הגם שביטא חרטה עליהם. התרשמותו של שירות המבחן היתה כי המערער מתקשה לקבל אחריות מלאה על מעשיו ומתמקם בעמדה קורבנית. בשקלול הפרמטרים הרלוונטיים, שירות המבחן התרשם מקיומם של אלמנטים שמעלים את רמת הסיכון להישנות עבירות, ובשורה התחתונה נמנע מלבוא בהמלצה שיקומית בעניינו של המערער. במהלך הדיון שהתקיים לפנינו, נציגת שירות המבחן שבה על עמדה זו.
-
-
-
-5.	לאחר שנתנו דעתנו על האמור בגזר הדין, בתסקירי שירות המבחן ובכתב הערעור, ולאחר שמיעת טענות הצדדים בעל פה, מסקנתנו היא כי דין הערעור להידחות. 
+5.	לאחר שנתנו דעתנו על האמור בגזר הדין, בתסקירי שירות המבחן ובכתב הערעור, ולאחר שמיעת טענות הצדדים בעל פה, מסקנתנו היא כי דין הערעור להידחות.
 
 הלכה עמנו כי התערבות מצד ערכאת הערעור בחומרת העונש שהטילה הערכאה הדיונית אינה נעשית כדבר שבשגרה, ושמורה למקרים שבהם ניכרת סטייה ברורה ממדיניות הענישה הראויה או כאשר קיימות נסיבות מיוחדות המצדיקות זאת (ראו, בין היתר, ע&#34;פ 5407/21 דלאשי נ&#39; מדינת ישראל, פסקה 7 והאסמכתאות שם (15.2.2022) (להלן: עניין דלאשי)). על פי כל אמת מידה, המקרה שלפנינו אינו נכנס בגדרם של סוגי המקרים שמצדיקים התערבות כאמור.
 
+עיון בגזר הדין מעלה כי בית המשפט המחוזי נתן דעתו על מכלול השיקולים הצריכים לעניין, לרבות שיקולים לקולא, בכללם גילו הצעיר של המערער, העדר עבר פלילי, הודאתו בביצוע העבירה והתקופה שבה שהה בתנאים מגבילים (פסקה 18 לגזר הדין). מנגד, על חומרתו הרבה של המעשה שביצע המערער – שני חתכים באורך של 10 ס&#34;מ בגבו ובידו של המתלונן – אין צורך להכביר מילים, ובדין ציין בית משפט קמא כי אך במקרה לא נגרמה למתלונן פגיעה קשה בהרבה. בסיכומם של דברים, בהתחשב בטיב המעשה ונסיבות ביצועו, בהינתן התרשמותו של שירות המבחן והסתייגותו ממתן המלצה כמפורט לעיל, ובראי תכליות הענישה – העונש שהושת על המערער הוא מאוזן והולם ואין מקום להתערב בו (עוד על הצורך להיאבק בתופעת הסכינאות באמצעות ענישה הולמת ומרתיעה, ראו אך לאחרונה, ומבין רבים, ע&#34;פ 425/23 מדינת ישראל נ&#39; Teklu, פסקה 4 והאסמכתאות שם (4.7.2023)). אף לא למותר לציין כי בניגוד לטענת בא כוח המערער, אין מדובר בעונש הסוטה לחומרה ממדיניות הענישה הנוהגת, ולא זו בלבד שבית משפט קמא גזר את הדין תוך בחינת רף הענישה הנוהג בעבירות מסוג זה, אלא שאף העמיד את העונש על צדו הנמוך של המתחם (ראו בפסקה 14 לפסק דינו; עניין דלאשי; ע&#34;פ 3249/19 פיסהיי נ&#39; מדינת ישראל (5.8.2019)).
 
+6.	טענות המערער באשר לגובה הפיצוי שהושת עליו בגזר הדין, אף הן דינן להידחות. בדומה לאמור לעיל בדבר היקף ההתערבות המצומצם של ערכאת הערעור לגבי רכיב המאסר, גם בהקשר של רכיב הפיצוי התערבותה של ערכאת הערעור שמורה למקרים חריגים שבהם שיעורו של הפיצוי חורג בצורה משמעותית מהמדיניות שנקבעה בפסיקה או כאשר מדובר בנסיבות כלכליות חריגות (ע&#34;פ 7781/12 פלוני נ&#39; מדינת ישראל, פסקה 63 והאסמכתאות שם (25.6.2013)). במקרה דנן, טענתו של המערער כי מדובר ב&#34;פיצוי עונשי שאינו בא לשקף את גובה הנזק שנגרם לניזוק על ידי המערער&#34;, כמו גם טענתו באשר לצורך להתחשב במצבו הכלכלי, נטענו בעלמא וללא ניסיון לבססן. בנסיבות אלו, ובהינתן הפגיעה שנגרמה למתלונן, אין בסיס להתערבותנו ברכיב זה. מובן כי ככל שמצבו הכלכלי של המערער מצריך זאת, פתוחה בפניו הדרך לפנות למרכז לגביית קנסות בבקשה לפרוס את תשלום רכיב הפיצוי (סעיף 5ב(א) לחוק המרכז לגביית קנסות, אגרות והוצאות, התשנ&#34;ה-1995).
 
-	עיון בגזר הדין מעלה כי בית המשפט המחוזי נתן דעתו על מכלול השיקולים הצריכים לעניין, לרבות שיקולים לקולא, בכללם גילו הצעיר של המערער, העדר עבר פלילי, הודאתו בביצוע העבירה והתקופה שבה שהה בתנאים מגבילים (פסקה 18 לגזר הדין). מנגד, על חומרתו הרבה של המעשה שביצע המערער – שני חתכים באורך של 10 ס&#34;מ בגבו ובידו של המתלונן – אין צורך להכביר מילים, ובדין ציין בית משפט קמא כי אך במקרה לא נגרמה למתלונן פגיעה קשה בהרבה. בסיכומם של דברים, בהתחשב בטיב המעשה ונסיבות ביצועו, בהינתן התרשמותו של שירות המבחן והסתייגותו ממתן המלצה כמפורט לעיל, ובראי תכליות הענישה – העונש שהושת על המערער הוא מאוזן והולם ואין מקום להתערב בו (עוד על הצורך להיאבק בתופעת הסכינאות באמצעות ענישה הולמת ומרתיעה, ראו אך לאחרונה, ומבין רבים, ע&#34;פ 425/23 מדינת ישראל נ&#39; Teklu, פסקה 4 והאסמכתאות שם (4.7.2023)). אף לא למותר לציין כי בניגוד לטענת בא כוח המערער, אין מדובר בעונש הסוטה לחומרה ממדיניות הענישה הנוהגת, ולא זו בלבד שבית משפט קמא גזר את הדין תוך בחינת רף הענישה הנוהג בעבירות מסוג זה, אלא שאף העמיד את העונש על צדו הנמוך של המתחם (ראו בפסקה 14 לפסק דינו; עניין דלאשי; ע&#34;פ 3249/19 פיסהיי נ&#39; מדינת ישראל (5.8.2019)).
+המערער הגיש במהלך הדיון מסמכים רפואיים המעידים על התאונה שעבר לאחרונה. מהמסמכים עולה כי המערער שוחרר מבית החולים למחרת היום, וכי על פניו אין מדובר בתאונה קשה כפי שנטען.
 
+7.	אשר על כן, הערעור נדחה.
 
+משעה שבגזר הדין לא נקבע מועד לתשלום הפיצוי למתלונן, אנו מורים כי התשלום יבוצע בתוך 60 יום ממועד פסק דיננו, בכפוף לאמור בפסקה 6 סיפא לעיל.
 
-6.	טענות המערער באשר לגובה הפיצוי שהושת עליו בגזר הדין, אף הן דינן להידחות. בדומה לאמור לעיל בדבר היקף ההתערבות המצומצם של ערכאת הערעור לגבי רכיב המאסר, גם בהקשר של רכיב הפיצוי התערבותה של ערכאת הערעור שמורה למקרים חריגים שבהם שיעורו של הפיצוי חורג בצורה משמעותית מהמדיניות שנקבעה בפסיקה או כאשר מדובר בנסיבות כלכליות חריגות (ע&#34;פ 7781/12 פלוני נ&#39; מדינת ישראל, פסקה 63 והאסמכתאות שם (25.6.2013)). במקרה דנן, טענתו של המערער כי מדובר ב&#34;פיצוי עונשי שאינו בא לשקף את גובה הנזק שנגרם לניזוק על ידי המערער&#34;, כמו גם טענתו באשר לצורך להתחשב במצבו הכלכלי, נטענו בעלמא וללא ניסיון לבססן. בנסיבות אלו, ובהינתן הפגיעה שנגרמה למתלונן, אין בסיס להתערבותנו ברכיב זה. מובן כי ככל שמצבו הכלכלי של המערער מצריך זאת, פתוחה בפניו הדרך לפנות למרכז לגביית קנסות בבקשה לפרוס את תשלום רכיב הפיצוי (סעיף 5ב(א) לחוק המרכז לגביית קנסות, אגרות והוצאות, התשנ&#34;ה-1995). 
+המערער יתייצב לריצוי מאסרו ביום 20.8.2023 עד השעה 10:00 בביס&#34;ר דקל, או על פי החלטת שירות בתי הסוהר, כשברשותו תעודת זהות או דרכון. על המערער לתאם את הכניסה למאסר, כולל האפשרות למיון מוקדם, עם ענף אבחון ומיון של שירות בתי הסוהר, בטלפונים: 074-7831077 או 074-7831078.
 
+ניתן היום, י&#34;ט באב התשפ&#34;ג (‏6.8.2023).
 
+ה נ ש י א ה
 
-	המערער הגיש במהלך הדיון מסמכים רפואיים המעידים על התאונה שעבר לאחרונה. מהמסמכים עולה כי המערער שוחרר מבית החולים למחרת היום, וכי על פניו אין מדובר בתאונה קשה כפי שנטען. 
-
-
-
-7.	אשר על כן, הערעור נדחה. 
-
-
-
-	משעה שבגזר הדין לא נקבע מועד לתשלום הפיצוי למתלונן, אנו מורים כי התשלום יבוצע בתוך 60 יום ממועד פסק דיננו, בכפוף לאמור בפסקה 6 סיפא לעיל.
-
-
-
-	המערער יתייצב לריצוי מאסרו ביום 20.8.2023 עד השעה 10:00 בביס&#34;ר דקל, או על פי החלטת שירות בתי הסוהר, כשברשותו תעודת זהות או דרכון. על המערער לתאם את הכניסה למאסר, כולל האפשרות למיון מוקדם, עם ענף אבחון ומיון של שירות בתי הסוהר, בטלפונים: 074-7831077 או 074-7831078.
-
-
-
-	ניתן היום, י&#34;ט באב התשפ&#34;ג (‏6.8.2023).
-
-
-
-
-
- ה נ ש י א ה
-
-    ש ו פ ט
+ש ו פ ט
 
 ש ו פ ט
 
 _________________________
 
-   22058280_E04.docx   שצ
+22058280_E04.docx שצ
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1755,7 +1938,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

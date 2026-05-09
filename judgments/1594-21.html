@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    01/07/2021 (לפני 1769 ימים)
+                    01/07/2021 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/1594-21.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="1594/21 - איתן מהרטו נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F1594-21.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/940/015/e02&amp;fileName=21015940.E02&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/940/015/e02&amp;fileName=21015940.E02&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/940/015/e02&amp;fileName=21015940.E02&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/940/015/e02&amp;fileName=21015940.E02&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,67 +1827,35 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            6
+            בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
+ע&#34;פ 1594/21
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
-
-ע&#34;פ  1594/21
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופט ד&#39; מינץ
 
-
-
 כבוד השופט ע&#39; גרוסקופף
-
-
 
 המערער:
 
 איתן מהרטו
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-
-
 ערעור על גזר דינו של בית המשפט המחוזי מרכז-לוד בת&#34;פ 034507-07-19 שניתן ביום 19.01.2021 על ידי כבוד השופט ע&#39; קובו
-
-
 
 תאריך הישיבה:
 
-ז&#39; בתמוז התשפ&#34;א       
+ז&#39; בתמוז התשפ&#34;א
 
-(17.06.2021) 
-
-
+(17.06.2021)
 
 בשם המערער:
 
@@ -1626,171 +1865,81 @@
 
 עו&#34;ד שרית חתוקה
 
-
-
-
-
 פסק-דין
 
 השופט י&#39; עמית:
 
-
-
 1.	ערעור על גזר דינו של בית המשפט המחוזי מרכז-לוד (כב&#39; השופט ע&#39; קובו), בת&#34;פ 34507-07-19 מיום 19.1.2021, במסגרתו נגזרו על המערער 46 חודשי מאסר בפועל, מאסר על תנאי ותשלום סכום התחייבות.
-
-
 
 2.	על פי עובדות כתב האישום המתוקן במסגרת הסדר טיעון, ביום 30.6.2019 מצא את מותו סלומון טקה ז&#34;ל, כתוצאה מירי על ידי שוטר. בעקבות זאת, בראשית חודש יולי 2019 פרצה מחאה רחבת היקף, שכללה הפגנות, חסימות כבישים, פעולות אלימות כנגד שוטרים ואזרחים, הצתות, יידויי אבנים ועוד.
 
-
-
 3.	על פי האישום הראשון, במהלך התקופה הרלוונטית לכתב האישום, המערער החזיק בחשבון ברשת החברתית &#34;פייסבוק&#34;, ופרסם בו, בין היתר, את הכיתוב &#34;Fuck the police&#34;, מלווה בתמונת אדם המכוון אקדח לעבר ניידת משטרה; וטקסט שבו קרא לחטיפת שוטרים ולפגיעה בהם ובנשותיהם, למשל על ידי זריקת רימונים ובקבוקי תבערה על שוטרים. יצוין כי לאחר שהפרסום האחרון הוסר, המערער העלה אותו בשנית.
 
+על פי האישום השני, ביום 2.7.2019 בשעות הערב, המערער יצא מביתו לכיוון פתח תקווה, כשהוא מצויד במטפחת לכיסוי פניו, במצית, בחומר דליק ובאגרופן, כדי להשתתף בהפגנה ובמטרה לפגוע בשוטרים. בעודו רעול פנים, המערער הגיע למקום בו חנתה ניידת משטרה, בעת שמספר אנשים יידו אבנים לעבר הניידת. המערער התקרב לניידת, שפך חומר דליק לתוכה והדליקו בעזרת המצית. לאחר שכבתה האש, המערער הצית את הניידת בשנית, כשהדליק קרטון שהונח בתוכה. לאחר מכן, שבר את חלון הניידת באמצעות אגרופן, וניפץ את השמשה הקדמית של הניידת בעזרת אבן שהשליך לעברה. כל אותה העת, אחרים שנכחו במקום הוסיפו ליידות אבנים לעבר הניידת, ושפכו לעברה חומר דליק, שנתן להם המערער.
 
-
-	על פי האישום השני, ביום 2.7.2019 בשעות הערב, המערער יצא מביתו לכיוון פתח תקווה, כשהוא מצויד במטפחת לכיסוי פניו, במצית, בחומר דליק ובאגרופן, כדי להשתתף בהפגנה ובמטרה לפגוע בשוטרים. בעודו רעול פנים, המערער הגיע למקום בו חנתה ניידת משטרה, בעת שמספר אנשים יידו אבנים לעבר הניידת. המערער התקרב לניידת, שפך חומר דליק לתוכה והדליקו בעזרת המצית. לאחר שכבתה האש, המערער הצית את הניידת בשנית, כשהדליק קרטון שהונח בתוכה. לאחר מכן, שבר את חלון הניידת באמצעות אגרופן, וניפץ את השמשה הקדמית של הניידת בעזרת אבן שהשליך לעברה. כל אותה העת, אחרים שנכחו במקום הוסיפו ליידות אבנים לעבר הניידת, ושפכו לעברה חומר דליק, שנתן להם המערער.
-
-
-
-	בהמשך לכך, המערער המשיך בדרכו כשהוא רעול פנים ומחזיק באגרופן, ובין היתר הצית מספר רב של פחים וקרטונים באמצעות חומר דליק; יידה אבנים לעבר שוטרים ולעבר תחנת משטרה, יחד עם מפגינים נוספים; הצית ערימת קרשים בסמוך לתחנת משטרה; וארב לשוטרים והשליך לעברם בקבוק תבערה, שהתנפץ על הכביש, בסמוך מאוד לשוטרים.
-
-
+בהמשך לכך, המערער המשיך בדרכו כשהוא רעול פנים ומחזיק באגרופן, ובין היתר הצית מספר רב של פחים וקרטונים באמצעות חומר דליק; יידה אבנים לעבר שוטרים ולעבר תחנת משטרה, יחד עם מפגינים נוספים; הצית ערימת קרשים בסמוך לתחנת משטרה; וארב לשוטרים והשליך לעברם בקבוק תבערה, שהתנפץ על הכביש, בסמוך מאוד לשוטרים.
 
 4.	בית המשפט המחוזי הרשיע את המערער, לנוכח הודאתו, בעבירות הסתה לאלימות (שלוש עבירות) – עבירה לפי סעיף 144ד2 לחוק העונשין, התשל&#34;ז-1977 (להלן: החוק); נשיאת נשק – עבירה לפי סעיף 144(ב) רישא לחוק; הצתה – עבירה לפי סעיף 448(א) סיפא לחוק; תקיפת שוטר בנסיבות מחמירות (ריבוי עבירות) – עבירה לפי סעיפים 274(1) ו-274(2) לחוק; היזק בזדון (ריבוי עבירות) – עבירה לפי סעיף 452 לחוק; והחזקת אגרופן שלא למטרה כשרה – עבירה לפי סעיף 186(א) לחוק.
 
-
-
 5.	בגזר הדין, בית המשפט עמד על הערכים החברתיים אשר נפגעו כתוצאה מהעבירות, הגנה על שלמות גופם של שוטרים ואזרחים ועל חייהם, הגנה על שלום הציבור ועל תחושת הביטחון של הציבור ושמירה על שלטון החוק והסדר הציבורי. בית המשפט קבע כי מעשיו של המערער פגעו בערכים המוגנים פגיעה ברף הגבוה, ובפרט עמד על חומרתה של עבירת ההצתה, לנוכח הפוטנציאל ההרסני שבה, משאין לדעת כיצד תתפשט האש ומה יהיה היקף הנזק שייגרם. כן עמד על החומרה הרבה בענייננו, משמדובר בהצתת ניידת משטרה, עבירה שיש בה משום התרסה ובקשה לפגוע בגורמי אכיפת החוק.
 
-
-
-	בנוסף לכך, בית המשפט ציין לחומרה, בין היתר, את הנזק שנגרם ממעשי המערער; את חלקו הדומיננטי במעשים, הגם שנעשו יחד עם אחרים; ואת העובדה כי מדובר במסכת ארוכה ומתמשכת של מעשים. לאחר מכן, עמד על עברו הפלילי של המערער, הכולל ארבע הרשעות קודמות בגין מגוון עבירות, ובעיקר עבירות אלימות ועבירות נגד שוטרים, שבגינן נידון, בין היתר, לשני עונשי מאסר בפועל. כן ציין כי על המערער הושת עונש מאסר מותנה והתחייבות כספית, כשלושה וחצי חודשים בלבד טרם ביצוע העבירות בענייננו.
-
-
+בנוסף לכך, בית המשפט ציין לחומרה, בין היתר, את הנזק שנגרם ממעשי המערער; את חלקו הדומיננטי במעשים, הגם שנעשו יחד עם אחרים; ואת העובדה כי מדובר במסכת ארוכה ומתמשכת של מעשים. לאחר מכן, עמד על עברו הפלילי של המערער, הכולל ארבע הרשעות קודמות בגין מגוון עבירות, ובעיקר עבירות אלימות ועבירות נגד שוטרים, שבגינן נידון, בין היתר, לשני עונשי מאסר בפועל. כן ציין כי על המערער הושת עונש מאסר מותנה והתחייבות כספית, כשלושה וחצי חודשים בלבד טרם ביצוע העבירות בענייננו.
 
 לאחר שקבע כי מתחם העונש ההולם הינו 60-30 חודשי מאסר בפועל, בית המשפט ציין את נסיבותיו האישיות של המערער, ובהן את גילו הצעיר, בהיותו כבן 24; נסיבות חייו המורכבות; העובדה כי עוד מגיל צעיר גיבש עמדות נוקשות ביחס לגורמי אכיפת חוק, לצד תחושות קיפוח, הפליה וכעס כלפי גורמי ממסד; והעובדה כי נטל אחריות והביע חרטה על מעשיו.
 
-
-
 6.	לנוכח זאת, בית המשפט המחוזי השית על המערער 46 חודשי מאסר בפועל, מתוכם שישה חודשי מאסר מותנה שהופעלו במצטבר; עונשי מאסר מותנה למשך 12 חודשים ו-6 חודשים; ותשלום סכום התחייבות על סך 6,000 ₪, שהוטל בת&#34;פ 61414-03-17.
-
-
 
 7.	מכאן הערעור שלפנינו, המופנה כנגד חומרת העונש שהושת על המערער. נטען, בין היתר, כי בית המשפט המחוזי התעלם מטענת המערער בנוגע לאכיפה בררנית ביחס לעבירת ההסתה לאלימות; כי לא הקנה משקל מספק לנסיבות שעמדו בבסיס העבירה, ובהן, תחושת מצוקה מתמשכת של המערער מול רשויות האכיפה; כי בבחנו את מדיניות הענישה הנוהגת, בית המשפט בחן פסיקה בעבירות שנעשו על רקע לאומני, בעוד שעניינו של המערער פחות חמור מכך; וכי לא העניק משקל מספק לקולה לנסיבותיו האישיות.
 
-
-
 8.	דין הערעור להידחות.
 
+הלכה ידועה היא, כי ערכאת ערעור אינה נוהגת להתערב בחומרת העונש שקבעה ערכאה דיונית, למעט במקרים חריגים, שבהם גזר הדין סוטה באופן ניכר ממדיניות הענישה הנוהגת, או כשנפלה בו טעות בולטת (ראו, מני רבים, ע&#34;פ 6404/20 עבאסי נ&#39; מדינת ישראל, בפסקה 10 והאסמכתאות שם (5.4.2021); ע&#34;פ 1937/18 רג&#39;בי נ&#39; מדינת ישראל, בפסקה 6 (18.4.2019)). עניינו של המערער אינו נמנה עם אותם מקרים המצדיקים התערבות.
 
-
-	הלכה ידועה היא, כי ערכאת ערעור אינה נוהגת להתערב בחומרת העונש שקבעה ערכאה דיונית, למעט במקרים חריגים, שבהם גזר הדין סוטה באופן ניכר ממדיניות הענישה הנוהגת, או כשנפלה בו טעות בולטת (ראו, מני רבים, ע&#34;פ 6404/20 עבאסי נ&#39; מדינת ישראל, בפסקה 10 והאסמכתאות שם (5.4.2021); ע&#34;פ 1937/18 רג&#39;בי נ&#39; מדינת ישראל, בפסקה 6 (18.4.2019)). עניינו של המערער אינו נמנה עם אותם מקרים המצדיקים התערבות.
-
-
-
-9.	המערער הורשע בעבירות חמורות, שיש בהן כדי לפגוע לא רק בביטחונם האישי של שוטרים ואזרחים, אלא גם בשלטון החוק. יפים לעניין זה דבריו של השופט (כתוארו אז) מ&#39; חשין, בנוגע למשיב שנטל חלק בהתפרעות אלימה נגד שוטרים (הדברים נכתבו בהקשר של החלטה בענייני מעצר, אולם יש בהם כדי ללמד על החומרה היתרה של עבירות כנגד כוחות הביטחון בכלל): 
-
-
+9.	המערער הורשע בעבירות חמורות, שיש בהן כדי לפגוע לא רק בביטחונם האישי של שוטרים ואזרחים, אלא גם בשלטון החוק. יפים לעניין זה דבריו של השופט (כתוארו אז) מ&#39; חשין, בנוגע למשיב שנטל חלק בהתפרעות אלימה נגד שוטרים (הדברים נכתבו בהקשר של החלטה בענייני מעצר, אולם יש בהם כדי ללמד על החומרה היתרה של עבירות כנגד כוחות הביטחון בכלל):
 
 &#34;ידעו צעירים בישראל, צעירים ומבוגרים כאחד, כי היודה אבנים בשוטר הבא להשליט סדר במקום של התפרעויות, מעלה על עצמו כי מסוכן הוא לשלומו של אדם ולשלום הציבור, ובהיותו כך מסוכן, צפוי הוא כי ייעצר להגנה על אותם ערכי יסוד שבלעדיהם לא נוכל לקיים חברה ראויה. אכן, אדם שהוכיח עצמו כי בכוונת-מכוון מרים הוא אבן על איש אשר החברה שלחה אותו להשליט משטר וסדר, חלופת מעצר לא תסכון למונעו מעשות שוב מעשה שעשה&#34; (בש&#34;פ 7171/00 מדינת ישראל נ&#39; חאמד, נד(4) 729, 732 (2000), הדגשה הוספה – י&#34;ע).
 
-
-
-
-
-	והדברים נכונים לענייננו על דרך של קל וחומר. המערער לא הניח ידו מכל מעשה הסתה, התפרעות ואלימות – החל מקריאה מעוררת חלחלה לפגוע בשוטרים ובנשותיהם דרך הצתת ניידת וכלה בהשלכת בקבוק תבערה לעבר שוטרים. מעשיו של המערער מעידים כי אין עליו מורא החוק ואין עליו מורא רשויות אכיפת החוק. ובכלל, הצתה של ניידת משטרה היא מעשה מובהק של עזות מצח והתרסה כנגד המשטרה והסדר הציבורי, ואין להתייחס לכך כאל עבירת הצתה &#34;רגילה&#34;. 
-
-
+והדברים נכונים לענייננו על דרך של קל וחומר. המערער לא הניח ידו מכל מעשה הסתה, התפרעות ואלימות – החל מקריאה מעוררת חלחלה לפגוע בשוטרים ובנשותיהם דרך הצתת ניידת וכלה בהשלכת בקבוק תבערה לעבר שוטרים. מעשיו של המערער מעידים כי אין עליו מורא החוק ואין עליו מורא רשויות אכיפת החוק. ובכלל, הצתה של ניידת משטרה היא מעשה מובהק של עזות מצח והתרסה כנגד המשטרה והסדר הציבורי, ואין להתייחס לכך כאל עבירת הצתה &#34;רגילה&#34;.
 
 10.	בענייננו, הגם שהיה מדובר במחאה נרחבת, מעשי המערער חמורים, וחלקו בנעשה היה דומיננטי, גם בהשוואה לסובבים אותו. זאת ועוד, כאמור, אין זו הפעם הראשונה שבה מורשע המערער בעבירות אלימות ובעבירות כנגד כוחות הביטחון, כשגזר דינו האחרון ניתן זמן קצר בלבד לפני ביצוע העבירות דכאן.
 
-
-
 11.	עיון בגזר דינו של בית המשפט המחוזי מגלה כי בית המשפט עמד כדבעי על מכלול השיקולים בעניינו של המערער, ולצד שיקולים לחומרה כמו חומרת המעשים ועברו הפלילי המכביד, התייחס גם לנסיבותיו האישיות של המערער. איני סבור כי נפל כל פגם באיזון שערך בית המשפט.
-
-
 
 12.	אף לא מצאתי כי יש בטענותיו הנוספות של המערער, כדי להביא להקלה בעונשו. בית המשפט המחוזי ראה לנגד עיניו את טענת המערער לעניין העונש הראוי בגין עבירת ההסתה לאלימות, וקבע מתחם עונש יחיד והולם ביחס למעשיו. מעבר לנדרש, אציין כי המערער לא הניח תשתית עובדתית מספקת לטענתו בדבר אכיפה בררנית.
 
-
-
 לעניין מדיניות הענישה הנוהגת, בלי לנקוט עמדה בנוגע לטענתו של המערער בדבר ההבחנה הראויה בין עבירות שנעברו על רקע לאומני, לבין עבירות שאינן כאלה, הרי שבית המשפט המחוזי התייחס גם למקרים שעניינם אינו בעבירות על רקע לאומני. עוד אציין, כי אין להתעלם מכך שהעונש שהושת בסופו של דבר על המערער, נמוך במידה ניכרת מעונשי המאסר המכסימליים הקבועים בחוק לחלק מן העבירות בהן הורשע.
-
-
 
 13.	סוף דבר, שהערעור נדחה.
 
 ש ו פ ט
 
-
-
-
-
 השופט ד&#39; מינץ:
 
-	אני מסכים.
+אני מסכים.
 
 ש ו פ ט
-
-
-
-
 
 השופט ע&#39; גרוסקופף:
 
-
-
-	אני מסכים. המעשים המיוחסים למערער חמורים מאד, ומצדיקים אף ענישה חמורה מזו שגזר לו בית המשפט קמא. עם זאת, לא נעלמו מעינינו, כפי שלא נעלמו מעיני בית המשפט המחוזי, נסיבותיו האישיות המצערות של המערער, המצוי בנתיב התנגשות עם רשויות אכיפת החוק מאז גיל 15, ואשר כבר הספיק לרצות בחייו הצעירים שתי תקופת מאסר, לתקופות של 12 ו- 14 חודשים. יש לקוות כי המערער ישכיל לנצל את תקופת מאסרו הנוכחית להתבוננות ולמחשבה, ויגיע לתובנות שיאפשרו לו לשנות את מסלול חייו, ולהיחלץ ממעגל ההתרסה האלים בו הוא מצוי. ככל שיעשה כן, בטוחני כי רשויות המדינה ידעו להושיט לו יד, ולסייע בשילובו בחברה הישראלית הנורמטיבית. זרע התקווה, כמו גם זרע הפורענות, טמון בבחירותיו של העורר. אין אנו יכולים אלא להענישו בעת הזו על בחירתו ברע בעבר; אך אל לנו להתייאש מהתקווה כי נוכל בעתיד לגמול לו על הבחירה בטוב. 
-
-
+אני מסכים. המעשים המיוחסים למערער חמורים מאד, ומצדיקים אף ענישה חמורה מזו שגזר לו בית המשפט קמא. עם זאת, לא נעלמו מעינינו, כפי שלא נעלמו מעיני בית המשפט המחוזי, נסיבותיו האישיות המצערות של המערער, המצוי בנתיב התנגשות עם רשויות אכיפת החוק מאז גיל 15, ואשר כבר הספיק לרצות בחייו הצעירים שתי תקופת מאסר, לתקופות של 12 ו- 14 חודשים. יש לקוות כי המערער ישכיל לנצל את תקופת מאסרו הנוכחית להתבוננות ולמחשבה, ויגיע לתובנות שיאפשרו לו לשנות את מסלול חייו, ולהיחלץ ממעגל ההתרסה האלים בו הוא מצוי. ככל שיעשה כן, בטוחני כי רשויות המדינה ידעו להושיט לו יד, ולסייע בשילובו בחברה הישראלית הנורמטיבית. זרע התקווה, כמו גם זרע הפורענות, טמון בבחירותיו של העורר. אין אנו יכולים אלא להענישו בעת הזו על בחירתו ברע בעבר; אך אל לנו להתייאש מהתקווה כי נוכל בעתיד לגמול לו על הבחירה בטוב.
 
 ש ו פ ט
 
+הוחלט כאמור בפסק דינו של השופט י&#39; עמית.
 
-
-
-
-
-
-	הוחלט כאמור בפסק דינו של השופט י&#39; עמית.
-
-
-
-
-
-	ניתן היום, ‏כ&#34;א בתמוז התשפ&#34;א (‏1.7.2021).
-
-
-
-
-
-
+ניתן היום, ‏כ&#34;א בתמוז התשפ&#34;א (‏1.7.2021).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
-
-
 
 _________________________
 
-   21015940_E02.docx   עכב
+21015940_E02.docx עכב
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1809,7 +1958,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

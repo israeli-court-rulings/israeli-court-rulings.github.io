@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    06/11/2001 (לפני 8946 ימים)
+                    06/11/2001 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/6389-00.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="6389/00 - יוסף סרחאן נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F6389-00.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/00/890/063/C02&amp;fileName=00063890_C02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/00/890/063/C02&amp;fileName=00063890_C02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/00/890/063/C02&amp;fileName=00063890_C02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/00/890/063/C02&amp;fileName=00063890_C02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,12 +1827,9 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            בבית
-המשפט העליון בשבתו כבית משפט לערעורים
-אזרחיים
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
-ע&#34;א
-6389/00
+ע&#34;א 6389/00
 
 בפני: כבוד השופטת ט&#39; שטרסברג-כהן
 
@@ -1583,63 +1851,37 @@
 
 4. מינהל מקרקעי ישראל
 
-ערעור על פסק הדין של בית המשפט המחוזי בחיפה מיום
-8.6.2000 בתיק בשא 7413/98 שניתן על ידי כבוד השופט עודד גרשון
+ערעור על פסק הדין של בית המשפט המחוזי בחיפה מיום 8.6.2000 בתיק בשא 7413/98 שניתן על ידי כבוד השופט עודד גרשון
 
-תאריך הישיבה: ה&#39; בחשון
-התשס&#34;ב (22.10.2001)
+תאריך הישיבה: ה&#39; בחשון התשס&#34;ב (22.10.2001)
 
-בשם
-המערערים: עו&#34;ד פאוזי חזן ועו&#34;ד זהרה שיח&#39;
+בשם המערערים: עו&#34;ד פאוזי חזן ועו&#34;ד זהרה שיח&#39;
 
-בשם
-המשיבים: עו&#34;ד משה גולן
+בשם המשיבים: עו&#34;ד משה גולן
 
 פסק-דין
 
 השופטת מ&#39; נאור:
 
-1. המערערים, יוסף כמאל סרחאן ויוסף סרחאן סרחאן,
-הינם, לטענתם, יורשיו על פי דין של המנוח סרחאן יוסף קאסם סרחאן (להלן: המנוח).
-המערערים הגישו לבית המשפט המחוזי בחיפה תביעה לפסק דין הצהרתי. הם ביקשו להצהיר
-שחלקות 16 ו17- בגוש 18517 (כיום 18507) בכפר מג&#39;ד כרום הינן בבעלותם והם זכאים
-להירשם בלשכת רישום מקרקעין כבעלים. עוד ביקשו להצהיר על בטלותה או ביטולה של
-תעודה שפורסמה בילקוט הפרסומים מיום 19.6.53 בחתימת שר האוצר דאז, לוי אשכול,
-בתוקף סמכותו לפי סעיף 2 לחוק רכישת המקרקעין (אישור פעולות ופיצויים)
-תשי&#34;ג1953- (להלן - התעודה). לפי התעודה, בכל קרקעות הכפר ברווה בשטח כולל של
-13,542 דונם התקיימו התנאים הבאים: ביום 1.4.52 לא היו בחזקת בעליהן; בין 14.5.48
-ל1.4.52- הם שימשו והוקצו לצורכי התיישבות ופיתוח חיוניים. הם עודם דרושים לצרכים
-האמורים. לכן - יקומו לקניין רשות הפיתוח מיום 19.6.53.
+1. המערערים, יוסף כמאל סרחאן ויוסף סרחאן סרחאן, הינם, לטענתם, יורשיו על פי דין של המנוח סרחאן יוסף קאסם סרחאן (להלן: המנוח). המערערים הגישו לבית המשפט המחוזי בחיפה תביעה לפסק דין הצהרתי. הם ביקשו להצהיר שחלקות 16 ו17- בגוש 18517 (כיום 18507) בכפר מג&#39;ד כרום הינן בבעלותם והם זכאים להירשם בלשכת רישום מקרקעין כבעלים. עוד ביקשו להצהיר על בטלותה או ביטולה של תעודה שפורסמה בילקוט הפרסומים מיום 19.6.53 בחתימת שר האוצר דאז, לוי אשכול, בתוקף סמכותו לפי סעיף 2 לחוק רכישת המקרקעין (אישור פעולות ופיצויים) תשי&#34;ג1953- (להלן - התעודה). לפי התעודה, בכל קרקעות הכפר ברווה בשטח כולל של 13,542 דונם התקיימו התנאים הבאים: ביום 1.4.52 לא היו בחזקת בעליהן; בין 14.5.48 ל1.4.52- הם שימשו והוקצו לצורכי התיישבות ופיתוח חיוניים. הם עודם דרושים לצרכים האמורים. לכן - יקומו לקניין רשות הפיתוח מיום 19.6.53.
 
-2. המשיבים (מדינת ישראל, אפוטרופוס לנכסי
-נפקדים, רשות הפיתוח ומנהל מקרקעי ישראל) הגישו לבית המשפט המחוזי בקשה לדחייה על
-הסף בשל מעשה בית דין. בקשתם התקבלה על ידי ערכאה ראשונה (כב&#39; השופט ע&#39; גרשון). על
-כך נסוב הערעור שבפנינו.
+2. המשיבים (מדינת ישראל, אפוטרופוס לנכסי נפקדים, רשות הפיתוח ומנהל מקרקעי ישראל) הגישו לבית המשפט המחוזי בקשה לדחייה על הסף בשל מעשה בית דין. בקשתם התקבלה על ידי ערכאה ראשונה (כב&#39; השופט ע&#39; גרשון). על כך נסוב הערעור שבפנינו.
 
-3. פסק הדין בגינו נדחתה התביעה על הסף בשל מעשה
-בית דין הוא פסק דין בפשרה שניתן ביום 2.9.87 בבית המשפט המחוזי בחיפה בתיק הסדר 3/ברווה. הצדדים לדין היו חברת הכשרת הישוב, הקרן הקיימת
-והאפוטרופוס לנכסי נפקדים. וזו לשונו של פסק הדין המוסכם:
+3. פסק הדין בגינו נדחתה התביעה על הסף בשל מעשה בית דין הוא פסק דין בפשרה שניתן ביום 2.9.87 בבית המשפט המחוזי בחיפה בתיק הסדר 3/ברווה. הצדדים לדין היו חברת הכשרת הישוב, הקרן הקיימת והאפוטרופוס לנכסי נפקדים. וזו לשונו של פסק הדין המוסכם:
 
 &#34;פסק-דין
 
-נשוא הדיון במשפט זה הוא זכאות ופיצויים לפי חוק
-רכישת מקרקעין ביחס לשתי חלקות אדמה בכפר בירווה שנרכש לפי חוק רכישת מקרקעין
-(אישור פעולות ופיצויים) ר.פ. 350 מיום 18.11.54. השאלה היא למי זכות הפיצויים
-עבור בעלות החלקות 16, 17 בגוש 8517 ברווה הרשומות ע&#34;ש רשות הפיתוח 2 הצדדים
-לאחר שמיעת ראיותיהם הגיעו לידי הסכם פשרה בישיבת היום וביהמ&#34;ש אישר את הפשרה
-הנדונה ונתן לה תוקף של פסק דין.
+נשוא הדיון במשפט זה הוא זכאות ופיצויים לפי חוק רכישת מקרקעין ביחס לשתי חלקות אדמה בכפר בירווה שנרכש לפי חוק רכישת מקרקעין (אישור פעולות ופיצויים) ר.פ. 350 מיום 18.11.54. השאלה היא למי זכות הפיצויים עבור בעלות החלקות 16, 17 בגוש 8517 ברווה הרשומות ע&#34;ש רשות הפיתוח 2 הצדדים לאחר שמיעת ראיותיהם הגיעו לידי הסכם פשרה בישיבת היום וביהמ&#34;ש אישר את הפשרה הנדונה ונתן לה תוקף של פסק דין.
 
 אי לכך אני מחליט כדלקמן:
 
-חלקה 16 בגוש 18517 מנדטורית זכות הפיצויים היא
-כדלקמן: 35/200 לקרן קיימת לישראל
+חלקה 16 בגוש 18517 מנדטורית זכות הפיצויים היא כדלקמן: 35/200 לקרן קיימת לישראל
 
 82,5/200 לעזבון סרחאן יוסף סרחאן
 
 82,5/200 לעזבון מוצטפה יוסף סרחאן
 
-לחלק 17 בגוש 18517 מנדטורית זכות הפיצויים היא
-כדלקמן -
+לחלק 17 בגוש 18517 מנדטורית זכות הפיצויים היא כדלקמן -
 
 עזבון סרחאן יוסף סרחאן ½
 
@@ -1647,87 +1889,43 @@
 
 ....&#34;.
 
-4. המערערים סומכים על פסק הדין האמור לענין
-הגדרת זכויותיהם במקרקעין, אך טוענים הם כי ההפקעה משנת 1953 בטלה מדעיקרא מטעמים
-שונים שציינו בתביעתם. בדין טוענים המשיבים שהמערערים מנועים מלתבוע הצהרה על
-בעלותם בקרקע. הסכם הפשרה שקיבל תוקף של פסק דין חוסם את דרכם לעשות כן. אין אדם
-יכול לטעון שהפקעה בטלה מדעיקרא לאחר שכבר ניתן, בהסכמתו, פסק דין חלוט לפיו זכאי
-הוא לפיצוי בגין ההפקעה. בדיון בפנינו בעל פה טען בא-כוח המערערים כי המערערים לא
-נטלו מעולם בפועל את הפיצויים. שאלה זו לא הועלתה וגם לא התבררה בערכאה הראשונה.
-אני סבורה שאין בשאלה אם הפיצויים התקבלו בפועל כדי לאצול על ענייננו. הפשרה
-שנעשתה משמעותה היא שהמנוח היה בעבר (לפני ההפקעה) בעלים של חלק מחלקות 16 ו17-
-שנרשמו כפי שעולה מפסק הדין על שם רשות הפיתוח. בגין כך זכאי היה המנוח לפיצויי
-הפקעה. הסדר מוסכם לפיו יתקבל פיצוי בגין הפקעת הקרקע אינו מאפשר למערערים לטעון
-עוד לבטלות ההפקעה, ומכאן - לבעלות במקרקעין. כידוע, גם פסק דין בהסכמה יכול להוות
-מעשה בית דין (נ&#39; זלצמן מעשה בית דין בהליך אזרחי עמ&#39; 330 ואילך). מקובלת עלי גם
-קביעת הערכאה הראשונה לפיה קיימת, לצורך סוגיית מעשה בית דין, זהות של הצדדים
-לדיון בשני ההליכים. המערערים היו צד להליך הקודם, והיה להם יומם בבית המשפט.
-המשיבים לפנינו הינם &#34;צדדים קרובים&#34; לצדדים שבהליך הקודם (השוו:
-ע&#34;א 165/76 רשות הפיתוח נ&#39; עזאם, פ&#34;ד לא(1) 253).
+4. המערערים סומכים על פסק הדין האמור לענין הגדרת זכויותיהם במקרקעין, אך טוענים הם כי ההפקעה משנת 1953 בטלה מדעיקרא מטעמים שונים שציינו בתביעתם. בדין טוענים המשיבים שהמערערים מנועים מלתבוע הצהרה על בעלותם בקרקע. הסכם הפשרה שקיבל תוקף של פסק דין חוסם את דרכם לעשות כן. אין אדם יכול לטעון שהפקעה בטלה מדעיקרא לאחר שכבר ניתן, בהסכמתו, פסק דין חלוט לפיו זכאי הוא לפיצוי בגין ההפקעה. בדיון בפנינו בעל פה טען בא-כוח המערערים כי המערערים לא נטלו מעולם בפועל את הפיצויים. שאלה זו לא הועלתה וגם לא התבררה בערכאה הראשונה. אני סבורה שאין בשאלה אם הפיצויים התקבלו בפועל כדי לאצול על ענייננו. הפשרה שנעשתה משמעותה היא שהמנוח היה בעבר (לפני ההפקעה) בעלים של חלק מחלקות 16 ו17- שנרשמו כפי שעולה מפסק הדין על שם רשות הפיתוח. בגין כך זכאי היה המנוח לפיצויי הפקעה. הסדר מוסכם לפיו יתקבל פיצוי בגין הפקעת הקרקע אינו מאפשר למערערים לטעון עוד לבטלות ההפקעה, ומכאן - לבעלות במקרקעין. כידוע, גם פסק דין בהסכמה יכול להוות מעשה בית דין (נ&#39; זלצמן מעשה בית דין בהליך אזרחי עמ&#39; 330 ואילך). מקובלת עלי גם קביעת הערכאה הראשונה לפיה קיימת, לצורך סוגיית מעשה בית דין, זהות של הצדדים לדיון בשני ההליכים. המערערים היו צד להליך הקודם, והיה להם יומם בבית המשפט. המשיבים לפנינו הינם &#34;צדדים קרובים&#34; לצדדים שבהליך הקודם (השוו: ע&#34;א 165/76 רשות הפיתוח נ&#39; עזאם, פ&#34;ד לא(1) 253).
 
-5. בבחינת למעלה מן הצורך, נעיר גם לגוף הענין:
-המערערים טענו, כאמור, ש&#34;התעודה&#34; בטלה מטעמים שונים שפורשו בתביעתם.
-המשיבים הצביעו על הליך אחר במסגרת הסדר הקרקעות האמור שבו אחד התובעים היה המנוח
-לגבי מקרקעין אחרים בשטח ההפקעה. התובעים, ובהם המנוח, ביקשו לתקוף את מעשה ההפקעה
-(שהיא אותה הפקעה נשוא ההתדיינות שבפנינו). הם טענו שלא התקיימו התנאים להפקעה.
-תביעתם נדחתה, וגם ערעור על כך לבית משפט זה - נדחה: ע&#34;א 2275/92 חסאן בשאר
-ואח&#39; נ&#39; רשות הפיתוח (לא פורסם). בערעור האמור עמד בית משפט זה על כך שהשיהוי הרב
-של יותר מ40- שנה בהעלאת טענות עובדתיות שונות בענין תוקפה של התעודה נועל את הדלת
-בפני המערערים בשאלה זו. (פסק דין מיום 22.7.96 מפי חברתי השופטת ט&#39; שטרסברג-כהן
-והשופטים צ&#39; טל וי&#39; טירקל). כוחם של דברים אלו שנאמרו בעניינה של אותה הפקעה בהליך
-שהמנוח היה צד לו, יפה גם לענייננו.
+5. בבחינת למעלה מן הצורך, נעיר גם לגוף הענין: המערערים טענו, כאמור, ש&#34;התעודה&#34; בטלה מטעמים שונים שפורשו בתביעתם. המשיבים הצביעו על הליך אחר במסגרת הסדר הקרקעות האמור שבו אחד התובעים היה המנוח לגבי מקרקעין אחרים בשטח ההפקעה. התובעים, ובהם המנוח, ביקשו לתקוף את מעשה ההפקעה (שהיא אותה הפקעה נשוא ההתדיינות שבפנינו). הם טענו שלא התקיימו התנאים להפקעה. תביעתם נדחתה, וגם ערעור על כך לבית משפט זה - נדחה: ע&#34;א 2275/92 חסאן בשאר ואח&#39; נ&#39; רשות הפיתוח (לא פורסם). בערעור האמור עמד בית משפט זה על כך שהשיהוי הרב של יותר מ40- שנה בהעלאת טענות עובדתיות שונות בענין תוקפה של התעודה נועל את הדלת בפני המערערים בשאלה זו. (פסק דין מיום 22.7.96 מפי חברתי השופטת ט&#39; שטרסברג-כהן והשופטים צ&#39; טל וי&#39; טירקל). כוחם של דברים אלו שנאמרו בעניינה של אותה הפקעה בהליך שהמנוח היה צד לו, יפה גם לענייננו.
 
-6. בא-כוח המערערים מוסיף וטוען כי הקרקע עומדת
-בשממונה מאז ההפקעה ולא נעשה בה כל שימוש קרוב ל50- שנה. בסיכומי התשובה מזכירים
-המערערים את ההחלטה שניתנה זמן קצר קודם לכן בבג&#34;צ 2390/96 יהודית קרסיק נ&#39;
-מינהל מקרקעי ישראל, פ&#34;ד נה(2) 625. הערכאה הראשונה לא התייחסה בפסק דינה
-לטענה שמטרת ההפקעה נזנחה. אולם, עיון במסמכי התביעה ובסיכומי ב&#34;כ המערערים
-בערכאה הראשונה בשאלת הדחייה על הסף, מעלה כי הטענות בענין זניחת מטרת ההפקעה
-לאורך שנים לא הועלו כעילה נפרדת, אלא כאינדיקציה לכך שהמקרקעין לא היו דרושים
-מלכתחילה לצורכי התיישבות ופיתוח חיונים. בסיכומיהם בערכאה הראשונה בענין הבקשה
-לדחייה על הסף, לא טענו המערערים, ולו באופן חלופי, כי גם אם תתקבל טענת מעשה בית
-דין לגבי ההפקעה משנת 1953 יש בידיהם עילה נפרדת - לפיה מטרת ההפקעה נזנחה.
+6. בא-כוח המערערים מוסיף וטוען כי הקרקע עומדת בשממונה מאז ההפקעה ולא נעשה בה כל שימוש קרוב ל50- שנה. בסיכומי התשובה מזכירים המערערים את ההחלטה שניתנה זמן קצר קודם לכן בבג&#34;צ 2390/96 יהודית קרסיק נ&#39; מינהל מקרקעי ישראל, פ&#34;ד נה(2) 625. הערכאה הראשונה לא התייחסה בפסק דינה לטענה שמטרת ההפקעה נזנחה. אולם, עיון במסמכי התביעה ובסיכומי ב&#34;כ המערערים בערכאה הראשונה בשאלת הדחייה על הסף, מעלה כי הטענות בענין זניחת מטרת ההפקעה לאורך שנים לא הועלו כעילה נפרדת, אלא כאינדיקציה לכך שהמקרקעין לא היו דרושים מלכתחילה לצורכי התיישבות ופיתוח חיונים. בסיכומיהם בערכאה הראשונה בענין הבקשה לדחייה על הסף, לא טענו המערערים, ולו באופן חלופי, כי גם אם תתקבל טענת מעשה בית דין לגבי ההפקעה משנת 1953 יש בידיהם עילה נפרדת - לפיה מטרת ההפקעה נזנחה.
 
-7. אני מציעה לדחות את הערעור ולחייב את המערערים
-בתשלום הוצאות משפט ושכ&#34;ט עו&#34;ד בסכום כולל של 15,000 ש&#34;ח.
+7. אני מציעה לדחות את הערעור ולחייב את המערערים בתשלום הוצאות משפט ושכ&#34;ט עו&#34;ד בסכום כולל של 15,000 ש&#34;ח.
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
 השופטת ט&#39; שטרסברג-כהן:
 
 אני מסכימה.
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
 השופטת א&#39; פרוקצ&#39;יה:
 
 אני מסכימה.
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
 הוחלט כאמור בפסק הדין של השופט מ&#39; נאור.
 
 ניתן היום, כ&#39; בחשון התשס&#34;ב (6.11.2001).
 
-ש ו פ ט ת ש
-ו פ ט ת ש ו פ ט ת
+ש ו פ ט ת ש ו פ ט ת ש ו פ ט ת
 
 _________________
 
-העתק
-מתאים למקור 00063890.C02 .צש
+העתק מתאים למקור 00063890.C02 .צש
 
-נוסח
-זה כפוף לשינויי עריכה וניסוח.
+נוסח זה כפוף לשינויי עריכה וניסוח.
 
-שמריהו
-כהן - מזכיר ראשי
+שמריהו כהן - מזכיר ראשי
 
-בבית
-המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
+בבית המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
         </div>
     </section>
     
@@ -1746,7 +1944,7 @@ _________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

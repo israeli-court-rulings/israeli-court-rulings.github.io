@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    31/01/2019 (לפני 2651 ימים)
+                    31/01/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5112-18.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5112/18 - מנחם פנסו נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5112-18.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/120/051/q04&amp;fileName=18051120.Q04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/120/051/q04&amp;fileName=18051120.Q04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/120/051/q04&amp;fileName=18051120.Q04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/120/051/q04&amp;fileName=18051120.Q04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,208 +1827,97 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            1
+            בבית המשפט העליון
 
+רע&#34;פ 5112/18
 
-
-
-
-5
-
-
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון 
-
-
-
-רע&#34;פ  5112/18
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט נ&#39; סולברג
 
-
-
 כבוד השופט ג&#39; קרא
 
-
-
 כבוד השופט י&#39; אלרון
-
-
 
 המבקש:
 
 מנחם פנסו
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-	
-
 בקשת רשות ערעור על פסקי דינו של בית המשפט המחוזי מרכז-לוד בעפ&#34;ג 38755-05-17 מיום 22.10.2017 שניתן על ידי כב&#39; הנשיא אברהם טל וכב&#39; השופטות זהבה בוסתן ונאוה בכור ובעפ&#34;ג 16279-01-18 מיום 10.6.2018 שניתן על ידי כב&#39; הנשיא אברהם טל וכב&#39; השופטות דנה מרשק מרום ונאוה בכור
-
-	
 
 תאריך הישיבה:
 
 י&#34;ז בשבט התשע&#34;ט (23.1.2019)
 
-
-
-
-
 בשם המבקש:
 
-עו&#34;ד אלון קריטי 
+עו&#34;ד אלון קריטי
 
 בשם המשיבה:
 
 עו&#34;ד נילי פינקלשטיין
 
-	
-
-	
-
-	
-
 פסק-דין
-
-
-
-
 
 השופט ג&#39; קרא:
 
+בקשת רשות ערעור על פסקי דינו של בית המשפט המחוזי מרכז-לוד בעפ&#34;ג 38755-05-17 מיום 22.10.2017 (כב&#39; הנשיא א&#39; טל וכב&#39; השופטות ז&#39; בוסתן ו-נ&#39; בכור) (להלן: הערעור הראשון) ובעפ&#34;ג 16279-01-18 מיום 10.6.2018 (כב&#39; הנשיא א&#39; טל וכב&#39; השופטות ד&#39; מרשק מרום ו-נ&#39; בכור) (להלן: הערעור השני).
 
+1.	נגד המבקש הוגשו שני כתבי אישום בעבירות סמים כדלקמן:
 
-	בקשת רשות ערעור על פסקי דינו של בית המשפט המחוזי מרכז-לוד בעפ&#34;ג  38755-05-17 מיום 22.10.2017  (כב&#39; הנשיא א&#39; טל וכב&#39; השופטות ז&#39; בוסתן ו-נ&#39; בכור)  (להלן: הערעור הראשון) ובעפ&#34;ג 16279-01-18 מיום 10.6.2018  (כב&#39; הנשיא א&#39; טל וכב&#39; השופטות ד&#39; מרשק מרום ו-נ&#39; בכור) (להלן: הערעור השני).
+א.	ת&#34;פ 39904-05-16 הוגש לבית המשפט השלום בראשון לציון ביום 19.5.2016 וייחס למבקש עבירה של החזקת סם מסוכן מסוג קוקאין במשקל של כ- 50 גרם שלא לצריכה עצמית (לפי סעיף 7(א)+7(ג) רישא לפקודת הסמים המסוכנים [נוסח חדש], התשל&#34;ג-1973 (להלן: הפקודה)). בגין ההליכים בתיק זה היה המבקש עצור בפיקוח אלקטרוני (להלן: התיק הראשון).
 
+ב.	ת&#34;פ 40965-10-16 הוגש לבית משפט השלום בראשון לציון ביום 30.10.2016 וייחס למבקש עבירות של גידול סם מסוכן (לפי סעיף 6 לפקודה + סעיף 29(א) לחוק העונשין, התשל&#34;ז-1977 (להלן: החוק)); החזקת סמים שלא לצריכה עצמית (לפי סעיף 7(א)+7(ג) רישא לפקודה); והפרת הוראה חוקית (לפי סעיף 287(א) לחוק). העבירות כאן נעברו על ידי המבקש תוך כדי מעצרו בפיקוח אלקטרוני כאמור לעיל (להלן: התיק השני).
 
+התיק הראשון והתיק השני התנהלו במקביל בבית משפט השלום בראשון לציון בפני שני מותבים שונים.
 
-1.	נגד המבקש הוגשו שני כתבי אישום בעבירות סמים כדלקמן: 
+2.	ביום 5.4.2017 נגזר דינו של המבקש בתיק הראשון ל- 38 חודשי מאסר לריצוי בפועל.
 
-
-
-	א.	ת&#34;פ 39904-05-16 הוגש לבית המשפט השלום בראשון לציון ביום 19.5.2016 וייחס למבקש עבירה של החזקת סם מסוכן מסוג קוקאין במשקל של כ- 50 גרם שלא לצריכה עצמית (לפי סעיף 7(א)+7(ג) רישא לפקודת הסמים המסוכנים [נוסח חדש], התשל&#34;ג-1973 (להלן: הפקודה)). בגין ההליכים בתיק זה היה המבקש עצור בפיקוח אלקטרוני (להלן: התיק הראשון).
-
-
-
-	ב.	ת&#34;פ 40965-10-16 הוגש לבית משפט השלום בראשון לציון ביום 30.10.2016 וייחס למבקש עבירות של גידול סם מסוכן (לפי סעיף 6 לפקודה + סעיף 29(א) לחוק העונשין, התשל&#34;ז-1977 (להלן: החוק)); החזקת סמים שלא לצריכה עצמית (לפי סעיף 7(א)+7(ג) רישא לפקודה); והפרת הוראה חוקית (לפי סעיף 287(א) לחוק). העבירות כאן נעברו על ידי המבקש תוך כדי מעצרו בפיקוח אלקטרוני כאמור לעיל (להלן: התיק השני).
-
-
-
-	התיק הראשון והתיק השני התנהלו במקביל בבית משפט השלום בראשון לציון בפני שני מותבים שונים. 
-
-
-
-2.	ביום 5.4.2017 נגזר דינו של המבקש בתיק הראשון ל- 38 חודשי מאסר לריצוי בפועל. 
-
-
-
-	ביום 6.4.2017 (יום לאחר מתן גזר הדין בתיק הראשון), נגזר דינו של המבקש בתיק השני ל- 22 חודשי מאסר בפועל. בגין טעות שנגרמה בעטיה של המשיבה, שלא עדכנה את בית המשפט בקיומו של גזר הדין בתיק הראשון, לא פירט בית המשפט את אופן נשיאת עונש המאסר שהוטל בתיק השני. בנסיבות האמורות חלה הוראת סעיף 45(ב) לחוק, לפיה עונש המאסר בתיק השני יחפוף לעונש המאסר בתיק הראשון. 
-
-
+ביום 6.4.2017 (יום לאחר מתן גזר הדין בתיק הראשון), נגזר דינו של המבקש בתיק השני ל- 22 חודשי מאסר בפועל. בגין טעות שנגרמה בעטיה של המשיבה, שלא עדכנה את בית המשפט בקיומו של גזר הדין בתיק הראשון, לא פירט בית המשפט את אופן נשיאת עונש המאסר שהוטל בתיק השני. בנסיבות האמורות חלה הוראת סעיף 45(ב) לחוק, לפיה עונש המאסר בתיק השני יחפוף לעונש המאסר בתיק הראשון.
 
 3.	לאחר שהמשיבה גילתה את הטעות שנפלה וסברה כי התוצאה העונשית הכוללת, לפיה חפיפת 22 חודשי מאסר שהוטלו בתיק השני מביאה לתוצאה עונשית שאינה הולמת את חומרת המעשים, הגישה ביום 18.5.2017 את הערעור הראשון, בו התבקשה ערכאת הערעור להורות על צבירת העונשים ו/או לחילופין החזרת הדיון לבית משפט השלום לגזירת הדין מחדש.
 
+4.	בית המשפט המחוזי קיבל את ערעור המשיבה בערעור הראשון. לאחר ששקל את מכלול השיקולים והאינטרסים החליט לבטל את גזר הדין ולהשיב את הדיון בו לערכאה דלמטה.
 
+5.	ביום 4.1.2018 גזר בית משפט השלום בראשון לציון את דינו של המבקש מחדש, כך שמתוך 22 חודשי המאסר בפועל שהוטלו יופעלו 5 חודשים בחופף ויתרתם במצטבר. בית המשפט נימק את מסקנתו העונשית בכך שחפיפה מלאה של העונשים לא מביאה לכלל ביטוי עונשי את משמעות העבירות החמורות בגינן הורשע בתיק השני.
 
-4.	בית המשפט המחוזי קיבל את ערעור המשיבה בערעור הראשון. לאחר ששקל את מכלול השיקולים והאינטרסים החליט לבטל את גזר הדין ולהשיב את הדיון בו לערכאה דלמטה. 
+6.	על גזר דינו של בית משפט השלום הוגש הערעור השני לבית המשפט המחוזי מחוז מרכז-לוד. בית המשפט המחוזי דחה את הערעור וקבע כי המדיניות המשפטית אינה אמורה להשתנות &#34;מקום בו התביעה לא היתה מודעת לקיומו של גזר דין נוסף בעניינו של המערער, לא הפנתה את תשומת לבו של בית המשפט קמא לכך, ונמצא שיוצא חוטא נשכר לא כל שכן מקום בו להתנהלות התביעה ניתן ביטוי הולם בגזר הדין המשלים על ידי חפיפת חלקו של עונש המאסר למאסר הנוכחי&#34;. לסיכום נקבע, כי התוצאה העונשית סבירה ומאוזנת ואינה מצדיקה התערבות. עוד נקבע, כי &#34;חובתו של בא כוח המערער, כמו של המאשימה, היתה להאיר את תשומת לבו של בית המשפט קמא לכל נסיבה רלוונטית שנעלמה מעיניו טרם מתן גזר הדין&#34;.
 
+7.	בבקשת רשות הערעור מיקד בא כוח המבקש את טיעונו בדברי בית המשפט באשר להתנהלות הצדדים ובמיוחד לענין חובתו של סניגור לגלות לפני בית המשפט, בניגוד לאינטרס של לקוחו, דבר קיומו של גזר הדין הראשון שהוטל על המבקש. עוד נטען, כי גזירת דינו מחדש של המבקש תוך חפיפת 5 חודשי מאסר בלבד וצבירת יתרתו הביאה להחמרה בענישה. עוד נטען כי בהתחשב במכלול הנסיבות ראוי היה לחפוף את מלוא תקופת המאסר בתיק השני לזו שהוטלה בתיק הראשון.
 
+להשלמת התמונה נציין כי הסנגוריה הציבורית ביקשה להצטרף לבקשת רשות הערעור כידיד בית המשפט בשאלה אותה מעלה בא כוח המבקש, באשר ליחס בין חובת הסניגור כלפי לקוחו לחובתו כלפי בית המשפט.
 
-5.	ביום 4.1.2018 גזר בית משפט השלום בראשון לציון את דינו של המבקש מחדש, כך שמתוך 22 חודשי המאסר בפועל שהוטלו יופעלו 5 חודשים בחופף ויתרתם במצטבר. בית המשפט נימק את מסקנתו העונשית בכך שחפיפה מלאה של העונשים לא מביאה לכלל ביטוי עונשי את משמעות העבירות החמורות בגינן הורשע בתיק השני. 
+המשיבה התנגדה למתן רשות ערעור. לדידה, השאלה אותה מציב בא כוח המבקש במוקד הבקשה חרף היבטיה העקרוניים אינה נדרשת להכרעה משלא היתה לה השלכה על עניינו של המבקש לפנינו. מטעם זה התנגדה לצירופה של הסנגוריה הציבורית להליך כידיד בית המשפט. עוד ציינה, כי חרף ביקורתו של בית המשפט המחוזי כלפי הצדדים ודבריו באשר לחובותיהם של המייצגים משני צדדי המתרס כלפי בית המשפט &#34;ההצדקה להחזרת הדיון לבית משפט השלום לגזירת הדין מחדש היתה העדרה של &#39;עובדה חשובה ומהותית&#39;&#34;, קרי, אי הבאת העובדה בדבר קיומו של גזר הדין בתיק הראשון לידיעת בית המשפט.
 
+8.	לאחר ששמענו את טיעוני באי כוח הצדדים בעל פה החלטנו שלא לצרף את הסנגוריה הציבורית להליך כידיד בית המשפט ולא ליתן רשות ערעור, ננמק:
 
+הטענה המשפטית אותה הציג בא כוח המבקש הינה שאלת חובת הנאמנות של סנגור כלפי לקוחו מחד ומאידך חובת הסנגור כקצין בית המשפט כלפי בית המשפט. אמנם יש בטענה היבטים עקרוניים הראויים להכרעה, אך נראה כי בנסיבות עניינו של המבקש הדבר אינו נדרש. משכך, שאלה זו תמתין לעת מצוא.
 
-6.	על גזר דינו של בית משפט השלום הוגש הערעור השני לבית המשפט המחוזי מחוז מרכז-לוד. בית המשפט המחוזי דחה את הערעור וקבע כי המדיניות המשפטית אינה אמורה להשתנות &#34;מקום בו התביעה לא היתה מודעת לקיומו של גזר דין נוסף בעניינו של המערער, לא הפנתה את תשומת לבו של בית המשפט קמא לכך, ונמצא שיוצא חוטא נשכר לא כל שכן מקום בו להתנהלות התביעה ניתן ביטוי הולם בגזר הדין המשלים על ידי חפיפת חלקו של עונש המאסר למאסר הנוכחי&#34;. לסיכום נקבע, כי התוצאה העונשית סבירה ומאוזנת ואינה מצדיקה התערבות. עוד נקבע, כי &#34;חובתו של בא כוח המערער, כמו של המאשימה, היתה להאיר את תשומת לבו של בית המשפט קמא לכל נסיבה רלוונטית שנעלמה מעיניו טרם מתן גזר הדין&#34;. 
+מקריאת פסק דינו של בית המשפט המחוזי בערעור הראשון עולה כי השאלה שעמדה להכרעה היתה שאלת השפעת הטעות על גזר דינו של בית משפט השלום, ולא מי היה אחראי לגרימת הטעות. בלשון בית המשפט המחוזי &#34;הסוגיה בבסיס הערעור שבפנינו עניינה נפקותו של גזר דין שניתן תוך שנעלמה מעיניה של הערכאה הדיונית העובדה כי המשיב נדון יום קודם לכן למאסר ממושך של 38 חודשי מאסר בפועל בתיק אחר, וכפועל יוצא – גם היקף חובת סנגור לחשוף את המידע שברשותו לבית המשפט בנסיבות אלה, ומניעת הטעייתו&#34;.
 
+אף שבית המשפט המחוזי נדרש בפסק דינו, ולטעמנו מעבר לנדרש, לשאלת חובות הסנגור ורשלנות התביעה, הוא הכריע את סוגית הטעות לגופה והחליט כדלקמן: &#34;מששקלנו בכובד ראש את השיקולים ואת מכלול האינטרסים ובמכלול זה אינטרס המשיב לצד האינטרס הציבורי ורשלנות התביעה, הגענו לכלל מסקנה כי מן הצדק לתקן את הפגם, לבטל את גזר הדין ולהשיב את הדיון לערכאה דלמטה&#34;. במילים אחרות, משנפלה טעות יש לתקנה משהאינטרס הציבורי מחייב את תיקונה ואין כל משמעות לשאלה מי מהצדדים היה אחראי לה. הנמקתו ומסקנתו של בית המשפט המחוזי מקובלות עלינו. שקלנו את טענת המבקש כי עונשו הוחמר בעקבות הטעות ולא מצאנו בה ממש. העונש הכולל שעל המבקש לשאת בו כתוצאה מהרשעתו וגזירת דינו בשני תיקי סמים חמורים אינו סוטה ממדיניות הענישה הנוהגת והמקובלת ואינו מצדיק התערבות, לבטח שלא במסגרת גלגול שלישי.
 
+9.	אי לכך לא מצאנו מקום ליתן רשות ערעור. הבקשה נדחית.
 
-7.	בבקשת רשות הערעור מיקד בא כוח המבקש את טיעונו בדברי בית המשפט באשר להתנהלות הצדדים ובמיוחד לענין חובתו של סניגור לגלות לפני בית המשפט, בניגוד לאינטרס של לקוחו, דבר קיומו של גזר הדין הראשון שהוטל על המבקש. עוד נטען, כי גזירת דינו מחדש של המבקש תוך חפיפת 5 חודשי מאסר בלבד וצבירת יתרתו הביאה להחמרה בענישה. עוד נטען כי בהתחשב במכלול הנסיבות ראוי היה לחפוף את מלוא תקופת המאסר בתיק השני לזו שהוטלה בתיק הראשון. 
-
-
-
-	להשלמת התמונה נציין כי הסנגוריה הציבורית ביקשה להצטרף לבקשת רשות הערעור כידיד בית המשפט בשאלה אותה מעלה בא כוח המבקש, באשר ליחס בין חובת הסניגור כלפי לקוחו לחובתו כלפי בית המשפט. 
-
-
-
-	המשיבה התנגדה למתן רשות ערעור. לדידה, השאלה אותה מציב בא כוח המבקש במוקד הבקשה חרף היבטיה העקרוניים אינה נדרשת להכרעה משלא היתה לה השלכה על עניינו של המבקש לפנינו. מטעם זה התנגדה לצירופה של הסנגוריה הציבורית להליך כידיד בית המשפט. עוד ציינה, כי חרף ביקורתו של בית המשפט המחוזי כלפי הצדדים ודבריו באשר לחובותיהם של המייצגים משני צדדי המתרס כלפי בית המשפט &#34;ההצדקה להחזרת הדיון לבית משפט השלום לגזירת הדין מחדש היתה העדרה של &#39;עובדה חשובה ומהותית&#39;&#34;, קרי, אי הבאת העובדה בדבר קיומו של גזר הדין בתיק הראשון לידיעת בית המשפט. 
-
-
-
-8.	לאחר ששמענו את טיעוני באי כוח הצדדים בעל פה החלטנו שלא לצרף את הסנגוריה הציבורית להליך כידיד בית המשפט ולא ליתן רשות ערעור, ננמק: 
-
-
-
-	הטענה המשפטית אותה הציג בא כוח המבקש הינה שאלת חובת הנאמנות של סנגור כלפי לקוחו מחד ומאידך חובת הסנגור כקצין בית המשפט כלפי בית המשפט. אמנם יש בטענה היבטים עקרוניים הראויים להכרעה, אך נראה כי בנסיבות עניינו של המבקש הדבר אינו נדרש. משכך, שאלה זו תמתין לעת מצוא. 
-
-
-
-	מקריאת פסק דינו של בית המשפט המחוזי בערעור הראשון עולה כי השאלה שעמדה להכרעה היתה שאלת השפעת הטעות על גזר דינו של בית משפט השלום, ולא מי היה אחראי לגרימת הטעות. בלשון בית המשפט המחוזי &#34;הסוגיה בבסיס הערעור שבפנינו עניינה נפקותו של גזר דין שניתן תוך שנעלמה מעיניה של הערכאה הדיונית העובדה כי המשיב נדון יום קודם לכן למאסר ממושך של 38 חודשי מאסר בפועל בתיק אחר, וכפועל יוצא – גם היקף חובת סנגור לחשוף את המידע שברשותו לבית המשפט בנסיבות אלה, ומניעת הטעייתו&#34;. 
-
-
-
-	אף שבית המשפט המחוזי נדרש בפסק דינו, ולטעמנו מעבר לנדרש, לשאלת חובות הסנגור ורשלנות התביעה, הוא הכריע את סוגית הטעות לגופה והחליט כדלקמן: &#34;מששקלנו בכובד ראש את השיקולים ואת מכלול האינטרסים ובמכלול זה אינטרס המשיב לצד האינטרס הציבורי ורשלנות התביעה, הגענו לכלל מסקנה כי מן הצדק לתקן את הפגם, לבטל את גזר הדין ולהשיב את הדיון לערכאה דלמטה&#34;. במילים אחרות, משנפלה טעות יש לתקנה משהאינטרס הציבורי מחייב את תיקונה ואין כל משמעות לשאלה מי מהצדדים היה אחראי לה. הנמקתו ומסקנתו של בית המשפט המחוזי מקובלות עלינו. שקלנו את טענת המבקש כי עונשו הוחמר בעקבות הטעות ולא מצאנו בה ממש. העונש הכולל שעל המבקש לשאת בו כתוצאה מהרשעתו וגזירת דינו בשני תיקי סמים חמורים אינו סוטה ממדיניות הענישה הנוהגת והמקובלת ואינו מצדיק התערבות, לבטח שלא במסגרת גלגול שלישי. 
-
-
-
-
-
-
-9.	אי לכך לא מצאנו מקום ליתן רשות ערעור. הבקשה נדחית. 
-
-
-
-	ניתן היום, ‏כ&#34;ה בשבט התשע&#34;ט (‏31.1.2019).
-
-
-
-
-
-
-
-
+ניתן היום, ‏כ&#34;ה בשבט התשע&#34;ט (‏31.1.2019).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
-
-
-
-
 
 _________________________
 
-   18051120_Q04.docx   סח
+18051120_Q04.docx סח
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1776,7 +1936,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

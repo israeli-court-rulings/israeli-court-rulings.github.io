@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    02/04/2023 (לפני 1129 ימים)
+                    02/04/2023 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/2563-23.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="2563/23 - יזן חמאדה נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F2563-23.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/630/025/f06&amp;fileName=23025630.F06&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/630/025/f06&amp;fileName=23025630.F06&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/630/025/f06&amp;fileName=23025630.F06&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/630/025/f06&amp;fileName=23025630.F06&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,181 +1827,85 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון
 
+בש&#34;פ 2563/23
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-בש&#34;פ  2563/23
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט א&#39; שטיין
-
-
 
 העורר:
 
 יזן חמאדה
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-	
-
 ערעור על החלטת בית המשפט המחוזי ירושלים (השופט א&#39; נחלון) שניתנה ביום 26.3.2023 במ&#34;ת 57497-03-23
-
-	
 
 בשם העורר:
 
 עו&#34;ד יעקוב ג&#39;בר
 
-
-
 בשם המשיבה:
 
 עו&#34;ד אפרת גולדשטיין רוזן
 
-
-
-	
-
 פסק-דין
-
-
 
 הערעור
 
-
-
 לפניי ערעור שהוגש לפי סעיף 70ד לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984 (להלן: חוק בתי המשפט או החוק), על החלטת בית המשפט המחוזי ירושלים (השופט א&#39; נחלון) אשר ניתנה ביום 26.3.2023 במ&#34;ת 57497-03-23, ואשר במסגרתה דחה בית המשפט את בקשת המערער להאריך את תוקף הצו בדבר איסור פרסום שמו לאחר הגשת כתב אישום בת&#34;פ (מחוזי י-ם) 57426-03-23 (להלן: ההליך העיקרי) אשר מייחס למערער מעשי עבירה הקשורים לטרור.
 
+העובדות
 
-
-	העובדות
-
-
-
-כתב האישום שהוגש נגד המערער בהליך העיקרי מייחס לו מגע עם סוכן חוץ, עבירה לפי סעיף 114(א) לחוק העונשין, התשל&#34;ז-1977 (להלן: חוק העונשין); קשירת קשר למעשה טרור, עבירה לפי סעיף 38(ג)(1) לחוק המאבק בטרור, התשע&#34;ו-2016; וקשירת קשר לרכישת נשק או להחזקתו, עבירה לפי סעיף 499(א)(1) בצירוף סעיף 144(א) לחוק העונשין.  
-
-
+כתב האישום שהוגש נגד המערער בהליך העיקרי מייחס לו מגע עם סוכן חוץ, עבירה לפי סעיף 114(א) לחוק העונשין, התשל&#34;ז-1977 (להלן: חוק העונשין); קשירת קשר למעשה טרור, עבירה לפי סעיף 38(ג)(1) לחוק המאבק בטרור, התשע&#34;ו-2016; וקשירת קשר לרכישת נשק או להחזקתו, עבירה לפי סעיף 499(א)(1) בצירוף סעיף 144(א) לחוק העונשין.
 
 בכתב האישום נטען כי בחודש ינואר 2023 פנה אל המערער אדם אשר זהותו אינה מוכרת למדינה (להלן: עראם) באמצעות אפליקציית &#34;טיקטוק&#34; (להלן: טיקטוק). עראם ציין כי צפה בסרטונים אותם פרסם המערער בחשבון הטיקטוק שלו והציע לו להמשיך להתכתב באמצעות אפליקציית &#34;טלגרם&#34; (להלן: טלגרם). לאחר שהשניים עברו להתכתבות באמצעות טלגרם, כתב עראם למערער כי בעברו ריצה עונש מאסר בכלא הישראלי והחל לשוחח עם המערער על המצב ביהודה ושומרון ובשכם. בהמשך, קישר עראם בין המערער לבין אדם נוסף שזהותו אינה מוכרת למדינה (להלן: מחמד). במסגרת התכתבות המערער עם מחמד, הציע מחמד למערער לבצע פיגוע נגד חיילים יהודיים באמצעות הנחת מטעני חבלה. המערער נענה להצעה. לאחר זמן מה, הודיע מחמד למערער כי יש לשנות את מתווה הפיגוע לפיגוע ירי וביקש שהמערער ישיג לעצמו נשק. לאור האמור, יצר המערער קשר עם שניים מחבריו בניסיון להשיג מהם נשק. זמן-מה לאחר מכן, מחמד שב ויצר קשר עם המערער ועדכנוֹ כי הפיגוע יהא פיגוע דריסה. מחמד ביקש מהמערער לרכוש רכב כדי להוציא את הפיגוע אל הפועל והמערער נעתר לבקשתו. כמו כן ביקש מחמד שהמערער יצרף את עצמו לקבוצת טלגרם המכונה &#34;מג&#39;מועת אלפדאאי&#34; כדי לפרסם אצלה את צוואתו בטרם יציאתו לפיגוע. המערער הצטרף לקבוצה זו, אולם לאחר מכן פרש ממנה מרצונו.
 
+בד-בבד עם הגשת כתב האישום, הגישה המדינה בקשה לעצור את המערער עד תום משפטו בהליך העיקרי (מ&#34;ת 57497-03-23). עוד באותו יום הסכים המערער לקיומם של &#34;ניצוץ ראייתי&#34; ועילת מעצר. בית המשפט המחוזי הורה על מעצרו של המערער עד למתן החלטה אחרת.
 
-
-בד-בבד עם הגשת כתב האישום, הגישה המדינה בקשה לעצור את המערער עד תום משפטו בהליך העיקרי (מ&#34;ת 57497-03-23). עוד באותו יום הסכים המערער לקיומם של &#34;ניצוץ ראייתי&#34; ועילת מעצר. בית המשפט המחוזי הורה על מעצרו של המערער עד למתן החלטה אחרת. 
-
-
-
-במסגרתו של דיון זה, ביקש המערער מבית המשפט להאריך את הצו אשר אסר על פרסום שמו בעודו חשוד לפני הגשת כתב-האישום. הארכה כאמור נתבקשה עד למתן החלטה אחרת או עד למתן החלטה בדבר קיומן של ראיות לכאורה לצרכי המעצר עד תום משפטו של המערער. בקשה זו נסמכה על העובדות הבאות: (1) אביו של המערער מועסק כמאבטח על ידי מעסיק ישראלי, ואחיו אף הם עובדים בישראל; (2) מדובר במשפחה נורמטיבית שלא ניתן לייחס לה אשמה למעשיו של המערער, גם אם הלה יימצא חייב בדינו; (3) חשיפת שמו של המערער עלולה אפוא לגרום נזק בלתי-הפיך לו ולבני משפחתו. 
-
-
+במסגרתו של דיון זה, ביקש המערער מבית המשפט להאריך את הצו אשר אסר על פרסום שמו בעודו חשוד לפני הגשת כתב-האישום. הארכה כאמור נתבקשה עד למתן החלטה אחרת או עד למתן החלטה בדבר קיומן של ראיות לכאורה לצרכי המעצר עד תום משפטו של המערער. בקשה זו נסמכה על העובדות הבאות: (1) אביו של המערער מועסק כמאבטח על ידי מעסיק ישראלי, ואחיו אף הם עובדים בישראל; (2) מדובר במשפחה נורמטיבית שלא ניתן לייחס לה אשמה למעשיו של המערער, גם אם הלה יימצא חייב בדינו; (3) חשיפת שמו של המערער עלולה אפוא לגרום נזק בלתי-הפיך לו ולבני משפחתו.
 
 בית המשפט המחוזי דחה את בקשת המערער. במסגרת זו, קבע בית המשפט כי אין מקום לאסור על פרסום פרטיו המזהים של המערער הואיל ולא הוכח קיומו של נזק חמור אשר עולה על הנזקים הרגילים – שנגרמים לכל נאשם ונאשם עקב פרסום שמו ברבים – ואשר מאפיל על האינטרס הציבורי בפרסום הפרטים. על-מנת לאפשר למערער להגיש השגה על החלטה זו, קבע בית המשפט כי איסור הפרסום יוסר ביום 28.3.2023 בשעה 11:00. מועד זה הוארך על ידי ביום 30.3.2023 עד להכרעה בערעור הנוכחי, שהמערער הניח על שולחני.
 
-
-
 טענות הצדדים
 
+בדיון שנערך לפניי ביום 30.3.2023, חזר המערער על הטענות נגד חשיפת שמו שהעלה לפני בית המשפט המחוזי. עיקרן של טענות אלה פגיעה בשמם הטוב של בני משפחת המערער. בא-כוח המערער הוסיף וטען כי שולחו סובל ממגבלות למידה וקוגניציה שיכול שתהא להן השפעה על הכרעת הדין שתינתן בעניינו בהליך העיקרי. כמו כן נטען כי מול הטעמים אשר תומכים באיסור הפרסום המבוקש עומד העיקרון הכללי של פומביות הדיון, הא ותו לא, וכי חשיפת שמו של המערער לא תשרת שום אינטרס ציבורי מוחשי.
 
-
- בדיון שנערך לפניי ביום 30.3.2023, חזר המערער על הטענות נגד חשיפת שמו שהעלה לפני בית המשפט המחוזי. עיקרן של טענות אלה פגיעה בשמם הטוב של בני משפחת המערער. בא-כוח המערער הוסיף וטען כי שולחו סובל ממגבלות למידה וקוגניציה שיכול שתהא להן השפעה על הכרעת הדין שתינתן בעניינו בהליך העיקרי. כמו כן נטען כי מול הטעמים אשר תומכים באיסור הפרסום המבוקש עומד העיקרון הכללי של פומביות הדיון, הא ותו לא, וכי חשיפת שמו של המערער לא תשרת שום אינטרס ציבורי מוחשי.
-
-
-
-מנגד, סמכה המדינה את ידיה על החלטתו של בית המשפט המחוזי ועל טעמיה. המדינה הוסיפה וטענה כי איסור הפרסום המבוקש הוא בגדר חריג אשר דורש ממבקש האיסור הצגת טעמים מיוחדים לקבלת מבוקשו. נטען כי הטלת איסור על פרסום שמו של נאשם בלא טעמים מיוחדים תהפוך את החריג לכלל ואת עיקרון הפומביות לאות מתה. 
-
-
+מנגד, סמכה המדינה את ידיה על החלטתו של בית המשפט המחוזי ועל טעמיה. המדינה הוסיפה וטענה כי איסור הפרסום המבוקש הוא בגדר חריג אשר דורש ממבקש האיסור הצגת טעמים מיוחדים לקבלת מבוקשו. נטען כי הטלת איסור על פרסום שמו של נאשם בלא טעמים מיוחדים תהפוך את החריג לכלל ואת עיקרון הפומביות לאות מתה.
 
 דיון והכרעה
 
+הסוגיה שעומדת להכרעתי נשלטת על ידי האמור בסעיף 70(ה1)(1) לחוק בתי המשפט.
 
-
-הסוגיה שעומדת להכרעתי נשלטת על ידי האמור בסעיף 70(ה1)(1) לחוק בתי המשפט. 
-
-
-
-	סעיף זה קובע כדלקמן:	
-
-
+סעיף זה קובע כדלקמן:
 
 &#34;בית משפט רשאי לאסור פרסום שמו של חשוד שטרם הוגש נגדו כתב אישום או פרט אחר מפרטי החקירה, אם ראה כי הדבר עלול לגרום לחשוד נזק חמור ובית המשפט סבר כי יש להעדיף את מניעת הנזק על פני הענין הציבורי שבפרסום; הורה בית המשפט על איסור פרסום שמו של חשוד שטרם הוגש נגדו כתב אישום, יפקע האיסור עם הגשת כתב האישום נגד החשוד, אלא אם כן קבע בית המשפט אחרת&#34;.
 
-
-
-הוראה זו מבחינה בין חשוד שטרם הוגש נגדו כתב אישום – אשר יכול שיימצא ראוי להגנה מפני פרסום שמו, כשהדבר עלול לגרום לו נזק חמור (ראו: דברי הסבר להצעת חוק בתי המשפט (תיקון מס&#39; 31) (איסור פרסום), התשס&#34;א-2001, סה&#34;ח התשס&#34;א 496; וכן בש&#34;פ 5759/04 תורג&#39;מן נ&#39; מדינת ישראל, פ&#34;ד נח(6) 658 (2004); בש&#34;פ 1039/19 הוצאת עיתון הארץ בע&#34;מ נ&#39; שופטת אלמונית (‏13.3.2019)) – לבין נאשם החוסה בצלו של כתב אישום. לא הרי חשוד כהרי נאשם. פרסום שמו של חשוד נקבע על יסוד איזון אינטרסים: כאשר נזקו של החשוד מפרסום שמו הוא נזק חמור אשר מאפיל על העניין הציבורי שבפרסום, יהא בית המשפט רשאי – ולעתים, אף חייב – לאסור על הפרסום. 
-
-
+הוראה זו מבחינה בין חשוד שטרם הוגש נגדו כתב אישום – אשר יכול שיימצא ראוי להגנה מפני פרסום שמו, כשהדבר עלול לגרום לו נזק חמור (ראו: דברי הסבר להצעת חוק בתי המשפט (תיקון מס&#39; 31) (איסור פרסום), התשס&#34;א-2001, סה&#34;ח התשס&#34;א 496; וכן בש&#34;פ 5759/04 תורג&#39;מן נ&#39; מדינת ישראל, פ&#34;ד נח(6) 658 (2004); בש&#34;פ 1039/19 הוצאת עיתון הארץ בע&#34;מ נ&#39; שופטת אלמונית (‏13.3.2019)) – לבין נאשם החוסה בצלו של כתב אישום. לא הרי חשוד כהרי נאשם. פרסום שמו של חשוד נקבע על יסוד איזון אינטרסים: כאשר נזקו של החשוד מפרסום שמו הוא נזק חמור אשר מאפיל על העניין הציבורי שבפרסום, יהא בית המשפט רשאי – ולעתים, אף חייב – לאסור על הפרסום.
 
 אולם, כאשר החשוד הופך להיות נאשם, תוצאת האיזון משתנה: למרות שהפרסום עלול להסב לנאשם נזק חמור, האיסור ממנו הוא נהנה בהיותו חשוד פוקע מאליו, &#34;אלא אם כן קבע בית המשפט אחרת&#34;, כאמור בסיפא של סעיף 70(ה1)(1) לחוק. סיפא זה מלמד על כך שלהמשכו של איסור הפרסום דרושים טעמים מיוחדים אשר מוסיפים משקל לנזקו של החשוד שהפך לנאשם. זאת, מאחר שהאינטרס הציבורי שבפרסום שמו של נאשם עולה על זה שבפרסום שמו של חשוד שטרם הוגש נגדו כתב אישום. במסגרתו של משפט פלילי גופו, לפומביות הדיון יש מן הסתם משקל רב יותר מאשר בהליכי חקירה ומעצר שלפני הגשת כתב אישום (ראו: איתן לבונטין &#34;על הסמכות להגביל פרסום שמות חשודים&#34; משפטים ל (תש&#34;ס) 249, 251, 257-256).
 
+זאת ועוד. סעיף 68 לחוק בתי המשפט, אשר מעגן בתוכו את העיקרון של פומביות הדיון (ראו: סעיף 68(א) לחוק), מסייג עיקרון זה בהתירו לבתי המשפט לקיים דיון בדלתיים סגורות על-מנת להגן, בין היתר, על &#34;נאשם בעבירת מין או בעבירה על פי החוק למניעת הטרדה מינית, התשנ&#34;ח-1998&#34; (ראו: סעיף 68(ב)(5) לחוק), או על &#34;נאשם בעבירת אלימות כלפי בן משפחה כהגדרתו בחוק למניעת אלימות במשפחה, התשנ&#34;א-1991&#34; (ראו: סעיף 68(ב)(13) לחוק). הגנה מיוחדת זו לא ניתנה לנאשמים בעבירות נגד ביטחון המדינה – דבר שמלמדנו על כך שהטלת איסור על פרסום שמו של נאשם כזה מצריכה טעמים מיוחדים כבדי משקל.
 
-
-זאת ועוד. סעיף 68 לחוק בתי המשפט, אשר מעגן בתוכו את העיקרון של פומביות הדיון (ראו: סעיף 68(א) לחוק), מסייג עיקרון זה בהתירו לבתי המשפט לקיים דיון בדלתיים סגורות על-מנת להגן, בין היתר, על &#34;נאשם בעבירת מין או בעבירה על פי החוק למניעת הטרדה מינית, התשנ&#34;ח-1998&#34; (ראו: סעיף 68(ב)(5) לחוק), או על &#34;נאשם בעבירת אלימות כלפי בן משפחה כהגדרתו בחוק למניעת אלימות במשפחה, התשנ&#34;א-1991&#34; (ראו: סעיף 68(ב)(13) לחוק). הגנה מיוחדת זו לא ניתנה לנאשמים בעבירות נגד ביטחון המדינה – דבר שמלמדנו על כך שהטלת איסור על פרסום שמו של נאשם כזה מצריכה טעמים מיוחדים כבדי משקל. 
-
-
-
-במקרה דנן, טעמים כאלה אינם בנמצא. פרסום שמו של המערער אכן עלול לפגוע בשמה הטוב של משפחתו על כל המשתמע מכך בהיבט החברתי, ואולי אף בהיבט התעסוקתי. ברם, נזק זה הוא נחלתם של כל הנאשמים בעבירות ביטחוניות שיש להם משפחה, ועל כן לא ניתן להכיר בו כטעם מיוחד לצרכי איסור הפרסום המבוקש. הכרה בנזק זה כטעם מיוחד תוביל, מניה וביה, להטלת איסור פרסום על שמותיהם של כלל הנאשמים בעלי משפחה אשר עומדים לדין בגין עבירות ביטחון ומעשים הקשורים לטרור – תוצאה שנשללה על ידי המחוקק בקבעו את אשר קבע בסעיף 70(ה1)(1), סיפא, לחוק בתי המשפט. 
-
-
+במקרה דנן, טעמים כאלה אינם בנמצא. פרסום שמו של המערער אכן עלול לפגוע בשמה הטוב של משפחתו על כל המשתמע מכך בהיבט החברתי, ואולי אף בהיבט התעסוקתי. ברם, נזק זה הוא נחלתם של כל הנאשמים בעבירות ביטחוניות שיש להם משפחה, ועל כן לא ניתן להכיר בו כטעם מיוחד לצרכי איסור הפרסום המבוקש. הכרה בנזק זה כטעם מיוחד תוביל, מניה וביה, להטלת איסור פרסום על שמותיהם של כלל הנאשמים בעלי משפחה אשר עומדים לדין בגין עבירות ביטחון ומעשים הקשורים לטרור – תוצאה שנשללה על ידי המחוקק בקבעו את אשר קבע בסעיף 70(ה1)(1), סיפא, לחוק בתי המשפט.
 
 אשר על כן, אני דוחה את הערעור. שמו של המערער יהא מותר לפרסום.
 
-
-
-	ניתן היום, ‏י&#34;א בניסן התשפ&#34;ג (‏2.4.2023).
-
-
-
-
-
-
+ניתן היום, ‏י&#34;א בניסן התשפ&#34;ג (‏2.4.2023).
 
 ש ו פ ט
 
-
-
 _________________________
 
-   23025630_F06.docx   עט
+23025630_F06.docx עט
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1749,7 +1924,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

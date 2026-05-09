@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    12/03/2019 (לפני 2611 ימים)
+                    12/03/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/3457-18.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="3457/18 - פלוני נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F3457-18.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/570/034/e03&amp;fileName=18034570.E03&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/570/034/e03&amp;fileName=18034570.E03&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/570/034/e03&amp;fileName=18034570.E03&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/570/034/e03&amp;fileName=18034570.E03&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,67 +1827,35 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
+ע&#34;פ 3457/18
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
-
-ע&#34;פ  3457/18
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופט ג&#39; קרא
 
-
-
 כבוד השופט א&#39; שטיין
-
-
 
 המערער:
 
 פלוני
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-
-
-ערעור על פסק דינו של בית המשפט המחוזי מרכז-לוד בתיק פח  050665-10-15 שניתן ביום 14.03.2018 על ידי כבוד השופטים ר&#39; לורך, צ&#39; דותן וד&#39; עטר
-
-
+ערעור על פסק דינו של בית המשפט המחוזי מרכז-לוד בתיק פח 050665-10-15 שניתן ביום 14.03.2018 על ידי כבוד השופטים ר&#39; לורך, צ&#39; דותן וד&#39; עטר
 
 תאריך הישיבה:
 
-כ&#34;ג באדר א התשע&#34;ט      
+כ&#34;ג באדר א התשע&#34;ט
 
-(28.02.2019) 
-
-
+(28.02.2019)
 
 בשם המערער:
 
@@ -1626,119 +1865,55 @@
 
 עו&#34;ד אריה פטר
 
-
-
-
-
 פסק-דין
 
 השופט י&#39; עמית:
 
-
-
-	ערעור על גזר דינו של בית המשפט המחוזי מרכז-לוד (השופטים ר&#39; לורך, צ&#39; דותן וד&#39; עטר) מיום 3.12.2017 בתפ&#34;ח 50665-10-15.
-
-
+ערעור על גזר דינו של בית המשפט המחוזי מרכז-לוד (השופטים ר&#39; לורך, צ&#39; דותן וד&#39; עטר) מיום 3.12.2017 בתפ&#34;ח 50665-10-15.
 
 1.	המערער דקר את אשתו המנוחה כשלושים דקירות, לעיני בנם הקטין שהיה אז כבן שש. לאחר מכן נקט המערער מספר פעולות בכוונה להכשיל את החקירה הפלילית. בגין מעשים אלה, הורשע המערער על פי הודאתו, במסגרת הסדר טיעון, בעבירה של הריגה לפי סעיף 298 לחוק העונשין, התשל&#34;ז-1977 (להלן: החוק) ובעבירה של שיבוש מהלכי משפט לפי סעיף 244 לחוק.
 
-
-
-	על פי עובדות כתב האישום המתוקן, המערער היה בן זוגה של המנוחה. בתקופה שקדמה לאירוע הדקירה נקלעו השניים לקשיים כלכליים ואישיים ונוצרו ביניהם מתחים ועימותים. הם נהגו לשתות יחד לשוכרה, וכך עשו גם ביום 9.9.2015 בשעות הערב. במועד לא ידוע בין אותו ערב לבין ה-11.9.2015 בבוקר חתך המערער את צווארה של המנוחה ודקר אותה בפנים, בחזה, בבטן ובגפיים. בנם הקטין של השניים חזה בכל ההתרחשות מפתח חדרו. לאחר הדקירות המערער גרר את גופת המנוחה למקלחת, כיסה אותה בערימת בגדים, וניקה את הדם מרצפת הסלון באמצעות אקונומיקה. כמו כן, המערער ביקש מבנו לומר למשטרה שאמו ניסתה להורגו (את הבן). בבוקר יום 11.9.2015 הודיע המערער למשטרה על האירוע והמתין בדירה למעצרו.
-
-
+על פי עובדות כתב האישום המתוקן, המערער היה בן זוגה של המנוחה. בתקופה שקדמה לאירוע הדקירה נקלעו השניים לקשיים כלכליים ואישיים ונוצרו ביניהם מתחים ועימותים. הם נהגו לשתות יחד לשוכרה, וכך עשו גם ביום 9.9.2015 בשעות הערב. במועד לא ידוע בין אותו ערב לבין ה-11.9.2015 בבוקר חתך המערער את צווארה של המנוחה ודקר אותה בפנים, בחזה, בבטן ובגפיים. בנם הקטין של השניים חזה בכל ההתרחשות מפתח חדרו. לאחר הדקירות המערער גרר את גופת המנוחה למקלחת, כיסה אותה בערימת בגדים, וניקה את הדם מרצפת הסלון באמצעות אקונומיקה. כמו כן, המערער ביקש מבנו לומר למשטרה שאמו ניסתה להורגו (את הבן). בבוקר יום 11.9.2015 הודיע המערער למשטרה על האירוע והמתין בדירה למעצרו.
 
 2.	בית המשפט קמא העמיד את מתחם הענישה על 21-18 שנות מאסר, והשית על המערער 19 שנות מאסר בפועל, 12 חודשי מאסר על תנאי למשך שלוש שנים בגין עבירת אלימות מסוג פשע, 6 חודשי מאסר על תנאי למשך שלוש שנים בגין עבירת שיבוש מהלכי משפט, פיצוי בסך 180,000 ₪ לבנו ופיצוי בסך 78,000 ₪ לאימה של המנוחה.
 
-
-
 3.	הערעור שבפנינו נסב על חומרת העונש. הטענה המרכזית שבפי המערער היא כי בית המשפט קמא התעלם מנסיבות מקלות רלוונטיות אשר היה עליו לתת עליהן את הדעת: היחסים הטובים בין בני הזוג עובר לאירוע, מצב השכרות שבו היו מצויים השניים בעת האירוע הטרגי, והעובדה הנטענת שהמנוחה החזיקה סכין בעת האירוע. עוד טען המערער כי בית המשפט קמא לא נתן משקל מספיק לנסיבות המקלות שאליהן כן התייחס בפסק דינו, דוגמת ההשפעה הקשה שהייתה לאירוע על המערער והתנהלותו החיובית במהלך החקירה.
 
+4.	דין הערעור להידחות.
 
+בא כוח המערער הציג בפנינו שורת פסקי דין שתוצאתם מקלה בהשוואה לגזר הדין מושא העניין, בניסיון להצביע על סטייה ממדיניות הענישה הנהוגה במקרים דומים. ואולם, פסקי דין אלה שונים מהמקרה שבפנינו בכל הנוגע לנסיבות המקלות שהתקיימו בהם. כך למשל, בע&#34;פ 962/85 צמח נ&#39; מדינת ישראל, פ&#34;ד מא(3) 17 (1987) ההריגה התבצעה בעקבות קטטה אלימה שפרצה בין הצדדים; בע&#34;פ 7741/04 פלוני נ&#39; מדינת ישראל (2.5.2005) המערער סבל מאלימות מתמשכת מצד בנו בטרם הרג אותו; ובע&#34;פ 10529/02 בשן נ&#39; מדינת ישראל (20.7.2005) המערער הוכיח מאמצי שיקום ניכרים לאורך זמן, להבדיל מפוטנציאל שיקומי בלבד בענייננו. מנגד, המשיבה הציגה בפנינו פסקי דין מחמירים, במטרה להראות שגזר הדין תואם את מדיניות הענישה הנוהגת. הפניות אלו, משני עברי המתרס, אינן אלא עדות לריבוי הפנים של עבירות ההריגה ולמנעד הרחב של חומרתן בנסיבות שונות. לאור זאת, לא ניתן להקיש ממקרה אחד למשנהו, ועל הענישה בכל מקרה להיות מותאמת לנסיבותיו הייחודיות (לפירוט רשימה חלקית של הנסיבות הרלוונטיות ראו ע&#34;פ 7100/13 סגלטיצי נ&#39; מדינת ישראל, פסקה 5 (29.1.2015)).
 
-4.	דין הערעור להידחות. 
-
-
-
-	בא כוח המערער הציג בפנינו שורת פסקי דין שתוצאתם מקלה בהשוואה לגזר הדין מושא העניין, בניסיון להצביע על סטייה ממדיניות הענישה הנהוגה במקרים דומים. ואולם, פסקי דין אלה שונים מהמקרה שבפנינו בכל הנוגע לנסיבות המקלות שהתקיימו בהם. כך למשל, בע&#34;פ 962/85 צמח נ&#39; מדינת ישראל, פ&#34;ד מא(3) 17 (1987) ההריגה התבצעה בעקבות קטטה אלימה שפרצה בין הצדדים; בע&#34;פ 7741/04 פלוני נ&#39; מדינת ישראל (2.5.2005) המערער סבל מאלימות מתמשכת מצד בנו בטרם הרג אותו; ובע&#34;פ 10529/02 בשן נ&#39; מדינת ישראל (20.7.2005) המערער הוכיח מאמצי שיקום ניכרים לאורך זמן, להבדיל מפוטנציאל שיקומי בלבד בענייננו. מנגד, המשיבה הציגה בפנינו פסקי דין מחמירים, במטרה להראות שגזר הדין תואם את מדיניות הענישה הנוהגת. הפניות אלו, משני עברי המתרס, אינן אלא עדות לריבוי הפנים של עבירות ההריגה ולמנעד הרחב של חומרתן בנסיבות שונות. לאור זאת, לא ניתן להקיש ממקרה אחד למשנהו, ועל הענישה בכל מקרה להיות מותאמת לנסיבותיו הייחודיות (לפירוט רשימה חלקית של הנסיבות הרלוונטיות ראו ע&#34;פ 7100/13 סגלטיצי נ&#39; מדינת ישראל, פסקה 5 (29.1.2015)).
-
-
-
-5.	בנסיבות העניין נראה כי חומרת העונש שהוטל על המערער משקפת את חומרת מעשיו. עבירות המקפחות חיי אדם הן עבירות חמורות, והענישה בגינן צריכה להיות מחמירה בהתאם. יתרה מכך, לחומרה הבסיסית של עבירת ההריגה נלווית בענייננו העובדה שהמערער דקר את המנוחה פעמים רבות ובכל חלקי גופה (כ-30 דקירות), וכן הניסיון של המערער לשבש מהלכי משפט תוך שימוש בבנו הצעיר, רגעים לאחר שנאלץ לחזות במאורעות הקשים. היבט מחמיר נוסף של המעשים נובע מטיבה של מערכת היחסים בין המערער למנוחה. בית משפט זה עמד לא פעם על החומרה הרבה שבעבירות אלימות של גברים כלפי בנות זוגן והבהיר כי יש להוקיע את התופעה באופן נחרץ למען יראו וייראו. כך, בע&#34;פ 1568/14 דובגילנוק נ&#39; מדינת ישראל, פסקה 13 (31.3.2015) נאמר כי: 
-
-
+5.	בנסיבות העניין נראה כי חומרת העונש שהוטל על המערער משקפת את חומרת מעשיו. עבירות המקפחות חיי אדם הן עבירות חמורות, והענישה בגינן צריכה להיות מחמירה בהתאם. יתרה מכך, לחומרה הבסיסית של עבירת ההריגה נלווית בענייננו העובדה שהמערער דקר את המנוחה פעמים רבות ובכל חלקי גופה (כ-30 דקירות), וכן הניסיון של המערער לשבש מהלכי משפט תוך שימוש בבנו הצעיר, רגעים לאחר שנאלץ לחזות במאורעות הקשים. היבט מחמיר נוסף של המעשים נובע מטיבה של מערכת היחסים בין המערער למנוחה. בית משפט זה עמד לא פעם על החומרה הרבה שבעבירות אלימות של גברים כלפי בנות זוגן והבהיר כי יש להוקיע את התופעה באופן נחרץ למען יראו וייראו. כך, בע&#34;פ 1568/14 דובגילנוק נ&#39; מדינת ישראל, פסקה 13 (31.3.2015) נאמר כי:
 
 &#34;חובה עלינו לתת ביטוי להוקעתם של מעשי אלימות כה חמורים כלפי נשים מצד בני-זוגן על-ידי השתת עונשים הולמים שיבטאו את סלידתה של החברה מהמעשים האמורים ושירתיעו מפני הישנותם&#34;.
 
+6.	המערער טען כי בית המשפט קמא התעלם מנסיבות רלוונטיות שהיה בהן, לשיטתו, כדי להפחית מאשמתו. בתוך כך, המערער ציין שלוש נסיבות עיקריות: היחסים הטובים ששררו בין בני הזוג והיעדר היסטוריה של אלימות ביניהם, השכרות שבה היו מצויים השניים, ובעיקר – העובדה שהמנוחה החזיקה סכין בזמן האירוע. המערער ביקש את רשותו של בית המשפט קמא להפנות לראיות בנוגע לנסיבות אלו, והרשות אף ניתנה (עמודים 100 ו-107 לפרוטוקול). למרות זאת, בית המשפט קמא הכריע כי אין מקום להתייחס אליהן לאחר שהצדדים הסכימו על כתב אישום מתוקן ולאחר שהנאשם הודה בתוכנו (פסקה 53 לגזר הדין).
 
-
-
-
-6.	המערער טען כי בית המשפט קמא התעלם מנסיבות רלוונטיות שהיה בהן, לשיטתו, כדי להפחית מאשמתו. בתוך כך, המערער ציין שלוש נסיבות עיקריות: היחסים הטובים ששררו בין בני הזוג והיעדר היסטוריה של אלימות ביניהם, השכרות שבה היו מצויים השניים, ובעיקר – העובדה שהמנוחה החזיקה סכין בזמן האירוע. המערער ביקש את רשותו של בית המשפט קמא להפנות לראיות בנוגע לנסיבות אלו, והרשות אף ניתנה (עמודים 100 ו-107 לפרוטוקול). למרות זאת, בית המשפט קמא הכריע כי אין מקום להתייחס אליהן לאחר שהצדדים הסכימו על כתב אישום מתוקן ולאחר שהנאשם הודה בתוכנו (פסקה 53 לגזר הדין). 
-
-
-
-	אכן, במקרים בהם הנאשם הודה בעובדות כתב האישום, צריך כתב האישום לכלול את כל העובדות והנסיבות הקשורות בביצוע העבירה (סעיף 40י(ד) לחוק). כפי שהובהר בע&#34;פ 3667/13 ח&#39;טיב נ&#39; מדינת ישראל פסקה 26 (14.10.2014):
-
-
+אכן, במקרים בהם הנאשם הודה בעובדות כתב האישום, צריך כתב האישום לכלול את כל העובדות והנסיבות הקשורות בביצוע העבירה (סעיף 40י(ד) לחוק). כפי שהובהר בע&#34;פ 3667/13 ח&#39;טיב נ&#39; מדינת ישראל פסקה 26 (14.10.2014):
 
 &#34;הודאת הנאשם בעובדות כתב האישום מבטאת את הסכמתו לעובדות ולנסיבות האמורות בו. יש בה משום הצהרה כי אין בעובדות ובנסיבות המתוארות בכתב האישום יותר מאשר עשה וכן, בהתאם, כי לא נשמטה מכתב האישום עובדה או נסיבה שיכולה היתה להיות לו לעזר או להקל עמו. לכן, משהודה הנאשם בעובדות כתב האישום – לרוב לאחר שיח ושיג עם גורמי התביעה ובמסגרת הסדר טיעון – משקף כתב האישום את הסכמת הצדדים לאמור בו&#34; (ראו גם ע&#34;פ 4289/14 חנונה נ&#39; מדינת ישראל פסקה 54 לפסק דינו של השופט דנציגר (21.1.2015) וע&#34;פ 4749/17 בן גניש נ&#39; מדינת ישראל פסקה 25 (30.8.2017)).
 
-
-
-
-
-	החריג לכלל זה מופיע בסעיף 40י(ב)(2), הקובע כי &#34;בית המשפט רשאי, לבקשת אחד מהצדדים, להתיר להביא ראיות בעניין נסיבות הקשורות בביצוע העבירה בשלב הטיעונים לעונש, אם שוכנע כי לא היתה אפשרות לטעון לגביהן בשלב בירור האשמה או אם הדבר דרוש כדי למנוע עיוות דין&#34;. בית המשפט קמא היטיב להבהיר מדוע החריג אינו מתקיים בענייננו ונימוקיו מקובלים עליי. ראשית, הנסיבות הנטענות היו ידועות לנאשם כבר בתחילת ההליכים ולא הייתה מניעה להעלותן במועד. נראה אפוא כי היעדרן מכתב האישום המתוקן מעיד על כך שהצדדים לא הסכימו עליהן ועל כך שהמערער ובא כוחו העדיפו להגיע להסדר טיעון חרף השמטתן. אדרבא, בכתב האישום המתוקן כתוב כי הפצעים שנמצאו על גופו של המערער לא נגרמו באמצעות חפץ חד. לכן, אין לאפשר את הוספת הטענות בשלב זה בדרך עוקפת (פסקאות 56-57 לגזר הדין; ראו גם עניין ח&#39;טיב, בפסקה 55). שנית, ועיקרו של דבר, אין בנסיבות הנטענות כדי להשפיע על גזר הדין גם לו הובאו בחשבון, ולכן אין חשש לעיוות דין. אף אם נניח שהמנוחה אכן החזיקה סכין בידה, יש בכך לכל היותר משום הסבר לדקירה הראשונה, אך לא לעשרות הדקירות שבאו בעקבותיה. מכל מקום, מכלול הנסיבות הובא בחשבון במסגרת הסדר הטיעון, בהמרת האישום מעבירת רצח לעבירת הריגה. 
-
- 
+החריג לכלל זה מופיע בסעיף 40י(ב)(2), הקובע כי &#34;בית המשפט רשאי, לבקשת אחד מהצדדים, להתיר להביא ראיות בעניין נסיבות הקשורות בביצוע העבירה בשלב הטיעונים לעונש, אם שוכנע כי לא היתה אפשרות לטעון לגביהן בשלב בירור האשמה או אם הדבר דרוש כדי למנוע עיוות דין&#34;. בית המשפט קמא היטיב להבהיר מדוע החריג אינו מתקיים בענייננו ונימוקיו מקובלים עליי. ראשית, הנסיבות הנטענות היו ידועות לנאשם כבר בתחילת ההליכים ולא הייתה מניעה להעלותן במועד. נראה אפוא כי היעדרן מכתב האישום המתוקן מעיד על כך שהצדדים לא הסכימו עליהן ועל כך שהמערער ובא כוחו העדיפו להגיע להסדר טיעון חרף השמטתן. אדרבא, בכתב האישום המתוקן כתוב כי הפצעים שנמצאו על גופו של המערער לא נגרמו באמצעות חפץ חד. לכן, אין לאפשר את הוספת הטענות בשלב זה בדרך עוקפת (פסקאות 56-57 לגזר הדין; ראו גם עניין ח&#39;טיב, בפסקה 55). שנית, ועיקרו של דבר, אין בנסיבות הנטענות כדי להשפיע על גזר הדין גם לו הובאו בחשבון, ולכן אין חשש לעיוות דין. אף אם נניח שהמנוחה אכן החזיקה סכין בידה, יש בכך לכל היותר משום הסבר לדקירה הראשונה, אך לא לעשרות הדקירות שבאו בעקבותיה. מכל מקום, מכלול הנסיבות הובא בחשבון במסגרת הסדר הטיעון, בהמרת האישום מעבירת רצח לעבירת הריגה.
 
 7.	כאמור, המערער טען גם כנגד המשקל המופחת לשיטתו שהעניק בית המשפט קמא לנסיבות לקולה שנמנו בגזר הדין, ובהן הפגיעה הצפויה של העונש במערער, בבנו ובאמו, נטילת האחריות של המערער על מעשיו, שיתוף הפעולה שלו עם הרשויות, מצבו הרפואי והנפשי הרעוע ועברו הפלילי הנקי. אלא שבית המשפט קמא התייחס לכל הנסיבות הללו – את חלקן החליט לקבל והביאן בחשבון בעת גזירת העונש ואת חלקן דחה לאחר עיון מעמיק. לאור זאת, נראה שאין מקום להתערבותנו, שכן הלכה היא שלא די בטיעונים כנגד המשקל שניתן לנסיבות השונות כדי להצדיק את התערבותה של ערכאת הערעור בגזר הדין (ע&#34;פ 6980/15 אבו ג&#39;ומעה נ&#39; מדינת ישראל פסקה 16 (18.4.2016)).
 
-
-
 8.	סוף דבר: הכלל המקובל הוא שערכאת הערעור אינה מתערבת בחומרת העונש אלא במקרים חריגים בהם נפלה טעות בולטת בגזר הדין או שהעונש חורג באופן קיצוני מרף הענישה הנוהג בנסיבות דומות. במקרה דנן, תוצאת פסק הדין אינה מעוררת קושי, שכן חומרת העונש משקפת את חומרת המעשים. בית המשפט קמא התחשב בכלל הנסיבות שעוגנו בכתב האישום המתוקן ואיזן ביניהן כדבעי. בהתחשב בכל זאת, לא מתקיימות נסיבות המצדיקות את התערבותנו.
 
+לפיכך, הערעור נדחה.
 
-
-	לפיכך, הערעור נדחה.
-
-
-
-
-
-	ניתן היום, ה&#39; באדר ב התשע&#34;ט (‏12.3.2019).
-
-
-
-
-
-
+ניתן היום, ה&#39; באדר ב התשע&#34;ט (‏12.3.2019).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
-
-
 
 _________________________
 
-   18034570_E03.docx   עכב
+18034570_E03.docx עכב
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1757,7 +1932,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

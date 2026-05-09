@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    13/12/2020 (לפני 1969 ימים)
+                    13/12/2020 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/1975-11.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="1975/11 - ברוך משה ויזל ואח&#39; נ. מוסדות ויז&#39;ניץ &#34;אמרי חיים&#34;"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F1975-11.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/11/750/019/e19&amp;fileName=11019750.E19&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/11/750/019/e19&amp;fileName=11019750.E19&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/11/750/019/e19&amp;fileName=11019750.E19&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/11/750/019/e19&amp;fileName=11019750.E19&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,121 +1827,61 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
+            בבית המשפט העליון
 
+ע&#34;א 1975/11
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון
-
-ע&#34;א  1975/11
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
-
-
 
 המערערים:
 
 1. ברוך משה ויזל
 
-
-
-2. יצחק יהודה ויזל 
-
-
+2. יצחק יהודה ויזל
 
 3. בלה ליברמן
 
-
-
 4. עזבון המנוח יהושע ויזל ז&#34;ל
-
-
 
 5. מלכה מונדרר (ויזל)
 
-
-
 6. עזבון המנוח יואל קראוס ז&#34;ל
-
-
 
 7. עזבון המנוח זאב (מאיר) ויזל ז&#34;ל
 
-
-
 8. נחמה ויזל
-
-
 
 9. אברהם חיים ויזל
 
-
-
 10. רחל קרויס (נמחקה)
-
-
 
 11. אהרון ויזל
 
-
-
 12. אסתר רבקה כהן רולניצקי (נמחקה)
-
-
 
 13. חיה ביילא רוזנברג (נמחקה)
 
-
-
 14. ברכה פיש (נמחקה)
-
-
 
 15. חנה גליקל גראומן (הלוי) (נמחקה)
 
-
-
 16. שמואל ויזל
-
-
 
 17. חיים אברהם ויזל
 
-
-
 18. נתנאל ויזל
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 מוסדות ויז&#39;ניץ &#34;אמרי חיים&#34;
 
-
-
 ערעור על פסק דינו של בית המשפט המחוזי בירושלים בת&#34;א 7384/05 שניתן ביום 09.02.2011 על ידי כבוד השופט נ&#39; סולברג –
 
 בקשה מוסכמת מטעם הצדדים למתן תוקף של פסק דין להסכם פשרה
-
-
 
 בשם המשיבה 3:
 
@@ -1680,77 +1891,33 @@
 
 עו&#34;ד משה וגנר
 
-
-
-
-
 פסיקתא
 
-
-
-	בהתאם לפסק הדין הנותן תוקף להסכם פשרה בין הצדדים, המשיבה תשלם למערערת 3 סך כולל של 1,700,000 ₪ (מיליון ושבע מאות אלף שקלים חדשים) שיהוו דמי פינוי (להלן: סכום ההסדר), אשר ערבות בנקאית לתשלומם הופקדה בידיו הנאמנות של ב&#34;כ המשיבה - עו&#34;ד נחום וגנר, על פי המתווה הבא:
-
-
+בהתאם לפסק הדין הנותן תוקף להסכם פשרה בין הצדדים, המשיבה תשלם למערערת 3 סך כולל של 1,700,000 ₪ (מיליון ושבע מאות אלף שקלים חדשים) שיהוו דמי פינוי (להלן: סכום ההסדר), אשר ערבות בנקאית לתשלומם הופקדה בידיו הנאמנות של ב&#34;כ המשיבה - עו&#34;ד נחום וגנר, על פי המתווה הבא:
 
 א.	בתוך 21 ימים מחתימת פסיקתא זאת, תחליף המשיבה את הערבות הבנקאית הנ&#34;ל בשיק בנקאי בסך מלוא סכום ההסדר (להלן: השיק הבנקאי). בתוך המועד האמור, יעביר עו&#34;ד נחום וגנר את סכום ההסדר באמצעות השיק הבנקאי הנ&#34;ל לידיו הנאמנות של ב&#34;כ המערערת 3 – עו&#34;ד יהושע ג&#39;אנה (להלן: הנאמן).
 
-
-
 ב.	בתוך 60 יום מחתימת פסיקתה זאת ובתנאי שהשיק הבנקאי על סך סכום ההסדר הועבר לידי הנאמן, המערערת 3 תפנה את המקרקעין ברחוב אביתר הכהן 9 ירושלים, הידועים כגוש 30103 חלקה 13 תת חלקה 2 ותת חלקה 3 (להלן: המקרקעין) מכל אדם וחפץ ותעביר את החזקה הבלעדית במקרקעין לידי המשיבה, על מנת שהמקרקעין יועברו על שם המשיבה ללא תמורה כאמור להלן ובכפוף להוראות כל דין.
-
-
 
 ג.	כנגד פינוי המקרקעין ומסירת החזקה בהם לידי המשיבה כאמור, הנאמן יעביר למערערת 3 את מלוא סכום ההסדר באמצעות השיק הבנקאי הנ&#34;ל.
 
-
-
 ד.	בכפוף להעברת סכום ההסדר לידי הנאמן, המשיבה תהא זכאית לקבל לבעלותה הבלעדית ולהירשם כבעלים הבלעדי של המקרקעין. המשיבה תישא בכל המיסים וההיטלים מכל סוג שהוא, אם יחולו, בגין העברת הזכויות במקרקעין על שמה.
 
+רשם המקרקעין בירושלים ירשום את המקרקעין על שם המשיבה – מוסדות ויזניץ אמרי חיים, ע.ר. 580018935, בכפוף להוראות כל דין.
 
+עם העברת הזכויות במקרקעין על שם המשיבה – מוסדות ויזניץ אמרי חיים, ע.ר. 580018935, תבוטל ההערה בדבר פסיקתא זאת – ככל ונרשמה, וכן יבוטלו וימחקו צו העיקול שנרשם לטובת בית המשפט המחוזי ירושלים על המקרקעין הנ&#34;ל לפי שטר 14135/2005/1 מיום 25.7.2005 בקשר לתיק בימ&#34;ש הפ 3070/04 (בשא 2496/05) וההערה לפי צו בימ&#34;ש סעיף 130 שנרשמה לטובת בית המשפט המחוזי ירושלים לפי שטר 12694/2011/2 מיום 31.5.2011 בגין צו מיום 24.5.2011 (ת.א. 7384/05) – ככל שהם לא נמחקו קודם לכן.
 
-	רשם המקרקעין בירושלים ירשום את המקרקעין על שם המשיבה – מוסדות ויזניץ אמרי חיים, ע.ר. 580018935, בכפוף להוראות כל דין.
+עו&#34;ד נחום וגנר, ת.ז. 024295941, מ.ר. 19096, ממונה בזה ככונס נכסים (להלן: כונס הנכסים) על זכויותיו של עזבון המנוח יהושע ויזל ז&#34;ל ת.ז. 000390906 (להלן: עזבון המנוח) במקרקעין הידועים כגוש 30103 חלקה 13 תת חלקה 2 ותת חלקה 3 – בלבד (להלן: המקרקעין) והוא מוסמך לעשות את כל הדרוש על מנת להעביר את מלוא הזכויות במקרקעין על שם המשיבה – מוסדות ויזניץ אמרי חיים, ע.ר. 580018935. בין היתר, מוסמך כונס הנכסים לחתום בשם עיזבון המנוח על כל מסמך שידרש לצורך העברת הזכויות במקרקעין על שם המשיבה ,לרבות על תצהירי העברה ללא תמורה, שטרי מכר, יפוי כח, מסמכי מיסוי מקרקעין, הצהרות למיסוי מקרקעין, בקשות לפטור מלא או חלקי ממס שבח, בקשה לרישום הערת אזהרה, מסמכי לשכת רישום המקרקעין, מסמכי הרשות המקומית, וכל מסמך אחר שיידרש.
 
-
-
-	עם העברת הזכויות במקרקעין על שם המשיבה – מוסדות ויזניץ אמרי חיים, ע.ר. 580018935, תבוטל ההערה בדבר פסיקתא זאת – ככל ונרשמה, וכן יבוטלו וימחקו צו העיקול שנרשם לטובת בית המשפט המחוזי ירושלים על המקרקעין הנ&#34;ל לפי שטר 14135/2005/1 מיום 25.7.2005 בקשר לתיק בימ&#34;ש הפ 3070/04 (בשא 2496/05) וההערה לפי צו בימ&#34;ש סעיף 130 שנרשמה לטובת בית המשפט המחוזי ירושלים לפי שטר 12694/2011/2 מיום 31.5.2011 בגין צו מיום 24.5.2011 (ת.א. 7384/05) – ככל שהם לא נמחקו קודם לכן.
-
-
-
-	עו&#34;ד נחום וגנר, ת.ז. 024295941, מ.ר. 19096, ממונה בזה ככונס נכסים (להלן: כונס הנכסים) על זכויותיו של עזבון המנוח יהושע ויזל ז&#34;ל ת.ז. 000390906 (להלן: עזבון המנוח) במקרקעין הידועים כגוש 30103 חלקה 13 תת חלקה 2 ותת חלקה 3 – בלבד (להלן: המקרקעין) והוא מוסמך לעשות את כל הדרוש על מנת להעביר את מלוא הזכויות במקרקעין על שם המשיבה – מוסדות ויזניץ אמרי חיים, ע.ר. 580018935. בין היתר, מוסמך כונס הנכסים לחתום בשם עיזבון המנוח על כל מסמך שידרש לצורך העברת הזכויות במקרקעין על שם  המשיבה ,לרבות על תצהירי העברה ללא תמורה, שטרי מכר, יפוי כח, מסמכי מיסוי מקרקעין, הצהרות למיסוי מקרקעין, בקשות לפטור מלא או חלקי ממס שבח, בקשה לרישום הערת אזהרה, מסמכי לשכת רישום המקרקעין, מסמכי הרשות המקומית, וכל מסמך אחר שיידרש.
-
-
-
-
-
-	ניתן היום, ‏כ&#34;ז בכסלו התשפ&#34;א (‏13.12.2020).
-
-
-
-
-
-
-
-
+ניתן היום, ‏כ&#34;ז בכסלו התשפ&#34;א (‏13.12.2020).
 
 ש ו פ ט
 
-
-
-
-
 _________________________
 
-   11019750_E19.docx   עכב
+11019750_E19.docx עכב
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1769,7 +1936,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

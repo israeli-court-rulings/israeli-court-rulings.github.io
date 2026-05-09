@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    23/08/2005 (לפני 7560 ימים)
+                    23/08/2005 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/7772-05.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="7772/05 - ירון אדלר נ. אלוף יאיר נווה"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F7772-05.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/720/077/P04&amp;fileName=05077720_P04.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/720/077/P04&amp;fileName=05077720_P04.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/720/077/P04&amp;fileName=05077720_P04.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/720/077/P04&amp;fileName=05077720_P04.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,11 +1829,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             החלטה בתיק בג&#34;ץ 7772/05
 
-בבית המשפט
-העליון
+בבית המשפט העליון
 
-בג&#34;ץ
-7772/05
+בג&#34;ץ 7772/05
 
 בפני:
 
@@ -1582,8 +1851,7 @@
 
 המשיבים:
 
-1. אלוף יאיר
-נווה
+1. אלוף יאיר נווה
 
 2. אלוף שאול גורדון
 
@@ -1607,103 +1875,33 @@
 
 השופט א&#39; ריבלין:
 
-1. העותרים, בעל ואשה, הם הורים לשישה ילדים,
-ועל פי האמור בכתב העתירה שהגישו הם מתגוררים מזה קרוב לשלוש שנים ביישוב שא-נור
-אשר בשומרון. הם רואים בעצמם את מנהיגי היישוב, והם גם משמשים כראשי המדברים בכלי
-התקשורת כנגד ההתנתקות מן היישוב. ביום 8.8.2005 הוציא מפקד כוחות צה&#34;ל
-באיזור יהודה ושומרון, לכל אחד מן העותרים, צו פיקוח מיוחד, המורה להם להישאר
-מאחורי דלתות דירתם שבקריית ארבע במשך 24 שעות ביממה, אלא אם כן יקבלו היתר אחר
-לצאת ממנה. תוקפו של הצו עד ליום 25.9.05. הצו הוצא בתוקף סמכותו של מפקד כוחות
-צה&#34;ל באיו&#34;ש - המשיב 1 - בהתאם להוראות הצו בדבר הוראות ביטחון (יהודה
-והשומרון) (מס&#39; 378), התש&#34;ל-1970 (להלן: הצו בדבר
-הוראות ביטחון).
+1. העותרים, בעל ואשה, הם הורים לשישה ילדים, ועל פי האמור בכתב העתירה שהגישו הם מתגוררים מזה קרוב לשלוש שנים ביישוב שא-נור אשר בשומרון. הם רואים בעצמם את מנהיגי היישוב, והם גם משמשים כראשי המדברים בכלי התקשורת כנגד ההתנתקות מן היישוב. ביום 8.8.2005 הוציא מפקד כוחות צה&#34;ל באיזור יהודה ושומרון, לכל אחד מן העותרים, צו פיקוח מיוחד, המורה להם להישאר מאחורי דלתות דירתם שבקריית ארבע במשך 24 שעות ביממה, אלא אם כן יקבלו היתר אחר לצאת ממנה. תוקפו של הצו עד ליום 25.9.05. הצו הוצא בתוקף סמכותו של מפקד כוחות צה&#34;ל באיו&#34;ש - המשיב 1 - בהתאם להוראות הצו בדבר הוראות ביטחון (יהודה והשומרון) (מס&#39; 378), התש&#34;ל-1970 (להלן: הצו בדבר הוראות ביטחון).
 
-העותרים מבקשים, כי נורה למשיב לבוא
-וליתן טעם מדוע לא יבוטלו הצווים האמורים. כמו כן ביקשו העותרים, ליתן צו ביניים
-לפיו יורשו להתגורר בביתם - ונראה כי הכוונה לבית שבשא-נור - עד להחלטה אחרת.
+העותרים מבקשים, כי נורה למשיב לבוא וליתן טעם מדוע לא יבוטלו הצווים האמורים. כמו כן ביקשו העותרים, ליתן צו ביניים לפיו יורשו להתגורר בביתם - ונראה כי הכוונה לבית שבשא-נור - עד להחלטה אחרת.
 
-2. לעתירה שני ראשים: האחד משפטי-עקרוני והאחר
-עובדתי-קונקרטי. בצדק ציין בא כוח העותרים במהלך הדיון, כי עיקר העתירה בפן
-העקרוני, שהרי המשיב היה נכון להתיר להם לשהות גם בבית אחר, ובלבד שלא יהא מצוי
-בצפון השומרון, והעותרים הם שבחרו לסרב לכל הוראה שאינה מתירה להם לשהות בביתם שבשא-נור. אשר לפן העקרוני, טוענים העותרים כי הצווים שהוצאו נגדם הוצאו בחוסר סמכות, בשל שהצו
-בדבר הוראות ביטחון אינו מסמיך את המשיב לשלב הוראה בדבר תיחום של מגורים להוראה
-בדבר פיקוח מיוחד בבית שאיננו ביתם; לטענתם, אין המשיב מוסמך לצוות על מעצר בית אלא בביתו של מי שננקטו נגדו הליכים, כשם שתיחום מגורים, מצידו, מחייב מתן מרווח ומרחב של תנועה.
-העותרים סבורים, כי מעמדם גרוע משל התושבים הפלסטינאים באזור, שכן אלה האחרונים
-מוגנים מכוח הוראות המשפט הבינלאומי, ובכלל זה הוראות אמנת ג&#39;נבה, בעוד שהמתיישבים
-היהודים באזור אינם זוכים להגנה זו. לגוף הדברים טוענים העותרים, כי אפילו פעל
-המשיב בגדר סמכותו, הרי שהחלטתו אינה סבירה ואינה מידתית והיא מפלה אותם לרעה
-בהשוואה לאחרים. זאת, משום שתוצאתה היא פינוי בטרם עת מביתם בשא-נור, בלא שתינתן
-להם הזדמנות להתארגן לקראת הפינוי ובניגוד לחקיקת הכנסת שקבעה את סדרי הפינוי
-והטיפול במפונים. העותרים סבורים, כי התנהגותם, שאינה אלא התנגדות לגיטימית לפינוי
-בתיהם, אינה נכנסת לגדרי טעמי ביטחון המצדיקים שימוש בצווים שהוציא המשיב. כל
-מטרתם של הצווים, כך הם טוענים, לרפות את ידי המתיישבים בשא-נור.
+2. לעתירה שני ראשים: האחד משפטי-עקרוני והאחר עובדתי-קונקרטי. בצדק ציין בא כוח העותרים במהלך הדיון, כי עיקר העתירה בפן העקרוני, שהרי המשיב היה נכון להתיר להם לשהות גם בבית אחר, ובלבד שלא יהא מצוי בצפון השומרון, והעותרים הם שבחרו לסרב לכל הוראה שאינה מתירה להם לשהות בביתם שבשא-נור. אשר לפן העקרוני, טוענים העותרים כי הצווים שהוצאו נגדם הוצאו בחוסר סמכות, בשל שהצו בדבר הוראות ביטחון אינו מסמיך את המשיב לשלב הוראה בדבר תיחום של מגורים להוראה בדבר פיקוח מיוחד בבית שאיננו ביתם; לטענתם, אין המשיב מוסמך לצוות על מעצר בית אלא בביתו של מי שננקטו נגדו הליכים, כשם שתיחום מגורים, מצידו, מחייב מתן מרווח ומרחב של תנועה. העותרים סבורים, כי מעמדם גרוע משל התושבים הפלסטינאים באזור, שכן אלה האחרונים מוגנים מכוח הוראות המשפט הבינלאומי, ובכלל זה הוראות אמנת ג&#39;נבה, בעוד שהמתיישבים היהודים באזור אינם זוכים להגנה זו. לגוף הדברים טוענים העותרים, כי אפילו פעל המשיב בגדר סמכותו, הרי שהחלטתו אינה סבירה ואינה מידתית והיא מפלה אותם לרעה בהשוואה לאחרים. זאת, משום שתוצאתה היא פינוי בטרם עת מביתם בשא-נור, בלא שתינתן להם הזדמנות להתארגן לקראת הפינוי ובניגוד לחקיקת הכנסת שקבעה את סדרי הפינוי והטיפול במפונים. העותרים סבורים, כי התנהגותם, שאינה אלא התנגדות לגיטימית לפינוי בתיהם, אינה נכנסת לגדרי טעמי ביטחון המצדיקים שימוש בצווים שהוציא המשיב. כל מטרתם של הצווים, כך הם טוענים, לרפות את ידי המתיישבים בשא-נור.
 
-העותרים הביעו הסכמתם כי נעיין בחומר
-החסוי ששימש את המשיב להוצאת הצווים - וכך עשינו.
+העותרים הביעו הסכמתם כי נעיין בחומר החסוי ששימש את המשיב להוצאת הצווים - וכך עשינו.
 
-3. המשיב סבור, כי דין העתירה להידחות עקב
-חוסר ניקיון כפיים. זאת, באשר העותרים אינם זכאים לבקש סעד בבית המשפט לאחר שהודיעו מראש כי אינם מוכנים לקיים את הצווים והצהירו כי יפרו אותם. בשל כוונה זו,
-כך מודיע המשיב, הוגש נגד העותרים כתב אישום והתבקש מעצרם עד תום ההליכים. בית משפט השלום, כך מציינת המדינה, בא למסקנה כי נחושה דעתם של העותרים (המשיבים שם) שלא לקיים את
-הצו שנמסר להם, ולפיכך החליט, במסגרת בקשת המדינה, לשחרר את העותרים בתנאים, ובהם
-מעצר בית מלא בדירה שבקרית ארבע. יצויין, כי בינתיים נידון בבית המשפט המחוזי ערעור שהגישו העותרים על החלטת בית משפט השלום והערעור נדחה, משבית המשפט קבע כי קיימות לכאורה ראיות בעניין האישום המייחס לעותרים הפרת הוראה חוקית, זאת בשל עצם
-העובדה שהם מיאנו להתלוות לשוטרים שביקשו להוליכם לדירה בה נצטוו לשהות על פי הצו.
+3. המשיב סבור, כי דין העתירה להידחות עקב חוסר ניקיון כפיים. זאת, באשר העותרים אינם זכאים לבקש סעד בבית המשפט לאחר שהודיעו מראש כי אינם מוכנים לקיים את הצווים והצהירו כי יפרו אותם. בשל כוונה זו, כך מודיע המשיב, הוגש נגד העותרים כתב אישום והתבקש מעצרם עד תום ההליכים. בית משפט השלום, כך מציינת המדינה, בא למסקנה כי נחושה דעתם של העותרים (המשיבים שם) שלא לקיים את הצו שנמסר להם, ולפיכך החליט, במסגרת בקשת המדינה, לשחרר את העותרים בתנאים, ובהם מעצר בית מלא בדירה שבקרית ארבע. יצויין, כי בינתיים נידון בבית המשפט המחוזי ערעור שהגישו העותרים על החלטת בית משפט השלום והערעור נדחה, משבית המשפט קבע כי קיימות לכאורה ראיות בעניין האישום המייחס לעותרים הפרת הוראה חוקית, זאת בשל עצם העובדה שהם מיאנו להתלוות לשוטרים שביקשו להוליכם לדירה בה נצטוו לשהות על פי הצו.
 
-לא הייתי דוחה את העתירה מחמת הטענה בדבר
-חוסר ניקיון כפיים, כשהיא עומדת לבדה, ולו מן הטעם שהעותרים בחרו להיוותר במעצר
-ובלבד שלא לקיים את הצווים; בנסיבות אלה, כשמפתחות הכלא בידם והם מבקשים, בעודם מצויים
-בכלא, לבחון את תקפות הצווים, ראוי להידרש לעתירה לגופה.
+לא הייתי דוחה את העתירה מחמת הטענה בדבר חוסר ניקיון כפיים, כשהיא עומדת לבדה, ולו מן הטעם שהעותרים בחרו להיוותר במעצר ובלבד שלא לקיים את הצווים; בנסיבות אלה, כשמפתחות הכלא בידם והם מבקשים, בעודם מצויים בכלא, לבחון את תקפות הצווים, ראוי להידרש לעתירה לגופה.
 
 דין העתירה, על שני ראשיה, להידחות.
 
-4. הצו בדבר הוראות ביטחון נחקק מכוח הסמכות
-הנתונה למפקד הצבאי להבטיח את הסדר והביטחון הציבוריים בשטחים הנתונים לתפיסה
-לוחמתית (סעיף 43 לתקנות בדבר דיניה ומנהגיה של המלחמה ביבשה, הנספחות להסכם האג
-הרביעי מ-1907), ומכוח שאר סמכויותיו של המפקד הצבאי על פי המשפט הבינלאומי של
-התפיסה הלוחמתית. דיני התפיסה הלוחמתית חלים גם על ההתיישבות הישראלית באזורים
-האמורים, וסמכותו של המפקד הצבאי מכוונת כלפי כל מי שנמצא באזור הנתון לתפיסה
-לוחמתית (בג&#34;ץ 6339/05 נדיה מטר נ&#39; מפקד כוחות
-צה&#34;ל בחבל עזה (טרם פורסם)). הוראות סעיף 86 לצו מסמיכה את המפקד
-הצבאי להורות בצו שאדם יהא נתון לפיקוח מיוחד, כפוף להגבלות המנויות באותו סעיף,
-כולן או מקצתן. בין ההגבלות אותן מונה סעיף 86 כלולה הדרישה שניתן להפנות כלפי
-אדם, להתגורר בתחומיו של מקום מסויים באזור, והדרישה שישאר מאחורי דלתות ביתו למשך אותן שעות שיקבע המפקד הצבאי. המדינה סבורה, כי סעיף 86 מאפשר לשלב בין ההגבלות, כולן או
-מקצתן, באופן שתיחום המגורים ימוקד לבית אחד באזור. מבלי לקבוע מסמרות בעניין זה,
-היום שוב אין מחלוקת כי המשיב מוכן לקיים את צו הפיקוח בכל בית אחר שהעותרים
-יצביעו עליו, שאיננו בצפון השומרון וזאת בהתחשב בטענתם שלהם כי הדירה שבבעלותם
-בקרית ארבע הושכרה לאחר (טענה שנתמכה על ידי מי שאמור לשכור את הדירה, מר איתמר
-בן-גביר, שלבקשתו צורף כצד לעתירה זו). הבחירה אם יהא זה בית בבעלותם או בית אחר היא, איפוא, בידי העותרים.
+4. הצו בדבר הוראות ביטחון נחקק מכוח הסמכות הנתונה למפקד הצבאי להבטיח את הסדר והביטחון הציבוריים בשטחים הנתונים לתפיסה לוחמתית (סעיף 43 לתקנות בדבר דיניה ומנהגיה של המלחמה ביבשה, הנספחות להסכם האג הרביעי מ-1907), ומכוח שאר סמכויותיו של המפקד הצבאי על פי המשפט הבינלאומי של התפיסה הלוחמתית. דיני התפיסה הלוחמתית חלים גם על ההתיישבות הישראלית באזורים האמורים, וסמכותו של המפקד הצבאי מכוונת כלפי כל מי שנמצא באזור הנתון לתפיסה לוחמתית (בג&#34;ץ 6339/05 נדיה מטר נ&#39; מפקד כוחות צה&#34;ל בחבל עזה (טרם פורסם)). הוראות סעיף 86 לצו מסמיכה את המפקד הצבאי להורות בצו שאדם יהא נתון לפיקוח מיוחד, כפוף להגבלות המנויות באותו סעיף, כולן או מקצתן. בין ההגבלות אותן מונה סעיף 86 כלולה הדרישה שניתן להפנות כלפי אדם, להתגורר בתחומיו של מקום מסויים באזור, והדרישה שישאר מאחורי דלתות ביתו למשך אותן שעות שיקבע המפקד הצבאי. המדינה סבורה, כי סעיף 86 מאפשר לשלב בין ההגבלות, כולן או מקצתן, באופן שתיחום המגורים ימוקד לבית אחד באזור. מבלי לקבוע מסמרות בעניין זה, היום שוב אין מחלוקת כי המשיב מוכן לקיים את צו הפיקוח בכל בית אחר שהעותרים יצביעו עליו, שאיננו בצפון השומרון וזאת בהתחשב בטענתם שלהם כי הדירה שבבעלותם בקרית ארבע הושכרה לאחר (טענה שנתמכה על ידי מי שאמור לשכור את הדירה, מר איתמר בן-גביר, שלבקשתו צורף כצד לעתירה זו). הבחירה אם יהא זה בית בבעלותם או בית אחר היא, איפוא, בידי העותרים.
 
-יתירה מכך, אין גם מחלוקת כי המשיב מוסמך
-היה להורות על נקיטת אמצעי מנהלי חמור יותר לאמור: מעצר מינהלי בבית כלא. סעיף 87 לצו בדבר הוראות ביטחון קובע, כי במקום שבו ניתן צו של מעצר מינהלי לגבי אדם שביחס
-אליו עומד בתוקף צו לפי סעיף 86, יבוא הצו הראשון במקום האחרון (ראו גם צו בדבר
-מעצרים מינהליים (הוראת שעה) (צו מספר 1226)). גם בכך יש כדי להשליך על פרשנות
-הוראת סעיף 86, שהיא בבחינת אמצעי שפגיעתו פחותה.
+יתירה מכך, אין גם מחלוקת כי המשיב מוסמך היה להורות על נקיטת אמצעי מנהלי חמור יותר לאמור: מעצר מינהלי בבית כלא. סעיף 87 לצו בדבר הוראות ביטחון קובע, כי במקום שבו ניתן צו של מעצר מינהלי לגבי אדם שביחס אליו עומד בתוקף צו לפי סעיף 86, יבוא הצו הראשון במקום האחרון (ראו גם צו בדבר מעצרים מינהליים (הוראת שעה) (צו מספר 1226)). גם בכך יש כדי להשליך על פרשנות הוראת סעיף 86, שהיא בבחינת אמצעי שפגיעתו פחותה.
 
-7. אשר לשאלת הסבירות והמידתיות שבהוצאת
-הצווים, זו נבחנת גם לאור חוקי היסוד של מדינת ישראל בדבר זכויות האדם; וכבר
-אמרנו, כי חוקי היסוד מעניקים זכויות לכל מתיישב ישראלי בשטח המפונה, וכי תחולה זו
-היא אישית והיא פרי התפיסה כי על הישראלים המצויים מחוץ למדינה, באזור הנתון
-לשליטתה, בדרך של תפיסה לוחמתית, חלים חוקי היסוד של המדינה באשר לזכויות האדם
-(בג&#34;ץ 1661/05 המועצה האזורית חוף עזה נ&#39; כנסת
-ישראל (טרם פורסם)).
+7. אשר לשאלת הסבירות והמידתיות שבהוצאת הצווים, זו נבחנת גם לאור חוקי היסוד של מדינת ישראל בדבר זכויות האדם; וכבר אמרנו, כי חוקי היסוד מעניקים זכויות לכל מתיישב ישראלי בשטח המפונה, וכי תחולה זו היא אישית והיא פרי התפיסה כי על הישראלים המצויים מחוץ למדינה, באזור הנתון לשליטתה, בדרך של תפיסה לוחמתית, חלים חוקי היסוד של המדינה באשר לזכויות האדם (בג&#34;ץ 1661/05 המועצה האזורית חוף עזה נ&#39; כנסת ישראל (טרם פורסם)).
 
-בהסכמת העותרים עיינו, כאמור, בחומר
-החסוי במעמד צד אחד. ביקשנו וקיבלנו הסברים עליו. לאחר שבחנו את מכלול החומר
-ושמענו את טיעוני הצדדים, שוכנענו כי לא נפל פגם בשיקול דעתו של המשיב בכל הנוגע
-להטלת צו פיקוח מיוחד על העותרים. אמנם, בצווים יש משום פגיעה בזכויות יסוד של
-העותרים, אולם מצאנו כי הפגיעה היא מידתית, אין היא עולה על הנדרש והיא באה למנוע קיומה
-של סכנה ממשית לשלום הציבור ולביטחון המדינה והאזור. זו היתה עמדתו של המשיב; זו
-היתה גם מסקנתו של נשיא בית הדין הצבאי לערעורים באזור יהודה ושומרון, אל&#34;מ
-שאול גורדון (המשיב מס&#39; 2), שקיים דיון בערעורם של העותרים על החלטת המשיב,
-והדברים מקובלים גם עלינו.
+בהסכמת העותרים עיינו, כאמור, בחומר החסוי במעמד צד אחד. ביקשנו וקיבלנו הסברים עליו. לאחר שבחנו את מכלול החומר ושמענו את טיעוני הצדדים, שוכנענו כי לא נפל פגם בשיקול דעתו של המשיב בכל הנוגע להטלת צו פיקוח מיוחד על העותרים. אמנם, בצווים יש משום פגיעה בזכויות יסוד של העותרים, אולם מצאנו כי הפגיעה היא מידתית, אין היא עולה על הנדרש והיא באה למנוע קיומה של סכנה ממשית לשלום הציבור ולביטחון המדינה והאזור. זו היתה עמדתו של המשיב; זו היתה גם מסקנתו של נשיא בית הדין הצבאי לערעורים באזור יהודה ושומרון, אל&#34;מ שאול גורדון (המשיב מס&#39; 2), שקיים דיון בערעורם של העותרים על החלטת המשיב, והדברים מקובלים גם עלינו.
 
 העתירה נדחית.
 
-ניתן היום, י&#34;ח
-באב תשס&#34;ה (23.8.05).
+ניתן היום, י&#34;ח באב תשס&#34;ה (23.8.05).
 
-ש ו פ
-ט ש ו פ ט ת ש ו פ ט
-ת
+ש ו פ ט ש ו פ ט ת ש ו פ ט ת
 
 _________________________
 
@@ -1730,7 +1928,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

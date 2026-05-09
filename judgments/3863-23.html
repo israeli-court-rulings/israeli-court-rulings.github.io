@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    22/05/2023 (לפני 1079 ימים)
+                    22/05/2023 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/3863-23.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="3863/23 - צבי ריגר נ. אדר&#39; מאיר מיכל, מהנדסת העיר עיריית בת ים"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F3863-23.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/630/038/v01&amp;fileName=23038630.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/630/038/v01&amp;fileName=23038630.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/630/038/v01&amp;fileName=23038630.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/23/630/038/v01&amp;fileName=23038630.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,139 +1827,61 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
+            בבית המשפט העליון
 
+ע&#34;פ 3863/23
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-ע&#34;פ  3863/23
-
-
-
-לפני:	
+לפני:
 
 כבוד הנשיאה א&#39; חיות
-
-
 
 המערער:
 
 צבי ריגר
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 אדר&#39; מאיר מיכל, מהנדסת העיר בת ים
 
-
-
-ערעור על החלטתו של בית המשפט לעניינים מקומיים בבת ים שניתנה ביום 17.5.2023 בב&#34;ש 487/23 על-ידי השופט ע&#39; אלקלעי 
-
-
+ערעור על החלטתו של בית המשפט לעניינים מקומיים בבת ים שניתנה ביום 17.5.2023 בב&#34;ש 487/23 על-ידי השופט ע&#39; אלקלעי
 
 בשם המערער:
 
 עו&#34;ד שי מ. רוסינסקי
 
-
-
-	
-
 פסק-דין
 
+ערעור על החלטת בית המשפט לעניינים מקומיים בבת ים (השופט ע&#39; אלקלעי) מיום 17.5.2023 בב&#34;ש 487/23 שלא לפסול עצמו מלדון בעניינו של המערער.
 
+המשיבה הוציאה נגד המערער צו הריסה מנהלי מכוח סעיף 221 לחוק התכנון והבנייה, התשכ&#34;ה-1965, המופנה, לפי הצו, כלפי בנייה בלתי חוקית במקרקעין בעיר בת ים. המערער השיג על צו ההריסה, ולאחר שההליך טופל על-ידי שני מותבים במחוז תל אביב, הועבר ההליך לטיפולו של המותב.
 
+לאחר העברת ההליך לטיפולו של המותב, עתר המערער לפסילתו וטען כי בא-כוחו והמותב &#34;מסוכסכים מזה עשור לאחר דין ודברים, שלא לומר גידופים, שהפנה [המותב] בדיון כלפי [ב&#34;כ המערער]&#34;. לטענת המערער אותם דברים לא נרשמו בפרוטוקול הדיון, אך המותב הגיש נגד בא-כוחו תלונה ללשכת עורכי הדין, ואילו בא-כוחו הגיש נגד המותב תלונה לנציב תלונות הציבור על השופטים, אשר, כך נטען, &#34;ממתינה רק עשור לבירור&#34;. המערער טען עוד כי בהזדמנות נוספת כאשר פגש המותב בבא-כוחו ובאחד מלקוחותיו במסדרון בית משפט השלום בתל אביב אמר לו המותב &#34;מקווה שאדוני למד לקח&#34;.
 
+נוכח האמור טען המערער כי קם חשש ממשי למשוא פנים נגדו, והפנה בהקשר זה לפסיקה שלפיה ייתכנו מקרים נדירים שבהם אווירה עכורה ועוינת בין עורך-דין לשופט יצדיקו כי השופט יימנע מלשבת בדין במקרים שבהם מייצג אותו עורך-דין. המערער הוסיף כי ישנם שופטים נוספים במחוז שיכולים לדון בהליך.
 
-ערעור על החלטת בית המשפט לעניינים מקומיים בבת ים (השופט ע&#39; אלקלעי) מיום 17.5.2023 בב&#34;ש 487/23 שלא לפסול עצמו מלדון בעניינו של המערער. 
+ביום 17.5.2023 דחה המותב את בקשת הפסלות, והבהיר:
 
+&#34;מדובר בבקשה מופרכת ומשוללת יסוד [...] אדגיש כי אינני ומעולם לא הייתי מסוכסך עם [ב&#34;כ המערער], לא ידוע לי על איזה &#39;דין ודברים&#39; מדבר [ב&#34;כ המערער], אך בוודאות אדגיש כי מעולם לא הפניתי &#39;גידופים&#39; כלפי [ב&#34;כ המערער] או כלפי בעל דין או עו&#34;ד כלשהו, במהלך כל תקופת כהונתי. לא למותר לציין כי טענותיו של [ב&#34;כ המערער] נטענות בעלמא ובאופן ערטילאי, מבלי לציין על איזה חילופי דברים או &#39;גידופים&#39; הוא מדבר, [ב&#34;כ המערער] אינו מפרט על איזה דיון מדובר, הוא אינו מצרף את פרוטוקול הדיון ואינו מסביר מדוע לא ביקש תיקון הפרוטוקול בסמוך לדיון [...] יתכן כי הוגשה על ידי תלונה נגד [ב&#34;כ המערער] ללשכת עורכי הדין בגין התנהגותו, אם כי הדבר אינו זכור לי (חבל ש[ב&#34;כ המערער] לא טרח לצרף את התלונה לבקשתו, ומן הסתם לא בכדי). אדגיש כי לא ידוע לי על תלונה שהגיש נגדי [ב&#34;כ המערער] ואציין כי למיטב זכרוני, מעולם לא התבקשתי להגיב על תלונה כזו שלטענתו הוגשה לפני כעשור וטרם ניתנה בה החלטה. גם האירוע האחרון שביחס אליו טוען [ב&#34;כ המערער] כי פגשתי אותו (במועד בלתי ידוע) במסדרון בית המשפט בתל אביב והפטרתי כלפיו בנוכחות לקוחו: &#39;מקווה שאדוני למד את הלקח&#39;, כלל הנראה לא התרחש מעולם ומכל מקום לא זכור לי אירוע כזה או מפגש עם [ב&#34;כ המערער] או כל חילופי דברים איתו [...] אחזור ואדגיש כי טענתו הסתמית והבלתי מפורטת של [ב&#34;כ המערער] לפי[ה] &#39;גידפתי&#39; אותו, מהווה שקר גס שאין בו אלא ניסיון להטיל בי רפש&#34;.
 
+המותב הוסיף כי כל שזכור לו הוא כי ב&#34;כ המערער ייצג לפניו לקוחות בכמה תיקים כאשר כיהן בבית המשפט לעניינים מקומיים לפני כ-11 שנים, וקבע כי ההליך לא יעוכב עד להחלטה בערעור שכן &#34;סבור אני כי מדובר בבקשת סרק לפסילת שופט שנועדה לגרום להחלפת מותב ולדחיית הקץ&#34;.
 
-	המשיבה הוציאה נגד המערער צו הריסה מנהלי מכוח סעיף 221 לחוק התכנון והבנייה, התשכ&#34;ה-1965, המופנה, לפי הצו, כלפי בנייה בלתי חוקית במקרקעין בעיר בת ים. המערער השיג על צו ההריסה, ולאחר שההליך טופל על-ידי שני מותבים במחוז תל אביב, הועבר ההליך לטיפולו של המותב. 
+מכאן הערעור שלפניי, בו חוזר המערער על טענותיו ומוסיף כי החלטת המותב בבקשת הפסלות &#34;מוכיחה כי יש דברים בגו, בלשון המעטה&#34;. לטענתו, המותב ציין שלא זכור לו המפגש הנטען בבית המשפט בתל אביב, מחד, אך מאידך המותב &#34;קורא ל[ב&#34;כ המערער] שקרן&#34;. המערער טוען כי &#34;אם [ב&#34;כ המערער] שקרן, איך יקשיב [המותב] לטענותיו?&#34;. המערער מוסיף כי דברי המותב שלפיהם בקשת הפסלות היא &#34;ניסיון לדחות את הקץ&#34; מלמדים שהמותב סבור שההליך הוא הליך סרק שאין לו &#34;סיכוי להתקבל&#34;, וכי דעתו כבר &#34;ננעלה&#34; בהקשר זה. כמו כן מבקש המערער את עיכוב ההליך דלמטה עד להכרעה בערעור דנן.
 
+דין הערעור להידחות. הליך הפסלות דנן מבוסס כולו על &#34;סכסוך&#34; נטען בין ב&#34;כ המערער ובין המותב. דא עקא, שהמערער לא צירף לבקשת הפסלות או לערעור דנן אסמכתה כלשהי לאיזו מן הטענות שהעלה בהקשר זה. כמו כן, גרסת המערער כי בא-כוחו הגיש תלונה לנציב תלונות הציבור על השופטים לפני כעשור אך זו עודנה &#34;ממתינה לבירור&#34;, תמוהה ביותר. הבהרת המותב, ב&#34;רחל בתך הקטנה&#34;, כי טענות המערער חסרות שחר מדברת בעד עצמה, וניסיונו של המערער להיתלות במילים שונות מהבהרת המותב כדי להצדיק את פסילת המותב בהעדר ראיות לטענות החמורות שהעלה המערער – דינו להידחות. לגופו של עניין אבהיר כי לא מצאתי בהחלטת המותב דבר החורג מהבעת מורת רוח על הטענות שהוטחו בו ללא ראיות, וזו אינה מקימה עילת פסלות, אף לא מחמת מראית פני הצדק (ראו: ע&#34;פ 8817/22 פלוני נ&#39; מדינת ישראל, פסקה 9 (29.3.2023)).
 
+אשר על כן, הערעור נדחה וממילא נדחית גם הבקשה לעיכוב ההליך דלמטה.
 
-	לאחר העברת ההליך לטיפולו של המותב, עתר המערער לפסילתו וטען כי בא-כוחו והמותב &#34;מסוכסכים מזה עשור לאחר דין ודברים, שלא לומר גידופים, שהפנה [המותב] בדיון כלפי [ב&#34;כ המערער]&#34;. לטענת המערער אותם דברים לא נרשמו בפרוטוקול הדיון, אך המותב הגיש נגד בא-כוחו תלונה ללשכת עורכי הדין, ואילו בא-כוחו הגיש נגד המותב תלונה לנציב תלונות הציבור על השופטים, אשר, כך נטען, &#34;ממתינה רק עשור לבירור&#34;. המערער טען עוד כי בהזדמנות נוספת כאשר פגש המותב בבא-כוחו ובאחד מלקוחותיו במסדרון בית משפט השלום בתל אביב אמר לו המותב &#34;מקווה שאדוני למד לקח&#34;. 
+ניתן היום, ‏ב&#39; בסיון התשפ&#34;ג (‏22.5.2023).
 
-
-
-	נוכח האמור טען המערער כי קם חשש ממשי למשוא פנים נגדו, והפנה בהקשר זה לפסיקה שלפיה ייתכנו מקרים נדירים שבהם אווירה עכורה ועוינת בין עורך-דין לשופט יצדיקו כי השופט יימנע מלשבת בדין במקרים שבהם מייצג אותו עורך-דין. המערער הוסיף כי ישנם שופטים נוספים במחוז שיכולים לדון בהליך.
-
-
-
-	ביום 17.5.2023 דחה המותב את בקשת הפסלות, והבהיר: 
-
-
-
-&#34;מדובר בבקשה מופרכת ומשוללת יסוד [...] אדגיש כי אינני ומעולם לא הייתי מסוכסך עם [ב&#34;כ המערער], לא ידוע לי על איזה &#39;דין ודברים&#39; מדבר [ב&#34;כ המערער], אך בוודאות אדגיש כי מעולם לא הפניתי &#39;גידופים&#39; כלפי [ב&#34;כ המערער] או כלפי בעל דין או עו&#34;ד כלשהו, במהלך כל תקופת כהונתי. לא למותר לציין כי טענותיו של [ב&#34;כ המערער] נטענות בעלמא ובאופן ערטילאי, מבלי לציין על איזה חילופי דברים או &#39;גידופים&#39; הוא מדבר, [ב&#34;כ המערער] אינו מפרט על איזה דיון מדובר, הוא אינו מצרף את פרוטוקול הדיון ואינו מסביר מדוע לא ביקש תיקון הפרוטוקול בסמוך לדיון [...] יתכן כי הוגשה על ידי תלונה נגד [ב&#34;כ המערער] ללשכת עורכי הדין בגין התנהגותו, אם כי הדבר אינו זכור לי (חבל ש[ב&#34;כ המערער] לא טרח לצרף את התלונה לבקשתו, ומן הסתם לא בכדי). אדגיש כי לא ידוע לי על תלונה שהגיש נגדי [ב&#34;כ המערער] ואציין כי למיטב זכרוני, מעולם לא התבקשתי להגיב על תלונה כזו שלטענתו הוגשה לפני כעשור וטרם ניתנה בה החלטה. גם האירוע האחרון שביחס אליו טוען [ב&#34;כ המערער] כי פגשתי אותו (במועד בלתי ידוע) במסדרון בית המשפט בתל אביב והפטרתי כלפיו בנוכחות לקוחו: &#39;מקווה שאדוני למד את הלקח&#39;, כלל הנראה לא התרחש מעולם ומכל מקום לא זכור לי אירוע כזה או מפגש עם [ב&#34;כ המערער] או כל חילופי דברים איתו [...] אחזור ואדגיש כי טענתו הסתמית והבלתי מפורטת של [ב&#34;כ המערער] לפי[ה] &#39;גידפתי&#39; אותו, מהווה שקר גס שאין בו אלא ניסיון להטיל בי רפש&#34;. 
-
-
-
-	המותב הוסיף כי כל שזכור לו הוא כי ב&#34;כ המערער ייצג לפניו לקוחות בכמה תיקים כאשר כיהן בבית המשפט לעניינים מקומיים לפני כ-11 שנים, וקבע כי ההליך לא יעוכב עד להחלטה בערעור שכן &#34;סבור אני כי מדובר בבקשת סרק לפסילת שופט שנועדה לגרום להחלפת מותב ולדחיית הקץ&#34;. 
-
-
-
-	מכאן הערעור שלפניי, בו חוזר המערער על טענותיו ומוסיף כי החלטת המותב בבקשת הפסלות &#34;מוכיחה כי יש דברים בגו, בלשון המעטה&#34;. לטענתו, המותב ציין שלא זכור לו המפגש הנטען בבית המשפט בתל אביב, מחד, אך מאידך המותב &#34;קורא ל[ב&#34;כ המערער] שקרן&#34;. המערער טוען כי &#34;אם [ב&#34;כ המערער] שקרן, איך יקשיב [המותב] לטענותיו?&#34;. המערער מוסיף כי דברי המותב שלפיהם בקשת הפסלות היא &#34;ניסיון לדחות את הקץ&#34; מלמדים שהמותב סבור שההליך הוא הליך סרק שאין לו &#34;סיכוי להתקבל&#34;, וכי דעתו כבר &#34;ננעלה&#34; בהקשר זה. כמו כן מבקש המערער את עיכוב ההליך דלמטה עד להכרעה בערעור דנן.  
-
-
-
-	דין הערעור להידחות. הליך הפסלות דנן מבוסס כולו על &#34;סכסוך&#34; נטען בין ב&#34;כ המערער ובין המותב. דא עקא, שהמערער לא צירף לבקשת הפסלות או לערעור דנן אסמכתה כלשהי לאיזו מן הטענות שהעלה בהקשר זה. כמו כן, גרסת המערער כי בא-כוחו הגיש תלונה לנציב תלונות הציבור על השופטים לפני כעשור אך זו עודנה &#34;ממתינה לבירור&#34;, תמוהה ביותר. הבהרת המותב, ב&#34;רחל בתך הקטנה&#34;, כי טענות המערער חסרות שחר מדברת בעד עצמה, וניסיונו של המערער להיתלות במילים שונות מהבהרת המותב כדי להצדיק את פסילת המותב בהעדר ראיות לטענות החמורות שהעלה המערער – דינו להידחות. לגופו של עניין אבהיר כי לא מצאתי בהחלטת המותב דבר החורג מהבעת מורת רוח על הטענות שהוטחו בו ללא ראיות, וזו אינה מקימה עילת פסלות, אף לא מחמת מראית פני הצדק (ראו: ע&#34;פ 8817/22 פלוני נ&#39; מדינת ישראל, פסקה 9 (29.3.2023)). 
-
-
-
-	אשר על כן, הערעור נדחה וממילא נדחית גם הבקשה לעיכוב ההליך דלמטה.
-
-
-
-	ניתן היום, ‏ב&#39; בסיון התשפ&#34;ג (‏22.5.2023).
-
-
-
-
-
-
-
- ה נ ש י א ה
-
-
+ה נ ש י א ה
 
 _________________________
 
-   23038630_V01.docx   אט
+23038630_V01.docx אט
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1707,7 +1900,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

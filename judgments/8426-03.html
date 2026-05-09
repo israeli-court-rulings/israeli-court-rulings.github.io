@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    24/01/2005 (לפני 7771 ימים)
+                    24/01/2005 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8426-03.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8426/03 - יונתן מושיץ נ. בית הדין הארצי לעבודה בירושלים"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8426-03.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/260/084/C14&amp;fileName=03084260_C14.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/260/084/C14&amp;fileName=03084260_C14.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/260/084/C14&amp;fileName=03084260_C14.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/260/084/C14&amp;fileName=03084260_C14.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,11 +1829,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק בג&#34;ץ 8426/03
 
-בבית המשפט
-העליון בשבתו כבית משפט גבוה לצדק
+בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
-בג&#34;ץ
-8426/03
+בג&#34;ץ 8426/03
 
 בפני:
 
@@ -1580,8 +1849,7 @@
 
 המשיבים:
 
-1. בית הדין
-הארצי לעבודה בירושלים
+1. בית הדין הארצי לעבודה בירושלים
 
 2. המוסד לביטוח לאומי
 
@@ -1599,139 +1867,53 @@
 
 השופטת מ&#39; נאור:
 
-1. בחוות הדעת של פרופ&#39; אברמסקי וד&#34;ר
-גוטין, שמונו בהסכמה כמומחים מטעם בית המשפט, השיבו המומחים בחיוב לשאלה שהוצגה להם וחיוו דעתם לגביה:
+1. בחוות הדעת של פרופ&#39; אברמסקי וד&#34;ר גוטין, שמונו בהסכמה כמומחים מטעם בית המשפט, השיבו המומחים בחיוב לשאלה שהוצגה להם וחיוו דעתם לגביה:
 
-&#34;1. יש מספר מאמרים של חוקרים נוירולוגים מקובלים בעתונות נוירולוגית
-ידועה על קשר אפשרי בין חבלה לבין התפתחות ALS.
+&#34;1. יש מספר מאמרים של חוקרים נוירולוגים מקובלים בעתונות נוירולוגית ידועה על קשר אפשרי בין חבלה לבין התפתחות ALS.
 
-2. נוירולוגים מוכרים בתחום הנוירואפידמיולוגי, כגון
-קונדו וקורלנד, העלו את האפשרות שמספר עבודות רטרוספקטיביות הראו נטייה לקשר בין
-טראומה ו- ALS. ריגס [Riggs, J.E., Amyotrophic lateral sclerosis,
-heterogeneous susceptibility, trauma, and epidemiology.
-Arch Neurol, 1996. 53(3): p. 225-7]
-וגם קורלנד עצמו מצביעים על כך שיש עבודות רטרוספקטיביות [ה]מראות על נטייה אפשרית
-לקשר כזה, אבל הם עצמם גם מצביעים על בעיות מתודולוגיות בעבודות אלו. ריגס ואחרים
-הראו שעבודות עוקבה פרוספקטיביות, שהן נחשבות כבעלות משקל מדעי רב יותר מעבודות
-רטרוספקטיביות, לא מראות קשר כזה. נראה שהעבודות הרטרוספקטיביות שמצביעות על נטיה
-לקשר אמנם מכילות מספר ראוי של מקרים אבל הן לוקות בבעיות מתודולוגיות, בעוד
-שהעבודות הפרוספקטיביות שלא מצביעות על קשר הן נכונות מבחינה מתודולוגית אבל
-מכילות מספר לא מספיק של חולים.
+2. נוירולוגים מוכרים בתחום הנוירואפידמיולוגי, כגון קונדו וקורלנד, העלו את האפשרות שמספר עבודות רטרוספקטיביות הראו נטייה לקשר בין טראומה ו- ALS. ריגס [Riggs, J.E., Amyotrophic lateral sclerosis, heterogeneous susceptibility, trauma, and epidemiology. Arch Neurol, 1996. 53(3): p. 225-7] וגם קורלנד עצמו מצביעים על כך שיש עבודות רטרוספקטיביות [ה]מראות על נטייה אפשרית לקשר כזה, אבל הם עצמם גם מצביעים על בעיות מתודולוגיות בעבודות אלו. ריגס ואחרים הראו שעבודות עוקבה פרוספקטיביות, שהן נחשבות כבעלות משקל מדעי רב יותר מעבודות רטרוספקטיביות, לא מראות קשר כזה. נראה שהעבודות הרטרוספקטיביות שמצביעות על נטיה לקשר אמנם מכילות מספר ראוי של מקרים אבל הן לוקות בבעיות מתודולוגיות, בעוד שהעבודות הפרוספקטיביות שלא מצביעות על קשר הן נכונות מבחינה מתודולוגית אבל מכילות מספר לא מספיק של חולים.
 
-3. העובדה שבעבודות הרטרוספקטיביות השברים היו בדרך כלל לפני
-האבחנה יכולה מצד אחד לרמוז על אפשרות של קשר (בין אם גרימה ובין עם טריגר), אך
-מצד שני יכולה להצביע על נטייה לנפילה שיכולה לגרום לשברים אצל אנשים שאצלם כבר
-הופיעה המחלה אבל עדיין לא הובחנה [Chancellor, A.M., et al.,
-Risk factors for motor neuron disease: a case-control study based on patients
-from the Scottish Motor Neuron Disease Register. J Neurol Neurosurg Psychiat,
-1993. 56(11): p. 1200-6].
+3. העובדה שבעבודות הרטרוספקטיביות השברים היו בדרך כלל לפני האבחנה יכולה מצד אחד לרמוז על אפשרות של קשר (בין אם גרימה ובין עם טריגר), אך מצד שני יכולה להצביע על נטייה לנפילה שיכולה לגרום לשברים אצל אנשים שאצלם כבר הופיעה המחלה אבל עדיין לא הובחנה [Chancellor, A.M., et al., Risk factors for motor neuron disease: a case-control study based on patients from the Scottish Motor Neuron Disease Register. J Neurol Neurosurg Psychiat, 1993. 56(11): p. 1200-6].
 
-4. מסקירת הספרות עולה שבעבודות פרוספקטיביות אין הוכחה לקשר. כמו
-כן עולה שרוב החוקרים לא מסכימים שיש קשר אפילו בעבודות הרטרוספקטיביות. בחלק מספרי
-הלימוד המובילים
-הקשר כלל לא נזכר [Bradley, Daroff, Fenichel, Marsden
-Neurology in Clinical Practice 3rd Edition, Butterworth Heineman, 2000;
-Merritt; Harrison.] בחלק אחר הקשר
-נזכר, אבל כתוב שאין הוכחה [Adams and Victor’s,
-Principles of Neurology 7th edition, McGraw-Hill 2001; Brain]. גם סקירות חשובות מאת נוירולוגים מובילים בעיתונות מהשורה
-הראשונה, או שאינן מזכירות קשר כזה (Martin ב- NEJM) או שמזכירות אך טוענות שאין
-הוכחה (Crus; Curland; Riggs).
+4. מסקירת הספרות עולה שבעבודות פרוספקטיביות אין הוכחה לקשר. כמו כן עולה שרוב החוקרים לא מסכימים שיש קשר אפילו בעבודות הרטרוספקטיביות. בחלק מספרי הלימוד המובילים הקשר כלל לא נזכר [Bradley, Daroff, Fenichel, Marsden Neurology in Clinical Practice 3rd Edition, Butterworth Heineman, 2000; Merritt; Harrison.] בחלק אחר הקשר נזכר, אבל כתוב שאין הוכחה [Adams and Victor’s, Principles of Neurology 7th edition, McGraw-Hill 2001; Brain]. גם סקירות חשובות מאת נוירולוגים מובילים בעיתונות מהשורה הראשונה, או שאינן מזכירות קשר כזה (Martin ב- NEJM) או שמזכירות אך טוענות שאין הוכחה (Crus; Curland; Riggs).
 
-5. סוג הפגיעה שממנה סבל החולה נכללת במסגרת סוגי הפגיעות
-הטראומטיות הנזכרות בספרות הנדונה.
+5. סוג הפגיעה שממנה סבל החולה נכללת במסגרת סוגי הפגיעות הטראומטיות הנזכרות בספרות הנדונה.
 
-6. לגבי השאלה אם יש &#39;אסכולה&#39; הסוברת שטראומה מהסוג שסבל העותר
-יכולה לגרום למחלה, בהתאם להגדרת המונח &#39;אסכולה&#39; בפסק דין בבג&#34;צ 6260/00: אף
-שרוב החוקרים לא מכירים בקשר, יש מעט חוקרים מוכרים ממרכזים
-ידועים שכן
-מכירים בקשר כזה לפי עבודות רטרוספקטיביות. העובדה שקשר כזה נזכר על ידי חלק
-מהשוללים, בין אם במאמרים ובין אם בספרי לימוד, מצביעה על כך שהם מכירים בעובדה
-שיש מחייבים, אף אם הינם מעטים ואף אם אינם מסכימים לדעתם. מבחינה זאת נראה
-שניתן להגיע לסף גבול מינימלי של קביעה, על פי בג&#34;צ 6260/00, לפיה קיימת
-&#39;אסכולה&#39; הסוברת כאמור. זאת על אף שהנמנים על &#39;האסכולה&#39; הינם מועטים ועל אף שעל
-רבים מקובל שאין הוכחה מוסכמת ומבוססת לדעתם....&#34;
+6. לגבי השאלה אם יש &#39;אסכולה&#39; הסוברת שטראומה מהסוג שסבל העותר יכולה לגרום למחלה, בהתאם להגדרת המונח &#39;אסכולה&#39; בפסק דין בבג&#34;צ 6260/00: אף שרוב החוקרים לא מכירים בקשר, יש מעט חוקרים מוכרים ממרכזים ידועים שכן מכירים בקשר כזה לפי עבודות רטרוספקטיביות. העובדה שקשר כזה נזכר על ידי חלק מהשוללים, בין אם במאמרים ובין אם בספרי לימוד, מצביעה על כך שהם מכירים בעובדה שיש מחייבים, אף אם הינם מעטים ואף אם אינם מסכימים לדעתם. מבחינה זאת נראה שניתן להגיע לסף גבול מינימלי של קביעה, על פי בג&#34;צ 6260/00, לפיה קיימת &#39;אסכולה&#39; הסוברת כאמור. זאת על אף שהנמנים על &#39;האסכולה&#39; הינם מועטים ועל אף שעל רבים מקובל שאין הוכחה מוסכמת ומבוססת לדעתם....&#34;
 
-2. העותר מבקש, לאור חוות הדעת של המומחים, שנכיר
-במלוא נכותו כנכות שנגרמה על ידי פעולת האיבה. המוסד לביטוח לאומי לעומתו מבקש
-שנקבע כי הניסוח בו נקטו המומחים &#34;סף גבול מינימלי של קביעה&#34;, הוא ניסוח
-שאינו מופיע בפסיקת בית משפט זה, ומהווה בעצם קביעה בענין העדרה של אסכולה. טענה זו של המוסד לא נוכל לקבל. על המומחים
-הוטל לקבוע קיומה של אסכולה או העדרה; אין אפשרות ביניים, והמומחים, שעברו על
-החומר הרפואי ועל ההנחיות שניתנו להם בחרו לקבוע כי קיימת אסכולה.
+2. העותר מבקש, לאור חוות הדעת של המומחים, שנכיר במלוא נכותו כנכות שנגרמה על ידי פעולת האיבה. המוסד לביטוח לאומי לעומתו מבקש שנקבע כי הניסוח בו נקטו המומחים &#34;סף גבול מינימלי של קביעה&#34;, הוא ניסוח שאינו מופיע בפסיקת בית משפט זה, ומהווה בעצם קביעה בענין העדרה של אסכולה. טענה זו של המוסד לא נוכל לקבל. על המומחים הוטל לקבוע קיומה של אסכולה או העדרה; אין אפשרות ביניים, והמומחים, שעברו על החומר הרפואי ועל ההנחיות שניתנו להם בחרו לקבוע כי קיימת אסכולה.
 
-3. המוסד לביטוח לאומי מבקש עוד שנקבע, על פי
-האמור בחוות הדעת עצמה, שאין בנמצא אסכולה כנטען על ידי העותר. המוסד אינו חולק על
-כך שמעט מומחים בעלי שם ממרכזים רפואיים ידועים סבורים שקיים קשר סיבתי. המוסד מפנה
-עם זאת לפיסקה מתוך רע&#34;א 2027/94 קליג&#39; נ&#39; קצין
-התגמולים במשרד הבטחון, פ&#34;ד נ (1) 529 שצוטט בבג&#34;ץ 6260/00
-ולפיה:
+3. המוסד לביטוח לאומי מבקש עוד שנקבע, על פי האמור בחוות הדעת עצמה, שאין בנמצא אסכולה כנטען על ידי העותר. המוסד אינו חולק על כך שמעט מומחים בעלי שם ממרכזים רפואיים ידועים סבורים שקיים קשר סיבתי. המוסד מפנה עם זאת לפיסקה מתוך רע&#34;א 2027/94 קליג&#39; נ&#39; קצין התגמולים במשרד הבטחון, פ&#34;ד נ (1) 529 שצוטט בבג&#34;ץ 6260/00 ולפיה:
 
-&#34;אין די בכך שיש מספר רופאים או חוקרים הדוגלים בדעה מסוימת כדי
-לומר שדעתם מהווה אסכולה, ואף אין די בכך שדעתם באה לידי ביטוי בספרות הרפואית. כדי שדעה
-תגיע למעמד של אסכולה, צריך שהיא תהיה מקובלת כדעה מבוססת במרכזים רפואיים חשובים,
-או על דעת מומחים מוכרים בעולם, ואף תוצג כדעה מבוססת בספרי לימוד חדשים בעלי מעמד
-מקצועי מכובד. בדרך כלל דעה כזאת תהיה מבוססת על מחקרים מדעיים רציניים המצביעים
-באופן משכנע על תופעה, קשר או הסבר, להבדיל מהשערות, ואפילו הן השערות סבירות שלא
-הופרכו על-ידי מחקרים.&#39;&#34;
+&#34;אין די בכך שיש מספר רופאים או חוקרים הדוגלים בדעה מסוימת כדי לומר שדעתם מהווה אסכולה, ואף אין די בכך שדעתם באה לידי ביטוי בספרות הרפואית. כדי שדעה תגיע למעמד של אסכולה, צריך שהיא תהיה מקובלת כדעה מבוססת במרכזים רפואיים חשובים, או על דעת מומחים מוכרים בעולם, ואף תוצג כדעה מבוססת בספרי לימוד חדשים בעלי מעמד מקצועי מכובד. בדרך כלל דעה כזאת תהיה מבוססת על מחקרים מדעיים רציניים המצביעים באופן משכנע על תופעה, קשר או הסבר, להבדיל מהשערות, ואפילו הן השערות סבירות שלא הופרכו על-ידי מחקרים.&#39;&#34;
 
-לטענת המוסד הדיעה לפיה קיים קשר סיבתי,
-אינה דיעה &#34;מבוססת&#34; ואף אינה מוצגת בספרי הלימוד החדשים כדעה &#34;מבוססת&#34;.
+לטענת המוסד הדיעה לפיה קיים קשר סיבתי, אינה דיעה &#34;מבוססת&#34; ואף אינה מוצגת בספרי הלימוד החדשים כדעה &#34;מבוססת&#34;.
 
-4. מקובל עלינו כי הפוסק האחרון בשאלת קיומה
-או העדרה של אסכולה הוא בית המשפט ולא המומחה (או המומחים). יחד עם זאת, כדי
-לשכנענו שלא לקבל את מסקנת המומחים ולפיה קיימת אסכולה, היה על המתנגד למסקנה
-שבחוות הדעת – המוסד לביטוח לאומי – לבקש לשאול את המומחים שאלות הבהרה או, למצער,
-להציג לבית המשפט את הספרות עליה התבססו המומחים בקביעתם שקיימת אסכולה, כדי שבית
-המשפט יוכל לבחון בעצמו אם מדובר בדיעה המוצגת כ&#34;מבוססת&#34; אם לאו. לא
-ניתן לעשות כן על סמך קטעי דברים ובנסיבות אלה, ועל יסוד החומר הקיים, אציע לחברי
-לאמץ את מסקנת המומחים.
+4. מקובל עלינו כי הפוסק האחרון בשאלת קיומה או העדרה של אסכולה הוא בית המשפט ולא המומחה (או המומחים). יחד עם זאת, כדי לשכנענו שלא לקבל את מסקנת המומחים ולפיה קיימת אסכולה, היה על המתנגד למסקנה שבחוות הדעת – המוסד לביטוח לאומי – לבקש לשאול את המומחים שאלות הבהרה או, למצער, להציג לבית המשפט את הספרות עליה התבססו המומחים בקביעתם שקיימת אסכולה, כדי שבית המשפט יוכל לבחון בעצמו אם מדובר בדיעה המוצגת כ&#34;מבוססת&#34; אם לאו. לא ניתן לעשות כן על סמך קטעי דברים ובנסיבות אלה, ועל יסוד החומר הקיים, אציע לחברי לאמץ את מסקנת המומחים.
 
-5. עם זאת אציע לחברי להבהיר כי קביעתנו
-בענין קיום קשר סיבתי בין מחלתו של העותר לבין פעולת האיבה, כוחה יפה בין הצדדים
-להליך זה על יסוד חוות הדעת המונחת בפנינו. ההתדיינות בפרשה זו נמשכה שנים ארוכות
-והגיעה העת לסיימה על יסוד התשתית הראייתית הקיימת. אני מעמידה את המוסד בחזקתו
-שהכרה בכך שיש לסיים את ההליך הממושך הניעה אותו שלא לנסות כוחו בהליך נוסף של
-שאלות הבהרה. אין איפוא באמור בפסק דין זה כדי למנוע מהמוסד לביטוח לאומי למצות
-כל הליך אחר בו עשויה להתעורר שאלת הקשר בין המחלה לטראומה.
+5. עם זאת אציע לחברי להבהיר כי קביעתנו בענין קיום קשר סיבתי בין מחלתו של העותר לבין פעולת האיבה, כוחה יפה בין הצדדים להליך זה על יסוד חוות הדעת המונחת בפנינו. ההתדיינות בפרשה זו נמשכה שנים ארוכות והגיעה העת לסיימה על יסוד התשתית הראייתית הקיימת. אני מעמידה את המוסד בחזקתו שהכרה בכך שיש לסיים את ההליך הממושך הניעה אותו שלא לנסות כוחו בהליך נוסף של שאלות הבהרה. אין איפוא באמור בפסק דין זה כדי למנוע מהמוסד לביטוח לאומי למצות כל הליך אחר בו עשויה להתעורר שאלת הקשר בין המחלה לטראומה.
 
-6. לסיכום: אציע לחברי לקבוע כי העותר זכאי
-ל-100% נכות לפי חוק התגמולים לנפגעי פעולות איבה, תש&#34;ל-1970. בנסיבות הענין
-לא יהיה צו להוצאות.
+6. לסיכום: אציע לחברי לקבוע כי העותר זכאי ל-100% נכות לפי חוק התגמולים לנפגעי פעולות איבה, תש&#34;ל-1970. בנסיבות הענין לא יהיה צו להוצאות.
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
 השופטת א&#39; חיות:
 
-מסכימה אני לתוצאה אליה הגיעה חברתי
-השופטת מ&#39; נאור. ברצוני להדגיש כי תוצאה זו ראויה היא לנסיבותיו המיוחדות של המקרה
-הנדון ולהסכמות שהושגו בין הצדדים בהליכים שהתקיימו ביניהם עד כה (ראו פסק הדין
-בבג&#34;צ 6260/00 וכן סעיף 8 להחלטתנו מיום 13.7.2004 בעתירה שבכאן). אכן, בדרך
-כלל אין די בעצם קיומה של אסכולה בקרב המומחים המכירה בקשר סיבתי, על מנת לבסס את
-קיומו ולהוביל להכרה בנפגע כמי שזכאי לתגמולים מכוח חוק התגמולים לנפגעי פעולות
-איבה התש&#34;ל-1970. קיומה של אסכולה כזו בקרב המומחים הוא רק אחד הנתונים
-הרלוונטיים לצורך ההכרעה בשאלת הקשר הסיבתי (ראו: רע&#34;א 2027/94 קליג&#39; נ&#39; קצין התגמולים במשרד הביטחון פ&#34;ד נ(1) 529). לפיכך,
-מקובלים עלי דבריה של חברתי כי אין לגזור מן המקרה הפרטי שבפנינו ומנסיבותיו
-המיוחדות הלכה למקרים לעתיד לבוא.
+מסכימה אני לתוצאה אליה הגיעה חברתי השופטת מ&#39; נאור. ברצוני להדגיש כי תוצאה זו ראויה היא לנסיבותיו המיוחדות של המקרה הנדון ולהסכמות שהושגו בין הצדדים בהליכים שהתקיימו ביניהם עד כה (ראו פסק הדין בבג&#34;צ 6260/00 וכן סעיף 8 להחלטתנו מיום 13.7.2004 בעתירה שבכאן). אכן, בדרך כלל אין די בעצם קיומה של אסכולה בקרב המומחים המכירה בקשר סיבתי, על מנת לבסס את קיומו ולהוביל להכרה בנפגע כמי שזכאי לתגמולים מכוח חוק התגמולים לנפגעי פעולות איבה התש&#34;ל-1970. קיומה של אסכולה כזו בקרב המומחים הוא רק אחד הנתונים הרלוונטיים לצורך ההכרעה בשאלת הקשר הסיבתי (ראו: רע&#34;א 2027/94 קליג&#39; נ&#39; קצין התגמולים במשרד הביטחון פ&#34;ד נ(1) 529). לפיכך, מקובלים עלי דבריה של חברתי כי אין לגזור מן המקרה הפרטי שבפנינו ומנסיבותיו המיוחדות הלכה למקרים לעתיד לבוא.
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
 המשנה-לנשיא (בדימ&#39;) א&#39; מצא:
 
-אני מסכים לפסק-דינה של חברתי השופטת מ&#39;
-נאור ומצטרף להערת חברתי השופטת מ&#39; חיות.
+אני מסכים לפסק-דינה של חברתי השופטת מ&#39; נאור ומצטרף להערת חברתי השופטת מ&#39; חיות.
 
-המשנה-לנשיא
-(בדימ&#39;)
+המשנה-לנשיא (בדימ&#39;)
 
-הוחלט כאמור בפסק דינה של השופטת מ&#39;
-נאור.
+הוחלט כאמור בפסק דינה של השופטת מ&#39; נאור.
 
-ניתן היום, י&#34;ד בשבט תשס&#34;ה
-(24.1.2005).
+ניתן היום, י&#34;ד בשבט תשס&#34;ה (24.1.2005).
 
-המשנה-לנשיא (בדימ&#39;) ש ו פ ט ת
-ש ו פ ט ת
+המשנה-לנשיא (בדימ&#39;) ש ו פ ט ת ש ו פ ט ת
 
 _________________________
 
@@ -1756,7 +1938,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

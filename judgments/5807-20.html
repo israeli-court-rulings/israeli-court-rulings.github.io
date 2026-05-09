@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    30/12/2020 (לפני 1952 ימים)
+                    30/12/2020 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5807-20.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5807/20 - מוחמד שיבלי נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5807-20.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/070/058/o04&amp;fileName=20058070.O04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/070/058/o04&amp;fileName=20058070.O04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/070/058/o04&amp;fileName=20058070.O04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/070/058/o04&amp;fileName=20058070.O04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,195 +1827,101 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
+ע&#34;פ 5807/20
 
-
-
-
-1
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
-
-
-
-ע&#34;פ  5807/20
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט נ&#39; סולברג
 
-
-
 כבוד השופט מ&#39; מזוז
 
-
-
 כבוד השופטת י&#39; וילנר
-
-
 
 המערער:
 
 מוחמד שיבלי
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-
-
 ערעור על גזר הדין של בית המשפט המחוזי בנצרת מיום 20.7.2020 בת&#34;פ 38338-08-18 שניתן על ידי כבוד השופט ג&#39; אזולאי
-
-
 
 בשם המערער:
 
 עו&#34;ד נג&#39;מה הייב אבו-מוך
 
-
-
 בשם המשיבה:
 
 עו&#34;ד יוסף קנפו
 
-	
-
 פסק-דין
-
-
 
 השופט נ&#39; סולברג:
 
-
-
 1.	ערעור על גזר הדין של בית המשפט המחוזי בנצרת מיום 20.7.2020, בת&#34;פ 38338-08-18 (השופט ג&#39; אזולאי), בגדרו נגזרו על המערער, מוחמד שיבלי, 12 חודשי מאסר בפועל, ו-9 חודשי מאסר על-תנאי.
-
-
 
 כתב האישום והכרעת הדין
 
 2.	במסגרת ההליך הפלילי שהתנהל בבית המשפט המחוזי, פנו הצדדים להליך של גישור, ובמסגרתו סיכמו, כי שיבלי יודה במיוחס לו בכתב אישום מתוקן אשר קובע כדלקמן: &#34;ביום 11.8.18, בשעה 19:50 לערך, הנאשם נשא והוביל נשק מסוג תת מקלע מאולתר ברכב מסוג שברולט מכיוון כללי אכסאל לכיוון כפר דבוריה&#34;. סתם כתב האישום, ולא פירש את הנסיבות שאפפו את האירוע. ביום 27.2.2019, הרשיע בית המשפט המחוזי את שיבלי, על-פי הודאתו, בעבירה של נשיאת נשק והובלתו לפי סעיף 144(ב) רישא + סעיף 29 לחוק העונשין, התשל&#34;ז-1977. במעמד זה, הודיעה באת-כוחו של שיבלי לבית המשפט, כי בהסכמת המשיבה, ההגנה שומרת לעצמה את הזכות לטעון לנסיבות ביצוע העבירה, אשר לא פורטו בכתב האישום המתוקן.
 
-
-
 עיקרי גזר הדין של בית המשפט המחוזי
 
 3.	תחילה, עמד בית המשפט המחוזי על תסקירי שירות המבחן. שיבלי, רווק כבן 39, אשר אינו עובד למחייתו, סובל מפוסט טראומה עקב פציעה שעבר בשנת 2008 במסגרת שירותו הצבאי. הוא הוכר כנכה צה&#34;ל בשיעור של 24% לצמיתות, ומתקיים מקצבה שהוא מקבל ממשרד הביטחון. עוד צויין, כי שיבלי נעדר עבר פלילי. בתסקיר מאוחר יותר עודכן בית המשפט, כי שיבלי עבר בדיקה נוירולוגית, שבעקבותיה נמצא כי הוא סובל מבעיות רפואיות מסוימות, וכמו כן עבר אבחון תעסוקתי, שבמסגרתו אובחנו קשיים קוגניטיביים ורגשיים. שיבלי סיפר לשירות המבחן, כי מצא את כלִי הנשק עטוף בעת שטייל ביער, והחליט לקחת אותו לאביו על מנת שידווחו על מציאתו, יחדיו, למשטרה. שיבלי הביע צער על המעשה, תוך הבנה כי שגה בכך שלא דיווח על המציאה באופן מיידי. בתסקיר נוסף נמסר, כי מבדיקה פסיכיאטרית שעבר שיבלי עלה, כי נוכח העדר תעסוקה ובעקבות ההליך המשפטי שמתנהל נגדו – חלה החמרה במצבו הנפשי. בתסקיר האחרון סיכם שירות המבחן, כי שיבלי נמצא בתחילתו של תהליך שיקומי שיכול לסייע לו להשתקם, ולחזור ולהשתלב בקהילה. לפיכך, בא שירות המבחן בהמלצה להטיל ענישה מאוזנת, שתכלול פן שיקומי מחד גיסא, ופן עונשי ומרתיע מאידך גיסא: צו מבחן למשך שנה; מאסר שירוצה בדרך של עבודות שירות; מאסר על-תנאי לתקופה משמעותית; קנס; והתחייבות כספית. צויין, כי ניתן להעריך ששליחתו למאסר בפועל, תוביל לפגיעה בהליך השיקומי ולרגרסיה במצבו הנפשי.
 
-
-
 4.	מכאן, פנה בית המשפט המחוזי לקביעת מתחם העונש ההולם. לשם כך, עמד בית המשפט על חומרתן של עבירות הנשק; על הפוטנציאל ההרסני שטמון בהן; ועל פגיעתן בערך המוגן של שלום הציבור ובטחונו. אשר למידת הפגיעה בערכים המוגנים, קבע בית המשפט כי אמנם לא נגרם נזק כתוצאה ממעשיו של שיבלי, אולם פוטנציאל הנזק הוא עצום, ולפיכך הפגיעה בערכים המוגנים היא משמעותית וחמורה. לאחר מכן, סקר בית המשפט את מדיניות הענישה הנהוגה במקרים דומים, התייחס לסוג הנשק שנשא שיבלי – תת מקלע מאולתר – וקבע, כי מתחם העונש ההולם הריהו 40-20 חודשי מאסר בפועל, בצירוף עונשים נלווים.
-
-
 
 5.	על רקע האמור, פנה בית המשפט המחוזי לגזירת העונש המתאים. בית המשפט ציין לזכותו של שיבלי את הודאתו בביצוע העבירה; את החרטה שהביע; את היותו נעדר עבר פלילי; את מצבו הבריאותי והנפשי כפי המשתקף מתסקירי שירות המבחן ומהמסמכים שהוגשו לבית המשפט; את היותו נכה צה&#34;ל; ואת דבריו של שיבלי ואביו בבית המשפט על אודות היותם משפחה שומרת חוק, ועל כך שלא היתה זו אלא טעות בשיקול הדעת מצדו של שיבלי שלא מסר דיווח מיידי למשטרה. לבסוף, נתן בית המשפט דעתו על המלצת שירות המבחן, שבכללה צויין גילוי אחריות מצד שיבלי כלפי התהליך השיקומי. מאידך גיסא ציין בית המשפט, כי בשנים האחרונות ניכרת בפסיקה מגמה של החמרת הענישה בעבירות נשק. עובדה שיש להביאה בחשבון בענייננו. לאחר שקילת השיקולים מכאן ומכאן, קבע בית המשפט כי לשם שיקומו של שיבלי, ועל רקע נסיבותיו האישיות, יש הצדקה לסטות לקולא ממתחם העונש ההולם. יחד עם זאת, בשים לב לשיקולי הגמול וההרתעה, לא ניתן לפוטרו כליל מנשיאת עונש של מאסר בפועל מאחורי סורג ובריח. לפיכך, גזר בית המשפט המחוזי על שיבלי, עונש של 12 חודשי מאסר בפועל, ותקופת מאסר על-תנאי.
 
-
-
-	מכאן הערעור שלפנינו.
-
-
+מכאן הערעור שלפנינו.
 
 עיקרי טענות הצדדים בערעור
 
 6.	באת-כוחו של שיבלי טוענת, כי שגה בית המשפט המחוזי כאשר דחה את המלצת שירות המבחן, התעלם מן האזהרה שניתנה בגדרה, ושלח את מרשה לריצוי עונש של מאסר בפועל. היא שבה והבהירה, כי שיבלי הוא אזרח שומר חוק, שזו הסתבכותו הראשונה בפלילים. עוד הזכירה, כי הוא שירת בגדס&#34;ר הבדואי של צה&#34;ל במשך כשש שנים. במסגרת זו, נפגע בפיצוץ של מכונית תופת בגבול עזה; היה עד למות חבריו; לקה בטראומה והלם קרב; ומאז נשתנו חייו לבלי הכר: שיבלי לא הצליח להקים משפחה, הוא מטופל פסיכולוגית, מקבל טיפול תרופתי נגד הזיות וסיוטים, ומתקיים מקצבת נכות. עוד הטעימה באת-כוחו של שיבלי, כי הוא בן למשפחה בדואית נורמטיבית, אביו שירת בצבא קבע, וגם יתר אחיו שירתו בצה&#34;ל. אשר לנסיבות ביצוע העבירה נטען, כי באותו יום, חזר שיבלי מביקור אצל אימו השוהה בבית אבות בכפר דבוריה. בדרכו, פנה לחורשה על מנת לעשות את צרכיו, ושם מצא שקית ובתוכה כלִי הנשק. הוא הרים את כלִי הנשק, על מנת להביאו לביתו, לפגוש את אביו ולדווח עליו למשטרת ישראל. אלא, שבדרך הילוכו, בחלוף מטרים ספורים, הבחינו בו שוטרים והורו לו לעצור. שיבלי הודה מיד במעשיו. חטאו לא היה אלא זה, שלא דיווח למשטרה מיד עם מציאת הנשק. לפיכך טוענת באת-כוחו, כי מדובר בנסיבות ביצוע קלות ביותר: נשיאת נשק לטווח קצר, ושלא בנסיבות של פעילות עבריינית. לבסוף, הפנתה באת-כוחו של שיבלי, למספר פסקי-דין אשר מעמידים את תחתית מתחם הענישה בכגון דא, על מספר חודשי מאסר שאפשר כי ירוצו בדרך של עבודות שירות.
 
-
-
 7.	בדיון שהתקיים לפנינו, חזרה באת-כוחו של שיבלי והזכירה את נסיבות ביצוע העבירה על-פי גרסת מרשה, ואת הנזק הנפשי שעלול להיגרם לו אם ירצה עונש מאסר בין כותלי בית הסוהר. בעטיין של נסיבות המקרה הייחודיות, ביקשנו מבא-כוחה של המשיבה לשוב ולשקול את עמדתם; אך לאחר שהתייעץ עם הממונים עליו, הודיענו כי לא יוכלו להסתפק בעונש שאינו כולל רכיב של מאסר בפועל. בסיום הדיון, הורינו על הגשת חוות דעת מטעם הממונה על עבודות השירות, שבמסגרתה תיבחן התאמתו של שיבלי לביצוע עונש מאסר בדרך של עבודות שירות. בחוות הדעת שהוגשה ביום 22.12.2020, נמצא שיבלי מתאים לביצוע עבודות שירות בכפוף למגבלות מסוימות, ובתנאי שיהיה נתון למעקב פסיכיאטרי ולטיפול סדיר.
-
-
 
 דיון והכרעה
 
-8.	לאחר שעיינתי בגזר הדין של בית המשפט המחוזי, ונתתי דעתי על טענות ב&#34;כ הצדדים מזה ומזה, באתי לכלל מסקנה כי בנסיבות המיוחדות ויוצאות הדופן שבעניין דנן, ראוי הוא הערעור להתקבל. אמת נכון הדבר, לא נפלה שגיאה בקביעותיו העקרוניות של בית המשפט המחוזי. עבירות הנשק – חמורות מנשוא; אחריתן – מי ישורנה. ברגיל, כך נקבע לא אחת, גם אם היתה זו פעם ראשונה לנאשם שמעד בעבירות הקשורות בנשק, לא נחמול ולא נכסה עליו; נשלחהו למאסר מאחורי סורג ובריח (ע&#34;פ 8207/19 אליהו נ&#39; מדינת ישראל, פסקה 11 (13.07.2020)). עבירות הנשק, הריהן מכת מדינה. אזרחים רבים מקפחים את חייהם מידי שנה בעטיין, ותחושת הביטחון הכללית של הציבור – נפגעת. מערכת המשפט, נדרשת גם היא ליתן את חלקה במלחמת החורמה שמנהלת מדינת ישראל נגד מבצעי העבירות הללו, ולפיכך מדיניות הענישה מצויה במגמת החמרה (ע&#34;פ 7595/19 סגים נ&#39; מדינת ישראל, פסקה 32 (22.11.2020)).
-
-
+8.	לאחר שעיינתי בגזר הדין של בית המשפט המחוזי, ונתתי דעתי על טענות ב&#34;כ הצדדים מזה ומזה, באתי לכלל מסקנה כי בנסיבות המיוחדות ויוצאות הדופן שבעניין דנן, ראוי הוא הערעור להתקבל. אמת נכון הדבר, לא נפלה שגיאה בקביעותיו העקרוניות של בית המשפט המחוזי. עבירות הנשק – חמורות מנשוא; אחריתן – מי ישורנה. ברגיל, כך נקבע לא אחת, גם אם היתה זו פעם ראשונה לנאשם שמעד בעבירות הקשורות בנשק, לא נחמול ולא נכסה עליו; נשלחהו למאסר מאחורי סורג ובריח (ע&#34;פ 8207/19 אליהו נ&#39; מדינת ישראל, פסקה 11 (13.07.2020)). עבירות הנשק, הריהן מכת מדינה. אזרחים רבים מקפחים את חייהם מידי שנה בעטיין, ותחושת הביטחון הכללית של הציבור – נפגעת. מערכת המשפט, נדרשת גם היא ליתן את חלקה במלחמת החורמה שמנהלת מדינת ישראל נגד מבצעי העבירות הללו, ולפיכך מדיניות הענישה מצויה במגמת החמרה (ע&#34;פ 7595/19 סגים נ&#39; מדינת ישראל, פסקה 32 (22.11.2020)).
 
 9.	יחד עם זאת, עניין לנו במקרה חריג שבחריגים. נסיבות ביצוע העבירה, ובעיקר – מצבו הרפואי, הנפשי והמשפחתי של שיבלי, על הרקע ההיסטורי שלהם, כל אלה, בהצטברם, מצדיקים את קבלת המלצת שירות המבחן, תוך נקיטת משנה זהירות ביחס להתראה שנשמעה בגדרה, מפני שליחתו לבית הסוהר. ובמה דברים אמורים? נסיבות ביצוע העבירה לא פורטו כל צרכן בכתב האישום; העיר על כך חברי השופט מזוז במהלך הדיון. בעקבות זאת, הכרעת הדין אינה מציגה לפנינו תמונה מלאה ביחס לנסיבות ביצוע העבירה, וטענותיו של שיבלי בהקשר זה נטענו מאוחר יותר, באין מפריע. בנסיבות אלו, לא אטע מסמרות באשר לנסיבותיו המדויקות של מעשה העבירה, אומר אך זאת: מבלי למעט בחומרתה של כל עבירת נשק באשר היא, לפי גרסתו של שיבלי, מדובר בעבירה שבוצעה בנסיבות מקילות ביותר. מעבר לכך לא אפרט, שכן עיקר ההצדקה להתערב בעונש שגזר בית המשפט המחוזי, נעוץ בנסיבותיו האישיות של שיבלי. כפי שפורט לעיל, שיבלי שירת שירות צבאי משמעותי, ונפגע במהלכו, פגיעה אשר הותירה צלקת עמוקה בנפשו עד עצם היום הזה. מצבו הבריאותי והנפשי – אינו בכי טוב; חרטתו – נראתה כנה ועמוקה; מעידתו – ראשונה ויחידה, גם לא מן החמורות; משפחתו – נורמטיבית ותומכת, חזקה עליה שתסייע בידו לחזור ולהשתלב בקהילה. על רקע כל אלה, סבורני, כי בהמשך לקביעתו של בית המשפט המחוזי באשר לנסיבות המצדיקות חריגה לקולא ממתחם העונש ההולם, ראוי ונכון כי נצעד כברת דרך נוספת לקראתו של שיבלי, נפטור אותו מכניסה לבית הסוהר, על הסיכונים הכרוכים בכך, ונאפשר לו לרצות עונש מאסר בדרך של עבודות שירות.
 
-
-
 10.	אשר על כן, אציע לחברי ולחברתי, כי תחת עונש המאסר בפועל שהשית עליו בית המשפט המחוזי, ירצה שיבלי עונש מאסר בדרך של עבודות שירות, למשך 9 חודשים. רכיב המאסר על-תנאי שגזר בית המשפט המחוזי – יוותר על כנו. לצורך ריצוי העונש, יתייצב שיבלי ביום 14.2.2021 בשעה 8:00 בבוקר, במשרדי הממונה על עבודות שירות, רחוב הציונות 14, טבריה. לבקשת הממונה על עבודות השירות, אזכיר לשיבלי, כי חריגה מנהלי העבודה שיוגדרו, תוכל להוביל להפסקת עבודות השירות, ולהמשך ריצוי העונש בדרך של מאסר בפועל.
 
-
-
-			
-
-			
-
-			        ש ו פ ט
-
-
+ש ו פ ט
 
 השופט מ&#39; מזוז:
 
-אני מסכים. 
+אני מסכים.
 
-			
-
-			
-
-			        ש ו פ ט
-
-
+ש ו פ ט
 
 השופטת י&#39; וילנר:
 
-אני מסכימה. 
+אני מסכימה.
 
-			
+ש ו פ ט ת
 
-			
+לפיכך הוחלט כאמור בפסק הדין של השופט נעם סולברג.
 
-			        ש ו פ ט ת
+ניתן היום, ‏ט&#34;ו בטבת התשפ&#34;א (‏30.12.2020).
 
+ש ו פ ט
 
+ש ו פ ט
 
-	לפיכך הוחלט כאמור בפסק הדין של השופט נעם סולברג. 
-
-
-
-	ניתן היום, ‏ט&#34;ו בטבת התשפ&#34;א (‏30.12.2020).
-
-
-
-			ש ו פ ט
-
-			          ש ו פ ט
-
-			        ש ו פ ט ת
+ש ו פ ט ת
 
 _________________________
 
-   20058070_O04.docx   שצ
+20058070_O04.docx שצ
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1763,7 +1940,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

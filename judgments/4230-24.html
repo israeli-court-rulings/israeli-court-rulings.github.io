@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    28/07/2024 (לפני 646 ימים)
+                    28/07/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/4230-24.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="4230/24 - גיל יחיאל אלמליח נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F4230-24.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/300/042/y02&amp;fileName=24042300.Y02&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/300/042/y02&amp;fileName=24042300.Y02&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/300/042/y02&amp;fileName=24042300.Y02&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/300/042/y02&amp;fileName=24042300.Y02&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,140 +1827,69 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון בשבתו כבית משפט לערעורים בעניינים מינהליים
 
+עע&#34;מ 4230/24
 
-
-
-
-1
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים בעניינים מינהליים
-
-
-
-עע&#34;מ  4230/24
-
-
-
-לפני:	
+לפני:
 
 כבוד השופטת ד&#39; ברק-ארז
 
-
-
 כבוד השופט ד&#39; מינץ
 
-
-
 כבוד השופט ע&#39; גרוסקופף
-
-
 
 המערערים:
 
 1. גיל יחיאל אלמליח
 
-
-
 2. מישל פיי אלמליח
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-
-
 ערעור על פסק דינו של בית המשפט המחוזי מרכז בלוד בשבתו כבית משפט לעניינים מנהליים מיום 18.2.2024 בת&#34;צ 48112-07-22 שניתן על ידי כבוד השופט שמואל ברונשטין
-
-
 
 תאריך הישיבה:
 
-כ&#34;ב בתמוז התשפ&#34;ד       
+כ&#34;ב בתמוז התשפ&#34;ד
 
-(28.7.2024) 
-
-
+(28.7.2024)
 
 בשם המערערים:
 
 עו&#34;ד אברהם שהין; עו&#34;ד שלמה אשכנזי
 
-
-
 בשם המשיבה:
-
-
 
 עו&#34;ד יהודה רשתיאן
 
-
-
 פסק-דין
-
-
 
 השופט ע&#39; גרוסקופף:
 
+לפנינו ערעור על פסק דינו של בית המשפט המחוזי מרכז בלוד בשבתו כבית משפט לעניינים מינהליים (כב&#39; השופט שמואל בורנשטיין) בת&#34;צ 48112-07-22 מיום 18.2.2024, בגדרו נדחתה בקשת המערערים לאישור תובענה כייצוגית (להלן: בקשת האישור).
 
-
-	לפנינו ערעור על פסק דינו של בית המשפט המחוזי מרכז בלוד בשבתו כבית משפט לעניינים מינהליים (כב&#39; השופט שמואל בורנשטיין) בת&#34;צ 48112-07-22 מיום 18.2.2024, בגדרו נדחתה בקשת המערערים לאישור תובענה כייצוגית (להלן: בקשת האישור).
-
-
-
-ברקע בקשת האישור ניצב חוק התכנית לסיוע כלכלי (נגיף הקורונה החדש – מענק חד פעמי) (הוראת שעה ותיקוני חקיקה), התש&#34;ף-2020 (להלן: הוראת השעה 2020), אשר נכנס לתוקף ביום 29.7.2020, והביא להפחתה בשיעורי מס הרכישה (לפי חוק מיסוי מקרקעין (שבח ורכישה), התשכ&#34;ג-1963 (להלן: חוק מיסוי מקרקעין)). המערערים רכשו דירה חייבת במס רכישה (להלן: דירה חייבת) ביום 20.7.2020 (דהיינו תשעה ימים לפני מועד תחולתו של הוראת השעה 2020), ומשכך חויבו לשלם את שיעור מס הרכישה לפי שיעורו על פי הדין שהיה בתוקף אותה עת (להלן: שיעור המס הגבוה), מבלי ליהנות מההפחתה שהביאה עמה הוראת השעה 2020 כעבור מספר ימים. במסגרת בקשת האישור טענו המערערים, בתמצית, כי היה על המשיבה לגלות לציבור מראש על דבר הוראת השעה 2020 הצפויה, על ברכותיה, וכי משלא עשתה כן עליה לשאת ב&#34;נזקיהם&#34; של רוכשי דירה חייבת אשר התקשרו בחוזה רכישה בין יום 12.7.2020 ליום 29.7.2020, ונדרשו לשלם מס רכישה בשיעור המס הגבוה. 
-
-
+ברקע בקשת האישור ניצב חוק התכנית לסיוע כלכלי (נגיף הקורונה החדש – מענק חד פעמי) (הוראת שעה ותיקוני חקיקה), התש&#34;ף-2020 (להלן: הוראת השעה 2020), אשר נכנס לתוקף ביום 29.7.2020, והביא להפחתה בשיעורי מס הרכישה (לפי חוק מיסוי מקרקעין (שבח ורכישה), התשכ&#34;ג-1963 (להלן: חוק מיסוי מקרקעין)). המערערים רכשו דירה חייבת במס רכישה (להלן: דירה חייבת) ביום 20.7.2020 (דהיינו תשעה ימים לפני מועד תחולתו של הוראת השעה 2020), ומשכך חויבו לשלם את שיעור מס הרכישה לפי שיעורו על פי הדין שהיה בתוקף אותה עת (להלן: שיעור המס הגבוה), מבלי ליהנות מההפחתה שהביאה עמה הוראת השעה 2020 כעבור מספר ימים. במסגרת בקשת האישור טענו המערערים, בתמצית, כי היה על המשיבה לגלות לציבור מראש על דבר הוראת השעה 2020 הצפויה, על ברכותיה, וכי משלא עשתה כן עליה לשאת ב&#34;נזקיהם&#34; של רוכשי דירה חייבת אשר התקשרו בחוזה רכישה בין יום 12.7.2020 ליום 29.7.2020, ונדרשו לשלם מס רכישה בשיעור המס הגבוה.
 
 בפסק דין מיום 18.2.2024 דחה בית המשפט קמא את בקשת האישור, וזאת בהתבסס על שלושה אדנים עיקריים: ראשית, נקבע שאין מקום לאפשר במקרה זה &#34;תקיפה עקיפה&#34; של הוראת השעה 2020 בדרך של ניהול תובענה ייצוגית, כאשר חלק ניכר מטענות המערערים מוסבות על תקינות הליך החקיקה של דבר חקיקה ראשי. שנית, נפסק כי העובדה שהמערערים פתחו במקביל בהליך של השגה על החלטת השומה בעניינם, וערר על דחיית השגה זו עודנו מתנהל, שולל, בנסיבות העניין, ניהול מקביל של תובענה ייצוגית. שלישית, בית המשפט קבע כי המערערים לא הוכיחו כי מדובר בגבייה &#34;שלא כדין&#34;, כנדרש לפי פרט 11 לתוספת השנייה לחוק תובענות ייצוגיות, התשס&#34;ו-2006 (להלן: התוספת השנייה ו-החוק, בהתאמה). מטעמים אלה, לצד טעמים נוספים הנטועים בנסיבותיו הפרטניות של המקרה דנן, נקבע כי הבקשה לאישור אינה עומדת בתנאים הנדרשים לאישורה, המפורטים בסעיף 8(א) לחוק תובענות ייצוגיות (להלן: פסק הדין קמא).
 
-
-
-	על פסק הדין קמא הוגש הערעור שלפנינו, בגדרו שבים המערערים, בעיקרו של דבר, על הטענות שהעלו בפני בית המשפט קמא.
-
-
+על פסק הדין קמא הוגש הערעור שלפנינו, בגדרו שבים המערערים, בעיקרו של דבר, על הטענות שהעלו בפני בית המשפט קמא.
 
 לאחר שהתקיים דיון קדם-ערעור לפניי ביום 28.7.2024, ומכוח סמכותנו לפי תקנה 138(א)(1) ו-(5) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018, מצאנו לנכון לדחות את הערעור אף ללא צורך בתשובת המשיבה.
 
-
-
 כידוע, המחוקק בחר להגביל את העניינים אשר לגביהם ניתן להגיש תובענה ייצוגית, ועל כן קבע בסעיף 3(א) לחוק כי &#34;לא תוגש תובענה ייצוגית אלא בתביעה כמפורט בתוספת השנייה או בענין שנקבע בהוראת חוק מפורשת כי ניתן להגיש בו תובענה ייצוגית&#34; (על הגיונה של הגבלה זו ראו, למשל: בג&#34;ץ 6451/18 חיון נ&#39; בית הדין הארצי לעבודה, פסקאות 4-3 לחוות דעתי והאסמכתאות המובאות שם (19.7.2021)). בענייננו, על אף ניסיונם של המערערים לשכנע אחרת, עיון בכתב הערעור על נספחיו מעלה במובהק כי בקשת האישור אינה כוללת עילת תביעה הבאה בגדרי הפרטים הקבועים בתוספת השנייה לחוק, ועל כן לא ניתן לנהל תובענה ייצוגית על פיה. משכך, דין בקשת האישור, וממילא ערעור זה, להידחות. נבהיר בקצרה.
 
-
-
-את הבקשה לאישור שהגישו ביקשו המערערים לעגן, על פני הדברים, בפרט 11 לתוספת השנייה לחוק, שעניינו: &#34;תביעה נגד רשות להשבת סכומים שגבתה שלא כדין, כמס, אגרה או תשלום חובה אחר...&#34;. ואולם, הבקשה לאישור מופנית כלפי גביית מס רכישה, אשר גם המערערים מודים כי נעשתה על פי הוראת חוק מפורשת ותקפה. משכך, לא ניתן לומר שפעולת גבייה זו נעשתה &#34;שלא כדין&#34;, כפי שדורש הפרט הנזכר, וכי עומדת לנישום זכות &#34;להשבת סכומים&#34;. המערערים טוענים אומנם לכשלים שונים שנפלו בהתנהלותה של המשיבה, ובפרט של רשות המיסים, בהקשר הנדון, ובמיוחד בקשר להעדר יידוע בדבר הכוונה להעביר את הוראת השעה 2020, אך כשלים נטענים אלו מגבשים, לכל היותר (ואיננו מביעים כל עמדה בעניין זה לגופו), עילת תביעה נזיקית לפיצויים – ולא עילת תביעה להשבה כנדרש בפרט 11 לתוספת השנייה (ראו והשוו: בר&#34;ם 9100/15 עיריית פתח תקווה נ&#39; מרדכי, פסקאות 19-17 (28.6.2018); דנ&#34;מ 5519/15 יונס נ&#39; מי הגליל תאגיד המים והביוב האזורי בע&#34;מ, פסקה 22 לפסק דינה של הנשיאה אסתר חיות (17.12.2019); אביאל פלינט וחגי ויניצקי תובענות ייצוגיות 570-568 (2017)). לא בכדי, עילות התביעה העיקריות שעליהן ביססו המערערים את הבקשה לאישור הן רשלנות, הפרת חובה חקוקה ו&#34;פגיעה בעקרון ההסתמכות והציפיה&#34;, כלשונם (ראו עמ&#39; 18 לבקשת האישור) – עילות בגינן הסדר החוקי הקיים אינו מאפשר לנהל תובענה ייצוגית נגד רשות ציבורית (למחלוקת שהתעוררה ביחס לשאלה האם יש לאפשר שימוש במכשיר התובענה הייצוגית נגד רשויות ציבוריות, ולאישור חוקתיות מערכת הסייגים והמגבלות שנקבעה כפשרה בעקבות זאת, ראו בג&#34;צ 2171/06 כהן נ&#39; יו&#34;ר הכנסת (29.8.2011)). 
-
-
+את הבקשה לאישור שהגישו ביקשו המערערים לעגן, על פני הדברים, בפרט 11 לתוספת השנייה לחוק, שעניינו: &#34;תביעה נגד רשות להשבת סכומים שגבתה שלא כדין, כמס, אגרה או תשלום חובה אחר...&#34;. ואולם, הבקשה לאישור מופנית כלפי גביית מס רכישה, אשר גם המערערים מודים כי נעשתה על פי הוראת חוק מפורשת ותקפה. משכך, לא ניתן לומר שפעולת גבייה זו נעשתה &#34;שלא כדין&#34;, כפי שדורש הפרט הנזכר, וכי עומדת לנישום זכות &#34;להשבת סכומים&#34;. המערערים טוענים אומנם לכשלים שונים שנפלו בהתנהלותה של המשיבה, ובפרט של רשות המיסים, בהקשר הנדון, ובמיוחד בקשר להעדר יידוע בדבר הכוונה להעביר את הוראת השעה 2020, אך כשלים נטענים אלו מגבשים, לכל היותר (ואיננו מביעים כל עמדה בעניין זה לגופו), עילת תביעה נזיקית לפיצויים – ולא עילת תביעה להשבה כנדרש בפרט 11 לתוספת השנייה (ראו והשוו: בר&#34;ם 9100/15 עיריית פתח תקווה נ&#39; מרדכי, פסקאות 19-17 (28.6.2018); דנ&#34;מ 5519/15 יונס נ&#39; מי הגליל תאגיד המים והביוב האזורי בע&#34;מ, פסקה 22 לפסק דינה של הנשיאה אסתר חיות (17.12.2019); אביאל פלינט וחגי ויניצקי תובענות ייצוגיות 570-568 (2017)). לא בכדי, עילות התביעה העיקריות שעליהן ביססו המערערים את הבקשה לאישור הן רשלנות, הפרת חובה חקוקה ו&#34;פגיעה בעקרון ההסתמכות והציפיה&#34;, כלשונם (ראו עמ&#39; 18 לבקשת האישור) – עילות בגינן הסדר החוקי הקיים אינו מאפשר לנהל תובענה ייצוגית נגד רשות ציבורית (למחלוקת שהתעוררה ביחס לשאלה האם יש לאפשר שימוש במכשיר התובענה הייצוגית נגד רשויות ציבוריות, ולאישור חוקתיות מערכת הסייגים והמגבלות שנקבעה כפשרה בעקבות זאת, ראו בג&#34;צ 2171/06 כהן נ&#39; יו&#34;ר הכנסת (29.8.2011)).
 
 הנה כי כן, הבקשה לאישור איננה מבוססת על עילת תביעה שניתן לנהל ביחס אליה תובענה ייצוגית נגד המדינה לפי התוספת השנייה לחוק תובענות ייצוגיות – לא לפי פרט 11, ולא לפי כל פרט אחר לתוספת זו. משכך, דין הערעור שלפנינו להידחות, וזאת מבלי שנידרש לטענות המערערים ביחס ליתר רכיבי פסק הדין קמא.
 
+הערעור נדחה איפוא בזאת. המערערים יישאו בהוצאות המשיבה בסך של 5,000 ש&#34;ח. בקביעת סכום זה הבאנו בחשבון את העובדה שלא הוגשה תשובה.
 
-
-	הערעור נדחה איפוא בזאת. המערערים יישאו בהוצאות המשיבה בסך של 5,000 ש&#34;ח. בקביעת סכום זה הבאנו בחשבון את העובדה שלא הוגשה תשובה.
-
-	
-
-	ניתן היום, ‏כ&#34;ב בתמוז התשפ&#34;ד (‏28.7.2024).
-
-
-
-
-
-
+ניתן היום, ‏כ&#34;ב בתמוז התשפ&#34;ד (‏28.7.2024).
 
 ש ו פ ט ת
 
@@ -1697,23 +1897,11 @@
 
 ש ו פ ט
 
-
-
 _________________________
 
-   24042300_Y02.docx   אב
+24042300_Y02.docx אב
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1732,7 +1920,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

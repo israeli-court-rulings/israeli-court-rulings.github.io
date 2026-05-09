@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    21/01/2021 (לפני 1930 ימים)
+                    21/01/2021 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8860-20.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8860/20 - אמג&#39;ד ג&#39;אבר נ. עמוס גבעון"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8860-20.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/600/088/v01&amp;fileName=20088600.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/600/088/v01&amp;fileName=20088600.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/600/088/v01&amp;fileName=20088600.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/600/088/v01&amp;fileName=20088600.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,147 +1827,61 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון
 
+ע&#34;א 8860/20
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-ע&#34;א  8860/20
-
-
-
-לפני:	
+לפני:
 
 כבוד הנשיאה א&#39; חיות
-
-
 
 המערער:
 
 אמג&#39;ד ג&#39;אבר
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיב:
 
 עמוס גבעון
 
-
-
 ערעור על החלטת בית המשפט המחוזי בירושלים מיום 7.12.2020 בת.א 8851-03-20 אשר ניתנה על ידי כבוד הרשמת ת&#39; בר-אשר
 
-
-
-בשם המערער:		      עו&#34;ד עמוס ון-אמדן
-
-	
+בשם המערער:		 עו&#34;ד עמוס ון-אמדן
 
 פסק-דין
 
+ערעור על החלטתו של בית המשפט המחוזי בירושלים (הרשמת ת&#39; בר-אשר) מיום 7.12.2020 בת&#34;א 8851-03-20 שלא לפסול עצמו מלדון בעניינו של המערער.
 
+המערער, עורך-דין, הגיש ביום 4.3.2020 תביעה נגד המשיב, אף הוא עורך-דין, בטענה כי האחרון הפר הסכם שכרת עמו ולפיו המערער יפְנה תיקים לטיפולו תמורת אחוזים משכר הטרחה. בשים לב למצב החירום שהוכרז במהלך חודש מרץ 2020, עקב מגיפת הקורונה, המועד להגשת כתב הגנה חל ביום 28.6.2020. ביום 22.6.2020 הגיש המשיב בקשה לסילוק התביעה על הסף עקב אי-תשלום אגרה, לדחייתה על הסף מחמת התיישנות ולחלופין למתן הוראה למערער להבהיר את הסעדים הנתבעים על-ידו ולהארכת המועד להגשת כתב ההגנה (להלן: הבקשה הראשונה). בהחלטתו מיום 22.6.2020 הורה בית המשפט למערער להגיב לבקשה זו וכן נתן למשיב זכות תשובה לתגובה, אך הבהיר כי אין בכך כדי לעכב את המועד להגשת כתב ההגנה.
 
+ביום 26.6.2020 הגיש המשיב בקשה נוספת למחיקת כתב התביעה ולחלופין להארכת המועד להגשת כתב ההגנה, בה חזר על טענתו כי לא ניתן להבין אילו סעדים נתבעים (להלן: הבקשה השנייה). בהחלטתו מיום 28.6.2020 הורה בית המשפט כי התגובה לבקשה השנייה והתשובה לתגובה יוגשו במועדים שקצב בהחלטתו מיום 22.6.2020, והוסיף כי המועד להגשת כתב ההגנה ייקבע לאחר ההכרעה בבקשות הראשונה והשנייה. המערער הגיש ביום 28.6.2020 בקשה לעיון חוזר בהחלטה זו, בה השיג על כך שניתנה למשיב ארכה להגשת כתב ההגנה, ובית המשפט דחה את בקשתו של המערער בו ביום.
 
+לאחר שהמערער הגיב לבקשות הראשונה והשנייה ולאחר שהתקבלו תשובות המשיב לתגובות, קבע בית המשפט ביום 23.8.2020 כי טענותיו המקדמיות של המשיב לא יידונו בשלב זה, אלא יידונו על-ידי השופט שידון בתביעה לאחר שיוגש כתב ההגנה. בהתחשב במועדי הפגרה והחגים, קבע בית המשפט כי כתב ההגנה יוגש עד ליום 15.10.2020.
 
-	ערעור על החלטתו של בית המשפט המחוזי בירושלים (הרשמת ת&#39; בר-אשר) מיום 7.12.2020 בת&#34;א 8851-03-20 שלא לפסול עצמו מלדון בעניינו של המערער.
+במהלך החודשים הבאים הגישו הצדדים בקשות והודעות שונות. המשיב הגיש מספר בקשות, ובפרט בקשה מיום 1.11.2020 לדחיית התביעה על הסף מחמת התיישנות וכן בקשות להארכת המועד להגשת כתב ההגנה מטעמו. המערער הגיש מספר בקשות שבעיקרן התבקש בית המשפט לבטל את הארכות המועד להגשת כתב ההגנה. בית המשפט נעתר לאורך תקופה זו למספר בקשות מטעם המשיב להארכת המועד להגשת כתב ההגנה, וביום 30.11.2020 קבע כי המועד להגשת כתב ההגנה יושהה עד לאחר מתן החלטה בבקשה נוספת שהגיש המשיב.
 
+ביום 1.12.2020 הגיש המערער &#34;הודעה על כוונה להגיש תוך זמן קצר בקשת פסיל[ה] מפורטת של הרשמת משום חשש ממשי למשוא פנים&#34;. בהודעתו זו טען המערער כי החלטותיו של בית המשפט שניתנו מאז יום 28.6.2020, ובפרט ההארכות שניתנו למשיב להגשת כתב ההגנה, מוטות באופן קיצוני לטובת המשיב. עוד צויין בהודעה כי בכוונת המערער לסקור בבקשת הפסילה שתוגש &#34;את מלוא התנהלות הרשמת&#34;, אשר מקימה לשיטתו חשש ממשי למשוא פנים. המערער אף הגיש באותו היום הודעה נוספת שבה טען כי נוכח הודעתו על עילת הפסלות שהתגבשה, יש &#34;להקפיא&#34; את ההליך כך שבית המשפט יימנע ממתן החלטות מהותיות בתביעה.
 
+ביום 2.12.2020 הגיש המשיב בקשה למתן פסק דין, בה טען כי משחלף המועד להגשת תגובת המערער לבקשתו מיום 1.11.2020 לדחיית התביעה על הסף מחמת התיישנות – יש לקבל את טענת ההתיישנות ולדחות את התביעה על הסף. עוד הדגיש המשיב כי המערער כלל לא הגיש בקשת פסלות, אלא רק הודיע על כוונתו לעשות כן, ומכאן שאין כל מניעה שבית המשפט יכריע בבקשה.
 
-	המערער, עורך-דין, הגיש ביום 4.3.2020 תביעה נגד המשיב, אף הוא עורך-דין, בטענה כי האחרון הפר הסכם שכרת עמו ולפיו המערער יפְנה תיקים לטיפולו תמורת אחוזים משכר הטרחה. בשים לב למצב החירום שהוכרז במהלך חודש מרץ 2020, עקב מגיפת הקורונה, המועד להגשת כתב הגנה חל ביום 28.6.2020. ביום 22.6.2020 הגיש המשיב בקשה לסילוק התביעה על הסף עקב אי-תשלום אגרה, לדחייתה על הסף מחמת התיישנות ולחלופין למתן הוראה למערער להבהיר את הסעדים הנתבעים על-ידו ולהארכת המועד להגשת כתב ההגנה (להלן: הבקשה הראשונה). בהחלטתו מיום 22.6.2020 הורה בית המשפט למערער להגיב לבקשה זו וכן נתן למשיב זכות תשובה לתגובה, אך הבהיר כי אין בכך כדי לעכב את המועד להגשת כתב ההגנה.
+ביום 7.12.2020 נתן בית המשפט קמא פסק דין בו דחה את התביעה על הסף מחמת התיישנות. בית המשפט קיבל את טענת המשיב כי מאחר שהמערער לא הגיב לבקשה לדחיית התביעה על הסף, יש לקבל את הבקשה. בית המשפט הוסיף וציין כי המערער אמנם הגיש הודעות שמהן עלה כי הוא שוקל לעתור לפסילת המותב, אך לא הוגשה בקשת פסלות ואף לא הועלתה כל טענת פסלות מעבר ל&#34;אי-נחת&#34; מההחלטות הנוגעות למועדים להגשת תגובות, שאינה מקימה עילת פסלות.
 
- 
+מכאן הערעור שלפניי. בערעורו סוקר המערער את השתלשלות ניהול ההליך וטוען כי ממכלול נסיבות העניין עולה &#34;מסה קריטית&#34; של התנהגות &#34;המקימה בעליל את עילת הפסלות של &#39;החשש הממשי למשוא פנים בניהול המשפט&#39;&#34;. לטענת המערער בית המשפט ניהל את ההליך באופן מוטה לטובת המשיב, בין היתר, בכך שהאריך את המועד להגשת כתב ההגנה מספר פעמים ללא הנמקה, ותוך פגיעה בזכות הגישה של המערער לערכאות. עוד טוען המערער כי בית המשפט נהג &#34;בשרירות&#34; וגרם &#34;לעיוות דין&#34;, בין היתר, בכך שלא המתין עד להגשת בקשת הפסלות &#34;המלאה&#34;; בכך שלא התריע כי יינתן פסק דין אם בקשת הפסלות לא תוגש עד למועד מסוים; בכך שדחה את התביעה אך בשל כך שהמערער לא הגיב לבקשה לדחיית התביעה, מבלי לנמק את פסק דינו ומבלי לבחון את טענת ההתיישנות לגופה; וכן בכך שקיבל טענת התיישנות חרף קביעתו מיום 1.11.2020 כי הטענות המקדמיות תידונה בפני השופט שהתיק ינותב לטיפולו. לאור האמור, ביקש המערער &#34;לפסול את הרשמת הנכבדה, לפסול ולבטל את פסה&#34;ד מיום 7/12/20 כפס&#34;ד שניתן במצב בו הייתה קיימת עילת [פסלות] כלפי הרשמת הנכבדה&#34;.
 
-	ביום 26.6.2020 הגיש המשיב בקשה נוספת למחיקת כתב התביעה ולחלופין להארכת המועד להגשת כתב ההגנה, בה חזר על טענתו כי לא ניתן להבין אילו סעדים נתבעים (להלן: הבקשה השנייה). בהחלטתו מיום 28.6.2020 הורה בית המשפט כי התגובה לבקשה השנייה והתשובה לתגובה יוגשו במועדים שקצב בהחלטתו מיום 22.6.2020, והוסיף כי המועד להגשת כתב ההגנה ייקבע לאחר ההכרעה בבקשות הראשונה והשנייה. המערער הגיש ביום 28.6.2020 בקשה לעיון חוזר בהחלטה זו, בה השיג על כך שניתנה למשיב ארכה להגשת כתב ההגנה, ובית המשפט דחה את בקשתו של המערער בו ביום. 
+לאחר שעיינתי בערעור על נספחיו, באתי לידי מסקנה כי דינו להידחות. הליכי פסלות צופים פני עתיד, ונועדו לבחון האם השופט יכול להמשיך לשבת בדין או שמא יש להעביר את הדיון בהליך המתנהל בפניו למותב אחר (ע&#34;א 1437/18 ש. כהן הנדסה בע&#34;מ נ&#39; החברה העירונית לפיתוח אשדוד בע&#34;מ, פסקה 4 (27.2.2018) (להלן: עניין כהן)). בענייננו, משהסתיים ההליך וניתן בו פסק דין, אין טעם בכך שבית המשפט יידרש לסוגיית הפסלות. דרך המלך במצב זה היא לטעון גם את טענת הפסלות במסגרת ערעור על פסק הדין עצמו (ע&#34;א 9165/18 שרעבי נ&#39; לוי, פסקה 4 (1.4.2019)). ככל שהמערער מבקש להשיג על הקביעות בפסק הדין, או על החלטות דיוניות אחרות, הוא רשאי לעשות כן בדרכים הקבועות לכך בדין, אך הליכי פסלות אינם האכסניה הראויה לכך (עניין כהן, פסקה 4). למעלה מן הצורך אוסיף ואציין כי ספק רב בעיניי אם החלטה הנוגעת להודעת המערער על &#34;כוונה&#34; להגיש בקשת פסלות, מקימה מלכתחילה, זכות לערעור פסלות.
 
+אשר על כן, הערעור נדחה. משלא הוגשה תשובה אין צו להוצאות.
 
+ניתן היום, ‏ח&#39; בשבט התשפ&#34;א (‏21.1.2021).
 
-	לאחר שהמערער הגיב לבקשות הראשונה והשנייה ולאחר שהתקבלו תשובות המשיב לתגובות, קבע בית המשפט ביום 23.8.2020 כי טענותיו המקדמיות של המשיב לא יידונו בשלב זה, אלא יידונו על-ידי השופט שידון בתביעה לאחר שיוגש כתב ההגנה. בהתחשב במועדי הפגרה והחגים, קבע בית המשפט כי כתב ההגנה יוגש עד ליום 15.10.2020. 
-
-
-
-	במהלך החודשים הבאים הגישו הצדדים בקשות והודעות שונות. המשיב הגיש מספר בקשות, ובפרט בקשה מיום 1.11.2020 לדחיית התביעה על הסף מחמת התיישנות וכן בקשות להארכת המועד להגשת כתב ההגנה מטעמו. המערער הגיש מספר בקשות שבעיקרן התבקש בית המשפט לבטל את הארכות המועד להגשת כתב ההגנה. בית המשפט נעתר לאורך תקופה זו למספר בקשות מטעם המשיב להארכת המועד להגשת כתב ההגנה, וביום 30.11.2020 קבע כי המועד להגשת כתב ההגנה יושהה עד לאחר מתן החלטה בבקשה נוספת שהגיש המשיב.
-
-
-
-	ביום 1.12.2020 הגיש המערער &#34;הודעה על כוונה להגיש תוך זמן קצר בקשת פסיל[ה] מפורטת של הרשמת משום חשש ממשי למשוא פנים&#34;. בהודעתו זו טען המערער כי החלטותיו של בית המשפט שניתנו מאז יום 28.6.2020, ובפרט ההארכות שניתנו למשיב להגשת כתב ההגנה, מוטות באופן קיצוני לטובת המשיב. עוד צויין בהודעה כי בכוונת המערער לסקור בבקשת הפסילה שתוגש &#34;את מלוא התנהלות הרשמת&#34;, אשר מקימה לשיטתו חשש ממשי למשוא פנים. המערער אף הגיש באותו היום הודעה נוספת שבה טען כי נוכח הודעתו על עילת הפסלות שהתגבשה, יש &#34;להקפיא&#34; את ההליך כך שבית המשפט יימנע ממתן החלטות מהותיות בתביעה.  
-
-
-
-	ביום 2.12.2020 הגיש המשיב בקשה למתן פסק דין, בה טען כי משחלף המועד להגשת תגובת המערער לבקשתו מיום 1.11.2020 לדחיית התביעה על הסף מחמת התיישנות – יש לקבל את טענת ההתיישנות ולדחות את התביעה על הסף. עוד הדגיש המשיב כי המערער כלל לא הגיש בקשת פסלות, אלא רק הודיע על כוונתו לעשות כן, ומכאן שאין כל מניעה שבית המשפט יכריע בבקשה. 
-
-
-
-	ביום 7.12.2020 נתן בית המשפט קמא פסק דין בו דחה את התביעה על הסף מחמת התיישנות. בית המשפט קיבל את טענת המשיב כי מאחר שהמערער לא הגיב לבקשה לדחיית התביעה על הסף, יש לקבל את הבקשה. בית המשפט הוסיף וציין כי המערער אמנם הגיש הודעות שמהן עלה כי הוא שוקל לעתור לפסילת המותב, אך לא הוגשה בקשת פסלות ואף לא הועלתה כל טענת פסלות מעבר ל&#34;אי-נחת&#34; מההחלטות הנוגעות למועדים להגשת תגובות, שאינה מקימה עילת פסלות. 
-
-
-
-	מכאן הערעור שלפניי. בערעורו סוקר המערער את השתלשלות ניהול ההליך וטוען כי ממכלול נסיבות העניין עולה &#34;מסה קריטית&#34; של התנהגות &#34;המקימה בעליל את עילת הפסלות של &#39;החשש הממשי למשוא פנים בניהול המשפט&#39;&#34;. לטענת המערער בית המשפט ניהל את ההליך באופן מוטה לטובת המשיב, בין היתר, בכך שהאריך את המועד להגשת כתב ההגנה מספר פעמים ללא הנמקה, ותוך פגיעה בזכות הגישה של המערער לערכאות. עוד טוען המערער כי בית המשפט נהג &#34;בשרירות&#34; וגרם &#34;לעיוות דין&#34;, בין היתר, בכך שלא המתין עד להגשת בקשת הפסלות &#34;המלאה&#34;; בכך שלא התריע כי יינתן פסק דין אם בקשת הפסלות לא תוגש עד למועד מסוים; בכך שדחה את התביעה אך בשל כך שהמערער לא הגיב לבקשה לדחיית התביעה, מבלי לנמק את פסק דינו ומבלי לבחון את טענת ההתיישנות לגופה; וכן בכך שקיבל טענת התיישנות חרף קביעתו מיום 1.11.2020 כי הטענות המקדמיות תידונה בפני השופט שהתיק ינותב לטיפולו. לאור האמור, ביקש המערער &#34;לפסול את הרשמת הנכבדה, לפסול ולבטל את פסה&#34;ד מיום 7/12/20 כפס&#34;ד שניתן במצב בו הייתה קיימת עילת [פסלות] כלפי הרשמת הנכבדה&#34;. 
-
-
-
-	לאחר שעיינתי בערעור על נספחיו, באתי לידי מסקנה כי דינו להידחות. הליכי פסלות צופים פני עתיד, ונועדו לבחון האם השופט יכול להמשיך לשבת בדין או שמא יש להעביר את הדיון בהליך המתנהל בפניו למותב אחר (ע&#34;א 1437/18 ש. כהן הנדסה בע&#34;מ נ&#39; החברה העירונית לפיתוח אשדוד בע&#34;מ, פסקה 4 (27.2.2018) (להלן: עניין כהן)). בענייננו, משהסתיים ההליך וניתן בו פסק דין, אין טעם בכך שבית המשפט יידרש לסוגיית הפסלות. דרך המלך במצב זה היא לטעון גם את טענת הפסלות במסגרת ערעור על פסק הדין עצמו (ע&#34;א 9165/18 שרעבי נ&#39; לוי, פסקה 4 (1.4.2019)). ככל שהמערער מבקש להשיג על הקביעות בפסק הדין, או על החלטות דיוניות אחרות, הוא רשאי לעשות כן בדרכים הקבועות לכך בדין, אך הליכי פסלות אינם האכסניה הראויה לכך (עניין כהן, פסקה 4). למעלה מן הצורך אוסיף ואציין כי ספק רב בעיניי אם החלטה הנוגעת להודעת המערער על &#34;כוונה&#34; להגיש בקשת פסלות, מקימה מלכתחילה, זכות לערעור פסלות.
-
-
-
-	אשר על כן, הערעור נדחה. משלא הוגשה תשובה אין צו להוצאות. 
-
-	 
-
-
-
-	ניתן היום, ‏ח&#39; בשבט התשפ&#34;א (‏21.1.2021).
-
-
-
-
-
-
-
-
-
-
-
-
-
- ה נ ש י א ה
-
-
+ה נ ש י א ה
 
 _________________________
 
-   20088600_V01.docx   גק
+20088600_V01.docx גק
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1715,7 +1900,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

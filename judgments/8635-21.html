@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    04/01/2023 (לפני 1217 ימים)
+                    04/01/2023 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8635-21.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8635/21 - וויידלי מובייל בע&#34;מ נ. מרתון 018 אקספון בע&#34;מ"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8635-21.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/350/086/y10&amp;fileName=21086350.Y10&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/350/086/y10&amp;fileName=21086350.Y10&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/350/086/y10&amp;fileName=21086350.Y10&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/350/086/y10&amp;fileName=21086350.Y10&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,257 +1827,145 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
-
-
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
-
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
 ע&#34;א 8635/21
 
 ע&#34;א 7719/22
 
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופט ע&#39; גרוסקופף
 
-
-
 כבוד השופטת ר&#39; רונן
-
-
 
 המערערת בע&#34;א 8635/21 ובע&#34;א 7719/22:
 
 וויידלי מובייל בע&#34;מ
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים בע&#34;א 8635/21:
 
 1. מרתון 018 אקספון בע&#34;מ
 
-
-
 2. עו&#34;ד עמית לדרמן בתפקידו כמנהל ההסדר
-
-
 
 3. עובדי החברה על פי רשימה (פורמאלי)
 
-
-
 4. בנק מזרחי טפחות בע&#34;מ (פורמאלי)
-
-
 
 5. משרד התקשורת
 
-
-
 6. רשות המיסים בישראל מכס ומע&#34;מ
-
-
 
 7. סלקום ישראל בע&#34;מ
 
-
-
 8. ל.מ אריקסון ישראל בע&#34;מ
-
-
 
 9. א.ס.י.ב יזום בע&#34;מ
 
-
-
 10. הממונה על חדלות פירעון ושיקום כללי
-
-
 
 המשיבים בע&#34;א 7719/22:
 
 1. מרתון 018 אקספון בע&#34;מ
 
-
-
 2. אקספון 018 בע&#34;מ
-
-
 
 3. עו&#34;ד עמית לדרמן בתפקידו כמנהל ההסדר
 
-
-
 4. מדינת ישראל
-
-
 
 5. הממונה על חדלות פירעון ושיקום כללי
 
-
-
 ערעורים על פסק דין והחלטות של בית המשפט המחוזי מרכז בלוד מהימים 17.10.2021, 29.8.2022, 8.9.2022 ו-28.9.2022 בחדל&#34;ת 34475-06-21 שניתנו על ידי כבוד השופטת עירית וינברג-נוטוביץ; ובקשה לעיכוב ביצוע החלטתו של בית המשפט המחוזי מרכז בלוד מיום 14.12.2022
-
-
 
 תאריך הישיבה:
 
 י&#39; בטבת התשפ&#34;ג (3.1.2023)
 
-
-
 בשם המערערת בע&#34;א 8635/21 ובע&#34;א 7719/22:
 
 עו&#34;ד אוהד שלם; עו&#34;ד יעקב כרם; עו&#34;ד יעלה שחר
-
-
 
 בשם המשיבה 1 בע&#34;א 8635/21 והמשיבות 2-1 בע&#34;א 7719/22:
 
 עו&#34;ד שלום גולדבלט
 
-
-
 בשם המשיב 2 בע&#34;א 8635/21 והמשיב 3 בע&#34;א 7719/22:
 
 בעצמו, עו&#34;ד אביעד טייב
 
-
-
 בשם המשיב 5 בע&#34;א 8635/21 והמשיבה 4 בע&#34;א 7719/22:
 
-עו&#34;ד אריה צישינסקי	
+עו&#34;ד אריה צישינסקי
 
-
-
-בשם המשיבה 6 
+בשם המשיבה 6
 בע&#34;א 8635/21:
 
-עו&#34;ד אלכסנדרה הודס	
+עו&#34;ד אלכסנדרה הודס
 
-
-
-בשם המשיבה 7 
+בשם המשיבה 7
 בע&#34;א 8635/21:
 
-אין התייצבות	
+אין התייצבות
 
-
-
-בשם המשיבה 8 
+בשם המשיבה 8
 בע&#34;א 8635/21:
 
-עו&#34;ד אמיר דולב	
+עו&#34;ד אמיר דולב
 
-
-
-בשם המשיבה 9 
+בשם המשיבה 9
 בע&#34;א 8635/21:
 
-אין התייצבות	
-
-
+אין התייצבות
 
 בשם המשיב 10 בע&#34;א 8635/21 והמשיב 5 בע&#34;א 7719/22:
 
-עו&#34;ד רועי נירון	
-
-	
+עו&#34;ד רועי נירון
 
 פסק-דין
 
-
-
 השופט ע&#39; גרוסקופף:
-
-
 
 במסגרת דיון קדם-ערעור שהתקיים לפניי, הגיעו הצדדים להבנות בדבר המתווה הדיוני המפורט להלן:
 
-
-
 המערערת בע&#34;א 8635/21 ובע&#34;א 7719/22 (להלן: המערערת) תהא רשאית להגיש בקשה למתן הוראות לבית משפט קמא, בעניין זכויותיה הנטענות בעקבות ביטול ההתקשרות עמה לרכישת חברת מרתון 018 אקספון בע&#34;מ (המשיבה 1 בע&#34;א 8635/21 ובע&#34;א 7719/22. להלן: מרתון), וזאת בכפוף למפורט להלן:
 
- הבקשה למתן הוראות לא תוגבל בעילותיה, ואולם סכום התביעה לא יעלה על 40 מיליון ש&#34;ח.
+הבקשה למתן הוראות לא תוגבל בעילותיה, ואולם סכום התביעה לא יעלה על 40 מיליון ש&#34;ח.
 
- הבקשה למתן הוראות תוגש כלפי מרתון וחברת אקספון 018 בע&#34;מ (המשיבה 2 בע&#34;א 7719/22. להלן: אקספון) בלבד.
+הבקשה למתן הוראות תוגש כלפי מרתון וחברת אקספון 018 בע&#34;מ (המשיבה 2 בע&#34;א 7719/22. להלן: אקספון) בלבד.
 
- הבקשה למתן הוראות תוגש עד ליום 5.2.2023, ועד בכלל. 
+הבקשה למתן הוראות תוגש עד ליום 5.2.2023, ועד בכלל.
 
- בית משפט קמא ידון בבקשה ויכריע בה לפי מיטב שיקול דעתו, כאשר סדרי הדין ייקבעו על ידו בהתאם למקובל בבקשות למתן הוראות.
+בית משפט קמא ידון בבקשה ויכריע בה לפי מיטב שיקול דעתו, כאשר סדרי הדין ייקבעו על ידו בהתאם למקובל בבקשות למתן הוראות.
 
- האגרה שתשולם על ידי המערערת תהיה כמקובל ביחס לבקשה בכתב.
-
-	
+האגרה שתשולם על ידי המערערת תהיה כמקובל ביחס לבקשה בכתב.
 
 (ההליך האמור יכונה להלן: הבקשה למתן הוראות)
 
+מובהר כי במתן האפשרות להגיש את הבקשה למתן הוראות מתמצות זכויות התביעה של המערערת בקשר לביטול ההתקשרות עמה לרכישת מרתון, וכי היא לא תהיה רשאית לנהל כל הליך אחר בעניין זה.
 
-
-מובהר כי במתן האפשרות להגיש את הבקשה למתן הוראות מתמצות זכויות התביעה של המערערת בקשר לביטול ההתקשרות עמה לרכישת מרתון, וכי היא לא תהיה רשאית לנהל כל הליך אחר בעניין זה. 
-
-
-
-בית משפט זה יקבע מהו הסכום שיחולק בשלב זה לנושים הבלתי מובטחים של מרתון (להוציא המערערת), ומהו סכום הערובות שעל המערערת להפקיד כתנאי לניהול הבקשה למתן הוראות ולעיכוב יתרת הכספים שבקופת הפירוק ואשר מיועדים לנושים הבלתי מובטחים. 
-
-
+בית משפט זה יקבע מהו הסכום שיחולק בשלב זה לנושים הבלתי מובטחים של מרתון (להוציא המערערת), ומהו סכום הערובות שעל המערערת להפקיד כתנאי לניהול הבקשה למתן הוראות ולעיכוב יתרת הכספים שבקופת הפירוק ואשר מיועדים לנושים הבלתי מובטחים.
 
 בית משפט זה ייקבע הסדר שיאפשר לנושים בלתי מובטחים שאין חולק על יציבותם הכלכלית והמעוניינים בכך לקבל לאלתר את מלוא כספם מתוך קופת הפירוק (בהתאם להסדר הנושים ולהחלטת בית משפט קמא מיום 14.12.2022), וזאת כנגד מתן התחייבות להשבת הכספים במקרה שיתברר כי שולמו להם כספים העולים על חלקם.
 
-
-
 שני הערעורים שבכותרת יימחקו ללא צו להוצאות.
-
-
 
 נוכח האמור, אנו נותנים למתווה הדיוני המפורט בסעיף 1 לעיל תוקף של פסק דין, ומורים כדלהלן:
 
-
-
-מנהל הסדר הנושים (המשיב 2 בע&#34;א 8635/21 והמשיב 3 בע&#34;א 7719/22. להלן: מנהל הסדר הנושים) יבצע בשלב זה חלוקה לנושים הלא מובטחים (למעט המערערת) של 55% מגובה הנשייה (שהם 10,079,161 ש&#34;ח), ויעכב בקופת הפירוק את יתרת הכספים המיועדים לתשלום לנושים הלא מובטחים (25% מגובה הנשייה שהם 4,581,437 ש&#34;ח) (להלן: יתרת ההחזר לנושים הלא מובטחים). 
-
-
+מנהל הסדר הנושים (המשיב 2 בע&#34;א 8635/21 והמשיב 3 בע&#34;א 7719/22. להלן: מנהל הסדר הנושים) יבצע בשלב זה חלוקה לנושים הלא מובטחים (למעט המערערת) של 55% מגובה הנשייה (שהם 10,079,161 ש&#34;ח), ויעכב בקופת הפירוק את יתרת הכספים המיועדים לתשלום לנושים הלא מובטחים (25% מגובה הנשייה שהם 4,581,437 ש&#34;ח) (להלן: יתרת ההחזר לנושים הלא מובטחים).
 
 נושה שיציבותו הכלכלית איתנה יהיה רשאי לקבל ממנהל הסדר הנושים את יתרת הסכום המגיעה לו לפי הסדר הנושים (דהיינו 80% מהחוב שאושר לו), כנגד חתימה על כתב התחייבות להשבת סכומים שיתבררו בדיעבד כעודפים על פי נוסח כתב התחייבות שיכין מנהל הסדר הנושים. התעוררו מחלוקות בשאלה אם מדובר בנושה שיציבותו הכלכלית איתנה או ביחס לנוסח כתב ההתחייבות, יהיה מנהל הסדר הנושים רשאי להפנות בקשה למתן הוראות בעניינים אלה לבית משפט קמא.
 
+המערערת תפקיד בקופת בית משפט קמא, במזומן או בערבות בנקאית, סכום של 250,000 ש&#34;ח, אשר ישמשו הן כערובה להוצאות הליך הבקשה למתן הוראות והן כבטוחה לנזקים שייגרמו בעקבות עיכוב ביצוע יתרת ההחזר לנושים הלא מובטחים. סכום ההפקדה יופחת ב-5,000 ש&#34;ח בגין כל מיליון ש&#34;ח שיופחת מהסכום המקסימאלי של הבקשה למתן הוראות (לדוגמה, אם הבקשה למתן הוראות תעמוד על 30 מיליון ש&#34;ח יעמוד סכום ההפקדה על 200,000 ש&#34;ח).
 
+הערעורים שבכותרת נמחקים בזאת ללא צו להוצאות.
 
-המערערת תפקיד בקופת בית משפט קמא, במזומן או בערבות בנקאית, סכום של 250,000 ש&#34;ח, אשר ישמשו הן כערובה להוצאות הליך הבקשה למתן הוראות והן כבטוחה לנזקים שייגרמו בעקבות עיכוב ביצוע יתרת ההחזר לנושים הלא מובטחים. סכום ההפקדה יופחת ב-5,000 ש&#34;ח בגין כל מיליון ש&#34;ח שיופחת מהסכום המקסימאלי של הבקשה למתן הוראות (לדוגמה, אם הבקשה למתן הוראות תעמוד על 30 מיליון ש&#34;ח יעמוד סכום ההפקדה על 200,000 ש&#34;ח). 
-
-	
-
-הערעורים שבכותרת נמחקים בזאת ללא צו להוצאות. 
-
-
-
-	ניתן היום, ‏י&#34;א בטבת התשפ&#34;ג (‏4.1.2023).
-
-
-
-
+ניתן היום, ‏י&#34;א בטבת התשפ&#34;ג (‏4.1.2023).
 
 ש ו פ ט
 
@@ -1814,23 +1973,11 @@
 
 ש ו פ ט ת
 
-
-
 _________________________
 
-   21086350_Y10.docx   אג
+21086350_Y10.docx אג
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1849,7 +1996,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

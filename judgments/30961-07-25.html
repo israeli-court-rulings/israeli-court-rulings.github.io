@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    14/08/2025 (לפני 264 ימים)
+                    14/08/2025 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/30961-07-25.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="30961-07-25 - פלוני נ. פלוני"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F30961-07-25.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/8/14/2025-7-30961-6-2&amp;fileName=ac2ffa513a434e3b920828df89c0b7d8&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/8/14/2025-7-30961-6-2&amp;fileName=ac2ffa513a434e3b920828df89c0b7d8&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/8/14/2025-7-30961-6-2&amp;fileName=ac2ffa513a434e3b920828df89c0b7d8&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/8/14/2025-7-30961-6-2&amp;fileName=ac2ffa513a434e3b920828df89c0b7d8&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,27 +1827,13 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
- ע&#34;א 30961-07-25
-
-
-
- 
-
-
+ע&#34;א 30961-07-25
 
 לפני:
 
 כבוד הרשם רון גולדשטיין
-
-
 
 המערערים:
 
@@ -1586,11 +1843,7 @@
 
 3. פלוני
 
-
-
-  נגד
-
-
+נגד
 
 המשיבים:
 
@@ -1598,85 +1851,39 @@
 
 2. קרנית-קרן לפיצוי נפגעי תאונת דרכים
 
-
-
-
-
 בקשת המשיבה 2 מיום 30.7.2025 למחיקת הערעור; בקשת המערערים מיום 1.8.2025 להארכת מועד להגשת ערעור; תשובת המשיב 2 מיום 10.8.2025
-
-
-
-
 
 בשם המערערים:
 
-
-
-עו&#34;ד רון פסקא 
+עו&#34;ד רון פסקא
 
 בשם המשיבים:
 
-עו&#34;ד אלון בלגה 
-
-
-
-
+עו&#34;ד אלון בלגה
 
 פסק-דין
 
-
-
-
-
 1.	בקשה להארכת מועד להגשת ערעור, שהוגשה בדיעבד, במסגרת ערעור על פסק דינו של בית המשפט המחוזי בתל אביב-יפו (כב&#39; השופטת י&#39; אילני) מיום 29.4.2025 בת&#34;א 10104-10-17 (להלן: פסק-הדין). התביעה עסקה באירוע דריסה שלגביו נקבע בפסק-הדין כי הינו &#34;תאונה מכוונת&#34;, ולכן המערערים אינם זכאים לפיצויים מכוח חוק הפיצויים לנפגעי תאונות דרכים, התשל&#34;ה-1975.
 
-
-
-2.	המערערים הגישו את הודעת הערעור דנא ביום 10.7.2025. משפסק-הדין מיום 29.4.2025 הומצא לצדדים עוד באותו יום (ועל כך אין מחלוקת), הרי שגם אין מחלוקת כי הערעור הוגש באיחור. אציין, כי לטענת המערערים מדובר באיחור של יום אחד בלבד. ברם, בהתאם למניין הימים הקבוע בדין ועל רקע תקופת מצב החירום המיוחד במסגרת מבצע &#34;עם כלביא&#34; שימיו אינם נמנים במניין הימים לצורך הגשת ערעור, עולה כי המועד האחרון להגשת הערעור היה ביום 8.7.2025 ועל כן צודקת המשיבה 2 (להלן: קרנית) בטענתה, כי הערעור הוגש למעשה באיחור של יומיים. 
-
-
+2.	המערערים הגישו את הודעת הערעור דנא ביום 10.7.2025. משפסק-הדין מיום 29.4.2025 הומצא לצדדים עוד באותו יום (ועל כך אין מחלוקת), הרי שגם אין מחלוקת כי הערעור הוגש באיחור. אציין, כי לטענת המערערים מדובר באיחור של יום אחד בלבד. ברם, בהתאם למניין הימים הקבוע בדין ועל רקע תקופת מצב החירום המיוחד במסגרת מבצע &#34;עם כלביא&#34; שימיו אינם נמנים במניין הימים לצורך הגשת ערעור, עולה כי המועד האחרון להגשת הערעור היה ביום 8.7.2025 ועל כן צודקת המשיבה 2 (להלן: קרנית) בטענתה, כי הערעור הוגש למעשה באיחור של יומיים.
 
 3.	על רקע האיחור בהגשת הערעור, ביום 30.7.2025 הגישה קרנית בקשה למחיקת הערעור עקב האיחור בהגשתו (להלן: הבקשה למחיקת הערעור). בתגובה לבקשה זו הגישו המערערים, ביום 31.7.2025, בקשה להארכת מועד להגשת ערעור עד למועד הגשתו בפועל (להלן: הבקשה להארכת מועד). על-פי הנטען, המערערים התחבטו רבות בטרם קיבלו החלטה אם לערער על פסק-הדין. לטענתם, הערעור הצריך עבודה משפטית רבה ומימון מצד המערערים, ונעשה &#34;בצוק העיתים&#34; של מבצע &#34;עם כלביא&#34;. נטען כי בתקופה זו עבד בא כוחם לבדו במשרד והמערערים, המתגוררים בנגב, חששו לנסוע למשרדו. המערערים טוענים כי מדובר באיחור מזערי, כי אינטרס ההסתמכות של קרנית אינו מצדיק את דחיית הבקשה וכי תוחלת הנזק שתיגרם לאחד המערערים, שנותר עם נכות קשה וללא פיצוי, גוברת על הפגם הפרוצדורלי.
 
-
-
-4.	ביום 10.8.2025 הגישה קרנית את תשובתה לבקשת להארכת מועד. לטענת קרנית, ביום מתן פסק הדין, שוחח בא כוחה עם בא כוח המערערים אשר מסר כי אין בכוונת המערערים לערער על פסק-הדין. קרנית טוענת כי היא הסתמכה על הודעה זו. בהקשר זה, קרנית מציינת כי גם המוסד לביטוח לאומי, שהגיש תביעה נגדה בגין האירוע מושא ההליך, הסכים לדחות את תביעתו לאחר שחלף המועד להגשת ערעור, בהסתמך על כך שההליך הסתיים. קרנית מדגישה כי לא מתקיימים במקרה דנא &#34;טעמים מיוחדים&#34; המצדיקים ליתן למערערים ארכה בדיעבד להגשת הערעור. בהקשר זה מציינת קרנית, כי הודעת הערעור שהוגשה היא קצרה וממוקדת ומחזיקה ארבעה עמודים בלבד וכי בא כוח המערערים העיד בעצמו שהחל להכינה מיד לאחר מתן פסק-הדין. לטענתה, עד לתחילת מצב החירום המיוחד ביום 15.6.2025 עמד למערערים פרק זמן ממושך של 45 ימים להכנת הודעת הערעור. גם לאחר תום התקופה עמדו לרשותו שבועיים נוספים לפחות. על כן, נטען, אין מקום ליתן משקל בנסיבות המקרה דנא להשלכות מצב החירום המיוחד. עוד נטען כי עובדת היות המערערים מתגוררים בנגב וחששם לנסוע למשרד בא כוחם אינה רלוונטית, שכן לא נדרשה מעורבות שלהם בהכנת הערעור. 
-
-
+4.	ביום 10.8.2025 הגישה קרנית את תשובתה לבקשת להארכת מועד. לטענת קרנית, ביום מתן פסק הדין, שוחח בא כוחה עם בא כוח המערערים אשר מסר כי אין בכוונת המערערים לערער על פסק-הדין. קרנית טוענת כי היא הסתמכה על הודעה זו. בהקשר זה, קרנית מציינת כי גם המוסד לביטוח לאומי, שהגיש תביעה נגדה בגין האירוע מושא ההליך, הסכים לדחות את תביעתו לאחר שחלף המועד להגשת ערעור, בהסתמך על כך שההליך הסתיים. קרנית מדגישה כי לא מתקיימים במקרה דנא &#34;טעמים מיוחדים&#34; המצדיקים ליתן למערערים ארכה בדיעבד להגשת הערעור. בהקשר זה מציינת קרנית, כי הודעת הערעור שהוגשה היא קצרה וממוקדת ומחזיקה ארבעה עמודים בלבד וכי בא כוח המערערים העיד בעצמו שהחל להכינה מיד לאחר מתן פסק-הדין. לטענתה, עד לתחילת מצב החירום המיוחד ביום 15.6.2025 עמד למערערים פרק זמן ממושך של 45 ימים להכנת הודעת הערעור. גם לאחר תום התקופה עמדו לרשותו שבועיים נוספים לפחות. על כן, נטען, אין מקום ליתן משקל בנסיבות המקרה דנא להשלכות מצב החירום המיוחד. עוד נטען כי עובדת היות המערערים מתגוררים בנגב וחששם לנסוע למשרד בא כוחם אינה רלוונטית, שכן לא נדרשה מעורבות שלהם בהכנת הערעור.
 
 5.	לאחר שבחנתי את טענות הצדדים באתי לכלל מסקנה כי יש לדחות את הבקשה להארכת מועד להגשת הערעור. הערעור דנא הוגש כאמור באיחור של יומיים. בנסיבות אלה יש לבחון אם עלה בידי המערערים להצביע על טעם מיוחד, בהתאם לדרישת תקנה 176(ב) לתקנות סדר הדין, אשר מצדיק מתן ארכה בדיעבד להגשת הערעור. בהקשר זה נפסק לא אחת, כי שאלת קיומו של &#34;טעם מיוחד&#34; תיבחן בהתאם לנסיבותיו הפרטניות של כל מקרה ומקרה ולאיזון הראוי בין השיקולים השונים. בין היתר יש להביא בחשבון, לעניין זה, את משך האיחור, את הטעמים העומדים בבסיסו ואת סיכויי ההליך אשר מתבקשת ארכה להגשתו (ראו, בר&#34;מ 6094/13 מדהנה נ&#39; המשרד לקליטת עליה (10.12.2013)).
 
+6.	ודוקו: כפי שנפסק לא אחת גם איחור של יום אחד (לא כל שכן של יומיים) הוא איחור לכל דבר ועניין, וגם מי שאיחר בהגשת ההליך ביום אחד או יומיים, נדרש להוכיח קיומם של &#34;טעמים מיוחדים&#34; המצדיקים את מתן הארכה המבוקשת על ידו כפי דרישת תקנה 176(ב) לתקנות סדר הדין, התשע&#34;ט-2018 (ראו למשל, ע&#34;א 2393/19 ראובן פלד עבודות בניין בע&#34;מ נ&#39; דידיה, פיסקה 11 (25.7.2019); ע&#34;א 3641/21 א.א אביבה אלזמי בע&#34;מ נ&#39; מיסוי מקרקעין חיפה, פיסקה 5 (6.7.2021); ע&#34;א 3098/22 סרוגו נ&#39; דותן (22.6.2022); רע&#34;א 7940/23 כהן נ&#39; מימון, פיסקה 12 (9.11.2023)). זאת ועוד, עם כניסתן לתוקף של תקנות סדר הדין הנ&#34;ל הרי שבעת בחינת שאלת התקיימותם של &#34;טעמים מיוחדים&#34;, כתנאי להארכת מועד להגשת ערעור, יש ליתן ביטוי משמעותי לעקרונות היסוד של התקנות בעת פרשנות ויישום הפסיקה הקודמת בנושא (ראו, בש&#34;א 3064/21 שיכון ובינוי נדל&#34;ן בע&#34;מ נ&#39; רשות מקרקעי ישראל, פיסקה 5 (6.5.2021)).
 
+7.	הבקשה דנא אינה מצביעה על &#34;טעם מיוחד&#34; המצדיק את מתן הארכה המבוקשת. הבקשה נסמכת על &#34;טעות בתום לב&#34; כמו גם על התחבטותם של המערערים בשאלה אם להגיש ערעור על פסק-דין אם לאו. נתתי דעתי לטענות אלה. ספק בעיני אם טענות אלה כשלעצמן מגבשות טעם מיוחד המצדיק את מתן הארכה שהתבקשה (שהרי מקום בו נטען לטעות שבדין, יש לבחון גם את השלכותיה של אותה טעות על זכויותיהם של בעלי-הדין האחרים ועל מידת הסתמכותם על סופיות ההליך; ראו, בש&#34;א 6997/00 סרגובי נ&#39; סילברסטון (23.11.2000); בש&#34;א 805/08 טחנת קמח מפרץ בע&#34;מ נ&#39; מדינת ישראל (11.5.2008)); ומקום בו מתלבט בעל-דין אם לערער אם לאו על פסק-הדין שניתן בעניינו הרי שאין מדובר בטעם מיוחד המצדיק הארכת מועד; השוו, בש&#34;א 4178/15 מוחמד נ&#39; אחמד (13.7.2015) שם צוין על-ידי כב&#39; הרשמת ל&#39; בנמלך כי &#34;לבטיו של בעל דין האם להגיש הליך ערעורי אינם יכולים להוות טעם כאמור, ועל בעל הדין לקבל החלטה בעניין טרם שחולף המועד הקבוע בדין להגשת ההליך, שהרי לאחר מועד זה מתגבש אינטרס ההסתמכות של בעל הדין שכנגד על ההחלטה&#34;).
 
-6.	ודוקו: כפי שנפסק לא אחת גם איחור של יום אחד (לא כל שכן של יומיים) הוא איחור לכל דבר ועניין, וגם מי שאיחר בהגשת ההליך ביום אחד או יומיים, נדרש להוכיח קיומם של &#34;טעמים מיוחדים&#34; המצדיקים את מתן הארכה המבוקשת על ידו כפי דרישת תקנה 176(ב) לתקנות סדר הדין, התשע&#34;ט-2018 (ראו למשל, ע&#34;א 2393/19 ראובן פלד עבודות בניין בע&#34;מ נ&#39; דידיה, פיסקה 11 (25.7.2019); ע&#34;א 3641/21 א.א אביבה אלזמי בע&#34;מ נ&#39; מיסוי מקרקעין חיפה, פיסקה 5 (6.7.2021); ע&#34;א 3098/22 סרוגו נ&#39; דותן (22.6.2022); רע&#34;א 7940/23 כהן נ&#39; מימון, פיסקה 12 (9.11.2023)). זאת ועוד, עם כניסתן לתוקף של תקנות סדר הדין הנ&#34;ל הרי שבעת בחינת שאלת התקיימותם של &#34;טעמים מיוחדים&#34;, כתנאי להארכת מועד להגשת ערעור, יש ליתן ביטוי משמעותי לעקרונות היסוד של התקנות בעת פרשנות ויישום הפסיקה הקודמת בנושא (ראו, בש&#34;א 3064/21 שיכון ובינוי נדל&#34;ן בע&#34;מ נ&#39; רשות מקרקעי ישראל, פיסקה 5 (6.5.2021)). 
-
-
-
-7.	הבקשה דנא אינה מצביעה על &#34;טעם מיוחד&#34; המצדיק את מתן הארכה המבוקשת. הבקשה נסמכת על &#34;טעות בתום לב&#34; כמו גם על התחבטותם של המערערים בשאלה אם להגיש ערעור על פסק-דין אם לאו. נתתי דעתי לטענות אלה. ספק בעיני אם טענות אלה כשלעצמן מגבשות טעם מיוחד המצדיק את מתן הארכה שהתבקשה (שהרי מקום בו נטען לטעות שבדין, יש לבחון גם את השלכותיה של אותה טעות על זכויותיהם של בעלי-הדין האחרים ועל מידת הסתמכותם על סופיות ההליך; ראו, בש&#34;א 6997/00 סרגובי נ&#39; סילברסטון (23.11.2000); בש&#34;א 805/08 טחנת קמח מפרץ בע&#34;מ נ&#39; מדינת ישראל (11.5.2008)); ומקום בו מתלבט בעל-דין אם לערער אם לאו על פסק-הדין שניתן בעניינו הרי שאין מדובר בטעם מיוחד המצדיק הארכת מועד; השוו, בש&#34;א 4178/15 מוחמד נ&#39; אחמד (13.7.2015) שם צוין על-ידי כב&#39; הרשמת ל&#39; בנמלך כי &#34;לבטיו של בעל דין האם להגיש הליך ערעורי אינם יכולים להוות טעם כאמור, ועל בעל הדין לקבל החלטה בעניין טרם שחולף המועד הקבוע בדין להגשת ההליך, שהרי לאחר מועד זה מתגבש אינטרס ההסתמכות של בעל הדין שכנגד על ההחלטה&#34;). 
-
-
-
-8.	ער אני לכך כי עסקינן בערעור בזכות ולנתון זה ניתן המשקל המתאים בעת בחינת הבקשה דנא. לצד זאת, לא ניתן להתעלם מן העבר השני מטענות קרנית בקשר עם הסתמכותה על סופיותו של פסק-הדין. בהקשר זה טענה קרנית, כי בא-כוח המערערים מסר סמוך למועד מתן פסק-הדין כי אינו שוקל להגיש ערעור על פסק-הדין. זאת ועוד, נטען כי ביום 1.5.2025 דיווח בא-כוח קרנית למרשתו על שיחה זו וקרנית הסתמכה על כך, לרבות לנוכח ההסכמה שהתגבשה עם המוסד לביטוח לאומי בדבר דחיית תביעת המל&#34;ל נגד קרנית, בגין אותו אירוע, ללא צו להוצאות (ראו פסק-הדין באותה תובענה שצורף כנספח 2 לתשובת קרנית). צודקת קרנית בטענתה, כי בבחינת מידת ההסתמכות על סופיות פסק-הדין יש מקום לבחון גם את הסתמכותם של צדדים שלישיים, ובמקרה זה המוסד לביטוח לאומי (ראו גם, חמי בן-נון וטל חבקין הערעור האזרחי 182 (מהדורה שלישית, 2012) שם מציינים המחברים כי &#34;כאשר הארכת המועד עשויה להשפיע על צדדים שלישיים שאינם מיוצגים בהליך [...] יש לייחס משקל גם לאינטרס של אותם צדדים&#34;). 
-
-
+8.	ער אני לכך כי עסקינן בערעור בזכות ולנתון זה ניתן המשקל המתאים בעת בחינת הבקשה דנא. לצד זאת, לא ניתן להתעלם מן העבר השני מטענות קרנית בקשר עם הסתמכותה על סופיותו של פסק-הדין. בהקשר זה טענה קרנית, כי בא-כוח המערערים מסר סמוך למועד מתן פסק-הדין כי אינו שוקל להגיש ערעור על פסק-הדין. זאת ועוד, נטען כי ביום 1.5.2025 דיווח בא-כוח קרנית למרשתו על שיחה זו וקרנית הסתמכה על כך, לרבות לנוכח ההסכמה שהתגבשה עם המוסד לביטוח לאומי בדבר דחיית תביעת המל&#34;ל נגד קרנית, בגין אותו אירוע, ללא צו להוצאות (ראו פסק-הדין באותה תובענה שצורף כנספח 2 לתשובת קרנית). צודקת קרנית בטענתה, כי בבחינת מידת ההסתמכות על סופיות פסק-הדין יש מקום לבחון גם את הסתמכותם של צדדים שלישיים, ובמקרה זה המוסד לביטוח לאומי (ראו גם, חמי בן-נון וטל חבקין הערעור האזרחי 182 (מהדורה שלישית, 2012) שם מציינים המחברים כי &#34;כאשר הארכת המועד עשויה להשפיע על צדדים שלישיים שאינם מיוצגים בהליך [...] יש לייחס משקל גם לאינטרס של אותם צדדים&#34;).
 
 9.	אוסיף, כי מקובלת עליי גם עמדת קרנית כי אין מקום לייחס משקל ממשי לטענות בדבר השלכות מבצע &#34;עם כלביא&#34; בקשר עם המועד להגשת הערעור במקרה דנא. כפי שציינה קרנית ובצדק, מדובר בהודעת ערעור קצרה המחזיקה ארבעה עמודים בלבד. למערערים עמד פרק זמן משמעותי הן לפני תחילת מבצע &#34;עם כלביא&#34;, הן לאחר סיומו, כדי להגיש את הערעור במועד. לא הוצג כל טעם ממשי המצדיק מסקנה אחרת.
 
-
-
-10.	מטעמים אלה דין הבקשה להארכת מועד להידחות. נוכח תוצאה זו ומשהערעור הוגש באיחור, מתקבלת בקשת קרנית למחיקת הערעור על הסף. הערעור נמחק אפוא. המערערים יישאו בהוצאות קרנית בסך 750 ש&#34;ח. המזכירות תסגור את התיק. 
-
-
+10.	מטעמים אלה דין הבקשה להארכת מועד להידחות. נוכח תוצאה זו ומשהערעור הוגש באיחור, מתקבלת בקשת קרנית למחיקת הערעור על הסף. הערעור נמחק אפוא. המערערים יישאו בהוצאות קרנית בסך 750 ש&#34;ח. המזכירות תסגור את התיק.
 
 ניתן היום, כ&#39; אב תשפ&#34;ה (14 אוגוסט 2025).
-
-
-
-
-
-
-
-
 
 רון גולדשטיין, שופט
 
@@ -1699,7 +1906,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

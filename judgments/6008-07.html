@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    12/11/2007 (לפני 6749 ימים)
+                    12/11/2007 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/6008-07.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="6008/07 - יבגני שומסקי נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F6008-07.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/080/060/R02&amp;fileName=07060080_r02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/080/060/R02&amp;fileName=07060080_r02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/080/060/R02&amp;fileName=07060080_r02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/080/060/R02&amp;fileName=07060080_r02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1580,24 +1851,19 @@
 
 מדינת ישראל
 
-ערעור על
-גזר הדין של בית המשפט המחוזי בבאר שבע מיום 27/05/2007 בת&#34;פ 8046/06 שניתן
-על ידי כבוד השופט: נ&#39; הנדל
+ערעור על גזר הדין של בית המשפט המחוזי בבאר שבע מיום 27/05/2007 בת&#34;פ 8046/06 שניתן על ידי כבוד השופט: נ&#39; הנדל
 
 תאריך הישיבה:
 
-ב&#39; בכסלו התשס&#34;ח
-(12.11.07)
+ב&#39; בכסלו התשס&#34;ח (12.11.07)
 
 בשם המערער:
 
-עו&#34;ד
-איילת עוז
+עו&#34;ד איילת עוז
 
 בשם המשיבה:
 
-עו&#34;ד
-עמית אופק
+עו&#34;ד עמית אופק
 
 בשם שרות המבחן:
 
@@ -1607,100 +1873,39 @@
 
 השופטת א&#39; פרוקצ&#39;יה:
 
-1. זהו ערעור על העונש
-שנגזר על המערער בעקבות הרשעתו בעבירות של חבלה בכוונה מחמירה, תקיפה בנסיבות
-מחמירות, ובעבירה על סעיף 18(ג)(1) לחוק הסדרת הפיקוח על כלבים תשס&#34;ג-2002.
+1. זהו ערעור על העונש שנגזר על המערער בעקבות הרשעתו בעבירות של חבלה בכוונה מחמירה, תקיפה בנסיבות מחמירות, ובעבירה על סעיף 18(ג)(1) לחוק הסדרת הפיקוח על כלבים תשס&#34;ג-2002.
 
-2. ביום 29.1.06 בשעות
-הערב, הלך שותפו של המערער להליך הפלילי שהוא אחיו (להלן – השותף) עם חבריו בחוצות
-העיר אשקלון. המתלונן ב&#39;, יליד 1988 ביקש מאחד מחבריו של השותף שיתן לו סיגריה.
-השותף התרעם על פנייה זו ובין השניים פרץ ויכוח קולני. לאחר מספר דקות, קם ב&#39;
-וחברו ס&#39; ללכת. אז התקרב אליהם המערער, כשהוא אוחז ברצועת כלבו ונעמד לידם. לאחר
-מכן רץ המערער עם כלב מסוג פיטבול, המסווג כגזע מסוכן, לעבר השותף ששהה ברחוב
-סמוך. האחים דברו ביניהם. ואז השותף התקרב בריצה לעבר ב&#39; כשהוא אוחז בכלי נשק מסוג
-נונצ&#39;קו כשהוא מנופף בו מולו ומול חברו ס&#39;, כדי להפחידם. השניים ברחו במהירות.
-השותף רץ אחרי ב&#39;, ויידה לעברו את הנונצ&#39;קו. המערער נשאר מאחוריו, שחרר את הכלב, וזה
-רדף אחרי ב&#39; והשיגו, וזה נפל על הארץ. הכלב התנפל באכזריות על ב&#39;, נשך אותו בפניו,
-ברגלו ובידיו, וקרע את בגדיו ונעליו. המערער והשותף הגיעו אל ב&#39; ובעטו בפניו
-ובגופו עד שצעקות השכנים הבריחו אותם מהמקום. כתוצאה ממהלך הדברים האמור נגרמו לב&#39;
-חבלות בכל חלקי גופו, הוא אושפז ונזקק לטיפול רפואי, ושוחרר מבית החולים רק לאחר
-שבוע ימים.
+2. ביום 29.1.06 בשעות הערב, הלך שותפו של המערער להליך הפלילי שהוא אחיו (להלן – השותף) עם חבריו בחוצות העיר אשקלון. המתלונן ב&#39;, יליד 1988 ביקש מאחד מחבריו של השותף שיתן לו סיגריה. השותף התרעם על פנייה זו ובין השניים פרץ ויכוח קולני. לאחר מספר דקות, קם ב&#39; וחברו ס&#39; ללכת. אז התקרב אליהם המערער, כשהוא אוחז ברצועת כלבו ונעמד לידם. לאחר מכן רץ המערער עם כלב מסוג פיטבול, המסווג כגזע מסוכן, לעבר השותף ששהה ברחוב סמוך. האחים דברו ביניהם. ואז השותף התקרב בריצה לעבר ב&#39; כשהוא אוחז בכלי נשק מסוג נונצ&#39;קו כשהוא מנופף בו מולו ומול חברו ס&#39;, כדי להפחידם. השניים ברחו במהירות. השותף רץ אחרי ב&#39;, ויידה לעברו את הנונצ&#39;קו. המערער נשאר מאחוריו, שחרר את הכלב, וזה רדף אחרי ב&#39; והשיגו, וזה נפל על הארץ. הכלב התנפל באכזריות על ב&#39;, נשך אותו בפניו, ברגלו ובידיו, וקרע את בגדיו ונעליו. המערער והשותף הגיעו אל ב&#39; ובעטו בפניו ובגופו עד שצעקות השכנים הבריחו אותם מהמקום. כתוצאה ממהלך הדברים האמור נגרמו לב&#39; חבלות בכל חלקי גופו, הוא אושפז ונזקק לטיפול רפואי, ושוחרר מבית החולים רק לאחר שבוע ימים.
 
-בית המשפט המחוזי
-הרשיע את המערער בביצוע העבירות שפורטו לעיל בגין הפרשה המתוארת. השותף הורשע אף
-הוא במספר עבירות, אך חלקו הוגדר כפחות חמור, מאחר שנשללה מזימה משותפת בינו לבין
-המערער בשחרור הכלב במטרה שיתקוף את המתלונן וחברו. ברובד המשפטי נקבע כי לא הוכח
-שפעולת שחרור הכלב היתה מתואמת בין שני הנאשמים, ומעשה שילוח הכלב בוצע על דעת המערער בלבד. עם זאת, נקבע כי שני
-האחים חברו יחדיו כדי לתקוף את המתלונן כשהוא שרוע על הקרקע ובעוד כלבם תוקף אותו
-באכזריות. כן נקבע כי בחלוף זמן קצר, הסיר השותף את הכלב מעל המתלונן.
+בית המשפט המחוזי הרשיע את המערער בביצוע העבירות שפורטו לעיל בגין הפרשה המתוארת. השותף הורשע אף הוא במספר עבירות, אך חלקו הוגדר כפחות חמור, מאחר שנשללה מזימה משותפת בינו לבין המערער בשחרור הכלב במטרה שיתקוף את המתלונן וחברו. ברובד המשפטי נקבע כי לא הוכח שפעולת שחרור הכלב היתה מתואמת בין שני הנאשמים, ומעשה שילוח הכלב בוצע על דעת המערער בלבד. עם זאת, נקבע כי שני האחים חברו יחדיו כדי לתקוף את המתלונן כשהוא שרוע על הקרקע ובעוד כלבם תוקף אותו באכזריות. כן נקבע כי בחלוף זמן קצר, הסיר השותף את הכלב מעל המתלונן.
 
-3. בית המשפט המחוזי גזר
-על המערער עונש מאסר של 4 שנים, מאסר על תנאי, ופיצוי למתלונן בסך 25,000 ₪. עונש
-זה הוטל במצטבר לעונש מאסר שנגזר עליו בתיק אחר ביום 10.12.06 ל-30 חודשים, תוך
-התחשבות במלוא תקופת המעצר שריצה. על אחיו השותף שהורשע בעבירות פחות חמורות נגזר
-עונש מאסר של 16 חודשים, ופיצוי בסך 10,000 ₪ למתלונן.
+3. בית המשפט המחוזי גזר על המערער עונש מאסר של 4 שנים, מאסר על תנאי, ופיצוי למתלונן בסך 25,000 ₪. עונש זה הוטל במצטבר לעונש מאסר שנגזר עליו בתיק אחר ביום 10.12.06 ל-30 חודשים, תוך התחשבות במלוא תקופת המעצר שריצה. על אחיו השותף שהורשע בעבירות פחות חמורות נגזר עונש מאסר של 16 חודשים, ופיצוי בסך 10,000 ₪ למתלונן.
 
-בית המשפט עמד על
-חומרת מעשיו של המערער, ועל האכזריות הרבה
-שאפיינה את התנהגותו בשילוח כלב תוקפני כדי שיעשה שפטים במתלונן חסר הישע. חומרה
-יתירה מצא גם בעובדה כי הרשעתו של המערער בהליך הנפרד היתה כרוכה אף היא בשימוש
-בכלב הפיטבול כדי לאיים ולפגוע במתלונן באותו מקרה.
+בית המשפט עמד על חומרת מעשיו של המערער, ועל האכזריות הרבה שאפיינה את התנהגותו בשילוח כלב תוקפני כדי שיעשה שפטים במתלונן חסר הישע. חומרה יתירה מצא גם בעובדה כי הרשעתו של המערער בהליך הנפרד היתה כרוכה אף היא בשימוש בכלב הפיטבול כדי לאיים ולפגוע במתלונן באותו מקרה.
 
-מנגד, התחשב בית המשפט
-בגילו הצעיר של המערער, ובצורך לגזור את עונשו במידתיות.
+מנגד, התחשב בית המשפט בגילו הצעיר של המערער, ובצורך לגזור את עונשו במידתיות.
 
-4. בערעור על העונש,
-טענה ב&#34;כ המערער כי בית המשפט קמא החמיר החמרה יתירה עם המערער הן באשר להיקף
-עונש המאסר בגין העבירות נשוא הליך זה, והן נוכח החלטתו לצרף את עונש המאסר בתיק
-זה למאסר בן 30 חודשים שהוטל בהליך האחר, ולצבור את העונשים. כן טענה, כי לא ניתן
-משקל מספיק לנסיבות האישיות, ולצורך להותיר סיכויי שיקום למערער .
+4. בערעור על העונש, טענה ב&#34;כ המערער כי בית המשפט קמא החמיר החמרה יתירה עם המערער הן באשר להיקף עונש המאסר בגין העבירות נשוא הליך זה, והן נוכח החלטתו לצרף את עונש המאסר בתיק זה למאסר בן 30 חודשים שהוטל בהליך האחר, ולצבור את העונשים. כן טענה, כי לא ניתן משקל מספיק לנסיבות האישיות, ולצורך להותיר סיכויי שיקום למערער .
 
-המדינה עמדה על חומרתו
-המופלגת של הארוע, בעיקר לנוכח השימוש בכלב תוקפני ככלי נשק אכזרי, ושילוחו
-במתלונן תמים, עובר אורח. כן ציין ב&#34;כ המדינה כי העבירה בוצעה כאשר המערער
-המתין להכרעת דינו בהליך האחר, דבר המוסיף מישנה חומרה למעשיו.
+המדינה עמדה על חומרתו המופלגת של הארוע, בעיקר לנוכח השימוש בכלב תוקפני ככלי נשק אכזרי, ושילוחו במתלונן תמים, עובר אורח. כן ציין ב&#34;כ המדינה כי העבירה בוצעה כאשר המערער המתין להכרעת דינו בהליך האחר, דבר המוסיף מישנה חומרה למעשיו.
 
-5. בתסקיר משלים של שירות
-המבחן לא נכללה המלצה טיפולית. מניתוח מצבו של המערער עולה כי הוא עדיין לא הפנים
-את אחריותו לארועי העבירות, ואת חומרת השלכותיהן על המתלונן.
+5. בתסקיר משלים של שירות המבחן לא נכללה המלצה טיפולית. מניתוח מצבו של המערער עולה כי הוא עדיין לא הפנים את אחריותו לארועי העבירות, ואת חומרת השלכותיהן על המתלונן.
 
-6. שקלנו את טיבו של העונש
-שנגזר על המערער, על רקע טיעוני הצדדים וכלל נסיבות הענין. אף שהעונש אינו קל, לא
-מצאנו כי הוא חורג ממסגרת הענישה הראויה, בנסיבות הקשות שאפיינו את מעשי העבירות
-בהן הורשע המערער. מעשיו של המערער התאפיינו באכזריות ובאלימות כלפי מתלונן שלא
-עשה לו כל רע. מעשי התקיפה האלימים כלפיו, שנעשו בשיתוף עם אחיו, ובמיוחד שילוחו
-של כלב תוקפני כדי שיעשה שפטים במתלונן הם גילויי אלימות מסוג שלא הכרנו.
+6. שקלנו את טיבו של העונש שנגזר על המערער, על רקע טיעוני הצדדים וכלל נסיבות הענין. אף שהעונש אינו קל, לא מצאנו כי הוא חורג ממסגרת הענישה הראויה, בנסיבות הקשות שאפיינו את מעשי העבירות בהן הורשע המערער. מעשיו של המערער התאפיינו באכזריות ובאלימות כלפי מתלונן שלא עשה לו כל רע. מעשי התקיפה האלימים כלפיו, שנעשו בשיתוף עם אחיו, ובמיוחד שילוחו של כלב תוקפני כדי שיעשה שפטים במתלונן הם גילויי אלימות מסוג שלא הכרנו.
 
-מעורבותו של המערער
-בעבירות נוספות בהליך אחר, בגינו נגזרו עליו 30 חודשי מאסר, ואשר גם בהם היה מעורב
-כלב שנשלח לפגוע במתלונן, מצביעים על קו של אלימות עבריינית קשה המאפיין את
-התנהגותו של המערער, ומחייב נקיטת אמצעים עונשיים ראויים.
+מעורבותו של המערער בעבירות נוספות בהליך אחר, בגינו נגזרו עליו 30 חודשי מאסר, ואשר גם בהם היה מעורב כלב שנשלח לפגוע במתלונן, מצביעים על קו של אלימות עבריינית קשה המאפיין את התנהגותו של המערער, ומחייב נקיטת אמצעים עונשיים ראויים.
 
-תסקיר שירות המבחן
-אינו מצביע על סיכויים טובים לשיקום המערער נכון לעת זו, וגם מבחינה זו אין טעם
-מיוחד להקלה, אף שבית המשפט התחשב בגילו הצעיר של המערער ולקח זאת בחשבון בקביעת
-העונש.
+תסקיר שירות המבחן אינו מצביע על סיכויים טובים לשיקום המערער נכון לעת זו, וגם מבחינה זו אין טעם מיוחד להקלה, אף שבית המשפט התחשב בגילו הצעיר של המערער ולקח זאת בחשבון בקביעת העונש.
 
-7. אין גם מקום להתערב
-בהחלטת בית המשפט לצבור את העונשים בגין הליך זה וההליך הפלילי האחר בו הורשע
-המערער. החומרה היתירה המתלווה לעבירות שנעברו על ידי המערער, השימוש בכלב כנשק
-אכזרי המשולח כדי לפגוע בעוברי אורח מזדמנים, והעובדה כי העבירות נשוא הליך זה
-נעברו בעוד ההליך האחר עדיין תלוי ועומד – כל אלה מצביעים על חומרה מיוחדת במעשי
-המערער, המניחה יסוד להחלטת בית המשפט שלא לחפוף את עונשי המאסר שנגזרו, בין חפיפה
-מלאה ובין חפיפה חלקית.
+7. אין גם מקום להתערב בהחלטת בית המשפט לצבור את העונשים בגין הליך זה וההליך הפלילי האחר בו הורשע המערער. החומרה היתירה המתלווה לעבירות שנעברו על ידי המערער, השימוש בכלב כנשק אכזרי המשולח כדי לפגוע בעוברי אורח מזדמנים, והעובדה כי העבירות נשוא הליך זה נעברו בעוד ההליך האחר עדיין תלוי ועומד – כל אלה מצביעים על חומרה מיוחדת במעשי המערער, המניחה יסוד להחלטת בית המשפט שלא לחפוף את עונשי המאסר שנגזרו, בין חפיפה מלאה ובין חפיפה חלקית.
 
-לא מצאנו להתערב גם
-במרכיב זה של הענישה.
+לא מצאנו להתערב גם במרכיב זה של הענישה.
 
-8. השותף, אחיו של המערער,
-הורשע בעבירות קלות יותר משחלקו בפרשה היה פחות חמור, ולא עמדו לחובתו נסיבות
-מחמירות נוספות. אי לכך, גם העונש שנגזר עליו קל יותר, ויש לכך טעם וצידוק.
+8. השותף, אחיו של המערער, הורשע בעבירות קלות יותר משחלקו בפרשה היה פחות חמור, ולא עמדו לחובתו נסיבות מחמירות נוספות. אי לכך, גם העונש שנגזר עליו קל יותר, ויש לכך טעם וצידוק.
 
-לאור האמור, ערעורו
-של המערער על גזר דינו נדחה.
+לאור האמור, ערעורו של המערער על גזר דינו נדחה.
 
-ניתן היום, ב&#39; בכסלו
-תשס&#34;ח (12.11.07).
+ניתן היום, ב&#39; בכסלו תשס&#34;ח (12.11.07).
 
 ש ו פ ט ת
 
@@ -1731,7 +1936,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

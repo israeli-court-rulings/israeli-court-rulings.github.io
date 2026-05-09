@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    30/05/2019 (לפני 2532 ימים)
+                    30/05/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/2825-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="2825/19 - פלוני נ. משרד הפנים - רשות האוכלוסין וההגרה"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F2825-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/250/028/a06&amp;fileName=19028250.A06&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/250/028/a06&amp;fileName=19028250.A06&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/250/028/a06&amp;fileName=19028250.A06&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/250/028/a06&amp;fileName=19028250.A06&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,171 +1827,83 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
-
-
-
-
-
-1
-
-
-
-
-
-
-
-בבית המשפט העליון
-
-
+            בבית המשפט העליון
 
 בר&#34;ם 2825/19
 
-
-
-לפני:	
+לפני:
 
 כבוד השופטת ד&#39; ברק-ארז
-
-
 
 המבקש:
 
 פלוני
 
-	
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיב:
 
 משרד הפנים – רשות האוכלוסין וההגירה
 
-			     	
-
 בקשת רשות ערעור על פסק דינו של בית המשפט המחוזי בירושלים בע&#34;ר 4990-04-19 שניתן ביום 10.4.2019 על ידי כבוד השופט ד&#39; גדעוני
-
-	
 
 בשם המבקש:
 
 עו&#34;ד שרה לואיס
 
-
-
 בשם המשיב:
 
-עו&#34;ד סיון דגן 
-
-	
-
-	
+עו&#34;ד סיון דגן
 
 פסק דין
 
-
-
 1. 	זוהי בקשת רשות ערעור על פסק דינו של בית המשפט המחוזי בירושלים מיום 10.4.2019 (ע&#34;ר 4990-04-19, השופט ד&#39; גדעוני). בית המשפט המחוזי דחה ערעור שהגיש המבקש על החלטתה של רשמת בית המשפט המחוזי מיום 26.3.2019 (עת&#34;ם 72375-02-19, השופטת ת&#39; בר-אשר בתפקידה כרשמת) שבגדרה נדחתה בקשה לפטור את המבקש מתשלום אגרה.
-
-
 
 רקע והליכים קודמים
 
-
-
-2. 	מקורו של ההליך דנן בעתירה מינהלית שהגיש המבקש, יליד 1959, ובה עתר לכך שיינתן לו רישיון ישיבה מסוג א/5 בישראל לפי סעיף 3ג לחוק האזרחות והכניסה לישראל (הוראת שעה), התשס&#34;ג-2003. לפי הנטען בעתירה, המבקש, שנולד בכפר יאטה הסמוך לחברון, מתגורר בישראל מנעוריו, על רקע סיוע שהעניק לרשויות הביטחון במשך כשלושה עשורים ושבגינו אף קיבל בשנת 2011 היתר שהייה בישראל. בתמצית, העתירה מגוללת את נסיבות החיים הקשות של המבקש. לדבריו, הוא סובל מעוני ורעב מתמשכים, בדידות ומצב רפואי ונפשי קשה, ובהיעדר מעמד בישראל אין ביכולתו לפנות לקבלת סיוע מרשויות הבריאות והרווחה. להשלמת התמונה יצוין כי המבקש מיוצג (בהתנדבות) על ידי הקליניקה לזכויות מהגרים במרכז האקדמי למשפט ולעסקים. 
-
-
+2. 	מקורו של ההליך דנן בעתירה מינהלית שהגיש המבקש, יליד 1959, ובה עתר לכך שיינתן לו רישיון ישיבה מסוג א/5 בישראל לפי סעיף 3ג לחוק האזרחות והכניסה לישראל (הוראת שעה), התשס&#34;ג-2003. לפי הנטען בעתירה, המבקש, שנולד בכפר יאטה הסמוך לחברון, מתגורר בישראל מנעוריו, על רקע סיוע שהעניק לרשויות הביטחון במשך כשלושה עשורים ושבגינו אף קיבל בשנת 2011 היתר שהייה בישראל. בתמצית, העתירה מגוללת את נסיבות החיים הקשות של המבקש. לדבריו, הוא סובל מעוני ורעב מתמשכים, בדידות ומצב רפואי ונפשי קשה, ובהיעדר מעמד בישראל אין ביכולתו לפנות לקבלת סיוע מרשויות הבריאות והרווחה. להשלמת התמונה יצוין כי המבקש מיוצג (בהתנדבות) על ידי הקליניקה לזכויות מהגרים במרכז האקדמי למשפט ולעסקים.
 
 3. 	בד בבד עם העתירה המבקש הגיש בקשה למתן פטור מתשלום אגרה, אשר נתמכה בתצהיר המפרט את הכנסותיו והוצאותיו ואת אי-יכולתו להמציא מסמכים העוסקים בכך לנוכח היותו חסר מעמד. כך, המבקש ציין כי הוא מתפרנס מעבודות מזדמנות, כי אין בידו תלושי שכר בשל כך שאינו מחזיק בהיתר עבודה, כי אין לו חשבון בנק או רכב, כי הוא שוכר דירת חדר בדרום תל אביב בשכירות חודשית של 2,500 שקלים, ללא חוזה שכירות, ובשלב זה אף אין בידו לעמוד בתשלומי השכירות כך שהוא נעזר בחבר שמסייע לו זמנית בעניין זה. המבקש ציין עוד כי הוא מצוי במצב של רעב ופשיטת יד, ונעזר במכרים ושכנים לרכישת מזון ומוצרי יסוד, כי אין לו כל קשר עם קרובי משפחתו, וכי הוא סובל מבעיות רפואיות, אלא שבהיעדר ביטוח בריאות ויכולת לשלם עבור טיפול רפואי הוא חסר גישה לשירותים רפואיים. בהקשר האחרון הפנה המבקש לתיקו הרפואי ב&#34;רופאים לזכויות אדם&#34;, אשר צורף לעתירה. מנגד, המשיב טען כי מדובר בבקשה חסרה ועל כן דינה להידחות.
 
-
-
 4. 	ביום 26.3.2019 דחתה רשמת בית המשפט המחוזי את הבקשה. בהחלטה צוין כי &#34;העותר [המבקש – ד&#39; ב&#39; א&#39;] שטח בבקשתו ובתצהיר המצורף לבקשה תמונה המצביעה לכאורה, על דוחק כלכלי, אולם בקשתו לא נתמכה באף לא מסמך אחד התומך בטענה מטענותיו. בכלל זה לא צורף מסמך התומך בגובה שכרו הנטען או בסכום דמי השכירות (שלביו נטען כי אין למבקש חוזה שכירות)&#34;. ביחס לסיכויי העתירה צוין כי &#34;ספק אם מדובר במצב של היעדר מענה מצד המשיבים או של היעדר הנמקה&#34;. לצד זאת, הרשמת קבעה כי לפנים משורת הדין סכום האגרה יופחת בשליש, והורתה למבקש לשלם את סכום האגרה שנקבע עד ליום 11.4.2019.
-
-
 
 5. 	בית המשפט המחוזי דחה את ערעורו של המבקש על ההחלטה האמורה, מבלי להידרש לתשובת המשיב. בית המשפט המחוזי ציין כי הוא מוכן להניח שעתירת המבקש מגלה עילה, וכן הוסיף כי מעיון בתצהיר שהגיש המבקש עולה לכאורה כי מצבו הכלכלי &#34;אינו פשוט כלל&#34;. עם זאת, בית המשפט המחוזי קבע כי בהסברים שסיפק המבקש (בדבר האופי המזדמן של עבודתו והעובדה שאין לו חשבון בנק) אין כדי להסביר מדוע לא צורף לבקשה &#34;ולו מסמך בודד כדי לספק למצער תמיכה חלקית לנטען&#34; – כגון אישורי תשלום שכר דירה אף אם אין למבקש חוזה שכירות, אסמכתאות על חובות בגין תשלומי צריכה שוטפת, או תצהיר ממי שמסייע למבקש לשאת בהוצאות. נוכח כל האמור, ובשים לב להפחתה החלקית בתשלום האגרה שניתנה למבקש, קבע בית המשפט המחוזי כי לא קמה עילה להתערבות בהחלטתה של רשמת בית המשפט המחוזי.
 
-
-
 הבקשה שבפני
-
-
 
 6. 	בבקשה דנן טוען המבקש כי בהחלטתה של הרשמת נפל פגם מהותי, וכי שגה אף בית המשפט המחוזי בכך שנמנע מהתערבות בה. בעיקרו של דבר, המבקש טוען כי הרף שהוצב לבחינת בקשתו היה מחמיר יתר על המידה, בהתחשב בנסיבות חייו הקשות, וכי משמעותה של דחיית הבקשה היא סגירת שערי בית המשפט בפניו. לטענת המבקש, בנסיבות שבהן טענותיו הן שליליות באופיין (היינו, היעדר יכולת להציג מסמכים), היה מקום להסתפק ברף נמוך יותר של ראיות לצורך מתן פטור מאגרה. המבקש מדגיש כי הסביר בתצהיר שצורף לבקשה כי לנוכח העובדה שהוא מחוסר מעמד ואף אינו מחזיק בהיתר פיזי אין ביכולתו להציג תלושי שכר, חוזה שכירות או אסמכתאות בדבר חשבון בנק. המבקש מדגיש עוד כי המשיב לא סתר או הכחיש הסברים אלה בתשובה שהוגשה מטעמו לבקשה המקורית למתן פטור מאגרה.
 
-
-
-7. 	המבקש חוזר ומציין כי הוא אדם מבוגר וחולה, חסר נכסים ותעודות, כי אין לו קשר עם בני משפחתו, וכי הוא נתמך בעיקרו של דבר על ידי שכנים ומכרים המסייעים לו ברכישת מוצרי יסוד ותרופות. המבקש מוסיף עוד כי שכניו אינם מודעים לסיפור הרקע שלו כיליד הרשות הפלסטינית (בין היתר בשים לב לכך שהמבקש שינה עוד בנעוריו את שמו לשם המזוהה כיהודי), ועל כן הוא חושש מעירובם בהליך הנוכחי באמצעות הגשת תצהירים. לצד זאת, המבקש מפנה למסמך מטעם ארגון &#34;רופאים לזכויות אדם&#34; שצורף לעתירתו, וכן לתצהיר נוסף שצורף לה מטעם מכר של המבקש, המתייחס למצבו הקשה. 
-
-
+7. 	המבקש חוזר ומציין כי הוא אדם מבוגר וחולה, חסר נכסים ותעודות, כי אין לו קשר עם בני משפחתו, וכי הוא נתמך בעיקרו של דבר על ידי שכנים ומכרים המסייעים לו ברכישת מוצרי יסוד ותרופות. המבקש מוסיף עוד כי שכניו אינם מודעים לסיפור הרקע שלו כיליד הרשות הפלסטינית (בין היתר בשים לב לכך שהמבקש שינה עוד בנעוריו את שמו לשם המזוהה כיהודי), ועל כן הוא חושש מעירובם בהליך הנוכחי באמצעות הגשת תצהירים. לצד זאת, המבקש מפנה למסמך מטעם ארגון &#34;רופאים לזכויות אדם&#34; שצורף לעתירתו, וכן לתצהיר נוסף שצורף לה מטעם מכר של המבקש, המתייחס למצבו הקשה.
 
 8. 	ביום 8.5.2019 הוריתי למשיב להגיש תשובה לבקשה, וזו הוגשה ביום 27.5.2019. עמדת המשיב היא כי לא נפל פגם בפסק דינו של בית המשפט המחוזי המצדיק התערבות בשלב זה. המשיב חוזר ומצביע על כך שהמבקש לא צירף מסמכים לתמיכה בתצהירו ובאותה עת אף לא סיפק הסבר מספק לכך. לצד האמור, המשיב הוסיף כי בבקשת רשות הערעור הציג המבקש לראשונה הסברים בדבר אי-יכולתו להמציא מסמכים התומכים בבקשתו – הסברים שלא עמדו בפני הערכאות הקודמות, כך נטען. בנסיבות אלה, ציין המשיב כי הוא מותיר את ההחלטה בבקשה לשיקול דעתו של בית המשפט.
 
-
-
 דיון והכרעה
-
-
 
 9. 	לאחר שעיינתי בבקשה ובתגובה לה, ובהתחשב בנסיבותיו הייחודיות של המקרה, החלטתי לדון בבקשה כאילו ניתנה רשות והוגש ערעור לפי הרשות שניתנה. בהמשך לכך, החלטתי לקבל את הערעור, כמפורט להלן.
 
-
-
 10. 	כידוע, פטור מתשלום אגרה יינתן בהתקיים שני תנאים מצטברים – חוסר מסוגלות כלכלית של המבקש והתרשמותו של בית המשפט כי &#34;ההליך מגלה עילה&#34; (סעיף 14(ג) לתקנות בתי המשפט (אגרות), התשס&#34;ז-2007). בענייננו, בית המשפט המחוזי הניח כי עתירתו של המבקש אכן מגלה עילה, והדיון המרכזי בתיק נסב על הוכחתו של תנאי המסוגלות הכלכלית. בכך אתמקד גם אני. עם זאת אוסיף ואעיר, כפי שציינתי גם בעבר, כי אני סבורה שיש להקל בבחינתה של שאלת העילה מקום שבו ההליך מעלה טענות כבדות משקל, כאשר לחסימת הגישה לערכאות עלולה להיות השלכה קשה ואף בלתי הפיכה (ראו: בר&#34;ם 8978/12 Juliet Oluwakemi Adeniyi נ&#39; משרד הפנים, פסקה 9 (7.4.2013)).
-
-
 
 11. 	בית משפט זה עמד בעבר פעמים רבות על האופן שבו יש לבחון בקשות למתן פטור מאגרה. בהקשר זה נקבע כי יש לאזן בין הרציונאלים התומכים בחובת תשלום האגרה לבין זכות הגישה לערכאות, שהיא זכות יסוד (ראו: ע&#34;א 8166/11 חברת אלי ראובן בנייה והשקעות בע&#34;מ (בפירוק) נ&#39; נ. אלה ובניו חברה קבלנית לבניין (1972) בע&#34;מ, פסקה 14 (12.4.2015); רע&#34;ב 8411/16 סלע נ&#39; שירות בתי הסוהר, פסקאות 34-33 לפסק דינה של הנשיאה א&#39; חיות (17.7.2018)). עוד נקבע כי במסגרת איזון זה יש ליתן את הדעת לאופי הזכויות המונחות על הכף ולמידת הפגיעה האפשרית בהן:
 
-&#34;כאשר מוגש הליך שיפוטי בעניין שבבסיסו עומדת טענה לפגיעה בזכות המשתייכת ל&#39;גרעין הקשה&#39; של זכויות האדם, דחיית בקשה לפטור מאגרה עלולה להוביל לנעילת שעריו של בית המשפט, שבתורה עלולה להוביל לפגיעה בלתי מידתית בזכויות אלו. אשר על כן, שומה על בית המשפט לבחון את הבקשה לפטור מאגרה במשקפיים מקלים, תוך מתן משקל הולם לזכות הגישה לערכאות. בכלל זה, יש מקום לגלות גמישות במצבים שבהם לא נסתרה טענתו של הפרט בדבר היעדר יכולת כלכלית&#34; (ראו: בר&#34;ם 1512/14 פלוני נ&#39; שר הפנים, פסקה 8 (19.3.2014) (להלן: בר&#34;ם 1512/14). ראו גם: בר&#34;ם 2459/15 פלוני נ&#39; משרד הפנים, פסקה 9 (13.5.2015)).  
+&#34;כאשר מוגש הליך שיפוטי בעניין שבבסיסו עומדת טענה לפגיעה בזכות המשתייכת ל&#39;גרעין הקשה&#39; של זכויות האדם, דחיית בקשה לפטור מאגרה עלולה להוביל לנעילת שעריו של בית המשפט, שבתורה עלולה להוביל לפגיעה בלתי מידתית בזכויות אלו. אשר על כן, שומה על בית המשפט לבחון את הבקשה לפטור מאגרה במשקפיים מקלים, תוך מתן משקל הולם לזכות הגישה לערכאות. בכלל זה, יש מקום לגלות גמישות במצבים שבהם לא נסתרה טענתו של הפרט בדבר היעדר יכולת כלכלית&#34; (ראו: בר&#34;ם 1512/14 פלוני נ&#39; שר הפנים, פסקה 8 (19.3.2014) (להלן: בר&#34;ם 1512/14). ראו גם: בר&#34;ם 2459/15 פלוני נ&#39; משרד הפנים, פסקה 9 (13.5.2015)).
 
-
-
-	דברים אלה נאמרו בהקשרה של שלילת הזכות לחירות, אולם הם יפים לענייננו, שכן עתירתו של המבקש אינה עוסקת אך בשאלה &#34;צרה&#34; של מתן מעמד, אלא משליכה על הזכות למינימום של קיום אנושי בכבוד, בהינתן נסיבותיו החריגות והקשות של המבקש. טענותיו נוגעות לגרעין הקשה של זכות זו, על-פי כל אמת מידה, ויש בכך כדי להקרין על הדיון בהן.
-
-
+דברים אלה נאמרו בהקשרה של שלילת הזכות לחירות, אולם הם יפים לענייננו, שכן עתירתו של המבקש אינה עוסקת אך בשאלה &#34;צרה&#34; של מתן מעמד, אלא משליכה על הזכות למינימום של קיום אנושי בכבוד, בהינתן נסיבותיו החריגות והקשות של המבקש. טענותיו נוגעות לגרעין הקשה של זכות זו, על-פי כל אמת מידה, ויש בכך כדי להקרין על הדיון בהן.
 
 12. 	מעיון בבקשה שהגיש המבקש לפטור מאגרה, ובניגוד לנטען על ידי המשיב, עולה כי הוא אכן סיפק הסברים לחוסר יכולתו לצרף מסמכים תומכים לה. לשיטתי, די בהסברים אלה בדבר היעדר תיעוד רלוונטי, שהם בבחינת &#34;עובדה שלילית&#34;, כדי להעביר לכל הפחות את נטל הראיות לסתירתם לכתפי המשיב (ראו: ע&#34;א 296/82 נבנצאל נ&#39; ג&#39;רסי, פ&#34;ד מ(3) 281, 301 (1986); ע&#34;א 7303/01 עסאף נ&#39; מינהל מקרקעי ישראל, פ&#34;ד נז(2) 847, 852 (2003); בר&#34;ם 1512/14, פסקה 9). כאמור, המשיב לא סתר את טענות המבקש בהקשר זה, אלא הסתפק בטענה שאין בהן כדי להרים את הנטל הנדרש לקבלת פטור מאגרה. אני סבורה כי בנסיבות אלה היה אפוא מקום להיעתר לבקשה. למעשה, מצב הדברים שהוצג על ידי המבקש – של היעדר תיעוד והיותו של המבקש &#34;בלתי נראה&#34; – הוא העומד גם ביסוד העתירה שהגיש. אם כן, דחיית הבקשה בנסיבות אלה יוצרת מעין &#34;מעגל שוטה&#34; (ראו והשוו: דב&#34;ע (ארצי) נו/04-265 חסיד נ&#39; המוסד לביטוח לאומי, פסקה 6 (29.7.1997); איל פלג אתגר העוני של המשפט המינהלי 193-188 (2013)).
 
-
-
 13. 	על רקע כל האמור, טוב עשה המשיב בכך שבשלב זה הותיר את ההכרעה בבקשה לשיקול דעת בית המשפט. עם זאת יוער כי בנסיבות העניין ניתן היה לצפות לכך שהמשיב יסכים במפורש לקבלת הבקשה ואף יאמץ עמדה זו בשלבים קודמים של ההליך, מטעמים משפטיים ואנושיים כאחד.
 
+14. 	סוף דבר: הערעור מתקבל. למבקש יינתן פטור מתשלום האגרה. המשיב יישא בהוצאות המבקש בסך 1,000 שקלים.
 
-
-14. 	סוף דבר: הערעור מתקבל. למבקש יינתן פטור מתשלום האגרה. המשיב יישא בהוצאות המבקש בסך 1,000 שקלים. 
-
-
-
-	ניתן היום, ‏כ&#34;ה באייר התשע&#34;ט (‏30.5.2019).
-
-
-
-
-
-
+ניתן היום, ‏כ&#34;ה באייר התשע&#34;ט (‏30.5.2019).
 
 ש ו פ ט ת
 
 _________________________
 
-   19028250_A06.docx   מב
+19028250_A06.docx מב
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1739,7 +1922,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

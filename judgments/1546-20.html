@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    08/06/2020 (לפני 2157 ימים)
+                    08/06/2020 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/1546-20.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="1546/20 - מדינת ישראל- רשות האוכלוסין וההגירה נ. מנדל רוטשל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F1546-20.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/460/015/m04&amp;fileName=20015460.M04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/460/015/m04&amp;fileName=20015460.M04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/460/015/m04&amp;fileName=20015460.M04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/460/015/m04&amp;fileName=20015460.M04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,127 +1827,63 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
-
-
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון 
-
-
+            בבית המשפט העליון
 
 בר&#34;ם 1546/20
 
-
-
-לפני:	
+לפני:
 
 כבוד השופט ע&#39; פוגלמן
 
-
-
 כבוד השופטת ד&#39; ברק-ארז
 
-
-
 כבוד השופט ג&#39; קרא
-
-
 
 המבקשת:
 
 מדינת ישראל – רשות האוכלוסין וההגירה
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 רוטשל מנדל
 
-
-
 בקשת רשות לערער על פסק הדין של בית המשפט לעניינים מינהליים בירושלים (כב&#39; השופט א&#39; דראל) בעמ&#34;נ 42184-07-19 מיום 27.1.2020
-
-
 
 בשם המבקשת:
 
-עו&#34;ד מוריה פרימן 
-
-
+עו&#34;ד מוריה פרימן
 
 בשם המשיבה:
 
 עו&#34;ד תומר ורשה; עו&#34;ד עמית רמתי
 
-	
-
 פסק-דין
-
-
 
 השופט ע&#39; פוגלמן:
 
-
-
 המשיבה היא אזרחית הפיליפינים ילידת שנת 1969. בשנת 2002 נכנסה המשיבה לישראל ברישיון מסוג ב/1 בתחום הסיעוד, אשר הוארך מעת לעת עד לסוף שנת 2015. כל אותן השנים, עבדה המשיבה אצל מר מיכאל גבאי, עד לפטירתו ביום 27.5.2015 (להלן: המנוח). לאחר מות המנוח, הגישה המשיבה ביום 24.8.2015 בקשה להסדרת מעמד מטעמים הומניטריים, בין היתר על רקע הקשר שנקשר בינה לבין משפחת המנוח והפיכת ישראל למרכז חייה. בראיון שנערך למשיבה נכחו גם בנו של המנוח ואלמנתו, וזו ציינה כי היא רואה במשיבה כבתה ומעוניינת שהיא תישאר בישראל ותגור עמה. באותו הראיון ציינה המשיבה כי הוריה נפטרו וכי יש לה שלושה אחים, אך היא שומרת על קשר רק עם אחותה המתגוררת בלונדון. ביום 7.10.2015 נדחתה בקשת המשיבה על הסף על ידי מנהלת לשכת המבקשת ברחובות, וערר פנימי שהוגש נדחה אף הוא. על החלטה זו הגישה המשיבה ערר לבית הדין לעררים לפי חוק הכניסה לישראל, התשי&#34;ב-1952 (להלן: בית הדין). בית הדין קיבל את הערר והורה על העברת בקשתה לדיון לפני הוועדה הבינמשרדית לעניינים הומניטריים (להלן: הוועדה). ערעור מינהלי שהגישה המבקשת על החלטת בית הדין נדחה. ביום 31.7.2018 ניתנה המלצת הוועדה לפיה אין עניינה של המשיבה מעלה טעם הומניטרי המצדיק מתן מעמד בישראל וביום 13.9.2018 אימץ מנכ&#34;ל רשות האוכלוסין וההגירה (להלן: המנכ&#34;ל) את ההמלצה ודחה את בקשת המשיבה. על החלטת המנכ&#34;ל הגישה המשיבה ערר לבית הדין.
 
+ביום 2.6.2019 דחה בית הדין (כב&#39; הדיין מ&#39; דורפמן) את ערר המשיבה. נקבע כי בהחלטת המנכ&#34;ל לא נפל פגם אשר מצדיק את התערבות בית הדין וכי החלטתו עומדת במתחם הסבירות, אף אם ניתן היה לקבל החלטה אחרת. עוד צוין כי הקשר ההדוק שנקשר בין משפחת המנוח לבין המשיבה לא מצדיק בהכרח מתן מעמד. לפיכך, הורה בית הדין למשיבה לעזוב את ישראל תוך 60 יום.
 
+המשיבה ערערה על פסק הדין וביום 27.1.2020 קיבל בית המשפט לעניינים מינהליים בירושלים (כב&#39; השופט א&#39; דראל) את ערעורה. נקבע כי נסיבות המקרה דנן מיוחדות וחריגות, ובכלל זאת הגעת המשיבה לישראל בגיל 33 (כיום היא בת למעלה מ-50); העובדה כי בכל שנותיה בישראל עבדה אצל אותו המטופל; כי לא נשארו לה קרובי משפחה עמם היא מצויה בקשר במדינת מוצאה; והקשר יוצא הדופן בין משפחת המנוח לבינה. צוין כי ככלל, שהות ממושכת בישראל אינה, כשלעצמה, טעם הומניטרי וכך גם קשרים טובים של המטפל עם משפחת המטופל. ואולם, בקשות למתן מעמד מטעם הומניטרי יש לבחון באופן פרטני ובשים לב לנסיבותיו של כל מקרה. בחינת הבקשות בצורה זו תפיג את חשש המבקשת מהשלכות רוחב של מתן מעמד במקרה הפרטני. עוד צוין כי המלצת הוועדה לא כללה פירוט כלשהו באשר לשיקולים ששקלו חברי הוועדה. בית המשפט ציין כי די באמור לעיל כדי להצדיק התערבות בהחלטת המנכ&#34;ל אך הוסיף וציין כי מצא לנכון לבחון את המקרה גם בשים לב לייחודן של בקשות למתן מעמד של מי שעבדו בישראל בסיעוד משך שנים ארוכות. לפיכך, הורה בית המשפט על ביטול פסק הדין של בית הדין לעררים והחלטת המנכ&#34;ל וקבע כי ינתן למשיבה מעמד הומניטרי בישראל בהתאם לנוהל המבקשת.
 
-ביום 2.6.2019 דחה בית הדין (כב&#39; הדיין מ&#39; דורפמן) את ערר המשיבה. נקבע כי בהחלטת המנכ&#34;ל לא נפל פגם אשר מצדיק את התערבות בית הדין וכי החלטתו עומדת במתחם הסבירות, אף אם ניתן היה לקבל החלטה אחרת. עוד צוין כי הקשר ההדוק שנקשר בין משפחת המנוח לבין המשיבה לא מצדיק בהכרח מתן מעמד. לפיכך, הורה בית הדין למשיבה לעזוב את ישראל תוך 60 יום. 
-
-
-
-המשיבה ערערה על פסק הדין וביום 27.1.2020 קיבל בית המשפט לעניינים מינהליים בירושלים (כב&#39; השופט א&#39; דראל) את ערעורה. נקבע כי נסיבות המקרה דנן מיוחדות וחריגות, ובכלל זאת הגעת המשיבה לישראל בגיל 33 (כיום היא בת למעלה מ-50); העובדה כי בכל שנותיה בישראל עבדה אצל אותו המטופל; כי לא נשארו לה קרובי משפחה עמם היא מצויה בקשר במדינת מוצאה; והקשר יוצא הדופן בין משפחת המנוח לבינה. צוין כי ככלל, שהות ממושכת בישראל אינה, כשלעצמה, טעם הומניטרי וכך גם קשרים טובים של המטפל עם משפחת המטופל. ואולם, בקשות למתן מעמד מטעם הומניטרי יש לבחון באופן פרטני ובשים לב לנסיבותיו של כל מקרה. בחינת הבקשות בצורה זו תפיג את חשש המבקשת מהשלכות רוחב של מתן מעמד במקרה הפרטני. עוד צוין כי המלצת הוועדה לא כללה פירוט כלשהו באשר לשיקולים ששקלו חברי הוועדה. בית המשפט ציין כי די באמור לעיל כדי להצדיק התערבות בהחלטת המנכ&#34;ל אך הוסיף וציין כי מצא לנכון לבחון את המקרה גם בשים לב לייחודן של בקשות למתן מעמד של מי שעבדו בישראל בסיעוד משך שנים ארוכות. לפיכך, הורה בית המשפט על ביטול פסק הדין של בית הדין לעררים והחלטת המנכ&#34;ל וקבע כי ינתן למשיבה מעמד הומניטרי בישראל בהתאם לנוהל המבקשת. 
-
-
-
-מכאן הבקשה שלפניי. בפתח דבריה, ציינה המבקשת כי מבחינה מעשית, היא אינה יודעת כיצד ליישם את פסק הדין ואיזה רישיון היא נדרשת אפוא ליתן למשיבה. המבקשת הוסיפה כי בשלב זה העניקה למשיבה רישיון מסוג א/5 למשך 90 יום. לגופו של פסק הדין, טענה המבקשת שהחלטת המנכ&#34;ל בעניינה של המשיבה היא החלטה סבירה ומנומקת אשר לא מקימה עילה להתערבות בית המשפט. זאת, בפרט בשים לב להיקפה המצומצם של הביקורת השיפוטית על החלטותיו אלו. עוד טוענת המבקשת כי שגה בית המשפט לעניינים מינהליים משקבע כי יש לבחון בצורה ייחודית את הבקשות המוגשות על ידי מי שעבדו בישראל בתחום הסיעוד במשך שנים ארוכות. קביעה זו, לדברי המבקשת, חורגת ממדיניות הממשלה שאינה מעוניינת בהשתקעותם של עובדים זרים בישראל בתום תקופת העסקתם. כן מדגישה המבקשת כי לפסק הדין של בית המשפט לעניינים מינהליים השלכות רוחב על מדיניות ההגירה של ישראל וכי נסיבות מקרה זה דומות לנסיבותיהם של מקרים רבים של עובדים זרים בישראל. 
-
-
+מכאן הבקשה שלפניי. בפתח דבריה, ציינה המבקשת כי מבחינה מעשית, היא אינה יודעת כיצד ליישם את פסק הדין ואיזה רישיון היא נדרשת אפוא ליתן למשיבה. המבקשת הוסיפה כי בשלב זה העניקה למשיבה רישיון מסוג א/5 למשך 90 יום. לגופו של פסק הדין, טענה המבקשת שהחלטת המנכ&#34;ל בעניינה של המשיבה היא החלטה סבירה ומנומקת אשר לא מקימה עילה להתערבות בית המשפט. זאת, בפרט בשים לב להיקפה המצומצם של הביקורת השיפוטית על החלטותיו אלו. עוד טוענת המבקשת כי שגה בית המשפט לעניינים מינהליים משקבע כי יש לבחון בצורה ייחודית את הבקשות המוגשות על ידי מי שעבדו בישראל בתחום הסיעוד במשך שנים ארוכות. קביעה זו, לדברי המבקשת, חורגת ממדיניות הממשלה שאינה מעוניינת בהשתקעותם של עובדים זרים בישראל בתום תקופת העסקתם. כן מדגישה המבקשת כי לפסק הדין של בית המשפט לעניינים מינהליים השלכות רוחב על מדיניות ההגירה של ישראל וכי נסיבות מקרה זה דומות לנסיבותיהם של מקרים רבים של עובדים זרים בישראל.
 
 ביום 19.4.2020 התבקשה תשובת המשיבה רק לנושא הסעד שנקבע על ידי בית המשפט לעניינים מינהליים. המשיבה ציינה כי במסגרת הערעור המינהלי התבקש בית המשפט &#34;ליתן [למשיבה] מעמד של תושבת זמנית&#34; (סעיף 60 לערעור) ולכן משהתקבל ערעורה, הרי שיש ליתן לה לכל הפחות רישיון לישיבת ארעי מסוג א/5. כן נטען כי בהתאם להוראות חוק הכניסה לישראל, התשי&#34;ב-1952 ותקנות הכניסה לישראל, התשל&#34;ד-1974, רישיון מסוג א/5 הוא המעמד ה&#34;נמוך ביותר&#34; (כלשון המשיבה) שניתן להעניק לה בנסיבות העניין.
 
-
-
 לאחר שעיינתי בכתבי הטענות ובנספחיהם, הגעתי לכלל מסקנה שיש לדון בבקשת הרשות לערער רק בכל הנוגע לנושא הסעד כאילו ניתנה רשות והוגש ערעור לפי הרשות שניתנה. כידוע, רשות לערער ב&#34;גלגול שלישי&#34; על פסק דין של בית משפט לעניינים מינהליים שדן בערעור על פסק דין של בית הדין לעררים תינתן במשורה, כאשר מתעוררת שאלה משפטית אשר חורגת מעניינם הפרטני של הצדדים (בר&#34;ם 8313/19 מזנישווילי נ&#39; רשות האוכלוסין וההגירה – משרד הפנים, פסקה 6 (19.2.2020)). כמו כן רשות כאמור עשויה להינתן בהתקיים נסיבות מיוחדות המצדיקות זאת – כמתחייב מאופי המאטריה שבה עסקינן (בר&#34;ם 6992/19 פלונית נ&#39; משרד הפנים – רשות האוכלוסין וההגירה, פסקה 6 (23.1.2020)).
 
+בפסק הדין, קבע בית המשפט לעניינים מינהליים כי ערעור המשיבה מתקבל וכי &#34;[המבקשת] תיתן ל[משיבה] מעמד בישראל מטעם הומניטרי בהתאם להוראות הנוהל החל בעניין. מתן המעמד ייעשה בתוך 30 יום&#34; (סעיפים 48-47 לפסק הדין). המבקשת ציינה כי הוראה זו אינה ברורה עד תום וזאת משום שבמסגרת החלטות המנכ&#34;ל ניתנות אשרות מסוגים שונים. המשיבה מצידה טענה כי משמעותו המעשית של פסק הדין היא מתן רישיון א/5 &#34;לכל הפחות&#34; – וזאת בשים לב לסעד שהתבקש על ידה בבית הדין ובבית המשפט לעניינים מינהליים. בהעדר הכרעה בשאלה זו בפסק הדין, ראיתי להורות על החזרת הדיון בסוגיה זו לבית המשפט לעניינים מינהליים לעניין זה בלבד.
 
-
-בפסק הדין, קבע בית המשפט לעניינים מינהליים כי ערעור המשיבה מתקבל וכי &#34;[המבקשת] תיתן ל[משיבה] מעמד בישראל מטעם הומניטרי בהתאם להוראות הנוהל החל בעניין. מתן המעמד ייעשה בתוך 30 יום&#34; (סעיפים 48-47 לפסק הדין). המבקשת ציינה כי הוראה זו אינה ברורה עד תום וזאת משום שבמסגרת החלטות המנכ&#34;ל ניתנות אשרות מסוגים שונים. המשיבה מצידה טענה כי משמעותו המעשית של פסק הדין היא מתן רישיון א/5 &#34;לכל הפחות&#34; – וזאת בשים לב לסעד שהתבקש על ידה בבית הדין ובבית המשפט לעניינים מינהליים. בהעדר הכרעה בשאלה זו בפסק הדין, ראיתי להורות על החזרת הדיון בסוגיה זו לבית המשפט לעניינים מינהליים לעניין זה בלבד. 
-
-
-
-לא ראיתי לתת רשות לערער בסוגיות הנוספות שהועלו על ידי המבקשת, משאינן עומדות באמת המידה שתוארה לעיל. בעיקרם של דברים טענה המבקשת כי קביעות בית המשפט לעניינים מינהליים הן בעלות השלכות רוחב מהותיות. עם זאת, קביעותיו של בית המשפט לעניינים מינהליים והחלטתו ליתן למשיבה מעמד נטועות בדל&#34;ת אמותיו של המקרה דנן אשר, כלשונו, &#34;מקים נסיבות מיוחדות וחריגות, שאינן שכיחות ואינן מאפיינות כחששה של [המבקשת] כל עובד זר המגיע לישראל&#34; (סעיף 37 לפסק הדין). אשר להתייחסות בית המשפט לייחוד של בקשות למתן מעמד בתחום הסיעוד, הודגש בפסק הדין כי אף מבלי להתייחס לסוגיה זו יש להתערב בהחלטת המנכ&#34;ל. משאלה הם פני הדברים, טענות המבקשת, חרף הניסיון לשוות להן נופך עקרוני, הן טענות ערעוריות שעניינן יישום הלכות קיימות ואין בהן כדי להקים עילה למתן רשות לערער ב&#34;גלגול שלישי&#34;. 
-
-
+לא ראיתי לתת רשות לערער בסוגיות הנוספות שהועלו על ידי המבקשת, משאינן עומדות באמת המידה שתוארה לעיל. בעיקרם של דברים טענה המבקשת כי קביעות בית המשפט לעניינים מינהליים הן בעלות השלכות רוחב מהותיות. עם זאת, קביעותיו של בית המשפט לעניינים מינהליים והחלטתו ליתן למשיבה מעמד נטועות בדל&#34;ת אמותיו של המקרה דנן אשר, כלשונו, &#34;מקים נסיבות מיוחדות וחריגות, שאינן שכיחות ואינן מאפיינות כחששה של [המבקשת] כל עובד זר המגיע לישראל&#34; (סעיף 37 לפסק הדין). אשר להתייחסות בית המשפט לייחוד של בקשות למתן מעמד בתחום הסיעוד, הודגש בפסק הדין כי אף מבלי להתייחס לסוגיה זו יש להתערב בהחלטת המנכ&#34;ל. משאלה הם פני הדברים, טענות המבקשת, חרף הניסיון לשוות להן נופך עקרוני, הן טענות ערעוריות שעניינן יישום הלכות קיימות ואין בהן כדי להקים עילה למתן רשות לערער ב&#34;גלגול שלישי&#34;.
 
 סוף דבר, מצאתי לדון בבקשה כבערעור ולקבלו רק בכל הנוגע לטענת המבקשת בעניין הסעד. התיק יוחזר לבית המשפט לעניינים מינהליים אשר ידון בטענות הצדדים ויכריע בהן כחוכמתו. אציין כי לא נדרשת שמיעת טענות נוספות (אלא אם בית המשפט יורה על כך).
 
+אין צו להוצאות.
 
-
-	אין צו להוצאות. 
-
-
-
-	ניתן היום, ‏ט&#34;ז בסיון התש&#34;ף (‏8.6.2020).
-
-
-
-
+ניתן היום, ‏ט&#34;ז בסיון התש&#34;ף (‏8.6.2020).
 
 ש ו פ ט
 
@@ -1686,19 +1893,9 @@
 
 _________________________
 
-   20015460_M04.docx   דפ
+20015460_M04.docx דפ
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1717,7 +1914,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    25/02/2002 (לפני 8835 ימים)
+                    25/02/2002 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/9212-99.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="9212/99 - ציון חברה לביטוח בע&#34;מ נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F9212-99.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/120/092/B08&amp;fileName=99092120_B08.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/120/092/B08&amp;fileName=99092120_B08.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/120/092/B08&amp;fileName=99092120_B08.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/120/092/B08&amp;fileName=99092120_B08.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,41 +1829,31 @@
         <div class="nested-content" style="line-height: 1.8;">
             בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
-ע&#34;א
-9212/99
+ע&#34;א 9212/99
 
 בפני: כבוד המשנה לנשיא ש&#39; לוין
 
-כבוד
-השופטת ד&#39; דורנר
+כבוד השופטת ד&#39; דורנר
 
-כבוד
-השופט א&#39; א&#39; לוי
+כבוד השופט א&#39; א&#39; לוי
 
-המערערים: 1.
-ציון חברה לביטוח בע&#34;מ
+המערערים: 1. ציון חברה לביטוח בע&#34;מ
 
-2.
-ג&#39;אסט לוקינג (ייצור) בע&#34;מ
+2. ג&#39;אסט לוקינג (ייצור) בע&#34;מ
 
-3.
-דולב חברה לביטוח בע&#34;מ
+3. דולב חברה לביטוח בע&#34;מ
 
 נגד
 
 המשיבה: מדינת ישראל
 
-ערעור
-על פסק דינו של בית המשפט המחוזי
+ערעור על פסק דינו של בית המשפט המחוזי
 
-בתל-אביב-יפו
-מיום 27.4.98 בע&#34;א 1472/96
+בתל-אביב-יפו מיום 27.4.98 בע&#34;א 1472/96
 
-שניתן
-על ידי כבוד השופטים א&#39; אבן ארי,
+שניתן על ידי כבוד השופטים א&#39; אבן ארי,
 
-ד&#39;
-בר אופיר, ה&#39; אחיטוב
+ד&#39; בר אופיר, ה&#39; אחיטוב
 
 בשם המערערים: עו&#34;ד שמעון דגלס צ&#39;רטוב, עו&#34;ד פטר גד נשיץ
 
@@ -1602,210 +1863,79 @@
 
 המשנה לנשיא ש&#39; לוין:
 
-1. ביום 14.11.90 פרצה
-שריפה באזור התעשיה בטירת הכרמל. בשריפה נספה אדם, ונגרמו נזקים רבים לרכוש.
-המערערות הגישו תביעה לבית המשפט השלום כנגד המשיבה. המערערת 2 (להלן - ג&#39;אסט
-לוקינג) תבעה בגין נזקים שגרמה האש לרכושה; המערערות 1 ו3- - חברות ביטוח שביטחו
-שתיים מבין החברות שניזוקו כתוצאה מהדליקה - תבעו שיבוב של כספי הביטוח ששילמו
-למבוטחותיהן. התביעה נידונה תחילה בבית משפט השלום, שקיבל את התביעה. המשיבה ערערה
-על פסק הדין בפני בית המשפט המחוזי, וערעורה התקבל. בקשת המערערות לערער בפני בית
-משפט זה נתקבלה, כשהיא מוגבלת לשאלת הצפיות על יסוד ממצאיו העובדתיים של בית המשפט
-המחוזי. מכאן הערעור שלפנינו.
+1. ביום 14.11.90 פרצה שריפה באזור התעשיה בטירת הכרמל. בשריפה נספה אדם, ונגרמו נזקים רבים לרכוש. המערערות הגישו תביעה לבית המשפט השלום כנגד המשיבה. המערערת 2 (להלן - ג&#39;אסט לוקינג) תבעה בגין נזקים שגרמה האש לרכושה; המערערות 1 ו3- - חברות ביטוח שביטחו שתיים מבין החברות שניזוקו כתוצאה מהדליקה - תבעו שיבוב של כספי הביטוח ששילמו למבוטחותיהן. התביעה נידונה תחילה בבית משפט השלום, שקיבל את התביעה. המשיבה ערערה על פסק הדין בפני בית המשפט המחוזי, וערעורה התקבל. בקשת המערערות לערער בפני בית משפט זה נתקבלה, כשהיא מוגבלת לשאלת הצפיות על יסוד ממצאיו העובדתיים של בית המשפט המחוזי. מכאן הערעור שלפנינו.
 
 העובדות
 
-2. השריפה פרצה סמוך למבנה תעשיה בן שתי קומות.
-בקומה הראשונה החזיקה המשיבה מחסן ציוד אב&#34;כ של צה&#34;ל. בקומה השנייה
-החזיקו ג&#39;אסט לוקינג וחברה נוספת - שתיהן בוטחו על ידי המערערות 1 ו3-. בעוד שבעלי
-המפעלים האזרחיים שבבנין דאגו לפינוי הפסולת שהצטברה ברשותם באמצעות חברת נקיון
-פרטית, לא כך עשתה המשיבה. הפסולת הכוללת קרטונים ריקים ממחסן המשיבה נזרקה למגרש
-סמוך על ידי החיילים והצטברה לערימה שלא פונתה. האש פרצה כתוצאה מהצתה יזומה בידי
-אלמוני. כתוצאה מן הרוח החזקה שנשבה באותו יום, הועפו באוויר קרטונים דולקים של
-המשיבה מערימת הפסולת האמורה, והביאו להתפשטות האש אל המבנה ואל מבנים נוספים. האש
-כילתה את כל תכולתו של מחסן ציוד האב&#34;כ, גרמה לקריסת התקרה ולנזקים כבדים
-בקומה השניה של המבנה, וכאמור גם לאובדן בנפש.
+2. השריפה פרצה סמוך למבנה תעשיה בן שתי קומות. בקומה הראשונה החזיקה המשיבה מחסן ציוד אב&#34;כ של צה&#34;ל. בקומה השנייה החזיקו ג&#39;אסט לוקינג וחברה נוספת - שתיהן בוטחו על ידי המערערות 1 ו3-. בעוד שבעלי המפעלים האזרחיים שבבנין דאגו לפינוי הפסולת שהצטברה ברשותם באמצעות חברת נקיון פרטית, לא כך עשתה המשיבה. הפסולת הכוללת קרטונים ריקים ממחסן המשיבה נזרקה למגרש סמוך על ידי החיילים והצטברה לערימה שלא פונתה. האש פרצה כתוצאה מהצתה יזומה בידי אלמוני. כתוצאה מן הרוח החזקה שנשבה באותו יום, הועפו באוויר קרטונים דולקים של המשיבה מערימת הפסולת האמורה, והביאו להתפשטות האש אל המבנה ואל מבנים נוספים. האש כילתה את כל תכולתו של מחסן ציוד האב&#34;כ, גרמה לקריסת התקרה ולנזקים כבדים בקומה השניה של המבנה, וכאמור גם לאובדן בנפש.
 
-3. בית משפט השלום קבע כי מקור האש היה בערימת
-הפסולת של המשיבה ולפיכך חל על המקרה סעיף 39 לפקודת הנזיקין [נוסח חדש],
-תשכ&#34;ח1968- (להלן - הפקודה), שמכוחו עבר הנטל אל המשיבה לשלול קיומה של
-רשלנות, נטל שבו לא עמדה; לא זו אף זאת: נקבע שהוכח, גם באופן פוזיטיבי, כי
-רשלנותה היא שהביאה לפרוץ השריפה ולהתפשטותה באמצעות הקרטונים הבוערים. נקבע כי על
-אף שהפסולת הוצתה על ידי אלמוני היה על המשיבה לצפות כי השלכת פסולת בכמויות
-גדולות יוצרת סיכון של שריפה מקרית, מעשה קונדס או אף הצתה מכוונת. בית משפט השלום
-אף קבע, בין השאר, כי המשיבה היתה מודעת בפועל לסכנה זו. לפיכך היא חוייבה בנזקי
-המערערות.
+3. בית משפט השלום קבע כי מקור האש היה בערימת הפסולת של המשיבה ולפיכך חל על המקרה סעיף 39 לפקודת הנזיקין [נוסח חדש], תשכ&#34;ח1968- (להלן - הפקודה), שמכוחו עבר הנטל אל המשיבה לשלול קיומה של רשלנות, נטל שבו לא עמדה; לא זו אף זאת: נקבע שהוכח, גם באופן פוזיטיבי, כי רשלנותה היא שהביאה לפרוץ השריפה ולהתפשטותה באמצעות הקרטונים הבוערים. נקבע כי על אף שהפסולת הוצתה על ידי אלמוני היה על המשיבה לצפות כי השלכת פסולת בכמויות גדולות יוצרת סיכון של שריפה מקרית, מעשה קונדס או אף הצתה מכוונת. בית משפט השלום אף קבע, בין השאר, כי המשיבה היתה מודעת בפועל לסכנה זו. לפיכך היא חוייבה בנזקי המערערות.
 
-4. בית המשפט המחוזי קיבל את ערעורה של המשיבה.
-הוא קבע שאין כל ראיה שמקור האש היה נעוץ דווקא בערימת הפסולת של המשיבה ויכול
-שהיא פרצה בשדה קוצים בסמוך לערימה. עם זאת עולה מפסק דינו של בית המשפט המחוזי
-שהקרטונים של המשיבה גרמו או תרמו להתפשטות האש אל המבנים הסמוכים. אף על פי כן
-פטר בית המשפט המחוזי את המשיבה מחבות, בהסתמכו על הילכת ע&#34;א 4473/93
-פ&#34;ד נ(1) 866 (להלן - פרשת יער זאב) בהיותה הצתה יזומה. כאמור, ניתנה
-למערערים רשות לערער על יסוד ממצאיו של בית המשפט המחוזי. על יסוד ממצאים אלה אין
-כבר מקום להיזקק לסעיף 39 לפקודה. השאלה המשפטית המדוייקת שבה עלי לדון, בגדר
-הרשות לערער המוגבלת שניתנה, היא איפוא: האם המשיבה היתה צריכה לצפות נורמטיבית
-וקונקרטית את התפשטות האש, אף שהשריפה היתה יזומה?
+4. בית המשפט המחוזי קיבל את ערעורה של המשיבה. הוא קבע שאין כל ראיה שמקור האש היה נעוץ דווקא בערימת הפסולת של המשיבה ויכול שהיא פרצה בשדה קוצים בסמוך לערימה. עם זאת עולה מפסק דינו של בית המשפט המחוזי שהקרטונים של המשיבה גרמו או תרמו להתפשטות האש אל המבנים הסמוכים. אף על פי כן פטר בית המשפט המחוזי את המשיבה מחבות, בהסתמכו על הילכת ע&#34;א 4473/93 פ&#34;ד נ(1) 866 (להלן - פרשת יער זאב) בהיותה הצתה יזומה. כאמור, ניתנה למערערים רשות לערער על יסוד ממצאיו של בית המשפט המחוזי. על יסוד ממצאים אלה אין כבר מקום להיזקק לסעיף 39 לפקודה. השאלה המשפטית המדוייקת שבה עלי לדון, בגדר הרשות לערער המוגבלת שניתנה, היא איפוא: האם המשיבה היתה צריכה לצפות נורמטיבית וקונקרטית את התפשטות האש, אף שהשריפה היתה יזומה?
 
-5. מסקנותיו של בית המשפט המחוזי אינן
-מקובלות עלי. אין ספק כי קיימת בענייננו חובת זהירות מושגית מצד המשיבה כלפי
-&#34;שכנותיה&#34;, המערערות. נשאלת השאלה האם מוטלת על המשיבה גם חובת זהירות
-קונקרטית כלפיהן. הגורמים העיקריים שיש לשקול ביחס לשאלה זו הם, מהצד האחד - מידת
-הסיכון להתרחשותו של נזק שיצרה השלכת הקרטונים על ידי המשיבה, ושיעור הנזק שהיה
-צפוי בהתממש הסיכון; ומן הצד האחר - עלות אמצעי הזהירות שהיתה המשיבה יכולה לנקוט
-כדי למנוע סיכון זה: ע&#34;א 3124/90 פ&#34;ד מט(1), 102; ע&#34;א 145/80
-פ&#34;ד לז(1) 116; ע&#34;א 285/73 פ&#34;ד כט(1) 63). בחינתם של שיקולים אלה
-בעניינו מביאה למסקנה שחלה על המשיבה חובת זהירות קונקרטית כלפי המערערות. להלן
-אפרט את נימוקי.
+5. מסקנותיו של בית המשפט המחוזי אינן מקובלות עלי. אין ספק כי קיימת בענייננו חובת זהירות מושגית מצד המשיבה כלפי &#34;שכנותיה&#34;, המערערות. נשאלת השאלה האם מוטלת על המשיבה גם חובת זהירות קונקרטית כלפיהן. הגורמים העיקריים שיש לשקול ביחס לשאלה זו הם, מהצד האחד - מידת הסיכון להתרחשותו של נזק שיצרה השלכת הקרטונים על ידי המשיבה, ושיעור הנזק שהיה צפוי בהתממש הסיכון; ומן הצד האחר - עלות אמצעי הזהירות שהיתה המשיבה יכולה לנקוט כדי למנוע סיכון זה: ע&#34;א 3124/90 פ&#34;ד מט(1), 102; ע&#34;א 145/80 פ&#34;ד לז(1) 116; ע&#34;א 285/73 פ&#34;ד כט(1) 63). בחינתם של שיקולים אלה בעניינו מביאה למסקנה שחלה על המשיבה חובת זהירות קונקרטית כלפי המערערות. להלן אפרט את נימוקי.
 
-6. השלכת הקרטונים הדליקים בסמוך למבנים מאוכלסים
-יצרה סיכון להתלקחותם של אותם קרטונים, אף אם ההתלקחות הראשונית מקורה בפסולת
-שאינה שייכת למשיבה או בשדה הקוצים הסמוך. צדק בית המשפט השלום, כאשר קבע כי היה
-על המשיבה לצפות כי &#34;השלכת פסולת דליקה בכמויות גדולות יוצרת סיכון של דליקה
-מקרית כתוצאה משביב אש מקרי, כגון סיגריה שהושלכה למקום&#34;, או &#34;פיתוי ל&#34;מעשה
-קונדס&#34; ואפילו להצתה מכוונת&#34;. דרכן של דליקות שהן נגרמות על ידי גורמים
-מגורמים שונים, שלא תמיד ניתן לצפות אותם במדויק. בע&#34;א 576/81 בן שמעון נ&#39;
-אלי ברדה, פ&#34;ד לח(3), 1 כתב השופט (כתוארו אז) ברק:
+6. השלכת הקרטונים הדליקים בסמוך למבנים מאוכלסים יצרה סיכון להתלקחותם של אותם קרטונים, אף אם ההתלקחות הראשונית מקורה בפסולת שאינה שייכת למשיבה או בשדה הקוצים הסמוך. צדק בית המשפט השלום, כאשר קבע כי היה על המשיבה לצפות כי &#34;השלכת פסולת דליקה בכמויות גדולות יוצרת סיכון של דליקה מקרית כתוצאה משביב אש מקרי, כגון סיגריה שהושלכה למקום&#34;, או &#34;פיתוי ל&#34;מעשה קונדס&#34; ואפילו להצתה מכוונת&#34;. דרכן של דליקות שהן נגרמות על ידי גורמים מגורמים שונים, שלא תמיד ניתן לצפות אותם במדויק. בע&#34;א 576/81 בן שמעון נ&#39; אלי ברדה, פ&#34;ד לח(3), 1 כתב השופט (כתוארו אז) ברק:
 
-&#34;הלכה
-פסוקה היא, כי לעניין מהותה של הצפיות הנדרשת, &#34;חבותו של מזיק אינה מותנית
-בכך שיחזה מראש את פרטי הנזק כמו שנתהווה, ואת מידת חומרתו&#34; (ע&#34;א 299/71
-בעמ&#39; 251 וכן HUGHES V. LORD
-ADVOCATE (1963)). הצפיות הרלוואנטית &#34;איננה ראיית הנולד מדוייקת של כל פרטי הענין
-אלא ראייתו בקווים כלליים בלבד. זאת לגבי האירוע המהווה את הרשלנות, לא כל שכן
-לגבי תוצאותיו&#34; (ד&#34;נ 12/63, בעמ&#39; 712 - השופט ברנזון). אכן, ההלכה היא,
-שהצפיות אינה צריכה להתייחס לכל פרטי האירוע, שהתרחשו הלכה למעשה, אלא לאופיו
-הכללי, על-פי תכונותיו העיקריות&#34;.
+&#34;הלכה פסוקה היא, כי לעניין מהותה של הצפיות הנדרשת, &#34;חבותו של מזיק אינה מותנית בכך שיחזה מראש את פרטי הנזק כמו שנתהווה, ואת מידת חומרתו&#34; (ע&#34;א 299/71 בעמ&#39; 251 וכן HUGHES V. LORD ADVOCATE (1963)). הצפיות הרלוואנטית &#34;איננה ראיית הנולד מדוייקת של כל פרטי הענין אלא ראייתו בקווים כלליים בלבד. זאת לגבי האירוע המהווה את הרשלנות, לא כל שכן לגבי תוצאותיו&#34; (ד&#34;נ 12/63, בעמ&#39; 712 - השופט ברנזון). אכן, ההלכה היא, שהצפיות אינה צריכה להתייחס לכל פרטי האירוע, שהתרחשו הלכה למעשה, אלא לאופיו הכללי, על-פי תכונותיו העיקריות&#34;.
 
-העובדה שהמשיבה לא צפתה את דרך התרחשותו
-המדוייקת של הנזק, אינה גורעת מאחריותה לנזק זה, והוא - כל עוד הצתת ערימת
-הקרטונים והתפשטותה של האש דרכה היו צפויות, בדרך זו או אחרת. הנזק הצפוי כתוצאה
-מהתממשות הסיכון שיצרה המשיבה היה גבוה מאוד. המדובר הוא בסיכון לחיי אדם, שאין
-להם מחיר, וסיכון לרכוש רב שהיה בבניינים הסמוכים לערימת הפסולת, ולבניינים עצמם.
-לעומת זאת, אמצעי הזהירות שהיה על המשיבה לנקוט היה פשוט, זול יחסית ומקובל: פינוי
-הפסולת באמצעות חברה העוסקת בכך. אכן, על פי הראיות שהובאו לפני בית המשפט קמא,
-דאגו החברות שפעלו בבניינים הסמוכים למחסן המשיבה לפינוי הפסולת שיצרו. המשיבה לא
-נהגה כך. עובדה זו מבססת את רשלנותה של המשיבה, אף אם תאמר כי הסיכוי להתלקחות
-ערימת הפסולת לא היה גדול. &#34;סכנה שניתן למנעה באמצעים קלים ופשוטים, סביר הוא
-לדרוש מאדם לנקוט באמצעים כאלה, אף כשאין הסכנה כה חמורה&#34; (השופט ויתקון
-בע&#34;א 635/70 פ&#34;ד כה(2) 113, 121).
+העובדה שהמשיבה לא צפתה את דרך התרחשותו המדוייקת של הנזק, אינה גורעת מאחריותה לנזק זה, והוא - כל עוד הצתת ערימת הקרטונים והתפשטותה של האש דרכה היו צפויות, בדרך זו או אחרת. הנזק הצפוי כתוצאה מהתממשות הסיכון שיצרה המשיבה היה גבוה מאוד. המדובר הוא בסיכון לחיי אדם, שאין להם מחיר, וסיכון לרכוש רב שהיה בבניינים הסמוכים לערימת הפסולת, ולבניינים עצמם. לעומת זאת, אמצעי הזהירות שהיה על המשיבה לנקוט היה פשוט, זול יחסית ומקובל: פינוי הפסולת באמצעות חברה העוסקת בכך. אכן, על פי הראיות שהובאו לפני בית המשפט קמא, דאגו החברות שפעלו בבניינים הסמוכים למחסן המשיבה לפינוי הפסולת שיצרו. המשיבה לא נהגה כך. עובדה זו מבססת את רשלנותה של המשיבה, אף אם תאמר כי הסיכוי להתלקחות ערימת הפסולת לא היה גדול. &#34;סכנה שניתן למנעה באמצעים קלים ופשוטים, סביר הוא לדרוש מאדם לנקוט באמצעים כאלה, אף כשאין הסכנה כה חמורה&#34; (השופט ויתקון בע&#34;א 635/70 פ&#34;ד כה(2) 113, 121).
 
-7. הילכת יער-זאב שעליה סמך בית המשפט המחוזי
-&#34;ככתבה וכלשונה&#34; אינה ישימה למערכת העובדות שלפנינו. בנסיבות המקרה ההוא
-נקבע שהנתבעת לא היתה צריכה לצפות אפשרות של הצתה יזומה במבנה שבחזקתה ושנקיטת
-האמצעים למניעת סכנה כזו לא היו באחריותה; מה שאין כן במשיבה שגרמה לזריקה בלתי
-מבוקרת של פסולת בשטח פתוח, כאשר סכנת שריפתה או אפילו הצתתה היתה בתחום צפיותיה
-הסבירות.
+7. הילכת יער-זאב שעליה סמך בית המשפט המחוזי &#34;ככתבה וכלשונה&#34; אינה ישימה למערכת העובדות שלפנינו. בנסיבות המקרה ההוא נקבע שהנתבעת לא היתה צריכה לצפות אפשרות של הצתה יזומה במבנה שבחזקתה ושנקיטת האמצעים למניעת סכנה כזו לא היו באחריותה; מה שאין כן במשיבה שגרמה לזריקה בלתי מבוקרת של פסולת בשטח פתוח, כאשר סכנת שריפתה או אפילו הצתתה היתה בתחום צפיותיה הסבירות.
 
-8. המערערות הביאו
-לפנינו פסקי דין אמריקאיים שלטענתן - המקובלת עלינו - תומכים בעמדתן. פסקי דין אלה
-עוסקים כולם במקרים שבהם פרצה אש שלא כתוצאה ממעשיו או מחדליו של הנתבע, אלא מקור
-האש היה ברשלנות או בזדון של גורם זר, או שמקור האש לא היה ידוע. בעניין Arneil v. Schnitzer, 173 Or. 179, 144 P.2d 707
-(1944) קבע בית המשפט העליון של מדינת אורגון כי ניתן לחייב אדם ברשלנות
-אם התרשל בתחזוקת רכושו במידה המסכנת את שכנו במקרה של שריפה, גם אם אדם זר היה
-הגורם הישיר להצתת האש; או בלשונו הציורית של בית המשפט (בעמ&#39; 718):
+8. המערערות הביאו לפנינו פסקי דין אמריקאיים שלטענתן - המקובלת עלינו - תומכים בעמדתן. פסקי דין אלה עוסקים כולם במקרים שבהם פרצה אש שלא כתוצאה ממעשיו או מחדליו של הנתבע, אלא מקור האש היה ברשלנות או בזדון של גורם זר, או שמקור האש לא היה ידוע. בעניין Arneil v. Schnitzer, 173 Or. 179, 144 P.2d 707 (1944) קבע בית המשפט העליון של מדינת אורגון כי ניתן לחייב אדם ברשלנות אם התרשל בתחזוקת רכושו במידה המסכנת את שכנו במקרה של שריפה, גם אם אדם זר היה הגורם הישיר להצתת האש; או בלשונו הציורית של בית המשפט (בעמ&#39; 718):
 
-“One who suspends a sword of Damocles over the head of his
-neighbor must respond in damages for the consequences if another, allured by
-the temptation, cuts the tender cord”.
+“One who suspends a sword of Damocles over the head of his neighbor must respond in damages for the consequences if another, allured by the temptation, cuts the tender cord”.
 
-בעניין
-Britton v. Wooten, 817 S.W.2d 443
-(1991) פסק בית המשפט העליון של מדינת קנטאקי במקרה שעובדותיו דומות
-לעובדות המקרה שלפנינו. באותו מקרה תבע בעלים של בניין מושכר בנזיקין את השוכר,
-שהפעיל במקום חנות מכולת. התובע טען לרשלנות של הנתבע בהפעלת החנות, בכך שעובדי
-החנות השליכו פסולת דליקה בצמוד לבניין (כנראה מסוגה של הפסולת בענייננו), כך
-שכאשר פרצה אש היא התפשטה באמצעות ערימת הפסולת הגבוהה עד לגגו הדליק של הבניין,
-וכתוצאה מכך נשרף המבנה כולו. כמו בענייננו, לא היו ראיות חד-משמעיות על האופן שבו
-פרצה האש, מלבד עדות של מומחה המשטרה על פיה מדובר בהצתה. בית המשפט קבע כי גם אם
-האש פרצה כתוצאה מרשלנות, הצתה מכוונת או מעשה פלילי של גורם זר, או אף באופן
-מקרי, אין בכך כדי להסיר מהנתבע אחריות אם איפשר את הצטברות האשפה סמוך לבניין
-באופן רשלני, כך שאותה אשפה גרמה או תרמה להתפשטות האש ולשריפת המבנה. בית המשפט
-ציטט מחיבורם של Harper, James and
-Gray, The Law of
-Torts, 2d ed. (1986), 495-96 דברים היפים להפליא גם לענייננו:
+בעניין Britton v. Wooten, 817 S.W.2d 443 (1991) פסק בית המשפט העליון של מדינת קנטאקי במקרה שעובדותיו דומות לעובדות המקרה שלפנינו. באותו מקרה תבע בעלים של בניין מושכר בנזיקין את השוכר, שהפעיל במקום חנות מכולת. התובע טען לרשלנות של הנתבע בהפעלת החנות, בכך שעובדי החנות השליכו פסולת דליקה בצמוד לבניין (כנראה מסוגה של הפסולת בענייננו), כך שכאשר פרצה אש היא התפשטה באמצעות ערימת הפסולת הגבוהה עד לגגו הדליק של הבניין, וכתוצאה מכך נשרף המבנה כולו. כמו בענייננו, לא היו ראיות חד-משמעיות על האופן שבו פרצה האש, מלבד עדות של מומחה המשטרה על פיה מדובר בהצתה. בית המשפט קבע כי גם אם האש פרצה כתוצאה מרשלנות, הצתה מכוונת או מעשה פלילי של גורם זר, או אף באופן מקרי, אין בכך כדי להסיר מהנתבע אחריות אם איפשר את הצטברות האשפה סמוך לבניין באופן רשלני, כך שאותה אשפה גרמה או תרמה להתפשטות האש ולשריפת המבנה. בית המשפט ציטט מחיבורם של Harper, James and Gray, The Law of Torts, 2d ed. (1986), 495-96 דברים היפים להפליא גם לענייננו:
 
-“It is often said that an actor may assume that others will act
-lawfully and carefully. Rightly understood this is sound enough, and no more
-than a corollary of the general [negligence] principle...
+“It is often said that an actor may assume that others will act lawfully and carefully. Rightly understood this is sound enough, and no more than a corollary of the general [negligence] principle...
 
-But in this connection two things must be noted. The first
-is that such an assumption does not always correspond to the facts. It does
-not in situations where a law is generally disobeyed...And it does not wherever
-the actor’s [defendant’s] conduct exposes some interest to risk from a large
-and indeterminate group of people that will probably include some who will be
-negligent or commit crime, so that the likelihood of some negligence or some
-crime is considerable, though the number of those who will be responsible for
-it is relative small...
+But in this connection two things must be noted. The first is that such an assumption does not always correspond to the facts. It does not in situations where a law is generally disobeyed...And it does not wherever the actor’s [defendant’s] conduct exposes some interest to risk from a large and indeterminate group of people that will probably include some who will be negligent or commit crime, so that the likelihood of some negligence or some crime is considerable, though the number of those who will be responsible for it is relative small...
 
-Perhaps the most significant trend that has taken place in
-this particular field, in recent years, has been the increasing liberalization
-in allowing the wrongs of other people to be regarded as foreseeable where the
-facts warrant that conclusion if they are looked at naturally and not through
-the lens of some artificial archaic notion.”
+Perhaps the most significant trend that has taken place in this particular field, in recent years, has been the increasing liberalization in allowing the wrongs of other people to be regarded as foreseeable where the facts warrant that conclusion if they are looked at naturally and not through the lens of some artificial archaic notion.”
 
-(ההדגשה
-שלי - ש.ל)
+(ההדגשה שלי - ש.ל)
 
-9. טוענת המשיבה - וכך גם סבר בית המשפט המחוזי
-אגב אורחא בסיפת פסק דינו - להתקיימותו של אשם תורם של המערערות, בשל היותן שותפות
-לתחזוקה הגרועה של האזור, שתרמה להתפשטות האש. טענה זו ראוי שתתברר בפני בית המשפט
-המחוזי, בגדר המחלוקות כפי שנתגבשו בהליכים שקדמו לנו, שלא נזקק לדון בה ובשאלות
-נוספות כמו בשאלת גובה הנזק, לאור התוצאה אליה הגיע.
+9. טוענת המשיבה - וכך גם סבר בית המשפט המחוזי אגב אורחא בסיפת פסק דינו - להתקיימותו של אשם תורם של המערערות, בשל היותן שותפות לתחזוקה הגרועה של האזור, שתרמה להתפשטות האש. טענה זו ראוי שתתברר בפני בית המשפט המחוזי, בגדר המחלוקות כפי שנתגבשו בהליכים שקדמו לנו, שלא נזקק לדון בה ובשאלות נוספות כמו בשאלת גובה הנזק, לאור התוצאה אליה הגיע.
 
-לאור האמור לעיל אנו מקבלים את הערעור, מבטלים
-את פסק דינו של בית המשפט המחוזי ומחזירים את הענין לבית המשפט המחוזי, על מנת
-שידון בטענות שטרם נתבררו.
+לאור האמור לעיל אנו מקבלים את הערעור, מבטלים את פסק דינו של בית המשפט המחוזי ומחזירים את הענין לבית המשפט המחוזי, על מנת שידון בטענות שטרם נתבררו.
 
-המשיבה תישא בהוצאות הערעור, לרבות שכר טרחת
-עורך דין, בסך 40,000.- ש&#34;ח.
+המשיבה תישא בהוצאות הערעור, לרבות שכר טרחת עורך דין, בסך 40,000.- ש&#34;ח.
 
-המשנה
-לנשיא
+המשנה לנשיא
 
-השופטת ד&#39;
-דורנר:
+השופטת ד&#39; דורנר:
 
 אני מסכימה.
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
 השופט א&#39; א&#39; לוי:
 
 אני מסכים.
 
-ש
-ו פ ט
+ש ו פ ט
 
-הוחלט כאמור בפסק דינו של המשנה
-לנשיא ש&#39; לוין.
+הוחלט כאמור בפסק דינו של המשנה לנשיא ש&#39; לוין.
 
-ניתן היום, י&#34;ג אדר תשס&#34;ב
-(25.2.2002).
+ניתן היום, י&#34;ג אדר תשס&#34;ב (25.2.2002).
 
-המשנה לנשיא ש ו
-פ ט ת ש ו פ ט
+המשנה לנשיא ש ו פ ט ת ש ו פ ט
 
-העתק
-מתאים למקור 99092120.B08
+העתק מתאים למקור 99092120.B08
 
-נוסח
-זה כפוף לשינויי עריכה טרם פרסומו
+נוסח זה כפוף לשינויי עריכה טרם פרסומו
 
-בקובץ
-פסקי הדין של בית המשפט העליון בישראל.
+בקובץ פסקי הדין של בית המשפט העליון בישראל.
 
-שמריהו
-כהן - מזכיר ראשי
+שמריהו כהן - מזכיר ראשי
 
-בבית
-המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
+בבית המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
 
-בית
-המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
+בית המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
 
-לבתי
-המשפט אתר באינטרנט: www.court.gov.il
+לבתי המשפט אתר באינטרנט: www.court.gov.il
         </div>
     </section>
     
@@ -1824,7 +1954,7 @@ the lens of some artificial archaic notion.”
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

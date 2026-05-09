@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    09/07/2006 (לפני 7240 ימים)
+                    09/07/2006 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/4632-04.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="4632/04 - ג&#39;יימס אוקפור נ. מדינת ישראל-משרד הפנים"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F4632-04.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/320/046/B11&amp;fileName=04046320_B11.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/320/046/B11&amp;fileName=04046320_B11.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/320/046/B11&amp;fileName=04046320_B11.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/320/046/B11&amp;fileName=04046320_B11.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,11 +1829,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק בג&#34;ץ 4632/04
 
-בבית המשפט העליון
-בשבתו כבית משפט גבוה לצדק
+בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
-בג&#34;ץ
-4632/04
+בג&#34;ץ 4632/04
 
 בפני:
 
@@ -1580,8 +1849,7 @@
 
 המשיבים:
 
-1. מדינת
-ישראל - משרד הפנים
+1. מדינת ישראל - משרד הפנים
 
 2. ראש מינהל האוכלוסין
 
@@ -1605,93 +1873,21 @@
 
 השופטת ע&#39; ארבל:
 
-עניינה של העתירה בהחלטה שנתקבלה בשנת
-2000 לבטל את אזרחותו הישראלית של העותר מהטעם שהושגה על יסוד נישואין פיקטיביים
-בין העותר לאזרחית ישראלית.
+עניינה של העתירה בהחלטה שנתקבלה בשנת 2000 לבטל את אזרחותו הישראלית של העותר מהטעם שהושגה על יסוד נישואין פיקטיביים בין העותר לאזרחית ישראלית.
 
-1. העותר הוא אזרח ניגרי שנכנס לישראל בשנת
-1991 ברשיון ביקור יחד עם קבוצת צליינים ניגרים ונשאר בישראל גם לאחר שפג תוקף
-רשיון הביקור שלו. בשלהי שנת 1993 התקבלה במשרד הפנים פנייתה של אזרחית ישראלית,
-גב&#39; אירית מירון (להלן: אירית), שהציגה תעודת נישואין שלה ושל העותר,
-ממנה עולה כי השניים נישאו ב&#34;נישואי פראגוואי&#34; זמן קצר קודם לכן. לאור
-האמור הוענקו לעותר בחודש מרץ 1994 מעמד של עולה ואזרחות ישראלית. כעשרה חודשים
-מאוחר יותר, בראשית שנת 1995, פנתה אירית אל משרד הפנים וסיפרה כי לאחר שהוענקה
-לעותר אזרחות ישראלית היא גילתה כי הוא נשוי לאחרת בניגריה, ממנה נולדו לו שם שני
-ילדים. כן הוסיפה כי אינה מתגוררת עם העותר. בהתאם למידע נוסף שהגיע אל משרד הפנים
-מנעמ&#34;ת זמן קצר לאחר מכן, ציינה האישה כי זה כשנה היא חיה בנפרד מן העותר. כעולה
-מן הצרופות לעתירה, בראשית שנת 1995 חתמו בני הזוג על הסכם גירושין. מידע אחר
-שהתקבל במשרד הפנים הוא מכתבו של אדם שטען כי העותר סיפר לו כי השיג אזרחות
-ישראלית באמצעות נישואין פיקטיביים. יצוין כי העותר הורשע בביצוע עבירת אלימות
-כלפי אירית, הגם שיש לו הסברים שונים בעניין זה.
+1. העותר הוא אזרח ניגרי שנכנס לישראל בשנת 1991 ברשיון ביקור יחד עם קבוצת צליינים ניגרים ונשאר בישראל גם לאחר שפג תוקף רשיון הביקור שלו. בשלהי שנת 1993 התקבלה במשרד הפנים פנייתה של אזרחית ישראלית, גב&#39; אירית מירון (להלן: אירית), שהציגה תעודת נישואין שלה ושל העותר, ממנה עולה כי השניים נישאו ב&#34;נישואי פראגוואי&#34; זמן קצר קודם לכן. לאור האמור הוענקו לעותר בחודש מרץ 1994 מעמד של עולה ואזרחות ישראלית. כעשרה חודשים מאוחר יותר, בראשית שנת 1995, פנתה אירית אל משרד הפנים וסיפרה כי לאחר שהוענקה לעותר אזרחות ישראלית היא גילתה כי הוא נשוי לאחרת בניגריה, ממנה נולדו לו שם שני ילדים. כן הוסיפה כי אינה מתגוררת עם העותר. בהתאם למידע נוסף שהגיע אל משרד הפנים מנעמ&#34;ת זמן קצר לאחר מכן, ציינה האישה כי זה כשנה היא חיה בנפרד מן העותר. כעולה מן הצרופות לעתירה, בראשית שנת 1995 חתמו בני הזוג על הסכם גירושין. מידע אחר שהתקבל במשרד הפנים הוא מכתבו של אדם שטען כי העותר סיפר לו כי השיג אזרחות ישראלית באמצעות נישואין פיקטיביים. יצוין כי העותר הורשע בביצוע עבירת אלימות כלפי אירית, הגם שיש לו הסברים שונים בעניין זה.
 
-כעולה מתגובת המשיבה, בעקבות הדברים הללו
-נערך לעותר שימוע בחודש אפריל 1999. בשימוע מסר העותר כי הוא חי עם אירית כשלוש
-שנים, אך לא ידע למסור כל פרט נוסף אודות חייהם המשותפים. לאור האמור התקבלה
-ההחלטה על ביטול אזרחותו הישראלית של העותר והודעה על כך נשלחה אליו ביום
-20.12.00. ביום 22.1.04 הוצאו נגד העותר צווי הרחקה ומשמורת, לאחר שנתפס ללא אשרת
-שהיה כדין בישראל.
+כעולה מתגובת המשיבה, בעקבות הדברים הללו נערך לעותר שימוע בחודש אפריל 1999. בשימוע מסר העותר כי הוא חי עם אירית כשלוש שנים, אך לא ידע למסור כל פרט נוסף אודות חייהם המשותפים. לאור האמור התקבלה ההחלטה על ביטול אזרחותו הישראלית של העותר והודעה על כך נשלחה אליו ביום 20.12.00. ביום 22.1.04 הוצאו נגד העותר צווי הרחקה ומשמורת, לאחר שנתפס ללא אשרת שהיה כדין בישראל.
 
-2. העותר טוען בעתירתו כי אירית כלל לא טענה בפני
-משרד הפנים כי הנישואין פיקטיביים אלא כי הוא נשוי לאחרת וגורס כי פנייתה אל משרד
-הפנים באה על רקע סירובו להתגרש ממנה. לדבריו, אזרחותו נשללה מבלי שקיים בסיס
-ראייתי ראוי לטענה בדבר היות נישואיו פיקטיביים, מה גם שעובר לנישואיו לאירית הוא
-לא היה נשוי ואין לו ילדים. בנוסף הוא טוען כי ההליך בעניינו לא התקיים בהתאם
-לנהלי משרד הפנים וכי נודע לו על שלילת אזרחותו רק בדיעבד והוא לא קיבל כל הודעה
-על כוונה לשלול את אזרחותו.
+2. העותר טוען בעתירתו כי אירית כלל לא טענה בפני משרד הפנים כי הנישואין פיקטיביים אלא כי הוא נשוי לאחרת וגורס כי פנייתה אל משרד הפנים באה על רקע סירובו להתגרש ממנה. לדבריו, אזרחותו נשללה מבלי שקיים בסיס ראייתי ראוי לטענה בדבר היות נישואיו פיקטיביים, מה גם שעובר לנישואיו לאירית הוא לא היה נשוי ואין לו ילדים. בנוסף הוא טוען כי ההליך בעניינו לא התקיים בהתאם לנהלי משרד הפנים וכי נודע לו על שלילת אזרחותו רק בדיעבד והוא לא קיבל כל הודעה על כוונה לשלול את אזרחותו.
 
-3. המשיבים טוענים כי העותר לא היה &#34;בן
-זוג&#34; של יהודיה כמשמעו של המונח &#34;בן זוג&#34; בסעיף 4א לחוק השבות,
-תש&#34;י - 1950 (להלן: חוק השבות) וכי המצג
-שהציג בפני הרשויות בעניין זה לא היה מצג אמת. לדבריהם, מפנייתה של אירית, אליה
-צורף מכתב של העותר אל אשתו בניגריה, עולה כי בעת נישואיהם היה העותר נשוי לאחרת
-ואב לשניים. נישואיו לאירית היו נישואי בזק שנמשכו זמן קצר בלבד והסתיימו בפועל
-זמן קצר לאחר שהוענקה לו אזרחות ישראלית על יסוד הנישואין. בנוסף, גרסתו של העותר
-בדבר חייו המשותפים עם אירית נמצאה בלתי מהימנה. כל אלה ועימם המידע הנוסף שהתקבל
-במשרד הפנים מבססים לשיטת המשיבים ראיות מנהליות המלמדות על כך שהעותר לא היה
-&#34;בן זוג&#34; של יהודיה וכי קשר הנישואין בישראל נועד אך לצרכי קבלת המעמד.
-המשיבים מדגישים כי בניגוד לטענת העותר נערך לו שימוע בטרם התקבלה ההחלטה על ביטול
-אזרחותו ובנוסף, לאחר מעצרו ניתנה לו אפשרות נוספת לפרט טענותיו. לאחר הגשת העתירה
-נערך לעותר שימוע נוסף במשרד הפנים בנוכחות עורך דינו, במהלכו חזר העותר על עיקרי
-טענותיו בעתירה. בין היתר טען, כי המכתב שהציגה אירית זויף ככל הנראה על ידה.
-המכתב נשלח לבדיקת מז&#34;פ שהעלתה כי המסמך נכתב על ידי העותר. לאחר בחינת
-עניינו של העותר מחדש במסגרת העתירה סבורים המשיבים כי אין מקום לשנות מההחלטה על
-ביטול האזרחות. בא כוחם של המשיבים מוסיף ומציין, כי ניתן היה לשלול אזרחותו של
-העותר לא רק על היותם של הנישואין פיקטיביים אלא גם על כך שמדובר בנישואי ביגמיה.
+3. המשיבים טוענים כי העותר לא היה &#34;בן זוג&#34; של יהודיה כמשמעו של המונח &#34;בן זוג&#34; בסעיף 4א לחוק השבות, תש&#34;י - 1950 (להלן: חוק השבות) וכי המצג שהציג בפני הרשויות בעניין זה לא היה מצג אמת. לדבריהם, מפנייתה של אירית, אליה צורף מכתב של העותר אל אשתו בניגריה, עולה כי בעת נישואיהם היה העותר נשוי לאחרת ואב לשניים. נישואיו לאירית היו נישואי בזק שנמשכו זמן קצר בלבד והסתיימו בפועל זמן קצר לאחר שהוענקה לו אזרחות ישראלית על יסוד הנישואין. בנוסף, גרסתו של העותר בדבר חייו המשותפים עם אירית נמצאה בלתי מהימנה. כל אלה ועימם המידע הנוסף שהתקבל במשרד הפנים מבססים לשיטת המשיבים ראיות מנהליות המלמדות על כך שהעותר לא היה &#34;בן זוג&#34; של יהודיה וכי קשר הנישואין בישראל נועד אך לצרכי קבלת המעמד. המשיבים מדגישים כי בניגוד לטענת העותר נערך לו שימוע בטרם התקבלה ההחלטה על ביטול אזרחותו ובנוסף, לאחר מעצרו ניתנה לו אפשרות נוספת לפרט טענותיו. לאחר הגשת העתירה נערך לעותר שימוע נוסף במשרד הפנים בנוכחות עורך דינו, במהלכו חזר העותר על עיקרי טענותיו בעתירה. בין היתר טען, כי המכתב שהציגה אירית זויף ככל הנראה על ידה. המכתב נשלח לבדיקת מז&#34;פ שהעלתה כי המסמך נכתב על ידי העותר. לאחר בחינת עניינו של העותר מחדש במסגרת העתירה סבורים המשיבים כי אין מקום לשנות מההחלטה על ביטול האזרחות. בא כוחם של המשיבים מוסיף ומציין, כי ניתן היה לשלול אזרחותו של העותר לא רק על היותם של הנישואין פיקטיביים אלא גם על כך שמדובר בנישואי ביגמיה.
 
-4. עיינו בעתירה ובתשובות לה, שמענו את
-טיעוני הצדדים ונחה דעתנו כי המשיבים פעלו כדין וכי אין יסוד להתערבותנו בהחלטה
-לשלול את אזרחותו של העותר.
+4. עיינו בעתירה ובתשובות לה, שמענו את טיעוני הצדדים ונחה דעתנו כי המשיבים פעלו כדין וכי אין יסוד להתערבותנו בהחלטה לשלול את אזרחותו של העותר.
 
-סעיף 4א לחוק השבות מניח כי קשר הנישואין
-בין בני הזוג הוא קשר כנה ואמיתי וכי הם מקיימים תא משפחתי וחיי זוגיות ביניהם
-(בג&#34;צ 11406/03 פרוסקורוב נ&#39; שר הפנים (לא פורסם,
-6.12.04)). במקרה דנן, כאשר נראה כי קשר הנישואין בין העותר לאירית הסתיים למעשה
-זמן קצר לאחר שניתנה לעותר האזרחות הישראלית מכוח נישואיו לה, כאשר מביאים בחשבון
-כי בשימוע שנערך לעותר ביום 20.4.99 הוא לא ידע להשיב על שאלות בסיסיות הנוגעות
-לחייו עם אירית (כך למשל לא ידע להשיב במדויק מהי הכתובת האחרונה בה התגורר עם
-אירית ומהם שמות הוריה ואחיה) ובהתחשב במכתב שנמצא בבדיקת מז&#34;פ כי הוא כתוב
-בכתב ידו של העותר ומיועד כפי הנראה לאשתו ואם ילדיו בניגריה ובמידע שנתקבל במשרד
-הפנים לפיו העותר אמר למוסר המידע כי נישא לאזרחית ישראלית על מנת
-&#34;להשיג&#34; אזרחות ישראלית, הרי שאין מקום לספק של ממש כי האזרחות הישראלית
-ניתנה לעותר על בסיס נתונים שגויים וכי לא ניתן לראות בעותר בן זוגה של יהודיה.
+סעיף 4א לחוק השבות מניח כי קשר הנישואין בין בני הזוג הוא קשר כנה ואמיתי וכי הם מקיימים תא משפחתי וחיי זוגיות ביניהם (בג&#34;צ 11406/03 פרוסקורוב נ&#39; שר הפנים (לא פורסם, 6.12.04)). במקרה דנן, כאשר נראה כי קשר הנישואין בין העותר לאירית הסתיים למעשה זמן קצר לאחר שניתנה לעותר האזרחות הישראלית מכוח נישואיו לה, כאשר מביאים בחשבון כי בשימוע שנערך לעותר ביום 20.4.99 הוא לא ידע להשיב על שאלות בסיסיות הנוגעות לחייו עם אירית (כך למשל לא ידע להשיב במדויק מהי הכתובת האחרונה בה התגורר עם אירית ומהם שמות הוריה ואחיה) ובהתחשב במכתב שנמצא בבדיקת מז&#34;פ כי הוא כתוב בכתב ידו של העותר ומיועד כפי הנראה לאשתו ואם ילדיו בניגריה ובמידע שנתקבל במשרד הפנים לפיו העותר אמר למוסר המידע כי נישא לאזרחית ישראלית על מנת &#34;להשיג&#34; אזרחות ישראלית, הרי שאין מקום לספק של ממש כי האזרחות הישראלית ניתנה לעותר על בסיס נתונים שגויים וכי לא ניתן לראות בעותר בן זוגה של יהודיה.
 
-בדיון בפנינו הועלתה השאלה האם ניתן
-לעותר שימוע גם בהתייחס לביטול אזרחותו מהטעם של היות נישואיו נישואי ביגמיה ולא
-רק בהתייחס לטעם של פיקטיביות הנישואין. עו&#34;ד שירמן, בא כוח המדינה, הבהיר כי
-עמדת המשיבים היא כי ניתנה לעותר זכות שימוע ואולם ציין בהגינותו כי ככל שבית
-המשפט יסבור כי יש מקום לקיים את ההליך גם באפיק זה של נישואי הביגמיה, המשיבים
-יעשו כן. יצוין, כי בא כוח העותר, משנשאל על כך, לא ביקש לערוך למרשו שימוע בהקשר
-ספציפי זה, אלא שב וביקש לבטל את ההחלטה על שלילת האזרחות בציינו שוב ושוב כי
-ההליכים בעניין מרשו לא היו תקינים. לאחר שבחנו הדברים, איננו סבורים כי יש אכן
-הצדקה לשימוע נוסף לעניין טענת נישואי הביגמיה. התמונה שבפנינו אחת היא – האזרחות
-הישראלית הוענקה לעותר על בסיס תשתית עובדות שאינה מלאה ואינה נכונה משנמנע
-מלהעלות את העובדה שהוא נשוי ואב לילדים בארץ מוצאו. מכאן, בין אם בנישואי ביגמיה
-מדובר, בין אם בנישואין פיקטיביים, החלטת המשיבים בעניינו נראית לנו מוצדקת וסבירה
-ולא מצאנו בה פגם המצדיק את התערבותנו. לא למותר להוסיף, כי הלכה למעשה, כעולה
-מהחומר שבפנינו, העותר נתבקש להתייחס בשימועים שנערכו לו לטענה כי היה נשוי בעת
-שנישא לאירית ולטענה כי נישואיו בישראל נועדו לצורך קבלת מעמד. מכן, התאפשר לו
-להשמיע טענותיו בעניין אך הוא דבק בטענה כי אין ממש בדברים וכי הוא אינו נשוי,
-טענה שנראית מוקשית בשים לב לממצאי בדיקת המז&#34;פ ולשאר הנסיבות כפי שפורטו.
+בדיון בפנינו הועלתה השאלה האם ניתן לעותר שימוע גם בהתייחס לביטול אזרחותו מהטעם של היות נישואיו נישואי ביגמיה ולא רק בהתייחס לטעם של פיקטיביות הנישואין. עו&#34;ד שירמן, בא כוח המדינה, הבהיר כי עמדת המשיבים היא כי ניתנה לעותר זכות שימוע ואולם ציין בהגינותו כי ככל שבית המשפט יסבור כי יש מקום לקיים את ההליך גם באפיק זה של נישואי הביגמיה, המשיבים יעשו כן. יצוין, כי בא כוח העותר, משנשאל על כך, לא ביקש לערוך למרשו שימוע בהקשר ספציפי זה, אלא שב וביקש לבטל את ההחלטה על שלילת האזרחות בציינו שוב ושוב כי ההליכים בעניין מרשו לא היו תקינים. לאחר שבחנו הדברים, איננו סבורים כי יש אכן הצדקה לשימוע נוסף לעניין טענת נישואי הביגמיה. התמונה שבפנינו אחת היא – האזרחות הישראלית הוענקה לעותר על בסיס תשתית עובדות שאינה מלאה ואינה נכונה משנמנע מלהעלות את העובדה שהוא נשוי ואב לילדים בארץ מוצאו. מכאן, בין אם בנישואי ביגמיה מדובר, בין אם בנישואין פיקטיביים, החלטת המשיבים בעניינו נראית לנו מוצדקת וסבירה ולא מצאנו בה פגם המצדיק את התערבותנו. לא למותר להוסיף, כי הלכה למעשה, כעולה מהחומר שבפנינו, העותר נתבקש להתייחס בשימועים שנערכו לו לטענה כי היה נשוי בעת שנישא לאירית ולטענה כי נישואיו בישראל נועדו לצורך קבלת מעמד. מכן, התאפשר לו להשמיע טענותיו בעניין אך הוא דבק בטענה כי אין ממש בדברים וכי הוא אינו נשוי, טענה שנראית מוקשית בשים לב לממצאי בדיקת המז&#34;פ ולשאר הנסיבות כפי שפורטו.
 
 ביתר טענותיו של העותר לא מצאנו ממש.
 
@@ -1701,8 +1897,7 @@
 
 ניתן היום, ט&#39; תמוז תשס&#34;ו (9.7.06).
 
-ש ו פ ט ת ש ו פ
-ט ש ו פ ט
+ש ו פ ט ת ש ו פ ט ש ו פ ט
 
 _________________________
 
@@ -1727,7 +1922,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    22/07/2001 (לפני 9053 ימים)
+                    22/07/2001 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5611-01.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5611/01 - דניאל זכריה נ. צבי סגל, מיכאלה אור, משה גל שופטי בימ&#34;ש מחוזי"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5611-01.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/110/056/C02&amp;fileName=01056110_C02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/110/056/C02&amp;fileName=01056110_C02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/110/056/C02&amp;fileName=01056110_C02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/110/056/C02&amp;fileName=01056110_C02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,120 +1829,75 @@
         <div class="nested-content" style="line-height: 1.8;">
             בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
-בג&#34;ץ
-5611/01
+בג&#34;ץ 5611/01
 
 בפני: כבוד השופטת ט&#39; שטרסברג-כהן
 
-כבוד
-השופטת ד&#39; ביניש
+כבוד השופטת ד&#39; ביניש
 
-כב&#39;
-השופטת מ&#39; נאור
+כב&#39; השופטת מ&#39; נאור
 
-העותר: דניאל
-זכריה
+העותר: דניאל זכריה
 
 נגד
 
-המשיבים: 1.
-צבי סגל, מיכאלה אור, משה גל שופטי
+המשיבים: 1. צבי סגל, מיכאלה אור, משה גל שופטי
 
 בימ&#34;ש מחוזי י-ם
 
-2.
-אמנון כהן, נשיא בית המשפט השלום ירושלים
+2. אמנון כהן, נשיא בית המשפט השלום ירושלים
 
-3.
-פרקליטות מחוז ירושלים
+3. פרקליטות מחוז ירושלים
 
-4.
-לשכת תביעות ירושלים
+4. לשכת תביעות ירושלים
 
-עתירה
-להוצאת צו בירור וצו ביניים
+עתירה להוצאת צו בירור וצו ביניים
 
-בשם
-העותר: עו&#34;ד דוד מימון
+בשם העותר: עו&#34;ד דוד מימון
 
 פסק - דין
 
 השופטת מ&#39; נאור
 
-1. העותר הואשם בבית משפט השלום בירושלים בעבירה
-של החזקת נכס חשוד, וזוכה מחמת הספק.
+1. העותר הואשם בבית משפט השלום בירושלים בעבירה של החזקת נכס חשוד, וזוכה מחמת הספק.
 
-2. המדינה ערערה לבית המשפט המחוזי. בית המשפט
-המחוזי (כב&#39; השופטים סגל, שידלובסקי-אור וגל), קבע בפסק הדין מיום 21.5.01 כי יש
-להרשיע את העותר והורה שהתיק יוחזר לבית משפט שלום לדיון בעונש.
+2. המדינה ערערה לבית המשפט המחוזי. בית המשפט המחוזי (כב&#39; השופטים סגל, שידלובסקי-אור וגל), קבע בפסק הדין מיום 21.5.01 כי יש להרשיע את העותר והורה שהתיק יוחזר לבית משפט שלום לדיון בעונש.
 
-3. העותר טוען בעתירתו כי לאחר שמיעת הטענות
-בערעור, הורה בית המשפט המחוזי תחילה, שהצדדים ימתינו למתן פסק הדין בערעור, אך
-לאחר מכן הודיע כי פסק הדין יישלח בדואר. העותר טוען כי קיבל זימון לטיעון לעונש
-בבית משפט השלום ליום 20.6.01, ורק אחרי שלושה שבועות קיבל בדואר את פסק הדין
-המרשיע של בית המשפט המחוזי. לטענתו, פסק הדין שניתן שלא בפניו של העותר, הוא
-&#34;כאין וכאפס&#34;, כיוון שניתן שלא בפני הנאשם בניגוד לאמור בסעיף 218 לחוק
-הסדר הדין הפלילי [נוסח משולב] תשמ&#34;ב1982-, המורה:
+3. העותר טוען בעתירתו כי לאחר שמיעת הטענות בערעור, הורה בית המשפט המחוזי תחילה, שהצדדים ימתינו למתן פסק הדין בערעור, אך לאחר מכן הודיע כי פסק הדין יישלח בדואר. העותר טוען כי קיבל זימון לטיעון לעונש בבית משפט השלום ליום 20.6.01, ורק אחרי שלושה שבועות קיבל בדואר את פסק הדין המרשיע של בית המשפט המחוזי. לטענתו, פסק הדין שניתן שלא בפניו של העותר, הוא &#34;כאין וכאפס&#34;, כיוון שניתן שלא בפני הנאשם בניגוד לאמור בסעיף 218 לחוק הסדר הדין הפלילי [נוסח משולב] תשמ&#34;ב1982-, המורה:
 
-&#34;218. קריאת פסק דין
-בערעור
+&#34;218. קריאת פסק דין בערעור
 
-בית
-המשפט יקרא את פסק הדין על נימוקיו בפומבי, יחתום עליו ויסמן תאריך קריאתו; בית
-המשפט רשאי , במקום לקרוא את פסק הדין, למסור לנאשם העתק ממנו ולהסביר בפומבי את
-עיקרי תכנו; זיכה בית המשפט את הנאשם או דחה ערעור על זיכויו, יודיע על כך בתחילת
-פסק דינו, ורשאי הוא -
+בית המשפט יקרא את פסק הדין על נימוקיו בפומבי, יחתום עליו ויסמן תאריך קריאתו; בית המשפט רשאי , במקום לקרוא את פסק הדין, למסור לנאשם העתק ממנו ולהסביר בפומבי את עיקרי תכנו; זיכה בית המשפט את הנאשם או דחה ערעור על זיכויו, יודיע על כך בתחילת פסק דינו, ורשאי הוא -
 
-(1) לפרש נימוקיו מיד או תוך
-שלושים ימים מיום קריאתו;
+(1) לפרש נימוקיו מיד או תוך שלושים ימים מיום קריאתו;
 
-(2) לקרוא את הנימוקים בפומבי או,
-בהסכמת בעלי הדין, להמציאם להם בכתב, תוך שלושים ימים לאחר קריאת פסק הדין.&#34;
+(2) לקרוא את הנימוקים בפומבי או, בהסכמת בעלי הדין, להמציאם להם בכתב, תוך שלושים ימים לאחר קריאת פסק הדין.&#34;
 
-4. בדיון בבית משפט השלום ביום 20.6.01, הודיע
-ב&#34;כ העותר, עו&#34;ד מימון, כי פסק הדין הוא &#34;אפס בריבוע&#34;, וכי
-הוא יגיש עתירה לבית משפט זה. הוא לא הזמין לדיון את הנאשם. הדיון נדחה ל4.9.01-.
+4. בדיון בבית משפט השלום ביום 20.6.01, הודיע ב&#34;כ העותר, עו&#34;ד מימון, כי פסק הדין הוא &#34;אפס בריבוע&#34;, וכי הוא יגיש עתירה לבית משפט זה. הוא לא הזמין לדיון את הנאשם. הדיון נדחה ל4.9.01-.
 
-5. ב&#34;כ העותר טוען בעתירתו שהוא סבר, נוכח
-הודעת בית המשפט כי פסק הדין יישלח בדואר, ונוכח הסעיף האמור - שהזיכוי יוותר על
-כנו. כך הסביר גם לעותר. עוד טוען העותר בעתירתו טענות שונות לעניין הרשעתו.
+5. ב&#34;כ העותר טוען בעתירתו שהוא סבר, נוכח הודעת בית המשפט כי פסק הדין יישלח בדואר, ונוכח הסעיף האמור - שהזיכוי יוותר על כנו. כך הסביר גם לעותר. עוד טוען העותר בעתירתו טענות שונות לעניין הרשעתו.
 
-6. אנו מחליטים לדחות את העתירה על הסף. תקנתו של
-המערער היא, אם בכלל, בהגשת בקשת רשות ערעור לבית משפט זה בשבתו כדין כבית משפט
-לערעורים פליליים, ולא בהגשת עתירה לבית המשפט הגבוה לצדק. אמרנו - &#34;אם
-בכלל&#34; - משום שבנסיבות דומות נקבע כי אף אם הופרה זכות דיונית לגבי דרישת
-קריאת פסק דין בערעור - לא נגרם למבקש רשות הערעור עיוות דין (רע&#34;פ 7001/98
-אליהו לוי נ&#39; מ&#34;י (לא פורסם)). טענות נגד ההרשעה לא יכירן מקומן, כמובן,
-בבית המשפט הגבוה לצדק.
+6. אנו מחליטים לדחות את העתירה על הסף. תקנתו של המערער היא, אם בכלל, בהגשת בקשת רשות ערעור לבית משפט זה בשבתו כדין כבית משפט לערעורים פליליים, ולא בהגשת עתירה לבית המשפט הגבוה לצדק. אמרנו - &#34;אם בכלל&#34; - משום שבנסיבות דומות נקבע כי אף אם הופרה זכות דיונית לגבי דרישת קריאת פסק דין בערעור - לא נגרם למבקש רשות הערעור עיוות דין (רע&#34;פ 7001/98 אליהו לוי נ&#39; מ&#34;י (לא פורסם)). טענות נגד ההרשעה לא יכירן מקומן, כמובן, בבית המשפט הגבוה לצדק.
 
-7. העתירה נדחית, איפוא, על הסף. הבקשה להוצאת צו
-ביניים שלא לקיים את הדיון הקבוע בפני בית משפט השלום - נדחית.
+7. העתירה נדחית, איפוא, על הסף. הבקשה להוצאת צו ביניים שלא לקיים את הדיון הקבוע בפני בית משפט השלום - נדחית.
 
-8. העתק פסק הדין יישלח לב&#34;כ העותר
-לפרקליטות ולמשיבים.
+8. העתק פסק הדין יישלח לב&#34;כ העותר לפרקליטות ולמשיבים.
 
-ניתנה היום, כ&#34;ה בתמוז התשס&#34;א
-(16.7.2001).
+ניתנה היום, כ&#34;ה בתמוז התשס&#34;א (16.7.2001).
 
-ש ו פ ט ת ש ו פ ט ת ש ו
-פ ט ת
+ש ו פ ט ת ש ו פ ט ת ש ו פ ט ת
 
 _________________
 
-העתק
-מתאים למקור 01056110.C02
+העתק מתאים למקור 01056110.C02
 
-נוסח
-זה כפוף לשינויי עריכה טרם פרסומו
+נוסח זה כפוף לשינויי עריכה טרם פרסומו
 
-בקובץ
-פסקי הדין של בית המשפט העליון בישראל.
+בקובץ פסקי הדין של בית המשפט העליון בישראל.
 
-שמריהו
-כהן - מזכיר ראשי
+שמריהו כהן - מזכיר ראשי
 
-בבית
-המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
+בבית המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
         </div>
     </section>
     
@@ -1690,7 +1916,7 @@ _________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

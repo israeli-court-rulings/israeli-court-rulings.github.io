@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    08/12/2019 (לפני 2340 ימים)
+                    08/12/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/3181-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="3181/19 - הקליניקות המשפטיות, המרכז האקדמי &#34;שערי מדע ומ נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F3181-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/810/031/f05&amp;fileName=19031810.F05&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/810/031/f05&amp;fileName=19031810.F05&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/810/031/f05&amp;fileName=19031810.F05&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/810/031/f05&amp;fileName=19031810.F05&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,289 +1827,125 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 3181/19
 
-
-
-
-1
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
-
-בג&#34;ץ  3181/19
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט נ&#39; הנדל
 
-
-
 כבוד השופטת י&#39; וילנר
 
-
-
-
-
 כבוד השופט א&#39; שטיין
-
-
 
 העותרות:
 
 הקליניקות המשפטיות, המרכז האקדמי &#34;שערי מדע ומשפט&#34;
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. מדינת ישראל, החשב הכללי באוצר
 
-
-
 2. היועמ&#34;ש
-
-
 
 3. מדינת ישראל – משרד האוצר
 
-
-
 4. שר האוצר
-
-
 
 5. ממשלת ישראל
 
-
-
 6. ראש ממשלת ישראל
-
-
 
 7. ועדת השרים לפי חוק המאבק בתוכנית הגרעין של איראן, תשע&#34;ב-2012
 
-
-
 8. שר התחבורה, השר לענייני מודיעין ומ&#34;מ שר החוץ
-
-
 
 9. שירות הבטחון הכללי
 
-
-
 10. מערך הסייבר הלאומי
-
-
 
 11. המל&#34;ל – המטה לביטחון לאומי
 
-
-
 12. האגף למדיניות, משרד הביטחון
-
-
 
 עתירה למתן צו על-תנאי
 
-
-
-
-
 בשם העותרות:
 
-עו&#34;ד אביעד הכהן; עו&#34;ד משה יפת 
-
-
-
-
+עו&#34;ד אביעד הכהן; עו&#34;ד משה יפת
 
 בשם המשיבים:
 
-
-
-
-
 עו&#34;ד שוש שמואלי; עו&#34;ד רותם סלמה
-
- 
-
-
 
 פסק-דין
 
-
-
 השופט א&#39; שטיין:
-
-
-
-
 
 1.	אנו חיים בעולם של משאבים מוגבלים. עובדה זו שזורה בחיי היומיום של כולנו, בפרקי המבוא של ספרי כלכלה (ראו למשל: N. Gregory Mankiw, Principles of Microeconomics 3-4 (6th ed. 2008)) ואף בשורת המחץ של הרולינג סטונס, “You can’t always get what you want”. בין משאבים אלו מצויה העבודה השיפוטית, שאף היא משאב חברתי חשוב ומוגבל מעיקרו. פשיטא הוא, כי מותב אשר דן בעתירתו של ראובן איננו יכול לדון, בד-בבד, בעתירה אחרת שהגישה לאה. לאה תיאלץ אפוא להמתין עד אשר המותב יתפנה לדון בעתירתה; ואם עתירתה מניחה לפתחו של בית המשפט תלונת אמת על זכות שנפגעה, המתנה זו תסב ללאה נזק. במציאות זו, ברור ומובן הוא כי אין באפשרותנו לדון בכל העתירות המוגשות אלינו, דבר המחייב אותנו לבחור מביניהן את אלו הראויות לדיון ולהכרעה. בחירה זו נעשתה משכבר הימים בגדרם של כללי-סף שונים שבית משפט זה קבע בפסיקתו. כללים אלו קובעים, בין היתר, כי עתירות הראויות לדיון ולהכרעה הן אלה אשר מלינות על שימוש קלוקל בכוח השררה או על פגיעה בזכויות, תוך שהן מבקשות סעדים משפטיים קונקרטיים לתיקון המעוות. בעתירות שאינן מכילות תלונות כאמור ובאלו שאינן מבקשות סעדים משפטיים קונקרטיים לא נדון גם כשהן מעלות שאלות חשובות ומעניינות. את משאבינו המוגבלים נקדיש אך ורק לעתירות שעניינן כוחות וזכויות שהמשפט מעניק וסעדים שבהם המשפט מכיר.
 
-
-
 2.	תובנה פשוטה זו מונחת ביסודו של הכלל אשר דורש כי הסעד המבוקש בעתירה לבג&#34;ץ יהא קונקרטי, מוגדר ומוחשי, להבדיל מסעד כוללני או מופשט (ראו בג&#34;ץ 1901/94 לנדאו נ&#39; עיריית ירושלים, פ&#34;ד מח(4) 403, 414-410 (1994) (להלן: עניין לנדאו); בג&#34;ץ 240/98 עדאלה – המרכז המשפטי לזכויות המיעוט הערבי בישראל נ&#39; השר לענייני דתות, פ&#34;ד נב(5) 167, 182-180 (1998) (להלן: עניין עדאלה); בג&#34;ץ 9961/03 המוקד להגנת הפרט מיסודה של ד&#34;ר לוטה זלצברגר נ&#39; ממשלת ישראל, פסקה 11 (5.4.2011) (להלן: עניין המוקד להגנת הפרט)). כפי שאראה להלן, כלל זה מחייב אותנו לדחות את העתירה שלפנינו על הסף.
-
-
 
 3.	הלכה היא עמנו כי אין בידינו לתת לעותרים סעד כוללני, דוגמת הצו שמורה לרשות שלטונית &#34;לפעול בהתאם להוראות הדין&#34; (ראו עניין לנדאו, בעמ&#39; 413-410). הכלל לפיו על הסעד המבוקש בעתירה להיות קונקרטי נעוץ בעיקר ברצוננו להימנע מבזבוז של זמן ושל יתר המשאבים השיפוטיים. טעם זה הוסבר היטב על ידי השופט י&#39; זמיר, באומרו כי &#34;צו כוללני, על-פי טבעו, קשה לבצעו ואף קשה לפקח ולברר אם בוצע, אם בוצע במהירות הראויה ואם בוצע כראוי.&#34; (ראו עניין לנדאו, בעמ&#39; 413). התמודדות עם הקושי עליו הצביע השופט זמיר תחייב פניות חוזרות ונשנות לבית המשפט, אשר יתבקש לפרוט את הסעד הכוללני לסעדים קונקרטיים ומעשיים שביחס אליהם יהא עליו לקיים דיון נפרד. צורך זה בפניות ובדיונים נוספים ממחיש עד כמה הדיון בעתירה למתן סעד כוללני הינו מיותר.
 
-
-
 4.	בתי המשפט פועלים במתכונת של הכרעה דיכוטומית בין המותר לאסור. מתכונת זו מגדירה את הנושאים שמתאימים להכרעה שיפוטית. נושאים אלו כוללים הפרות דין ותיקונן באמצעות צווי עשה וצווי אל-תעשה. צו עשה צריך לפרט את מה שהנתבע או המשיב חייב לעשות כדי לתקן את ההפרה. צו אל-תעשה צריך לפרט את המעשים מהם הנתבע או המשיב חייב להימנע. צו כוללני המחייב את המשיב או הנתבע &#34;לקיים את הוראות הדין&#34; אינו מקיים דרישה בסיסית זו. נתינת סעד כזה היא חסרת תועלת ומהווה בזבוז של משאבים שיפוטיים יקרים. על היבט חשוב זה עמד השופט מ&#39; חשין (כתוארו אז) באומרו את הדברים הבאים:
-
-
 
 &#34;דרכו של המשפט היא דרכה של הגיליוטינה: חיתוך חד, קביעה נחרצת, הכרעה לכאן או לכאן, זכאי וחייב, טוב ורע, שחור ולבן, צד זוכה וצד מפסיד. אם זה טיבו של התהליך, ממילא לא נכניס למכונת המשפט אלא נושאים שניתן וראוי להכריע בהם כך בדרך נחרצת. ואילו נושאים שיש לעגלם, להתפשר בהם, לחיות על דרך ויתורים ובשיטה של תן-וקח, נשאיר אותם להכרעתן של מערכות נורמאטיביות אחרות&#34; (ראו בג&#34;ץ 5364/94 ולנר נ&#39; יושב-ראש מפלגת העבודה הישראלית, פ&#34;ד מט(1) 758, 825 (1995)).
 
-
-
-	דברים אלה נאמרו אמנם בעניינה של סוגיה אחרת, אבל כפי שהובהר על ידי השופט חשין עצמו, הם מסבירים גם את פועלו של הכלל הפוסל עתירות כוללניות (ראו עניין עדאלה, בעמ&#39; 182). במאמר מוסגר, אציין כי בתי המשפט האמריקניים רואים את הדברים באורח דומה. עמדתם הוסברה על ידי בית המשפט העליון של ארצות הברית בזו הלשון:
-
-
+דברים אלה נאמרו אמנם בעניינה של סוגיה אחרת, אבל כפי שהובהר על ידי השופט חשין עצמו, הם מסבירים גם את פועלו של הכלל הפוסל עתירות כוללניות (ראו עניין עדאלה, בעמ&#39; 182). במאמר מוסגר, אציין כי בתי המשפט האמריקניים רואים את הדברים באורח דומה. עמדתם הוסברה על ידי בית המשפט העליון של ארצות הברית בזו הלשון:
 
 &#34;The requirement of &#34;actual injury redressable by the court&#34; […] tends to assure that the legal questions presented to the court will be resolved, not in the rarified atmosphere of a debating society, but in a concrete factual context conducive to a realistic appreciation of the consequences of judicial action.&#34; (Valley Forge Christian Coll. v. Americans United for Separation of Church &amp; State, Inc., 454 U.S. 464, 472 (1982)).
 
-
-
 5.	העתירה שהונחה לפתחנו בתיק זה היא עתירה ציבורית. בגדרה, מבקשות העותרות, קליניקות משפטיות שבמרכז האקדמי &#34;שערי מדע ומשפט&#34;, כי נוציא מלפנינו צו אשר יחייב את המשיבים, ביחד ולחוד, לקיים את כל הוראות חוק המאבק בתכנית הגרעין של איראן, התשע&#34;ב-2012 (להלן: חוק המאבק בגרעין או החוק). במסגרת זו מבקשות העותרות כי נחייב את המשיבים לכנס את הגופים השלטוניים שהוקמו בחוק או שאמורים לפעול מכוחו, אשר כוללים את מטה הסנקציות נגד איראן וסייעניה, את ועדת ההיגוי, את ועדת השרים ואת הוועדה המייעצת (להלן: הגופים השלטוניים). כמו כן מבקשות העותרות כי נחייב את המשיבים לפעול למניעת השתתפותן של חברות המקיימות קשרים עם איראן במכרזי המדינה. בהקשר זה, העותרות דורשות כי המשיבים ייגבו מכל משתתף במכרזי המדינה, כתנאי מקדמי להשתתפותו בהם, הצהרה לפיה הוא עומד בדרישות החוק – ויפסלו כל משתתף שאינו עומד בדרישות אלו.
-
-
 
 6.	העותרות מבהירות כי אינן מתיימרות להכתיב למשיבים את דרכי הפעולה מכוח החוק וכי אינן מבקשות מאתנו להתערב בניהול ענייניה הכלכליים, הביטחוניים והדיפלומטיים של מדינת ישראל. התערבות כאמור אכן איננה אפשרית ועתירות בכגון דא נידונות לכישלון (ראו בג&#34;ץ 8542/18 אקרמן נ&#39; ממשלת ישראל, פסקאות 6-4 ו-8, והאסמכתאות הנזכרות שם (9.12.2018) (להלן: עניין אקרמן); וכן בג&#34;ץ 551/99 שקם בע&#34;מ נ&#39; מנהל המכס והמע&#34;מ, פ&#34;ד נד(1) 112, 127-124 (2000)). ההבהרה שניתנה על ידי העותרות היתה אפוא במקומה. דא עקא, אין בה כדי לשנות את גורל העתירה הנוכחית אשר נדונה לכישלון מטעם אחר.
 
-
-
 7.	הסעדים שנתבקשו בעתירה דנן משמעם אינו אלא סעד אחד: צו-עשה כוללני אשר יחייב את המשיבים לפעול כדין בהתאם לכלליו של חוק המאבק בגרעין. ברי הוא כי עתירה לצו כזה נפסלת מניה וביה על ידי הכלל הפוסל עתירות לסעדים כוללניים. בעניינם של צווים כאלה, שנינו מפיו של השופט זמיר דברים נכוחים וברורים, כדלקמן:
-
-
 
 &#34;האמת ניתנה להיאמר, כי מה שמבקש מאתנו העותר, הוא, שנורה למשיב באופן כללי, שידאג לביצוע החוק הנדון, וברור שאין כל תועלת ממשית במתן תרופה שכזאת. ... הצהרה כזאת, האומרת את המובן מאליו, מיותרת לחלוטין. וכי המשיבים טוענים שהם פטורים מעולו של החוק? וכי העותרים סבורים שהצהרה של בית המשפט כי יש לקיים את החוק תוסיף לחוק תוקף או משקל? בית המשפט אינו נותן הצהרות מעין אלה, שאין בהן צורך, תועלת או כבוד.&#34; (ראו עניין לנדאו, בעמ&#39; 411-410; ההדגשה הוספה – א.ש.).
 
-
-
 8.	באשר לבקשת העותרות כי נחייב את המשיבים לכנס את הגופים השלטוניים שצויינו בעתירתן, הרי שבמסגרת תגובת המשיבים לעתירה נמסר כי גופים אלו כבר מונו והחלו לפעול – לפי דרכם ובהתאם לשיקול הדעת שניתן להם – כאמור בחוק המאבק בגרעין ובתקנות המאבק בתכנית הגרעין של איראן (מתן הודעות וסדרי עבודה), התשע״ד–2014. למותר לציין, כי דרכי פועלם של גופים אלו לא הועמדו לביקורת שיפוטית בגדרי העתירה הנוכחית, וכי התערבותנו בהן, ככל שהן מבוססות על מדיניות החוץ והביטחון של המדינה, ממילא איננה אפשרית (ראו עניין אקרמן, פסקאות 6-4 ו-8).
-
-
 
 9.	באשר לבקשת העותרות כי נחייב את המשיבים לפעול למניעת השתתפותן של חברות המקיימות קשרים עם איראן במכרזי המדינה, ובפרט חברות שבבעלות ממשלת סין – העותרות לא טרחו לצרף ולו חברה אחת כזאת כמשיבה לעתירתן ולא הלינו על שום מכרז ספציפי ועל תוצאותיו. מדובר אפוא בטענה כוללנית ובבקשת סעד כוללני, אשר נמצא מחוץ לרשימת הסעדים שניתן לקבל בבג&#34;ץ. לא זו אף זו: העותרות לא טרחו להסביר לנו מדוע ריב שעניינו מכרזים מובא לפתחנו ולא לבית משפט לעניינים מינהליים אשר הוסמך לדון בו בפרט 5 לתוספת הראשונה של חוק בתי משפט לעניינים מינהליים, התש&#34;ס-2000.
 
+10.	למען ההגינות והסדר הטוב, אציין כי אחד הסעדים שנתבקש בעתירה איננו כוללני. כוונתי לבקשת הצו שאמור לחייב את המשיבים, או מי מהם, לפרסם את שמות החברים בגופים השלטוניים בילקוט הפרסומים הממשלתי ובאתר של מטה הסנקציות אשר הוקם מכוח החוק. דא עקא, מדובר בסעד משני אשר נלווה לסעדים העיקריים שנתבקשו בעתירה, וסעדים אלו, כאמור, נפסלו בהיותם כוללניים. לסעד זה ממילא אין חשיבות במקרה דנן מאחר ששמות האנשים אשר מונו לכהן בגופים השלטוניים ואשר פועלים מכוח החוק קיבלו ביטוי פומבי והם ידועים לעותרות.
 
-
-10.	למען ההגינות והסדר הטוב, אציין כי אחד הסעדים שנתבקש בעתירה איננו כוללני. כוונתי לבקשת הצו שאמור לחייב את המשיבים, או מי מהם, לפרסם את שמות החברים בגופים השלטוניים בילקוט הפרסומים הממשלתי ובאתר של מטה הסנקציות אשר הוקם מכוח החוק. דא עקא, מדובר בסעד משני אשר נלווה לסעדים העיקריים שנתבקשו בעתירה, וסעדים אלו, כאמור, נפסלו בהיותם כוללניים. לסעד זה ממילא אין חשיבות במקרה דנן מאחר ששמות האנשים אשר מונו לכהן בגופים השלטוניים ואשר פועלים מכוח החוק קיבלו ביטוי פומבי והם ידועים לעותרות. 
-
-
-
-11.	סוף דבר: עתירה זו הינה מיותרת בתכלית: היא בזבזה את זמנו היקר של בית המשפט, וטוב היה אילו לא היתה מוגשת מלכתחילה.  
-
-
+11.	סוף דבר: עתירה זו הינה מיותרת בתכלית: היא בזבזה את זמנו היקר של בית המשפט, וטוב היה אילו לא היתה מוגשת מלכתחילה.
 
 12.	הנני מציע אפוא לדחות עתירה זו על הסף. לפנים משורת הדין ובשים לב לכך שהעותרות משתייכות למוסד חינוכי, לא הייתי עושה צו להוצאות הפעם.
 
-
-
-
-
-
-
 ש ו פ ט
-
-
-
-
 
 השופט נ&#39; הנדל:
 
-
-
-	אני מסכים כי יש לסלק את העתירה על הסף ללא צו להוצאות, מן הטעם שהיא התייתרה לאור התפתחויות שעליהן הודיעה המדינה לאחר הגשתה. בתגובתה המקדמית לעתירה מסרה האחרונה כי העותרות &#34;התפרצו לדלת פתוחה&#34;, משום שהיא פועלת כעת לקדם את יישום חוק המאבק; מינויים נחוצים בוצעו, והחל תהליך גיבוש עמדת מטה הסנקציות. המדינה אף הבהירה כי כאשר ועדת השרים תקבל החלטות רלוונטיות הן יפורסמו, וכי ההשתתפות במכרזים תימנע &#34;לפי כל דין, ובהתאם לנסיבות הקונקרטיות&#34;. בנסיבות אלה, מקובלת עלי עמדת המשיבים כי העתירה התייתרה בשלב זה. 
-
-
-
-
-
-
-
-
+אני מסכים כי יש לסלק את העתירה על הסף ללא צו להוצאות, מן הטעם שהיא התייתרה לאור התפתחויות שעליהן הודיעה המדינה לאחר הגשתה. בתגובתה המקדמית לעתירה מסרה האחרונה כי העותרות &#34;התפרצו לדלת פתוחה&#34;, משום שהיא פועלת כעת לקדם את יישום חוק המאבק; מינויים נחוצים בוצעו, והחל תהליך גיבוש עמדת מטה הסנקציות. המדינה אף הבהירה כי כאשר ועדת השרים תקבל החלטות רלוונטיות הן יפורסמו, וכי ההשתתפות במכרזים תימנע &#34;לפי כל דין, ובהתאם לנסיבות הקונקרטיות&#34;. בנסיבות אלה, מקובלת עלי עמדת המשיבים כי העתירה התייתרה בשלב זה.
 
 ש ו פ ט
-
-
-
-
 
 השופטת י&#39; וילנר:
 
-
-
-
-
-	אני מצטרפת לתוצאה אליה הגיעו חבריי לפיה יש לסלק את העתירה על הסף ללא צו להוצאות, וזאת משום שהעתירה התייתרה.
-
-
-
-
-
-
-
-
+אני מצטרפת לתוצאה אליה הגיעו חבריי לפיה יש לסלק את העתירה על הסף ללא צו להוצאות, וזאת משום שהעתירה התייתרה.
 
 ש ו פ ט ת
 
+הוחלט פה-אחד לדחות את העתירה.
 
-
-	הוחלט פה-אחד לדחות את העתירה.
-
-	
-
-	ניתן היום, ‏י&#39; בכסלו התש&#34;ף (‏8.12.2019).
-
-
-
-
-
-
+ניתן היום, ‏י&#39; בכסלו התש&#34;ף (‏8.12.2019).
 
 ש ו פ ט
 
 ש ו פ ט ת
 
 ש ו פ ט
-
-
 
 _________________________
 
-   19031810_F05.docx   עב
+19031810_F05.docx עב
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1857,7 +1964,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

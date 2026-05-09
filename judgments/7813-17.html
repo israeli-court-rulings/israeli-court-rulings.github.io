@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    13/03/2019 (לפני 2610 ימים)
+                    13/03/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/7813-17.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="7813/17 - מוחמד יוסף אבו הלאל נ. זאמל מוחמד סעיד"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F7813-17.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/17/130/078/y07&amp;fileName=17078130.Y07&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/17/130/078/y07&amp;fileName=17078130.Y07&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/17/130/078/y07&amp;fileName=17078130.Y07&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/17/130/078/y07&amp;fileName=17078130.Y07&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,211 +1827,81 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            2
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
+ע&#34;א 7813/17
 
-
-
-
-1
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
-
-
-ע&#34;א  7813/17
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט ע&#39; פוגלמן
 
-
-
 כבוד השופט ע&#39; גרוסקופף
 
-
-
 כבוד השופט א&#39; שטיין
-
-
 
 המערער:
 
 מוחמד יוסף אבו הלאל
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיב:
 
 זאמל מוחמד סעיד
 
-
-
-
-
 ערעור על פסק דינו של בית המשפט המחוזי בחיפה מיום 13.8.2017 בת&#34;א 17213-06-14 שניתן על ידי כב&#39; השופט אלכס קיסרי
-
-
-
-
 
 תאריך הישיבה:
 
-ד&#39; באדר ב התשע&#34;ט (11.03.19)    
-
-
-
-
+ד&#39; באדר ב התשע&#34;ט (11.03.19)
 
 בשם המערער:
 
 עו&#34;ד ג&#39;מאל מחאמיד
 
-
-
 בשם המשיב:
 
 עו&#34;ד גיא נוף; עו&#34;ד איריס סניטקוב
 
-	
-
-	
-
-	
-
 פסק-דין
-
-
 
 השופט ע&#39; גרוסקופף:
 
-
-
 עניינו של ערעור זה בהסכם מכר מקרקעין, אשר נכרת ביום 10.11.1996 (להלן: &#34;הסכם המכר&#34;). המקרקעין בהם מדובר, 1,423 מ&#34;ר המצויים בחלקה 26 בגוש 12173 באדמות כפר ערערה (להלן: &#34;המקרקעין&#34;), נמסרו למשיב (להלן: &#34;הרוכש&#34;) לפני למעלה משני עשורים, ואף התמורה הכספית שולמה במלואה. אפס, למרות שלכאורה ביצוע העסקה הושלם, לא הגיעו הצדדים למנוחה ולנחלה, ולצערנו לא יגיעו אליה גם לאחר פסק דין זה.
 
-
-
-
-
-
-
-הקושי בביצוע ההסכם נובע מכך שעד עצם היום הזה לא שולם מס השבח בגין העסקה, וממילא גם לא הועברה הבעלות במקרקעין (הערת אזהרה נרשמה על שם הרוכש כבר ביום 18.11.1996). כתוצאה מאי התשלום נוצר חוב מס שבח עצום, אשר על גובהו המדויק כיום לא הצלחנו לעמוד מהמסמכים שלפנינו (בפסק הדין קמא, כמו גם בהודעת הערעור, ננקב הסכום 1,255,234 ש&#34;ח נכון ליום הדיווח, דהיינו 18.10.2007). להשלמת התמונה נוסיף כי לו הייתה העסקה מדווחת בזמן אמת, ומס השבח משולם כדין, היה הסכום המשולם עומד על סכום צנוע בהרבה (למיטב הבנתנו מהמסמכים, כ-220 אלף ש&#34;ח); ואולם, מאחר שהעסקה דווחה לרשויות המס רק ביום 28.10.2007, והמס לא שולם במלואו עד עצם היום הזה, החוב לרשויות המס טפח וצמח, כשהוא צובר לקרן הפרשי הצמדה וריבית, ובנוסף להם קנסות משמעותיים מאד, והגיע לממדיו הנוכחיים. 
-
-
+הקושי בביצוע ההסכם נובע מכך שעד עצם היום הזה לא שולם מס השבח בגין העסקה, וממילא גם לא הועברה הבעלות במקרקעין (הערת אזהרה נרשמה על שם הרוכש כבר ביום 18.11.1996). כתוצאה מאי התשלום נוצר חוב מס שבח עצום, אשר על גובהו המדויק כיום לא הצלחנו לעמוד מהמסמכים שלפנינו (בפסק הדין קמא, כמו גם בהודעת הערעור, ננקב הסכום 1,255,234 ש&#34;ח נכון ליום הדיווח, דהיינו 18.10.2007). להשלמת התמונה נוסיף כי לו הייתה העסקה מדווחת בזמן אמת, ומס השבח משולם כדין, היה הסכום המשולם עומד על סכום צנוע בהרבה (למיטב הבנתנו מהמסמכים, כ-220 אלף ש&#34;ח); ואולם, מאחר שהעסקה דווחה לרשויות המס רק ביום 28.10.2007, והמס לא שולם במלואו עד עצם היום הזה, החוב לרשויות המס טפח וצמח, כשהוא צובר לקרן הפרשי הצמדה וריבית, ובנוסף להם קנסות משמעותיים מאד, והגיע לממדיו הנוכחיים.
 
 כמעט שאין צורך לומר כי הצדדים חלוקים ביניהם בשאלה מי צריך לשאת בתשלום מס השבח כיום. המערער (להלן: &#34;המוכר&#34;) טוען כי בהסכם המכר נטל על עצמו הרוכש את החובה לשלם את מס השבח, וכי סירובו לשאת בתשלום החוב לרשויות המס מהווה הפרה של הסכם המכר; הרוכש טוען כי אומנם הסכים בשעתו לשאת בתשלום מס השבח, ואולם התביעה בעניין זה התיישנה, וכן עומדות לו טענות שונות לגופו של עניין. רשויות המס מצדן אינן שועות למחלוקת זו, ופתחו זה מכבר בהליכי גבייה נגד המוכר – הליכים במסגרתם עוקלו נכסי מקרקעין שונים השייכים לו.
 
+ההליך מושא הערעור הוא ההליך המשפטי השלישי המתנהל בין הצדדים. ההליך הראשון נפתח בשנת 1998 (ת&#34;א (שלום חדרה) 4069/98), והסתיים בהסכם פשרה בו נקבע כי יינתן צו מניעה האוסר על המוכר ובניו להיכנס למקרקעין או להפריע לרוכש להשתמש בהם; ההליך השני נפתח בשנת 2004 (ת&#34;א (שלום חדרה) 5814-04), והסתיים בפסק דין שניתן ביום 16.4.2009 על ידי כבוד השופטת הדסה אסיף, במסגרתו נדחתה תביעת פינוי שהגיש המוכר נגד הרוכש, לאחר שנקבע כי הרוכש שילם את מלוא התמורה, וכי העובדה שטרם שילם את מס השבח אינה מצדיקה את פינוי הרוכש, אף אם היא מהווה הפרה של הסכם המכר (להלן: &#34;התובענה בחדרה&#34; ו-&#34;פסק הדין בחדרה&#34;, בהתאמה). ההליך בו עסקינן נפתח ביום 10.6.2014, כאשר הסעד שהתבקש במסגרתו היה סעד הצהרתי לפיו הסכם המכר בוטל בשל הפרתו היסודית על ידי הרוכש בכך שנמנע מתשלום מס השבח.
 
-
-ההליך מושא הערעור הוא ההליך המשפטי השלישי המתנהל בין הצדדים. ההליך הראשון נפתח בשנת 1998 (ת&#34;א (שלום חדרה) 4069/98), והסתיים בהסכם פשרה בו נקבע כי יינתן צו מניעה האוסר על המוכר ובניו להיכנס למקרקעין או להפריע לרוכש להשתמש בהם; ההליך השני נפתח בשנת 2004 (ת&#34;א (שלום חדרה) 5814-04), והסתיים בפסק דין שניתן ביום 16.4.2009 על ידי כבוד השופטת הדסה אסיף, במסגרתו נדחתה תביעת פינוי שהגיש המוכר נגד הרוכש, לאחר שנקבע כי הרוכש שילם את מלוא התמורה, וכי העובדה שטרם שילם את מס השבח אינה מצדיקה את פינוי הרוכש, אף אם היא מהווה הפרה של הסכם המכר (להלן: &#34;התובענה בחדרה&#34; ו-&#34;פסק הדין בחדרה&#34;, בהתאמה). ההליך בו עסקינן נפתח ביום 10.6.2014, כאשר הסעד שהתבקש במסגרתו היה סעד הצהרתי לפיו הסכם המכר בוטל בשל הפרתו היסודית על ידי הרוכש בכך שנמנע מתשלום מס השבח. 
-
-
-
-
-
-
-
-
-
-בית המשפט קמא דחה את התביעה מהטעמים שהתיישנה, שהיה שיהוי בהגשתה ושגם לגופו של עניין לא מצא בה ממש. ואולם, כפי שהבהרנו לצדדים במהלך הדיון הנמקות אלה אינן יכולות לעמוד. 
-
-
+בית המשפט קמא דחה את התביעה מהטעמים שהתיישנה, שהיה שיהוי בהגשתה ושגם לגופו של עניין לא מצא בה ממש. ואולם, כפי שהבהרנו לצדדים במהלך הדיון הנמקות אלה אינן יכולות לעמוד.
 
 ככל שמדובר בטענת ההתיישנות, הרי שהיא צריכה להידחות מהטעם הבא: במהלך הדיון בתובענה בחדרה הצהירו הצדדים לפרוטוקול ביום 25.12.2006, כי &#34;מוסכם שבשלב זה ישלם הנתבע את מס השבח שחל עליו על פי ההסכם&#34;. הצהרה זו מהווה הודאת בעל דין בקיום החוב, אשר בהתאם לסעיף 9 לחוק ההתיישנות, התשי&#34;ח-1958 מביאה לחידוש תקופת ההתיישנות (וזו לשון עיקר הסעיף: &#34;הודה הנתבע, בכתב או בפני בית משפט, בין בתוך תקופת ההתיישנות ובין לאחריה, בקיום זכות התובע, תתחיל תקופת ההתיישנות מיום ההודאה&#34;). זאת ועוד, כל עוד התנהלה התובענה בחדרה לא החל מניין תקופת ההתיישנות להימנות, וזאת לאור סעיף 15 לחוק ההתיישנות, המשהה את מרוץ ההתיישנות במהלך התקופה בה התנהלה באותה עילה תובענה שנדחתה (וזו לשון הסעיף: &#34;הוגשה תובענה לפני בית משפט, לרבות בית דין דתי, והתובענה נדחתה באופן שלא נבצר מן התובע להגיש תובענה חדשה בשל אותה עילה, לא יבוא במנין תקופת ההתיישנות הזמן שבין הגשת התובענה ובין דחייתה&#34;). ודוק, הן במסגרת התובענה בחדרה והן במסגרת ההליך שלפנינו תובע המוכר סעד בגין אי קיום החיוב לתשלום מס השבח על ידי הרוכש. זאת ועוד, ביחס להגשת תביעה בעניין מס השבח ניתן במסגרת התובענה בחדרה היתר לפיצול סעדים (ראו פסקה 32 לפסק הדין בחדרה). מהאמור לעיל עולה שעילת התביעה בעקבות אי תשלום מס השבח נוצרה מחדש במועד ההודאה (25.12.2006), והחלה להתיישן רק ממועד מתן פסק הדין בחדרה (16.4.2009). המסקנה המתבקשת היא שבמועד הגשת התובענה בה עסקינן (10.6.2014) התובענה בעניין מס השבח לא התיישנה.
 
+ככל שמדובר בטענת השיהוי, הרי שבית המשפט קמא דן בה רק בשולי פסק הדין, והגם שציין כי אם היה נדרש להכריע בה, היה מקבלה (ראו פסקאות 24-23 לפסק הדין), איננו סבורים כי מסקנתו משכנעת. בית המשפט קמא התבסס על חוות דעתה של כבוד השופטת (בדימ&#39;) איילה פרוקצ&#39;יה בע&#34;א 6805/99 תלמוד תורה הכללי והישיבה הגדולה עץ חיים בירושלים נ&#39; הוועדה המקומית לתכנון ולבניה, ירושלים, פ&#34;ד נז(5) 433, 451-445 (2003), ואולם קשה לראות כיצד המקרה שלפנינו עומד בתנאים המחמירים -שצוינו שם לקבלת טענת שיהוי בתביעה אזרחית בתוך תקופת ההתיישנות (וראו גם ע&#34;א 9839/17 הביטאט בע&#34;מ נ&#39; CAFOM, פסקה 33 (17.12.2018); ע&#34;א 6182/14 אינבסטלום הולדינגס בע&#34;מ נ&#39; ספריית יפת בע&#34;מ, פסקה 13 (3.5.2016)). אף אם נניח כי הרוכש שינה את מצבו לרעה בשל ההשתהות בהגשת התביעה לאחר מתן פסק הדין בחדרה (ואפילו עניין זה אינו מובן מאליו), הרי שדרישת המוכר כי הרוכש יקיים את חיוביו לעניין תשלום מס השבח היא בוודאי דרישה לגיטימית, ואיננו רואים כיצד יכול היה הרוכש בנסיבות העניין שלפנינו להניח כי המוכר זנח דרישה זו, ולחילופין לפתח ציפייה לגיטימית שלא להיתבע לתשלום מס השבח. לפיכך, אף מבלי להידרש לשיקול הדעת השיפוטי ביישום דוקטרינת השיהוי, איננו סבורים כי יש לה תחולה במקרה דנן.
 
-
-ככל שמדובר בטענת השיהוי, הרי שבית המשפט קמא דן בה רק בשולי פסק הדין, והגם שציין כי אם היה נדרש להכריע בה, היה מקבלה (ראו פסקאות 24-23 לפסק הדין), איננו סבורים כי מסקנתו משכנעת. בית המשפט קמא התבסס על חוות דעתה של כבוד השופטת (בדימ&#39;) איילה פרוקצ&#39;יה בע&#34;א 6805/99 תלמוד תורה הכללי והישיבה הגדולה עץ חיים בירושלים נ&#39; הוועדה המקומית לתכנון ולבניה, ירושלים, פ&#34;ד נז(5) 433, 451-445 (2003), ואולם קשה לראות כיצד המקרה שלפנינו עומד בתנאים המחמירים -שצוינו שם לקבלת טענת שיהוי בתביעה אזרחית בתוך תקופת ההתיישנות (וראו גם ע&#34;א 9839/17 הביטאט בע&#34;מ נ&#39; CAFOM, פסקה 33 (17.12.2018); ע&#34;א 6182/14 אינבסטלום הולדינגס בע&#34;מ נ&#39; ספריית יפת בע&#34;מ, פסקה 13 (3.5.2016)). אף אם נניח כי הרוכש שינה את מצבו לרעה בשל ההשתהות בהגשת התביעה לאחר מתן פסק הדין בחדרה (ואפילו עניין זה אינו מובן מאליו), הרי שדרישת המוכר כי הרוכש יקיים את חיוביו לעניין תשלום מס השבח היא בוודאי דרישה לגיטימית, ואיננו רואים כיצד יכול היה הרוכש בנסיבות העניין שלפנינו להניח כי המוכר זנח דרישה זו, ולחילופין לפתח ציפייה לגיטימית שלא להיתבע לתשלום מס השבח. לפיכך, אף מבלי להידרש לשיקול הדעת השיפוטי ביישום דוקטרינת השיהוי, איננו סבורים כי יש לה תחולה במקרה דנן. 
-
-
-
-בסיום פסק דינו, בפסקה אחת קצרה (פסקה 25), ציין בית המשפט קמא כי לשיטתו דין התביעה להיכשל גם לגופה משום שהמוכר לא מסר הודעת ביטול לרוכש. ואולם, עמדה זו של בית המשפט קמא אינה מנומקת כהלכה, וזאת בשים לב להצהרת שני בניו של המוכר כי פנו לרוכש מספר פעמים בעניין תשלום מס השבח עובר להגשת התביעה (סעיף 19 לתצהיר אבו הלאל אחמד מוחמד מיום 13.5.2016; סעיף 18 לתצהיר אבו הלאל עלי מוחמד), ולכך שאם אכן נעשתה פנייה שכזו (עניין לגביו אין ממצא עובדתי בפסק הדין נשוא הערעור), היא עשויה להיחשב כארכה, המאפשרת לחדש את זכות הביטול מחמת הפרה יסודית על פי הפסיקה (להלכה הפסוקה בעניין זה, ראו דניאל פרידמן ונילי כהן חוזים – כרך ד 367-360 (2011)). 
-
-
+בסיום פסק דינו, בפסקה אחת קצרה (פסקה 25), ציין בית המשפט קמא כי לשיטתו דין התביעה להיכשל גם לגופה משום שהמוכר לא מסר הודעת ביטול לרוכש. ואולם, עמדה זו של בית המשפט קמא אינה מנומקת כהלכה, וזאת בשים לב להצהרת שני בניו של המוכר כי פנו לרוכש מספר פעמים בעניין תשלום מס השבח עובר להגשת התביעה (סעיף 19 לתצהיר אבו הלאל אחמד מוחמד מיום 13.5.2016; סעיף 18 לתצהיר אבו הלאל עלי מוחמד), ולכך שאם אכן נעשתה פנייה שכזו (עניין לגביו אין ממצא עובדתי בפסק הדין נשוא הערעור), היא עשויה להיחשב כארכה, המאפשרת לחדש את זכות הביטול מחמת הפרה יסודית על פי הפסיקה (להלכה הפסוקה בעניין זה, ראו דניאל פרידמן ונילי כהן חוזים – כרך ד 367-360 (2011)).
 
 לאור האמור, סברנו כי פסק דינו של בית המשפט קמא אינו יכול לעמוד. בנסיבות שנוצרו אין מנוס מהחזרת הדיון בתיק לבית המשפט קמא על מנת שיבחן לגופן את טענות הצדדים בכל הנוגע לעניין מס השבח, וייתן פסק דין מנומק ביחס לתביעה, לאור מסקנתנו כי לא ניתן לדחותה מחמת התיישנות או שיהוי. ויובהר, אין בכך הבעת עמדה לגופם של דברים, וטענות הצדדים שמורות להן.
 
+טרם נעילה נבקש להוסיף כי במהלך הדיון הצענו לצדדים כי בד בבד עם השבת ההליך לבית המשפט קמא, יתוקן כתב התביעה, כך שחלף תביעה להצהיר על ביטול העסקה, היא תנוסח כתביעה לקיום התחייבותו של הרוכש לתשלום מס השבח. הצעה זו העלינו לאור הקושי הקיים בביטול העסקה כיום, למעלה מ-20 שנה לאחר שהסכם המכר נכרת, המקרקעין נמסרו לרוכש והתמורה הכספית שולמה למוכר, ובשים לב להתדיינויות הקודמות בין הצדדים, ולפסקי הדין שניתנו בהן. במהלך הדיון לא הושגה הסכמה בעניין זה, ואולם למניעת מחלוקות סרק נבהיר כי ככל שהמוכר יבקש לתקן את כתב התביעה ברוח הצעתנו זו בטרם יחודש הדיון בהליך בבית המשפט קמא הלכה למעשה, יש לאפשר לו לעשות כן.
 
+סוף דבר: הערעור מתקבל, והתיק יוחזר לבית המשפט המחוזי בחיפה, על מנת שידון בו לגופו, בהתאם למפורט בפסק דין זה. ההוצאות שנקבעו בבית המשפט קמא יבוטלו. לא מצאנו לנכון להטיל הוצאות בהליך הערעור.
 
-טרם נעילה נבקש להוסיף כי במהלך הדיון הצענו לצדדים כי בד בבד עם השבת ההליך לבית המשפט קמא, יתוקן כתב התביעה, כך שחלף תביעה להצהיר על ביטול העסקה, היא תנוסח כתביעה לקיום התחייבותו של הרוכש לתשלום מס השבח. הצעה זו העלינו לאור הקושי הקיים בביטול העסקה כיום, למעלה מ-20 שנה לאחר שהסכם המכר נכרת, המקרקעין נמסרו לרוכש והתמורה הכספית שולמה למוכר, ובשים לב להתדיינויות הקודמות בין הצדדים, ולפסקי הדין שניתנו בהן. במהלך הדיון לא הושגה הסכמה בעניין זה, ואולם למניעת מחלוקות סרק נבהיר כי ככל שהמוכר יבקש לתקן את כתב התביעה ברוח הצעתנו זו בטרם יחודש הדיון בהליך בבית המשפט קמא הלכה למעשה, יש לאפשר לו לעשות כן. 
-
-
-
-סוף דבר: הערעור מתקבל, והתיק יוחזר לבית המשפט המחוזי בחיפה, על מנת שידון בו לגופו, בהתאם למפורט בפסק דין זה. ההוצאות שנקבעו בבית המשפט קמא יבוטלו. לא מצאנו לנכון להטיל הוצאות בהליך הערעור. 
-
-
-
-	ניתן היום, ‏ו&#39; באדר ב התשע&#34;ט (‏13.3.2019).
-
-
-
-
+ניתן היום, ‏ו&#39; באדר ב התשע&#34;ט (‏13.3.2019).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 _________________________
 
-   17078130_Y07.docx   חכ
+17078130_Y07.docx חכ
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1779,7 +1920,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

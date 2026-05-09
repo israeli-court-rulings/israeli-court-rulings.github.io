@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    29/06/2004 (לפני 7980 ימים)
+                    29/06/2004 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/4344-04.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="4344/04 - עופר נמרודי נ. שר הבטחון, מר שאול מופז"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F4344-04.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/043/M04&amp;fileName=04043440_M04.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/043/M04&amp;fileName=04043440_M04.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/043/M04&amp;fileName=04043440_M04.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/043/M04&amp;fileName=04043440_M04.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,11 +1829,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             החלטה בתיק בג&#34;ץ 4344/04
 
-בבית המשפט העליון בשבתו
-כבית משפט גבוה לצדק
+בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
-בג&#34;ץ
-4344/04
+בג&#34;ץ 4344/04
 
 בפני:
 
@@ -1580,8 +1849,7 @@
 
 המשיבים:
 
-1. שר הבטחון,
-מר שאול מופז
+1. שר הבטחון, מר שאול מופז
 
 2. ראש המטה הכללי, רב אלוף משה יעלון
 
@@ -1593,107 +1861,39 @@
 
 עתירה למתן צו על-תנאי
 
-בשם העותר: עו&#34;ד
-רנאטו יאראק
+בשם העותר: עו&#34;ד רנאטו יאראק
 
-בשם המשיבים: עו&#34;ד יובל
-רויטמן
+בשם המשיבים: עו&#34;ד יובל רויטמן
 
 פסק דין
 
 השופט י&#39; טירקל:
 
-1. העותר הורשע בבית משפט השלום בתל-אביב – יפו בעבירות על
-חוק האזנת סתר, תשל&#34;ט-1979 ובעבירה של שיבוש מהלכי משפט ונגזר עליו עונש של מאסר
-לתקופה של 8 חודשים לריצוי בפועל ומאסר על תנאי לתקופה של 10 חודשים. שלוש שנים
-לאחר מכן הורשע העותר בבית המשפט המחוזי בתל-אביב – יפו בעבירות של שיבוש מהלכי
-משפט וכן בעבירות של מרמה והפרת אמונים בתאגיד ושל רישום כוזב במסמכי תאגיד ונגזר
-עליו עונש של מאסר לתקופה של 15 חודשים לריצוי בפועל ומאסר על תנאי לתקופה של שנה.
-כמו כן הופעל עונש המאסר המותנה שהטיל עליו בית משפט השלום. הפרקליטות הצבאית
-חיוותה דעתה כי העבירות שבהן הורשע העותר, לאור אופיין ולאור הנסיבות בהן נעברו,
-מצדיקות פתיחה בהליך להורדתו של העותר בדרגה לפי סעיף 533 לחוק השיפוט הצבאי,
-תשט&#34;ו-1955 (להלן – &#34;חש&#34;צ&#34;).
+1. העותר הורשע בבית משפט השלום בתל-אביב – יפו בעבירות על חוק האזנת סתר, תשל&#34;ט-1979 ובעבירה של שיבוש מהלכי משפט ונגזר עליו עונש של מאסר לתקופה של 8 חודשים לריצוי בפועל ומאסר על תנאי לתקופה של 10 חודשים. שלוש שנים לאחר מכן הורשע העותר בבית המשפט המחוזי בתל-אביב – יפו בעבירות של שיבוש מהלכי משפט וכן בעבירות של מרמה והפרת אמונים בתאגיד ושל רישום כוזב במסמכי תאגיד ונגזר עליו עונש של מאסר לתקופה של 15 חודשים לריצוי בפועל ומאסר על תנאי לתקופה של שנה. כמו כן הופעל עונש המאסר המותנה שהטיל עליו בית משפט השלום. הפרקליטות הצבאית חיוותה דעתה כי העבירות שבהן הורשע העותר, לאור אופיין ולאור הנסיבות בהן נעברו, מצדיקות פתיחה בהליך להורדתו של העותר בדרגה לפי סעיף 533 לחוק השיפוט הצבאי, תשט&#34;ו-1955 (להלן – &#34;חש&#34;צ&#34;).
 
-בעתירתו קובל העותר על כך שההליכים
-לשלילת דרגתו נערכים לפי הוראות סעיף 533 לחש&#34;צ וכי יש להשהות את ההליכים עד
-גמר חקיקתה של הצעת חוק השיפוט הצבאי (תיקון מס&#39; 47) (הורדה מדרגה עקב חיוב בבית
-המשפט), תשס&#34;ד-2003 (להלן – &#34;הצעת החוק&#34;). המשיבים השיבו על
-העתירה.
+בעתירתו קובל העותר על כך שההליכים לשלילת דרגתו נערכים לפי הוראות סעיף 533 לחש&#34;צ וכי יש להשהות את ההליכים עד גמר חקיקתה של הצעת חוק השיפוט הצבאי (תיקון מס&#39; 47) (הורדה מדרגה עקב חיוב בבית המשפט), תשס&#34;ד-2003 (להלן – &#34;הצעת החוק&#34;). המשיבים השיבו על העתירה.
 
 2. לפי סעיף 533 לחש&#34;צ:
 
-&#34;אדם שנתחייב על-ידי בית-משפט או בית-דין אחר בעבירה שיש בה משום
-קלון, והוא בעל דרגה, בין אם הוא משרת בצבא ובין אם לאו, רשאי הרמטכ&#34;ל באישור
-שר הביטחון, לשלול ממנו את דרגתו&#34;.
+&#34;אדם שנתחייב על-ידי בית-משפט או בית-דין אחר בעבירה שיש בה משום קלון, והוא בעל דרגה, בין אם הוא משרת בצבא ובין אם לאו, רשאי הרמטכ&#34;ל באישור שר הביטחון, לשלול ממנו את דרגתו&#34;.
 
-בשנת 2000 יזמה הפרקליטות הצבאית עבודת מטה לתיקון
-סעיף 533 לחש&#34;צ, במטרה להבהיר כי במסגרת החוק ניתן להוריד אדם בדרגה גם באופן
-מדרגי, ולא רק לשלול ממנו את דרגתו כך שיורד לדרגת טוראי. ועדת השרים לענייני
-חקיקה, בהחלטתה מיום 18.11.01, התנגדה להגשת הצעת חוק ראשונית שערכה הפרקליטות
-הצבאית. לפיכך, הגיעה הפרקליטות הצבאית, בשיתוף עם היועץ המשפטי לממשלה, למסקנה כי
-ניתן להשיג את תכליתה של החקיקה המוצעת על ידי פירוש שונה של סעיף 533 לחש&#34;צ כך
-שיאפשר הורדה בדרגה באופן מדרגי. כשנתיים לאחר מכן, בנובמבר 2003, אישרה הכנסת את
-הצעת החוק בקריאה ראשונה.
+בשנת 2000 יזמה הפרקליטות הצבאית עבודת מטה לתיקון סעיף 533 לחש&#34;צ, במטרה להבהיר כי במסגרת החוק ניתן להוריד אדם בדרגה גם באופן מדרגי, ולא רק לשלול ממנו את דרגתו כך שיורד לדרגת טוראי. ועדת השרים לענייני חקיקה, בהחלטתה מיום 18.11.01, התנגדה להגשת הצעת חוק ראשונית שערכה הפרקליטות הצבאית. לפיכך, הגיעה הפרקליטות הצבאית, בשיתוף עם היועץ המשפטי לממשלה, למסקנה כי ניתן להשיג את תכליתה של החקיקה המוצעת על ידי פירוש שונה של סעיף 533 לחש&#34;צ כך שיאפשר הורדה בדרגה באופן מדרגי. כשנתיים לאחר מכן, בנובמבר 2003, אישרה הכנסת את הצעת החוק בקריאה ראשונה.
 
-3. בינתיים זומן העותר להתייצב ביום 13.9.01 לפני
-ועדת מפקדים שמינה ראש אגף כוח אדם במטכ&#34;ל, לפי הוראת פיקוד עליון מס&#39; 5.0209
-(להלן – &#34;ועדת המפקדים&#34;), שתפקידה להמליץ לפני הרמטכ&#34;ל אם לשלול את
-דרגתו הפיקודית של אדם שהורשע בעבירה שיש עימה קלון. באי כוחו של העותר ביקשו לדחות
-את הדיון, ובין היתר, בנימוק שיש להמתין עד להשלמת הליכי החקיקה של הצעת חוק
-ראשונית שהובאה באותם ימים לפני ועדת השרים לענייני חקיקה, כאמור לעיל. אחרי פרשה
-של דחיות, לפי בקשות של באי כוח העותר, שנמשכה למעלה משנה, נתכנסה ועדת המפקדים לראשונה,
-ביום 19.9.02, לדיון בעניינו של העותר. בישיבה ביקשו באי כוחו של העותר, להבהיר את
-סמכויותיה של ועדת המפקדים ואת סדרי הדין. כמו כן ביקשו לאפשר להם לעיין בחומר
-שהונח על שולחנה מחשש ש&#34;זה לא העתק נכון&#34; או ש&#34;יכול להיות שחסרים
-עמודים, יכול להיות שחסרות מילים&#34;. כתוצאה מכך נמנע מועדת המפקדים לדון לגופו
-של עניין. באי כוח העותר חזרו וביקשו, בבקשות נוספות שהגישו, לדחות את הדיון עד
-לסיום ההליכים לתיקונו של סעיף 533 לחש&#34;צ. משנקבעו מועדים חדשים ביקשו באי
-כוח העותר לדחותם בשל דרישתם לפסול את חברי ועדת המפקדים וכן בשל כפירתם בסמכותה
-של ועדת המפקדים. אחרי שראש אגף כוח אדם במטכ&#34;ל החליף את יושב ראש הועדה,
-במרץ 2004, שבו וביקשו באי כוח העותר לדחות את דיוני הועדה ולהמתין לסיום חקיקתה
-של הצעת החוק. הפרקליט הצבאי הראשי דחה את בקשתם, במכתבו מיום 14.3.04, בין היתר מן
-הטעם ש&#34;אין זה ידוע באיזו מתכונת תובא הצעת החוק לקריאה השניה והשלישית, ומתי
-תובא ההצעה לקריאות כאמור&#34;.
+3. בינתיים זומן העותר להתייצב ביום 13.9.01 לפני ועדת מפקדים שמינה ראש אגף כוח אדם במטכ&#34;ל, לפי הוראת פיקוד עליון מס&#39; 5.0209 (להלן – &#34;ועדת המפקדים&#34;), שתפקידה להמליץ לפני הרמטכ&#34;ל אם לשלול את דרגתו הפיקודית של אדם שהורשע בעבירה שיש עימה קלון. באי כוחו של העותר ביקשו לדחות את הדיון, ובין היתר, בנימוק שיש להמתין עד להשלמת הליכי החקיקה של הצעת חוק ראשונית שהובאה באותם ימים לפני ועדת השרים לענייני חקיקה, כאמור לעיל. אחרי פרשה של דחיות, לפי בקשות של באי כוח העותר, שנמשכה למעלה משנה, נתכנסה ועדת המפקדים לראשונה, ביום 19.9.02, לדיון בעניינו של העותר. בישיבה ביקשו באי כוחו של העותר, להבהיר את סמכויותיה של ועדת המפקדים ואת סדרי הדין. כמו כן ביקשו לאפשר להם לעיין בחומר שהונח על שולחנה מחשש ש&#34;זה לא העתק נכון&#34; או ש&#34;יכול להיות שחסרים עמודים, יכול להיות שחסרות מילים&#34;. כתוצאה מכך נמנע מועדת המפקדים לדון לגופו של עניין. באי כוח העותר חזרו וביקשו, בבקשות נוספות שהגישו, לדחות את הדיון עד לסיום ההליכים לתיקונו של סעיף 533 לחש&#34;צ. משנקבעו מועדים חדשים ביקשו באי כוח העותר לדחותם בשל דרישתם לפסול את חברי ועדת המפקדים וכן בשל כפירתם בסמכותה של ועדת המפקדים. אחרי שראש אגף כוח אדם במטכ&#34;ל החליף את יושב ראש הועדה, במרץ 2004, שבו וביקשו באי כוח העותר לדחות את דיוני הועדה ולהמתין לסיום חקיקתה של הצעת החוק. הפרקליט הצבאי הראשי דחה את בקשתם, במכתבו מיום 14.3.04, בין היתר מן הטעם ש&#34;אין זה ידוע באיזו מתכונת תובא הצעת החוק לקריאה השניה והשלישית, ומתי תובא ההצעה לקריאות כאמור&#34;.
 
-4. בעתירתו – שהוגשה אחרי שההליכים בועדת
-המפקדים הגיעו עד הלום – טוען בא כוח העותר כי העותר לא נקרא לשירות מילואים מזה
-למעלה מעשור ולפיכך &#34;אין משמעות מעשית כלשהי להיותו סרן במילואים&#34;; מכאן
-שלא יגרם נזק לאיש מהמתנה לסיום הליכי החקיקה, כפי שלא נגרם נזק עקב ההמתנה עד
-היום. בא כוח העותר מוסיף וטוען כי המצב הנוכחי לפיו ההליכים נידונים בפני גוף
-ניהולי ולא בפני טריבונל משפטי הוא &#34;בלתי נסבל ונוגד באופן נחרץ את חוק-יסוד:
-כבוד האדם וחירותו&#34;. לטענתו, במצב דברים זה, ההחלטה שלא להמתין לסיים הליכי
-החקיקה &#34;זוהי לא רק שרירות וגישה לא עניינית - - - אלא זוהי חוסר סבירות
-מובהקת והתעלמות משיקול מרכזי ומכריע בהפעלת שיקול הדעת של המשיבים&#34;.
+4. בעתירתו – שהוגשה אחרי שההליכים בועדת המפקדים הגיעו עד הלום – טוען בא כוח העותר כי העותר לא נקרא לשירות מילואים מזה למעלה מעשור ולפיכך &#34;אין משמעות מעשית כלשהי להיותו סרן במילואים&#34;; מכאן שלא יגרם נזק לאיש מהמתנה לסיום הליכי החקיקה, כפי שלא נגרם נזק עקב ההמתנה עד היום. בא כוח העותר מוסיף וטוען כי המצב הנוכחי לפיו ההליכים נידונים בפני גוף ניהולי ולא בפני טריבונל משפטי הוא &#34;בלתי נסבל ונוגד באופן נחרץ את חוק-יסוד: כבוד האדם וחירותו&#34;. לטענתו, במצב דברים זה, ההחלטה שלא להמתין לסיים הליכי החקיקה &#34;זוהי לא רק שרירות וגישה לא עניינית - - - אלא זוהי חוסר סבירות מובהקת והתעלמות משיקול מרכזי ומכריע בהפעלת שיקול הדעת של המשיבים&#34;.
 
-5. לא מצאנו עילה להתערב בהליכים שננקטו נגד
-העותר להורדתו בדרגה.
+5. לא מצאנו עילה להתערב בהליכים שננקטו נגד העותר להורדתו בדרגה.
 
-לפי ההסדר המשפטי החל היום, המושתת על
-סעיף 533 לחש&#34;צ ועל הוראת הפיקוד העליון הנזכרת, מובא עניינו של אדם בעל דרגה
-פיקודית, שנתחייב בעבירה שיש עימה קלון, לפני ועדת מפקדים המורכבת משישה מפקדים
-בצה&#34;ל שבראשה קצין המשמש או שימש בעבר בתפקיד מפקד חטיבה או בתפקיד אחר
-המקביל לו. ועדת המפקדים ממליצה אם לשלול את דרגת הפיקוד של החייל והמלצתה מועברת
-לראש אגף כוח אדם במטכ&#34;ל, המעביר אותה בצירוף הערותיו לרמטכ&#34;ל, שהוא
-המוסמך להוריד את החייל בדרגה. שני השינויים העיקריים שבאה הצעת החוק לשנות בהסדר
-זה הם כי בראשות הועדה יעמוד שופט בדימוס, שהוא קצין בדרגת אלוף משנה לפחות, וכי על
-החלטתה תהיה זכות ערעור לפני בית הדין הצבאי לערעורים. אין בכך כדי לעמוד לעותר. הליכי
-חקיקה של הצעת חוק שטרם הבשילו לכדי חוק אין בהם כדי להקנות זכות שההליכים להורדה
-בדרגה לא יהיו לפי ההסדר המשפטי הקיים אלא לפי הסדר חוקי שטרם בא לעולם. גם אין
-מקום לקבוע כי ההסדר הקיים פוגע בכבודו של אדם שלא לתכלית ראויה או במידה שעולה על
-הנדרש; וזאת אפילו נאמר בדברי ההסבר להצעת החוק ש&#34;ראוי כי ההליך בדבר בחינת
-פגיעה בזכות האמורה [זכותו של אדם לשאת דרגה צבאית – י&#39; ט&#39;] לא יהיה הליך מינהלי,
-אלא הליך הנושא אופי שיפוטי&#34;. הכוונה לשפר את ההסדר הקיים – הראויה לשבח
-כשלעצמה – אין בה משום הוכחה כי ההסדר הקיים הוא פגום.
+לפי ההסדר המשפטי החל היום, המושתת על סעיף 533 לחש&#34;צ ועל הוראת הפיקוד העליון הנזכרת, מובא עניינו של אדם בעל דרגה פיקודית, שנתחייב בעבירה שיש עימה קלון, לפני ועדת מפקדים המורכבת משישה מפקדים בצה&#34;ל שבראשה קצין המשמש או שימש בעבר בתפקיד מפקד חטיבה או בתפקיד אחר המקביל לו. ועדת המפקדים ממליצה אם לשלול את דרגת הפיקוד של החייל והמלצתה מועברת לראש אגף כוח אדם במטכ&#34;ל, המעביר אותה בצירוף הערותיו לרמטכ&#34;ל, שהוא המוסמך להוריד את החייל בדרגה. שני השינויים העיקריים שבאה הצעת החוק לשנות בהסדר זה הם כי בראשות הועדה יעמוד שופט בדימוס, שהוא קצין בדרגת אלוף משנה לפחות, וכי על החלטתה תהיה זכות ערעור לפני בית הדין הצבאי לערעורים. אין בכך כדי לעמוד לעותר. הליכי חקיקה של הצעת חוק שטרם הבשילו לכדי חוק אין בהם כדי להקנות זכות שההליכים להורדה בדרגה לא יהיו לפי ההסדר המשפטי הקיים אלא לפי הסדר חוקי שטרם בא לעולם. גם אין מקום לקבוע כי ההסדר הקיים פוגע בכבודו של אדם שלא לתכלית ראויה או במידה שעולה על הנדרש; וזאת אפילו נאמר בדברי ההסבר להצעת החוק ש&#34;ראוי כי ההליך בדבר בחינת פגיעה בזכות האמורה [זכותו של אדם לשאת דרגה צבאית – י&#39; ט&#39;] לא יהיה הליך מינהלי, אלא הליך הנושא אופי שיפוטי&#34;. הכוונה לשפר את ההסדר הקיים – הראויה לשבח כשלעצמה – אין בה משום הוכחה כי ההסדר הקיים הוא פגום.
 
 6. העתירה נדחית.
 
-העותר ישא בהוצאות המשיבים בסך 25,000
-ש&#34;ח.
+העותר ישא בהוצאות המשיבים בסך 25,000 ש&#34;ח.
 
 ניתנה היום, י&#39; בתמוז תשס&#34;ד (29.6.04).
 
-ש ו פ ט ש ו פ
-ט ש ו פ ט
+ש ו פ ט ש ו פ ט ש ו פ ט
 
 _________________________
 
@@ -1718,7 +1918,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    16/12/2024 (לפני 505 ימים)
+                    16/12/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/9814-09-24.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="9814-09-24 - נדיר שלם נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F9814-09-24.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/12/16/2024-9-9814-2-2&amp;fileName=68c313281b664b7c95a2a89eff4d3376&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/12/16/2024-9-9814-2-2&amp;fileName=68c313281b664b7c95a2a89eff4d3376&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/12/16/2024-9-9814-2-2&amp;fileName=68c313281b664b7c95a2a89eff4d3376&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/12/16/2024-9-9814-2-2&amp;fileName=68c313281b664b7c95a2a89eff4d3376&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,79 +1827,45 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            2
+            בבית המשפט העליון
 
-
-
-בבית המשפט העליון
-
-
-
-עפס&#34;פ 9814-09-24 
-
-
+עפס&#34;פ 9814-09-24
 
 לפני:
 
 כבוד ממלא מקום הנשיא (בדימ&#39;) עוזי פוגלמן
 
-
-
 המערער:
 
 נדיר שלם
 
-
-
 נגד
-
-
 
 המשיבה:
 
 מדינת ישראל
 
-
-
-
-
 ערעור על החלטת בית משפט השלום באילת (כב&#39; סגן הנשיא ש&#39; ברגר) בת&#34;פ 28629-05-24 מיום 6.8.2024
-
-
 
 בשם המערער:
 
-
-
-עו&#34;ד אלעד אלקיס 
+עו&#34;ד אלעד אלקיס
 
 בשם המשיבה:
 
-עו&#34;ד טליה קצב 
-
-
+עו&#34;ד טליה קצב
 
 פסק-דין
 
-
-
-	לפניי ערעור על החלטת בית משפט השלום באילת (כב&#39; סגן הנשיא ש&#39; ברגר) בת&#34;פ (שלום אי&#39;) 28629-05-24 מיום 6.8.2024 שלא לפסול את עצמו מלדון בעניינו של המערער.
-
-
+לפניי ערעור על החלטת בית משפט השלום באילת (כב&#39; סגן הנשיא ש&#39; ברגר) בת&#34;פ (שלום אי&#39;) 28629-05-24 מיום 6.8.2024 שלא לפסול את עצמו מלדון בעניינו של המערער.
 
 עניינו של ההליך שלפניי בכתב אישום שהוגש נגד המערער, שבמסגרתו יוחסו לאחרון שתי עבירות של סחר בסם מסוכן לפי סעיפים 13 ו-19א לפקודת הסמים המסוכנים [נוסח חדש], התשל&#34;ג-1973. להלן יתוארו עיקרי העובדות שצריכות להכרעה בערעור שלפניי. ביום 7.5.2024 – עובר להגשת כתב האישום – נעצר המערער מכוח צו מעצר שנחתם על ידי המותב. בו ביום הובא המערער לפני המותב להארכת מעצרו, ומעצרו הוארך בהסכמת הצדדים עד ליום 12.5.2024. במסגרת ההחלטה על הארכת המעצר ציין המותב כי הוא עיין בחומרי החקירה ומצא כי &#34;קיים חשד סביר לחשד הנטען&#34; וכי &#34;קיימות עילות מעצר של מסוכנות וחשש לשיבוש הליכי חקירה&#34; (פרוטוקול הדיון מיום 7.5.2024, בעמ&#39; 2, ש&#39; 25-22). ביום 12.5.2024 הוגש כתב אישום נגד המערער, ובצידו בקשה למעצרו של האחרון עד לתום ההליכים; ובהמשך אותו היום, התקיים דיון במעמד הצדדים שבסיומו קבע המותב כי &#34;בהמלצת בית המשפט ובהסכמת [המערער – ע&#39; פ&#39;] ובא-כוחו, אני קובע קיומן של ראיות לכאורה וכפועל יוצא מכך עילת מעצר [...] דוחה להמשך דיון לאחר קבלת תסקיר ליום 05.06.2024 בשעה 09:30 בפניי&#34; (פרוטוקול הדיון מיום 12.5.2024, בעמ&#39; 1, ש&#39; 24-20; הליך מעצר הימים והליך המעצר עד תום ההליכים יכונו להלן ביחד גם: הליכי המעצר).
 
 ההליך העיקרי בעניינו של המערער נותב לטיפולו של מותב אחר (כב&#39; השופט ג&#39; אדלמן), ובמהלך החודשים מאי-יוני 2024 התקיימו לפניו שני דיונים שבמסגרתם, בין היתר, הוקרא למערער כתב האישום. ואולם, ביום 18.7.2024 קבע כב&#39; השופט אדלמן כי &#34;בשל תכנית העבודה והיערכות לשמיעת תיקי סוכן נוספים במסגרת פרשה זו, יועבר התיק לעיונו של סגן הנשיא, כב&#39; השופט ברגר [הוא המותב בהחלטה נושא הערעור – ע&#39; פ&#39;] לשם ניתובו לשמיעת ראיות&#34;. בו ביום התקיים דיון לפני המותב, שבפתחו הודיע בא כוחו של המערער כי בכוונתו להגיש בקשת פסלות וביקש דחייה של מועד הדיון; זאת, משנטען כי &#34;מסקירה קצרה של החומרים עולה כי מותב זה ליווה את הפרשיה, חתם על צווים וכן להליכים הקשורים בתיק [מעצר הימים והמעצר עד תום ההליכים – ע&#39; פ&#39;]&#34; (פרוטוקול הדיון מיום 18.7.2024, בעמ&#39; 5, ש&#39; 15-14).
 
-
-
 ביום 6.8.2024 התקיים דיון במעמד הצדדים, שבמסגרתו ביקש המערער כי המותב יפסול את עצמו וכי ההליך יועבר למותב אחר; זאת, משנטען, בעיקרם של דברים, כי המותב ליווה את הפרשה עד כה, ובתוך כך חתם על צווי מעצר וחיפוש, דן בהליכי מעצרו של המערער, נחשף לעברו הפלילי של האחרון, וכן לחומרי החקירה בעניינו לרבות הודעה של הסוכן המשטרתי. בהקשר זה טען המערער כי &#34;לא מדובר פה באיזה שהיא פעולה טכנית שביצע כב&#39; המותב, אלא מסה קריטית של פעולות, חשיפה של חומרי חקירה, ליווי הפרשייה [...]&#34; (פרוטוקול הדיון מיום 6.8.2024, בעמ&#39; 8, ש&#39; 11-9); וכן כי &#34;בית המשפט ליווה את תיק הסוכן, הוא המותב היחידי שליווה את ההליך, הוא חתם על הצווים, הוא קיים את הליך המעצר, הוא חתם על המסמכים&#34; (שם, בעמ&#39; 9, ש&#39; 9-7). בנוסף, נטען כי בשים לב לשלב המקדמי שבו מצוי ההליך, ונוכח העובדה, כנטען, שישנם שופטים אחרים שלא נחשפו לראיות בעניינו של המערער, העברתו של ההליך למותב חלופי לא תוביל לסרבול ההליך או לעיכוב משמעותי בניהולו, ואף נדרשת נוכח, בין היתר, שיקולים של מראית פני הצדק.
 
-
-
 בו ביום דחה המותב את הבקשה לפסילתו, וקבע כי בנסיבות העניין לא קמה עילה להעברת הדיון לפני מותב אחר. בפתח החלטתו ציין המותב כי הגם שנחשף לחומרי חקירה בעניינו של המערער במסגרת הליכי המעצר, אין בעובדה זו כשלעצמה כדי להקים עילה לפסילתו מלדון בהליך העיקרי; וכי בשים לב להיקפם ומהותם של החומרים שאליהם נחשף, בנסיבות העניין לא מתקיים חשש ממשי למשוא פנים. בהקשר זה קבע המותב כי:
-
-
 
 &#34;בית המשפט קיים שני דיוני מעצר, האחד עניינו דיון מעצר ימים, במסגרתו נשאלו מספר מועט של שאלות ובסופו של דיון בהמלצת בית המשפט, הגיעו הצדדים להסכמה להמשך מעצרו של [המערער – ע&#39; פ&#39;]. יצוין כי היה מדובר בחומר גולמי שטרם עובד ולא מדובר בחומר ראייתי שעבר את בחינת [המשיבה – ע&#39; פ&#39;].
 
@@ -1636,47 +1873,21 @@
 
 המשך הדיונים בהליך המעצר, התקיימו בפני מותב אחר, ואין לבית המשפט ידיעה באם נטען לכרסום ובין אם לאו&#34; (פרוטוקול הדיון מיום 6.8.2024, בעמ&#39; 11, ש&#39; 6- 22).
 
-
-
-	בנוסף, נקבע כי נוכח פרק הזמן שחלף מאז שנחשף המותב לחומרי החקירה בעניינו של המערער, וכן לכך שבמסגרת הפרשה הובאו לפניו למעלה מ-20 חשודים אחרים, הלכה למעשה &#34;אין לבית המשפט זיכרון ביחס לכל תיק ותיק&#34; ואף משכך יש לדחות את בקשת הפסלות (שם, בעמ&#39; 11, ש&#39; 21).
-
-
+בנוסף, נקבע כי נוכח פרק הזמן שחלף מאז שנחשף המותב לחומרי החקירה בעניינו של המערער, וכן לכך שבמסגרת הפרשה הובאו לפניו למעלה מ-20 חשודים אחרים, הלכה למעשה &#34;אין לבית המשפט זיכרון ביחס לכל תיק ותיק&#34; ואף משכך יש לדחות את בקשת הפסלות (שם, בעמ&#39; 11, ש&#39; 21).
 
 מכאן הערעור שלפניי שבמסגרתו חוזר המערער, בעיקרם של דברים, על טענותיו בבקשת הפסלות נושא הערעור. בתוך כך נטען, כי בשים להיקף הראיות שאליו נחשף המותב במסגרת הדיונים בהליכי המעצר, כמו גם עברו הפלילי של האחרון, יש להעביר את הדיון לפני מותב אחר. בהקשר זה טוען המערער, כי המותב נחשף לראיות רבות ומשמעותיות בעניינו – שעליהן אף חתם במסגרת הליכי המעצר – ובהן עדויות של הסוכן בנוגע לעסקאות הסמים שביצע לכאורה עם המערער; מסרונים שמתעדים לכאורה ביצוע של עסקת סמים; בקשה לקיום דיון בדלתיים סגורות ולהוצאת צו איסור פרסום; בקשה לצו חיפוש בעניינו של המערער וכן צו המעצר שניתן בעניינו. בנוסף, נטען כי סמיכות הזמנים בין היחשפותו של המותב לחומרים בעניינו של המערער לבין ניתוב ההליך העיקרי לניהולו – פרק זמן בן כחודשיים – מטה אף הוא את הכף לפסילתו של המותב. לבסוף, המערער טוען כי בשים לב לשלב המקדמי שבו מצוי ההליך, העברתו לפני מותב אחר לא צפויה לגרום לסרבולו; וממילא, לשיטתו, יש להעביר את הדיון לפני מותב אחר אף מטעמים של מראית פני הצדק.
 
-
-
 התבקשה תשובה. המשיבה טוענת, בעיקרם של דברים, כי בנסיבות העניין לא מתקיים חשש ממשי למשוא פנים ובהתאם דין הערעור להידחות. בפתח התשובה טענה המשיבה, כי בעיר אילת – שבה נידון עניינו של המערער – מכהנים אך שני שופטים שדנים בהליכים פליליים, כך שלא ניתן להימנע לחלוטין ממצב שבו אותו המותב ידון בעניינו של נאשם פלוני בהליכים שונים או ידון בהליכי המעצר ובהליך העיקרי. בהקשר זה טוענת המשיבה כי &#34;קבלת טענת פסלות במקרים שכאלה עלולה להוביל לכך שבית המשפט לא יוכל לדון בעניינו של עבריין חוזר והדבר יוביל לקושי של ממש&#34; (שם, סעיף 11; ההדגשה במקור – ע&#39; פ&#39;); וכי בניגוד לטענתו של המערער, גם המותב הנוסף שדן בעניינים פליליים (כב&#39; השופט אדלמן) נחשף לחומרי חקירה כשליווה את הליכי המעצר של נאשמים נוספים בפרשה. לגופם של דברים, המשיבה סומכת את ידה על קביעות המותב בהחלטת הפסלות נושא הערעור, ובהן הקביעה כי הראיות שאליהן נחשף בעניינו של המערער אינן עולות כדי &#34;מסה קריטית&#34; שתקים עילה לפסילתו; וכן כי בשים לב להיקף הפרשה וכמות הנאשמים בה, ממילא אין למותב זיכרון בנוגע לעניינו הפרטני של כל אחד מן הנאשמים. לבסוף, נטען כי המותב נחשף לחומרים בעניינו של המערער בחודשים אפריל-מאי 2024, אולם מאז חלף פרק זמן משמעותי, שאף הוא מצדיק את דחיית הערעור.
-
-
 
 לאחר שעיינתי בערעור על נספחיו ובתשובה שהוגשה, הגעתי לכלל מסקנה כי דינו להידחות. כידוע, אמת המידה לפסילת מותב מלשבת בדין היא התקיימותן של נסיבות שיוצרות חשש ממשי למשוא פנים בניהול ההליך (סעיף 77א(א) לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984; עפס&#34;פ 55568-09-24 מזרחי נ&#39; מדינת ישראל, פסקה 5 (15.12.2024); עפס&#34;פ 30290-09-24 סימן טוב נ&#39; גדות, פסקה 4 (9.12.2024); ע&#34;פ 5352/24 איזמאילוב נ&#39; מדינת ישראל, פסקה 6 (8.8.2024)). בנוסף, כפי שנפסק בעבר, היחשפותו של המותב לראיות בעניינו של נאשם – לרבות עברו הפלילי – וכן מצב דברים שבו מותב דן בהליכי המעצר בעניינו של נאשם עובר לדיון בהליך העיקרי, אינם מקימים כשלעצמם עילת פסלות (ע&#34;פ 8490/22 מטר נ&#39; מדינת ישראל, פסקה 9 (22.12.2022) (להלן: עניין מטר); ע&#34;פ 3947/21 ביטון נ&#39; מדינת ישראל, פסקאות 6-4 (4.7.2021)). בהקשר זה נקבע, בין היתר, כי במסגרת בחינת נסיבות המקרה הקונקרטי יש לבחון האם החומר שאליו נחשף המותב עולה כדי מסה קריטית שתקים עילה לפסילתו; וכן ליתן משקל, בין היתר, להיקף ואיכות הראיות שאליהן נחשף המותב, לפרק הזמן שחלף מרגע היחשפותו של המותב לחומרים ולמידה שבה נצרבו החומרים בזיכרונו, ולאמירותיו של המותב שנוגעות למוקד ההליך העיקרי (ע&#34;פ 5720/24 שמעוני נ&#39; מדינת ישראל, פסקה 5 (20.8.2024) (להלן: עניין שמעוני); ע&#34;פ 3458/23 שהאב נ&#39; מדינת ישראל, פסקה 8 (15.5.2023); ע&#34;פ 6909/21 עודה נ&#39; מדינת ישראל, פסקאות 21-22 (18.11.2021)). בשים לב לעקרונות שפורטו לעיל, איני סבור כי בנסיבות המקרה שלפניי קמה עילה לפסילתו של המותב.
 
-
-
 כאמור, לשיטת המערער היחשפותו של המותב לחומרים בעניינו במסגרת הליכי המעצר מלמדת על קיומו של חשש ממשי למשוא פנים ומקימה עילה לפסילתו. ואולם, כפי שהבהיר המותב בהחלטת הפסלות נושא הערעור, בשים לב להיקף הנאשמים בפרשה שבה הואשם המערער, כמו גם לפרק הזמן שחלף מרגע היחשפותו לחומרים והעובדה כי נחשף לחומרים במסגרת הליכי המעצר, לא שוכנעתי כי הדברים נחקקו בזיכרונו באופן שמקים עילה לפסילתו מלדון בהליך העיקרי בעניינו של המערער (עניין שמעוני, פסקה 6; כן ראו: ע&#34;פ 2747/23 זובידאת נ&#39; מדינת ישראל, פסקה 7 (4.4.2023); ע&#34;פ 8295/21 גטאצ&#39;ו נ&#39; מדינת ישראל (6.12.2021)). בנוסף, עיון בפרוטוקולים של הדיונים בהליכי המעצר מלמד כי מדובר בדיונים קצרים ותמציתיים, שלא כללו אמירות מהותיות של המותב בנוגע להליך העיקרי בעניינו של המערער, לא כל שכן התבטאויות שיש בהן כדי לבסס חשש ממשי לקיומו של משוא פנים שיקים עילה לפסילתו של המותב (ע&#34;פ 3466/23 כהן נ&#39; מדינת ישראל, פסקה 10 (11.6.2023); עניין מטר, פסקאות 13-10; ע&#34;פ 7731/20 ונונו נ&#39; ועדה מקומית לתכנון ובנייה אצבע הגליל, פסקה 5 (15.11.2020)). לבסוף, יצוין כי כפי שנקבע בעבר, אף העובדה כי עסקינן בבית משפט שבו מספר מועט של שופטים מכהנים עולה כדי שיקול רלוונטי בהכרעה במקרים מסוג זה (ראו והשוו: ע&#34;פ 7221/19 אלמקיאס נ&#39; מדינת ישראל, פסקה 3 (11.11.2019)).
 
+משאלה הם פני הדברים, איני סבור כי נסיבות המקרה שלפניי מקימות עילה להעברת הדיון לפני מותב אחר, אף לא מטעמים של מראית פני הצדק.
 
-
-	משאלה הם פני הדברים, איני סבור כי נסיבות המקרה שלפניי מקימות עילה להעברת הדיון לפני מותב אחר, אף לא מטעמים של מראית פני הצדק.
-
-
-
-	הערעור נדחה אפוא.
-
-
+הערעור נדחה אפוא.
 
 ניתן היום, ט&#34;ו כסלו תשפ&#34;ה (16 דצמבר 2024).
-
-
-
-
-
-
-
-
-
-
 
 עוזי פוגלמן
 
@@ -1699,7 +1910,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

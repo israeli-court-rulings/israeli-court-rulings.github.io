@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    07/11/2001 (לפני 8945 ימים)
+                    07/11/2001 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/78-01.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="78/01 - רס&#34;ב שלמה טקסירו נ. השר לבטחון פנים"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F78-01.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/780/000/L11&amp;fileName=01000780_L11.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/780/000/L11&amp;fileName=01000780_L11.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/780/000/L11&amp;fileName=01000780_L11.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/780/000/L11&amp;fileName=01000780_L11.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,13 +1827,11 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            בבית-המשפט העליון בשבתו
-כבית-משפט גבוה לצדק
+            בבית-המשפט העליון בשבתו כבית-משפט גבוה לצדק
 
 בג&#34;ץ 78/01
 
-בפני: כבוד
-השופטת ד&#39; דורנר
+בפני: כבוד השופטת ד&#39; דורנר
 
 כבוד השופט י&#39; טירקל
 
@@ -1576,158 +1845,73 @@
 
 2. מפכ&#34;ל המשטרה
 
-התנגדות
-לצו מוחלט וצו ביניים
+התנגדות לצו מוחלט וצו ביניים
 
-תאריכי
-הישיבות: כ&#34;ט בשבט תשס&#34;א (22.2.01);
-ט&#34;ו באלול תשס&#34;א (3.9.01)
+תאריכי הישיבות: כ&#34;ט בשבט תשס&#34;א (22.2.01); ט&#34;ו באלול תשס&#34;א (3.9.01)
 
-בשם
-העותר: עו&#34;ד יהודה ליאון
+בשם העותר: עו&#34;ד יהודה ליאון
 
-בשם
-המשיבים: עו&#34;ד רוקסנה שרמן-למדן; עו&#34;ד יעל ברלב
+בשם המשיבים: עו&#34;ד רוקסנה שרמן-למדן; עו&#34;ד יעל ברלב
 
 פסק-דין
 
 השופטת ד&#39; דורנר:
 
-העותר, המשרת מזה כ24- שנים במשטרת ישראל,
-נחקר באזהרה בשנת 1997 על-ידי המחלקה לחקירות שוטרים במשטרת ישראל בחשד שמסר, שלא
-כדין, מידע שהוציא מתוך מאגר-מידע משטרתי לחוקר פרטי בשם דוד סופרין. כעבור זמן-מה
-הודע לעותר, כי הגם שקיים חשד סביר לביצוע עבירה, התיק נגדו נסגר מחוסר ראיות.
-שלוש שנים לאחר-מכן, בתאריך 5.12.00, נעצר העותר על-ידי המחלקה לחקירות שוטרים
-בחשד שמסר פעם נוספת מידע מתוך המסוף המשטרתי. בחקירתו הודה העותר, כי לפחות פעם
-אחת מסר לסופרין, לצורך עבודת הלה כחוקר פרטי, מידע על בעלות רכב; וכן כי מסר
-לסופרין מידע על יציאתם של שני אנשים מן הארץ. לאחר שנערך לעותר שימוע, הודע לעותר
-כי הוחלט לפטרו מן המשטרה.
+העותר, המשרת מזה כ24- שנים במשטרת ישראל, נחקר באזהרה בשנת 1997 על-ידי המחלקה לחקירות שוטרים במשטרת ישראל בחשד שמסר, שלא כדין, מידע שהוציא מתוך מאגר-מידע משטרתי לחוקר פרטי בשם דוד סופרין. כעבור זמן-מה הודע לעותר, כי הגם שקיים חשד סביר לביצוע עבירה, התיק נגדו נסגר מחוסר ראיות. שלוש שנים לאחר-מכן, בתאריך 5.12.00, נעצר העותר על-ידי המחלקה לחקירות שוטרים בחשד שמסר פעם נוספת מידע מתוך המסוף המשטרתי. בחקירתו הודה העותר, כי לפחות פעם אחת מסר לסופרין, לצורך עבודת הלה כחוקר פרטי, מידע על בעלות רכב; וכן כי מסר לסופרין מידע על יציאתם של שני אנשים מן הארץ. לאחר שנערך לעותר שימוע, הודע לעותר כי הוחלט לפטרו מן המשטרה.
 
-או אז הגיש העותר את העתירה שבפנינו. בעתירתו
-טען, כי לא נתמלאו התנאים שנקבעו בפקודות הקבע של המשטרה לפיטורי שוטר: לטענתו,
-המעשה שבו הודה אינו מהווה עבירה לפי חוק הגנת הפרטיות, תשמ&#34;א1981-; מדובר
-במעשה חד-פעמי, שנעשה בתום-לב; ואין מדובר בעבירה שיש עימה קלון. עוד טען העותר,
-כי ההחלטה לפטרו אינה מידתית, וזאת נוכח שירותו הארוך ותרומתו הרבה למשטרה, לצד
-ההשלכות הקשות שיהיו לפיטוריו, מחד-גיסא, וחומרתו היחסית של המעשה שביצע,
-מאידך-גיסא. בהקשר זה טען העותר, כי לא ידע שסופרין, שאותו הכיר כמי ששירת בעבר במשטרה,
-מתעתד לעשות שימוש במידע לצורך עבודתו כחוקר פרטי, וכי לא נשקלה החרטה העמוקה
-שהביע העותר על מעשיו. עוד נטען, כי ההחלטה לפטר את העותר נגועה בהפלייה, וזאת
-לנוכח העובדה ששוטרים אחרים שהורשעו בעבירות שיש עימן קלון לא סולקו משורות
-המשטרה.
+או אז הגיש העותר את העתירה שבפנינו. בעתירתו טען, כי לא נתמלאו התנאים שנקבעו בפקודות הקבע של המשטרה לפיטורי שוטר: לטענתו, המעשה שבו הודה אינו מהווה עבירה לפי חוק הגנת הפרטיות, תשמ&#34;א1981-; מדובר במעשה חד-פעמי, שנעשה בתום-לב; ואין מדובר בעבירה שיש עימה קלון. עוד טען העותר, כי ההחלטה לפטרו אינה מידתית, וזאת נוכח שירותו הארוך ותרומתו הרבה למשטרה, לצד ההשלכות הקשות שיהיו לפיטוריו, מחד-גיסא, וחומרתו היחסית של המעשה שביצע, מאידך-גיסא. בהקשר זה טען העותר, כי לא ידע שסופרין, שאותו הכיר כמי ששירת בעבר במשטרה, מתעתד לעשות שימוש במידע לצורך עבודתו כחוקר פרטי, וכי לא נשקלה החרטה העמוקה שהביע העותר על מעשיו. עוד נטען, כי ההחלטה לפטר את העותר נגועה בהפלייה, וזאת לנוכח העובדה ששוטרים אחרים שהורשעו בעבירות שיש עימן קלון לא סולקו משורות המשטרה.
 
-בתצהיר תשובתה לעתירה הודיעה המדינה, כי
-מחקירת העותר בפרשה הנוכחית עלו ראיות לכאורה לכך שהעותר, הגם שהכחיש זאת, קיבל
-תשלום תמורת מסירת המידע; וכי אף אם לא תוכח קבלת תמורה העותר ביצע עבירה
-&#34;שיש עימה קלון&#34;, המוגדרת בפקודות הקבע של המשטרה כ&#34;עבירה שיש בה,
-על פי טיבה ועל פי נסיבות ביצועה, משום חוסר ניקיון כפיים, או פגיעה בטוהר המידות,
-או פגיעה באמות המידה המוסריות, המחייבות אדם במעמד של איש משטרה&#34;; וכן
-עבירות של מרמה הפרת אמונים, שימוש לרעה בכוח המשרה, וכן עבירה על חוק הגנת
-הפרטיות, תשמ&#34;א1981-. המדינה הודיעה עוד, כי מכלול נסיבותיו של העותר נשקל,
-ובין היתר העובדה שאין מדובר במעידה חד-פעמית של העותר, מחד-גיסא; וכן העובדה שחרף
-פיטוריו יהיה העותר זכאי לקבל את הגימלה המגיעה לו עקב שירותו, מאידך-גיסא. המדינה
-הסבירה, כי על-פי פקודות הקבע של המשטרה, יש לפטר איש משטרה החשוד בביצוע עבירה
-שיש עימה קלון, שהודה בכתב בביצוע העבירה או שנתגלו ראיות בלתי תלויות וחד-משמעיות
-המבססות את החשד כנגדו, אף אם טרם הוגש בעניינו כתב-אישום. עוד טענה המדינה, כי
-העותר מיתמם בטענו כי לא ידע שמעשהו מהווה לכאורה עבירה פלילית, בפרט לנוכח האזהרה
-הנמסרת לכל שוטר המקבל גישה למאגרי-מידע שבהישג המשטרה, ולנוכח הודאת העותר עצמו
-בפני חוקרי המחלקה לחקירת שוטרים, כי ידע שמעשיו אסורים.
+בתצהיר תשובתה לעתירה הודיעה המדינה, כי מחקירת העותר בפרשה הנוכחית עלו ראיות לכאורה לכך שהעותר, הגם שהכחיש זאת, קיבל תשלום תמורת מסירת המידע; וכי אף אם לא תוכח קבלת תמורה העותר ביצע עבירה &#34;שיש עימה קלון&#34;, המוגדרת בפקודות הקבע של המשטרה כ&#34;עבירה שיש בה, על פי טיבה ועל פי נסיבות ביצועה, משום חוסר ניקיון כפיים, או פגיעה בטוהר המידות, או פגיעה באמות המידה המוסריות, המחייבות אדם במעמד של איש משטרה&#34;; וכן עבירות של מרמה הפרת אמונים, שימוש לרעה בכוח המשרה, וכן עבירה על חוק הגנת הפרטיות, תשמ&#34;א1981-. המדינה הודיעה עוד, כי מכלול נסיבותיו של העותר נשקל, ובין היתר העובדה שאין מדובר במעידה חד-פעמית של העותר, מחד-גיסא; וכן העובדה שחרף פיטוריו יהיה העותר זכאי לקבל את הגימלה המגיעה לו עקב שירותו, מאידך-גיסא. המדינה הסבירה, כי על-פי פקודות הקבע של המשטרה, יש לפטר איש משטרה החשוד בביצוע עבירה שיש עימה קלון, שהודה בכתב בביצוע העבירה או שנתגלו ראיות בלתי תלויות וחד-משמעיות המבססות את החשד כנגדו, אף אם טרם הוגש בעניינו כתב-אישום. עוד טענה המדינה, כי העותר מיתמם בטענו כי לא ידע שמעשהו מהווה לכאורה עבירה פלילית, בפרט לנוכח האזהרה הנמסרת לכל שוטר המקבל גישה למאגרי-מידע שבהישג המשטרה, ולנוכח הודאת העותר עצמו בפני חוקרי המחלקה לחקירת שוטרים, כי ידע שמעשיו אסורים.
 
-המדינה הוסיפה, כי יש מקום לפיטורי העותר גם
-נוכח החומרה הרבה שמייחסת המשטרה, המנהלת מאגרי-מידע רגישים, לשימוש שלא-כדין בהם;
-והקושי הרב לפקח על השימוש הנעשה מדי יום ביומו במאגרים אלו. בהקשר זה הוסבר, כי
-מזה מספר חודשים מתנהלת חקירה בענין שוטרים נוספים החשודים במסירת מידע מתוך מאגרי
-המידע המשטרתיים לחוקרים פרטיים. עוד נטען, כי גם בעבר נקטה המשטרה בהליך של
-פיטורי שוטרים שהיו מעורבים בעבירות של מסירת מידע שלא כדין, למעט במקרים שבהם
-השימוש במידע היה - שלא כמו במקרהו של העותר - לצורך אישי בלבד, שאז הסתפקה המשטרה
-בהעמדת השוטר לדין משמעתי.
+המדינה הוסיפה, כי יש מקום לפיטורי העותר גם נוכח החומרה הרבה שמייחסת המשטרה, המנהלת מאגרי-מידע רגישים, לשימוש שלא-כדין בהם; והקושי הרב לפקח על השימוש הנעשה מדי יום ביומו במאגרים אלו. בהקשר זה הוסבר, כי מזה מספר חודשים מתנהלת חקירה בענין שוטרים נוספים החשודים במסירת מידע מתוך מאגרי המידע המשטרתיים לחוקרים פרטיים. עוד נטען, כי גם בעבר נקטה המשטרה בהליך של פיטורי שוטרים שהיו מעורבים בעבירות של מסירת מידע שלא כדין, למעט במקרים שבהם השימוש במידע היה - שלא כמו במקרהו של העותר - לצורך אישי בלבד, שאז הסתפקה המשטרה בהעמדת השוטר לדין משמעתי.
 
-בדיון שנערך בפנינו הצענו למדינה לשקול להימנע
-מפיטורי העותר בשלב זה, ולהעמידו לדין משמעתי, שעל-פי תוצאותיו יוחלט אם אומנם
-לפטר את העותר. ברם, המדינה הודיעה, כי הגיעה לכלל דעה כי אין מקום להעמיד את
-העותר לדין משמעתי ואף אין מקום לשנות מהחלטתה. המדינה הסבירה, כי יש כוונה להגיש
-כתב-אישום כנגד העותר בעבירה של לקיחת שוחד, וכי על רקע זה - כנהוג וכמתחייב
-מהוראות סעיף 55ב לפקודת המשטרה [נוסח חדש], תשל&#34;א1971- וסעיף 61 לחוק שירות
-המדינה (משמעת), תשכ&#34;ג1963- - יש לעכב את ההליכים המשמעתיים נגד העותר.
-המדינה הוסיפה והדגישה את השוני בין אופיין של העמדה לדין משמעתי במסגרת
-שירות-המדינה לבין העמדה לדין משמעתי במסגרת המשטרה, הנשען, בין היתר, על התפישה
-שעל המשטרה מוטלת חובה מוגברת לשמור על טוהר השירות.
+בדיון שנערך בפנינו הצענו למדינה לשקול להימנע מפיטורי העותר בשלב זה, ולהעמידו לדין משמעתי, שעל-פי תוצאותיו יוחלט אם אומנם לפטר את העותר. ברם, המדינה הודיעה, כי הגיעה לכלל דעה כי אין מקום להעמיד את העותר לדין משמעתי ואף אין מקום לשנות מהחלטתה. המדינה הסבירה, כי יש כוונה להגיש כתב-אישום כנגד העותר בעבירה של לקיחת שוחד, וכי על רקע זה - כנהוג וכמתחייב מהוראות סעיף 55ב לפקודת המשטרה [נוסח חדש], תשל&#34;א1971- וסעיף 61 לחוק שירות המדינה (משמעת), תשכ&#34;ג1963- - יש לעכב את ההליכים המשמעתיים נגד העותר. המדינה הוסיפה והדגישה את השוני בין אופיין של העמדה לדין משמעתי במסגרת שירות-המדינה לבין העמדה לדין משמעתי במסגרת המשטרה, הנשען, בין היתר, על התפישה שעל המשטרה מוטלת חובה מוגברת לשמור על טוהר השירות.
 
-על יסוד התשתית העובדתית שנתגבשה מתוך תצהיר
-תשובתה של המדינה, השאלה המתעוררת בפנינו היא אם יש עילה להתערב בשיקול-דעתה של
-המשטרה, שביקשה לפעול על יסוד פקודות הקבע שלה, שהן בגדר הנחיות מינהליות שקבעה
-לעצמה.
+על יסוד התשתית העובדתית שנתגבשה מתוך תצהיר תשובתה של המדינה, השאלה המתעוררת בפנינו היא אם יש עילה להתערב בשיקול-דעתה של המשטרה, שביקשה לפעול על יסוד פקודות הקבע שלה, שהן בגדר הנחיות מינהליות שקבעה לעצמה.
 
-ככלל, התערבותו של בית-משפט זה בשיקול-דעתן של
-רשויות המינהל בהחליטן על האמצעים שיינקטו לצורך אכיפת משמעת בין שורותיהן, היא
-מצומצמת. הסביר זאת הנשיא מאיר שמגר:
+ככלל, התערבותו של בית-משפט זה בשיקול-דעתן של רשויות המינהל בהחליטן על האמצעים שיינקטו לצורך אכיפת משמעת בין שורותיהן, היא מצומצמת. הסביר זאת הנשיא מאיר שמגר:
 
-אמות
-המידה בדבר ההולם ובדבר האמצעי הנדרש בעקבות מעשה בלתי הולם נקבעות במידה רבה
-על-ידי המסגרות המקצועיות עצמן, וזאת, כמובן, באותו היקף שהותווה בחוק
-ועל-ידי המוסדות שהוסמכו לכך בדין. בשל כך, ערכאה זאת לא תמהר להתערב בעונש
-משמעתי, אף אם הוא סוטה לטעמה במידת מה לחומרה או לקולא. רק סטייה מהותית לקולא או
-לחומרה, משגה מהותי בשיקול הדעת או הטלת עונש המחטיא באופן ברור וגלוי את מטרתו
-יצדיקו התערבותה של ערכאה זו.
+אמות המידה בדבר ההולם ובדבר האמצעי הנדרש בעקבות מעשה בלתי הולם נקבעות במידה רבה על-ידי המסגרות המקצועיות עצמן, וזאת, כמובן, באותו היקף שהותווה בחוק ועל-ידי המוסדות שהוסמכו לכך בדין. בשל כך, ערכאה זאת לא תמהר להתערב בעונש משמעתי, אף אם הוא סוטה לטעמה במידת מה לחומרה או לקולא. רק סטייה מהותית לקולא או לחומרה, משגה מהותי בשיקול הדעת או הטלת עונש המחטיא באופן ברור וגלוי את מטרתו יצדיקו התערבותה של ערכאה זו.
 
-[ע&#34;א
-412/90 אליהו נ&#39; שר הבריאות, פ&#34;ד מד(4) 422, בע&#39; 427. ההדגשה במקור]
+[ע&#34;א 412/90 אליהו נ&#39; שר הבריאות, פ&#34;ד מד(4) 422, בע&#39; 427. ההדגשה במקור]
 
-אף שהנקיטה באמצעי המשמעתי נושאת עימה עונש
-למי שהאמצעי ננקט כלפיו, הרי שתכליתה המרכזית היא שמירה על תפקודו ותדמיתו של
-השירות הציבורי. ראו עש&#34;מ 356/96 פלוני נ&#39; נציבות שירות המדינה (טרם
-פורסם). את האמצעי המשמעתי שננקט יש לבחון איפוא על-פי תכלית זו.
+אף שהנקיטה באמצעי המשמעתי נושאת עימה עונש למי שהאמצעי ננקט כלפיו, הרי שתכליתה המרכזית היא שמירה על תפקודו ותדמיתו של השירות הציבורי. ראו עש&#34;מ 356/96 פלוני נ&#39; נציבות שירות המדינה (טרם פורסם). את האמצעי המשמעתי שננקט יש לבחון איפוא על-פי תכלית זו.
 
-במקרה שבפנינו, חרף התוצאה הקשה מבחינת העותר,
-אין עילה להתערבותנו בהחלטה לפטרו, שהתקבלה בגדר פעילותה של המשטרה לסילוק
-משורותיה שוטרים שבטוהר מידותיהם הוטל ספק. זאת, כאשר תפקידה הציבורי של המשטרה
-באכיפת החוק מבליט את חובתה להקפיד על יושרם של המשרתים בה, ועל רקע תופעה נשנית
-של שימוש שלא כדין במאגרי-מידע, שלמשטרה מוקנית גישה אליהם.
+במקרה שבפנינו, חרף התוצאה הקשה מבחינת העותר, אין עילה להתערבותנו בהחלטה לפטרו, שהתקבלה בגדר פעילותה של המשטרה לסילוק משורותיה שוטרים שבטוהר מידותיהם הוטל ספק. זאת, כאשר תפקידה הציבורי של המשטרה באכיפת החוק מבליט את חובתה להקפיד על יושרם של המשרתים בה, ועל רקע תופעה נשנית של שימוש שלא כדין במאגרי-מידע, שלמשטרה מוקנית גישה אליהם.
 
-כאמור, למרות פיטוריו יהיה העותר זכאי לגימלה,
-ששיעורה ייקבע, בין היתר, על יסוד מספר השנים שבהן שירת במשטרה, ואשר עומדות
-לזכותו. בכך מושג איזון הולם בין הצורך לנקוט באמצעי המשמעתי לבין הפגיעה בעותר.
+כאמור, למרות פיטוריו יהיה העותר זכאי לגימלה, ששיעורה ייקבע, בין היתר, על יסוד מספר השנים שבהן שירת במשטרה, ואשר עומדות לזכותו. בכך מושג איזון הולם בין הצורך לנקוט באמצעי המשמעתי לבין הפגיעה בעותר.
 
-אשר-על-כן, אני מציעה לדחות את העתירה, ולחייב
-את העותר בהוצאות המדינה בסך 10,000 ש&#34;ח.
+אשר-על-כן, אני מציעה לדחות את העתירה, ולחייב את העותר בהוצאות המדינה בסך 10,000 ש&#34;ח.
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
 השופט י&#39; טירקל:
 
 אני מסכים.
 
-ש
-ו פ ט
+ש ו פ ט
 
 השופט א&#39; ריבלין:
 
 אני מסכים.
 
-ש
-ו פ ט
+ש ו פ ט
 
 הוחלט כאמור בפסק-דינה של השופטת דורנר.
 
-ניתן היום, כ&#34;א בחשוון תשס&#34;ב
-(7.11.01).
+ניתן היום, כ&#34;א בחשוון תשס&#34;ב (7.11.01).
 
-ש ו פ ט ת ש
-ו פ ט ש ו פ ט
+ש ו פ ט ת ש ו פ ט ש ו פ ט
 
 _________________
 
-העתק
-מתאים למקור 01000780.L11
+העתק מתאים למקור 01000780.L11
 
-נוסח
-זה כפוף לשינויי עריכה וניסוח.
+נוסח זה כפוף לשינויי עריכה וניסוח.
 
-שמריהו
-כהן - מזכיר ראשי
+שמריהו כהן - מזכיר ראשי
 
-בבית
-המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
+בבית המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
         </div>
     </section>
     
@@ -1746,7 +1930,7 @@ _________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

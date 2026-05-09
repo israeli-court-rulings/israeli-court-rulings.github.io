@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    03/12/2007 (לפני 6728 ימים)
+                    03/12/2007 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8878-06.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8878/06 - אברהם אטל נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8878-06.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/780/088/O02&amp;fileName=06088780_o02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/780/088/O02&amp;fileName=06088780_o02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/780/088/O02&amp;fileName=06088780_o02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/780/088/O02&amp;fileName=06088780_o02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,11 +1829,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק ע&#34;פ 8878/06
 
-בבית המשפט העליון בשבתו כבית משפט
-לערעורים פליליים
+בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
-ע&#34;פ
-8878/06
+ע&#34;פ 8878/06
 
 בפני:
 
@@ -1582,14 +1851,11 @@
 
 מדינת ישראל
 
-ערעור על פסק-דינו של בית המשפט
-המחוזי בבאר-שבע, מיום 19.10.06, בתיק פלילי 8280/50, שניתן על ידי כבוד השופט
-א&#39; ואגו
+ערעור על פסק-דינו של בית המשפט המחוזי בבאר-שבע, מיום 19.10.06, בתיק פלילי 8280/50, שניתן על ידי כבוד השופט א&#39; ואגו
 
 תאריך הישיבה:
 
-כ&#34;ג בכסלו
-התשס&#34;ח
+כ&#34;ג בכסלו התשס&#34;ח
 
 (03.12.07)
 
@@ -1605,86 +1871,19 @@
 
 השופט א&#39; א&#39; לוי:
 
-1. בית המשפט המחוזי הרשיע
-את המערער במספר אישומים, שבמרכזם ניצבת עבירה של סחיטה באיומים. נטען, כי
-קורבנותיו של המערער היו שני בעלי עסקים בשוק העירוני באשקלון. האחד הוא שמשון אזרזר
-(להלן: המתלונן), שחנותו למכירת תבלינים נשרפה בשנת 2004. כשבוע לאחר השריפה הגיע
-המערער לחנות וטען בפני המתלונן כי הוא יודע מי שרף אותה, וביקש 100 ש&#34;ח.
-בעקבות אותו ביקור עשה לו המערער נוהג, לבקר בחנות בשעת בוקר מוקדמת ולדרוש
-מהבעלים כסף. משזה החל לגלות התנגדות, איים המערער לשרוף את החנות, ולדקור את
-המתלונן, וכן לשפוך שתן וצואה על הסחורה מתוך בקבוק שהחזיק בידו. עקב חששו מסר
-המתלונן למערער סכומים שנעו בין 200 ש&#34;ח ל-500 ש&#34;ח בכל פעם. גם בעת
-שהמערער שהה במעצר הוא לא הרפה מקורבנו, ובשיחות טלפון דרש ממנו כי יעביר לו כסף
-באמצעות אחד – קלוד אבוטבול, או יפקיד את הכסף בחשבונו בבנק. מששוחרר המערער
-ממעצרו, הוא חזר לפקוד את חנותו של המתלונן, וזה האחרון נאלץ לשלם לו כדי למנוע
-מעצמו נזק. אירוע נוסף מסוג זה התרחש בתאריך 15.9.06, שבעקבותיו פנה המתלונן
-למשטרה, וזו ציידה את בנו, שעבד בחנות, במכשיר הקלטה ושטרות כסף מסומנים. בתאריך
-16.9.06 הגיע המערער לחנות כשהוא מחזיק כוס ובתוכה צואה, ושני בקבוקים שהכילו פסולת
-אנושית. גם הפעם הוא דרש לקבל כסף, ומשנמסר לו סכום של 200 ש&#34;ח, הוא דרש כי
-יינתן לו סכום נוסף. לאחר שעזב המערער את החנות, ניגשו שוטרים לעצור אותו, והוא גילה
-התנגדות, ואף איים על השוטרים תחילה עם סכין ואחר כך עם מברג. משהובא לתחנה המשטרה,
-איים המערער על אחד השוטרים כי לאחר שישתחרר ידקור אותו. באישום נוסף נטען, כי
-המערער סחט גם בעל אטליז באותו שוק – קלוד אבוטבול. אולם, זה האחרון סרב לתת לו
-כסף, וכאשר אויים עם מקל שלקצהו היה קשור סכין גילוח, נתן קלוד למערער, במספר
-הזדמנויות, נתחי בשר.
+1. בית המשפט המחוזי הרשיע את המערער במספר אישומים, שבמרכזם ניצבת עבירה של סחיטה באיומים. נטען, כי קורבנותיו של המערער היו שני בעלי עסקים בשוק העירוני באשקלון. האחד הוא שמשון אזרזר (להלן: המתלונן), שחנותו למכירת תבלינים נשרפה בשנת 2004. כשבוע לאחר השריפה הגיע המערער לחנות וטען בפני המתלונן כי הוא יודע מי שרף אותה, וביקש 100 ש&#34;ח. בעקבות אותו ביקור עשה לו המערער נוהג, לבקר בחנות בשעת בוקר מוקדמת ולדרוש מהבעלים כסף. משזה החל לגלות התנגדות, איים המערער לשרוף את החנות, ולדקור את המתלונן, וכן לשפוך שתן וצואה על הסחורה מתוך בקבוק שהחזיק בידו. עקב חששו מסר המתלונן למערער סכומים שנעו בין 200 ש&#34;ח ל-500 ש&#34;ח בכל פעם. גם בעת שהמערער שהה במעצר הוא לא הרפה מקורבנו, ובשיחות טלפון דרש ממנו כי יעביר לו כסף באמצעות אחד – קלוד אבוטבול, או יפקיד את הכסף בחשבונו בבנק. מששוחרר המערער ממעצרו, הוא חזר לפקוד את חנותו של המתלונן, וזה האחרון נאלץ לשלם לו כדי למנוע מעצמו נזק. אירוע נוסף מסוג זה התרחש בתאריך 15.9.06, שבעקבותיו פנה המתלונן למשטרה, וזו ציידה את בנו, שעבד בחנות, במכשיר הקלטה ושטרות כסף מסומנים. בתאריך 16.9.06 הגיע המערער לחנות כשהוא מחזיק כוס ובתוכה צואה, ושני בקבוקים שהכילו פסולת אנושית. גם הפעם הוא דרש לקבל כסף, ומשנמסר לו סכום של 200 ש&#34;ח, הוא דרש כי יינתן לו סכום נוסף. לאחר שעזב המערער את החנות, ניגשו שוטרים לעצור אותו, והוא גילה התנגדות, ואף איים על השוטרים תחילה עם סכין ואחר כך עם מברג. משהובא לתחנה המשטרה, איים המערער על אחד השוטרים כי לאחר שישתחרר ידקור אותו. באישום נוסף נטען, כי המערער סחט גם בעל אטליז באותו שוק – קלוד אבוטבול. אולם, זה האחרון סרב לתת לו כסף, וכאשר אויים עם מקל שלקצהו היה קשור סכין גילוח, נתן קלוד למערער, במספר הזדמנויות, נתחי בשר.
 
-2. המערער כפר בעובדות שיוחסו לו, ואף הרחיק לכת עד כדי טענה שהיתה
-זו המשטרה אשר דרבנה את בעלי העסקים להפלילו. בית המשפט המחוזי לא נתן אמון בגרסה
-זו, ולאחר שעיינו עיין היטב בהכרעת-הדין, והאזנו לטיעוניו של הסנגור בפנינו, לא
-מצאנו עילה להתערב במסקנותיה של הערכאה קמא. נהפוך הוא, אנו סבורים כי מעשי הסחיטה
-הוכחו כדבעי, הן משום שלאותה טענה בדבר קשר שקשרו המתלוננים עם המשטרה להפלילו, לא
-נמצא ולו בדל של ראיה, והן משום שבפני בית המשפט הונחו ראיות נוספות המסלקות כל
-ספק בדבר מעורבותו של המערער במעשים אשר יוחסו לו. ראייה מסוג זה היא הדו&#34;ח
-נ/3ב&#39;, בו מתואר תהליך מעצרו של המערער ביום 16.9.05, ובו נאמר כי עובר למעצר נראה
-המערער זורק מידיו שקיות שלאחר תפיסתן התברר כי הכילו שני בקבוקים ובהם שתן וצואה.
-יתר על כן, מתוך השיחה המוקלטת עם המערער (ראו ת/16א&#39; ות/14א&#39;) עולה, כי המערער
-האיץ בשמעון אזרזר למסור לידיו כסף, וכאשר נמסר לו שטר של 50 ש&#34;ח הגיב בביטול:
-&#34;מה זה 50 ש&#34;ח&#34;, משל היה זה דו שיח בין נושה לחייב; כאשר אזרזר הוסיף
-ונתן לו 3 שטרות מסוג זה, התרעם המערער: &#34;מה אתה נותן לי אחד אחד תן לי... מה
-יעשו לי 200... תן לי עוד 50 וזהו&#34;. אותם שטרות נתפסו בחזקת המערער לאחר
-מעצרו. ראייה נוספת היא הודעה שנרשמה מפיה של ליזה אתאל, אמו של המערער (ראו ת/23).
-עדה זו מסרה כי קלוד אבוטבול נהג לתת לה כסף עבור המערער בעת שהיה במעצר, אולם
-הכחישה כי קלוד פחד מבנה, ובלשונה (ראו עמ&#39; 1 להודעה): &#34;קלוד נותן לו בכבוד, לא
-בכוח, כמו אבא... היה נותן לי כן. פעם נתן לי מאה שקל ופעם חמישים שקל. רק פעמיים.
-אברהם היה מתקשר לקלוד ואומר לו להביא לי כסף... קלוד רחמן הוא נותן לכל אחד לא רק
-לאברהם&#34;. ובתשובה לטענה לפיה שילם קלוד למערער עקב פחדו ממנו, השיבה העדה
-(ראו עמ&#39; 2): &#34;הוא לא פחד ממנו, קלוד נותן בכבוד, קלוד אומר שהוא
-פוחד כי נמאס לו לתת [למערער] כסף, שבא לקחת ממנו כסף, עוד לפני שמכר משהו&#34; (ההדגשה הוספה). הנה כי כן, בפנינו עדות ממקור
-ראשון ולפיה לא רק נתחי בשר נטל המערער מקלוד, אלא גם כסף מזומן, ואם קלוד עצמו
-העיד אחרת, מותר להניח כי עשה זאת מחמת חששו מהמערער. עליזה אתאל הוסיפה ואישרה כי
-בנה נטל כסף גם משמעון אזרזר (ראו עמ&#39; 2 להודעה), אף שטרחה להוסיף כי אזרזר לא עשה
-זאת בכוח, אלא &#34;שילם בכבוד&#34;. ודי להאזין לשיחה ת/16 בין השנים, כדי
-להבין שלפחות רכיב של &#34;כבוד&#34; לא היה ביחסיהם של השניים.
+2. המערער כפר בעובדות שיוחסו לו, ואף הרחיק לכת עד כדי טענה שהיתה זו המשטרה אשר דרבנה את בעלי העסקים להפלילו. בית המשפט המחוזי לא נתן אמון בגרסה זו, ולאחר שעיינו עיין היטב בהכרעת-הדין, והאזנו לטיעוניו של הסנגור בפנינו, לא מצאנו עילה להתערב במסקנותיה של הערכאה קמא. נהפוך הוא, אנו סבורים כי מעשי הסחיטה הוכחו כדבעי, הן משום שלאותה טענה בדבר קשר שקשרו המתלוננים עם המשטרה להפלילו, לא נמצא ולו בדל של ראיה, והן משום שבפני בית המשפט הונחו ראיות נוספות המסלקות כל ספק בדבר מעורבותו של המערער במעשים אשר יוחסו לו. ראייה מסוג זה היא הדו&#34;ח נ/3ב&#39;, בו מתואר תהליך מעצרו של המערער ביום 16.9.05, ובו נאמר כי עובר למעצר נראה המערער זורק מידיו שקיות שלאחר תפיסתן התברר כי הכילו שני בקבוקים ובהם שתן וצואה. יתר על כן, מתוך השיחה המוקלטת עם המערער (ראו ת/16א&#39; ות/14א&#39;) עולה, כי המערער האיץ בשמעון אזרזר למסור לידיו כסף, וכאשר נמסר לו שטר של 50 ש&#34;ח הגיב בביטול: &#34;מה זה 50 ש&#34;ח&#34;, משל היה זה דו שיח בין נושה לחייב; כאשר אזרזר הוסיף ונתן לו 3 שטרות מסוג זה, התרעם המערער: &#34;מה אתה נותן לי אחד אחד תן לי... מה יעשו לי 200... תן לי עוד 50 וזהו&#34;. אותם שטרות נתפסו בחזקת המערער לאחר מעצרו. ראייה נוספת היא הודעה שנרשמה מפיה של ליזה אתאל, אמו של המערער (ראו ת/23). עדה זו מסרה כי קלוד אבוטבול נהג לתת לה כסף עבור המערער בעת שהיה במעצר, אולם הכחישה כי קלוד פחד מבנה, ובלשונה (ראו עמ&#39; 1 להודעה): &#34;קלוד נותן לו בכבוד, לא בכוח, כמו אבא... היה נותן לי כן. פעם נתן לי מאה שקל ופעם חמישים שקל. רק פעמיים. אברהם היה מתקשר לקלוד ואומר לו להביא לי כסף... קלוד רחמן הוא נותן לכל אחד לא רק לאברהם&#34;. ובתשובה לטענה לפיה שילם קלוד למערער עקב פחדו ממנו, השיבה העדה (ראו עמ&#39; 2): &#34;הוא לא פחד ממנו, קלוד נותן בכבוד, קלוד אומר שהוא פוחד כי נמאס לו לתת [למערער] כסף, שבא לקחת ממנו כסף, עוד לפני שמכר משהו&#34; (ההדגשה הוספה). הנה כי כן, בפנינו עדות ממקור ראשון ולפיה לא רק נתחי בשר נטל המערער מקלוד, אלא גם כסף מזומן, ואם קלוד עצמו העיד אחרת, מותר להניח כי עשה זאת מחמת חששו מהמערער. עליזה אתאל הוסיפה ואישרה כי בנה נטל כסף גם משמעון אזרזר (ראו עמ&#39; 2 להודעה), אף שטרחה להוסיף כי אזרזר לא עשה זאת בכוח, אלא &#34;שילם בכבוד&#34;. ודי להאזין לשיחה ת/16 בין השנים, כדי להבין שלפחות רכיב של &#34;כבוד&#34; לא היה ביחסיהם של השניים.
 
-הנה כי כן, תשלום הכסף למערער שוב אינו מוטל בספק, מאידך לא
-הצליח המערער לתת הסבר סביר כלשהו לאותו נוהג שעשה לעצמו, ליטול מבעלי עסקים כסף
-או שווה כסף ללא תמורה. ובאשר לטענה, כי בעלי העסקים שילמו לו כמעשה חסד, מותר
-לתהות מדוע צריך היה המערער להגיע למפגשים עם אזרזר עם אותם בקבוקים מלאים בפסולת
-אדם.
+הנה כי כן, תשלום הכסף למערער שוב אינו מוטל בספק, מאידך לא הצליח המערער לתת הסבר סביר כלשהו לאותו נוהג שעשה לעצמו, ליטול מבעלי עסקים כסף או שווה כסף ללא תמורה. ובאשר לטענה, כי בעלי העסקים שילמו לו כמעשה חסד, מותר לתהות מדוע צריך היה המערער להגיע למפגשים עם אזרזר עם אותם בקבוקים מלאים בפסולת אדם.
 
-העולה מכל האמור הוא שעבירות הסחיטה הוכחו ברמה הנדרשת
-בפלילים, וכך היא מסקנתנו גם באשר לטענה לפיה התנגד המערער למעצרו תוך איום בכלי
-נשק קר. השאלה הנוספת היא אם סכין גילוח שהחזיק המערער בבית משפט הוא בגדר &#34;סכין&#34;,
-ונראה לנו כי גם בעניין זה לא נפלה שגגה בהכרעת דינו של בית המשפט המחוזי. בסעיף
-184 לחוק העונשין מוגדר &#34;סכין&#34; כ&#34;כלי בעל להב חד או כלי אחר שמסוגל
-לדקור או לחתוך&#34;. סכין גילוח הנו בעל מאפיינים העונים על אותה הגדרה, ואם
-נדרשה לכך הוכחה היא מצויה בדבריו של המערער עצמו בעדותו בבית המשפט. בהתייחסו
-לסכין שהחזיק על גופו (ראו עמ&#39; 44 לפרוטוקול הדיון) הסביר המערער: &#34;רציתי
-לחתוך את עצמי... אני תמיד חותך את עצמי. כשאני מתעצבן אני חותך את עצמי, אני עלול
-לעשות זאת גם עכשיו&#34;.
+העולה מכל האמור הוא שעבירות הסחיטה הוכחו ברמה הנדרשת בפלילים, וכך היא מסקנתנו גם באשר לטענה לפיה התנגד המערער למעצרו תוך איום בכלי נשק קר. השאלה הנוספת היא אם סכין גילוח שהחזיק המערער בבית משפט הוא בגדר &#34;סכין&#34;, ונראה לנו כי גם בעניין זה לא נפלה שגגה בהכרעת דינו של בית המשפט המחוזי. בסעיף 184 לחוק העונשין מוגדר &#34;סכין&#34; כ&#34;כלי בעל להב חד או כלי אחר שמסוגל לדקור או לחתוך&#34;. סכין גילוח הנו בעל מאפיינים העונים על אותה הגדרה, ואם נדרשה לכך הוכחה היא מצויה בדבריו של המערער עצמו בעדותו בבית המשפט. בהתייחסו לסכין שהחזיק על גופו (ראו עמ&#39; 44 לפרוטוקול הדיון) הסביר המערער: &#34;רציתי לחתוך את עצמי... אני תמיד חותך את עצמי. כשאני מתעצבן אני חותך את עצמי, אני עלול לעשות זאת גם עכשיו&#34;.
 
 נוכח כל האמור, דעתנו היא כי הרשעת המערער, בדין יסודה.
 
-3. באשר לערעור כנגד העונש – בית המשפט המחוזי דן את המערער לחמש
-שנות מאסר, 12 חודשים מאסר על תנאי, וכן הפעיל עונשי מאסר על תנאי שעמדו נגדו,
-חלקם הארי במצטבר, כך שהמערער נכלא ל-7 שנים ושלושה חודשים.
+3. באשר לערעור כנגד העונש – בית המשפט המחוזי דן את המערער לחמש שנות מאסר, 12 חודשים מאסר על תנאי, וכן הפעיל עונשי מאסר על תנאי שעמדו נגדו, חלקם הארי במצטבר, כך שהמערער נכלא ל-7 שנים ושלושה חודשים.
 
-תקופת המאסר הכוללת בה עתיד לשאת המערער אינה קלה, אולם נראה
-כי זה המעט שניתן היה לעשות כדי להגן על הציבור מפניו. מדובר במי שעברו הפלילי החל
-אי שם בסוף שנות ה-60 או תחילת שנות ה-70, ונמשך עד ימינו אלה. בגין העבירות שהיצע
-הוא נדון לעונשי מאסר רבים, חלקם ממושכים, אולם נראה כי הוא לא למד מכך דבר וחצי
-דבר. הנה כי כן, חרף תקופת המאסר הממושכת, דעתנו היא כי העונש, חרף חומרתו, הנו
-מאוזן והולם, ומכאן החלטתנו לדחות את הערעור על שני חלקיו.
+תקופת המאסר הכוללת בה עתיד לשאת המערער אינה קלה, אולם נראה כי זה המעט שניתן היה לעשות כדי להגן על הציבור מפניו. מדובר במי שעברו הפלילי החל אי שם בסוף שנות ה-60 או תחילת שנות ה-70, ונמשך עד ימינו אלה. בגין העבירות שהיצע הוא נדון לעונשי מאסר רבים, חלקם ממושכים, אולם נראה כי הוא לא למד מכך דבר וחצי דבר. הנה כי כן, חרף תקופת המאסר הממושכת, דעתנו היא כי העונש, חרף חומרתו, הנו מאוזן והולם, ומכאן החלטתנו לדחות את הערעור על שני חלקיו.
 
 ניתן היום כ&#34;ד בכסלו התשס&#34;ח (4.12.2007).
 
@@ -1717,7 +1916,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

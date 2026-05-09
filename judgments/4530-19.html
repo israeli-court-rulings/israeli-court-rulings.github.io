@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    11/08/2019 (לפני 2459 ימים)
+                    11/08/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/4530-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="4530/19 - נור אלדין ג&#39;זאווי נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F4530-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/300/045/j01&amp;fileName=19045300.J01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/300/045/j01&amp;fileName=19045300.J01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/300/045/j01&amp;fileName=19045300.J01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/300/045/j01&amp;fileName=19045300.J01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,257 +1827,129 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
+ע&#34;פ 4530/19
 
-
-
-
-
-
-
-
-1
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
-
-
-
-ע&#34;פ  4530/19
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופט ד&#39; מינץ
 
-
-
 כבוד השופט י&#39; אלרון
-
-
 
 המערער:
 
 נור אלדין ג&#39;זאווי
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-
-
 ערעור על פסק דינו של בית המשפט המחוזי מרכז-לוד ב-ת&#34;פ 60792-07-18 מיום 23.05.2019 שניתן על ידי כב&#39; השופט עמי קובו
-
-
 
 תאריך הישיבה:
 
-כ&#34;ט בתמוז התשע&#34;ט       
+כ&#34;ט בתמוז התשע&#34;ט
 
-(01.08.2019) 
-
-
+(01.08.2019)
 
 בשם המערער:
 
-עו&#34;ד רמי עותמאן 
-
-
+עו&#34;ד רמי עותמאן
 
 בשם המשיבה:
 
 עו&#34;ד איתמר גלבפיש
 
-	
-
-	
-
 פסק-דין
-
-
 
 השופט י&#39; אלרון:
 
-
-
 לפנינו ערעור על גזר דינו של בית המשפט המחוזי מרכז-לוד (השופט ע&#39; קובו) בת&#34;פ 60792-07-18 מיום 23.5.2019 בגדרו הושת על המערער עונש של 32 חודשי מאסר בפועל; עונש של 12 חודשי מאסר על תנאי למשך 3 שנים, ועונש נוסף של 6 חודשי מאסר על תנאי למשך שנתיים; וכן תשלום קנס ופיצויים.
-
-
 
 כתב האישום המתוקן
 
-
-
 על פי המתואר בעובדות כתב האישום המתוקן, ביום 11.7.2018 בסמוך לשעה 23:00 החנו חיילת ואחותה את רכבן בחניון באזור טרמינל 3 שבנמל התעופה בן גוריון. השתיים יצאו מהרכב, ולאחר שהאחות נעלה את הרכב פנו לאזור קבלת הפנים על מנת להמתין לקרובת משפחתן שהייתה צפויה להגיע מחו&#34;ל.
 
+בעת יציאתן מהרכב, השאירה החיילת את נשקה האישי, רובה מסוג &#34;16-M מקוצר&#34;, מונח ברכב מתחת למושב שליד הנהג באופן שהוא מוסתר על ידי תיקהּ שהכיל שתי מחסניות וחפצים אישיים (להלן: תיק החיילת). האחות הותירה ברכב מזוודה ובה חפצים אישיים בשווי כולל של כ-2000 ש&#34;ח.
 
+מספר דקות לאחר מכן, המערער הגיע למתחם נמל התעופה, החנה את רכבו באזור טרמינל 3, והחל מסתובב בחניון. לאחר זאת ניגש לרכב האחיות, הבחין בחפצים המונחים בו, והתרחק מן הרכב במטרה להיערך לגניבת החפצים.
 
-	בעת יציאתן מהרכב, השאירה החיילת את נשקה האישי, רובה מסוג &#34;16-M  מקוצר&#34;, מונח ברכב מתחת למושב שליד הנהג באופן שהוא מוסתר על ידי תיקהּ שהכיל שתי מחסניות וחפצים אישיים (להלן: תיק החיילת). האחות הותירה ברכב מזוודה ובה חפצים אישיים בשווי כולל של כ-2000 ש&#34;ח.
+בסמוך לחצות הליל שב המערער לרכב, ובעודו לובש חולצה על ראשו על מנת להסתיר את זהותו פתח אותו והבחין לראשונה בנשק. בשלב זה נטל המערער את הנשק, הכניסו למזוודה אשר הכילה את חפצי האחות, ונשא אותה עמו יחד עם תיק החיילת.
 
+בחלוף מספר דקות ניגש המערער למונית שחנתה במקום ונסע בה לאזור בית חנינה כשברשותו המזוודה עם הנשק ותיק החיילת.
 
-
-	מספר דקות לאחר מכן, המערער הגיע למתחם נמל התעופה, החנה את רכבו באזור טרמינל 3, והחל מסתובב בחניון. לאחר זאת ניגש לרכב האחיות, הבחין בחפצים המונחים בו, והתרחק מן הרכב במטרה להיערך לגניבת החפצים.
-
-
-
-	בסמוך לחצות הליל שב המערער לרכב, ובעודו לובש חולצה על ראשו על מנת להסתיר את זהותו פתח אותו והבחין לראשונה בנשק. בשלב זה נטל המערער את הנשק, הכניסו למזוודה אשר הכילה את חפצי האחות, ונשא אותה עמו יחד עם תיק החיילת.
-
-
-
-	בחלוף מספר דקות ניגש המערער למונית שחנתה במקום ונסע בה לאזור בית חנינה כשברשותו המזוודה עם הנשק ותיק החיילת.
-
-
-
-ההליך בבית משפט המחוזי 
-
-
+ההליך בבית משפט המחוזי
 
 המערער כפר בעובדות כתב האישום בתחילה, אולם משהחלה שמיעת הראיות בבית המשפט המחוזי הגיעו הצדדים להסדר טיעון לפיו המערער יחזור בו מכפירתו ויודה בעובדות כתב האישום המתוקן.
 
-
-
 בהתאם להסדר הטיעון בין הצדדים, המערער הודה בעובדות כתב האישום המתוקן, והורשע בביצוע עבירות של נשיאת נשק בלא רשות על פי דין, לפי סעיף 144(ב) רישא לחוק העונשין, התשל&#34;ז-1977 (להלן: חוק העונשין); נשיאת אבזר לנשק, לפי סעיף 144(ב) סיפא לחוק העונשין; פריצה לרכב בכוונה לבצע גניבה, לפי סעיף 413ו לחוק העונשין; וכן בגניבה מרכב, לפי סעיף 413ד(א) לחוק העונשין.
 
+בגזר דינו קבע בית משפט המחוזי מתחם עונש הולם אחד לעבירות שבגינן הורשע המערער. בקביעת מתחם זה עמד בית המשפט על כך שמעשיו פגעו בשלום הציבור וביטחונו; הדגיש כי להתפרצות וגניבת חפצי האחות מן הרכב קדם תכנון מוקדם מצדו; ואף ציין כי עלול להיגרם נזק רב כתוצאה ממעשיו, בפרט לנוכח העובדה כי מקום הנשק כיום איננו ידוע.
 
+בית המשפט קבע כי מתחם העונש ההולם את מעשי המערער נע בין 26 חודשי מאסר בפועל ל-52 חודשי מאסר בפועל.
 
-בגזר דינו קבע בית משפט המחוזי מתחם עונש הולם אחד לעבירות שבגינן הורשע המערער. בקביעת מתחם זה עמד בית המשפט על כך שמעשיו פגעו בשלום הציבור וביטחונו; הדגיש כי להתפרצות וגניבת חפצי האחות מן הרכב קדם תכנון מוקדם מצדו; ואף ציין כי עלול להיגרם נזק רב כתוצאה ממעשיו, בפרט לנוכח העובדה כי מקום הנשק כיום איננו ידוע.  
+בגזירת עונשו של המערער בתוך המתחם, שקל בית המשפט המחוזי לחוּמרא את העובדה כי הנשק שנגנב טרם הושב, וקבע כי לא שוכנע כי המערער עשה מאמצים לשיתוף פעולה עם רשויות אכיפת החוק במטרה להשיב את הנשק לידי רשויות המדינה.
 
-	
+עוד הדגיש בית המשפט המחוזי את הצורך במתן משקל משמעותי לשיקולי הרתעה מפני ביצוע עבירות נשק, ועמד על הנזק שנגרם לחיילת ולאחותה כתוצאה מגניבת חפציהן.
 
-	בית המשפט קבע כי מתחם העונש ההולם את מעשי המערער נע בין 26 חודשי מאסר בפועל ל-52 חודשי מאסר בפועל. 
-
-
-
-	בגזירת עונשו של המערער בתוך המתחם, שקל בית המשפט המחוזי לחוּמרא את העובדה כי הנשק שנגנב טרם הושב, וקבע כי לא שוכנע כי המערער עשה מאמצים לשיתוף פעולה עם רשויות אכיפת החוק במטרה להשיב את הנשק לידי רשויות המדינה. 
-
-
-
-	עוד הדגיש בית המשפט המחוזי את הצורך במתן משקל משמעותי לשיקולי הרתעה מפני ביצוע עבירות נשק, ועמד על הנזק שנגרם לחיילת ולאחותה כתוצאה מגניבת חפציהן.
-
-
-
-	מנגד, התחשב בית המשפט לקוּלא בכך שהמערער נעדר עבר פלילי; בנסיבותיו האישיות ובכלל זאת במצבו הכלכלי; בהשתלבותו בהליך טיפולי במסגרת מעצרו; ובכך שנטל אחריות על מעשיו בתחילת משפטו, וגזר עליו עונש של 32 חודשי מאסר בפועל, ואת יתר העונשים המפורטים בפסקה 1 לעיל.
-
-
+מנגד, התחשב בית המשפט לקוּלא בכך שהמערער נעדר עבר פלילי; בנסיבותיו האישיות ובכלל זאת במצבו הכלכלי; בהשתלבותו בהליך טיפולי במסגרת מעצרו; ובכך שנטל אחריות על מעשיו בתחילת משפטו, וגזר עליו עונש של 32 חודשי מאסר בפועל, ואת יתר העונשים המפורטים בפסקה 1 לעיל.
 
 תמצית טענות הצדדים
 
-
-
 המערער הגיש לבית משפט זה ערעור המופנה כלפי חומרת העונש שהוטל עליו, למעט רכיב הפיצוי.
-
-
 
 בנימוקי הערעור ובדיון שנערך לפנינו טען בא-כוח המערער כי שגה בית המשפט המחוזי משלא נתן ביטוי הולם במסגרת גזירת העונש לנסיבותיו האישיות של המערער, ובכלל זה היותו נעדר עבר פלילי ונטילת האחריות על מעשיו.
 
+עוד טען בא-כוח המערער כי העונש שהוטל על מרשו חורג ממדיניות הענישה הנוהגת במקרים דומים, וכי יש מקום להקל בעונשו לנוכח השתלבותו בהליכי שיקום שונים במסגרת מעצרו ומאסרו.
 
+במהלך הדיון שנערך לפנינו ביקש בא-כוח המערער כי נקל בעונשו בתמורה להחזרת הנשק הגנוב על ידו. לצורך כך ביקש כי תינתן לו אורכה בת חודש ימים לצורך השבת הנשק לידי רשויות החוק.
 
-	 עוד טען בא-כוח המערער כי העונש שהוטל על מרשו חורג ממדיניות הענישה הנוהגת במקרים דומים, וכי יש מקום להקל בעונשו לנוכח השתלבותו בהליכי שיקום שונים במסגרת מעצרו ומאסרו. 
-
-
-
-	במהלך הדיון שנערך לפנינו ביקש בא-כוח המערער כי נקל בעונשו בתמורה להחזרת הנשק הגנוב על ידו. לצורך כך ביקש כי תינתן לו אורכה בת חודש ימים לצורך השבת הנשק לידי רשויות החוק. 
-
-
-
-	מנגד, בא-כוח המשיבה הגדיר את הצעת המערער להשבת הנשק בתמורה להקלה בעונשו כ&#34;סחיטה&#34;. מעבר לכך לא נתבקשה תגובת בא-כוח המשיבה לגוף הערעור. 
-
-
+מנגד, בא-כוח המשיבה הגדיר את הצעת המערער להשבת הנשק בתמורה להקלה בעונשו כ&#34;סחיטה&#34;. מעבר לכך לא נתבקשה תגובת בא-כוח המשיבה לגוף הערעור.
 
 דיון והכרעה
 
-
-
- דין הערעור להידחות.
-
-
+דין הערעור להידחות.
 
 הלכה היא כי ערכאת הערעור לא תתערב בחומרת העונש שנקבע על ידי הערכאה הדיונית, זולת בנסיבות חריגות בהן נפלה טעות מהותית ובולטת בגזר הדין או כאשר העונש שהוטל חורג באופן קיצוני מהענישה המקובלת במקרים דומים (וראו למשל: ע&#34;פ 9965/17 פלוני נ&#39; מדינת ישראל (29.4.2018)).
 
+אין להקל ראש בחומרתן של העבירות בהן הורשע המערער. בית משפט זה שב ופסק כי אין להשלים עם ביצוען של עבירות נשק, וכי יש להחמיר בעונשם של המורשעים בעבירות אלו תוך מתן ביטוי עונשי הולם לסכנה הממשית הנשקפת ממעשיהם (וראו: ע&#34;פ 135/17 מדינת ישראל נ&#39; בסל (8.3.2017); ע&#34;פ 2808/18 ג&#39;ואמיס נ&#39; מדינת ישראל (26.7.2018)).
 
+במקרה דנן, נסיבות גניבתו של רובה מסוג &#34;16-M מקוצר&#34; על ידי המערער – אשר פרץ לרכב במטרה לבצע גניבה – הינן חמורות ביותר, כמתואר במסכת העובדתית המפורטת לעיל.
 
-אין להקל ראש בחומרתן של העבירות בהן הורשע המערער. בית משפט זה שב ופסק כי אין להשלים עם ביצוען של עבירות נשק, וכי יש להחמיר בעונשם של המורשעים בעבירות אלו תוך מתן ביטוי עונשי הולם לסכנה הממשית הנשקפת ממעשיהם (וראו: ע&#34;פ 135/17 מדינת ישראל נ&#39; בסל (8.3.2017); ע&#34;פ 2808/18 ג&#39;ואמיס נ&#39; מדינת ישראל (26.7.2018)). 
+זאת ועוד, יש לייחס חומרה יתירה למעשי המערער לנוכח העובדה כי כלי הנשק אותו נטל טרם הושב לידי גורמי האכיפה עד עצם היום הזה. כלי נשק אשר אינם נמצאים בידי רשויות החוק עלולים לשמש לפעילות עבריינית המסכנת את שלום הציבור ואת ביטחונו, ואף לסייע לפעילות חבלנית עוינת על רקע ביטחוני (וראו: ע&#34;פ 27/17 בסל נ&#39; מדינת ישראל (12.12.2017)).
 
+לנוכח כל זאת, אני סבור כי כי העונש אשר הוטל על המערער אינו חורג במאומה ממדיניות הענישה המקובלת במקרים דומים. אדרבה, העונש שהוטל עליו מקל עמו בשים לב לעבירות בהן הורשע.
 
+בהקשר זה מצאנו לנכון להדגיש את המובן מאליו: ניסיונו של המערער לבצע &#34;עסקה&#34; להחזרת הנשק בתמורה להקלה בעונשו אינה מקובלת כלל ועיקר ויש לדחותה על הסף. טוב היה עושה המערער לוּ חלף ניסיונותיו לרקום &#34;עסקאות&#34; שונות עם רשויות החוק היה משיב את הנשק לידי גורמי האכיפה, ומסייע בכך להקטין את פוטנציאל הנזק אותו יצר במו ידיו.
 
-	במקרה דנן, נסיבות גניבתו של רובה מסוג &#34;16-M מקוצר&#34; על ידי המערער – אשר פרץ לרכב במטרה לבצע גניבה – הינן חמורות ביותר, כמתואר במסכת העובדתית המפורטת לעיל.  
+ולבסוף, אין לקבל את טענת המערער לפיה יש להוסיף ולהקל בעונשו לנוכח נסיבותיו האישיות ומשיקולי שיקום.
 
+ראשית, הלכה היא כי בגזירת עונשם של אלו שהורשעו בביצוע עבירות נשק על בית המשפט ליתן משקל עודף לאינטרס הציבורי ולצורך להרתיע מפני ביצוע עבירות דומות בעתיד על פני נסיבותיו האישיות של העבריין (וראו: ע&#34;פ 6924/12 בעארני נ&#39; מדינת ישראל (29.10.2013)).
 
+שנית, והיא העיקר, עיון בגזר דינו של בית המשפט המחוזי מעלה כי נסיבותיו האישיות של המערער והליכי שיקום אותם עבר נלקחו בחשבון לקוּלא בעת גזירת עונשו– ובהתאמה מוּקם עונשו ברף התחתון של מתחם העונש ההולם שנקבע לו.
 
-	זאת ועוד, יש לייחס חומרה יתירה למעשי המערער לנוכח העובדה כי כלי הנשק אותו נטל טרם הושב לידי גורמי האכיפה עד עצם היום הזה. כלי נשק אשר אינם נמצאים בידי רשויות החוק עלולים לשמש לפעילות עבריינית המסכנת את שלום הציבור ואת ביטחונו, ואף לסייע לפעילות חבלנית עוינת על רקע ביטחוני (וראו: ע&#34;פ 27/17 בסל נ&#39; מדינת ישראל (12.12.2017)).
-
-
-
-	לנוכח כל זאת, אני סבור כי כי העונש אשר הוטל על המערער אינו חורג במאומה ממדיניות הענישה המקובלת במקרים דומים. אדרבה, העונש שהוטל עליו מקל עמו בשים לב לעבירות בהן הורשע. 
-
-
-
-	בהקשר זה מצאנו לנכון להדגיש את המובן מאליו: ניסיונו של המערער לבצע &#34;עסקה&#34; להחזרת הנשק בתמורה להקלה בעונשו אינה מקובלת כלל ועיקר ויש לדחותה על הסף. טוב היה עושה המערער לוּ חלף ניסיונותיו לרקום &#34;עסקאות&#34; שונות עם רשויות החוק היה משיב את הנשק לידי גורמי האכיפה, ומסייע בכך להקטין את פוטנציאל הנזק אותו יצר במו ידיו. 
-
-
-
-ולבסוף, אין לקבל את טענת המערער לפיה יש להוסיף ולהקל בעונשו לנוכח נסיבותיו האישיות ומשיקולי שיקום. 
-
-
-
-	ראשית, הלכה היא כי בגזירת עונשם של אלו שהורשעו בביצוע עבירות נשק על בית המשפט ליתן משקל עודף לאינטרס הציבורי ולצורך להרתיע מפני ביצוע עבירות דומות בעתיד על פני נסיבותיו האישיות של העבריין (וראו: ע&#34;פ 6924/12 בעארני נ&#39; מדינת ישראל (29.10.2013)).
-
-
-
-	שנית, והיא העיקר, עיון בגזר דינו של בית המשפט המחוזי מעלה כי נסיבותיו האישיות של המערער והליכי שיקום אותם עבר נלקחו בחשבון לקוּלא בעת גזירת עונשו– ובהתאמה מוּקם עונשו ברף התחתון של מתחם העונש ההולם שנקבע לו. 
-
-
-
-	משכך, ולנוכח חומרת מעשיו של המערער, לא מצאתי מקום להקל בעונשו פעם נוספת מעבר להקלה שהקל עמו בית המשפט המחוזי. 
-
-
+משכך, ולנוכח חומרת מעשיו של המערער, לא מצאתי מקום להקל בעונשו פעם נוספת מעבר להקלה שהקל עמו בית המשפט המחוזי.
 
 סוף דבר, הערעור נדחה.
 
-
-
-	ניתנה היום, ‏י&#39; באב התשע&#34;ט (‏11.8.2019).
-
-
-
-
+ניתנה היום, ‏י&#39; באב התשע&#34;ט (‏11.8.2019).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
 
 _________________________
 
-   19045300_J01.docx   עע
+19045300_J01.docx עע
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1825,7 +1968,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    06/02/2020 (לפני 2280 ימים)
+                    06/02/2020 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/7962-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="7962/19 - מיכאל חי שמילה נ. שר הביטחון"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F7962-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/620/079/q04&amp;fileName=19079620.Q04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/620/079/q04&amp;fileName=19079620.Q04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/620/079/q04&amp;fileName=19079620.Q04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/620/079/q04&amp;fileName=19079620.Q04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,65 +1827,31 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
-
-
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
 בג&#34;ץ 7962/19
 
-
-
-לפני:	
+לפני:
 
 כבוד השופטת ד&#39; ברק-ארז
 
-
-
 כבוד השופט ג&#39; קרא
 
-
-
 כבוד השופט א&#39; שטיין
-
-
 
 העותר:
 
 מיכאל חי שמילה
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. שר הביטחון
 
-
-
 2. מפקד יחידת מיטב
 
-
-
 עתירה למתן צו על תנאי, בקשה למתן צו ביניים ובקשה למתן זכות תשובה לתגובת המשיבים
-
-
 
 בשם העותר:
 
@@ -1624,85 +1861,39 @@
 
 עו&#34;ד קובי עבדי
 
-
-
 פסק-דין
-
-
-
-
 
 השופט ג&#39; קרא:
 
+עניינה של העתירה בצו גיוס שהונפק לעותר, סטודנט במסלול האקדמיזציה של צה&#34;ל, ביום 14.11.2019 שבו נקרא להתייצב לשירות כלוחם ביום 2.12.2019 (להלן: צו הגיוס ו-מועד הגיוס).
 
+1.	העותר, שהגיש את העתירה יום לפני מועד הגיוס שנקבע לו, ביקש בעתירתו צו על תנאי שיורה למשיבים ליתן טעם מדוע לא יורו על דחיית מועד גיוסו למשך 30 ימים לפחות, כדי לאפשר לו לממש את זכות הערעור על קביעת הוועדה הרפואית לפיה הוא כשיר לשירות כלוחם; ליתן טעם מדוע לא ייקבע כי צו הגיוס בטל מעיקרו, משום שהונפק בחוסר סמכות בסד זמנים שבגינו לא ניתנה לו ההזדמנות לממש את זכותו לערער על קביעת הוועדה הרפואית וכן משום שצו הגיוס הונפק ונמסר לו בהודעה קצרה ובלתי סבירה. עוד טען העותר כי החלטת רשויות הגיוס לדחות את בקשתו לדחייה נוספת בשירות הצבאי במסגרת מסלול האקדמיזציה לשם השלמת תואר ראשון, בקשה שהוגשה ביום 31.10.2019, ניתנה ללא הנמקה ומבלי שניתנה לו רשות ערעור עליה וביקש לקבל לידיו את הנהלים וההוראות שעליהם היא נשענת.
 
-		עניינה של העתירה בצו גיוס שהונפק לעותר, סטודנט במסלול האקדמיזציה של צה&#34;ל, ביום 14.11.2019 שבו נקרא להתייצב לשירות כלוחם ביום 2.12.2019 (להלן: צו הגיוס ו-מועד הגיוס). 
+בנוסף ביקש העותר כי בית משפט זה יוציא מלפניו צו ביניים המורה למשיבים להקפיא את מועד גיוסו עד למתן החלטה אחרת. כן ביקש להטיל &#34;הוצאות לדוגמה&#34; על המשיבים.
 
-	
+2.	ביום 1.12.2019 הוריתי על מתן צו ארעי לעיכוב גיוסו של העותר לצה&#34;ל עד למתן החלטה אחרת ועל הגשת תגובה מקדמית לעתירה מטעם המשיבים עד ליום 8.12.2019. בהמשך ניתנה החלטת רשמים למתן ארכה של 45 עד להגשת התגובה המקדמית, לבקשת המשיבים ובהסכמת העותר.
 
-	1.	העותר, שהגיש את העתירה יום לפני מועד הגיוס שנקבע לו, ביקש בעתירתו צו על תנאי שיורה למשיבים ליתן טעם מדוע לא יורו על דחיית מועד גיוסו למשך 30 ימים לפחות, כדי לאפשר לו לממש את זכות הערעור על קביעת הוועדה הרפואית לפיה הוא כשיר לשירות כלוחם; ליתן טעם מדוע לא ייקבע כי צו הגיוס בטל מעיקרו, משום שהונפק בחוסר סמכות בסד זמנים שבגינו לא ניתנה לו ההזדמנות לממש את זכותו לערער על קביעת הוועדה הרפואית וכן משום שצו הגיוס הונפק ונמסר לו בהודעה קצרה ובלתי סבירה. עוד טען העותר כי החלטת רשויות הגיוס לדחות את בקשתו לדחייה נוספת בשירות הצבאי במסגרת מסלול האקדמיזציה לשם השלמת תואר ראשון, בקשה שהוגשה ביום 31.10.2019, ניתנה ללא הנמקה ומבלי שניתנה לו רשות ערעור עליה וביקש לקבל לידיו את הנהלים וההוראות שעליהם היא נשענת.
+3.	ביום 24.1.2019 הוגשה תגובתם המקדמית של המשיבים. בתמצית, טענו המשיבים כי דין העתירה להידחות על הסף משום שהעותר השמיט ממנה פרט רלוונטי והוא – העובדה כי ביום 25.8.2019 הודיע כי הוא מוותר על התפקיד אליו שובץ במסגרת מסלול האקדמיזציה וכן בהיעדר עילה להתערבות, תוך חיוב העותר בהוצאות.
 
-	
+לגוף העתירה נטען, כי מועד הגיוס העדכני של העותר נקבע לאחר שביום 25.8.2019 הודיע העותר כי אינו מעוניין בשיבוץ לתפקיד בתחום לימודיו, וכי אין כל עילה להתערב בהחלטת רשויות הגיוס, בשים לב למדיניות המצומצמת שלהן ביחס לדחיית מועדי גיוס; לעובדה שגיוסו של העותר נדחה כבר שלוש פעמים, לבקשתו (תחילה לשם לימודים במסלול של ישיבת הסדר ובהמשך כשביקש פעמיים לדחות את גיוסו לשם השלמת לימודיו לתואר אקדמי, והעותר שובץ לתפקיד בתחום לימודיו אך ויתר עליו מרצונו); ולשיקול הדעת הרחב הנתון לרשויות הגיוס בכל הנוגע לבניין הכוח הצבאי. עוד טענו המשיבים כי עיון בנספחי העתירה מעלה כי העותר לא השכיל לסיים את פרויקט הגמר שלו ולא הציג כל נסיבה מיוחדת המצדיקה מתן דחייה נוספת, וכי בנסיבות אלו, רצונו לשמור על רצף לימודים אינו מהווה שיקול כזה.
 
-		בנוסף ביקש העותר כי בית משפט זה יוציא מלפניו צו ביניים המורה למשיבים להקפיא את  מועד גיוסו עד למתן החלטה אחרת. כן ביקש להטיל &#34;הוצאות לדוגמה&#34; על המשיבים. 
+באשר לטענת העותר כי לא ניתנה לו ההזדמנות לערור על החלטת הוועדה הרפואית כי הוא כשיר לשירות כלוחם, טענו המשיבים כי החלטת הוועדה הרפואית התקבלה בשנת 2016, וכבר אז הודע לו בצו הגיוס שנשלח אליו בשנת 2016, כמו גם בצווי הגיוס הנוספים שנשלחו לו, כי הוא יכול לערור על החלטתה תוך 30 ימים מיון שנמסרה לו ההחלטה בהתאם לתנאי סעיף 8 לתקנות שירות ביטחון, התשכ&#34;ז-1967 (להלן: התקנות). מכאן, מאז שנת 2016 לא מצא העותר להלין על החלטת הוועדה והוא אינו יכול לעשות כן עתה, בחלוף ארבע שנים. עוד נטען כי גם אם היה על רשויות הגיוס ליתן לעותר 30 ימים לערור על החלטת הוועדה, הרי הצו האחרון הונפק ביום 14.11.2019 ובשים לב לצו הארעי שניתן, התייתר הסעד המבוקש וכי גם אם נפל פגם בהוצאת הצו, אף שהם אינם סבורים כך, הרי שהעניין נרפא מעצמו. כן צוין כי בבדיקה שנערכה נמצא כי העותר לא פנה בעניין הרפואי לגורמים הרלוונטיים בלשכת הגיוס ולא העלה כל טענה הסותרת את קביעת הוועדה הרפואית ואף לא טען זאת בעתירתו. לכן טענו המשיבים, כי העתירה נעוצה ברצונו של העותר לדחות את שירותו לשם השלמת לימודיו והטענה בדבר אי מתן זכות ערר אינה אלא כסות לכך.
 
-	
+בנוסף נטען כי צו הגיוס שנשלח לעותר עומד בתנאי ההודעה המוקדמת שבהוראות הקבע, מכוחן ניתן להקדים ב-30 ימים את ההתייצבות לגיוס אם צו הגיוס החדש נשלח 15 ימים לפני המועד החדש. לבסוף נטען כי הקדמת מועד גיוסו של העותר (מיום 15.12.2019 ליום 10.12.2019 ובהמשך ליום 2.12.2019) התקבלה לאחר שהוא ויתר על התפקיד אליו שובץ.
 
-	2.	ביום 1.12.2019 הוריתי על מתן צו ארעי לעיכוב גיוסו של העותר לצה&#34;ל עד למתן החלטה אחרת ועל הגשת תגובה מקדמית לעתירה מטעם המשיבים עד ליום 8.12.2019. בהמשך ניתנה החלטת רשמים למתן ארכה של 45 עד להגשת התגובה המקדמית, לבקשת המשיבים ובהסכמת העותר.
+לפיכך, טענו המשיבים כי לא נפל כל פגם בהחלטת רשויות הגיוס ואין כל עילה להתערב בה; כי ממילא התייתר הסעד המבוקש של 30 ימים לשם הגשת ערר; כי אין כל הצדקה ליתן צו ביניים וכי יש לדחות את העתירה, להורות על ביטול הצו הארעי ולחייב את העותר בהוצאות. יחד עם זאת, הודגש כי בחינה מהותית בשל שינוי במצב הרפואי אינה מוגבלת במסגרת הזמנים שבסעיף 8 לתקנות וככל שחל שינוי במצבו הרפואי של העורר, עליו לעדכן את רשויות הגיוס ופנייתו תיבחן לגופה.
 
-	
+4.	דין העתירה להידחות על הסף. בנסיבות המתוארות בתגובתם המקדמית של המשיבים, ויתור העותר על שיבוצו לתפקיד במסלול האקדמיזציה, הינו בעל משמעות והשמטת עובדה זו מן העתירה לוקה בהעדר ניקיון כפיים (בג&#34;ץ 6023/07 דויכאת נ&#39; שר הפנים (27.1.2008)).
 
-	3.	ביום 24.1.2019 הוגשה תגובתם המקדמית של המשיבים. בתמצית, טענו המשיבים כי דין העתירה להידחות על הסף משום שהעותר השמיט ממנה פרט רלוונטי והוא – העובדה כי ביום 25.8.2019 הודיע כי הוא מוותר על התפקיד אליו שובץ במסגרת מסלול האקדמיזציה וכן בהיעדר עילה להתערבות, תוך חיוב העותר בהוצאות.
+מעבר לכך, העתירה אף אינה מצביעה על כל עילה להתערבות בהחלטת המשיבים באשר למועד גיוסו של העותר ולסירובם לדחות דחייה נוספת את גיוסו לשם השלמת לימודיו. ההתערבות בשיקול דעתן של רשויות הצבא בהחלטות מקצועיות-תכנוניות באשר למערך כוח האדם – מוגבלת ואין די לשם כך בנימוק שעניינו בשמירה על רצף הלימודים (בג&#34;ץ 8089/16 אש נ&#39; משרד הביטחון (30.11.2016)).
 
-		
+כמו כן, לאור האמור בתגובה המקדמית לעתירה, אין ממש בטענות העותר ביחס להגבלת זכותו לערור על החלטת הוועדה הרפואית, שניתנה כבר בשנת 2016 וכפי שנטען, יכול היה העותר לנצל את פרק הזמן הניכר מאז הגשת העתירה ועד עתה כדי להגיש ערעור כאמור, אולם הוא לא עשה כן, ואף לא העלה בעתירתו כל טענה בדבר כשירותו הרפואית.
 
-		לגוף העתירה נטען, כי מועד הגיוס העדכני של העותר נקבע לאחר שביום 25.8.2019 הודיע העותר כי אינו מעוניין בשיבוץ לתפקיד בתחום לימודיו, וכי אין כל עילה להתערב בהחלטת רשויות הגיוס, בשים לב למדיניות המצומצמת שלהן ביחס לדחיית מועדי גיוס; לעובדה שגיוסו של העותר נדחה כבר שלוש פעמים, לבקשתו (תחילה לשם לימודים במסלול של ישיבת הסדר ובהמשך כשביקש פעמיים לדחות את גיוסו לשם השלמת לימודיו לתואר אקדמי, והעותר שובץ לתפקיד בתחום לימודיו אך ויתר עליו מרצונו); ולשיקול הדעת הרחב הנתון לרשויות הגיוס בכל הנוגע לבניין הכוח הצבאי. עוד טענו המשיבים כי עיון בנספחי העתירה מעלה כי העותר לא השכיל לסיים את פרויקט הגמר שלו ולא הציג כל נסיבה מיוחדת המצדיקה מתן דחייה נוספת, וכי בנסיבות אלו, רצונו לשמור על רצף לימודים אינו מהווה שיקול כזה. 
+5.	לאור האמור לעיל, לא ראיתי להיעתר לבקשת העותר לאפשר לו להשיב לתגובה המקדמית.
 
-	
+6.	אשר על כן, העתירה נדחית. הצו הארעי שניתן מבוטל בזאת. לא ניתן צו להוצאות.
 
-		באשר לטענת העותר כי לא ניתנה לו ההזדמנות לערור על החלטת הוועדה הרפואית כי הוא כשיר לשירות כלוחם, טענו המשיבים כי החלטת הוועדה הרפואית התקבלה בשנת 2016, וכבר אז הודע לו בצו הגיוס שנשלח אליו בשנת 2016, כמו גם בצווי הגיוס הנוספים שנשלחו לו, כי הוא יכול לערור על החלטתה תוך 30 ימים מיון שנמסרה לו ההחלטה בהתאם לתנאי סעיף 8 לתקנות שירות ביטחון, התשכ&#34;ז-1967 (להלן: התקנות). מכאן, מאז שנת 2016 לא מצא העותר להלין על החלטת הוועדה והוא אינו יכול לעשות כן עתה, בחלוף ארבע שנים. עוד נטען כי גם אם היה על רשויות הגיוס ליתן לעותר 30 ימים לערור על החלטת הוועדה, הרי הצו האחרון הונפק ביום 14.11.2019 ובשים לב לצו הארעי שניתן, התייתר הסעד המבוקש וכי גם אם נפל פגם בהוצאת הצו, אף שהם אינם סבורים כך, הרי שהעניין נרפא מעצמו. כן צוין כי בבדיקה שנערכה נמצא כי העותר לא פנה בעניין הרפואי לגורמים הרלוונטיים בלשכת הגיוס ולא העלה כל טענה הסותרת את קביעת הוועדה הרפואית ואף לא טען זאת בעתירתו. לכן טענו המשיבים, כי העתירה נעוצה ברצונו של העותר לדחות את שירותו לשם השלמת לימודיו והטענה בדבר אי מתן זכות ערר אינה אלא כסות לכך. 
-
-	
-
-		בנוסף נטען כי צו הגיוס שנשלח לעותר עומד בתנאי ההודעה המוקדמת שבהוראות הקבע, מכוחן ניתן להקדים ב-30 ימים את ההתייצבות לגיוס אם צו הגיוס החדש נשלח 15 ימים לפני המועד החדש. לבסוף נטען כי הקדמת מועד גיוסו של העותר (מיום 15.12.2019 ליום 10.12.2019 ובהמשך ליום 2.12.2019) התקבלה לאחר שהוא ויתר על התפקיד אליו שובץ. 
-
-	
-
-		לפיכך, טענו המשיבים כי לא נפל כל פגם בהחלטת רשויות הגיוס ואין כל עילה להתערב בה; כי ממילא התייתר הסעד המבוקש של 30 ימים לשם הגשת ערר; כי אין כל הצדקה ליתן צו ביניים וכי יש לדחות את העתירה, להורות על ביטול הצו הארעי ולחייב את העותר בהוצאות. יחד עם זאת, הודגש כי בחינה מהותית בשל שינוי במצב הרפואי אינה מוגבלת במסגרת הזמנים שבסעיף 8 לתקנות וככל שחל שינוי במצבו הרפואי של העורר, עליו לעדכן את רשויות הגיוס ופנייתו תיבחן לגופה.
-
-	
-
-	4.	דין העתירה להידחות על הסף. בנסיבות המתוארות בתגובתם המקדמית של המשיבים, ויתור העותר על שיבוצו לתפקיד במסלול האקדמיזציה, הינו בעל משמעות והשמטת עובדה זו מן העתירה לוקה בהעדר ניקיון כפיים (בג&#34;ץ 6023/07 דויכאת נ&#39; שר הפנים (27.1.2008)). 
-
-	
-
-		מעבר לכך, העתירה אף אינה מצביעה על כל עילה להתערבות בהחלטת המשיבים באשר למועד גיוסו של העותר ולסירובם לדחות דחייה נוספת את גיוסו לשם השלמת לימודיו. ההתערבות בשיקול דעתן של רשויות הצבא בהחלטות מקצועיות-תכנוניות באשר למערך כוח האדם – מוגבלת  ואין די לשם כך בנימוק שעניינו בשמירה על רצף הלימודים (בג&#34;ץ 8089/16 אש נ&#39; משרד הביטחון (30.11.2016)). 
-
-	
-
-	כמו כן, לאור האמור בתגובה המקדמית לעתירה, אין ממש בטענות העותר ביחס להגבלת זכותו לערור על החלטת הוועדה הרפואית, שניתנה כבר בשנת 2016 וכפי שנטען, יכול היה העותר לנצל את פרק הזמן הניכר מאז הגשת העתירה ועד עתה כדי להגיש ערעור כאמור, אולם הוא לא עשה כן, ואף לא העלה בעתירתו כל טענה בדבר כשירותו הרפואית. 
-
-	
-
-	5.	לאור האמור לעיל, לא ראיתי להיעתר לבקשת העותר לאפשר לו להשיב לתגובה המקדמית.
-
-	
-
-	6.	אשר על כן, העתירה נדחית. הצו הארעי שניתן מבוטל בזאת. לא ניתן צו להוצאות. 
-
-	
-
-		ניתן היום, ‏י&#34;א בשבט התש&#34;פ (‏6.2.2020).
-
-	
-
-	
-
-	
-
-
-
-
+ניתן היום, ‏י&#34;א בשבט התש&#34;פ (‏6.2.2020).
 
 ש ו פ ט ת
 
@@ -1710,23 +1901,11 @@
 
 ש ו פ ט
 
-
-
 _________________________
 
-   19079620_Q04.docx   סח
+19079620_Q04.docx סח
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1745,7 +1924,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

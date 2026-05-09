@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    26/03/2007 (לפני 6980 ימים)
+                    26/03/2007 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/101-07.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="101/07 - ד&#34;ר יהושע וינברג נ. רשות המיסים בישראל - משרד האוצר"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F101-07.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/010/001/O06&amp;fileName=07001010_o06.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/010/001/O06&amp;fileName=07001010_o06.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/010/001/O06&amp;fileName=07001010_o06.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/010/001/O06&amp;fileName=07001010_o06.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1568,8 +1839,7 @@
 
 כבוד השופטת ע&#39; ארבל
 
-כבוד השופטת
-ד&#39; ברלינר
+כבוד השופטת ד&#39; ברלינר
 
 העותרים:
 
@@ -1601,116 +1871,37 @@
 
 השופט א&#39; א&#39; לוי:
 
-1. במרכזה של העתירה שבפנינו עומדות חמש עסקאות שנעשו בנכס מקרקעין
-הידוע כגוש 6925 חלקה 18 בתל-אביב-יפו (להלן:&#34;הנכס&#34;). עובר לעריכתן של
-העסקאות האמורות החזיקו בנכס בבעלות משותפת חיה גלמונד, אהובה וינברג ז&#34;ל –
-שאת מקומה בהליך זה תפס עזבונו של בעלה, יהושע וינברג – ורבקה הרן ז&#34;ל. כל אחת מהן הייתה הבעלים
-של שליש מן הזכויות בנכס.
+1. במרכזה של העתירה שבפנינו עומדות חמש עסקאות שנעשו בנכס מקרקעין הידוע כגוש 6925 חלקה 18 בתל-אביב-יפו (להלן:&#34;הנכס&#34;). עובר לעריכתן של העסקאות האמורות החזיקו בנכס בבעלות משותפת חיה גלמונד, אהובה וינברג ז&#34;ל – שאת מקומה בהליך זה תפס עזבונו של בעלה, יהושע וינברג – ורבקה הרן ז&#34;ל. כל אחת מהן הייתה הבעלים של שליש מן הזכויות בנכס.
 
-2. ביום 8.7.98 רכשה וינברג מגלמונד מחצית מזכויותיה בנכס (להלן: עסקת גלמונד-וינברג). יתר זכויותיה של גלמונד בנכס נרכשו על-ידי חברת
-&#34;מ.ע.ג.ן – ייעוץ וניהול נכסים&#34;, היא העותרת 3 בעתירה שבפנינו (להלן: עסקת
-גלמונד-מעגן). בהמשך, נחתמו בין וינברג
-לחברה בשם &#34;מ.ו. השקעות בע&#34;מ&#34;, היא העותרת 2 בעתירה שבפנינו, שני
-הסכמי המחאה בגדרם הסבה וינברג את זכויותיה לפי עסקת גלמונד-וינברג למ.ו, והאחרונה
-התחייבה לשלם את הסכומים בהם חבה וינברג לפי אותה עסקה (להלן:הסכם
-ההמחאה הראשון והסכם ההמחאה השני). לבסוף,
-מכרה הרן את חלקה בנכס למ.ו. (להלן: הסכם הרן-מ.ו.) ואילו וינברג מכרה את כל זכויותיה המקוריות בנכס למעגן (להלן: הסכם
-וינברג-מעגן).
+2. ביום 8.7.98 רכשה וינברג מגלמונד מחצית מזכויותיה בנכס (להלן: עסקת גלמונד-וינברג). יתר זכויותיה של גלמונד בנכס נרכשו על-ידי חברת &#34;מ.ע.ג.ן – ייעוץ וניהול נכסים&#34;, היא העותרת 3 בעתירה שבפנינו (להלן: עסקת גלמונד-מעגן). בהמשך, נחתמו בין וינברג לחברה בשם &#34;מ.ו. השקעות בע&#34;מ&#34;, היא העותרת 2 בעתירה שבפנינו, שני הסכמי המחאה בגדרם הסבה וינברג את זכויותיה לפי עסקת גלמונד-וינברג למ.ו, והאחרונה התחייבה לשלם את הסכומים בהם חבה וינברג לפי אותה עסקה (להלן:הסכם ההמחאה הראשון והסכם ההמחאה השני). לבסוף, מכרה הרן את חלקה בנכס למ.ו. (להלן: הסכם הרן-מ.ו.) ואילו וינברג מכרה את כל זכויותיה המקוריות בנכס למעגן (להלן: הסכם וינברג-מעגן).
 
-3. בגין כל אחת מעסקאות אלה שלחה המשיבה – רשות המיסים – לעותרים
-הודעות שומה. אולם, גובה השומה שנקבע בכל אחת מן העסקאות לא היה מקובל על העותרים,
-והם פתחו בהליכים שנועדו להשיג עליו. לאחר שהשגות שהגישו וינברג ומעגן כנגד השומה
-שנקבעה בגין עסקאות וינברג-גלמונד וגלמונד-מעגן, נדחו – הם ערערו לוועדת הערר ומשנדחה ערעורם, הם הגישו לבית-משפט זה
-ערעור ועמו בקשה לעיכוב ביצוע הליכי הגבייה עליהם הורתה ועדת הערר (ע&#34;א
-5192/06).
+3. בגין כל אחת מעסקאות אלה שלחה המשיבה – רשות המיסים – לעותרים הודעות שומה. אולם, גובה השומה שנקבע בכל אחת מן העסקאות לא היה מקובל על העותרים, והם פתחו בהליכים שנועדו להשיג עליו. לאחר שהשגות שהגישו וינברג ומעגן כנגד השומה שנקבעה בגין עסקאות וינברג-גלמונד וגלמונד-מעגן, נדחו – הם ערערו לוועדת הערר ומשנדחה ערעורם, הם הגישו לבית-משפט זה ערעור ועמו בקשה לעיכוב ביצוע הליכי הגבייה עליהם הורתה ועדת הערר (ע&#34;א 5192/06).
 
-בדומה, לאחר שהשגה וערר שהגישו וינברג ומ.ו. כנגד השומה בגין
-הסכם
-ההמחאה הראשון – נדחו, הם הגישו לבית-משפט זה
-ערעור ועימו בקשה לעיכוב ביצוע הליכי הגבייה עליהם הורתה ועדת הערר (ע&#34;א
-345/04). שני הערעורים – ובקשות עיכוב הביצוע שעימם – עודם תלויים ועומדים.
+בדומה, לאחר שהשגה וערר שהגישו וינברג ומ.ו. כנגד השומה בגין הסכם ההמחאה הראשון – נדחו, הם הגישו לבית-משפט זה ערעור ועימו בקשה לעיכוב ביצוע הליכי הגבייה עליהם הורתה ועדת הערר (ע&#34;א 345/04). שני הערעורים – ובקשות עיכוב הביצוע שעימם – עודם תלויים ועומדים.
 
-4. העותרים הגישו השגה גם על השומה שנקבעה בגין הסכם
-ההמחאה השני והשגתם נדחתה. מאחר והסוגיות
-המשפטיות שהתעוררו בגדרה של השגה זו היו דומות לאלו שנידונו אותה עת בוועדת הערר
-במסגרת הדיון בעסקאות וינברג-גלמונד
-וגלמונד-מעגן ובהסכם ההמחאה הראשון
-הוחלט,
-כי לעותרים תינתן ארכה של שנה להגשת ערר על
-ההחלטה הדוחה את ההשגה, וכן ארכה נוספת ככל שתידרש עד להכרעה בעררים האחרים (עמ&#39; 2
-להחלטת ועדת הערר מיום 3.7.01, מסומן כנספח מש/3). ואולם, העותרים לא הגישו כל ערר
-כאמור ואף לא עתרו לקבלת ארכה נוספת.
+4. העותרים הגישו השגה גם על השומה שנקבעה בגין הסכם ההמחאה השני והשגתם נדחתה. מאחר והסוגיות המשפטיות שהתעוררו בגדרה של השגה זו היו דומות לאלו שנידונו אותה עת בוועדת הערר במסגרת הדיון בעסקאות וינברג-גלמונד וגלמונד-מעגן ובהסכם ההמחאה הראשון הוחלט, כי לעותרים תינתן ארכה של שנה להגשת ערר על ההחלטה הדוחה את ההשגה, וכן ארכה נוספת ככל שתידרש עד להכרעה בעררים האחרים (עמ&#39; 2 להחלטת ועדת הערר מיום 3.7.01, מסומן כנספח מש/3). ואולם, העותרים לא הגישו כל ערר כאמור ואף לא עתרו לקבלת ארכה נוספת.
 
-5. אוסיף עוד, כי גם מ.ו. הגישה השגה – שטרם נדונה – על
-השומה שנקבעה לה בגין עסקת הרן-מ.ו,
-ואילו וינברג ומעגן הגישו השגה וערר – שטרם נידון – על השומה שנקבעה לעסקת
-וינברג-מעגן.
+5. אוסיף עוד, כי גם מ.ו. הגישה השגה – שטרם נדונה – על השומה שנקבעה לה בגין עסקת הרן-מ.ו, ואילו וינברג ומעגן הגישו השגה וערר – שטרם נידון – על השומה שנקבעה לעסקת וינברג-מעגן.
 
-6. בעתירה שבפנינו קובלים העותרים על הליכי הגבייה שהופעלו נגדם
-וטוענים כי יש לבטל או, למצער, להקפיא את ההליכים האמורים עד להכרעה בכל ההליכים
-המשפטיים המתנהלים כעת בגין העסקאות בנכס, לרבות הערעורים שהוגשו לבית-משפט זה,
-ההשגה שהוגשה למשיבה והערר שהוגש לוועדת הערר.
+6. בעתירה שבפנינו קובלים העותרים על הליכי הגבייה שהופעלו נגדם וטוענים כי יש לבטל או, למצער, להקפיא את ההליכים האמורים עד להכרעה בכל ההליכים המשפטיים המתנהלים כעת בגין העסקאות בנכס, לרבות הערעורים שהוגשו לבית-משפט זה, ההשגה שהוגשה למשיבה והערר שהוגש לוועדת הערר.
 
-7. המשיבה, מצידה, סבורה כי יש לדחות את העתירה על הסף, בכל הנוגע
-לטענות המערערים ביחס לעסקאות שבגינן הוגשו ערעורים לבית-משפט זה, הואיל ובגדרן של
-הבקשות לעיכוב ביצוע שצורפו לערעורים הועלו טעות דומות לטענות המועלות בגדרה של
-עתירה זו. באשר ליתר טענות העותרים מציינת המשיבה, כי היא אינה נוהגת להפעיל
-הליכים לגבייתם של חובות המצויים בשלבי השגה או ערעור בערכאה ראשונה, ולפיכך,
-הליכי הגבייה שהופעלו נגד העותרים בגין עסקאות הרן-מ.ו ווינברג-מעגן – שנבעו מטעות – הוקפאו. ברם, עמדה זו לא הניחה את דעת
-העותרים, הטוענים כי חרף הקפאת ההליכים הנטענת, המשיבה קיזזה את סכומי השומה
-הנתונים במחלוקת מהחזרי מס להם זכאים חלק מן העותרים.
+7. המשיבה, מצידה, סבורה כי יש לדחות את העתירה על הסף, בכל הנוגע לטענות המערערים ביחס לעסקאות שבגינן הוגשו ערעורים לבית-משפט זה, הואיל ובגדרן של הבקשות לעיכוב ביצוע שצורפו לערעורים הועלו טעות דומות לטענות המועלות בגדרה של עתירה זו. באשר ליתר טענות העותרים מציינת המשיבה, כי היא אינה נוהגת להפעיל הליכים לגבייתם של חובות המצויים בשלבי השגה או ערעור בערכאה ראשונה, ולפיכך, הליכי הגבייה שהופעלו נגד העותרים בגין עסקאות הרן-מ.ו ווינברג-מעגן – שנבעו מטעות – הוקפאו. ברם, עמדה זו לא הניחה את דעת העותרים, הטוענים כי חרף הקפאת ההליכים הנטענת, המשיבה קיזזה את סכומי השומה הנתונים במחלוקת מהחזרי מס להם זכאים חלק מן העותרים.
 
-8. לאחר שעיינתי בהודעות הצדדים באתי לכלל מסקנה כי דין העתירה
-להידחות על הסף. ראשית, טענות העותרים המתייחסות לעסקאות וינברג-גלמונד
-וגלמונד-מעגן ולהסכם ההמחאה
-הראשון, דומות להפליא לטענות שהועלו בגדרן של
-הבקשות לעיכוב ביצוע שהוגשו לבית-משפט זה וטרם הוכרעו. לפיכך, למעשה, עומד לעותרים
-סעד חלופי וכידוע, אין זה מדרכו של בית-משפט זה לדון בעתירות במצב מעין זה (השוו בג&#34;צ
-4498/06 אלימלך נ&#39; מנהלת סל&#34;ע-סיוע למתיישבי חבל עזה, לא פורסם; בג&#34;ץ 6219/06 ארגון בתי חולים
-פרטיים לחולים כרוניים בישראל נ&#39; משרד האוצר, לא פורסם; בג&#34;ץ 5710/06 פרידמן נ&#39; ראש
-עיריית יהוד, לא פורסם; בג&#34;ץ 8589/05 דבאג&#39; נ&#39;
-שר הפנים, לא פורסם).
+8. לאחר שעיינתי בהודעות הצדדים באתי לכלל מסקנה כי דין העתירה להידחות על הסף. ראשית, טענות העותרים המתייחסות לעסקאות וינברג-גלמונד וגלמונד-מעגן ולהסכם ההמחאה הראשון, דומות להפליא לטענות שהועלו בגדרן של הבקשות לעיכוב ביצוע שהוגשו לבית-משפט זה וטרם הוכרעו. לפיכך, למעשה, עומד לעותרים סעד חלופי וכידוע, אין זה מדרכו של בית-משפט זה לדון בעתירות במצב מעין זה (השוו בג&#34;צ 4498/06 אלימלך נ&#39; מנהלת סל&#34;ע-סיוע למתיישבי חבל עזה, לא פורסם; בג&#34;ץ 6219/06 ארגון בתי חולים פרטיים לחולים כרוניים בישראל נ&#39; משרד האוצר, לא פורסם; בג&#34;ץ 5710/06 פרידמן נ&#39; ראש עיריית יהוד, לא פורסם; בג&#34;ץ 8589/05 דבאג&#39; נ&#39; שר הפנים, לא פורסם).
 
-9. באשר
-להסכם
-ההמחאה השני, הרי שמשבחרו העותרים שלא לערור
-נגדו בהתאם להחלטה מיום 3.7.01, הפכה השומה שנקבעה בגין הסכם זה לסופית וניתנת
-לגבייה מכוחו של סעיף 4 לפקודת המיסים (גבייה). משכך, כלל לא ברור על מה מלינים
-העותרים בהקשר זה.
+9. באשר להסכם ההמחאה השני, הרי שמשבחרו העותרים שלא לערור נגדו בהתאם להחלטה מיום 3.7.01, הפכה השומה שנקבעה בגין הסכם זה לסופית וניתנת לגבייה מכוחו של סעיף 4 לפקודת המיסים (גבייה). משכך, כלל לא ברור על מה מלינים העותרים בהקשר זה.
 
-10. לבסוף, אני סבור כי הצורך לדון בטענות העותרים באשר לעסקאות הרן-מ.ו
-ווינברג-מעגן – התייתר, שכן המשיבה מצהירה
-מפורשות כי היא מודעת לתקלה שיצאה תחת ידה, וכל הליכי הגבייה בהם החלה ביחס לחובות
-השומה נושא עסקאות אלה הופסקו. חזקה על המשיבה כי כך אכן נעשה, וכי ככל שקיימים
-הליכי גבייה שננקטו שלא כדין וטרם הוקפאו – ייעשה הדבר בהקדם. אין, אפוא, צורך
-במתן צו מוחלט בעניין זה (השוו בג&#34;צ 9208/05 וינברג נ&#39; רשות
-המיסים, לא פורסם).
+10. לבסוף, אני סבור כי הצורך לדון בטענות העותרים באשר לעסקאות הרן-מ.ו ווינברג-מעגן – התייתר, שכן המשיבה מצהירה מפורשות כי היא מודעת לתקלה שיצאה תחת ידה, וכל הליכי הגבייה בהם החלה ביחס לחובות השומה נושא עסקאות אלה הופסקו. חזקה על המשיבה כי כך אכן נעשה, וכי ככל שקיימים הליכי גבייה שננקטו שלא כדין וטרם הוקפאו – ייעשה הדבר בהקדם. אין, אפוא, צורך במתן צו מוחלט בעניין זה (השוו בג&#34;צ 9208/05 וינברג נ&#39; רשות המיסים, לא פורסם).
 
-11. טענת העותרים, לפיה הקיזוז שבוצע מהחזרי המס להם הם זכאים מהווה
-אף הוא הליך גבייה אותו יש להקפיא – אינה יכולה להתקבל, שכן מתשובת המשיבה עולה
-בבירור כי אי-ביצועו של החזר המס אינו נובע מפעולת קיזוז לפי סעיף 2 לחוק קיזוז
-מיסים, התש&#34;ם-1980, אלא מן העובדה שמדובר בהחזר מס רעיוני גרידא. כך, החזרי המס הנטענים על ידי מעגן נוצרו כתוצאה
-מכך שבשומות מס-הכנסה של עותרת זו לשנת 2004 – שנת ביצועה של עסקת הרן
--מ.ו. – ניתן לה זיכוי בגין תשלום מס השבח
-לפי השומות שהומצאו לה, חרף כך שבפועל, מס זה כלל לא שולם. בעקבות חישוב זה, נוצרה
-למעגן יתרה להחזר שהיא רישומית בלבד, ואינה נובעת ממס ששולם על ידה
-ביתר.
+11. טענת העותרים, לפיה הקיזוז שבוצע מהחזרי המס להם הם זכאים מהווה אף הוא הליך גבייה אותו יש להקפיא – אינה יכולה להתקבל, שכן מתשובת המשיבה עולה בבירור כי אי-ביצועו של החזר המס אינו נובע מפעולת קיזוז לפי סעיף 2 לחוק קיזוז מיסים, התש&#34;ם-1980, אלא מן העובדה שמדובר בהחזר מס רעיוני גרידא. כך, החזרי המס הנטענים על ידי מעגן נוצרו כתוצאה מכך שבשומות מס-הכנסה של עותרת זו לשנת 2004 – שנת ביצועה של עסקת הרן -מ.ו. – ניתן לה זיכוי בגין תשלום מס השבח לפי השומות שהומצאו לה, חרף כך שבפועל, מס זה כלל לא שולם. בעקבות חישוב זה, נוצרה למעגן יתרה להחזר שהיא רישומית בלבד, ואינה נובעת ממס ששולם על ידה ביתר.
 
-זהו אף מצב הדברים באשר לעזבונו של וינברג. לעותר זה – אשר
-בא, כזכור, בנעליהם של אהובה ויהושע וינברג המנוחים לעניין הזכויות בנכס והחבות
-במס שבח – נערכה שומה על כלל הכנסותיו לרבות הכנסות משבח בגין עסקת
-וינברג-מעגן ובמקביל, ניתן לו זיכוי בגובה
-מס השבח בגין עסקה זו חרף כך שמס זה כלל לא שולם, נוכח כך שהוא עודו שנוי במחלוקת
-ועומד להכרעתה של ועדת העררים. גם בעניינו של עותר זה נוצרה, אפוא, יתרת החזר שהיא
-רעיונית ורישומית בלבד.
+זהו אף מצב הדברים באשר לעזבונו של וינברג. לעותר זה – אשר בא, כזכור, בנעליהם של אהובה ויהושע וינברג המנוחים לעניין הזכויות בנכס והחבות במס שבח – נערכה שומה על כלל הכנסותיו לרבות הכנסות משבח בגין עסקת וינברג-מעגן ובמקביל, ניתן לו זיכוי בגובה מס השבח בגין עסקה זו חרף כך שמס זה כלל לא שולם, נוכח כך שהוא עודו שנוי במחלוקת ועומד להכרעתה של ועדת העררים. גם בעניינו של עותר זה נוצרה, אפוא, יתרת החזר שהיא רעיונית ורישומית בלבד.
 
 לאור כל האמור, העתירה נדחית על הסף.
 
 ניתנה היום, ז&#39; בניסן התשס&#34;ז (26.03.07).
 
-ש ו פ ט ש ו פ ט
-ת
-ש ו פ ט
+ש ו פ ט ש ו פ ט ת ש ו פ ט
 
 _________________________
 
@@ -1735,7 +1926,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

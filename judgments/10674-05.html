@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    14/12/2005 (לפני 7447 ימים)
+                    14/12/2005 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/10674-05.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="10674/05 - עכסה כהן נ. דולב חברה לביטוח בע&#34;מ"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F10674-05.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/740/106/C02&amp;fileName=05106740_C02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/740/106/C02&amp;fileName=05106740_C02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/740/106/C02&amp;fileName=05106740_C02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/740/106/C02&amp;fileName=05106740_C02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1560,8 +1831,7 @@
 
 בבית המשפט העליון
 
-בש&#34;א
-10674/05
+בש&#34;א 10674/05
 
 בפני:
 
@@ -1585,103 +1855,35 @@
 
 ערעור על החלטת הרשמת ש&#39; ליבוביץ מיום 3.11.2005 ב-בש&#34;א 8821/05
 
-בשם המערערים: עו&#34;ד משה
-גוטסמן
+בשם המערערים: עו&#34;ד משה גוטסמן
 
 פסק-דין
 
-ערעור על החלטת
-כב&#39; הרשמת שושנה ליבוביץ (מיום 3.11.2005) אשר דחתה את בקשת המערערים להאריך מועד
-להגשת בקשה לדיון נוסף.
+ערעור על החלטת כב&#39; הרשמת שושנה ליבוביץ (מיום 3.11.2005) אשר דחתה את בקשת המערערים להאריך מועד להגשת בקשה לדיון נוסף.
 
-1.
-פסק הדין בערעור ניתן ביום 10.8.2005 (ע&#34;א 8083/02).
-עניינו שיעור פיצוי המערערת 1 אשר נפגעה בתאונת דרכים. הבקשה למתן ארכה להגשת בקשה
-לדיון נוסף הוגשה ביום 15.9.2005. בבקשה נטען כי מקור האיחור הוא בטעות בא-כח
-המערערים, אשר סבר כי ימי הפגרה אינם באים במנין הימים. עוד נטען כי בא-כח
-המערערים נעדר מעבודתו במשך כשבועיים-שלושה מטעמי בריאות, וכי למערערת ייגרם נזק חמור
-אם תידחה הבקשה. המשיבה התנגדה לבקשה.
+1. פסק הדין בערעור ניתן ביום 10.8.2005 (ע&#34;א 8083/02). עניינו שיעור פיצוי המערערת 1 אשר נפגעה בתאונת דרכים. הבקשה למתן ארכה להגשת בקשה לדיון נוסף הוגשה ביום 15.9.2005. בבקשה נטען כי מקור האיחור הוא בטעות בא-כח המערערים, אשר סבר כי ימי הפגרה אינם באים במנין הימים. עוד נטען כי בא-כח המערערים נעדר מעבודתו במשך כשבועיים-שלושה מטעמי בריאות, וכי למערערת ייגרם נזק חמור אם תידחה הבקשה. המשיבה התנגדה לבקשה.
 
-2.
-הבקשה נדחתה. נקבע, כי הטעמים אותם הציגו המערערים אינם
-עולים לכדי &#34;טעם מיוחד&#34; המצדיק הארכת המועד להגשת בקשה לדיון נוסף. על
-החלטה זו הערעור שלפני. המערערים חוזרים, בעיקרו, על שטענו לפני הרשמת.
+2. הבקשה נדחתה. נקבע, כי הטעמים אותם הציגו המערערים אינם עולים לכדי &#34;טעם מיוחד&#34; המצדיק הארכת המועד להגשת בקשה לדיון נוסף. על החלטה זו הערעור שלפני. המערערים חוזרים, בעיקרו, על שטענו לפני הרשמת.
 
-3.
-תקנה 4 לתקנות סדר הדין בדיון נוסף, התשמ&#34;ד-1984 מורה
-כי &#34;העתירה תוגש תוך חמישה עשר ימים מיום מתן פסק הדין, אולם רשאי הרשם
-להאריך את המועד אם הראה העותר טעם מיוחד לכך&#34;. שלא כתקופות הקבועות בתקנות
-סדר הדין האזרחי, התשמ&#34;ד-1984, נפסק כי ימי הפגרה באים במניין הימים הקבועים
-בתקנה 4 האמורה (ראו החלטת הרשם ש&#39; צור ב-בש&#34;א 4719/03 Her Majesty The Queen In Right Of Canada נ&#39; ריינהולד, פ&#34;ד מז (5) 646; וכן בש&#34;פ
-7578/98 בן-אשר נ&#39; מ&#34;י (לא פורסם)).
-העתירה לדיון נוסף שהגיש בא-כח המערערים הוגשה, איפוא, באיחור, והיה עליו להראות
-&#34;טעם מיוחד&#34; כדי להצדיק איחור זה.
+3. תקנה 4 לתקנות סדר הדין בדיון נוסף, התשמ&#34;ד-1984 מורה כי &#34;העתירה תוגש תוך חמישה עשר ימים מיום מתן פסק הדין, אולם רשאי הרשם להאריך את המועד אם הראה העותר טעם מיוחד לכך&#34;. שלא כתקופות הקבועות בתקנות סדר הדין האזרחי, התשמ&#34;ד-1984, נפסק כי ימי הפגרה באים במניין הימים הקבועים בתקנה 4 האמורה (ראו החלטת הרשם ש&#39; צור ב-בש&#34;א 4719/03 Her Majesty The Queen In Right Of Canada נ&#39; ריינהולד, פ&#34;ד מז (5) 646; וכן בש&#34;פ 7578/98 בן-אשר נ&#39; מ&#34;י (לא פורסם)). העתירה לדיון נוסף שהגיש בא-כח המערערים הוגשה, איפוא, באיחור, והיה עליו להראות &#34;טעם מיוחד&#34; כדי להצדיק איחור זה.
 
-4.
-בא-כח המערערים טען כי טעה לחשוב שימי הפגרה אינם באים
-במניין הימים. אכן, טעות בדין יכולה, בנסיבות המתאימות, לעלות כדי טעם מיוחד
-המצדיק מתן ארכה. עמד על כך השופט א&#39; ריבלין ב-רע&#34;א 9073/01 פרנקו-סידי נ&#39; הרשות המוסמכת לפי חוק נכי רדיפות (לא פורסם):
+4. בא-כח המערערים טען כי טעה לחשוב שימי הפגרה אינם באים במניין הימים. אכן, טעות בדין יכולה, בנסיבות המתאימות, לעלות כדי טעם מיוחד המצדיק מתן ארכה. עמד על כך השופט א&#39; ריבלין ב-רע&#34;א 9073/01 פרנקו-סידי נ&#39; הרשות המוסמכת לפי חוק נכי רדיפות (לא פורסם):
 
-&#34;אכן, בעבר נהג הכלל כי טעות שבחוק של עורך דין אינה משמשת, בדרך
-כלל, צידוק לאיחור המועד (ראו: בר&#34;ע 45/76 מדינת ישראל נ&#39;
-פלורנס,
-פ&#34;ד ל(2) 617; י&#39; זוסמן, סדרי הדין האזרחי, מהדורה שביעית, בעריכת ד&#34;ר
-ש&#39; לוין, בעמ&#39; 891). כך גם עצם היותו של האיחור קטן אין בו בלבד כדי להצדיק הארכת
-המועד (ראו: י&#39; זוסמן, בספרו הנ&#34;ל , בעמ&#39; 897). לאחרונה חל ריכוך של ההלכה
-הנוקשה שנהגה עד כה בסוגיית הארכת המועד מחמת טעות. כך נפסק, כי אין לשלול בכל
-מקרה בקשה למתן ארכה בשל טעות שבדין, וכי מקום שעוצמת הפגיעה בציפיות בעל הדין
-האחר היא פחותה, ניתן יהיה להכיר בטעות זו כטעם מיוחד להארכת מועד. כך יהיה, למשל,
-מקום בו נתן בעל הדין הודעה לבעל הדין האחר ביחס לכוונתו להגיש ערעור או עתירה
-לדיון נוסף. לעתים, חשיבות האינטרס של בעל הדין הטועה תכתיב את התוצאה (ראו:
-בש&#34;א 6708/00 יוסף אהרן נ&#39; אהרן אמנון, פ&#34;ד נד(4) 702); כל מקרה
-ונסיבותיו&#34;.
+&#34;אכן, בעבר נהג הכלל כי טעות שבחוק של עורך דין אינה משמשת, בדרך כלל, צידוק לאיחור המועד (ראו: בר&#34;ע 45/76 מדינת ישראל נ&#39; פלורנס, פ&#34;ד ל(2) 617; י&#39; זוסמן, סדרי הדין האזרחי, מהדורה שביעית, בעריכת ד&#34;ר ש&#39; לוין, בעמ&#39; 891). כך גם עצם היותו של האיחור קטן אין בו בלבד כדי להצדיק הארכת המועד (ראו: י&#39; זוסמן, בספרו הנ&#34;ל , בעמ&#39; 897). לאחרונה חל ריכוך של ההלכה הנוקשה שנהגה עד כה בסוגיית הארכת המועד מחמת טעות. כך נפסק, כי אין לשלול בכל מקרה בקשה למתן ארכה בשל טעות שבדין, וכי מקום שעוצמת הפגיעה בציפיות בעל הדין האחר היא פחותה, ניתן יהיה להכיר בטעות זו כטעם מיוחד להארכת מועד. כך יהיה, למשל, מקום בו נתן בעל הדין הודעה לבעל הדין האחר ביחס לכוונתו להגיש ערעור או עתירה לדיון נוסף. לעתים, חשיבות האינטרס של בעל הדין הטועה תכתיב את התוצאה (ראו: בש&#34;א 6708/00 יוסף אהרן נ&#39; אהרן אמנון, פ&#34;ד נד(4) 702); כל מקרה ונסיבותיו&#34;.
 
-באותו עניין, לא התערב השופט א&#39;
-ריבלין בהחלטה להאריך מועד, לאור האיחור הקצר, ציפיות הצד שכנגד וחשיבות העניין.
-הוסיף וציין הנשיא א&#39; ברק ב-בש&#34;א 10073/02 שביט נ&#39; בנק הפועלים (לא פורסם):
+באותו עניין, לא התערב השופט א&#39; ריבלין בהחלטה להאריך מועד, לאור האיחור הקצר, ציפיות הצד שכנגד וחשיבות העניין. הוסיף וציין הנשיא א&#39; ברק ב-בש&#34;א 10073/02 שביט נ&#39; בנק הפועלים (לא פורסם):
 
-&#34;אכן, השאלה היא בסופו של יום שאלה של איזון, בין המטרות
-החברתיות והמשפטיות אותן מיועד להגשים סדר הדין לבין הצורך להגיע לחקר האמת ולמנוע
-תוצאות קשות שאינן מתיישבות עם חוש הצדק.
+&#34;אכן, השאלה היא בסופו של יום שאלה של איזון, בין המטרות החברתיות והמשפטיות אותן מיועד להגשים סדר הדין לבין הצורך להגיע לחקר האמת ולמנוע תוצאות קשות שאינן מתיישבות עם חוש הצדק.
 
-תקנה 4 לתקנות דיון נוסף, שהיא המסדירה את מועד הגשת העתירה לדיון
-נוסף, קובעת כי &#34;העתירה תוגש תוך חמישה עשר ימים מיום מתן פסק הדין, אולם
-רשאי הרשם להאריך את המועד אם הראה העותר טעם מיוחד לכך&#34;. נוסחת האיזון שבין
-השיקולים המתחרים קבועה, אם כן, בתקנה עצמה, המוסרת בידי הרשם שיקול דעת להאריך את
-מועד הגשת העתירה בהתקיים טעם מיוחד&#34;.
+תקנה 4 לתקנות דיון נוסף, שהיא המסדירה את מועד הגשת העתירה לדיון נוסף, קובעת כי &#34;העתירה תוגש תוך חמישה עשר ימים מיום מתן פסק הדין, אולם רשאי הרשם להאריך את המועד אם הראה העותר טעם מיוחד לכך&#34;. נוסחת האיזון שבין השיקולים המתחרים קבועה, אם כן, בתקנה עצמה, המוסרת בידי הרשם שיקול דעת להאריך את מועד הגשת העתירה בהתקיים טעם מיוחד&#34;.
 
-על הרשם, במסגרת שיקול דעתו - בדונו בטענה בדבר
-טעות בדין בבקשה להארכת מועד - לשקול, איפוא, מגוון של שיקולים. עליו לשקול, בין
-השאר, את משך האיחור, את ציפיות הצד שכנגד ואת השאלה אם המבקש מיוצג. גם טיב הטעות
-וסוג ההליך הם שיקולים שיש לבחנם.
+על הרשם, במסגרת שיקול דעתו - בדונו בטענה בדבר טעות בדין בבקשה להארכת מועד - לשקול, איפוא, מגוון של שיקולים. עליו לשקול, בין השאר, את משך האיחור, את ציפיות הצד שכנגד ואת השאלה אם המבקש מיוצג. גם טיב הטעות וסוג ההליך הם שיקולים שיש לבחנם.
 
-5.
-בבואי ליישם את השיקולים האמורים על המקרה דנן, מצאתי כי
-אין מקום להתערב בהחלטת הרשמת. אכן, טעותו של המערער אינה מן הנדירות. היה אף מי
-שהביע דעה שמא יש להרהר מחדש בפיצול הדין באשר למניין ימי הפגרה, כדי למנוע הכבדה
-ובלבול בעלי הדין (הרשם ב&#39; אוקון, ב-בש&#34;פ 6292/00 חורי נ&#39; מ&#34;י, פ&#34;ד נד (4) 523; וב-בש&#34;א 6708/00 אהרן נ&#39; אהרן, פ&#34;ד נד (4) 702). ואולם, המערערים מיוצגים על ידי
-עורך-דין (בש&#34;א 9178/04 אלישיב נ&#39; פז חברת נפט
-בע&#34;מ (לא פורסם); לכך יש להוסיף את חריגותם של הליכי הדיון
-הנוסף ואינטרס סופיות הדיון - אשר מחייבים דקדוק והקפדה במתן הארכות לתקופה
-הקבועה בדין בהליכים מסוג זה (בש&#34;מ 10154/04 דר נ&#39; לשכת עורכי הדין בישראל - הוועד המרכזי (לא פורסם);
-והשוו: בש&#34;א 9542/02 ערד נ&#39; אבן (לא
-פורסם)). לבסוף, והוא עיקר: עיינתי בבקשה לדיון נוסף גופה. בסופו של יום, ההחלטה
-להיעתר לבקשה מסוג זה מסורה בידי דן יחיד - כבערעורי רשם. לאחר שעיינתי בבקשה
-לדיון נוסף ובפסק הדין בערעור, התרשמתי כי בענייננו, בקשת המערערים לערוך דיון
-נוסף לא היתה נעתרת אף אם בקשתם למתן ארכה, או ערעור זה, היו מתקבלים (השוו: בש&#34;פ
-1985/01 בבייב נ&#39; מ&#34;י (לא פורסם);
-בש&#34;פ 2058/00 חביב נ&#39; מיקרוסופט קורפוריישן (לא
-פורסם); בש&#34;א 652/00 שפיגל נ&#39; בנק לאומי
-לישראל בע&#34;מ (לא פורסם)).
+5. בבואי ליישם את השיקולים האמורים על המקרה דנן, מצאתי כי אין מקום להתערב בהחלטת הרשמת. אכן, טעותו של המערער אינה מן הנדירות. היה אף מי שהביע דעה שמא יש להרהר מחדש בפיצול הדין באשר למניין ימי הפגרה, כדי למנוע הכבדה ובלבול בעלי הדין (הרשם ב&#39; אוקון, ב-בש&#34;פ 6292/00 חורי נ&#39; מ&#34;י, פ&#34;ד נד (4) 523; וב-בש&#34;א 6708/00 אהרן נ&#39; אהרן, פ&#34;ד נד (4) 702). ואולם, המערערים מיוצגים על ידי עורך-דין (בש&#34;א 9178/04 אלישיב נ&#39; פז חברת נפט בע&#34;מ (לא פורסם); לכך יש להוסיף את חריגותם של הליכי הדיון הנוסף ואינטרס סופיות הדיון - אשר מחייבים דקדוק והקפדה במתן הארכות לתקופה הקבועה בדין בהליכים מסוג זה (בש&#34;מ 10154/04 דר נ&#39; לשכת עורכי הדין בישראל - הוועד המרכזי (לא פורסם); והשוו: בש&#34;א 9542/02 ערד נ&#39; אבן (לא פורסם)). לבסוף, והוא עיקר: עיינתי בבקשה לדיון נוסף גופה. בסופו של יום, ההחלטה להיעתר לבקשה מסוג זה מסורה בידי דן יחיד - כבערעורי רשם. לאחר שעיינתי בבקשה לדיון נוסף ובפסק הדין בערעור, התרשמתי כי בענייננו, בקשת המערערים לערוך דיון נוסף לא היתה נעתרת אף אם בקשתם למתן ארכה, או ערעור זה, היו מתקבלים (השוו: בש&#34;פ 1985/01 בבייב נ&#39; מ&#34;י (לא פורסם); בש&#34;פ 2058/00 חביב נ&#39; מיקרוסופט קורפוריישן (לא פורסם); בש&#34;א 652/00 שפיגל נ&#39; בנק לאומי לישראל בע&#34;מ (לא פורסם)).
 
-6.
-לסיום, אף לא מצאתי מקום להתערב בקביעת הרשמת כי מחלת
-בא-כח המערערים, בנסיבות אלו, עולה כדי טעם מיוחד המצדיק מתן הארכה (השוו: דנ&#34;א
-7325/95 קראוס נ&#39; ידיעות אחרונות (לא
-פורסם, החלטה מיום 14.5.96)).
+6. לסיום, אף לא מצאתי מקום להתערב בקביעת הרשמת כי מחלת בא-כח המערערים, בנסיבות אלו, עולה כדי טעם מיוחד המצדיק מתן הארכה (השוו: דנ&#34;א 7325/95 קראוס נ&#39; ידיעות אחרונות (לא פורסם, החלטה מיום 14.5.96)).
 
-7.
-דין הערעור להידחות. משלא נדרשה תגובה, אין צו להוצאות.
+7. דין הערעור להידחות. משלא נדרשה תגובה, אין צו להוצאות.
 
 ניתן היום, ‏י&#34;ג כסלו, תשס&#34;ו (14.12.2005).
 
@@ -1710,7 +1912,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

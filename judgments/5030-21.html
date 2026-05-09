@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    21/07/2021 (לפני 1749 ימים)
+                    21/07/2021 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5030-21.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5030/21 - פלוני נ. משטרת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5030-21.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/300/050/q02&amp;fileName=21050300.Q02&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/300/050/q02&amp;fileName=21050300.Q02&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/300/050/q02&amp;fileName=21050300.Q02&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/300/050/q02&amp;fileName=21050300.Q02&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,171 +1827,81 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 5030/21
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
-
-בג&#34;ץ  5030/21
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט ע&#39; פוגלמן
 
-
-
 כבוד השופטת ד&#39; ברק-ארז
 
-
-
 כבוד השופט ג&#39; קרא
-
-
 
 העותר:
 
 פלוני
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבים:
 
 1. משטרת ישראל
 
-
-
 2. מחלקת עררים בפרקליטות המדינה
-
-
 
 3. מבקר המדינה ונציב תלונות הציבור
 
-
-
 4. היועץ המשפטי לממשלה
-
-
 
 5. פרקליטות המדינה
 
-	
-
 עתירה למתן צו על תנאי; בקשה לניהול ההליך בדלתיים סגורות ולהימנע מלצרף משיבים ובקשה למתן צו ביניים
-
-	
 
 בשם העותר:
 
-עו&#34;ד נדב גדליהו 
-
-
+עו&#34;ד נדב גדליהו
 
 פסק-דין
 
-
-
 השופט ג&#39; קרא:
 
+עניינה של העתירה בבקשת העותר, אשר הגיש תלונה במשטרה, כי יועבר לו העתק חומר החקירה חסר, לטענתו; כי יבוצעו ביקורת ובדק בית לעניין התקלות שעלו בטיפול בתלונה שהגיש העותר ולתת דין וחשבון על כך בדו&#34;ח שיפורסם; כי ייקבע שאסור ליועץ המשפטי לממשלה ולפרקליטות המדינה &#34;למעול&#34; בתפקידם כגוף מפקח ומבקר של משטרת ישראל; ולפתוח את תיק החקירה כך שיוצא צו חיפוש לדירות ולמחשבי החשודים וכי אותם חשודים ייחקרו באזהרה. כן התבקש כי ההליך המשפטי יתקיים בדלתיים סגורות, כי פרטי העותר יוסתרו וכי יאושר אי-צירופם של החשודים כמשיבים לעתירה ואף התבקש &#34;צו ביניים&#34; אשר יורה למשטרת ישראל לתפוס את מחשביהם של החשודים.
 
+עניינו של תיק החקירה בתלונת העותר משנת 2014 במסגרתה הלין העותר כי קבצי וורד נעלמו ממחשבו. העותר העלה חשד כי פלוני, או מי מטעמו, ניסו לפרוץ למחשב ולגרום לו נזק. תיק החקירה נפתח ביום 26.8.2014 בתחנת שפט ונסגר ללא חקירה ביום 28.8.2014 על ידי קצין חקירות שפט. ביום 9.10.2014, נפתח התיק מחדש, ככל הנראה בעקבות פניות של העותר לגורמים שונים במחוז. חוקר ביצע מספר בדיקות לתעתיק של הדיסק הקשיח ולא נמצאו בו ממצאים שיכולים לקדם את החקירה. כמו כן, לא נמצאו כל תוכנות זדוניות שיכולות לגרום לתופעות שהעותר-המתלונן תיאר בהודעתו. המתלונן מסר שמות של מספר חשודים, אך החשד היה כללי ולא מבוסס. לפיכך, נסגר תיק החקירה בעילת &#34;עבריין לא נודע&#34; ביום 17.8.2015 על ידי ק&#39; חקירות במפלג ההונאה המחוזי ויום למחרת נשלחה למתלונן הודעה על כך (ראו: מענה לפניית העותר לקת&#34;צ מחוז ירושלים מיום 1.3.2016, אשר צורף כנספח ע/8 לעתירה).
 
+העתירה מתארת פניות והתכתבויות רבות של העותר לגורמים שונים במבקר המדינה ובאגף החקירות של משטרת ישראל. כך, למשל, ביום 12.3.2019, הודיע ראש ענף חקירות מחוז ירושלים לעותר כי תיק החקירה המקורי אבד, אך התיק שוחזר כך שהמסמכים המקוריים קיימים. כן נכתב כי אם ברצון העותר לערור על החלטת הסגירה, פנייתו תועבר למחלקת העררים בפרקליטות המדינה, גם בחלוף ארבע שנים מסגירת התיק, וזאת בהתחשב בכך שהתיק אבד.
 
+במענה מאת סנ&#34;צ רענ&#34;ח מחוז ירושלים מיום 21.3.2019 לערר שהגיש העותר, נכתב כי הוחלט לא לפתוח את תיק החקירה מכיוון שהמחשב של העותר נבדק עוד בשנת 2016 על ידי מומחה סייבר מחוזי ולא נמצאו ראיות להחדרת תוכנה זדונית לתוכו.
 
-	עניינה של העתירה בבקשת העותר, אשר הגיש תלונה במשטרה, כי יועבר לו העתק חומר החקירה חסר, לטענתו; כי יבוצעו ביקורת ובדק בית לעניין התקלות שעלו בטיפול בתלונה שהגיש העותר ולתת דין וחשבון על כך בדו&#34;ח שיפורסם; כי ייקבע  שאסור ליועץ המשפטי לממשלה ולפרקליטות המדינה &#34;למעול&#34; בתפקידם כגוף מפקח ומבקר של משטרת ישראל; ולפתוח את תיק החקירה כך שיוצא צו חיפוש לדירות ולמחשבי החשודים וכי אותם חשודים ייחקרו באזהרה. כן התבקש כי ההליך המשפטי יתקיים בדלתיים סגורות, כי פרטי העותר יוסתרו וכי יאושר אי-צירופם של החשודים כמשיבים לעתירה ואף התבקש &#34;צו ביניים&#34; אשר יורה למשטרת ישראל לתפוס את מחשביהם של החשודים.  
+במענה מאת מחלקת עררים בפרקליטות המדינה מיום 2.10.2019 לערר שהגיש העותר, נכתב כי הוחלט שלא לשנות מהחלטת המשטרה לסגור את התיק והערר נדחה. כן נכתב כי עיון בחומר המצוי בתיק החקירה העלה כי סגירת התיק הייתה מוצדקת ואין מקום להתערב בהחלטה. זאת מאחר שלא הונחה תשתית לביסוס חשד נגד הנילון לכך שחדר לחומר מחשב. יתרה מזאת, כך נכתב, במועד הסמוך להגשת התלונה בדק חוקר מחשבים מיומן מטעם המשטרה את מחשב העורר ולא מצא ראיות לביצוע עבירה או להחדרת תוכנה זדונית. כמו כן לא נמצאו ממצאים כלשהם שיש בכוחם להוביל לחשודים. עוד הוער כי הערר הוגש בשיהוי ניכר וללא כל הסבר מניח את הדעת ורק לפנים משורת הדין טופל ולא נדחה על הסף.
 
+במענה מיום 20.12.2020 לפניית העותר מאת ראש ענף חקירות מחוז ירושלים, נכתב, בין היתר, כי אותו גורם קרא שוב את התיק החקירה ואת ההתכתבויות הכרוכות בו, וכי &#34;מדובר בתיק ישן, שאין מקום לפתוח אותו שוב, במיוחד לאור העובדה שאין שום בסיס ראייתי לתלונתו של [העותר]... אין בכוונתנו לפתוח את התיק המדובר שכזכור נפתח לפני יותר משש שנים ואין בו חשד לביצוע עבירה פלילית בכלל ועל ידי &#39;החשוד&#39; שציינת בפרט&#34;.
 
+במענה מאת הייעוץ המשפטי במשרד מבקר המדינה מיום 31.12.2020 לפניית העותר בעניין התראה טרם פנייה לערכאות, נכתב, בין היתר, כי אין בסיס עובדתי ומשפטי להיעתר לסעדים המבוקשים בפנייה ובטיוטת העתירה ששלח העותר.
 
-עניינו של תיק החקירה בתלונת העותר משנת 2014 במסגרתה הלין העותר כי קבצי וורד נעלמו ממחשבו. העותר העלה חשד כי פלוני, או מי מטעמו, ניסו לפרוץ למחשב ולגרום לו נזק. תיק החקירה נפתח ביום 26.8.2014 בתחנת שפט ונסגר ללא חקירה ביום 28.8.2014 על ידי קצין חקירות שפט. ביום 9.10.2014, נפתח התיק מחדש, ככל הנראה בעקבות פניות של העותר לגורמים שונים במחוז. חוקר ביצע מספר בדיקות לתעתיק של הדיסק הקשיח ולא נמצאו בו ממצאים שיכולים לקדם את החקירה. כמו כן, לא נמצאו כל תוכנות זדוניות שיכולות לגרום לתופעות שהעותר-המתלונן תיאר בהודעתו. המתלונן מסר שמות של מספר חשודים, אך החשד היה כללי ולא מבוסס. לפיכך, נסגר תיק החקירה בעילת &#34;עבריין לא נודע&#34; ביום 17.8.2015 על ידי ק&#39; חקירות במפלג ההונאה המחוזי ויום למחרת נשלחה למתלונן הודעה על כך (ראו: מענה לפניית העותר לקת&#34;צ מחוז ירושלים מיום 1.3.2016, אשר צורף כנספח ע/8 לעתירה). 
-
-
-
-	העתירה מתארת פניות והתכתבויות רבות של העותר לגורמים שונים במבקר המדינה ובאגף החקירות של משטרת ישראל. כך, למשל, ביום 12.3.2019, הודיע ראש ענף חקירות מחוז ירושלים לעותר כי תיק החקירה המקורי אבד, אך התיק שוחזר כך שהמסמכים המקוריים קיימים. כן נכתב כי אם ברצון העותר לערור על החלטת הסגירה, פנייתו תועבר למחלקת העררים בפרקליטות המדינה, גם בחלוף ארבע שנים מסגירת התיק, וזאת בהתחשב בכך שהתיק אבד. 
-
-
-
-	במענה מאת סנ&#34;צ רענ&#34;ח מחוז ירושלים מיום 21.3.2019 לערר שהגיש העותר, נכתב כי הוחלט לא לפתוח את תיק החקירה מכיוון שהמחשב של העותר נבדק עוד בשנת 2016 על ידי מומחה סייבר מחוזי ולא נמצאו ראיות להחדרת תוכנה זדונית לתוכו. 
-
-
-
-	במענה מאת מחלקת עררים בפרקליטות המדינה מיום 2.10.2019 לערר שהגיש העותר, נכתב כי הוחלט שלא לשנות מהחלטת המשטרה לסגור את התיק והערר נדחה. כן נכתב כי עיון בחומר המצוי בתיק החקירה העלה כי סגירת התיק הייתה מוצדקת ואין מקום להתערב בהחלטה. זאת מאחר שלא הונחה תשתית לביסוס חשד נגד הנילון לכך שחדר לחומר מחשב. יתרה מזאת, כך נכתב, במועד הסמוך להגשת התלונה בדק חוקר מחשבים מיומן מטעם המשטרה את מחשב העורר ולא מצא ראיות לביצוע עבירה או להחדרת תוכנה זדונית. כמו כן לא נמצאו ממצאים כלשהם שיש בכוחם להוביל לחשודים. עוד הוער כי הערר הוגש בשיהוי ניכר וללא כל הסבר מניח את הדעת ורק לפנים משורת הדין טופל ולא נדחה על הסף. 
-
-
-
-	במענה מיום 20.12.2020 לפניית העותר מאת ראש ענף חקירות מחוז ירושלים, נכתב, בין היתר, כי אותו גורם קרא שוב את התיק החקירה ואת ההתכתבויות הכרוכות בו, וכי &#34;מדובר בתיק ישן, שאין מקום לפתוח אותו שוב, במיוחד לאור העובדה שאין שום בסיס ראייתי לתלונתו של [העותר]... אין בכוונתנו לפתוח את התיק המדובר שכזכור נפתח לפני יותר משש שנים ואין בו חשד לביצוע עבירה פלילית בכלל ועל ידי &#39;החשוד&#39; שציינת בפרט&#34;.
-
-
-
-	במענה מאת הייעוץ המשפטי במשרד מבקר המדינה מיום 31.12.2020 לפניית העותר בעניין התראה טרם פנייה לערכאות, נכתב, בין היתר, כי אין בסיס עובדתי ומשפטי להיעתר לסעדים המבוקשים בפנייה ובטיוטת העתירה ששלח העותר. 
-
-
-
-	במענה מאת לשכת המשנה לפרקליט המדינה (עניינים פליליים) מיום 4.1.2021 לפנייתו החוזרת של העותר בערר על ההחלטה לסגור את תיק המשטרה, נכתב כי אין מקום לשנות את ההחלטה לדחות את הערר, כדלקמן:
-
-
+במענה מאת לשכת המשנה לפרקליט המדינה (עניינים פליליים) מיום 4.1.2021 לפנייתו החוזרת של העותר בערר על ההחלטה לסגור את תיק המשטרה, נכתב כי אין מקום לשנות את ההחלטה לדחות את הערר, כדלקמן:
 
 &#34;החלטת מחלקת עררים מנומקת ומבוססת על חומר החקירה שנאסף בתיק החקירה. למעלה מן הצורך, יצוין כי אף נציב תלונות הציבור על מייצגי המדינה בערכאות, קבע כי מדובר בהחלטה מנומקת, אשר התבססה על כלל החומר שנאסף בתיק התלונה.
 
-באשר לשיהוי בהגשת הערר, וכפי שאף עולה מהחלטת נציב תלונות הציבור על מייצגי המדינה בערכאות, ההחלטה בערר גופה לא הושפעה מכך, אלא ניתנה על בסיס שיקולים ענייניים גרידא. מבלי להקל ראש במצבו הרפואי של מרשכם, הוראות החוק אינן קובעות חריגים למועד הגשת הערר, קל וחומר, מקום שמרשכם מיוצג ע&#34;י עו&#34;ד ואף לא פנה בבקשת אורכה בהתאם להוראות החוק... נוסיף כי על-פי חוק, אין זכות ערר על החלטה בערר&#34;. 
+באשר לשיהוי בהגשת הערר, וכפי שאף עולה מהחלטת נציב תלונות הציבור על מייצגי המדינה בערכאות, ההחלטה בערר גופה לא הושפעה מכך, אלא ניתנה על בסיס שיקולים ענייניים גרידא. מבלי להקל ראש במצבו הרפואי של מרשכם, הוראות החוק אינן קובעות חריגים למועד הגשת הערר, קל וחומר, מקום שמרשכם מיוצג ע&#34;י עו&#34;ד ואף לא פנה בבקשת אורכה בהתאם להוראות החוק... נוסיף כי על-פי חוק, אין זכות ערר על החלטה בערר&#34;.
 
-   
+יצוין כי בעתירה כותב העותר כי העתירה הוגשה בשיהוי ניכר, אך לטענתו השיהוי מוצדק בהינתן מצבו הבריאותי של העותר וכי אישורים רפואיים שהגיש &#34;מדברים בעד עצמם&#34; (מדובר באישורים שמרביתם מטעמו של רופא מומחה ברפואת משפחה, שעיקרם בכך שהעותר &#34;נמצא בחופש מחלה החל מ-1996&#34;). בהינתן האמור בשילוב נסיבות נגיף הקורונה נמנעה עד כה, לטענת העותר, הגשתה של העתירה.
 
-	יצוין כי בעתירה כותב העותר כי העתירה הוגשה בשיהוי ניכר, אך לטענתו השיהוי מוצדק בהינתן מצבו הבריאותי של העותר וכי אישורים רפואיים שהגיש &#34;מדברים בעד עצמם&#34; (מדובר באישורים שמרביתם מטעמו של רופא מומחה ברפואת משפחה, שעיקרם בכך שהעותר &#34;נמצא בחופש מחלה החל מ-1996&#34;). בהינתן האמור בשילוב נסיבות נגיף הקורונה נמנעה עד כה, לטענת העותר, הגשתה של העתירה. 
-
-
-
- דיון והכרעה
-
-
+דיון והכרעה
 
 דין העתירה להידחות על הסף מחמת השיהוי שנפל בהגשתה ובהעדר עילה להתערבות.
 
-
-
-	כמפורט, עסקינן בתיק חקירה שנסגר בשנת 2014, כאשר הערר שהגיש העותר נדחה עוד בשנת 2019, לפני למעלה משנה וחצי. חרף כך, העותר נמנע מלהגיש את העתירה עד ליולי 2021. העותר לא הציג טעם מבורר מדוע התמהמה זמן רב מלהגיש את העתירה (ראו, למשל: בג&#34;ץ 2699/21 דישון - כפר שיתופי להתיישבות חקלאית בע&#34;מ נ&#39; שר החקלאות ופיתוח הכפר, פסקה 7 וההפניות שם (‏20.5.2021)). הדברים הבאים שנקבעו יפים גם לענייננו: 
-
-
+כמפורט, עסקינן בתיק חקירה שנסגר בשנת 2014, כאשר הערר שהגיש העותר נדחה עוד בשנת 2019, לפני למעלה משנה וחצי. חרף כך, העותר נמנע מלהגיש את העתירה עד ליולי 2021. העותר לא הציג טעם מבורר מדוע התמהמה זמן רב מלהגיש את העתירה (ראו, למשל: בג&#34;ץ 2699/21 דישון - כפר שיתופי להתיישבות חקלאית בע&#34;מ נ&#39; שר החקלאות ופיתוח הכפר, פסקה 7 וההפניות שם (‏20.5.2021)). הדברים הבאים שנקבעו יפים גם לענייננו:
 
 &#34;בכך מוצו הלכה למעשה אפשרויות ההשגה על ידי העותר. הגשת העתירה בחלוף למעלה מ-4.5 שנים לוקה לפיכך בשיהוי ניכר, אשר מצדיק כשלעצמו את דחיית העתירה על הסף (בג&#34;ץ 3373/20 סמיונוב נ&#39; פרקליטות המדינה מחלקת עררים, פסקה 14 (25.6.2020); בג&#34;ץ 7263/13 פלונית נ&#39; מדינת ישראל, פסקה 7 (14.9.2014); בג&#34;ץ 9363/12 קטש נ&#39; היועץ המשפטי לממשלה, פסקה 4 (29.4.2013)). זאת ועוד, בהקשר זה יש לזכור כי &#34;עותר אינו יכול להתגבר על טענת השיהוי בכך שהוא מתעקש, אינו מוכן לראות בסירוב שהוא מקבל סוף פסוק, וממשיך להתכתב עם הרשויות. [...] דבר זה נכון גם במקום שהרשויות באדיבותן משיבות לפונה שוב ושוב, כי אין בידן לשנות החלטתן&#34; (בג&#34;ץ 410/78 מילס ישראל בע&#34;מ נ&#39; שר האוצר, פ&#34;ד לג(1) 271, 273 (1979). ראו גם: בג&#34;ץ 7826/16 פלוני נ&#39; רשות המיסים לישראל, פסקה 3 (11.1.2017))&#34; (בג&#34;ץ 3182/20 פלוני נ&#39; משטרת ישראל, פסקה 17 (‏9.7.2020) (להלן: עניין פלוני)).
 
-
-
-
-
-	מעל לצורך יצוין כי גם בעתירה לגופה לא מצאנו ממש. הלכה פסוקה היא כי שיקול דעת הרשויות בתחום ההעמדה לדין וניהול חקירה הוא רחב וכי מתחם הביקורת השיפוטית בהחלטות אלו הוא צר (ראו, למשל: בג&#34;ץ 3124/12 דור טכנולוגיות גז (דור גז) בע&#34;מ נ&#39; פרקליט מחוז דרום פלילי (25.4.2012) וההפניות שם). לא מצאנו כי עניינו של העותר מצדיק התערבות בהחלטות שהתקבלו. יתר על כן, פניותיו בעניין תיק החקירה  נבחנו על ידי מספר גורמים – אשר לאחר שבחנו את טענותיו, הגיעו כולם למסקנה זהה. בהתחשב בכל אלה, לא נמצא פגם המצדיק התערבות בהחלטות שהתקבלו, המבוססות על שיקול דעתן המקצועי של רשויות החקירה והתביעה (השוו: עניין פלוני, פסקה 18).
-
-
+מעל לצורך יצוין כי גם בעתירה לגופה לא מצאנו ממש. הלכה פסוקה היא כי שיקול דעת הרשויות בתחום ההעמדה לדין וניהול חקירה הוא רחב וכי מתחם הביקורת השיפוטית בהחלטות אלו הוא צר (ראו, למשל: בג&#34;ץ 3124/12 דור טכנולוגיות גז (דור גז) בע&#34;מ נ&#39; פרקליט מחוז דרום פלילי (25.4.2012) וההפניות שם). לא מצאנו כי עניינו של העותר מצדיק התערבות בהחלטות שהתקבלו. יתר על כן, פניותיו בעניין תיק החקירה נבחנו על ידי מספר גורמים – אשר לאחר שבחנו את טענותיו, הגיעו כולם למסקנה זהה. בהתחשב בכל אלה, לא נמצא פגם המצדיק התערבות בהחלטות שהתקבלו, המבוססות על שיקול דעתן המקצועי של רשויות החקירה והתביעה (השוו: עניין פלוני, פסקה 18).
 
 סוף דבר, דין העתירה להידחות, וכך גם דינו של &#34;צו הביניים&#34; שהתבקש, אשר במהותו ובגלוי אינו צו ביניים כלל. בנסיבות העניין, ומשלא התבקשו תגובות המשיבים, לא ייעשה צו להוצאות.
 
-
-
-	ניתן היום, ‏י&#34;ב באב התשפ&#34;א (‏21.7.2021).
-
-
-
-
+ניתן היום, ‏י&#34;ב באב התשפ&#34;א (‏21.7.2021).
 
 ש ו פ ט
 
@@ -1728,21 +1909,11 @@
 
 ש ו פ ט
 
-
-
 _________________________
 
-   21050300_Q02.docx   סח
+21050300_Q02.docx סח
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1761,7 +1932,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

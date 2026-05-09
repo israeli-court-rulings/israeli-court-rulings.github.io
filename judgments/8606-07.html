@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    10/12/2007 (לפני 6721 ימים)
+                    10/12/2007 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8606-07.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8606/07 - יהושע אהלפז ישועה נ. גבי בלוקה אלבז וילדיה"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8606-07.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/060/086/V01&amp;fileName=07086060_v01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/060/086/V01&amp;fileName=07086060_v01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/060/086/V01&amp;fileName=07086060_v01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/07/060/086/V01&amp;fileName=07086060_v01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1568,8 +1839,7 @@
 
 המערער:
 
-יהושע אהלפז
-ישועה
+יהושע אהלפז ישועה
 
 נ ג ד
 
@@ -1581,8 +1851,7 @@
 
 3. עיזבון המנוח ניסים אלבז ז&#34;ל
 
-4. עיזבון המנוחה
-בוהיה [בתיה] אלבז ז&#34;ל (פורמאלי)
+4. עיזבון המנוחה בוהיה [בתיה] אלבז ז&#34;ל (פורמאלי)
 
 5. עיזבון המנוח אברהם ארנון ז&#34;ל (פורמאלי)
 
@@ -1598,80 +1867,23 @@
 
 פסק-דין
 
-זהו ערעור על החלטות
-כבוד הרשמת ג&#39; לוין מיום 7.10.2007 ומיום 6.9.2007 בהן נדחתה בקשת המערער לעיון
-חוזר בבקשה לפטור מעירבון ואף נדחתה בקשתו החוזרת להגשת תצהיר לתיק בית המשפט.
+זהו ערעור על החלטות כבוד הרשמת ג&#39; לוין מיום 7.10.2007 ומיום 6.9.2007 בהן נדחתה בקשת המערער לעיון חוזר בבקשה לפטור מעירבון ואף נדחתה בקשתו החוזרת להגשת תצהיר לתיק בית המשפט.
 
-1. המערער הגיש ערעור על פסק דינו של בית המשפט המחוזי בתל
-אביב-יפו אשר קבע כי הצוואה המודפסת מבין שתי הצוואות שערך המנוח נסים אלבן
-ז&#34;ל (אחי המערער) הינה הצוואה המאוחרת והתקפה ונתן צו לקיומה. במסגרת הערעור,
-הגיש המערער בקשה לפטור מהפקדת עירבון (שהועמד על סך של 30,000 ₪) או להפחתתו ולחלופין
-להמרתו בערבות צד ג&#39;. כמו-כן הגיש המערער בקשה להגשת תצהיר בו יפרט את השתלשלות
-הייסורים שעברו הוא ומשפחתו, כדבריו, משך שנים ארוכות. בהחלטתה מיום 21.12.2006
-דחתה כבוד הרשמת את בקשת המערער להגשת תצהיר בקובעה כי הגשת תצהיר בשלב זה אינה
-עולה בקנה אחד עם סדרי הדין הנהוגים בערעור. כן נקבע כי המערער יוכל לטעון את מלוא
-טענותיו במסגרת הסיכומים, לכשיינתן צו לסיכומי טענות.
+1. המערער הגיש ערעור על פסק דינו של בית המשפט המחוזי בתל אביב-יפו אשר קבע כי הצוואה המודפסת מבין שתי הצוואות שערך המנוח נסים אלבן ז&#34;ל (אחי המערער) הינה הצוואה המאוחרת והתקפה ונתן צו לקיומה. במסגרת הערעור, הגיש המערער בקשה לפטור מהפקדת עירבון (שהועמד על סך של 30,000 ₪) או להפחתתו ולחלופין להמרתו בערבות צד ג&#39;. כמו-כן הגיש המערער בקשה להגשת תצהיר בו יפרט את השתלשלות הייסורים שעברו הוא ומשפחתו, כדבריו, משך שנים ארוכות. בהחלטתה מיום 21.12.2006 דחתה כבוד הרשמת את בקשת המערער להגשת תצהיר בקובעה כי הגשת תצהיר בשלב זה אינה עולה בקנה אחד עם סדרי הדין הנהוגים בערעור. כן נקבע כי המערער יוכל לטעון את מלוא טענותיו במסגרת הסיכומים, לכשיינתן צו לסיכומי טענות.
 
-2. בהחלטתה
-מיום 7.6.2007 ובכל הנוגע לבקשת המערער לפטור מהפקדת עירבון, קיבלה כבוד הרשמת את
-הבקשה באופן חלקי בקובעה כי המערער לא פרש תשתית עובדתית מלאה בדבר מצבו הכלכלי
-הנטען. כמו כן, נקבע כי על פני הדברים סיכויי ההליך אינם טובים מן הטעם שערכאת הערעור
-אינה נוהגת להתערב בממצאי עובדה ומהימנות שקבעה הערכאה הדיונית. עם זאת, קבעה
-הרשמת כי בשים לב לכך שאין למערער נכסים נזילים וכן בהתחשב במצבו הכלכלי של
-המערער, יופחת סכום העירבון ויועמד על סך של 20,000 ₪.
+2. בהחלטתה מיום 7.6.2007 ובכל הנוגע לבקשת המערער לפטור מהפקדת עירבון, קיבלה כבוד הרשמת את הבקשה באופן חלקי בקובעה כי המערער לא פרש תשתית עובדתית מלאה בדבר מצבו הכלכלי הנטען. כמו כן, נקבע כי על פני הדברים סיכויי ההליך אינם טובים מן הטעם שערכאת הערעור אינה נוהגת להתערב בממצאי עובדה ומהימנות שקבעה הערכאה הדיונית. עם זאת, קבעה הרשמת כי בשים לב לכך שאין למערער נכסים נזילים וכן בהתחשב במצבו הכלכלי של המערער, יופחת סכום העירבון ויועמד על סך של 20,000 ₪.
 
-3. ביום
-25.6.2007 הגיש המערער בקשה למתן ארכה להפקדת העירבון, וזאת לצורך בירור פנייתו לבנק
-בבקשה למתן הלוואה. בעקבות זאת, נדחה בהסכמת הצדדים המועד להפקדת העירבון עד ליום 26.7.2007. בסמוך למועד זה פנה
-המערער ב&#34;בקשה לעיון חוזר&#34; בבקשה לביטול או להפחתת העירבון ובה טען כי
-אין באפשרותו לגייס את סכום העירבון המופחת שנקבע ואין ביכולתו ליטול הלוואה לצורך
-הפקדת העירבון בשל ההחזרים החודשיים הגבוהים הכרוכים בכך. בהחלטה מיום 22.7.2007
-קבעה הרשמת כי המערער יבהיר האם פנה לבנק לצורך קבלת הלוואה ומה הייתה תשובת הבנק.
-לאור החלטת הרשמת, הגיש המערער ביום 1.8.2007 תדפיסי חשבון בנק ובהמשך אף צירף לוח
-סילוקין משוער להלוואה בסך 20,000 ₪. ביני לביני, הגיש המערער בקשה חוזרת להגשת
-תצהיר לתיק בית משפט אשר נדחתה ביום 6.9.2007 והרשמת לוין שבה וקבעה בעניין זה כי
-למערער תהיה אפשרות לטעון את מלוא טענותיו במסגרת הסיכומים שיגיש לאחר שיוסדר
-עניין העירבון ויינתן צו להגשת הסיכומים.
+3. ביום 25.6.2007 הגיש המערער בקשה למתן ארכה להפקדת העירבון, וזאת לצורך בירור פנייתו לבנק בבקשה למתן הלוואה. בעקבות זאת, נדחה בהסכמת הצדדים המועד להפקדת העירבון עד ליום 26.7.2007. בסמוך למועד זה פנה המערער ב&#34;בקשה לעיון חוזר&#34; בבקשה לביטול או להפחתת העירבון ובה טען כי אין באפשרותו לגייס את סכום העירבון המופחת שנקבע ואין ביכולתו ליטול הלוואה לצורך הפקדת העירבון בשל ההחזרים החודשיים הגבוהים הכרוכים בכך. בהחלטה מיום 22.7.2007 קבעה הרשמת כי המערער יבהיר האם פנה לבנק לצורך קבלת הלוואה ומה הייתה תשובת הבנק. לאור החלטת הרשמת, הגיש המערער ביום 1.8.2007 תדפיסי חשבון בנק ובהמשך אף צירף לוח סילוקין משוער להלוואה בסך 20,000 ₪. ביני לביני, הגיש המערער בקשה חוזרת להגשת תצהיר לתיק בית משפט אשר נדחתה ביום 6.9.2007 והרשמת לוין שבה וקבעה בעניין זה כי למערער תהיה אפשרות לטעון את מלוא טענותיו במסגרת הסיכומים שיגיש לאחר שיוסדר עניין העירבון ויינתן צו להגשת הסיכומים.
 
-4. בקשה נוספת של המערער לעיון חוזר בהחלטת הרשמת ליבוביץ בנוגע
-לעירבון, נדחתה על ידי הרשמת לוין בהחלטה מיום 7.10.2007, בקובעה כי הבקשה אינה מעלה
-עילה לעיון חוזר. כן קבעה הרשמת כי לא שוכנעה שאין באפשרות המערער ליטול הלוואה
-לצורך מימון ההליך בציינה כי הכנסותיו ומצב חשבון הבנק שהגיש מצביעים על יכולתו
-לשאת בהחזר חודשי הנדרש בסך של כ-430 ₪.
-עוד קבעה הרשמת כי סכום העירבון שנקבע הינו נמוך בהתחשב בכך שלמערער יש נכסים אף שאינם
-נזילים.
+4. בקשה נוספת של המערער לעיון חוזר בהחלטת הרשמת ליבוביץ בנוגע לעירבון, נדחתה על ידי הרשמת לוין בהחלטה מיום 7.10.2007, בקובעה כי הבקשה אינה מעלה עילה לעיון חוזר. כן קבעה הרשמת כי לא שוכנעה שאין באפשרות המערער ליטול הלוואה לצורך מימון ההליך בציינה כי הכנסותיו ומצב חשבון הבנק שהגיש מצביעים על יכולתו לשאת בהחזר חודשי הנדרש בסך של כ-430 ₪. עוד קבעה הרשמת כי סכום העירבון שנקבע הינו נמוך בהתחשב בכך שלמערער יש נכסים אף שאינם נזילים.
 
-5. על החלטות הרשמת לוין הן לעניין התצהיר והן לעניין העירבון מלין
-המערער בפניי. לטענתו, התעלמה הרשמת מטענותיו ולא בחנה אותן לעומקן. כמו כן, טוען
-הוא כי לא יוכל לעמוד בהחזר חודשי של הלוואה בגובה 20,000 ₪ מאחר שהכנסותיו מקצבת
-ביטוח לאומי ופנסיה עומדות על 4,096 ₪ ואילו הוצאותיו מסתכמות בסך של 4,154 ₪. כמו
-כן, נטען כי העובדה שיש ברשותו נכס מקרקעין המשמש לו ולמשפחתו כקורת גג אינה מעידה
-על כך שיוכל לעמוד בהחזרי ההלוואה, וזאת משיש לו הוצאות מחיה שוטפות ובכלל זה
-רכישת תרופות ותשלום חשבונות. לטענתו ראוי היה כי בית המשפט יפחית את סכום העירבון
-עד כדי מחצית והוא מוסיף וטוען כי סיכויי הערעור טובים. בכל הנוגע לתצהיר, נטען כי
-לא ניתנה לו הזדמנות להעיד ולהשמיע דברו בבית משפט קמא ולכן צירף תצהיר לערעור
-בבית משפט זה אשר יש לקבלו מטעמי צדק. לטענתו, יש להתיר לו לצרף את התצהיר לסיכומים
-או לחלופין למחוק את כותרת התצהיר ולראות בו כתוספת לסיכומים ולתיק המוצגים.
+5. על החלטות הרשמת לוין הן לעניין התצהיר והן לעניין העירבון מלין המערער בפניי. לטענתו, התעלמה הרשמת מטענותיו ולא בחנה אותן לעומקן. כמו כן, טוען הוא כי לא יוכל לעמוד בהחזר חודשי של הלוואה בגובה 20,000 ₪ מאחר שהכנסותיו מקצבת ביטוח לאומי ופנסיה עומדות על 4,096 ₪ ואילו הוצאותיו מסתכמות בסך של 4,154 ₪. כמו כן, נטען כי העובדה שיש ברשותו נכס מקרקעין המשמש לו ולמשפחתו כקורת גג אינה מעידה על כך שיוכל לעמוד בהחזרי ההלוואה, וזאת משיש לו הוצאות מחיה שוטפות ובכלל זה רכישת תרופות ותשלום חשבונות. לטענתו ראוי היה כי בית המשפט יפחית את סכום העירבון עד כדי מחצית והוא מוסיף וטוען כי סיכויי הערעור טובים. בכל הנוגע לתצהיר, נטען כי לא ניתנה לו הזדמנות להעיד ולהשמיע דברו בבית משפט קמא ולכן צירף תצהיר לערעור בבית משפט זה אשר יש לקבלו מטעמי צדק. לטענתו, יש להתיר לו לצרף את התצהיר לסיכומים או לחלופין למחוק את כותרת התצהיר ולראות בו כתוספת לסיכומים ולתיק המוצגים.
 
-6. דין
-הערעור להידחות. שיקול הדעת הנתון לרשם אם להעניק פטור מעירבון או להפחיתו על בסיס
-הנתונים שהונחו בפניו הינו רחב, ואין ערכאת הערעור נוהגת להתערב בו כדבר שבשגרה.
-במקרה דנן, נבחנו בקשותיו של המערער פעמים מספר ואף הוחלט להפחית את סכום העירבון
-לכדי שני שליש מסכומו המקורי. כמו-כן, נדחה המועד להפקדת העירבון על-מנת לאפשר
-למערער לבדוק דרכים לגיוס הכסף. בקשתו של המערער לעיון חוזר נדחתה ובצדק בהעדר
-נתונים חדשים המצדיקים עיון כזה. אדרבא לאחר עיון בדפי החשבון ובלוח הסילוקין
-המתייחס להחזר ההלוואה הגיעה כבוד הרשמת למסקנה כי מדובר בתשלומים מתונים שהמערער
-יכול לעמוד בהם. סיכוייו של ההליך נבחנו אף הם על ידי הרשמת ליבוביץ ואני שותפה
-למסקנתה כי על פני הדברים סיכויי ההליך אינם מן הגבוהים. משכך בצדק קבעה הרשמת לוין
-כי אין עילה לעיון חוזר בהחלטה גם מטעם זה. נוכח מסקנות אלה מתייתר הצורך לדון
-בסוגיית הגשת התצהיר. למעלה מן הדרוש יצויין כי הגשת ראיה בשלב הערעור מצריכה קבלת
-רשות מן המותב הדן בערעור וכל עוד לא ניתנה ממילא אין המערער רשאי להגיש את
-התצהיר.
+6. דין הערעור להידחות. שיקול הדעת הנתון לרשם אם להעניק פטור מעירבון או להפחיתו על בסיס הנתונים שהונחו בפניו הינו רחב, ואין ערכאת הערעור נוהגת להתערב בו כדבר שבשגרה. במקרה דנן, נבחנו בקשותיו של המערער פעמים מספר ואף הוחלט להפחית את סכום העירבון לכדי שני שליש מסכומו המקורי. כמו-כן, נדחה המועד להפקדת העירבון על-מנת לאפשר למערער לבדוק דרכים לגיוס הכסף. בקשתו של המערער לעיון חוזר נדחתה ובצדק בהעדר נתונים חדשים המצדיקים עיון כזה. אדרבא לאחר עיון בדפי החשבון ובלוח הסילוקין המתייחס להחזר ההלוואה הגיעה כבוד הרשמת למסקנה כי מדובר בתשלומים מתונים שהמערער יכול לעמוד בהם. סיכוייו של ההליך נבחנו אף הם על ידי הרשמת ליבוביץ ואני שותפה למסקנתה כי על פני הדברים סיכויי ההליך אינם מן הגבוהים. משכך בצדק קבעה הרשמת לוין כי אין עילה לעיון חוזר בהחלטה גם מטעם זה. נוכח מסקנות אלה מתייתר הצורך לדון בסוגיית הגשת התצהיר. למעלה מן הדרוש יצויין כי הגשת ראיה בשלב הערעור מצריכה קבלת רשות מן המותב הדן בערעור וכל עוד לא ניתנה ממילא אין המערער רשאי להגיש את התצהיר.
 
 אשר על כן, הערעור נדחה.
 
-ניתן היום, א&#39; טבת,
-תשס&#34;ח (10.12.07).
+ניתן היום, א&#39; טבת, תשס&#34;ח (10.12.07).
 
 ש ו פ ט ת
 
@@ -1698,7 +1910,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

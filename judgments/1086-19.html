@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    02/05/2019 (לפני 2560 ימים)
+                    02/05/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/1086-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="1086/19 - התנועה לטוהר המידות נ. היועץ המשפטי לממשלה"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F1086-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/860/010/e03&amp;fileName=19010860.E03&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/860/010/e03&amp;fileName=19010860.E03&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/860/010/e03&amp;fileName=19010860.E03&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/860/010/e03&amp;fileName=19010860.E03&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,63 +1827,31 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 1086/19
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-בג&#34;ץ  1086/19
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט נ&#39; הנדל
 
-
-
 כבוד השופט ע&#39; פוגלמן
 
-
-
 כבוד השופט י&#39; עמית
-
-
 
 העותרת:
 
 התנועה לטוהר המידות
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. היועץ המשפטי לממשלה
 
-
-
 2. שרה נתניהו
 
-
-
 עתירה למתן צו על תנאי
-
-
 
 בשם העותרת:
 
@@ -1626,135 +1865,63 @@
 
 עו&#34;ד ד&#34;ר יוסי כהן
 
-
-
-
-
 פסק-דין
 
 השופט י&#39; עמית:
 
-
-
 1.	ביום 8.9.2017 פורסמה החלטתו של המשיב 1, הוא היועץ המשפטי לממשלה (להלן: היועץ), להעמיד לדין בכפוף לשימוע את הגברת שרה נתניהו, אשת ראש הממשלה (להלן: המשיבה 2), ולסגור שורה של תיקי חקירה אחרים שנוהלו נגדה (להלן: ההחלטה). במסגרת העתירה שלפנינו התבקשנו להורות ליועץ לנמק בהרחבה את החלטתו בכל הנוגע לסגירת התיקים, ולפרסם את הנימוקים.
-
-
 
 השתלשלות העניינים עובר להגשת העתירה דנן
 
-
-
 2. 	יום לאחר פרסום ההחלטה הגישה העותרת בקשה לפי חוק חופש המידע, התשנ&#34;ח-1998 (להלן: חוק חופש המידע) לקבלת ההחלטה המנומקת. בתגובה, הועבר לידיה העתק ההחלטה. עוד באותו יום פנתה העותרת בבקשה לקבל לידיה את מסמך ההחלטה המנומקת המלא, בהנחה ש&#34;קיים מסמך כלשהו, המהווה החלטה מנומקת מלאה, שלא נמסר לעותרת&#34;. בהיעדר תגובה מטעם היועץ, העותרת הגישה עתירה לבית המשפט לעניינים מנהליים בבקשה לחשוף את ההחלטה המלאה (עת&#34;מ 49522-11-17). כחודש לאחר הגשת העתירה, התקבלה תגובה לבקשת העותרת, ובה הובהר שאין החלטה אחרת של היועץ בעניין המשיבה 2, מלבד זו שפורסמה ונמסרה לעותרת. עקב כך, תוקנה העתירה שהוגשה כך שנתבקשו בגדרה, נוסף על ההחלטה המנומקת, גם חוות הדעת המנומקות שהועברו לידי היועץ מהפרקליטות. בהמלצת בית המשפט, העותרת משכה את העתירה.
 
+בהמשך לכך, העותרת הגישה בקשה נוספת לפי חוק חופש המידע, בניסיון לקבל לידיה את חוות דעת הפרקליטות שהוגשו ליועץ לקראת ההחלטה. זאת, על בסיס ההנחה שחוות דעת אלו מהוות חלק בלתי נפרד מהתשתית העובדתית והמשפטית שביסוד ההחלטה. בתגובה לבקשה הובהר כי חוות הדעת שימשו בסיס להתייעצות ולדיונים פנימיים ולא נקלטו כמות שהן אל החלטת היועץ, שמהווה החלטה עצמאית. לפיכך, הבקשה נדחתה לפי החריג המנוי בסעיף 9(ב)(4) לחוק חופש המידע. גם על סירוב זה הוגשה עתירה לבית המשפט לעניינים מנהליים (עת&#34;מ 51659-05-18). במסגרת ההליך הוצגו לבית המשפט המחוזי חוות הדעת האמורות, והוכרע שהן אכן חוסות בגדר החריג. עוד צוין בפסק הדין כי הליכים לפי חוק חופש המידע אינם האפיק המתאים לבירור טענות העותרת בדבר הנמקה חסרה. אשר על כן, העתירה נדחתה ביום 26.12.2018.
 
-
-	בהמשך לכך, העותרת הגישה בקשה נוספת לפי חוק חופש המידע, בניסיון לקבל לידיה את חוות דעת הפרקליטות שהוגשו ליועץ לקראת ההחלטה. זאת, על בסיס ההנחה שחוות דעת אלו מהוות חלק בלתי נפרד מהתשתית העובדתית והמשפטית שביסוד ההחלטה. בתגובה לבקשה הובהר כי חוות הדעת שימשו בסיס להתייעצות ולדיונים פנימיים ולא נקלטו כמות שהן אל החלטת היועץ, שמהווה החלטה עצמאית. לפיכך, הבקשה נדחתה לפי החריג המנוי בסעיף 9(ב)(4) לחוק חופש המידע. גם על סירוב זה הוגשה עתירה לבית המשפט לעניינים מנהליים (עת&#34;מ 51659-05-18). במסגרת ההליך הוצגו לבית המשפט המחוזי חוות הדעת האמורות, והוכרע שהן אכן חוסות בגדר החריג. עוד צוין בפסק הדין כי הליכים לפי חוק חופש המידע אינם האפיק המתאים לבירור טענות העותרת בדבר הנמקה חסרה. אשר על כן, העתירה נדחתה ביום 26.12.2018.
-
-
-
-	מכאן העתירה שלפנינו.
-
-
+מכאן העתירה שלפנינו.
 
 טענות הצדדים
 
+3.	לטענת העותרת, החלטת היועץ אינה עומדת בחובת ההנמקה המוטלת על רשויות המינהל בכלל, ועל היועץ המשפטי לממשלה בתיקים של אנשי ציבור בפרט. לשיטתה, המשיבה 2 היא בעלת מעמד ציבורי, כפי שניתן ללמוד בין היתר מהחלטתו של היועץ לקבל את ההחלטות בעניינה בעצמו. משכך, היה על היועץ לנמק החלטתו ביתר הרחבה ולפרסמה ב&#34;דוח ציבורי&#34; על פי אמות המידה המקובלות, הן ב&#34;היבט הכמותי&#34; והן ב&#34;היבט האיכותי&#34;, בתיקים של אנשי ציבור. העותרת פירטה בעתירתה החלטות שונות שפורסמו בעבר בעניינם של אנשי ציבור שנחשדו בפלילים, ואשר אחזו עשרות עמודים, על מנת להמחיש את ההנמקה הדלה, לטעמה, שניתנה במסגרת ההחלטה דכאן ואשר אוחזת 5 עמודים בלבד. לשיטת העותרת, היה על היועץ לפרט ולנתח בהיבט העובדתי-ראייתי ובהיבט המשפטי-נורמטיבי מדוע הוחלט שלא להעמיד לדין את המשיבה 2 בארבע הפרשות הבאות: &#34;הארוחות לאורחים פרטיים&#34; &#34;המלצרים&#34;; &#34;החשמלאי&#34;; &#34;הטיפול הסיעודי&#34;.
 
+לטענת היועץ, ההחלטה מנומקת דיה, שכן היא מביאה לידיעת הציבור הן את החשדות הן את הטעמים שהובילו לסגירת התיקים שלא נכללו בכתב האישום. למעלה מן הצורך, נטען כי ליועץ מוקנה שיקול דעת באשר להיקף ההנמקה, וכי בנסיבות העניין לא מצא לנכון ליתן הנמקה מקיפה יותר. זאת, בהתחשב בכך שהוגש כתב אישום בגין אחת הפרשות ושעניינה תלוי ועומד בימים אלה בבית המשפט, ובכך שפרטי הפרשות שנחקרו ממילא ידועים ומוכרים לציבור מדו&#34;ח מבקר המדינה שעסק בהן (מבקר המדינה הוצאות מעונות ראש הממשלה (2015)).
 
-3.	לטענת העותרת, החלטת היועץ אינה עומדת בחובת ההנמקה המוטלת על רשויות המינהל בכלל, ועל היועץ המשפטי לממשלה בתיקים של אנשי ציבור בפרט. לשיטתה, המשיבה 2 היא בעלת מעמד ציבורי, כפי שניתן ללמוד בין היתר מהחלטתו של היועץ לקבל את ההחלטות בעניינה בעצמו. משכך, היה על היועץ לנמק החלטתו ביתר הרחבה ולפרסמה ב&#34;דוח ציבורי&#34; על פי אמות המידה המקובלות, הן ב&#34;היבט הכמותי&#34; והן ב&#34;היבט האיכותי&#34;, בתיקים של אנשי ציבור. העותרת פירטה בעתירתה החלטות שונות שפורסמו בעבר בעניינם של אנשי ציבור שנחשדו בפלילים, ואשר אחזו עשרות עמודים, על מנת להמחיש את ההנמקה הדלה, לטעמה, שניתנה במסגרת ההחלטה דכאן ואשר אוחזת 5 עמודים בלבד. לשיטת העותרת, היה על היועץ לפרט ולנתח בהיבט העובדתי-ראייתי ובהיבט המשפטי-נורמטיבי מדוע הוחלט שלא להעמיד לדין את המשיבה 2 בארבע הפרשות הבאות: &#34;הארוחות לאורחים פרטיים&#34; &#34;המלצרים&#34;; &#34;החשמלאי&#34;; &#34;הטיפול הסיעודי&#34;. 
-
-
-
-	לטענת היועץ, ההחלטה מנומקת דיה, שכן היא מביאה לידיעת הציבור הן את החשדות הן את הטעמים שהובילו לסגירת התיקים שלא נכללו בכתב האישום. למעלה מן הצורך, נטען כי ליועץ מוקנה שיקול דעת באשר להיקף ההנמקה, וכי בנסיבות העניין לא מצא לנכון ליתן הנמקה מקיפה יותר. זאת, בהתחשב בכך שהוגש כתב אישום בגין אחת הפרשות ושעניינה תלוי ועומד בימים אלה בבית המשפט, ובכך שפרטי הפרשות שנחקרו ממילא ידועים ומוכרים לציבור מדו&#34;ח מבקר המדינה שעסק בהן (מבקר המדינה הוצאות מעונות ראש הממשלה (2015)).
-
-
-
-	המשיבה 2 סברה כי אין עילה להתערבות בהחלטות היועץ בעניינה, והוסיפה כי העתירה הינה עתירת סרק שכל מטרתה הינה לפגוע בה.
-
-
+המשיבה 2 סברה כי אין עילה להתערבות בהחלטות היועץ בעניינה, והוסיפה כי העתירה הינה עתירת סרק שכל מטרתה הינה לפגוע בה.
 
 דיון והכרעה
 
-
-
 4.	ככלל, רשות מינהלית שמוקנית לה סמכות על פי דין רשאית ואף חייבת לנמק את החלטתה (בג&#34;ץ 2523/97 ימיני נ&#39; היועץ המשפטי לממשלה (20.4.1997) (להלן: עניין ימיני). אין ספק כי הפרשות בהן נחקרה המשיבה 2 מעוררות עניין ציבורי, והדברים שנאמרו בהקשר זה בבג&#34;ץ 88/18 יפים גם לענייננו:
-
-
 
 &#34;חקירת האפשרות לביצוען של עבירות פליליות, לכאורה, על ידי רעיית ראש הממשלה במעונו הרשמי של ראש הממשלה כרוכה ברגישות ציבורית רבה ונלווׂת לה, ולהמשך ההליכים בעניינה, ככל שיהיו כאלה, השלכות ציבוריות נכבדות&#34; (בג&#34;ץ 88/18 משגב נ&#39; היועץ המשפטי לממשלה, בפסקה 5 (16.1.2018)).
 
-
-
-
-
-	עם זאת, ומבלי לגרוע מחשיבותה של חובת ההנמקה, הגעתי למסקנה כי העתירה אינה מגלה עילה שתצדיק את התערבותנו בשיקול דעתו של היועץ. 
-
-
+עם זאת, ומבלי לגרוע מחשיבותה של חובת ההנמקה, הגעתי למסקנה כי העתירה אינה מגלה עילה שתצדיק את התערבותנו בשיקול דעתו של היועץ.
 
 5.	סעיפים 62(ב)(1) ו-63(2) לחוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ד- 1984 (להלן: חוק סדר הדין הפלילי) מורים כי יש למסור לחשוד ולמתלונן הודעה על החלטה שלא להעמיד לדין, בלא לציין את עילת הסגירה ותוך פירוט הדרכים בהן הם רשאים לבררה. מתגובת היועץ עולה כי הנוהג שהשתרש הוא שבמקרים חריגים, בהן רשויות התביעה מזהות הצדקה מיוחדת לכך, יפורטו בהודעה הנימוקים להחלטה על סגירת התיק. מדיניות זו עוגנה לאחרונה בהנחיית פרקליט המדינה:
 
-
-
 &#34;בתיקים בעלי רגישות מיוחדת (לדוגמה, כאשר החשודים הנם נבחרי ציבור או עובדי ציבור בכירים), או כאשר סבר תובע כי יש הצדקה מיוחדת אחרת לכך, רשאי תובע להוסיף בהחלטת הסגירה או במכתב סגירה, לצד ציון עילת הסגירה, כאשר יש חובה לציין את עילת הסגירה, פירוט על אודות נימוקי הסגירה.
-
-
 
 במקרים בהם לפי החוק אין מקום לציין את עילת הסגירה, עדיין ניתן בתיקים חריגים שכאלה לפרט אודות נימוקי הסגירה אך בלי לציין את עילת הסגירה&#34; (&#34;סגירת תיקים בעילת &#39;חוסר ראיות&#39; ובעילת &#39;היעדר אשמה&#39;&#34; הנחיות פרקליט המדינה 3.1 (2019)).
 
+לרשויות התביעה יש אפוא שיקול דעת אם לפרט את הנימוקים לסגירת תיקים פליליים. שיקול דעת זה מתפרש גם על היקף ההנמקה, כפי שהובהר בעניין ימיני: &#34;מידת הפירוט של ההחלטה על נימוקיה תיקבע על ידי המשיבים בכל מקרה בהתאם לעניין שבפניהם&#34;. אמנם בעניין ימיני העותרים ביקשו למנוע את פרסומה של החלטה מנומקת, בשונה מענייננו, בו מבקשת העותרת להורות על פרסומה של החלטה כזו, אך האמירה העקרונית בדבר מרחב שיקול הדעת של היועץ תקפה בשני המקרים (לגישה לפיה ראוי ליועץ לפרסם החלטה מנומקת בחקירות מתוקשרות מסוימות כנגד אישי ציבור, ראו גישתו של השופט א&#39; רובינשטיין בבג&#34;ץ 4921/13 אומ&#34;ץ אזרחים למען מנהל תקין וצדק חברתי נ&#39; ראש עיריית רמת השרון, בפסקה ד&#39; לפסק דינו (14.10.2013))..
 
-
-
-
-	לרשויות התביעה יש אפוא שיקול דעת אם לפרט את הנימוקים לסגירת תיקים פליליים. שיקול דעת זה מתפרש גם על היקף ההנמקה, כפי שהובהר בעניין ימיני: &#34;מידת הפירוט של ההחלטה על נימוקיה תיקבע על ידי המשיבים בכל מקרה בהתאם לעניין שבפניהם&#34;. אמנם בעניין ימיני העותרים ביקשו למנוע את פרסומה של החלטה מנומקת, בשונה מענייננו, בו מבקשת העותרת להורות על פרסומה של החלטה כזו, אך האמירה העקרונית בדבר מרחב שיקול הדעת של היועץ תקפה בשני המקרים (לגישה לפיה ראוי ליועץ לפרסם החלטה מנומקת בחקירות מתוקשרות מסוימות כנגד אישי ציבור, ראו גישתו של השופט א&#39; רובינשטיין בבג&#34;ץ 4921/13 אומ&#34;ץ אזרחים למען מנהל תקין וצדק חברתי נ&#39; ראש עיריית רמת השרון, בפסקה ד&#39; לפסק דינו (14.10.2013)).. 
-
-
-
-	לא למותר להזכיר בהקשר זה את ההלכה המושרשת לפיה לרשויות התביעה מסור שיקול דעת מקצועי רחב בכל הנוגע לחקירות שבטיפולן, ובייחוד כאשר מדובר בראשי מערכת התביעה (ראו, למשל, בג&#34;ץ 8814/18 שלו נ&#39; מדינת ישראל, בפסקה 8 והאסמכתאות שם (27.1.2019); בג&#34;ץ 4267/17 התנועה למען איכות השלטון בישראל נ&#39; היועץ המשפטי לממשלה, בפסקה 6 והאסמכתאות שם (24.7.2017)). נקודת מוצא זו כוחה יפה גם בכל האמור בהיקף ההנמקה.
-
-
+לא למותר להזכיר בהקשר זה את ההלכה המושרשת לפיה לרשויות התביעה מסור שיקול דעת מקצועי רחב בכל הנוגע לחקירות שבטיפולן, ובייחוד כאשר מדובר בראשי מערכת התביעה (ראו, למשל, בג&#34;ץ 8814/18 שלו נ&#39; מדינת ישראל, בפסקה 8 והאסמכתאות שם (27.1.2019); בג&#34;ץ 4267/17 התנועה למען איכות השלטון בישראל נ&#39; היועץ המשפטי לממשלה, בפסקה 6 והאסמכתאות שם (24.7.2017)). נקודת מוצא זו כוחה יפה גם בכל האמור בהיקף ההנמקה.
 
 6.	על רקע הדברים האלה, שבתי ובחנתי את ההחלטה בעניינה של המשיבה 2. הנמקתה של ההחלטה חורגת מהמינימום המתחייב מהוראות חוק סדר הדין הפלילי. מפאת החשיבות הציבורית של ההחלטה, החליט היועץ לציין בתמצית את הנימוקים לסגירת כל אחד מהתיקים שנחקרו. טענותיה של העותרת מופנות אפוא רק כנגד היקף ההנמקה, אשר נתון, כאמור, לשיקול דעתו של היועץ. היועץ מנה מספר טעמים שהנחו אותו בקביעת היקף ההנמקה המתאים בנסיבות העניין. ראשית, לשיטתו אין מקום להציג את הניתוח הראייתי שהוביל למסקנתו, משום שיש בו התייחסות לעדויות פוטנציאליות במשפט המתנהל בפרשה שבגינה הוגש כתב אישום; שנית, פרטי הפרשות שנחקרו ידועים לציבור מדו&#34;ח מבקר המדינה, באופן שמקהה את הפגיעה בזכות הציבור לדעת. סיכומו של דבר, שההנמקה התמציתית הינה תוצר של שיקול דעת סביר, ועל כן לא ראינו מקום להתערב בהיקף הנמקתו של היועץ המשפטי לממשלה.
 
+העתירה נדחית. אין צו להוצאות.
 
-
-	העתירה נדחית. אין צו להוצאות.
-
-
-
-
-
-	ניתן היום, ‏כ&#34;ז בניסן התשע&#34;ט (‏2.5.2019).
-
-
-
-
-
-
+ניתן היום, ‏כ&#34;ז בניסן התשע&#34;ט (‏2.5.2019).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
-
-
 
 _________________________
 
-   19010860_E03.docx   עכב
+19010860_E03.docx עכב
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1773,7 +1940,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

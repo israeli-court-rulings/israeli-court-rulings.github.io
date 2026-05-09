@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    02/02/2022 (לפני 1553 ימים)
+                    02/02/2022 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/6493-21.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="6493/21 - שמואל לגזיאל נ. אר אס דיזיין בע&#34;מ"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F6493-21.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/930/064/f05&amp;fileName=21064930.F05&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/930/064/f05&amp;fileName=21064930.F05&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/930/064/f05&amp;fileName=21064930.F05&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/930/064/f05&amp;fileName=21064930.F05&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,516 +1827,259 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            29
+            בבית המשפט העליון
 
+רע&#34;א 6493/21
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-רע&#34;א  6493/21
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט נ&#39; סולברג
 
-
-
 כבוד השופט ד&#39; מינץ
 
-
-
 כבוד השופט א&#39; שטיין
-
-
 
 המבקש:
 
 שמואל לגזיאל
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 אר אס דיזיין בע&#34;מ
 
-
-
 המשיבות הפורמליות:
 
 1. Gandy Digital NV
 
-
-
-2. Gandy  Digital Ltd.
-
-
+2. Gandy Digital Ltd.
 
 בקשת רשות ערעור על פסק דינו של בית המשפט המחוזי תל אביב-יפו (השופטת א&#39; כהן, ס&#34;נ) שניתן ביום 13.7.2021 ברע&#34;א 13632-05-21.
 
-
-
 בשם המבקש:
 
-עו&#34;ד יצחק לב 
-
-
+עו&#34;ד יצחק לב
 
 בשם המשיבה:
 
 עו&#34;ד עמית מור; עו&#34;ד עומר גיא
 
-	
-
-	
-
 פסק-דין
-
-
 
 השופט א&#39; שטיין:
 
-
-
 הבקשה
 
-
-
-לפנינו בקשת רשות ערעור על פסק דינו של בית המשפט המחוזי תל אביב-יפו (השופטת א&#39; כהן, ס&#34;נ) אשר ניתן ביום 13.7.2021 ברע&#34;א 13632-05-21 (להלן: פסק הדין קמא), בגדרו נדונה כערעור ונדחתה בקשת-רשות-ערעור של המבקש על החלטת בית משפט השלום תל אביב-יפו (השופטת ה&#39; פלד) אשר ניתנה ביום 26.3.2021 בת&#34;א 35957-06-20 (להלן: ההחלטה בהליך העיקרי וההליך העיקרי, בהתאמה). ההחלטה בהליך העיקרי קבעה כי אין מקום לעכב הליכים בעניינו של המבקש, מנהלה של המשיבה הפורמלית 1 – וזאת, חרף קיומה של תניית שיפוט ייחודית אשר קובעת, לפי לשונה, כי רק בתי משפט בבלגיה יהיו מוסמכים לדון בתובענות כדוגמת זאת שנפתחה בהליך העיקרי, ולמרות עיכוב ההליכים שאושר בעניינן של המשיבות הפורמליות 1 ו-2, החברה הבלגית, Gandy Digital NV (להלן: החברה הבלגית), והחברה הקנדית Gandy Digital Ltd. (להלן: היצרן). שתי החברות הזרות הללו תיקראנה יחדיו: חברות גנדי. 
-
-
+לפנינו בקשת רשות ערעור על פסק דינו של בית המשפט המחוזי תל אביב-יפו (השופטת א&#39; כהן, ס&#34;נ) אשר ניתן ביום 13.7.2021 ברע&#34;א 13632-05-21 (להלן: פסק הדין קמא), בגדרו נדונה כערעור ונדחתה בקשת-רשות-ערעור של המבקש על החלטת בית משפט השלום תל אביב-יפו (השופטת ה&#39; פלד) אשר ניתנה ביום 26.3.2021 בת&#34;א 35957-06-20 (להלן: ההחלטה בהליך העיקרי וההליך העיקרי, בהתאמה). ההחלטה בהליך העיקרי קבעה כי אין מקום לעכב הליכים בעניינו של המבקש, מנהלה של המשיבה הפורמלית 1 – וזאת, חרף קיומה של תניית שיפוט ייחודית אשר קובעת, לפי לשונה, כי רק בתי משפט בבלגיה יהיו מוסמכים לדון בתובענות כדוגמת זאת שנפתחה בהליך העיקרי, ולמרות עיכוב ההליכים שאושר בעניינן של המשיבות הפורמליות 1 ו-2, החברה הבלגית, Gandy Digital NV (להלן: החברה הבלגית), והחברה הקנדית Gandy Digital Ltd. (להלן: היצרן). שתי החברות הזרות הללו תיקראנה יחדיו: חברות גנדי.
 
 הרקע לבקשה וההליכים הקודמים
 
+כאמור, המבקש הוא מנהלה של החברה הבלגית. כחלק מתפקיד זה, המבקש אחראי על הפצתן ומכירתן של מכונות הדפוס של חברות גנדי בישראל ועל מתן שירותים לרוכשי המכונות הללו בישראל. המבקש הוא אזרח ישראלי ובלגי המתגורר דרך קבע בבלגיה. החברה הבלגית מתמחה בטכנולוגיות דפוס דיגיטלי. במסגרת עיסוקיה, היא מוכרת מכונות דפוס אשר מיוצרות על ידי היצרן.
 
+ביום 8.2.2019 התקשרה החברה הבלגית, באמצעות המבקש, בהסכם שענינו שדרוג מכונת דפוס שבבעלות המשיבה (להלן: ההסכם והמכונה, בהתאמה). הסכם זה, המתועד על גבי חשבונית, חתום על ידי המבקש ועל ידי מנהלה של המשיבה, ובו מופיעה תניית שיפוט ייחודית הקובעת כך:
 
-כאמור, המבקש הוא מנהלה של החברה הבלגית. כחלק מתפקיד זה, המבקש אחראי על הפצתן ומכירתן של מכונות הדפוס של חברות גנדי בישראל ועל מתן שירותים לרוכשי המכונות הללו בישראל. המבקש הוא אזרח ישראלי ובלגי המתגורר דרך קבע בבלגיה. החברה הבלגית מתמחה בטכנולוגיות דפוס דיגיטלי. במסגרת עיסוקיה, היא מוכרת מכונות דפוס אשר מיוצרות על ידי היצרן. 
-
-
-
- ביום 8.2.2019 התקשרה החברה הבלגית, באמצעות המבקש, בהסכם שענינו שדרוג מכונת דפוס שבבעלות המשיבה (להלן: ההסכם והמכונה, בהתאמה). הסכם זה, המתועד על גבי חשבונית, חתום על ידי המבקש ועל ידי מנהלה של המשיבה, ובו מופיעה תניית שיפוט ייחודית הקובעת כך:
-
-
-
-“Governing Law and Jurisdiction. The laws of Belgium shall govern this Invoice and this T&amp;C. […] All disputes in connection with this invoice or any subsequent sale of or provision of service by GD [Gandy Digital – A.S.] to Customer shall be subject to the exclusive jurisdiction of the competent court of Antwerp, Belgium, unless GD decides to act in another competent jurisdiction based on the domicile, business premises or location of assets of the costumer in summary proceedings to prevent customer taking such acts to the detriment of GD&#39;s rights.”(ראו: סעיף 6 להסכם, נספח ב&#39; לבקשת רשות הערעור; ההדגשה הוספה – א.ש.). 
-
-
+“Governing Law and Jurisdiction. The laws of Belgium shall govern this Invoice and this T&amp;C. […] All disputes in connection with this invoice or any subsequent sale of or provision of service by GD [Gandy Digital – A.S.] to Customer shall be subject to the exclusive jurisdiction of the competent court of Antwerp, Belgium, unless GD decides to act in another competent jurisdiction based on the domicile, business premises or location of assets of the costumer in summary proceedings to prevent customer taking such acts to the detriment of GD&#39;s rights.”(ראו: סעיף 6 להסכם, נספח ב&#39; לבקשת רשות הערעור; ההדגשה הוספה – א.ש.).
 
 ביום 15.6.2021 הגישה המשיבה לבית משפט השלום תל אביב-יפו תביעה נגד המבקש ונגד חברות גנדי, בה הועלו שלל טענות חוזיות ונזיקיות שמקורן בהסכם, בנסיבות שאפפו את חתימתו ובשירות שניתן מכוחו. בין היתר טענה המשיבה כי תהליך שדרוגה של המכונה החל באיחור ניכר בהשוואה למועד שהוסכם על ידי הצדדים, וכי המכונה סבלה מתקלות חוזרות ונשנות. ביחס למבקש נטען כי זה הציג כלפי המשיבה מצגי שווא שונים, ביודעין, כדי להביאה להתקשר עם החברה הבלגית. עוד טענה המשיבה כי היא הסתמכה על מצגיו של המבקש לאור היכרותה האישית עמו, שמקורה בעסקאות קודמות שעשתה עם החברה הבלגית, באמצעותו. כל אלו הסבו למשיבה – לטענתה – נזקים רבים, המסתכמים לדבריה בסך כולל של 1,247,200 ש&#34;ח.
 
-
-
 במענה לתביעה דרשו המבקש וחברות גנדי את עיכובם של ההליכים בעניינם – זאת, לנוכח קיומה של תניית השיפוט הייחודית בהסכם, אשר צוטטה לעיל ואשר קובעת, בין היתר, כי &#34;כל סכסוך הקשור לחשבונית זאת או לכל מכירה עתידית או הספקה עתידית של שירות על ידי [החברה הבלגית] יהא נתון לסמכותו הבלעדית של בית המשפט המוסמך באנטוורפן, בלגיה&#34; (להלן: תניית השיפוט הזר).
 
+בית משפט השלום הכריע בטענות אלו וקבע שיש לעכב את ההליכים נגד חברות גנדי לאור תניית השיפוט הזר שבהסכם. במסגרת זו, דחה בית המשפט את טענת המשיבה כי תניית השיפוט הזר מהווה תנאי מקפח בחוזה אחיד – זאת, מאחר שהמשיבה לא הוכיחה כי פערי הכוחות בין הצדדים להסכם מנעו ממנה לנהל משא ומתן פרטני בנוגע לתנאיו. כמו כן קבע בית משפט השלום כי תניית השיפוט הזר מעניקה סמכות דיון ייחודית לערכאות בבלגיה. עוד נקבע כי תניה זו צריכה לחול גם ביחס ליצרן, וזאת ממספר נימוקים. ראשית, כיוון שעילות התביעה המכוונות נגד היצרן נובעות מההסכם עם החברה הבלגית שמוכרת את המכונות. שנית, כיוון שהתדיינות בבית משפט בעיר אנטוורפן, בלגיה, הינה בגדר ציפיותיהם הסבירות של הצדדים. ולבסוף, כיוון שנסיבות המקרה מצביעות על כך שהפורום הנאות לקיום הדיון הוא בבלגיה.
 
+לא כך נקבע בעניינו של המבקש. ביחס למבקש נקבע כי עילות התביעה הנטענות נגדו – כאורגן בחברה הבלגית – הן בעלות מעמד עצמאי ונפרד ובתור שכאלה אינן כפופות לתניית השיפוט הזר שבהסכם. עוד נקבע כי צירופו של המבקש להליך לא נבע ממניעים תכסיסניים וכי בהתחשב במבחן מירב הזיקות, הפורום הנאות לקיום הדיון בעניינו הוא בישראל. לאור כל האמור, דחה בית משפט השלום את הבקשה ביחס למבקש.
 
-בית משפט השלום הכריע בטענות אלו וקבע שיש לעכב את ההליכים נגד חברות גנדי לאור תניית השיפוט הזר שבהסכם. במסגרת זו, דחה בית המשפט את טענת המשיבה כי תניית השיפוט הזר מהווה תנאי מקפח בחוזה אחיד – זאת, מאחר שהמשיבה לא הוכיחה כי פערי הכוחות בין הצדדים להסכם מנעו ממנה לנהל משא ומתן פרטני בנוגע לתנאיו. כמו כן קבע בית משפט השלום כי תניית השיפוט הזר מעניקה סמכות דיון ייחודית לערכאות בבלגיה. עוד נקבע כי תניה זו צריכה לחול גם ביחס ליצרן, וזאת ממספר נימוקים. ראשית, כיוון שעילות התביעה המכוונות נגד היצרן נובעות מההסכם עם החברה הבלגית שמוכרת את המכונות. שנית, כיוון שהתדיינות בבית משפט בעיר אנטוורפן, בלגיה, הינה בגדר ציפיותיהם הסבירות של הצדדים. ולבסוף, כיוון שנסיבות המקרה מצביעות על כך שהפורום הנאות לקיום הדיון הוא בבלגיה. 
-
-
-
-לא כך נקבע בעניינו של המבקש. ביחס למבקש נקבע כי עילות התביעה הנטענות נגדו – כאורגן בחברה הבלגית – הן בעלות מעמד עצמאי ונפרד ובתור שכאלה אינן כפופות לתניית השיפוט הזר שבהסכם. עוד נקבע כי צירופו של המבקש להליך לא נבע ממניעים תכסיסניים וכי בהתחשב במבחן מירב הזיקות, הפורום הנאות לקיום הדיון בעניינו הוא בישראל. לאור כל האמור, דחה בית משפט השלום את הבקשה ביחס למבקש. 
-
-
-
-על החלטה זו הגיש המבקש בקשת רשות ערעור לבית המשפט המחוזי, אשר העניק לו רשות ערעור אך דחה את ערעורו לגופו. בית המשפט המחוזי קבע כי תניית השיפוט הזר חלה אך ורק על הצדדים הישירים להסכם; המבקש איננו צד ישיר כאמור, ועל כן אין להחילה בעניינו; ויתרה מכך: עילות התביעה נגד המבקש מושתתות על חבותו האישית, ולא על חבותה של החברה הבלגית או על חבותו של היצרן הקנדי. לנוכח קביעה זו, פנה בית משפט קמא לבחינת הפורום הנאות אשר איששה את קביעותיו של בית משפט השלום. בית המשפט המחוזי קבע כי הפורום המתאים לדיון בתביעה אישית נגד המבקש נמצא בישראל. 
-
-
+על החלטה זו הגיש המבקש בקשת רשות ערעור לבית המשפט המחוזי, אשר העניק לו רשות ערעור אך דחה את ערעורו לגופו. בית המשפט המחוזי קבע כי תניית השיפוט הזר חלה אך ורק על הצדדים הישירים להסכם; המבקש איננו צד ישיר כאמור, ועל כן אין להחילה בעניינו; ויתרה מכך: עילות התביעה נגד המבקש מושתתות על חבותו האישית, ולא על חבותה של החברה הבלגית או על חבותו של היצרן הקנדי. לנוכח קביעה זו, פנה בית משפט קמא לבחינת הפורום הנאות אשר איששה את קביעותיו של בית משפט השלום. בית המשפט המחוזי קבע כי הפורום המתאים לדיון בתביעה אישית נגד המבקש נמצא בישראל.
 
 מכאן בקשת רשות הערעור שלפנינו.
 
-
-
 טענות הצדדים
-
-
 
 במסגרת בקשתו טוען המבקש כי יש להחיל את תניית השיפוט הזר גם בעניינו. לשיטתו, לשון התנייה ברורה ומעידה על כך שהצדדים התכוונו להעניק סמכות שיפוט בלעדית לבתי המשפט שבאנטוורפן, בלגיה, ביחס לכל שירות שניתן על ידי החברה הבלגית, או מי מטעמה, ללא קשר לזהות הנתבע ולהיותו צד פורמלי להסכם. המבקש ממשיך וטוען כי התנייה חוסמת את התביעה שהוגשה נגדו בהיותו מנהל החברה הבלגית. בעניין זה, מדגיש המבקש, התערבותנו דרושה על מנת להכריע בשאלה המשפטית הנוגעת להיקף תחולתן של תניות שיפוט זר סטנדרטיות או שכיחות ביחס לאורגנים של תאגיד. עוד טוען המבקש כי צירופו לכתב התביעה על ידי המשיבה נבע אך ורק מניסיונה להקנות סמכות דיון לבית משפט בישראל חרף קיומה של תניית השיפוט הזר. המבקש מוסיף וטוען כי עילות התביעה הנטענות נגדו זהות לחלוטין לאלו שנטענות נגד חברות גנדי וכי קיים קשר הדוק בין השאלה בדבר אחריותן של חברות אלה לנזקיה של המשיבה לבין אחריותו שלו. לדברי המבקש, כל אלו מראים כי אין זה רצוי או יעיל לפצל את הדיון. לאור כל המפורט, מבקשנו המבקש כי נורה על עיכוב ההליכים גם בעניינו.
 
-
-
-במענה לטענות אלה טוענת המשיבה כי לשון תניית השיפוט הזר מעידה על תחולתה אך ורק כלפי החברה הבלגית, ועל כן אין מקום להחילה ביחס לצדדים שלישיים שאינם צד ישיר להסכם. עוד טוענת היא כי אילו היו מבקשים הצדדים להחיל תנייה כאמור על עובדיה של החברה, הדבר היה צריך להיעשות בלשון מפורשת. בהקשר זה, מפנה המשיבה לאמור בע&#34;א 724/85 מנו קוי נוסעים בע&#34;מ נ&#39; דמרי, פ&#34;ד מב(3) 324 (1988) (להלן: עניין מנו), כאסמכתא המבססת את טענתה. עוד מדגישה המשיבה כי עילות התביעה נגד המבקש הן עצמאיות וישירות, וכי ממילא אין בהכרעות בעניינן של חברות גנדי כדי להשליך על שאלת האחריות האישית של המבקש. לשיטת המשיבה, המבחן המקובל של מירב הזיקות מוביל למסקנה כי בית המשפט הישראלי הוא הפורום ההולם לדון בתביעתה נגד המבקש, והמבקש מצדו לא הוכיח אחרת. לאור כל האמור, סומכת המשיבה את ידיה על הכרעותיהן של הערכאות קמא ומבקשת כי נדחה את הבקשה שלפנינו. 
-
-
+במענה לטענות אלה טוענת המשיבה כי לשון תניית השיפוט הזר מעידה על תחולתה אך ורק כלפי החברה הבלגית, ועל כן אין מקום להחילה ביחס לצדדים שלישיים שאינם צד ישיר להסכם. עוד טוענת היא כי אילו היו מבקשים הצדדים להחיל תנייה כאמור על עובדיה של החברה, הדבר היה צריך להיעשות בלשון מפורשת. בהקשר זה, מפנה המשיבה לאמור בע&#34;א 724/85 מנו קוי נוסעים בע&#34;מ נ&#39; דמרי, פ&#34;ד מב(3) 324 (1988) (להלן: עניין מנו), כאסמכתא המבססת את טענתה. עוד מדגישה המשיבה כי עילות התביעה נגד המבקש הן עצמאיות וישירות, וכי ממילא אין בהכרעות בעניינן של חברות גנדי כדי להשליך על שאלת האחריות האישית של המבקש. לשיטת המשיבה, המבחן המקובל של מירב הזיקות מוביל למסקנה כי בית המשפט הישראלי הוא הפורום ההולם לדון בתביעתה נגד המבקש, והמבקש מצדו לא הוכיח אחרת. לאור כל האמור, סומכת המשיבה את ידיה על הכרעותיהן של הערכאות קמא ומבקשת כי נדחה את הבקשה שלפנינו.
 
 דיון והכרעה
 
-
-
-מהטעמים שאפרט להלן, אציע לחבריי כי נדון בבקשה זו כבערעור, נקבל את הערעור ונקבע כי תניית השיפוט הזר חלה גם על המבקש וחוסמת את התביעה אשר הוגשה נגדו על ידי המשיבה. במילים אחרות: את הסכסוך שבו עסקינן יש להביא לדיון בפני בית משפט מוסמך בעיר אנטוורפן, בלגיה, אשר בפניו – ורק בפניו – ביקשו הצדדים ליישב סכסוכים כגון זה. 
-
-
+מהטעמים שאפרט להלן, אציע לחבריי כי נדון בבקשה זו כבערעור, נקבל את הערעור ונקבע כי תניית השיפוט הזר חלה גם על המבקש וחוסמת את התביעה אשר הוגשה נגדו על ידי המשיבה. במילים אחרות: את הסכסוך שבו עסקינן יש להביא לדיון בפני בית משפט מוסמך בעיר אנטוורפן, בלגיה, אשר בפניו – ורק בפניו – ביקשו הצדדים ליישב סכסוכים כגון זה.
 
 מקובלת עליי הכרעתו של בית משפט השלום בהליך העיקרי, אשר אושרה בהחלטתו של בית המשפט המחוזי, ולפיה תניית השיפוט הזר שבה עסקינן היא תניית שיפוט ייחודית המקנה את סמכות השיפוט ביחס לכל סכסוך שעתיד לנבוע מההסכם לערכאות המוסמכות בבלגיה. לשונה של תניית השיפוט הזר היא בהירה ונהירה, ואין – וממילא לא יכולה להיות – כל מחלוקת באשר לפרשנותה. חשיבות מיוחדת נתונה ללשון מקום בו עסקינן בחוזה בין שני צדדים עסקיים מתוחכמים אשר אינו מעלה כל קושי פרשני או לקונה (ראו: ע&#34;א 7649/18 ביבי כבישים עפר ופיתוח בע&#34;מ נ&#39; רכבת ישראל בע&#34;מ, פסקאות 17-11 לפסק דיני ופסקאות 7-5 לפסק דינו של השופט ע&#39; גרוסקופף (20.11.2019); וכן, דנ&#34;א 8100/19 ביבי כבישים עפר ופיתוח בע&#34;מ נ&#39; רכבת ישראל בע&#34;מ, פסקה 17 להחלטת הנשיאה א&#39; חיות (19.4.2020)). כך בפרט כאשר עוסקים אנו בכללי הפרשנות המיוחדים אשר חלים על פרשנותן של תניות שיפוט זר – כללים הדוגלים בפרשנות לשונית-דווקנית במטרה לכונן ודאות בענייני מסחר בינלאומי (ראו: רע&#34;א 928/18 De Neef Construction Chemicals BVBA נ&#39; גילאר בע&#34;מ, פסקה 11 והאסמכתאות שם (15.5.2018) (להלן: עניין De Neef)).
 
+המחלוקת היחידה שנותרה אפוא בין הצדדים – ואשר ביחס אליה התבקשה רשות ערעור – נוגעת להיקף תחולתה של תניית השיפוט הזר, כלומר: לשאלה האם תנייה זו, כפי שנוסחה, חלה גם בעניינו של המבקש. מאחר שמדובר בתניית שיפוט שכמותה יש הרבה בעולמו של מסחר בינלאומי, שאלה זו חורגת מעניינם הפרטני של בעלי הדין. סבורני כי הכרעתנו בשאלה זו תתרום לוודאות המשפטית באשר למשמעותם של הסכמים דומים אשר באים להסדיר ענייני מסחר בין אנשים וגופים הפועלים בארצות שונות. יתרה מכך: הנני סבור כי הכרעתנו כאן דרושה גם כדי למנוע עיוות דין אפשרי.
 
-
-המחלוקת היחידה שנותרה אפוא בין הצדדים – ואשר ביחס אליה התבקשה רשות ערעור – נוגעת להיקף תחולתה של תניית השיפוט הזר, כלומר: לשאלה האם תנייה זו, כפי שנוסחה, חלה גם בעניינו של המבקש. מאחר שמדובר בתניית שיפוט שכמותה יש הרבה בעולמו של מסחר בינלאומי,  שאלה זו חורגת מעניינם הפרטני של בעלי הדין. סבורני כי הכרעתנו בשאלה זו תתרום לוודאות המשפטית באשר למשמעותם של הסכמים דומים אשר באים להסדיר ענייני מסחר בין אנשים וגופים הפועלים בארצות שונות. יתרה מכך: הנני סבור כי הכרעתנו כאן דרושה גם כדי למנוע עיוות דין אפשרי.
-
-
-
-לפי לשונה הברורה של תניית השיפוט הזר, כל מחלוקת בקשר עם ההסכם אמורה להתברר בפני בית משפט מוסמך בעיר אנטוורפן, בלגיה, ורק בו. לשון חובקת-כל זו של תניית השיפוט הזר שבהסכם היא בעלת משמעות אחת ויחידה: כל מחלוקת שמקורה בהסכם – בין אם היא קשורה להסכם או לכל שירות שניתן מכוחו באופן ישיר ואף כאשר היא קשורה לאחד מאלו בקשר הדוק – דינה להתברר בפני הערכאה המוסמכת בבלגיה; ולא לפנינו. לשון התנייה ברורה ויש ללכת לפיה (ראו הכרעות דומות ביחס לתניות שיפוט זר אשר נוסחו באופן דומה או כמעט זהה לתנייה שבה עסקינן: ע&#34;א 5666/94 סנקרי נ&#39; Julius Blum G.M.B.H., פ&#34;ד נ(4) 73, 77-78 (1996) (להלן: עניין סנקרי); ע&#34;א 4601/02 ראדא תעשיות אלקטרוניות בע&#34;מ נ&#39; Bodstray Company Ltd., פ&#34;ד נח(2) 465, 476-474 (2004) (להלן: עניין ראדא)). מסקנה חד-משמעית זו נובעת מההלכות הרבות אשר מורות לנו כי בהעדר נסיבות חריגות של ממש, עלינו לכבד את הסכמותיהם של הצדדים במועד החתימה – כמות שהן – ולאפשר להם לממש את התכלית שבבסיסה של תניית השיפוט הייחודית: בירור סכסוכים בפני הפורום אותו בחרו (ראו, למשל: ע&#34;א 362/83 מנורה חברה לביטוח בע&#34;מ נ&#39; האניה &#34;דונאר&#34;, פ&#34;ד לח(2) 505, 519 (1984); ע&#34;א 601/82 בנק לאומי לישראל בע&#34;מ נ&#39; C.I.S – Continent Israel Schiffahrts G.M.B.H, פ&#34;ד מ(2) 673, 679-678 (1986); עניין סנקרי, בעמ&#39; 77; בר&#34;מ 2190/20 G&amp;B Packing Co. נ&#39; Serra International, Inc., פסקה 25 (25.10.2020)). 
-
-
+לפי לשונה הברורה של תניית השיפוט הזר, כל מחלוקת בקשר עם ההסכם אמורה להתברר בפני בית משפט מוסמך בעיר אנטוורפן, בלגיה, ורק בו. לשון חובקת-כל זו של תניית השיפוט הזר שבהסכם היא בעלת משמעות אחת ויחידה: כל מחלוקת שמקורה בהסכם – בין אם היא קשורה להסכם או לכל שירות שניתן מכוחו באופן ישיר ואף כאשר היא קשורה לאחד מאלו בקשר הדוק – דינה להתברר בפני הערכאה המוסמכת בבלגיה; ולא לפנינו. לשון התנייה ברורה ויש ללכת לפיה (ראו הכרעות דומות ביחס לתניות שיפוט זר אשר נוסחו באופן דומה או כמעט זהה לתנייה שבה עסקינן: ע&#34;א 5666/94 סנקרי נ&#39; Julius Blum G.M.B.H., פ&#34;ד נ(4) 73, 77-78 (1996) (להלן: עניין סנקרי); ע&#34;א 4601/02 ראדא תעשיות אלקטרוניות בע&#34;מ נ&#39; Bodstray Company Ltd., פ&#34;ד נח(2) 465, 476-474 (2004) (להלן: עניין ראדא)). מסקנה חד-משמעית זו נובעת מההלכות הרבות אשר מורות לנו כי בהעדר נסיבות חריגות של ממש, עלינו לכבד את הסכמותיהם של הצדדים במועד החתימה – כמות שהן – ולאפשר להם לממש את התכלית שבבסיסה של תניית השיפוט הייחודית: בירור סכסוכים בפני הפורום אותו בחרו (ראו, למשל: ע&#34;א 362/83 מנורה חברה לביטוח בע&#34;מ נ&#39; האניה &#34;דונאר&#34;, פ&#34;ד לח(2) 505, 519 (1984); ע&#34;א 601/82 בנק לאומי לישראל בע&#34;מ נ&#39; C.I.S – Continent Israel Schiffahrts G.M.B.H, פ&#34;ד מ(2) 673, 679-678 (1986); עניין סנקרי, בעמ&#39; 77; בר&#34;מ 2190/20 G&amp;B Packing Co. נ&#39; Serra International, Inc., פסקה 25 (25.10.2020)).
 
 מסקנה כאמור אינה משתנה כאשר תביעה הקשורה להסכם אשר מכיל תניית שיפוט-זר ייחודית מוגשת – כמו במקרה שלפנינו – נגד אדם או גוף שאינו צד ישיר או צד פורמלי לאותו הסכם. זאת, מאחר שבפסיקתנו נקבע זה מכבר כי יש לפרש את היקף תחולתה של תניית שיפוט ייחודית אשר חלה על יחסים עסקיים באופן רחב, וכי ככלל אין הצדקה להבחין בין עילה משפטית צרה, הנוגעת להסכם גופו, לבין עילה רחבה יותר אשר נטועה בנסיבות כריתת ההסכם וביצועו (ראו: עניין ראדא, שם). לא זו אף זו: בית משפט זה קבע מפורשות כי יש להחיל תניות שיפוט זר ייחודיות גם ביחס לעילות נזיקיות בעלות קשר הדוק להסכם שנחתם בין הצדדים (ראו והשוו: ע&#34;א 112/83 בן דב נ&#39; שטלגרובר – אוטו גרובר ושות&#39;, פ&#34;ד לט(1) 194, 196 (1985)). אשר על כן, לשונה הברורה וההחלטית של תניית השיפוט הזר אשר חלה בענייננו-שלנו – ולפיה &#34;כל סכסוך הקשור לחשבונית זאת או לכל מכירה עתידית או הספקה עתידית של שירות על ידי [החברה הבלגית] יהא נתון לסמכותו הבלעדית של בית משפט המוסמך באנטוורפן, בלגיה&#34; – היא לשון אשר באה לחסום תובענות בקשר לסכסוך שמקורו בהסכם, אשר מוגשות על ידי צד להסכם נגד כל גורם שהוא הקשור להסכם ולא רק נגד החברה הבלגית עמה נחתם ההסכם. לעניינה של תניית השיפוט הזר שבה עסקינן, גורם הקשור להסכם אשר יכול להיכנס לנעלי החברה הבלגית כדי להביא לאכיפת התנייה – למרות שאינו צד פורמלי להסכם – בוודאי כולל אורגנים ואנשי פנים אחרים של החברה, כדוגמת מנהל או עובד; ואין זה מן הנמנע, למשל, שהתנייה תופעל אף על ידי קבלן-משנה בלגי אשר פועל מטעם החברה הבלגית כמי שמספק את שירותיה המנויים בהסכם.
 
-
-
 עוד אעיר, כי עניין מנו, עליו נסמכת המשיבה, אינו תומך בעמדתה כלל וכלל. פסק דין זה נסוב על חברה ישראלית שתפקדה כסוכנת מקומית של חברת ספנות זרה. בשונה מהמבקש דכאן, אותה חברה ישראלית לא היתה עובדת או נושאת משרה של החברה הזרה. בית המשפט הדגיש כי פרשנות אשר שוללת את תחולתה של תניית השיפוט הזר על החברה הישראלית מקבלת משנה תוקף &#34;כשהן התובע והן הנתבע פועלים באותו פורום, ואין להם זיקה כלשהי למקום הזר&#34; (ראו: עניין מנו, בפסקאות 2, 8).
-
-
 
 במקרה דכאן, המצב הוא שונה בתכלית: המבקש הוא אורגן מרכזי של החברה הבלגית, ולו, כמו לחברה הבלגית, יש זיקה עסקית ברורה לבלגיה. גדולה מזו: פסק הדין בעניין מנו חזר על העיקרון הקובע כי תניית שיפוט זר חייבת להיות מפורשת; וכך הוא בעניינו-שלנו. תניית השיפוט הזר שבה עסקינן קובעת, בלשון ברורה, כי כל סכסוך – קרי: כל סכסוך, פשוטו כמשמעו וללא יוצאים מן הכלל – הקשור להסכם שבין המשיבה לחברה הבלגית, או למתן שירותים במסגרתו, יידון אך ורק בבית המשפט המוסמך בעיר אנטוורפן, בלגיה. התנייה מנוסחת בלשון חובקת-כל שלא משאירה מקום לספקות: &#34;כל סכסוך&#34; – ללא קשר לזהותם של הצדדים לאותו סכסוך – יידון אך ורק בבית המשפט המוסמך בעיר אנטוורפן, בלגיה, כל אימת שהוא קשור להסכם שהחברה הבלגית חתמה עם המשיבה. זוהי המשמעות הלשונית-דווקנית של תניית השיפוט הזר, לפיה בתי המשפט מצווים ללכת, כאמור בעניין De Neef, בעניין מנו, ובפסקי דין אחרים שצוטטו לעיל.
 
-
-
 דברים אלו תואמים גם את עמדתן של ערכאות משפטיות זרות: כך לדוגמא בעניין Manetti-Farrow, Inc. v. Gucci America, Inc., 858 F.2d 509 (9th Cir. 1988), נקבע כי תניית שיפוט זר עשויה לחול גם ביחס לצדדים שלישיים שאינם צד להסכם – זאת, ככל שההתנהלות הנתקפת קשורה באופן הדוק למערכת היחסים החוזית שבמסגרתה נקבעה תניית השיפוט הייחודית. במסגרת זו נקבע כי יש להחיל את תניית השיפוט שבהסכם גם על נושאי משרה בחברות קשורות – הגם שאלו אינם צד להסכם, ואף כאשר כלפי אלו מועלות טענות נזיקיות עצמאיות-לכאורה (ראו: שם, בעמ&#39; 514-511; וכןHolland Am. Line Inc. v. Wärtsilä N. Am., Inc., 485 F.3d 450, 456 (9th Cir. 2007)). הכלל הזה חל כאשר מגיש התביעה בפורום הבלתי-מוסכם הוא צד להסכם שבו נקבעה תנייה בדבר סמכות שיפוט בלעדית. תובע שלא חתם על הסכם כזה רשאי, כמובן, להגיש את תביעתו בכל בית משפט מוסמך. ברי הוא, כי זכות החסימה מכוחה של תנייה כאמור מוקנית אך ורק לנתבע בעמדו מול תובע אשר חתם על ההסכם.
-
-
 
 מסקנתי זו מתחייבת גם לאור העיקרון של חופש החוזה, אשר מנחה אותנו בפרשנותם של הסכמים, ומכוחו מכירים אנו באפשרותם הכמעט בלתי מוגבלת של הצדדים לשרטט בעבור עצמם את מערכת היחסים החוזית שביניהם כטוב בעיניהם, בהתאם לשיקוליהם-שלהם (ראו, למשל: גבריאלה שלו ואפי צמח דיני חוזים 31-21, 56 (מהדורה רביעית, 2019) (להלן: שלו וצמח)). עיקרון זה בא להבטיח, בין היתר, את אינטרס ההסתמכות והוודאות המשפטית ביחסים עסקיים (ראו: שלו וצמח, שם). הקפדה על עיקרון זה חשובה במיוחד במציאות המסחרית דהאידנא, אשר מאופיינת בתהליכי גלובליזציה נרחבים ומתקדמים שאותותיהם מצויים בהתקשרויות מסחריות יומיומיות בעלות גוון בינלאומי. מציאות זו מחייבת אותנו ליישר קו עם כללי הפרשנות האוניברסליים אשר נהוגים בעולם הגדול ביחס לתניות שיפוט-זר ייחודיות. אם לא נעשה כן, נמצא את עצמנו מרתיעים תאגידים זרים מפעילות מסחרית-כלכלית בישראל ומהתקשרויות עם עוסקים מקומיים אשר משיאות רווחה במקומותינו.
 
+בהקשר זה, נזכור את דבריו של בית המשפט העליון האמריקני בעניין The Bremen v. Zapata Off-Shore Co.:
 
+“[I]n an era of expanding world trade and commerce, the absolute aspects of the doctrine of the Carbon Black case have little place, and would be a heavy hand indeed on the future development of international commercial dealings by Americans. We cannot have trade and commerce in world markets and international waters exclusively on our terms, governed by our laws, and resolved in our courts. [S]uch clauses are prima facie valid, and should be enforced unless enforcement is shown by the resisting party to be &#34;unreasonable&#34; under the circumstances.
 
-	בהקשר זה, נזכור את דבריו של בית המשפט העליון האמריקני בעניין The Bremen v. Zapata Off-Shore Co.: 
+[…]
 
-
-
-“[I]n an era of expanding world trade and commerce, the absolute aspects of the doctrine of the Carbon Black case have little place, and would be a heavy hand indeed on the future development of international commercial dealings by Americans. We cannot have trade and commerce in world markets and international waters exclusively on our terms, governed by our laws, and resolved in our courts. [S]uch clauses are prima facie valid, and should be enforced unless enforcement is shown by the resisting party to be &#34;unreasonable&#34; under the circumstances. 
-
-
-
-[…] 
-
-
-
-This approach is substantially that followed in other common law countries, including England. It is the view advanced by noted scholars, and that adopted by the Restatement of the Conflict of Laws. It accords with ancient concepts of freedom of contract, and reflects an appreciation of the expanding horizons of American contractors who seek business in all parts of the world. Not surprisingly, foreign businessmen prefer, as do we, to have disputes resolved in their own courts, but, if that choice is not available, then in a neutral forum with expertise in the subject matter. Plainly, the courts of England meet the standards of neutrality and long experience in admiralty litigation. The choice of that forum was made in an arm&#39;s length negotiation by experienced and sophisticated businessmen, and, absent some compelling and countervailing reason, it should be honored by the parties and enforced by the courts.ˮ 
-
-
+This approach is substantially that followed in other common law countries, including England. It is the view advanced by noted scholars, and that adopted by the Restatement of the Conflict of Laws. It accords with ancient concepts of freedom of contract, and reflects an appreciation of the expanding horizons of American contractors who seek business in all parts of the world. Not surprisingly, foreign businessmen prefer, as do we, to have disputes resolved in their own courts, but, if that choice is not available, then in a neutral forum with expertise in the subject matter. Plainly, the courts of England meet the standards of neutrality and long experience in admiralty litigation. The choice of that forum was made in an arm&#39;s length negotiation by experienced and sophisticated businessmen, and, absent some compelling and countervailing reason, it should be honored by the parties and enforced by the courts.ˮ
 
 The Bremen v. Zapata Off-Shore Co., 407 U.S. 1, 9-12 (1972) .(ההדגשה הוספה – א.ש.)
 
-
-
-המסקנה המתבקשת מכל האמור עד כה היא כי עניינו של המבקש איננו שונה כהוא זה מעניינן של חברות גנדי. במקרה דנן, פעל המבקש מטעם החברה הבלגית בכושרו כמנהלה. כל פעולותיו נעשו בשמה של החברה הבלגית, אותה ניהל, ובקשר להתקשרות החוזית בין הצדדים. טענותיה של המשיבה כלפי המבקש נוגעות אף הן למערך הנסיבות שאפף את חתימת ההסכם, וממילא מקורה של כל יריבות בין המשיבה לבין המבקש עניינה בהסכם ובביצועו. מכל האמור, ברי הוא כי תביעת המשיבה נגד המבקש מצויה גם היא במתחם האירועים המסחריים אשר נצפו על ידי הצדדים במסגרת ההסכם, אותם ביקשו לייחד לדיון בפני הערכאות בבלגיה. כל מסקנה אחרת תהווה ריקון מתוכן של ההסכמה החוזית המפורשת אותה אימצו הצדדים ומתן גושפנקא להפרתה של תניית השיפוט הזר על ידי המשיבה (ראו: עניין ראדא, בעמ&#39; 476; עניין סנקרי, בעמ&#39; 77; ראו גם: בש&#34;א (מחוזי ת&#34;א) 1744-09 בנק הפועלים לימיטיד, שוויץ נ&#39; בחוביץ, פסקה 18 (30.5.2010)). בהקשר אחרון זה, די אם אצביע על אפשרותו של המבקש – אם התובענה שהוגשה נגדו תמשיך להתברר בבית משפט השלום תל אביב-יפו – לשלוח הודעת צד ג&#39; לחברה הבלגית בהתבסס על עילת שיפוי חוזית או נזיקית. במקרה זה, החברה הבלגית, שכאמור הבטיחה לעצמה כי התביעות בקשר להסכם שעשתה עם המשיבה תידונה אך ורק בבלגיה, תמצא את עצמה בהתדיינות בישראל. לטעמי, תוצאה זו הדעת אינה סובלת. 
-
-
+המסקנה המתבקשת מכל האמור עד כה היא כי עניינו של המבקש איננו שונה כהוא זה מעניינן של חברות גנדי. במקרה דנן, פעל המבקש מטעם החברה הבלגית בכושרו כמנהלה. כל פעולותיו נעשו בשמה של החברה הבלגית, אותה ניהל, ובקשר להתקשרות החוזית בין הצדדים. טענותיה של המשיבה כלפי המבקש נוגעות אף הן למערך הנסיבות שאפף את חתימת ההסכם, וממילא מקורה של כל יריבות בין המשיבה לבין המבקש עניינה בהסכם ובביצועו. מכל האמור, ברי הוא כי תביעת המשיבה נגד המבקש מצויה גם היא במתחם האירועים המסחריים אשר נצפו על ידי הצדדים במסגרת ההסכם, אותם ביקשו לייחד לדיון בפני הערכאות בבלגיה. כל מסקנה אחרת תהווה ריקון מתוכן של ההסכמה החוזית המפורשת אותה אימצו הצדדים ומתן גושפנקא להפרתה של תניית השיפוט הזר על ידי המשיבה (ראו: עניין ראדא, בעמ&#39; 476; עניין סנקרי, בעמ&#39; 77; ראו גם: בש&#34;א (מחוזי ת&#34;א) 1744-09 בנק הפועלים לימיטיד, שוויץ נ&#39; בחוביץ, פסקה 18 (30.5.2010)). בהקשר אחרון זה, די אם אצביע על אפשרותו של המבקש – אם התובענה שהוגשה נגדו תמשיך להתברר בבית משפט השלום תל אביב-יפו – לשלוח הודעת צד ג&#39; לחברה הבלגית בהתבסס על עילת שיפוי חוזית או נזיקית. במקרה זה, החברה הבלגית, שכאמור הבטיחה לעצמה כי התביעות בקשר להסכם שעשתה עם המשיבה תידונה אך ורק בבלגיה, תמצא את עצמה בהתדיינות בישראל. לטעמי, תוצאה זו הדעת אינה סובלת.
 
 בשולי הדברים אציין כי לא מצאתי בטיעוניה של המשיבה כל נימוק אשר יצדיק את הימנעותנו מאכיפתה של תניית השיפוט הזר בעניינו של המבקש כמות שהיא. האפשרות שלא לאכוף תנייה ייחודית בדבר שיפוט זר שמורה, כאמור, למקרים חריגים בלבד ולנסיבות קיצוניות המצדיקות זאת. פשיטא הוא, כי המקרה דנן אינו בגדר מקרים כאלה – וכך הוא במיוחד לנוכח עיכוב ההליכים שניתן בעניינן של חברות גנדי.
 
-
-
-לנוכח התוצאה אליה הגעתי, בקשת המשיבה להוצאת ראיה מתיק בית המשפט מתייתרת ונמחקת. הראיה בה נסובה הבקשה ממילא איננה קשורה לסוגיה המשפטית שבה נדרשנו להכריע. 
-
-
+לנוכח התוצאה אליה הגעתי, בקשת המשיבה להוצאת ראיה מתיק בית המשפט מתייתרת ונמחקת. הראיה בה נסובה הבקשה ממילא איננה קשורה לסוגיה המשפטית שבה נדרשנו להכריע.
 
 התייחסות לפסק דינו של חברי, השופט נ&#39; סולברג
 
-
-
 לפני שאסיים את דבריי, אתייחס בקצירת האומר לפסק דינו של חברי, השופט נ&#39; סולברג, שדעתו אינה כדעתי.
 
-
-
-המחלוקת שבינינו נסובה על משמעות הביטוי &#34;כל סכסוך&#34; אשר מופיע בתניית השיפוט הזר שבה עסקינן, שכאמור קובעת כי  &#34;כל סכסוך הקשור לחשבונית זאת או לכל מכירה עתידית או הספקה עתידית של שירות על ידי [החברה הבלגית] יהא נתון לסמכותו הבלעדית של בית המשפט המוסמך באנטוורפן, בלגיה&#34;. לדידי, &#34;כל סכסוך&#34;, משמעו &#34;כל סכסוך&#34;, לרבות סכסוך שמתעורר עם האורגן של החברה הבלגית או עם שלוחה בקשר להסכם או לביצועו. חברי, השופט סולברג, סבור כי התיבה &#34;כל&#34; איננה חזות-הכל, בעוד שאני סבור כי היא אכן חזות-הכל מאחר שכך נקבע, בלשון ברורה וחד-משמעית, בהסכם שבין החברה הבלגית למשיבה. מי שדוגל בפרשנות מילולית של מילים ברורות אשר מופעיות בהסכמים – דהיינו: מי שמאמין שתוכנם של הסכמים הוא בראש ובראשונה עניין של עובדה ושהשלמה נורמטיבית של הסכמים שמורה למקרים מיוחדים – אינו יכול להגיע אלא למסקנה זו. במילים אחרות: אין שום הבדל בין תניית השיפוט הזר אשר קובעת כי &#34;כל סכסוך הקשור לחשבונית זאת או לכל מכירה עתידית או הספקה עתידית של שירות על ידי [החברה הבלגית] יהא נתון לסמכותו הבלעדית של בית המשפט המוסמך באנטוורפן, בלגיה&#34;, לבין תניית השיפוט הזר המנוסחת באופן הבא: &#34;כל סכסוך הקשור לחשבונית זאת או לכל מכירה עתידית או הספקה עתידית של שירות על ידי [החברה הבלגית] יהא נתון לסמכותו הבלעדית של בית המשפט המוסמך באנטוורפן, בלגיה, לרבות כל סכסוך כאמור עם אחד האורגנים או עם שלוח של החברה&#34;. המילים &#34;כל סכסוך&#34; הן ברורות לחלוטין ואינן זקוקות להבהרה בדמותה של תוספת למשפט שמתחילה במילה &#34;לרבות ...&#34;. 
-
-
+המחלוקת שבינינו נסובה על משמעות הביטוי &#34;כל סכסוך&#34; אשר מופיע בתניית השיפוט הזר שבה עסקינן, שכאמור קובעת כי &#34;כל סכסוך הקשור לחשבונית זאת או לכל מכירה עתידית או הספקה עתידית של שירות על ידי [החברה הבלגית] יהא נתון לסמכותו הבלעדית של בית המשפט המוסמך באנטוורפן, בלגיה&#34;. לדידי, &#34;כל סכסוך&#34;, משמעו &#34;כל סכסוך&#34;, לרבות סכסוך שמתעורר עם האורגן של החברה הבלגית או עם שלוחה בקשר להסכם או לביצועו. חברי, השופט סולברג, סבור כי התיבה &#34;כל&#34; איננה חזות-הכל, בעוד שאני סבור כי היא אכן חזות-הכל מאחר שכך נקבע, בלשון ברורה וחד-משמעית, בהסכם שבין החברה הבלגית למשיבה. מי שדוגל בפרשנות מילולית של מילים ברורות אשר מופעיות בהסכמים – דהיינו: מי שמאמין שתוכנם של הסכמים הוא בראש ובראשונה עניין של עובדה ושהשלמה נורמטיבית של הסכמים שמורה למקרים מיוחדים – אינו יכול להגיע אלא למסקנה זו. במילים אחרות: אין שום הבדל בין תניית השיפוט הזר אשר קובעת כי &#34;כל סכסוך הקשור לחשבונית זאת או לכל מכירה עתידית או הספקה עתידית של שירות על ידי [החברה הבלגית] יהא נתון לסמכותו הבלעדית של בית המשפט המוסמך באנטוורפן, בלגיה&#34;, לבין תניית השיפוט הזר המנוסחת באופן הבא: &#34;כל סכסוך הקשור לחשבונית זאת או לכל מכירה עתידית או הספקה עתידית של שירות על ידי [החברה הבלגית] יהא נתון לסמכותו הבלעדית של בית המשפט המוסמך באנטוורפן, בלגיה, לרבות כל סכסוך כאמור עם אחד האורגנים או עם שלוח של החברה&#34;. המילים &#34;כל סכסוך&#34; הן ברורות לחלוטין ואינן זקוקות להבהרה בדמותה של תוספת למשפט שמתחילה במילה &#34;לרבות ...&#34;.
 
 עוד אוסיף, כי לדידי אין זה ראוי לאפשר לבעל דין לעקוף את תניית השיפוט הזר, עליה חתם מרצונו החופשי בהסכם שעשה עם חברה זרה, באמצעות הגשת תביעה בישראל נגד אורגן של אותה חברה בקשר לאותו הסכם ממש. אילו אלו היו העובדות בעניין מנו, אין צל של ספק שבית משפט זה היה פוסק אחרת משפסק. מכל מקום, פסק הדין בעניין מנו הוא פסק דין קצר מאד, אשר מצדד בפרשנותן המילולית של תניות שיפוט זרות (פרשנות שלדידי, יפה לכל תנאי ותנאי שבחוזה אשר מנוסח באופן ברור). אכן, כפי שמסביר חברי, השופט סולברג, מפסק הדין בעניין מנו משתמע שהמילים &#34;כל סכסוך&#34; נמצאו על ידי הנשיא שמגר לא מפורשות דיין כדי ליהנות את הסוכנת הישראלית של חברת הספנות היוונית מתניית השיפוט הזר. מדוע זה כך? אודה ולא אכחד כי לשאלה זו אין לי תשובה. לדידי, אין שום אפשרות להחריג סכסוך הקשור להסכם אשר מכיל בתוכו תניית-שיפוט-זר ייחודית שאמורה לחול, כלשונה, על כל סכסוך וסכסוך. התיבה &#34;כל&#34; איננה סובלת החרגות וסייגים, ואל לנו להמציאם בניגוד גמור לכללי השפה ולכללי החוזה. לדידי, תקופת השכתובים השיפוטיים אל תוך מערכות חוזיות, ככל שהיו כאלה, תמה עם פסק הדין שניתן בעניין ביבי כבישים בכפוף לחריגים שצויינו שם; ובפרט עם ההבהרה החשובה בדבר עליונותו העקרונית של לשון החוזה שהוסיפה הנשיאה חיות בהחלטתה שלא לקיים דיון נוסף באותו עניין (ראו שוב: דנ&#34;א 8100/19 ביבי כבישים עפר ופיתוח בע&#34;מ נ&#39; רכבת ישראל בע&#34;מ, פסקה 17 (19.4.2020)).
 
-
-
-באשר למשפט המשווה, שכאמור תומך בעמדתי-שלי – ודומה כי על כך קיימת תמימות דעים ביני לבין חברי, השופט סולברג –  הפניתי אליו לא רק לשם העשרת הדעת, אלא – בעיקר – כדי ללמוד על הסטנדרטים אשר נהוגים ביחס לתניות שיפוט דומות בסחר בינלאומי. הנני סבור כי עלינו להתאים את פסיקתנו לסטנדרטים אלה כדי לעודד סחר בינלאומי של ישראל וגם כדי למנוע התנגשויות עם פסיקותיהן של ערכאות זרות. כדי להמחיש את העניין האחרון, הבה נשאל את עצמנו את השאלה הבאה: מה יקרה אם החברה הבלגית תתבע את המשיבה בבית משפט מוסמך שבעיר אנטוורפן, בלגיה, בגין הפרתה של תניית השיפוט הזר אשר נעשתה על ידי הגשת התביעה נגד האורגן המרכזי של החברה הבלגית בבית משפט השלום תל אביב-יפו? ומה יקרה עם בית המשפט באנטוורפן יראה לנכון להוציא מלפניו, במסגרתה של תביעה כאמור, צו חוסם תביעה (ה-anti-suit injunction)? ברי הוא, כי לשאלות אלה אין בנמצא מענה שמניח את הדעת, ולא בכדי.
-
-
+באשר למשפט המשווה, שכאמור תומך בעמדתי-שלי – ודומה כי על כך קיימת תמימות דעים ביני לבין חברי, השופט סולברג – הפניתי אליו לא רק לשם העשרת הדעת, אלא – בעיקר – כדי ללמוד על הסטנדרטים אשר נהוגים ביחס לתניות שיפוט דומות בסחר בינלאומי. הנני סבור כי עלינו להתאים את פסיקתנו לסטנדרטים אלה כדי לעודד סחר בינלאומי של ישראל וגם כדי למנוע התנגשויות עם פסיקותיהן של ערכאות זרות. כדי להמחיש את העניין האחרון, הבה נשאל את עצמנו את השאלה הבאה: מה יקרה אם החברה הבלגית תתבע את המשיבה בבית משפט מוסמך שבעיר אנטוורפן, בלגיה, בגין הפרתה של תניית השיפוט הזר אשר נעשתה על ידי הגשת התביעה נגד האורגן המרכזי של החברה הבלגית בבית משפט השלום תל אביב-יפו? ומה יקרה עם בית המשפט באנטוורפן יראה לנכון להוציא מלפניו, במסגרתה של תביעה כאמור, צו חוסם תביעה (ה-anti-suit injunction)? ברי הוא, כי לשאלות אלה אין בנמצא מענה שמניח את הדעת, ולא בכדי.
 
 התייחסות לאמור בפסק דינו של חברי, השופט ד&#39; מינץ
 
+לגישתו של חברי, השופט ד&#39; מינץ, זכותו של גורם שאינו צד פורמלי להסכם לאכוף תניית שיפוט זר ייחודית, אשר כלולה באותו הסכם, נגזרת מדוקטרינת החוזה לטובת צד שלישי. אם בעלי ההסכם התכוונו כי גם אותו גורם יוכל ליהנות מתניית השיפוט הזר, יהא זה בידו של אותו גורם לאכוף את התנייה ולמנוע מעצמו התדיינות בקשר להסכם בפורום אחר.
 
+ראשית, אציין כי זוהי גישה אפשרית בהחלט.
 
-לגישתו של חברי, השופט ד&#39; מינץ, זכותו של גורם שאינו צד פורמלי להסכם לאכוף תניית שיפוט זר ייחודית, אשר כלולה באותו הסכם, נגזרת מדוקטרינת החוזה לטובת צד שלישי. אם בעלי ההסכם התכוונו כי גם אותו גורם יוכל ליהנות מתניית השיפוט הזר, יהא זה בידו של אותו גורם לאכוף את התנייה ולמנוע מעצמו התדיינות בקשר להסכם בפורום אחר.  
+יחד עם כך, סבורני כי עדיף שנלך בכגון דא לפי מבחן רחב יותר הנהוג בבתי משפט לא מעטים של ארצות הברית. מבחן זה קובע כי הזכות להפעיל את התנייה שבה קא עסקינן תהא נתונה לכל גורם – כדוגמת המבקש דכאן – אשר קשור להסכם בקשר הדוק וצפוי (closely-related-and-foreseeable). על כך עמדו המלומדים ג&#39;ון קוייל ורובין עפרון במאמר שפורסם רק באחרונה:
 
-
-
-ראשית, אציין כי זוהי גישה אפשרית בהחלט. 
-
-
-
-יחד עם כך, סבורני כי עדיף שנלך בכגון דא לפי מבחן רחב יותר הנהוג בבתי משפט לא מעטים של ארצות הברית. מבחן זה קובע כי הזכות להפעיל את התנייה שבה קא עסקינן תהא נתונה לכל גורם – כדוגמת המבקש דכאן – אשר קשור להסכם בקשר הדוק וצפוי (closely-related-and-foreseeable). על כך עמדו המלומדים ג&#39;ון קוייל ורובין עפרון במאמר שפורסם רק באחרונה: 
-
-
-
-&#34;The non-signatories whose rights and obligations are most frequently affected by the closely-related-and-foreseeable test are corporate executives, subsidiaries, affiliates, and parent companies. In many cases, these individuals and entities would not qualify as intended beneficiaries under the traditional test for third-party beneficiaries. They will, however, frequently fall within the ambit of the closely-related-and-foreseeable test, thereby bringing the relevant corporate affiliate within the scope of the clause for purposes of consolidating litigation proceedings.&#34; 
-
-
+&#34;The non-signatories whose rights and obligations are most frequently affected by the closely-related-and-foreseeable test are corporate executives, subsidiaries, affiliates, and parent companies. In many cases, these individuals and entities would not qualify as intended beneficiaries under the traditional test for third-party beneficiaries. They will, however, frequently fall within the ambit of the closely-related-and-foreseeable test, thereby bringing the relevant corporate affiliate within the scope of the clause for purposes of consolidating litigation proceedings.&#34;
 
 John F. Coyle &amp; Robin J. Effron, Forum Selection Clauses, Non-Signatories, and Personal Jurisdiction, 97 Notre Dame L. Rev. 187, 202–203 (2021).
 
-
-
 סוף דבר
-
-
 
 אשר על כן, אילו תישמע דעתי, הערעור יתקבל וההחלטות קמא, בכל הנוגע למבקש, תבוטלנה. כמו כן נורה על עיכוב ההליכים בתובענה אשר הוגשה נגד המבקש בת&#34;א (שלום ת&#34;א) 35957-06-20 ונחייב את המשיבה בהוצאות המבקש בכל הערכאות בסך כולל של 15,000 ₪.
 
-
-
 ש ו פ ט
-
-
-
-
-
-
 
 השופט נ&#39; סולברג:
 
-חברי השופט א&#39; שטיין סבור, כי תניית השיפוט הזר, חלה גם על התביעה שהוגשה נגד המבקש – מנהלהּ של החברה הבלגית – אף שזה לא היה צד להסכם.         דעתי-שלי – שונה. 
-
-
+חברי השופט א&#39; שטיין סבור, כי תניית השיפוט הזר, חלה גם על התביעה שהוגשה נגד המבקש – מנהלהּ של החברה הבלגית – אף שזה לא היה צד להסכם. דעתי-שלי – שונה.
 
 אקדמות מילין
 
-	חברי דן בהרחבה בשאלת תחולתה של תניית השיפוט הזר על צדדים שלישיים, ומתייחס אך בקצירת-האומר, בדרך אגב, לכללי הפרשנות של תניית שיפוט זר (ראו: פסקה 13 לחוות דעתו). ברם, &#34;מקום שאמרו להאריך, אינו רשאי לקצר&#34; (משנה, ברכות א, ד). לגבי דידי, מרכז הכובד נמצא דווקא בשאלת היסוד: מהם כללי הפרשנות של תניית שיפוט זר? אומַר עתה, אנמק בהמשך, כי כללי הפרשנות שאותם לדעתי נכון לאמץ, מובילים לתשובה שונה לשאלה הממוקדת יותר, לגבי תחולתה של תניית השיפוט הזר על צדדים שלישיים. אפתח אפוא בסקירה של הדין המצוי בשאלת כללי הפרשנות של תניית שיפוט זר, לאחר מכן אעמוד על הדין הרצוי, ולבסוף אדון בשאלה שעל אודותיה הרחיב חברי – תחולת התנייה על צדדים שלישיים.
-
-
+חברי דן בהרחבה בשאלת תחולתה של תניית השיפוט הזר על צדדים שלישיים, ומתייחס אך בקצירת-האומר, בדרך אגב, לכללי הפרשנות של תניית שיפוט זר (ראו: פסקה 13 לחוות דעתו). ברם, &#34;מקום שאמרו להאריך, אינו רשאי לקצר&#34; (משנה, ברכות א, ד). לגבי דידי, מרכז הכובד נמצא דווקא בשאלת היסוד: מהם כללי הפרשנות של תניית שיפוט זר? אומַר עתה, אנמק בהמשך, כי כללי הפרשנות שאותם לדעתי נכון לאמץ, מובילים לתשובה שונה לשאלה הממוקדת יותר, לגבי תחולתה של תניית השיפוט הזר על צדדים שלישיים. אפתח אפוא בסקירה של הדין המצוי בשאלת כללי הפרשנות של תניית שיפוט זר, לאחר מכן אעמוד על הדין הרצוי, ולבסוף אדון בשאלה שעל אודותיה הרחיב חברי – תחולת התנייה על צדדים שלישיים.
 
 הדין המצוי
 
-	המבקש לעמוד על הכללים לפרשנותה של תניית שיפוט זר, יִמָּצֵא במבוכה. שורה ארוכה של פסקי דין, שיצאו מתחת ידו של בית משפט זה בעשורים האחרונים, עסקו בכך, במישרין ובעקיפין. זה אומר בכה, זה אומר בכה, והלכה ברורה – אין. 
+המבקש לעמוד על הכללים לפרשנותה של תניית שיפוט זר, יִמָּצֵא במבוכה. שורה ארוכה של פסקי דין, שיצאו מתחת ידו של בית משפט זה בעשורים האחרונים, עסקו בכך, במישרין ובעקיפין. זה אומר בכה, זה אומר בכה, והלכה ברורה – אין.
 
-
-
-פסקי דין רבים אחרים עסקו בשאלה נוספת, הנחזית להיות שאלה נפרדת, אך לאמיתו של דבר מדובר ב&#39;אותה גברת בשינוי אדרת&#39;. כידוע, &#34;תניית שיפוט יכול שתהא מקבילה ויכול שתהא ייחודית. תניית שיפוט ייחודית מעניקה סמכות בלעדית לבית-משפט מסוים, ואין מלבדו. תניית שיפוט מקבילה מקנה סמכות לבית-משפט מסוים, אך אינה שוללת את האפשרות שסכסוך יתברר בבתי-משפט אחרים&#34; (ע&#34;א 4601/02 ראדא תעשיות אלקטרוניות בע&#34;מ נ&#39; Bodstray Company Ltd, פ&#34;ד נח(2) 465, 476 (2004) (להלן: עניין ראדא)). נשאלת השאלה, כיצד נזהה את היותה של התנייה ייחודית? לטעמי, לא ניתן להשיב על שאלה זו במנותק משאלת-היסוד. השאלה האם מדובר בתנייה ייחודית או מקבילה, היא שאלה פרשנית, ומשכך כרוכה בטבורה בשאלה הכללית בדבר פרשנות תניית שיפוט זר. דא עקא, פעמים רבות הוכרעה שאלה זו באופן &#39;מקומי&#39;, מבלי שניתנה הדעת על יחסי-הגומלין בין שאלה זו לשאלה הפרשנית הרחבה יותר. כך נוצר פער בין כללי ההכרעה הפרשניים בשאלת היותה של התנייה ייחודית, לבין כללי הפרשנות הכלליים שלאורם יש לפרש תניית שיפוט זר. 
-
-
+פסקי דין רבים אחרים עסקו בשאלה נוספת, הנחזית להיות שאלה נפרדת, אך לאמיתו של דבר מדובר ב&#39;אותה גברת בשינוי אדרת&#39;. כידוע, &#34;תניית שיפוט יכול שתהא מקבילה ויכול שתהא ייחודית. תניית שיפוט ייחודית מעניקה סמכות בלעדית לבית-משפט מסוים, ואין מלבדו. תניית שיפוט מקבילה מקנה סמכות לבית-משפט מסוים, אך אינה שוללת את האפשרות שסכסוך יתברר בבתי-משפט אחרים&#34; (ע&#34;א 4601/02 ראדא תעשיות אלקטרוניות בע&#34;מ נ&#39; Bodstray Company Ltd, פ&#34;ד נח(2) 465, 476 (2004) (להלן: עניין ראדא)). נשאלת השאלה, כיצד נזהה את היותה של התנייה ייחודית? לטעמי, לא ניתן להשיב על שאלה זו במנותק משאלת-היסוד. השאלה האם מדובר בתנייה ייחודית או מקבילה, היא שאלה פרשנית, ומשכך כרוכה בטבורה בשאלה הכללית בדבר פרשנות תניית שיפוט זר. דא עקא, פעמים רבות הוכרעה שאלה זו באופן &#39;מקומי&#39;, מבלי שניתנה הדעת על יחסי-הגומלין בין שאלה זו לשאלה הפרשנית הרחבה יותר. כך נוצר פער בין כללי ההכרעה הפרשניים בשאלת היותה של התנייה ייחודית, לבין כללי הפרשנות הכלליים שלאורם יש לפרש תניית שיפוט זר.
 
 אסקור להלן בקצרה כמה וכמה פסקי דין, שניתנו במרוצת השנים בבית משפט זה, ועסקו בפרשנות תניית שיפוט זר; בין במישרין, בין בעקיפין. חוסר האחידות בולט לעין.
 
+לא אחת דן בית המשפט בפרשנות תניית שיפוט זר, על-פי כללי הפרשנות הרגילים של חוזים, מבלי להעניק לתנייה זו יחס שונה, ומבלי להחיל עליה כללי פרשנות מיוחדים. כך נעשה בע&#34;א 362/83 מנורה חברה לביטוח בע&#34;מ נ&#39; האניה &#34;דונאר&#34;, פ&#34;ד לח(2) 505, 512-511 (1984) (השופטת ש&#39; נתניהו) (להלן: עניין דונאר); בע&#34;א 2706/11 SYBIL GERMANY PUBLIC CO. LIMITED נ&#39; הרמטיק נאמנות (1975) בע&#34;מ, פסקה 28 (4.9.2015) (להלן: עניין הרמטיק) (השופט (כתוארו אז) ס&#39; ג&#39;ובראן); וכך גם לאחרונה, ברע&#34;א 7470/20 Facebook Ireland Limited נ&#39; גל, פסקה 17 (3.1.2022) (השופטת ע&#39; ברון).
 
+בפסקי דין אחרים נקבע, כי לתניית שיפוט זר &#34;יש ליתן מובן עסקי&#34;; כלומר, יש לפרשהּ מנקודת מבט עסקית. כך נעשה בע&#34;א 422/64 &#39;ציון&#39; חברה לביטוח נ&#39; קנינגלייקה נדרלנדשה סטומבוט מאטסחאפיי נ&#39;ו&#39; ו-2 אח&#39;, פ&#34;ד יט 303, 306 (1965) (להלן: עניין ציון) (השופט א&#39; מני); בע&#34;א 112/83 בן דב נ&#39; שטלגרובר – אוטו גרובר ושות&#39;, פ&#34;ד לט(1) 194, 196 (1985) (להלן: עניין אוטו גרובר) (השופט (כתוארו אז) ש&#39; לוין); בע&#34;א 5666/94 סנקרי נ&#39; Julius Blum G. M. B. H, פ&#34;ד נ(4) 73, 77 (1996) (להלן: עניין סנקרי) (השופטת ט&#39; שטרסברג-כהן); ובעניין ראדא, 474 (2004) (השופט (כתוארו אז) א&#39; גרוניס).
 
-	לא אחת דן בית המשפט בפרשנות תניית שיפוט זר, על-פי כללי הפרשנות הרגילים של חוזים, מבלי להעניק לתנייה זו יחס שונה, ומבלי להחיל עליה כללי פרשנות מיוחדים. כך נעשה בע&#34;א 362/83 מנורה חברה לביטוח בע&#34;מ נ&#39; האניה &#34;דונאר&#34;, פ&#34;ד לח(2) 505, 512-511 (1984) (השופטת ש&#39; נתניהו) (להלן: עניין דונאר); בע&#34;א 2706/11 SYBIL GERMANY PUBLIC CO. LIMITED נ&#39; הרמטיק נאמנות (1975) בע&#34;מ, פסקה 28 (4.9.2015) (להלן: עניין הרמטיק) (השופט (כתוארו אז) ס&#39; ג&#39;ובראן); וכך גם לאחרונה, ברע&#34;א 7470/20 Facebook Ireland Limited נ&#39; גל, פסקה 17 (3.1.2022) (השופטת ע&#39; ברון). 
+לעומת זאת, בע&#34;א 724/85 מנו קוי נוסעים בע&#34;מ נ&#39; דמרי ו-63 אח&#39;, פ&#34;ד מב(3) 324, 327 (1988) (להלן: עניין מנו) (הנשיא מ&#39; שמגר), נקבע כי &#34;תניית שיפוט זר חייבת להיות מפורשת. אין לקרוא אותה לתוך הנוסח על יסוד מסקנות העולות מבין השורות או על יסוד משמעות מכללא. מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה. על אחת כמה וכמה כך, כשהן התובע והן הנתבע פועלים באותו פורום, ואין להם זיקה כלשהי למקום הזר. בית המשפט אינו קורא לתוך החוזה את אשר אין בו, ומקום בו לא טרח מנסח החוזה ולא הבהיר דבריו, לא תיאם בין תניותיו השונות של החוזה ולא וידא – על-ידי עריכה נאותה של החוזה – שביטוי בחוזה אשר לו הוקנתה משמעות מורחבת מיוחדת גם ישולב בדרך הנאותה לתוך ההוראה בה מובאת תניית השיפוט, לא יעשה בית המשפט מלאכה זו במקומו&#34;. שורה של פסקי דין, אימצו את האמור בעניין מנו, ללא סייג. למשל: רע&#34;א 9368/11 WEST NEVADA MANAGEMENT INC נ&#39; הראל, פסקה 16 (21.5.2012) (להלן: עניין הראל) (השופטת (כתוארה אז) מ&#39; נאור); רע&#34;א 6574/12 סאמיט פאנד ניהול השקעות בע&#34;מ נ&#39; בן יעקב (7.3.2013) (להלן: עניין סאמיט) (השופט י&#39; עמית); רע&#34;א 8135/12 Nantucket Ltd נ&#39; דורון ואח&#39;, פסקה 21 (28.10.2013) (להלן: עניין דורון) (השופט י&#39; עמית).
 
-
-
-	בפסקי דין אחרים נקבע, כי לתניית שיפוט זר &#34;יש ליתן מובן עסקי&#34;; כלומר, יש לפרשהּ מנקודת מבט עסקית. כך נעשה בע&#34;א 422/64 &#39;ציון&#39; חברה לביטוח נ&#39; קנינגלייקה נדרלנדשה סטומבוט מאטסחאפיי נ&#39;ו&#39; ו-2 אח&#39;, פ&#34;ד יט 303, 306 (1965) (להלן: עניין ציון) (השופט א&#39; מני); בע&#34;א 112/83 בן דב נ&#39; שטלגרובר – אוטו גרובר ושות&#39;, פ&#34;ד לט(1) 194, 196 (1985) (להלן: עניין אוטו גרובר) (השופט (כתוארו אז) ש&#39; לוין); בע&#34;א 5666/94 סנקרי נ&#39; Julius Blum G. M. B. H, פ&#34;ד נ(4) 73, 77 (1996) (להלן: עניין סנקרי) (השופטת ט&#39; שטרסברג-כהן); ובעניין ראדא, 474 (2004) (השופט (כתוארו אז) א&#39; גרוניס). 
-
-
-
-	לעומת זאת, בע&#34;א 724/85 מנו קוי נוסעים בע&#34;מ נ&#39; דמרי ו-63 אח&#39;, פ&#34;ד מב(3) 324, 327 (1988) (להלן: עניין מנו) (הנשיא מ&#39; שמגר), נקבע כי &#34;תניית שיפוט זר חייבת להיות מפורשת. אין לקרוא אותה לתוך הנוסח על יסוד מסקנות העולות מבין השורות או על יסוד משמעות מכללא. מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה. על אחת כמה וכמה כך, כשהן התובע והן הנתבע פועלים באותו פורום, ואין להם זיקה כלשהי למקום הזר. בית המשפט אינו קורא לתוך החוזה את אשר אין בו, ומקום בו לא טרח מנסח החוזה ולא הבהיר דבריו, לא תיאם בין תניותיו השונות של החוזה ולא וידא – על-ידי עריכה נאותה של החוזה – שביטוי בחוזה אשר לו הוקנתה משמעות מורחבת מיוחדת גם ישולב בדרך הנאותה לתוך ההוראה בה מובאת תניית השיפוט, לא יעשה בית המשפט מלאכה זו במקומו&#34;. שורה של פסקי דין, אימצו את האמור בעניין מנו, ללא סייג. למשל: רע&#34;א 9368/11 WEST NEVADA MANAGEMENT INC נ&#39; הראל, פסקה 16 (21.5.2012) (להלן: עניין הראל) (השופטת (כתוארה אז) מ&#39; נאור); רע&#34;א 6574/12 סאמיט פאנד ניהול השקעות בע&#34;מ נ&#39; בן יעקב (7.3.2013) (להלן: עניין סאמיט) (השופט י&#39; עמית); רע&#34;א 8135/12 Nantucket Ltd נ&#39; דורון ואח&#39;, פסקה 21 (28.10.2013) (להלן: עניין דורון) (השופט י&#39; עמית). 
-
-
-
-	בפסקי דין אחרים, צוטטה ההלכה שנקבעה בעניין מנו, אך זאת תוך צמצום ונסיגה מסוימת מן ההלכה. כך בע&#34;א 65/88 אדרת שומרון בע&#34;מ נ&#39; הולינגסוורת ג.מ.ב.ה., פ&#34;ד מד(3) 600, 612 (1990) (להלן: עניין אדרת שומרון) (השופט ד&#39; לוין); בע&#34;א 8835/99 אינטרדקו חברת המסחר לתעשיות בע&#34;מ נ&#39; Sulzer Brothers Ltd, פ&#34;ד נה(2) 378, 383 (2001) (להלן: עניין אינטרדקו) (השופט א&#39; א&#39; לוי); ברע&#34;א 6489/09 מדובר נ&#39; קרן קיימת לישראל, פסקאות 31-29 (18.1.2011) (להלן: עניין מדובר) (השופט י&#39; דנציגר); ברע&#34;א 928/18 De Neef Construction Chemicals BVBA נ&#39; גילאר בע&#34;מ (15.5.2018) (להלן: עניין De Neef) (השופטת י&#39; וילנר). 
-
-
+בפסקי דין אחרים, צוטטה ההלכה שנקבעה בעניין מנו, אך זאת תוך צמצום ונסיגה מסוימת מן ההלכה. כך בע&#34;א 65/88 אדרת שומרון בע&#34;מ נ&#39; הולינגסוורת ג.מ.ב.ה., פ&#34;ד מד(3) 600, 612 (1990) (להלן: עניין אדרת שומרון) (השופט ד&#39; לוין); בע&#34;א 8835/99 אינטרדקו חברת המסחר לתעשיות בע&#34;מ נ&#39; Sulzer Brothers Ltd, פ&#34;ד נה(2) 378, 383 (2001) (להלן: עניין אינטרדקו) (השופט א&#39; א&#39; לוי); ברע&#34;א 6489/09 מדובר נ&#39; קרן קיימת לישראל, פסקאות 31-29 (18.1.2011) (להלן: עניין מדובר) (השופט י&#39; דנציגר); ברע&#34;א 928/18 De Neef Construction Chemicals BVBA נ&#39; גילאר בע&#34;מ (15.5.2018) (להלן: עניין De Neef) (השופטת י&#39; וילנר).
 
 לגבי פרשנות תניית שיפוט זר, כייחודית או מקבילה, נקבע בע&#34;א 9/79 קרפול נ&#39; הורוביץ, פ&#34;ד לד(1) 260 (1979) (להלן: עניין קרפול) (השופט (כתוארו אז) א&#39; ברק), כי &#34;מהותה של תנית השיפוט, אם יחודית היא, אם מקבילה, נמדדת על-פי לשונה של ההוראה. מכיון שכך, ממילא ענין לנו בפירושה של לשון התניה. בענין זה התגבשו בפסיקה שני כללים הרלבנטיים לענייננו: ראשית, תנית שיפוט תתפרש כתניה יחודית רק אם יש בה לשון מפורשת ובלתי מסוייגת המעניקה סמכות [...]. שנית, במקרה של ספק יש לתת את הדעת למטרת ההוראה ולמגמותיה&#34;. בהמשך לאמור, נקבע מבחן שלפיו אם התנייה מנוסחת באופן &#39;פעיל&#39;, הדעת נוטה לכך שמדובר בתנייה ייחודית. לעומת זאת, כאשר התנייה מנוסחת באופן &#39;סביל&#39;, אזי ככל הנראה מדובר בתנייה מקבילה. מבחן זה צוטט בע&#34;א 601/82 בנק לאומי לישראל בע&#34;מ נ&#39; Continent israel schiffahrts g.m.b.h-.c.i.s, פ&#34;ד מ(2) 673 (1986) (להלן: עניין אלאלוף) (השופט י&#39; מלץ); בע&#34;א 465/85 וילנואבה נ&#39; נברון בע&#34;מ, פ&#34;ד מב(1) 705, 713-711 (1988) (השופט א&#39; חלימה); בעניין אדרת שומרון; וכן בעניין אינטרדקו.
 
+בפסקי דין אחרים, הוכרה תניית שיפוט זר כייחודית, אף שלשונה לא היתה ברורה וחד-משמעית. כך נעשה בע&#34;א 334/64 נברום מריטים בע&#34;מ נ&#39; הסנה חברה ישראלית לביטוח בע&#34;מ ו-הדר חברה לביטוח בע&#34;מ, פ&#34;ד יט 159 (1965) (השופט (כתוארו אז) י&#39; זוסמן); בר&#34;ע 162/83 צים חברת השיט הישראלית בע&#34;מ נ&#39; הפניקס הישראלי חברה לביטוח בע&#34;מ, פ&#34;ד לז(2) 333, 336-337 (1983) (מ&#34;מ הנשיא (כתוארו אז) מ&#39; שמגר); וברע&#34;א 6767/15 דיפוכם (1989) בע&#34;מ נ&#39; wacker chcmic ag (29.10.2015) (השופט י&#39; עמית).
 
+אם לא די בכך, ישנם פסקי דין שנתקיים בהם &#34;טוב אשר תאחז בזה, וגם מזה על תנח ידך&#34; (קהלת ז, יח). לגבי שאלה פרשנית אחת ננקט כלל פרשני אחד, ולגבי שאלה פרשנית שנייה נעשה שימוש בכלל פרשני אחר, העומד בסתירה לכלל הראשון. כך למשל, בעניין דורון, נדונה תחילה השאלה אם מדובר בתנייה ייחודית או מקבילה, וכך נאמר:
 
-בפסקי דין אחרים, הוכרה תניית שיפוט זר כייחודית, אף שלשונה לא היתה ברורה וחד-משמעית. כך נעשה בע&#34;א 334/64 נברום מריטים בע&#34;מ נ&#39; הסנה חברה ישראלית לביטוח בע&#34;מ ו-הדר חברה לביטוח בע&#34;מ, פ&#34;ד יט 159 (1965) (השופט (כתוארו אז) י&#39; זוסמן); בר&#34;ע 162/83 צים חברת השיט הישראלית בע&#34;מ נ&#39; הפניקס הישראלי חברה לביטוח בע&#34;מ, פ&#34;ד לז(2) 333, 336-337 (1983) (מ&#34;מ הנשיא (כתוארו אז) מ&#39; שמגר); וברע&#34;א 6767/15 דיפוכם (1989) בע&#34;מ נ&#39; wacker chcmic ag (29.10.2015) (השופט י&#39; עמית). 
+&#34;עיון מדוקדק בסיפא של התניה מעלה כי זו נוקטת לשון פעילה וגורפת: &#39;כל סכסוך בין הצדדים יוגש לערכאות המתאימות בתאילנד&#39;, ולטעמי פשוטו של מקרא תומך במסקנה כי מדובר בתניית שיפוט ייחודית. תימוכין לכך ניתן למצוא בפסק דינו של השופט ד&#39; לוין [בעניין אדרת שומרון], שם נאמר כי ניסוח תניה באופן פעיל (&#39;תביעות תוגשנה&#39;) תומך במסקנה כי מדובר בתניית שיפוט ייחודית, זאת בשונה מניסוח סביל (&#39;לבית משפט פלוני תהא סמכות&#39;) [...]. בנסיבות המקרה דנן, החלת הדין התאילנדי על החוזה והימצאות המקרקעין מושא ההסכם בתאילנד, תומכות גם הן במסקנה כי מדובר בתניית שיפוט ייחודית. שלא כבית משפט קמא, אשר היה ער להנמקות דלעיל [...], איני סבור כי העובדה שהתניה לא שללה במפורש סמכותם של בתי משפט אחרים, יש בה כדי לעורר ספק באשר לפרשנותה הנכונה. שאלה זו נדונה בעניין אדרת שומרון [...], שם נקבע כי גם בהיעדר שלילת סמכות מפורשת של בתי משפט אחרים, אין הכרח להסיק כי מדובר בתניית שיפוט מקבילה&#34;.
 
-
-
-אם לא די בכך, ישנם פסקי דין שנתקיים בהם &#34;טוב אשר תאחז בזה, וגם מזה על תנח ידך&#34; (קהלת ז, יח). לגבי שאלה פרשנית אחת ננקט כלל פרשני אחד, ולגבי שאלה פרשנית שנייה נעשה שימוש בכלל פרשני אחר, העומד בסתירה לכלל הראשון. כך למשל, בעניין דורון, נדונה תחילה השאלה אם מדובר בתנייה ייחודית או מקבילה, וכך נאמר: 
-
-
-
-&#34;עיון מדוקדק בסיפא של התניה מעלה כי זו נוקטת לשון פעילה וגורפת: &#39;כל סכסוך בין הצדדים יוגש לערכאות המתאימות בתאילנד&#39;, ולטעמי פשוטו של מקרא תומך במסקנה כי מדובר בתניית שיפוט ייחודית. תימוכין לכך ניתן למצוא בפסק דינו של השופט ד&#39; לוין [בעניין אדרת שומרון], שם נאמר כי ניסוח תניה באופן פעיל (&#39;תביעות תוגשנה&#39;) תומך במסקנה כי מדובר בתניית שיפוט ייחודית, זאת בשונה מניסוח סביל (&#39;לבית משפט פלוני תהא סמכות&#39;) [...]. בנסיבות המקרה דנן, החלת הדין התאילנדי על החוזה והימצאות המקרקעין מושא ההסכם בתאילנד, תומכות גם הן במסקנה כי מדובר בתניית שיפוט ייחודית. שלא כבית משפט קמא, אשר היה ער להנמקות דלעיל [...], איני סבור כי העובדה שהתניה לא שללה במפורש סמכותם של בתי משפט אחרים, יש בה כדי לעורר ספק באשר לפרשנותה הנכונה. שאלה זו נדונה בעניין אדרת שומרון [...], שם נקבע כי גם בהיעדר שלילת סמכות מפורשת של בתי משפט אחרים, אין הכרח להסיק כי מדובר בתניית שיפוט מקבילה&#34;. 
-
-
-
-	נקבע אפוא, כי מדובר בתנייה ייחודית ולא מקבילה, אף שניסוח התנייה לא היה חד-משמעי, ונדרש הליך פרשני כדי להגיע למסקנה זו. מיד לאחר מכן נפנה בית המשפט להכריע בשאלה האם תניית השיפוט חלה על כל המערכת ההסכמית שנחתמה בין הצדדים, או שמא רק על החוזה האחרון שבו הופיעה תניית השיפוט. בהקשר זה נאמר כך: 
-
-
+נקבע אפוא, כי מדובר בתנייה ייחודית ולא מקבילה, אף שניסוח התנייה לא היה חד-משמעי, ונדרש הליך פרשני כדי להגיע למסקנה זו. מיד לאחר מכן נפנה בית המשפט להכריע בשאלה האם תניית השיפוט חלה על כל המערכת ההסכמית שנחתמה בין הצדדים, או שמא רק על החוזה האחרון שבו הופיעה תניית השיפוט. בהקשר זה נאמר כך:
 
 &#34;כידוע, כתנאי לתוקפה, על תניית שיפוט זר להיות &#39;חד-משמעית, מפורשת וברורה בנוסחו של ההסכם&#39;, ואין להסיק על קיומה מבין השיטין או על יסוד משמעות מכללא (ראו דברי השופטת נאור [בעניין הראל]; דברי הנשיא שמגר [בעניין מנו]. דברים אלה נאמרו לגבי תניית השיפוט גופא, ובעניין סאמיט זכה כלל זה לחיזוק והוחל גם לגבי אופן ניסוח הפניה למסמך המאזכר את תניית השיפוט. דהיינו, &#39;כשם שעל תניית השיפוט עצמה להיות ברורה ומפורשת, כך תנייה חוזית המפנה למסמך אחר בו מעוגנת תניית השיפוט צריכה להיות ברורה ומפורשת&#39; [...]. ההיגיון מאחורי הדברים ברור. על צד המבקש לשלול מן הצד שכנגד את הזכות להתדיין בפני פורום מוסמך, לבטא כוונתו &#39;מפורשות וברורות בנוסחו של החוזה&#39; (עניין מנו, שם), ועל כן אין להתיר לו לעשות כן באמצעות הפניה כללית למסמכים בלתי מסוימים (עניין סאמיט, שם)&#34;.
 
+עינינו הרואות: בעת ובעונה אחת, הסתמך בית המשפט הן על פסק הדין בעניין אדרת שומרון, כנימוק לכך שמדובר בתנייה ייחודית, הן על פסקי הדין בעניין מנו, הראל ו-סאמיט, שבהם נקבע כי תניית השיפוט חייבת להיות ברורה ומפורשת. כל זאת, מבלי שבית המשפט שת לבו לכך שפסקי הדין הללו אינם יכולים לדור בכפיפה אחת. שתי השאלות תלויות בשאלת היסוד: כיצד יש לפרש תניית שיפוט זר? דומה, על-פי גישה זו, כי אין לשלול את האפשרות, שניתן היה באותה מידה להגיע גם למסקנה הפוכה: מחד גיסא לקבוע, כי מדובר דווקא בתנייה מקבילה, וזאת בהתבסס על עניין מנו, הראל ו-סאמיט, ומאידך גיסא לקבוע, כי נסיבות המקרה מלמדות על כוונה חד-משמעית להחיל את תניית השיפוט הזר על ההסכמים כולם, נוכח האמור בעניין אדרת שומרון.
 
+תמיהה דומה עולה גם למקרא פסק הדין בעניין אלאלוף. מחד גיסא נעשה שימוש במבחן שנקבע בעניין קרפול, כדי לקבוע אם מדובר בתנייה ייחודית, הגם שמבחן זה מתחשב, בין היתר, בנסיבות חיצוניות לחוזה. מאידך גיסא, לגבי השאלה אם צד שלישי יכול לחסות תחת כנפי התנייה, נוקט בית המשפט גישה שונה. למרות ניסוחה הכוללני והמרחיב של התנייה, נקבע כי סוכן של החברה לא יוכל לעשות שימוש בתנייה, משום שלא היה צד פורמלי להסכם. קביעה זו דומה במהותה למסקנה בעניין מנו, שאינה מתיישבת, כאמור, עם עניין קרפול.
 
-	עינינו הרואות: בעת ובעונה אחת, הסתמך בית המשפט הן על פסק הדין בעניין אדרת שומרון, כנימוק לכך שמדובר בתנייה ייחודית, הן על פסקי הדין בעניין מנו, הראל ו-סאמיט, שבהם נקבע כי תניית השיפוט חייבת להיות ברורה ומפורשת. כל זאת, מבלי שבית המשפט שת לבו לכך שפסקי הדין הללו אינם יכולים לדור בכפיפה אחת. שתי השאלות תלויות בשאלת היסוד: כיצד יש לפרש תניית שיפוט זר? דומה, על-פי גישה זו, כי אין לשלול את האפשרות, שניתן היה באותה מידה להגיע גם למסקנה הפוכה: מחד גיסא לקבוע, כי מדובר דווקא בתנייה מקבילה, וזאת בהתבסס על עניין מנו, הראל ו-סאמיט, ומאידך גיסא לקבוע, כי נסיבות המקרה מלמדות על כוונה חד-משמעית להחיל את תניית השיפוט הזר על ההסכמים כולם, נוכח האמור בעניין אדרת שומרון. 
-
-
-
-תמיהה דומה עולה גם למקרא פסק הדין בעניין אלאלוף. מחד גיסא נעשה שימוש במבחן שנקבע בעניין קרפול, כדי לקבוע אם מדובר בתנייה ייחודית, הגם שמבחן זה מתחשב, בין היתר, בנסיבות חיצוניות לחוזה. מאידך גיסא, לגבי השאלה אם צד שלישי יכול לחסות תחת כנפי התנייה, נוקט בית המשפט גישה שונה. למרות ניסוחה הכוללני והמרחיב של התנייה, נקבע כי סוכן של החברה לא יוכל לעשות שימוש בתנייה, משום שלא היה צד פורמלי להסכם. קביעה זו דומה במהותה למסקנה בעניין מנו, שאינה מתיישבת, כאמור, עם עניין קרפול. 
-
-
-
-מה יעשה איפה השופט היושב על מדין, כאשר הוא נתקל ב&#39;בוקה ומבולקה&#39; מעין זו? כיצד עליו לפעול כשהפסיקה אינה משקפת חזית אחידה? אפשרות אחת היא לצטט פסיקה מסוימת, בהתעלם מפסיקה סותרת; אך לא נוכל כך להתחקות אחר הדין הנוהג, ונגרום לאי-ודאות. הכול קם ונופל על הפסיקה שאותה יבחר השופט התורן &#39;להעלות על ראש שמחתו&#39;. אפשרות אחרת היא לנסות לטשטש את ההבדלים בין הגישות, שהרי &#39;כולם לדבר אחד נתכוונו&#39;. אך גם פתרון זה – שוברו בצדו. פתרון מאולץ, הנובע מרצון לשמור על &#39;חזות אחידה&#39; בפסיקה, יכול להביא עמו תוצאה בעייתית, המאמצת את &#39;הרע שבכל העולמות&#39;. לעיתים גם, בהמשך הדרך, צף ועולה הפער שבין העמדות השונות. או אז, הניסיון לאחד בין השיטות השונות – נדון לכשלון. אדרבה, אותו ניסיון כושל, עשוי להתפרש כשיטה נוספת בפסיקה, ובכך תגבר אי-הוודאות; &#39;נזקו מרובה מתועלתו&#39;. סבורני אפוא, כי הפתרון הנכון, הוא דווקא זה המורכב יותר, בבחינת &#34;דרך ארוכה וקצרה&#34; (בבלי, עירובין נג, ע&#34;ב). אין מנוס, אלא &#39;לאחוז את השור בקרניו&#39;: לראות דברים כהווייתם, להצביע על חוסר האחידות הקיים בפסיקה, ולהכריע לכאן או לכאן. 
-
-
+מה יעשה איפה השופט היושב על מדין, כאשר הוא נתקל ב&#39;בוקה ומבולקה&#39; מעין זו? כיצד עליו לפעול כשהפסיקה אינה משקפת חזית אחידה? אפשרות אחת היא לצטט פסיקה מסוימת, בהתעלם מפסיקה סותרת; אך לא נוכל כך להתחקות אחר הדין הנוהג, ונגרום לאי-ודאות. הכול קם ונופל על הפסיקה שאותה יבחר השופט התורן &#39;להעלות על ראש שמחתו&#39;. אפשרות אחרת היא לנסות לטשטש את ההבדלים בין הגישות, שהרי &#39;כולם לדבר אחד נתכוונו&#39;. אך גם פתרון זה – שוברו בצדו. פתרון מאולץ, הנובע מרצון לשמור על &#39;חזות אחידה&#39; בפסיקה, יכול להביא עמו תוצאה בעייתית, המאמצת את &#39;הרע שבכל העולמות&#39;. לעיתים גם, בהמשך הדרך, צף ועולה הפער שבין העמדות השונות. או אז, הניסיון לאחד בין השיטות השונות – נדון לכשלון. אדרבה, אותו ניסיון כושל, עשוי להתפרש כשיטה נוספת בפסיקה, ובכך תגבר אי-הוודאות; &#39;נזקו מרובה מתועלתו&#39;. סבורני אפוא, כי הפתרון הנכון, הוא דווקא זה המורכב יותר, בבחינת &#34;דרך ארוכה וקצרה&#34; (בבלי, עירובין נג, ע&#34;ב). אין מנוס, אלא &#39;לאחוז את השור בקרניו&#39;: לראות דברים כהווייתם, להצביע על חוסר האחידות הקיים בפסיקה, ולהכריע לכאן או לכאן.
 
 כזה הוא העניין שלפנינו. במרבית פסקי הדין שנסקרו, נבחרה האפשרות הראשונה, והדעת לא ניתנה על פסקי דין אחרים, שבהם ננקטה גישה שונה. כך נוצרה עמימות, נעדרת ודאות, וקשה לנסח כהלכה, אקס-אנטה – לטובת החפצים, הזקוקים לכך – את תניית השיפוט הזר, ולוודא כי בהגיע &#39;רגע האמת&#39; היא תמומש כדבעי. בפסקי דין אחרים, נבחרה האפשרות השנייה, בניסיון להלך בין הטיפות מבלי להרטב. דא עקא, הניסיון לא עלה יפה. לדוגמה, אפנה לעניין De Neef, שבו בחר בית המשפט לשלב את שני הפתרונות גם יחד:
 
-
-
 &#34;לתניות שיפוט זר נקבעו כללי פרשנות שונים מהותית מכללי הפרשנות הכלליים של דיני החוזים. בפסיקה נקבע כי תניית שיפוט זר תפורש באופן לשוני-דווקני, וכי על לשונה להיות חד-משמעית, מפורשת וברורה בנוסח ההסכם. זאת בשל הדרישה כי &#39;מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה&#39; (ראו: [עניין מנו]; [עניין הראל]; [עניין דורון]). במרוצת השנים חל ריכוך מסוים בדרישה זו ונקבע כי על אף שבשלב הראשון יש לפרש את תניית השיפוט הזר באופן דווקני, הרי שכאשר ישנה אי-בהירות מסוימת בלשון התניה, רשאי בית המשפט בשלב השני לפרשה לאור תכליתה ולהיעזר באמצעי פרשנות מקובלים אחרים ([עניין אדרת שומרון]; [עניין אינטרדקו]). ברם, סטייה מכללי פרשנות דווקניים של תניית שיפוט זר היא החריג לכלל (ראו: [עניין מדובר])&#34;.
 
+כבר במבט ראשון, ניכר כי בית המשפט בחר להתעלם מפסקי דין שבהם הובעו גישות אחרות, שלפיהן יש להחיל על תניית שיפוט זר את כללי הפרשנות הרגילים, או כי לתניית שיפוט זר &#34;יש ליתן מובן עסקי&#34; (למשל: עניין דונאר, עניין הרמטיק, עניין ציון, עניין אוטו גרובר, עניין סנקרי ועניין ראדא). כל אלו רחוקים, כאמור, ת&#34;ק פרסה מעניין מנו, והסתירה ביניהם גלויה לעין. אך גם אם נתעלם מכך, ונתמקד באותם פסקי דין שצוטטו בעניין De Neef בחדא מחתא, תוך ניסיון לטשטש את חוסר האחידות ביניהם, נתקשה להכתיר את הניסיון כהצלחה. ההבחנה הלכאורית, בין &#39;פסיקה מוקדמת&#39;, שבה נקבע, כי &#34;תניית שיפוט זר תפורש באופן לשוני-דווקני&#34;, לבין פסיקה שניתנה &#34;במרוצת השנים&#34; שבמסגרתה &#34;חל ריכוך מסויים בדרישה זו&#34; – אינה יכולה לעמוד. שלושה פסקי דין הובאו כמייצגים את &#39;הדור הישן&#39; בפסיקה: עניין מנו, עניין הראל ועניין דורון. מנגד, הובאו שלושה פסקי דין כאסמכתא לאותו &#39;ריכוך&#39; שחל בפסיקה: עניין אדרת שומרון, עניין אינטרדקו, ועניין מדובר. פסק הדין בעניין אדרת שומרון, שהוא הראשון שאליו מיוחס ה&#34;ריכוך&#34;, ניתן עוד בשנת 1990. למעלה מ-20 שנה עובר למתן פסקי הדין בעניין הראל ובעניין דורון, אשר משתייכים לפי הנטען ל&#39;פסיקה המוקדמת&#39;. פסק הדין בעניין אינטרדקו, ניתן כעשור לפני פסקי הדין הללו. כך גם עניין מדובר, קדם אף הוא לעניין הראל ו-דורון, שיישׂמו את הלכת מנו ככתבה וכלשונה, ללא &#39;ריכוך&#39;. אין מדובר אפוא בקו אחיד בפסיקה החדשה, בבחינת &#34;ישן מפני חדש תוציאו&#34; (ויקרא כו, י). עסקינן בשתי אסכולות שונות, שתיהן הכו שורש בפסיקה, זו לצד זו; לעתים ידה של הראשונה על העליונה, לעיתים גברה דווקא ידה של השנייה, ללא הכרעה ברורה. דומה אפוא, שלא כפי שנקבע בעניין De Neef, כי &#39;אין מוקדם ומאוחר בפסיקה&#39;; למצער לא ניתן למצוא תימוכין לכך בפסקי הדין האמורים.
 
+דומה כי גם חברי השופט שטיין מבקש לילך באותה דרך, להפריד בין הדבקים, אך חוששני כי זהו מהלך מלאכותי. בשלב ראשון מבקש חברי להבחין בין עניין מנו, לבין ענייננו. לדבריו, בעניין מנו מדובר היה ב&#34;חברה ישראלית שתפקדה כסוכנת מקומית של חברת תיירות זרה&#34;, כאשר &#34;בשונה מהמבקש דכאן, אותה חברה ישראלית לא היתה עובדת או נושאת משרה של החברה הזרה&#34; (פסקה 17 לחוות דעתו). אמנם כן, החברה הישראלית מושא עניין מנו, &#34;לא הייתה עובדת או נושאת משרה של החברה הזרה&#34;, אך שוני זה אינו רלבנטי לענייננו. הנימוק שעליו נסמך פסק הדין בעניין מנו הוא, כי &#34;מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה&#34;. נימוק זה, תקף באותה מידה, הן לגבי סוכנת מקומית של חברה זרה, הן לגבי בעלים או עובד של חברה זרה; לא מצאתי טעם טוב להבחין ביניהם. חברי מבהיר, כי לעמדתו, המילים &#34;כל מחלוקת בקשר עם ההסכם&#34; (ההדגשה הוּספה – נ&#39; ס&#39;), כוללות בהכרח גם את עניינם של העובדים או הבעלים, אף שאינם צד ישיר להסכם. ממילא, אותו היגיון פועל גם ביחס למחלוקת עם סוכנות מקומית, &#39;בקשר עם ההסכם&#39;, אף שהיא אינה צד לו. אף על-פי כן, בניגוד לסברה מתבקשת זו, מבחין חברי בין המקרים, וזאת, לטעמי, באופן מלאכותי.
 
-	כבר במבט ראשון, ניכר כי בית המשפט בחר להתעלם מפסקי דין שבהם הובעו גישות אחרות, שלפיהן יש להחיל על תניית שיפוט זר את כללי הפרשנות הרגילים, או כי לתניית שיפוט זר &#34;יש ליתן מובן עסקי&#34; (למשל: עניין דונאר, עניין הרמטיק, עניין ציון, עניין אוטו גרובר, עניין סנקרי ועניין ראדא). כל אלו רחוקים, כאמור, ת&#34;ק פרסה מעניין מנו, והסתירה ביניהם גלויה לעין. אך גם אם נתעלם מכך, ונתמקד באותם פסקי דין שצוטטו בעניין De Neef בחדא מחתא, תוך ניסיון לטשטש את חוסר האחידות ביניהם, נתקשה להכתיר את הניסיון כהצלחה. ההבחנה הלכאורית, בין &#39;פסיקה מוקדמת&#39;, שבה נקבע, כי &#34;תניית שיפוט זר תפורש באופן לשוני-דווקני&#34;, לבין פסיקה שניתנה &#34;במרוצת השנים&#34; שבמסגרתה &#34;חל ריכוך מסויים בדרישה זו&#34; – אינה יכולה לעמוד. שלושה פסקי דין הובאו כמייצגים את &#39;הדור הישן&#39; בפסיקה: עניין מנו, עניין הראל ועניין דורון. מנגד, הובאו שלושה פסקי דין כאסמכתא לאותו &#39;ריכוך&#39; שחל בפסיקה: עניין אדרת שומרון, עניין אינטרדקו, ועניין מדובר. פסק הדין בעניין אדרת שומרון, שהוא הראשון שאליו מיוחס ה&#34;ריכוך&#34;, ניתן עוד בשנת 1990. למעלה מ-20 שנה עובר למתן פסקי הדין בעניין הראל ובעניין דורון, אשר משתייכים לפי הנטען ל&#39;פסיקה המוקדמת&#39;. פסק הדין בעניין אינטרדקו, ניתן כעשור לפני פסקי הדין הללו. כך גם עניין מדובר, קדם אף הוא לעניין הראל ו-דורון, שיישׂמו את הלכת מנו ככתבה וכלשונה, ללא &#39;ריכוך&#39;. אין מדובר אפוא בקו אחיד בפסיקה החדשה, בבחינת &#34;ישן מפני חדש תוציאו&#34; (ויקרא כו, י). עסקינן בשתי אסכולות שונות, שתיהן הכו שורש בפסיקה, זו לצד זו; לעתים ידה של הראשונה על העליונה, לעיתים גברה דווקא ידה של השנייה, ללא הכרעה ברורה. דומה אפוא, שלא כפי שנקבע בעניין De Neef, כי &#39;אין מוקדם ומאוחר בפסיקה&#39;; למצער לא ניתן למצוא תימוכין לכך בפסקי הדין האמורים.
-
-
-
-דומה כי גם חברי השופט שטיין מבקש לילך באותה דרך, להפריד בין הדבקים, אך חוששני כי זהו מהלך מלאכותי. בשלב ראשון מבקש חברי להבחין בין עניין מנו, לבין ענייננו. לדבריו, בעניין מנו מדובר היה ב&#34;חברה ישראלית שתפקדה כסוכנת מקומית של חברת תיירות זרה&#34;, כאשר &#34;בשונה מהמבקש דכאן, אותה חברה ישראלית לא היתה עובדת או נושאת משרה של החברה הזרה&#34; (פסקה 17 לחוות דעתו). אמנם כן, החברה הישראלית מושא עניין מנו, &#34;לא הייתה עובדת או נושאת משרה של החברה הזרה&#34;, אך שוני זה אינו רלבנטי לענייננו. הנימוק שעליו נסמך פסק הדין בעניין מנו הוא, כי &#34;מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה&#34;. נימוק זה, תקף באותה מידה, הן לגבי סוכנת מקומית של חברה זרה, הן לגבי בעלים או עובד של חברה זרה; לא מצאתי טעם טוב להבחין ביניהם. חברי מבהיר, כי לעמדתו, המילים &#34;כל מחלוקת בקשר עם ההסכם&#34; (ההדגשה הוּספה – נ&#39; ס&#39;), כוללות בהכרח גם את עניינם של העובדים או הבעלים, אף שאינם צד ישיר להסכם. ממילא, אותו היגיון פועל גם ביחס למחלוקת עם סוכנות מקומית, &#39;בקשר עם ההסכם&#39;, אף שהיא אינה צד לו. אף על-פי כן, בניגוד לסברה מתבקשת זו, מבחין חברי בין המקרים, וזאת, לטעמי, באופן מלאכותי. 
-
-
-
-הבחנה נוספת שמציג חברי בין עניין מנו לעניין שלפנינו, היא זו שבעניין מנו &#34;בית המשפט הדגיש כי פרשנות השוללת את תחולתה של תניית השיפוט מקבלת משנה תוקף &#39;כשהן התובע והן הנתבע פועלים באותו פורום, ואין להם זיקה כלשהי למקום הזר&#39;&#34;. אלא מאי? כפי שמציין חברי, נימוק זה הוא בבחינת &#39;משנה תוקף&#39;, ואיננו הנימוק המרכזי בעניין מנו. לוז פסק הדין בעניין מנו, כפי שהובא לעיל, הוא, כי &#34;מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה&#34;. נימוק זה, כוחו יפה הן כאשר שני בעלי הדין &#34;פועלים באותו הפורום&#34;, הן כשכל אחד מהם פועל בפורום אחר. משעה שתניית השיפוט באה לשלול את כוחו של אחד הצדדים, לברר את תביעתו לפני פורום שהיה מוסמך לכך אלמלא התנייה – שומה עליה להיות מפורשת וברורה. 
-
-
+הבחנה נוספת שמציג חברי בין עניין מנו לעניין שלפנינו, היא זו שבעניין מנו &#34;בית המשפט הדגיש כי פרשנות השוללת את תחולתה של תניית השיפוט מקבלת משנה תוקף &#39;כשהן התובע והן הנתבע פועלים באותו פורום, ואין להם זיקה כלשהי למקום הזר&#39;&#34;. אלא מאי? כפי שמציין חברי, נימוק זה הוא בבחינת &#39;משנה תוקף&#39;, ואיננו הנימוק המרכזי בעניין מנו. לוז פסק הדין בעניין מנו, כפי שהובא לעיל, הוא, כי &#34;מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה&#34;. נימוק זה, כוחו יפה הן כאשר שני בעלי הדין &#34;פועלים באותו הפורום&#34;, הן כשכל אחד מהם פועל בפורום אחר. משעה שתניית השיפוט באה לשלול את כוחו של אחד הצדדים, לברר את תביעתו לפני פורום שהיה מוסמך לכך אלמלא התנייה – שומה עליה להיות מפורשת וברורה.
 
 הדין הרצוי
 
-עד כאן הדין המצוי, ומכאן – לדין הרצוי. את הערפל השׂורר בפסיקה, יש לפזר. תהא עמדתנו באשר לדין הרצוי אשר תהא, ברי כי נחוץ דין ברור וחד-משמעי; עדיף מצב &#39;פארטו&#39;, על פני אפשרות שבה כלל לא ברור מהו הדין המצוי. אין מנוס אפוא מקביעת כלל יציב ואחיד, אשר ינחה את פסיקת הערכאות הדיוניות מכאן ולהבא, גם אם הדבר כרוך בסטייה מן האמור בחלק מפסקי הדין שניתנו במרוצת השנים. 
+עד כאן הדין המצוי, ומכאן – לדין הרצוי. את הערפל השׂורר בפסיקה, יש לפזר. תהא עמדתנו באשר לדין הרצוי אשר תהא, ברי כי נחוץ דין ברור וחד-משמעי; עדיף מצב &#39;פארטו&#39;, על פני אפשרות שבה כלל לא ברור מהו הדין המצוי. אין מנוס אפוא מקביעת כלל יציב ואחיד, אשר ינחה את פסיקת הערכאות הדיוניות מכאן ולהבא, גם אם הדבר כרוך בסטייה מן האמור בחלק מפסקי הדין שניתנו במרוצת השנים.
 
+לאחר בחינת הסוגיה, דומני, כי ניטיב לעשות אם נשוב לתקֵף את ההלכה שנקבעה בעניין מנו, ונאמץ אותה ללא כחל ושרק: תניית שיפוט זר תפורש בצורה לשונית-דווקנית. הזרם המרכזי בפסיקה שנזכרה לעיל, מלמד באופן עקרוני על מחויבות להלכה שנקבעה בעניין מנו. גם חברי השופט שטיין, אינו חולק על כך שההלכה שנקבעה בעניין מנו – שרירה וקיימת, אלא שהוא מבקש להבחין בין האמור בעניין מנו, לבין ענייננו (ראו פסקה 13 לחוות דעתו, שם מפנה השופט שטיין לכלל שנקבע בעניין De Neef, אשר מבוסס בתורו על האמור בעניין מנו; ראו גם פסקה 17 לחוות דעתו; וראו גם האמור לעיל, בפסקה 16 לחוות דעתי). אלא מאי? ישנם פסקי דין שבהם &#34;חל ריכוך מסויים&#34; ביחס לכלל שנקבע בעניין מנו. לדעתי, אותו &#34;ריכוך&#34; – נזקו מרובה על תועלתו. הכלל שנקבע בעניין מנו – פשוט, ברור, קל ליישׂום. לעומת זאת, מי שיבקש להתחקות אחר השיעור המדויק של אותו &#34;ריכוך&#34; – יעלה חרס בידו. לא ברור מהם העניינים הבאים בגדרי הכלל, ומיהו ומהו היוצא מן הכלל; &#34;נתת דבריך לשיעורין?!&#34; (בבלי, בבא בתרא כט, ע&#34;א).
 
+משבחרתי לאמץ את ההלכה שנקבעה בעניין מנו ככתבה וכלשונה, ללא &#34;ריכוך&#34;, מן הראוי לשוב ולחדד את מה שנקבע באותו עניין. עיון בדברי חברי מלמד, כי לשיטתו, עניין מנו הריהו &#39;אחיו התאום&#39; של פסק הדין שניתן על-ידו בע&#34;א 7649/18 ביבי כבישים עפר ופיתוח בע&#34;מ נ&#39; רכבת ישראל בע&#34;מ (20.11.2019) (להלן: עניין ביבי כבישים). זה כמו זה, מרוממים את קרנה של הפרשנות הלשונית, ודוחקים את רגליה של הפרשנות התכליתית, אשר משתפת בהליך הפרשני גם נסיבות חיצוניות לחוזה (ראו: פסקה 13 לחוות דעתו של חברי). האחד מצמצם עצמו לעניין פרשנות תניות שיפוט זר, ואילו מוטת כנפיו של השני פרושׂה על כל חוזה באשר הוא. אני סבור אחרת: עניין מנו לחוד ועניין ביבי כבישים לחוד. ודוק: אינני חולק על הפסיקה בעניין ביבי כבישים. אדרבה, על מעמדה הרם של הלשון לצורך פרשנות חוזים, לעיתים עד כדי מעמד בלעדי, עמדתי בהרחבה עוד בעבר (אמנם דעתי שם, בעת ההיא, היתה דעת מיעוט: ע&#34;א 3984/11 דלק – חברת הדלק הישראלית בע&#34;מ נ&#39; בן שלום, פסקאות 19-14 (6.10.2013) (להלן: עניין דלק). בהרצאה בפתיחת שנת המשפט באוניברסיטת חיפה ביום 18.10.2012 אמרתי, כי &#34;ראויה המילה הכתובה למעמד של בכורה. זהו צוק איתן להאחז בו. מכנה משותף [...] המילים הן התמרורים, הרמזורים ואבני הדרך. דע מאין באת ולאן אתה הולך&#34; (נעם סולברג, &#34;שִמרו משפט ועשו צדקה&#34;, דין ודברים ה (תשע&#34;ד) 13, 20). אלא שאין הנדון דומה לראיה. איננו עוסקים כאן בשאלה מהו המשקל שיש ליתן, אם בכלל, לנסיבות החיצוניות שאפפו את חתימת החוזה, ובאילו כלים יֵעשה שימוש בעת פרשנותו. ההלכה בעניין מנו נובעת ממקור שונה, והיא אינה קשורה לכללי פרשנות החוזה הקלאסיים. כדי לעמוד על הדברים, אצטט שוב מעניין מנו:
 
-לאחר בחינת הסוגיה, דומני, כי ניטיב לעשות אם נשוב לתקֵף את ההלכה שנקבעה בעניין מנו, ונאמץ אותה ללא כחל ושרק: תניית שיפוט זר תפורש בצורה לשונית-דווקנית. הזרם המרכזי בפסיקה שנזכרה לעיל, מלמד באופן עקרוני על מחויבות להלכה שנקבעה בעניין מנו. גם חברי השופט שטיין, אינו חולק על כך שההלכה שנקבעה בעניין מנו – שרירה וקיימת, אלא שהוא מבקש להבחין בין האמור בעניין מנו, לבין ענייננו (ראו פסקה 13 לחוות דעתו, שם מפנה השופט שטיין לכלל שנקבע בעניין De Neef, אשר מבוסס בתורו על האמור בעניין מנו; ראו גם פסקה 17 לחוות דעתו; וראו גם האמור לעיל, בפסקה 16 לחוות דעתי). אלא מאי? ישנם פסקי דין שבהם &#34;חל ריכוך מסויים&#34; ביחס לכלל שנקבע בעניין מנו. לדעתי, אותו &#34;ריכוך&#34; – נזקו מרובה על תועלתו. הכלל שנקבע בעניין מנו – פשוט, ברור, קל ליישׂום. לעומת זאת, מי שיבקש להתחקות אחר השיעור המדויק של אותו &#34;ריכוך&#34; – יעלה חרס בידו. לא ברור מהם העניינים הבאים בגדרי הכלל, ומיהו ומהו היוצא מן הכלל; &#34;נתת דבריך לשיעורין?!&#34; (בבלי, בבא בתרא כט, ע&#34;א). 
+&#34;תניית שיפוט זר חייבת להיות מפורשת. אין לקרוא אותה לתוך הנוסח על יסוד מסקנות העולות מבין השורות או על יסוד משמעות מכללא. מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה. על אחת כמה וכמה כך, כשהן התובע והן הנתבע פועלים באותו פורום, ואין להם זיקה כלשהי למקום הזר. בית המשפט אינו קורא לתוך החוזה את אשר אין בו, ומקום בו לא טרח מנסח החוזה ולא הבהיר דבריו, לא תיאם בין תניותיו השונות של החוזה ולא וידא – על-ידי עריכה נאותה של החוזה – שביטוי בחוזה אשר לו הוקנתה משמעות מורחבת מיוחדת גם ישולב בדרך הנאותה לתוך ההוראה בה מובאת תניית השיפוט, לא יעשה בית המשפט מלאכה זו במקומו&#34;.
 
-
-
-משבחרתי לאמץ את ההלכה שנקבעה בעניין מנו ככתבה וכלשונה, ללא &#34;ריכוך&#34;, מן הראוי לשוב ולחדד את מה שנקבע באותו עניין. עיון בדברי חברי מלמד, כי לשיטתו, עניין מנו הריהו &#39;אחיו התאום&#39; של פסק הדין שניתן על-ידו בע&#34;א 7649/18 ביבי כבישים עפר ופיתוח בע&#34;מ נ&#39; רכבת ישראל בע&#34;מ (20.11.2019) (להלן: עניין ביבי כבישים). זה כמו זה, מרוממים את קרנה של הפרשנות הלשונית, ודוחקים את רגליה של הפרשנות התכליתית, אשר משתפת בהליך הפרשני גם נסיבות חיצוניות לחוזה (ראו: פסקה 13 לחוות דעתו של חברי). האחד מצמצם עצמו לעניין פרשנות תניות שיפוט זר, ואילו מוטת כנפיו של השני פרושׂה על כל חוזה באשר הוא. אני סבור אחרת: עניין מנו לחוד ועניין ביבי כבישים לחוד. ודוק: אינני חולק על הפסיקה בעניין ביבי כבישים. אדרבה, על מעמדה הרם של הלשון לצורך פרשנות חוזים, לעיתים עד כדי מעמד בלעדי, עמדתי בהרחבה עוד בעבר (אמנם דעתי שם, בעת ההיא, היתה דעת מיעוט: ע&#34;א 3984/11 דלק – חברת הדלק הישראלית בע&#34;מ נ&#39; בן שלום, פסקאות 19-14 (6.10.2013) (להלן: עניין דלק). בהרצאה בפתיחת שנת המשפט באוניברסיטת חיפה ביום 18.10.2012 אמרתי, כי &#34;ראויה המילה הכתובה למעמד של בכורה. זהו צוק איתן להאחז בו. מכנה משותף [...] המילים הן התמרורים, הרמזורים ואבני הדרך. דע מאין באת ולאן אתה הולך&#34; (נעם סולברג, &#34;שִמרו משפט ועשו צדקה&#34;, דין ודברים ה (תשע&#34;ד) 13, 20). אלא שאין הנדון דומה לראיה. איננו עוסקים כאן בשאלה מהו המשקל שיש ליתן, אם בכלל, לנסיבות החיצוניות שאפפו את חתימת החוזה, ובאילו כלים יֵעשה שימוש בעת פרשנותו. ההלכה בעניין מנו נובעת ממקור שונה, והיא אינה קשורה לכללי פרשנות החוזה הקלאסיים. כדי לעמוד על הדברים, אצטט שוב מעניין מנו: 
-
-
-
-&#34;תניית שיפוט זר חייבת להיות מפורשת. אין לקרוא אותה לתוך הנוסח על יסוד מסקנות העולות מבין השורות או על יסוד משמעות מכללא. מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה. על אחת כמה וכמה כך, כשהן התובע והן הנתבע פועלים באותו פורום, ואין להם זיקה כלשהי למקום הזר. בית המשפט אינו קורא לתוך החוזה את אשר אין בו, ומקום בו לא טרח מנסח החוזה ולא הבהיר דבריו, לא תיאם בין תניותיו השונות של החוזה ולא וידא – על-ידי עריכה נאותה של החוזה – שביטוי בחוזה אשר לו הוקנתה משמעות מורחבת מיוחדת גם ישולב בדרך הנאותה לתוך ההוראה בה מובאת תניית השיפוט, לא יעשה בית המשפט מלאכה זו במקומו&#34;. 
-
-
-
-	מנימוקי בית המשפט בעניין מנו למדנו, כי לא פרשנות לשונית – במנוגד לפרשנות תכליתית – עומדת ביסוד פסק הדין האמור. אם כל שנאמר בעניין מנו הוא כי יש להעדיף פרשנות לשונית על פני פרשנות תכליתית, לא ניתן להבין את נימוקי בית המשפט שם. אין כל סיבה להניח, אַפריורית, כי פרשנות תכליתית תוביל להחלת התנייה, בעוד שפרשנות לשונית תחבל בכך. בהחלט ניתן להעלות על הדעת מצב, שבו דווקא קריאה לשונית תוביל למסקנה כי התנייה חלה על העניין הנדון, ואילו הנסיבות החיצוניות הן אשר ילמדו על כך שהצדדים לא התכוונו לכך. על כרחנו נמצאנו למדים, כי פסק הדין בעניין מנו, מכוון לפרשנות לשונית-דווקנית, הווי אומר: התנייה לא תחול, אלא במקרים שבהם נמצא כי היא מפורשת וברורה, וכלל לא נצרך הליך פרשני כדי לאתרה, או לתת בה סימנים. זאת, בדומה לכלל בדבר &#39;פרשנות נגד המנסח&#39;, שפותח בפסיקתו של בית משפט זה, ומעוגן כיום בסעיף 25(ב1) לחוק החוזים (חלק כללי), התשל״ג-1973. אם נמצא כי ישנן שתי פרשנויות לגיטימיות, ואף אם אחת מהן מסתברת יותר, לא יהא בכך כדי להציל את התנייה; &#39;אם יש ספק אין ספק&#39;. 
-
-
+מנימוקי בית המשפט בעניין מנו למדנו, כי לא פרשנות לשונית – במנוגד לפרשנות תכליתית – עומדת ביסוד פסק הדין האמור. אם כל שנאמר בעניין מנו הוא כי יש להעדיף פרשנות לשונית על פני פרשנות תכליתית, לא ניתן להבין את נימוקי בית המשפט שם. אין כל סיבה להניח, אַפריורית, כי פרשנות תכליתית תוביל להחלת התנייה, בעוד שפרשנות לשונית תחבל בכך. בהחלט ניתן להעלות על הדעת מצב, שבו דווקא קריאה לשונית תוביל למסקנה כי התנייה חלה על העניין הנדון, ואילו הנסיבות החיצוניות הן אשר ילמדו על כך שהצדדים לא התכוונו לכך. על כרחנו נמצאנו למדים, כי פסק הדין בעניין מנו, מכוון לפרשנות לשונית-דווקנית, הווי אומר: התנייה לא תחול, אלא במקרים שבהם נמצא כי היא מפורשת וברורה, וכלל לא נצרך הליך פרשני כדי לאתרה, או לתת בה סימנים. זאת, בדומה לכלל בדבר &#39;פרשנות נגד המנסח&#39;, שפותח בפסיקתו של בית משפט זה, ומעוגן כיום בסעיף 25(ב1) לחוק החוזים (חלק כללי), התשל״ג-1973. אם נמצא כי ישנן שתי פרשנויות לגיטימיות, ואף אם אחת מהן מסתברת יותר, לא יהא בכך כדי להציל את התנייה; &#39;אם יש ספק אין ספק&#39;.
 
 חיזוק לדברים אלה, לגבי משמעות פסק הדין בעניין מנו, ניתן למצוא בדברי המלומד משה בר ניב, שנכתבו לפני למעלה משנות-דור. בר ניב אמנם אינו שבע רצון מהדין המצוי שנקבע בעניין מנו, אך &#39;מתוך גנותו אתה בא לידי שבחו&#39;:
 
-
-
 &#34;הכלל הפרשני הבסיסי הוא שיש לפרש את החוזה לפי אומד דעתם של הצדדים כפי שהיא משתמעת מהחוזה. אין הדין מגביל את אופן הביטוי של כוונת הצדדים לנוסח או לנוסחה מסויימים. בחוזים מסחריים, על בית המשפט לעקוב אחר כוונת הצדדים כך שתתאים לתכלית המסחרית של ההתקשרות. הינה, בתחום [תניית השיפוט הזר] גיבשה הפסיקה את המתכונת של קביעת הייחודיות לפורום הזר כדרך לביטוי רצונם של הצדדים. למעשה, גישה זו מייתרת את כללי הפרשנות, שהרי היא מצריכה ניסוח חד משמעי – ובמתכונת מיוחדת – של כוונת הצדדים. כללי הפרשנות החוזיים עוסקים בהבהרה של כוונת הצדדים, ואילו כללי [תניית השיפוט הזר] מחייבים לשון ברורה וחד-משמעית&#34; (משה בר ניב &#34;הסכמה לשיפוט זר בחוזים עסקיים&#34; עיוני משפט כ(1) 25, 33 (1996); ההדגשה הוּספה – נ&#39; ס&#39;).
 
-	
+אם כן, בשונה מדברַי-שלי בעניין דלק ומדברי חברי בעניין ביבי כבישים, שבהם נדון חיזוק מעמדה של הלשון בהליך הפרשנות, ההלכה בעניין מנו נקבעה על יסוד נימוק שונה בתכלית, כי לגבי תניית שיפוט זר לא יתבצע הליך פרשני שכזה כלל. אם יוברר כי הלשון אינה ברורה וחד-משמעית, הדבר יביא באופן מיידי ל&#39;מותה&#39; של התנייה, וזאת גם אם באמצעות הליך פרשני-לשוני, מבלעדי היזקקות לנסיבות חיצוניות, ניתן היה להגיע למסקנה כי אכן נקבעה תנייה שכזו. זאת בניגוד לתניות אחרות בחוזה, שלגביהן, אף אם מדובר ב&#39;חוזה סגור&#39;, שנערך בין שני צדדים עסקיים, אין כל מניעה מלבצע הליך פרשני בתוך גבולות הלשון, כדי לעמוד על כוונת הצדדים. טעם הדבר, במילותיו של הנשיא מ&#39; שמגר בעניין מנו, הוא זה: &#34;מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה&#34;. אם כן, הפעלת תניית שיפוט זר אינה דומה לסעיפים אחרים בחוזה. תניית שיפוט זר כמוה כ&#39;נשק לא-קונבנציונלי&#39;. תניית שיפוט זר נועלת בפני צד לחוזה את שערי בית המשפט, ופוגעת בזכות הגישה שלו לערכאות. משום כך התנייה תכובד אך ורק אם לשונה ברורה ומפורשת.
 
-	אם כן, בשונה מדברַי-שלי בעניין דלק ומדברי חברי בעניין ביבי כבישים, שבהם נדון חיזוק מעמדה של הלשון בהליך הפרשנות, ההלכה בעניין מנו נקבעה על יסוד נימוק שונה בתכלית, כי לגבי תניית שיפוט זר לא יתבצע הליך פרשני שכזה כלל. אם יוברר כי הלשון אינה ברורה וחד-משמעית, הדבר יביא באופן מיידי ל&#39;מותה&#39; של התנייה, וזאת גם אם באמצעות הליך פרשני-לשוני, מבלעדי היזקקות לנסיבות חיצוניות, ניתן היה להגיע למסקנה כי אכן נקבעה תנייה שכזו. זאת בניגוד לתניות אחרות בחוזה, שלגביהן, אף אם מדובר ב&#39;חוזה סגור&#39;, שנערך בין שני צדדים עסקיים, אין כל מניעה מלבצע הליך פרשני בתוך גבולות הלשון, כדי לעמוד על כוונת הצדדים. טעם הדבר, במילותיו של הנשיא מ&#39; שמגר בעניין מנו, הוא זה: &#34;מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה&#34;. אם כן, הפעלת תניית שיפוט זר אינה דומה לסעיפים אחרים בחוזה. תניית שיפוט זר כמוה כ&#39;נשק לא-קונבנציונלי&#39;. תניית שיפוט זר נועלת בפני צד לחוזה את שערי בית המשפט, ופוגעת בזכות הגישה שלו לערכאות. משום כך התנייה תכובד אך ורק אם לשונה ברורה ומפורשת. 
-
-
-
-לסיכום חלק זה: לוּ תישמע דעתי, הרי שמעתה ואילך כלל זה, שקבע הנשיא מ&#39; שמגר לפני שנים רבות בעניין מנו, יחדש כנשר נעוריו, וכוחו יהא יפה בכל עת שבה תתעורר שאלה פרשנית לגבי תניית שיפוט זר. דברים אלו יפים, גם לגבי השאלה אם מדובר בתנייה ייחודית או מקבילה; אם התנייה כוללת תביעות נזיקיות; אם נכללות בה עילות לבר-חוזיות; אם היא כוללת את עניינם של צדדים שלישיים לחוזה; ואם היא חלה גם על הסכמים אחרים, בין הצדדים, לבד מאלו שבהם צוינה תנייה-זו במפורש. כל אלו, וכמותן גם כל שאלה פרשנית אחרת שתתעורר בעתיד, בעניינן של תניות שיפוט זר, ישובו להחתך מעתה ואילך על-פי ההלכה שנקבעה בעניין מנו. 
-
-
+לסיכום חלק זה: לוּ תישמע דעתי, הרי שמעתה ואילך כלל זה, שקבע הנשיא מ&#39; שמגר לפני שנים רבות בעניין מנו, יחדש כנשר נעוריו, וכוחו יהא יפה בכל עת שבה תתעורר שאלה פרשנית לגבי תניית שיפוט זר. דברים אלו יפים, גם לגבי השאלה אם מדובר בתנייה ייחודית או מקבילה; אם התנייה כוללת תביעות נזיקיות; אם נכללות בה עילות לבר-חוזיות; אם היא כוללת את עניינם של צדדים שלישיים לחוזה; ואם היא חלה גם על הסכמים אחרים, בין הצדדים, לבד מאלו שבהם צוינה תנייה-זו במפורש. כל אלו, וכמותן גם כל שאלה פרשנית אחרת שתתעורר בעתיד, בעניינן של תניות שיפוט זר, ישובו להחתך מעתה ואילך על-פי ההלכה שנקבעה בעניין מנו.
 
 תחולת תניית שיפוט זר על צדדים שלישיים
 
-עד כאן דברים כלליים, לגבי פרשנות תניית שיפוט זר, ומכאן – לשאלה הספציפית שעל הפרק: האם תניית השיפוט חלה גם על המבקש, למרות שלא היה צד להסכם? משעמדנו על טיבה של ההלכה שנקבעה בעניין מנו, דומני כי זו מחייבת אותנו להגיע למסקנה שונה מזו שאליה הגיע חברי השופט שטיין. משעה שעומדת על הפרק שאלה פרשנית – האם התנייה חלה גם על צד שלישי שאינו צד לחוזה – הרי שמוּכְנִית (אוטומטית), יד המבקש להפעיל את תניית השיפוט על התחתונה. חברי סבור אחרת. לשיטתו, &#34;תניית השיפוט הזר שבה עסקינן קובעת, בלשון ברורה, כי כל סכסוך הקשור להסכם שבין המשיבה לחברה הבלגית, או למתן שירותים במסגרתו, יידון אך ורק בבית המשפט המוסמך בעיר אנטוורפן, בלגיה. התניה מנוסחת בלשון חובקת-כל שלא משאירה מקום לספקות: &#39;כל סכסוך&#39; – ללא קשר לזהותם של הצדדים לאותו סכסוך – יידון אך ורק בבית המשפט המוסמך בעיר אנטוורפן בלגיה, כל אימת שהוא קשור להסכם שהחברה הבלגית חתמה עם המשיבה&#34; (פסקה 17 לחוות דעתו). ברם, אף אם אצעד כברת דרך לקראת חברי, ואניח כי זו אכן הפרשנות המסתברת יותר – מידי ספק לא יצאנו. נוכח ההלכה שנקבעה בעניין מנו, די באותו ספק כדי לקבוע כי התנייה אינה חלה. 
+עד כאן דברים כלליים, לגבי פרשנות תניית שיפוט זר, ומכאן – לשאלה הספציפית שעל הפרק: האם תניית השיפוט חלה גם על המבקש, למרות שלא היה צד להסכם? משעמדנו על טיבה של ההלכה שנקבעה בעניין מנו, דומני כי זו מחייבת אותנו להגיע למסקנה שונה מזו שאליה הגיע חברי השופט שטיין. משעה שעומדת על הפרק שאלה פרשנית – האם התנייה חלה גם על צד שלישי שאינו צד לחוזה – הרי שמוּכְנִית (אוטומטית), יד המבקש להפעיל את תניית השיפוט על התחתונה. חברי סבור אחרת. לשיטתו, &#34;תניית השיפוט הזר שבה עסקינן קובעת, בלשון ברורה, כי כל סכסוך הקשור להסכם שבין המשיבה לחברה הבלגית, או למתן שירותים במסגרתו, יידון אך ורק בבית המשפט המוסמך בעיר אנטוורפן, בלגיה. התניה מנוסחת בלשון חובקת-כל שלא משאירה מקום לספקות: &#39;כל סכסוך&#39; – ללא קשר לזהותם של הצדדים לאותו סכסוך – יידון אך ורק בבית המשפט המוסמך בעיר אנטוורפן בלגיה, כל אימת שהוא קשור להסכם שהחברה הבלגית חתמה עם המשיבה&#34; (פסקה 17 לחוות דעתו). ברם, אף אם אצעד כברת דרך לקראת חברי, ואניח כי זו אכן הפרשנות המסתברת יותר – מידי ספק לא יצאנו. נוכח ההלכה שנקבעה בעניין מנו, די באותו ספק כדי לקבוע כי התנייה אינה חלה.
 
-
-
-	למעשה, גם חברי יאלץ להודות כי קיימת בענייננו שאלה פרשנית, שלא ניתן לחמוק ממנה. כאמור לעיל, חברי אינו חולק על אשר נקבע בעניין מנו, אך מבקש להבחין בין סוכנת מקומית של החברה, לבין עובד של החברה, לגבי הפעלת תניית השיפוט הזר (ראו פסקה 17 לחוות דעתו). דא עקא, באותו עניין נוסחה תניית השיפוט הזר באופן כוללני ורחב, בדומה לנסיבות העניין דנן: &#34;All the claims and disputes under the ticket&#34;. חרף זאת, אף שלדבריו, &#34;התניה מנוסחת בלשון חובקת-כל שלא משאירה מקום לספקות&#34;, מוכן חברי להניח כי התנייה שם אינה נוגעת לסוכנת המקומית, אשר תהא מוחרגת ממנה. כלומר, גם חברי מודה, כי המילה &#39;כל&#39; אינה חזות הכול. במצב דברים זה, אף שחברי מסתפק בהבחנה בין סוכנת מקומית לבין עובד החברה, אין זה מן הנמנע, כי אחרים יסברו, שיש מקום גם להבחנה אחרת. משכך, ברי כי לפנינו שאלה פרשנית לגבי המונח &#39;כל&#39;, והוא אינו חף מספקות. אשר על כן, עמדתי היא, כאמור, כי כדי להחיל את תניית השיפוט בעניין דנן, נדרש היה לציין בה מפורשות, &#39;ברחל בתך הקטנה&#39;, כי התנייה חלה גם על צדדים שלישיים שאינם צד לחוזה; כזאת לא נעשה.
-
-
+למעשה, גם חברי יאלץ להודות כי קיימת בענייננו שאלה פרשנית, שלא ניתן לחמוק ממנה. כאמור לעיל, חברי אינו חולק על אשר נקבע בעניין מנו, אך מבקש להבחין בין סוכנת מקומית של החברה, לבין עובד של החברה, לגבי הפעלת תניית השיפוט הזר (ראו פסקה 17 לחוות דעתו). דא עקא, באותו עניין נוסחה תניית השיפוט הזר באופן כוללני ורחב, בדומה לנסיבות העניין דנן: &#34;All the claims and disputes under the ticket&#34;. חרף זאת, אף שלדבריו, &#34;התניה מנוסחת בלשון חובקת-כל שלא משאירה מקום לספקות&#34;, מוכן חברי להניח כי התנייה שם אינה נוגעת לסוכנת המקומית, אשר תהא מוחרגת ממנה. כלומר, גם חברי מודה, כי המילה &#39;כל&#39; אינה חזות הכול. במצב דברים זה, אף שחברי מסתפק בהבחנה בין סוכנת מקומית לבין עובד החברה, אין זה מן הנמנע, כי אחרים יסברו, שיש מקום גם להבחנה אחרת. משכך, ברי כי לפנינו שאלה פרשנית לגבי המונח &#39;כל&#39;, והוא אינו חף מספקות. אשר על כן, עמדתי היא, כאמור, כי כדי להחיל את תניית השיפוט בעניין דנן, נדרש היה לציין בה מפורשות, &#39;ברחל בתך הקטנה&#39;, כי התנייה חלה גם על צדדים שלישיים שאינם צד לחוזה; כזאת לא נעשה.
 
 יתר על כן. גם אם אתעלם מכל האמור עד כה, ואתמקד בסוגיה הספציפית שעל הפרק, הרי שעניין מנו אינו ניצב לבדו. ישנם מספר פסקי דין נוספים שניתנו על-ידי בית משפט זה, שגם בהם לא הוחלה תניית שיפוט זר על צדדים שלישיים, חרף ניסוחה הכוללני של התנייה. כך למשל, בע&#34;א 791/77 אהרן רוזנפלד ובניו בע&#34;מ נ&#39; פיירמנס פנד חברה לבטוח בע&#34;מ, פ&#34;ד לב(3) 729 (1978) (להלן: עניין רוזנפלד) (הנשיא י&#39; זוסמן), נוסחה תניית השיפוט כך: &#34;על חוזה ההובלה, שטר המטען וכל הסכסוכים שיתגלעו מהם או בקשר אתם, יחול המשפט הגרמני&#34; (ההדגשה הוּספה – נ&#39; ס&#39;). אף על-פי כן, נקבע כי תניית השיפוט לא תחול על צד שלישי – סוכנת האנייה – אף שהתביעה הוגשה נגדו מחמת סכסוך ש&#39;התגלע בקשר לחוזה ההובלה ושטר המטען&#39;. הלכה זו חזרה ואושררה גם בהמשך, בפסק הדין שניתן בעניין אלאלוף. תניית השיפוט הזר באותו עניין נוסחה גם היא בדיוק באותו אופן שבו נוסחה בעניין רוזנפלד – בלשון חובקת-כל. השאלה הפרשנית גם היא היתה זהה: האם סוכן האנייה – צד שלישי – יכול להיבנות מתניית השיפוט הזר שנחתמה מול חברת הספנות? בדומה לעניין רוזנפלד, התשובה לשאלה היתה בשלילה, וזאת חרף ניסוחה הכוללני של התנייה. משלושת פסקי הדין הללו – עניין מנו, רוזנפלד ו-אלאלוף – נמצאנו למדים, כי גם תנייה כללית וכוללנית, אינה מובילה בהכרח למסקנה כי היא חלה על צדדים שלישיים. מקום שבו לא נכתב הדבר במפורש, עדיין מתעוררת לכל הפחות שאלה פרשנית, וממילא, בהתאם לאמור בעניין מנו – תהא יד המבקש להחיל את התנייה – על התחתונה. אילו נכתב במפורש, שהתנייה כוללת צדדים שלישיים, ההליך שלפנינו לא היה בא לעולם. משעה שהדבר לא נעשה, אזי &#34;מקום בו לא טרח מנסח החוזה ולא הבהיר דבריו, לא תיאם בין תניותיו השונות של החוזה ולא וידא – על-ידי עריכה נאותה של החוזה – שביטוי בחוזה אשר לו הוקנתה משמעות מורחבת מיוחדת גם ישולב בדרך הנאותה לתוך ההוראה בה מובאת תניית השיפוט, לא יעשה בית המשפט מלאכה זו במקומו&#34; (עניין מנו).
 
+כאסמכתא לדבריו, טוען חברי כי &#34;בפסיקתנו נקבע זה מכבר כי יש לפרש את היקף תחולתה של תניית שיפוט ייחודית אשר חלה על יחסים עסקיים באופן רחב&#34;, תוך שהוא מפנה לעניין ראדא. בהמשך, משליך חברי יהבו על הנאמר בעניין אוטו גרובר (פסקה 16 לחוות דעתו). דא עקא, כפי שציינתי לגבי עניין דורון (לעיל פסקה 12) ועניין אלאלוף (לעיל פסקה 13), כך גם כאן. חברי &#39;מתיך&#39; יחדיו כמה פסקי דין, אף שהם משתייכים לאסכולות שונות. לא ניתן לאחוז ביד אחת באמור בעניין מנו וחבריו, המצדדים בפרשנות מילולית דווקנית, וביד השנייה להיאחז באמור בעניין ראדא ובעניין אוטו גרובר, שבהם נקבע כי לתניית שיפוט זר &#34;יש ליתן מובן עסקי&#34;, וכי יש לפרש אותה באופן רחב, שמא תכליתי.
 
+חברי מעלה נימוק נוסף לתמיכה בעמדתו. לדבריו, מן המשפט המשווה ניתן ללמוד כי יש מקום להרחבת תניית השיפוט הזר על צדדים שלישיים. ממילא סבור חברי, כי הגלובליזציה &#34;מחייבת אותנו ליישר קו עם כללי הפרשנות אשר נהוגים בעולם הגדול ביחס לתניות שיפוט-זר ייחודיות&#34;. אין בידי להסכים לכך, משום שזהו כלל פרשנות חדש ומפתיע, ואין לו סימוכין בפסיקתנו הענפה, רבת-השנים. חברי אמנם מציין בפסקה 13 לחוות דעתו, כי כללי הפרשנות בעניין תניית שיפוט זר דוגלים &#34;בפרשנות לשונית-דווקנית במטרה לכונן ודאות בענייני מסחר בינלאומי&#34;, תוך שהוא מפנה לאמור בעניין De Neef, אך בכך אין כדי לסייע. פסק הדין בעניין De Neef אכן דוגל &#34;בפרשנות לשונית-דווקנית&#34;, אך לא מן הטעם של &#34;כינון ודאות בענייני מסחר בינלאומי&#34;. טעם זה לא נזכר בעניין De Neef. פסק הדין בעניין De Neef, נסמך על נימוקי פסק הדין בעניין מנו, שלפיהם &#34;מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה&#34;. לדברים הללו אין קשר לכינון ודאות בענייני מסחר בינלאומי. גם לא ברור מהו מקומו של הכלל המוצע. האם מדובר בכלל שאמור לייתר את כללי הפרשנות הקיימים? אם התשובה לכך בשלילה, אזי כיצד עלינו לנהוג מקום שבו ימצֵא כי הכלל האמור עומד בסתירה לכללים הפרשניים המקובלים בפסיקתנו משכבר הימים? שימוש בכלל האמור, רק כאשר אינו עומד בסתירה לכללי פרשנות &#39;כחול-לבן&#39;, ירוקן אותו מתוכן, ויהפוך אותו לחסר משמעות, משום שלא יהא בכוחו להשפיע באופן מעשי על התוצאה, לכאן או לכאן.
 
-כאסמכתא לדבריו, טוען חברי כי &#34;בפסיקתנו נקבע זה מכבר כי יש לפרש את היקף תחולתה של תניית שיפוט ייחודית אשר חלה על יחסים עסקיים באופן רחב&#34;, תוך שהוא מפנה לעניין ראדא. בהמשך, משליך חברי יהבו על הנאמר בעניין אוטו גרובר (פסקה 16 לחוות דעתו). דא עקא, כפי שציינתי לגבי עניין דורון (לעיל פסקה 12) ועניין אלאלוף (לעיל פסקה 13), כך גם כאן. חברי &#39;מתיך&#39; יחדיו כמה פסקי דין, אף שהם משתייכים לאסכולות שונות. לא ניתן לאחוז ביד אחת באמור בעניין מנו וחבריו, המצדדים בפרשנות מילולית דווקנית, וביד השנייה להיאחז באמור בעניין ראדא ובעניין אוטו גרובר, שבהם נקבע כי לתניית שיפוט זר &#34;יש ליתן מובן עסקי&#34;, וכי יש לפרש אותה באופן רחב, שמא תכליתי.  
-
-
-
-חברי מעלה נימוק נוסף לתמיכה בעמדתו. לדבריו, מן המשפט המשווה ניתן ללמוד כי יש מקום להרחבת תניית השיפוט הזר על צדדים שלישיים. ממילא סבור חברי, כי הגלובליזציה &#34;מחייבת אותנו ליישר קו עם כללי הפרשנות אשר נהוגים בעולם הגדול ביחס לתניות שיפוט-זר ייחודיות&#34;. אין בידי להסכים לכך, משום שזהו כלל פרשנות חדש ומפתיע, ואין לו סימוכין בפסיקתנו הענפה, רבת-השנים. חברי אמנם מציין בפסקה 13 לחוות דעתו, כי כללי הפרשנות בעניין תניית שיפוט זר דוגלים &#34;בפרשנות לשונית-דווקנית במטרה לכונן ודאות בענייני מסחר בינלאומי&#34;, תוך שהוא מפנה לאמור בעניין De Neef, אך בכך אין כדי לסייע. פסק הדין בעניין De Neef אכן דוגל &#34;בפרשנות לשונית-דווקנית&#34;, אך לא מן הטעם של &#34;כינון ודאות בענייני מסחר בינלאומי&#34;. טעם זה לא נזכר בעניין De Neef. פסק הדין בעניין De Neef, נסמך על נימוקי פסק הדין בעניין מנו, שלפיהם &#34;מי שמבקש לשלול מן הצד השני זכות של התדיינות בפורום מוסמך, מן הנכון שיבטא זאת מפורשות וברורות בנוסחו של החוזה&#34;. לדברים הללו אין קשר לכינון ודאות בענייני מסחר בינלאומי. גם לא ברור מהו מקומו של הכלל המוצע. האם מדובר בכלל שאמור לייתר את כללי הפרשנות הקיימים? אם התשובה לכך בשלילה, אזי כיצד עלינו לנהוג מקום שבו ימצֵא כי הכלל האמור עומד בסתירה לכללים הפרשניים המקובלים בפסיקתנו משכבר הימים? שימוש בכלל האמור, רק כאשר אינו עומד בסתירה לכללי פרשנות &#39;כחול-לבן&#39;, ירוקן אותו מתוכן, ויהפוך אותו לחסר משמעות, משום שלא יהא בכוחו להשפיע באופן מעשי על התוצאה, לכאן או לכאן. 
-
-
-
-לקראת סיום, מעלה חברי נימוק נוסף לכך שהתנייה אמורה לחול גם על צדדים שלישיים: &#34;האפשרות של המבקש [...] לשלוח הודעת צד ג&#39; לחברה הבלגית, בהתבסס על עילת שיפוי חוזית או נזיקית. במקרה זה, החברה הבלגית, שכאמור הבטיחה לעצמה כי התביעות בקשר להסכם שעשתה עם המשיבה [ידונו] אך ורק בבלגיה, תמצא את עצמה בהתדיינות בישראל&#34;. על כך יש להשיב בשלושה: ראשית, כאמור לעיל, גם חברי אינו חולק על מסקנת הדברים בעניין מנו, אף שהוא מבחין בין עניינה של סוכנת מקומית של החברה, לבין עובד או מנהל בחברה. ממילא, תמיהה דומה עולה גם אליבא דשיטת חברי עצמו. ניטול לדוגמה את עניין מנו, שם נקבע כי תניית השיפוט הזר אינה חלה על מנו, הסוכנת הישראלית של החברה האיטלקית. משהוגשה התביעה נגד מנו בבתי המשפט בישראל, יכולה היתה מנו להגיש הודעת צד שלישי נגד החברה האיטלקית. בדרך זו, החברה האיטלקית &#34;שהבטיחה לעצמה כי התביעות בקשר להסכם שעשתה&#34; ידונו אך ורק באיטליה, &#34;תמצא את עצמה בהתדיינות בישראל&#34;. אם כן, גם חברי השופט שטיין מוצא עצמו ניצב מול אותו קושי. שנית, הקושי שמעלה חברי, לגבי דידי, כלל אינו מתעורר. במצב דברים רגיל, שבו היחסים העסקיים בין אותו צד שלישי לבין הנתבעת – נמשכים כסדרם, הרי שאותו צד שלישי לא ימהר להגיש הודעת צד שלישי, ש&#39;תגרור&#39; את הנתבעת לדיון בבתי המשפט בישראל, ובכך יעמיד בסכנה את יחסיו עם הנתבעת. שלישית ובכך עיקר: ככלל, יש להניח, כי יחסי הנתבעת עם עובדיה וסוכניה, מוסדרים בחוזה נפרד ועצמאי. עוד ניתן להניח, כי במרבית המקרים, יכיל החוזה האמור גם תניית שיפוט, המסדירה את מקום השיפוט בכל סכסוך שיתגלע בין הנתבעת, לבין העובד או הסוכן. ממילא, אותה תנייה, בחוזה שבין הנתבעת לצד השלישי, היא זו שתחסום את דרכו של העובד, או הסוכן, מלהגיש הודעת צד שלישי נגד הנתבעת. ככל שלא קיימת תניית שיפוט כאמור, או שהיא אינה מכסה אפשרות של הגשת הודעות צד שלישי, הרי שאין לה, לנתבעת, להלין אלא על עצמה. אין מקום &#39;לעקם את הכתוב&#39; ולסטות מכללי הפרשנות הלשוניים-דווקניים, שהגיונם בצדם, אך בשל החשש האמור. אם הנתבעת אינה מעוניינת למצוא עצמה בהתדיינות בישראל, בשל הודעות צד שלישי שהגישו עובדיה, מנהליה וסוכניה, תתכבד ותסדיר זאת מראש, באמצעות חוזים מתאימים, מול אותם עובדים, מנהלים וסוכנים. 
-
-
+לקראת סיום, מעלה חברי נימוק נוסף לכך שהתנייה אמורה לחול גם על צדדים שלישיים: &#34;האפשרות של המבקש [...] לשלוח הודעת צד ג&#39; לחברה הבלגית, בהתבסס על עילת שיפוי חוזית או נזיקית. במקרה זה, החברה הבלגית, שכאמור הבטיחה לעצמה כי התביעות בקשר להסכם שעשתה עם המשיבה [ידונו] אך ורק בבלגיה, תמצא את עצמה בהתדיינות בישראל&#34;. על כך יש להשיב בשלושה: ראשית, כאמור לעיל, גם חברי אינו חולק על מסקנת הדברים בעניין מנו, אף שהוא מבחין בין עניינה של סוכנת מקומית של החברה, לבין עובד או מנהל בחברה. ממילא, תמיהה דומה עולה גם אליבא דשיטת חברי עצמו. ניטול לדוגמה את עניין מנו, שם נקבע כי תניית השיפוט הזר אינה חלה על מנו, הסוכנת הישראלית של החברה האיטלקית. משהוגשה התביעה נגד מנו בבתי המשפט בישראל, יכולה היתה מנו להגיש הודעת צד שלישי נגד החברה האיטלקית. בדרך זו, החברה האיטלקית &#34;שהבטיחה לעצמה כי התביעות בקשר להסכם שעשתה&#34; ידונו אך ורק באיטליה, &#34;תמצא את עצמה בהתדיינות בישראל&#34;. אם כן, גם חברי השופט שטיין מוצא עצמו ניצב מול אותו קושי. שנית, הקושי שמעלה חברי, לגבי דידי, כלל אינו מתעורר. במצב דברים רגיל, שבו היחסים העסקיים בין אותו צד שלישי לבין הנתבעת – נמשכים כסדרם, הרי שאותו צד שלישי לא ימהר להגיש הודעת צד שלישי, ש&#39;תגרור&#39; את הנתבעת לדיון בבתי המשפט בישראל, ובכך יעמיד בסכנה את יחסיו עם הנתבעת. שלישית ובכך עיקר: ככלל, יש להניח, כי יחסי הנתבעת עם עובדיה וסוכניה, מוסדרים בחוזה נפרד ועצמאי. עוד ניתן להניח, כי במרבית המקרים, יכיל החוזה האמור גם תניית שיפוט, המסדירה את מקום השיפוט בכל סכסוך שיתגלע בין הנתבעת, לבין העובד או הסוכן. ממילא, אותה תנייה, בחוזה שבין הנתבעת לצד השלישי, היא זו שתחסום את דרכו של העובד, או הסוכן, מלהגיש הודעת צד שלישי נגד הנתבעת. ככל שלא קיימת תניית שיפוט כאמור, או שהיא אינה מכסה אפשרות של הגשת הודעות צד שלישי, הרי שאין לה, לנתבעת, להלין אלא על עצמה. אין מקום &#39;לעקם את הכתוב&#39; ולסטות מכללי הפרשנות הלשוניים-דווקניים, שהגיונם בצדם, אך בשל החשש האמור. אם הנתבעת אינה מעוניינת למצוא עצמה בהתדיינות בישראל, בשל הודעות צד שלישי שהגישו עובדיה, מנהליה וסוכניה, תתכבד ותסדיר זאת מראש, באמצעות חוזים מתאימים, מול אותם עובדים, מנהלים וסוכנים.
 
 סוף דבר
 
-משעמדתי על חוסר האחידות בפסיקה, לא ניתן עוד &#39;לשבת על הגדר&#39;; נדרש &#39;לבחור צד&#39;. משכך, לאחר שקילת השיקולים הצריכים לעניין, באתי לכלל מסקנה, נוכח מכלול הנימוקים שפורטו לעיל – ובראש ובראשונה מחמת הצורך בקיומו של כלל פרשנות ברור, יציב וחד-משמעי – כי יש &#39;להחזיר עטרה ליושנה&#39;, ולהעמיד את ההלכה שנקבעה בעניין מנו על מכונה. לוּ תישמע דעתי, מעתה ואילך יהא נקוט בידינו כלל פרשנות אחד ויחיד, לכל עניין שבו מתעוררת שאלה פרשנית לגבי תניית שיפוט זר, כמבואר בפסקה 22 לעיל. כלל זה נקבע לפני למעלה מ-30 שנה, בידי הנשיא מ&#39; שמגר; &#34;עָמַד טַעְמוֹ בּוֹ וְרֵיחוֹ לֹא נָמָר&#34; (ירמיהו מח, יא). 
+משעמדתי על חוסר האחידות בפסיקה, לא ניתן עוד &#39;לשבת על הגדר&#39;; נדרש &#39;לבחור צד&#39;. משכך, לאחר שקילת השיקולים הצריכים לעניין, באתי לכלל מסקנה, נוכח מכלול הנימוקים שפורטו לעיל – ובראש ובראשונה מחמת הצורך בקיומו של כלל פרשנות ברור, יציב וחד-משמעי – כי יש &#39;להחזיר עטרה ליושנה&#39;, ולהעמיד את ההלכה שנקבעה בעניין מנו על מכונה. לוּ תישמע דעתי, מעתה ואילך יהא נקוט בידינו כלל פרשנות אחד ויחיד, לכל עניין שבו מתעוררת שאלה פרשנית לגבי תניית שיפוט זר, כמבואר בפסקה 22 לעיל. כלל זה נקבע לפני למעלה מ-30 שנה, בידי הנשיא מ&#39; שמגר; &#34;עָמַד טַעְמוֹ בּוֹ וְרֵיחוֹ לֹא נָמָר&#34; (ירמיהו מח, יא).
 
+כפועל יוצא, ישׂומו של הכלל האמור על העניין שלפנינו, הביאני למסקנה כי אין בכוחה של תניית השיפוט הזר בהסכם שבין המשיבה לבין החברה הבלגית, כדי לחסום את בירור תביעת החברה נגד המבקש בבתי המשפט בישראל.
 
-
-כפועל יוצא, ישׂומו של הכלל האמור על העניין שלפנינו, הביאני למסקנה כי אין בכוחה של תניית השיפוט הזר בהסכם שבין המשיבה לבין החברה הבלגית, כדי לחסום את בירור תביעת החברה נגד המבקש בבתי המשפט בישראל. 
-
-
-
-	אשר על כן, אם תישמע דעתי, נורה על דחיית הערעור.
-
-
-
-
+אשר על כן, אם תישמע דעתי, נורה על דחיית הערעור.
 
 ש ו פ ט
-
-
 
 השופט ד&#39; מינץ:
 
-
-
-דעותיהם של חבריי נחלקו בשאלת פרשנותה של תניית השיפוט ובשאלת כללי הפרשנות שיש להחיל על תניות שיפוט זר ככלל. בהקשר זה של כללי הפרשנות, דעתי היא כדעתו של חברי השופט סולברג לפיה תניית שיפוט זר יש לפרש בצמצום. 
-
-
+דעותיהם של חבריי נחלקו בשאלת פרשנותה של תניית השיפוט ובשאלת כללי הפרשנות שיש להחיל על תניות שיפוט זר ככלל. בהקשר זה של כללי הפרשנות, דעתי היא כדעתו של חברי השופט סולברג לפיה תניית שיפוט זר יש לפרש בצמצום.
 
 תהיה הפרשנות בדבר החלתה של תניית שיפוט זר בחוזה אשר תהייה – רחבה או קצרה, כחֻדה של מחט או כפתח שעגלות וקרונות נכנסין בו – החוזה שבו קיימת תניית שיפוט, כובל ויכול לכבול, כמו כל חוזה, אך ורק את הצדדים לו (וראו: סיליה וסרשטיין פסברג משפט בין-לאומי פרטי 426 (2013); דניאל פרידמן ונילי כהן חוזים כרך ג&#39; 96 (2003) (להלן: פרידמן וכהן); בע&#34;א 11771/04 לשכת עורכי הדין בישראל נ&#39; הארגון הבינלאומי של עורכי דין ומשפטנים, פסק דינה של השופטת א&#39; פרוקצ&#39;יה (22.1.2007)). על כן, תהיינה כתפיה של המילה &#34;כל&#34; (All) בתניית השיפוט רחבות ככל שתהיינה, ככלל בכוחן להרחיב לכל היותר את גבולות מושא הסכסוך עליו תחול התניה, אך אין בכוחן לכלול בגבולותיה של התניה גוף שאינו צד להסכמה הגלומה בה.
 
-
-
 ברם לכלל האמור קיימים חריגים בהם חוזה יחייב או יזכה גם גורם שאינו צד לו. כך למשל, במקרים מסוימים בהם צד זר לחוזה הופך להיות בעל זכויות בנכס מושא החוזה, הוא יהיה מחויב בחובות ובזכויות על פיו (ראו בין היתר: סעיף 21 לחוק השכירות והשאילה, התשל&#34;א-1971; סעיפים 29(א) ו-62(ג) לחוק המקרקעין, התשכ&#34;ט-1969; סעיף 9(ג) לחוק המיטלטלין, התשל&#34;א-1971). כך גם למשל, מקום בו צד התקשר בחוזה כשלוח של אחר מבלי שהצד השני לחוזה ידע על כך או על זהות השולח (&#34;שליחות נסתרת&#34;), החוזה יחייב הן את השלוח והן את השולח, על אף שהשולח אינו צד ישיר לחוזה (סעיף 7 לחוק השליחות, התשכ&#34;ה-1965). כך גם למשל, צד לחוזה יכול להמחות לצד שלישי חבות או זכות הקיימת לו מכוח החוזה (סעיפים 1 ו-6 לחוק המחאת חיובים, התשכ&#34;ט-1969). במקרים מעין אלו, אותה חבות או זכות אשר הומחתה לצד השלישי יחייבו אותו אף שלא היה צד להסכם (להרחבה ראו: פרידמן וכהן, עמ&#39; 104-96).
-
-
 
 חריג נוסף, ואולי העיקרי שבהם והרלוונטי לענייננו, לכלל לפיו חוזה כובל רק את הצדדים לעריכתו, הוא חוזה לטובת אדם שלישי (סעיפים 38-34 לחוק החוזים (חלק כללי), התשל&#34;ג-1973 (להלן: חוק החוזים)). דיני החוזים מכירים, כנגזרת מהרעיון המרכזי העומד ביסודם בדבר הקניית תוקף לרצון הצדדים, בזכות האכיפה של אדם שלישי אשר הצדדים לחוזה חפצו להעניק לו זכות כאמור (גבריאלה שלו ואפי צמח דיני חוזים 715 (מהדורה רביעית, 2019) (להלן: שלו וצמח)). הקביעה אם מדובר בחוזה לטובת צד שלישי אם לאו, תלויה בשאלה האם הצדדים או אחד מהם נטלו על עצמם חיוב כלפי צד שלישי ובכך העניקו לו זכות כלפיהם, והאם הם התכוונו במקביל לכך להקנות לצד השלישי זכות לדרוש את קיום החיוב (סעיף 34 לחוק החוזים; שלו וצמח, עמ&#39; 721-720; ע&#34;א 253/82 ד&#34;ר דן חושי נ&#39; הטכניון – מכון טכנולוגי לישראל, פ&#34;ד לח(1) 640, 643 (1984) (להלן: עניין חושי); ע&#34;א 4708/14 י.ח דמרי בניה ופיתוח בע&#34;מ נ&#39; המועצה המקומית גן יבנה, פסקה 19 (24.8.2015); רע&#34;א 794/14 אלפסי נ&#39; קרייג, פסקה 3 (14.1.2015)). אין הכרח שהחוזה יציין מפורשות את זכותו של הצד השלישי לדרוש את קיום החיוב, והקניה כאמור יכול גם שתהיה משתמעת (ע&#34;א 5757/97 אליהו, חברה לביטוח בע&#34;מ נ&#39; חמאדה, פ&#34;ד נג(5) 849, 866 (1999); עניין חושי, עמ&#39; 643). למעשה, שאלת זכותו של המוטב תתעורר בדרך כלל כאשר החוזה אינו מציין מפורשות את מעמדו או את כוונת הצדדים להקנות לו זכות אכיפה (שלו וצמח, עמ&#39; 723).
 
+לעמדתי, נסיבות העניין שלפנינו מוליכות למסקנה כי יש לקרוא את תניית השיפוט כחיוב לטובת צד שלישי – המבקש, המקים לו זכות לדרוש את אכיפתו. ראשית, לא יכול להיות חולק כי החיוב שנטלו על עצמם הצדדים לברר את כל התביעות הנוגעות להסכם במקום השיפוט המוסכם בבלגיה, הוא חיוב המיטיב עם המבקש. המבקש מתגורר דרך קבע בבלגיה ומכהן כמנהלה של החברה הבלגית. ברי אפוא, כי ניהול התביעה נגדו בבלגיה מיטיב עמו (ובהערת אגב ייאמר, כי עצם התנגדותה הנחרצת של המשיבה כאן לניהול התביעה בבלגיה והעדפתה את בירורה בישראל, מלמדת כי יש דברים בגו). שנית, המבקש מכהן כאמור כמנהלה של החברה הבלגית, ולטענת המשיבה עצמה – במשא ומתן לקראת העסקה התקיימו שיחות רבות בינה לבין המבקש, אשר לעמדתה הבטיח הבטחות באופן אישי ואשר על בסיסן גובשו ההסכמות (כפי שצוין למשל בסעיפים 5-3 לתשובת המשיבה בבית המשפט המחוזי מיום 11.7.2021). ברור אם כן, כי כבר בעת המשא ומתן לקראת ההתקשרות בהסכם, הפנימו הצדדים כי כל סכסוך שיתגלע בקשר עם ההתקשרות יצריך, לשם בירורו כדבעי, מעורבות הן של החברה הבלגית והן של המבקש. בנסיבות מעין אלו, למרות ששותף אני כאמור לדעה שהמבקש לא היה צד ישיר להסכם, הדעת נותנת כי הצדדים התכוונו להקנות לו כצד שלישי לחוזה זכות לאכוף את החיוב לנהל את ההליך בבית המשפט המוסמך בבלגיה. אם לא כן, כפי שציין חברי השופט שטיין, הייתה בידי הצד החפץ בכך דרך לעקוף את תניית השיפוט המוסכמת. ברי כי לא לכך כיוונו הצדדים בעת שהתקשרו בהסכם.
 
+אוסיף כי גם הדין האמריקאי מכיר באפשרות להחיל תניית שיפוט זר על צד שלישי להסכם – מבלי לראות בו צד ישיר להסכם – מקום בו החוזה מיטיב עמו וניתן היה לצפות שבירור הסכסוך יתרחש בפורום הזר (וראו: Clinton v. Janger, 583 F. Supp. 284, 290 (N.D. Ill. 1984); Coastal Steel v. Tilghman Wheelabrator LTD, 709 F.2d 190, 202-203 (3d Cir. 1983), אם כי תשומת הלב מופנית לכך שבעניין Coastal אותו צד שלישי ביקש לאחוז את החבל משני קצותיו – ליהנות מהזכות הניתנת לו על פי ההסכם ולהתנער מתניית השיפוט שבו. וראו לעניין זה גם את שנקבע בע&#34;א 601/82 בנק לאומי לישראל בע&#34;מ נ&#39; C.I.S – Continent Israel Schiffahrts G.M.B.H, פ&#34;ד מ(2) 673, 682 (1986); ויצוין כי פסקי דין האמורים הוזכרו גם בפסק הדין בעניין Manetti-Farrow, Inc. v. Gucci Am., Inc. 858 F.2d 509, 514 (9th Cir. 1988) שצוין על ידי חברי).
 
-לעמדתי, נסיבות העניין שלפנינו מוליכות למסקנה כי יש לקרוא את תניית השיפוט כחיוב לטובת צד שלישי – המבקש, המקים לו זכות לדרוש את אכיפתו. ראשית, לא יכול להיות חולק כי החיוב שנטלו על עצמם הצדדים לברר את כל התביעות הנוגעות להסכם במקום השיפוט המוסכם בבלגיה, הוא חיוב המיטיב עם המבקש. המבקש מתגורר דרך קבע בבלגיה ומכהן כמנהלה של החברה הבלגית. ברי אפוא, כי ניהול התביעה נגדו בבלגיה מיטיב עמו (ובהערת אגב ייאמר, כי עצם התנגדותה הנחרצת של המשיבה כאן לניהול התביעה בבלגיה והעדפתה את בירורה בישראל, מלמדת כי יש דברים בגו). שנית, המבקש מכהן כאמור כמנהלה של החברה הבלגית, ולטענת המשיבה עצמה – במשא ומתן לקראת העסקה התקיימו שיחות רבות בינה לבין המבקש, אשר לעמדתה הבטיח הבטחות באופן אישי ואשר על בסיסן גובשו ההסכמות (כפי שצוין למשל בסעיפים 5-3 לתשובת המשיבה בבית המשפט המחוזי מיום 11.7.2021). ברור אם כן, כי כבר בעת המשא ומתן לקראת ההתקשרות בהסכם, הפנימו הצדדים כי כל סכסוך שיתגלע בקשר עם ההתקשרות יצריך, לשם בירורו כדבעי, מעורבות הן של החברה הבלגית והן של המבקש. בנסיבות מעין אלו, למרות ששותף אני כאמור לדעה שהמבקש לא היה צד ישיר להסכם, הדעת נותנת כי הצדדים התכוונו להקנות לו כצד שלישי לחוזה זכות לאכוף את החיוב לנהל את ההליך בבית המשפט המוסמך בבלגיה. אם לא כן, כפי שציין חברי השופט שטיין, הייתה בידי הצד החפץ בכך דרך לעקוף את תניית השיפוט המוסכמת. ברי כי לא לכך כיוונו הצדדים בעת שהתקשרו בהסכם. 
-
-
-
-אוסיף כי גם הדין האמריקאי מכיר באפשרות להחיל תניית שיפוט זר על צד שלישי להסכם – מבלי לראות בו צד ישיר להסכם – מקום בו החוזה מיטיב עמו וניתן היה לצפות שבירור הסכסוך יתרחש בפורום הזר (וראו: Clinton v. Janger, 583 F. Supp. 284, 290 (N.D. Ill. 1984); Coastal Steel v. Tilghman Wheelabrator LTD, 709 F.2d 190, 202-203 (3d Cir. 1983), אם כי תשומת הלב מופנית לכך שבעניין Coastal אותו צד שלישי ביקש לאחוז את החבל משני קצותיו – ליהנות מהזכות הניתנת לו על פי ההסכם ולהתנער מתניית השיפוט שבו. וראו לעניין זה גם את שנקבע בע&#34;א 601/82 בנק לאומי לישראל בע&#34;מ נ&#39; C.I.S – Continent Israel Schiffahrts G.M.B.H, פ&#34;ד מ(2) 673, 682 (1986); ויצוין כי פסקי דין האמורים הוזכרו גם בפסק הדין בעניין Manetti-Farrow, Inc. v. Gucci Am., Inc. 858 F.2d 509, 514 (9th Cir. 1988) שצוין על ידי חברי). 
-
-
-
-	סיכומו של דבר, מהנימוקים שפורטו אני מצטרף לתוצאה אליה הגיע חברי השופט שטיין.
-
-
+סיכומו של דבר, מהנימוקים שפורטו אני מצטרף לתוצאה אליה הגיע חברי השופט שטיין.
 
 ש ו פ ט
 
-
-
-
-
-
-
 הוחלט ברוב דעות כאמור בפסק דינו של השופט א&#39; שטיין, אליו הצטרף השופט ד&#39; מינץ מנימוקיו, כנגד דעתו החולקת של השופט נ&#39; סולברג. באשר לגישה הפרשנית הכללית בעניינן של תניות שיפוט, הוחלט ברוב דעות כאמור בחוות דעתו של השופט נ&#39; סולברג, אליה הצטרף השופט ד&#39; מינץ, כנגד דעתו החולקת של השופט א&#39; שטיין.
 
-
 ניתן היום, ‏א&#39; באדר א&#39; התשפ&#34;ב (‏2.2.2022).
-
-
-
-
 
 54678313ש ו פ ט
 
@@ -2073,29 +2087,11 @@ John F. Coyle &amp; Robin J. Effron, Forum Selection Clauses, Non-Signatories, a
 
 ש ו פ ט
 
-
-
-
-
-
-
 ________________________
 
-  21064930_F05.docx   אב
+21064930_F05.docx אב
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -2114,7 +2110,7 @@ ________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

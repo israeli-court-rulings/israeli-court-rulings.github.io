@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    04/11/2007 (לפני 6757 ימים)
+                    04/11/2007 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/2515-06.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="2515/06 - משה אזולאי נ. עמרי אבקסיס"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F2515-06.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/150/025/P05&amp;fileName=06025150_p05.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/150/025/P05&amp;fileName=06025150_p05.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/150/025/P05&amp;fileName=06025150_p05.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/150/025/P05&amp;fileName=06025150_p05.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,8 +1829,7 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק ע&#34;א 2515/06
 
-בבית המשפט העליון בשבתו כבית משפט
-לערעורים אזרחיים
+בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
 ע&#34;א 2515/06
 
@@ -1585,9 +1855,7 @@
 
 2. ישיר איי.די.איי חברה לביטוח בע&#34;מ
 
-ערעור וערעור שכנגד על פסק-דינו של
-בית-המשפט המחוזי בירושלים בת.א. 6101/04 מיום 6.2.06 שניתן על-ידי כבוד השופט
-צ&#39; זילברטל
+ערעור וערעור שכנגד על פסק-דינו של בית-המשפט המחוזי בירושלים בת.א. 6101/04 מיום 6.2.06 שניתן על-ידי כבוד השופט צ&#39; זילברטל
 
 תאריך הישיבה:
 
@@ -1607,89 +1875,21 @@
 
 המשנה לנשיאה א&#39; ריבלין:
 
-1. המערער, הוא המשיב שכנגד, נפגע בתאונת דרכים ביום 22.7.2003, עת
-נסע ברכב בו נהג המשיב 1 (המערער שכנגד 1), אשר היה מבוטח על-ידי המשיבה 2
-(והמערערת שכנגד 2). בעת התאונה היה המערער כבן עשרים ואחת, והיא אירעה מספר
-חודשים לאחר ששוחרר משירות מקוצר בן שנתיים בצה&#34;ל. כתוצאה מהתאונה סובל
-המערער מ-100% נכות בגין קוודרופלגיה קשה, הוא אינו עצמאי בכל הפעולות היומיומיות
-וזקוק לעזרה מלאה בתפקוד. עם זאת, על-פי חוות הדעת הרפואית של המומחית שמונתה מטעם
-בית-המשפט, למערער יכולת תנועה מוגבלת בכתפיים ובזרועות, אף כי אינו מסוגל להניע
-את כפות הידיים והרגליים, והוא סובל משיתוק ספסטי מלא בגפיים התחתונות. בגין
-הנזקים שנגרמו לו בתאונה תבע המערער את המשיבים בתביעה שהוגשה לפי חוק פיצויים
-לנפגעי תאונות דרכים, תשל&#34;ה-1975.
+1. המערער, הוא המשיב שכנגד, נפגע בתאונת דרכים ביום 22.7.2003, עת נסע ברכב בו נהג המשיב 1 (המערער שכנגד 1), אשר היה מבוטח על-ידי המשיבה 2 (והמערערת שכנגד 2). בעת התאונה היה המערער כבן עשרים ואחת, והיא אירעה מספר חודשים לאחר ששוחרר משירות מקוצר בן שנתיים בצה&#34;ל. כתוצאה מהתאונה סובל המערער מ-100% נכות בגין קוודרופלגיה קשה, הוא אינו עצמאי בכל הפעולות היומיומיות וזקוק לעזרה מלאה בתפקוד. עם זאת, על-פי חוות הדעת הרפואית של המומחית שמונתה מטעם בית-המשפט, למערער יכולת תנועה מוגבלת בכתפיים ובזרועות, אף כי אינו מסוגל להניע את כפות הידיים והרגליים, והוא סובל משיתוק ספסטי מלא בגפיים התחתונות. בגין הנזקים שנגרמו לו בתאונה תבע המערער את המשיבים בתביעה שהוגשה לפי חוק פיצויים לנפגעי תאונות דרכים, תשל&#34;ה-1975.
 
-2. היות שהצדדים לא היו חלוקים בשאלת החבות, התמקד הדיון
-בבית-המשפט המחוזי בירושלים (כבוד השופט צ&#39; זילברטל) בשאלת היקף הנזק וסכומי
-הפיצוי. חישוב הפיצויים התבסס על הקביעה המקדמית כי תוחלת חייו של המערער קוצרה
-ב-17.5%, והיא הועמדה לפיכך על 544 חודשים מיום פסק-הדין. בית-המשפט קבע כי המערער
-סובל מפגיעה בשיעור של 100% בכושר השתכרותו. בהחלטתו זו, נתן בית-המשפט דעתו לכך
-שעל אף שכישוריו הקוגניטיביים של המערער לא נפגעו, מצבו הפיזי הוא חמור והוא אינו
-מסוגל להתנהל באופן עצמאי. בסיס השכר ששימש לחישוב הפסדיו של המערער הועמד על
-מחצית השכר הממוצע לעבר (3,279.5 ש&#34;ח לתקופה של עשרים וארבעה חודשים) ועל
-השכר הממוצע לעתיד (6,559 ש&#34;ח לתקופה של 524 חודשים). בהקשר זה, ציין
-בית-המשפט כי אין לזקוף לחובתו של המערער את נסיבות חייו, כי לא הובאו נתונים
-המצדיקים סטייה משיעור השכר הממוצע, וכי הוא התרשם מאופיו הנחוש ומחריצותו של
-המערער. בית-המשפט פסק למערער על דרך האומדנה גם 20,000 ש&#34;ח פיצוי גלובאלי
-בגין הפסדי פנסיה, וזאת בהתחשב בכך שיתכן שהמערער לא היה צובר זכויות פנסיוניות
-כלל ובכך שמדובר בפיצוי עבור תקופה של
-שנתיים בלבד בין גיל הפרישה לבין תוחלת החיים הצפויה.
+2. היות שהצדדים לא היו חלוקים בשאלת החבות, התמקד הדיון בבית-המשפט המחוזי בירושלים (כבוד השופט צ&#39; זילברטל) בשאלת היקף הנזק וסכומי הפיצוי. חישוב הפיצויים התבסס על הקביעה המקדמית כי תוחלת חייו של המערער קוצרה ב-17.5%, והיא הועמדה לפיכך על 544 חודשים מיום פסק-הדין. בית-המשפט קבע כי המערער סובל מפגיעה בשיעור של 100% בכושר השתכרותו. בהחלטתו זו, נתן בית-המשפט דעתו לכך שעל אף שכישוריו הקוגניטיביים של המערער לא נפגעו, מצבו הפיזי הוא חמור והוא אינו מסוגל להתנהל באופן עצמאי. בסיס השכר ששימש לחישוב הפסדיו של המערער הועמד על מחצית השכר הממוצע לעבר (3,279.5 ש&#34;ח לתקופה של עשרים וארבעה חודשים) ועל השכר הממוצע לעתיד (6,559 ש&#34;ח לתקופה של 524 חודשים). בהקשר זה, ציין בית-המשפט כי אין לזקוף לחובתו של המערער את נסיבות חייו, כי לא הובאו נתונים המצדיקים סטייה משיעור השכר הממוצע, וכי הוא התרשם מאופיו הנחוש ומחריצותו של המערער. בית-המשפט פסק למערער על דרך האומדנה גם 20,000 ש&#34;ח פיצוי גלובאלי בגין הפסדי פנסיה, וזאת בהתחשב בכך שיתכן שהמערער לא היה צובר זכויות פנסיוניות כלל ובכך שמדובר בפיצוי עבור תקופה של שנתיים בלבד בין גיל הפרישה לבין תוחלת החיים הצפויה.
 
-3. בית-המשפט המחוזי דן בהרחבה בשאלת סכום הפיצוי לו זכאי המערער
-בגין עזרת הזולת. סכום הפיצוי לעבר הועמד על 45,000 ש&#34;ח (וזאת לאור דלות
-הראיות שסיפק המערער), ובסיס הפיצוי לעתיד הועמד על 10,000 ש&#34;ח לחודש (ובסך-הכל
-2,971,606 ₪). לעניין זה, ציין בית-המשפט כי הסכום שנפסק בע&#34;א 3375/99,
-3613/99 אקסלרד נ&#39; צור-שמיר
-חברה לביטוח בע&#34;מ, פ&#34;ד נ&#34;ד(4) 450
-(2000) (להלן: עניין אקסלרד). אכן מתווה את אמות המידה לפסיקת הפיצויים בגין עזרת
-הזולת, אך אין המדובר בקביעה קשיחה
-ויש ליתן את הדעת לנסיבות הספציפיות של כל ניזוק. בעניין הנדון, מצא בית-המשפט כי
-נכותו של המערער קלה יותר, וכי יש להתחשב גם בחוות-הדעת שהגישו המומחים מטעם שני
-הצדדים, אשר היו שתיהן נמוכות מן הסכום שנקבע בעניין אקסלרד. עוד זיכה
-בית-המשפט את המערער בפיצוי בגין ראשי נזק נוספים: הוצאות התאמת דיור (לעבר בסכום
-כולל של 72,600 ש&#34;ח, ולעתיד בסכום של 304,500 ש&#34;ח) הוצאות המשפחה בעבר
-(13,000 ש&#34;ח); הוצאות ניידות בעבר (149,336 ש&#34;ח) ובעתיד (681,388
-ש&#34;ח); מיזוג אויר (106,680 ש&#34;ח); כביסה וייבוש (29,716 ש&#34;ח);
-והוצאות רפואיות (בסכום כולל של 890,554 ש&#34;ח). בין הצדדים הוסכם כי הפיצוי
-בגין הנזק הלא ממוני סולק במלואו קודם למתן פסק-הדין. מסכום הפיצוי נוכו תגמולי
-המוסד לביטוח לאומי בסכום של 1,777,349 ש&#34;ח ותשלומים תכופים בסכום של 496,783
-ש&#34;ח.
+3. בית-המשפט המחוזי דן בהרחבה בשאלת סכום הפיצוי לו זכאי המערער בגין עזרת הזולת. סכום הפיצוי לעבר הועמד על 45,000 ש&#34;ח (וזאת לאור דלות הראיות שסיפק המערער), ובסיס הפיצוי לעתיד הועמד על 10,000 ש&#34;ח לחודש (ובסך-הכל 2,971,606 ₪). לעניין זה, ציין בית-המשפט כי הסכום שנפסק בע&#34;א 3375/99, 3613/99 אקסלרד נ&#39; צור-שמיר חברה לביטוח בע&#34;מ, פ&#34;ד נ&#34;ד(4) 450 (2000) (להלן: עניין אקסלרד). אכן מתווה את אמות המידה לפסיקת הפיצויים בגין עזרת הזולת, אך אין המדובר בקביעה קשיחה ויש ליתן את הדעת לנסיבות הספציפיות של כל ניזוק. בעניין הנדון, מצא בית-המשפט כי נכותו של המערער קלה יותר, וכי יש להתחשב גם בחוות-הדעת שהגישו המומחים מטעם שני הצדדים, אשר היו שתיהן נמוכות מן הסכום שנקבע בעניין אקסלרד. עוד זיכה בית-המשפט את המערער בפיצוי בגין ראשי נזק נוספים: הוצאות התאמת דיור (לעבר בסכום כולל של 72,600 ש&#34;ח, ולעתיד בסכום של 304,500 ש&#34;ח) הוצאות המשפחה בעבר (13,000 ש&#34;ח); הוצאות ניידות בעבר (149,336 ש&#34;ח) ובעתיד (681,388 ש&#34;ח); מיזוג אויר (106,680 ש&#34;ח); כביסה וייבוש (29,716 ש&#34;ח); והוצאות רפואיות (בסכום כולל של 890,554 ש&#34;ח). בין הצדדים הוסכם כי הפיצוי בגין הנזק הלא ממוני סולק במלואו קודם למתן פסק-הדין. מסכום הפיצוי נוכו תגמולי המוסד לביטוח לאומי בסכום של 1,777,349 ש&#34;ח ותשלומים תכופים בסכום של 496,783 ש&#34;ח.
 
-4. שני הצדדים מעלים בערעוריהם טענות הנוגעות לסכומי הפיצוי שנפסקו
-בראשי הנזק השונים. ערעורו של המערער מתמצה בשאלת גובה הפיצוי שנפסק לו בראש הנזק
-של עזרת הזולת לעתיד. לטענתו, בקביעת הסכום התבסס בית-המשפט קמא בעיקר על פסיקה
-המתייחסת לפרפלגים, ולא לסכומים המקובלים ביחס לקוודרופלגים במצב דומה לשלו. עוד
-הוא מלין על כך שבית-המשפט התעלם מנסיבותיו האישיות, ובפרט מקשיי התקשורת שלו
-באנגלית עם מטפלים זרים (כפי שהתבררו, לשיטתו, גם בניסיונות העבר שלו להעסיק
-מטפלים זרים) ומהעובדה שהוא אוכל מזון כשר בלבד. נסיבות אלה מצריכות, לדידו, את
-העסקתו של מטפל ישראלי, ששכרו גבוה משמעותית. לפיכך, הוא מבקש כי תחת הסכום שנפסק
-יבוא הסכום החודשי של 16,000 ש&#34;ח, או למצער, סכום חודשי הזהה לזה שנפסק בעניין אקסלרד.
+4. שני הצדדים מעלים בערעוריהם טענות הנוגעות לסכומי הפיצוי שנפסקו בראשי הנזק השונים. ערעורו של המערער מתמצה בשאלת גובה הפיצוי שנפסק לו בראש הנזק של עזרת הזולת לעתיד. לטענתו, בקביעת הסכום התבסס בית-המשפט קמא בעיקר על פסיקה המתייחסת לפרפלגים, ולא לסכומים המקובלים ביחס לקוודרופלגים במצב דומה לשלו. עוד הוא מלין על כך שבית-המשפט התעלם מנסיבותיו האישיות, ובפרט מקשיי התקשורת שלו באנגלית עם מטפלים זרים (כפי שהתבררו, לשיטתו, גם בניסיונות העבר שלו להעסיק מטפלים זרים) ומהעובדה שהוא אוכל מזון כשר בלבד. נסיבות אלה מצריכות, לדידו, את העסקתו של מטפל ישראלי, ששכרו גבוה משמעותית. לפיכך, הוא מבקש כי תחת הסכום שנפסק יבוא הסכום החודשי של 16,000 ש&#34;ח, או למצער, סכום חודשי הזהה לזה שנפסק בעניין אקסלרד.
 
-5. בערעורם הנגדי, מבקשים המשיבים להפחית מן הפיצוי שנפסק למערער
-במספר ראשי נזק. ראשית, הם טוענים כי יש להפחית מבסיס השכר שנפסק למערער, וזאת על
-רקע נתוניו האישיים. לשיטתם לאור השכלתו הנמוכה (10 שנות לימוד ללא תעודת בגרות)
-וניסיונו התעסוקתי המוגבל והספוראדי, יש לקבוע כי גם אלמלא התאונה ספק אם היה לומד
-או עובד. לפיכך, יש להפחית לטענתם את בסיס השכר ל-50% מהשכר הממוצע במשק, ואין לפסוק לו הפסדי פנסיה. עוד טוענים המשיבים כי בית-המשפט הפריז בפסיקת
-הפיצוי בגין עזרת הזולת, וכי שגה כשביסס את חישוב עלות התאמת המגורים על בסיס דירת
-קרקע עם חצר, ולא על בסיס דירה בגודל מתאים בבניין בעל מעלית תקנית. לבסוף העלו
-המשיבים טענות גם בדבר אופן החישוב של הוצאות הניידות והסכום ששימש בסיס לחישוב
-עלות כסאות הגלגלים להם יזדקק המערער לאורך השנים.
+5. בערעורם הנגדי, מבקשים המשיבים להפחית מן הפיצוי שנפסק למערער במספר ראשי נזק. ראשית, הם טוענים כי יש להפחית מבסיס השכר שנפסק למערער, וזאת על רקע נתוניו האישיים. לשיטתם לאור השכלתו הנמוכה (10 שנות לימוד ללא תעודת בגרות) וניסיונו התעסוקתי המוגבל והספוראדי, יש לקבוע כי גם אלמלא התאונה ספק אם היה לומד או עובד. לפיכך, יש להפחית לטענתם את בסיס השכר ל-50% מהשכר הממוצע במשק, ואין לפסוק לו הפסדי פנסיה. עוד טוענים המשיבים כי בית-המשפט הפריז בפסיקת הפיצוי בגין עזרת הזולת, וכי שגה כשביסס את חישוב עלות התאמת המגורים על בסיס דירת קרקע עם חצר, ולא על בסיס דירה בגודל מתאים בבניין בעל מעלית תקנית. לבסוף העלו המשיבים טענות גם בדבר אופן החישוב של הוצאות הניידות והסכום ששימש בסיס לחישוב עלות כסאות הגלגלים להם יזדקק המערער לאורך השנים.
 
 עיינו בטענות הצדדים, ומצאנו כי אין מקום להתערב בפסק-הדין.
 
-6 אפילו היינו מוצאים כי יש ממש בטענתו של המערער כי הפיצוי
-שנפסק לו בגין עזרת הזולת נפסק על הצד הנמוך, לא היה בכך כדי לשנות את התוצאה,
-זאת, בין השאר, משום שיש מקום גם לטענותיהם של המשיבים בדבר שיעור הפיצוי שנפסק בראשי נזק אחרים. עם זאת, בבחינת סכום הפיצוי
-הכולל, למעלה משבעה מליון ש&#34;ח (קודם לניכוי תגמולי המוסד לביטוח לאומי), נראה
-לנו כי אין מקום לקבל את הערעורים. הלכה פסוקה היא &#34;כי אין
-בית-משפט לערעורים נוטה להתערב על נקלה באומדנת הערכאה הראשונה את נזקי הניזוק,
-ולא ימיר את הערכת השופט קמא בהערכתו שלו, אלא אם סכום הפיצויים שנפסק הוא בלתי
-סביר ורחוק מהמציאות&#34; (בע&#34;א 487/82 נדלר נ&#39; שדה, פ&#34;ד לח(4) 21, 25 (1984)). במסגרת זו, עשויה ערכאת
-הערעור לסבור כי ראוי היה לפסוק בראשי הנזק השונים פיצוי גבוה יותר או פחות, אך
-בכך אין כדי להקים, בהכרח, עילת התערבות. במקרה זה, נמצא לנו כי סכום הפיצוי הכולל שנפסק הוא סביר, ולא מצאנו עילה להתערב
-בו.
+6 אפילו היינו מוצאים כי יש ממש בטענתו של המערער כי הפיצוי שנפסק לו בגין עזרת הזולת נפסק על הצד הנמוך, לא היה בכך כדי לשנות את התוצאה, זאת, בין השאר, משום שיש מקום גם לטענותיהם של המשיבים בדבר שיעור הפיצוי שנפסק בראשי נזק אחרים. עם זאת, בבחינת סכום הפיצוי הכולל, למעלה משבעה מליון ש&#34;ח (קודם לניכוי תגמולי המוסד לביטוח לאומי), נראה לנו כי אין מקום לקבל את הערעורים. הלכה פסוקה היא &#34;כי אין בית-משפט לערעורים נוטה להתערב על נקלה באומדנת הערכאה הראשונה את נזקי הניזוק, ולא ימיר את הערכת השופט קמא בהערכתו שלו, אלא אם סכום הפיצויים שנפסק הוא בלתי סביר ורחוק מהמציאות&#34; (בע&#34;א 487/82 נדלר נ&#39; שדה, פ&#34;ד לח(4) 21, 25 (1984)). במסגרת זו, עשויה ערכאת הערעור לסבור כי ראוי היה לפסוק בראשי הנזק השונים פיצוי גבוה יותר או פחות, אך בכך אין כדי להקים, בהכרח, עילת התערבות. במקרה זה, נמצא לנו כי סכום הפיצוי הכולל שנפסק הוא סביר, ולא מצאנו עילה להתערב בו.
 
-סופו של דבר, הערעורים נדחים. בנסיבות העניין, אין צו
-להוצאות.
+סופו של דבר, הערעורים נדחים. בנסיבות העניין, אין צו להוצאות.
 
 המשנה-לנשיאה
 
@@ -1697,22 +1897,19 @@
 
 אני מסכימה.
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
 השופט ח&#39; מלצר:
 
 אני מסכים.
 
-ש
-ו פ ט
+ש ו פ ט
 
 הוחלט כאמור בפסק דינו של המשנה לנשיאה א&#39; ריבלין.
 
 ניתן היום, כ&#34;ג חשון, התשס&#34;ח (04.11.07).
 
-המשנה לנשיאה ש ו פ ט ת ש
-ו פ ט
+המשנה לנשיאה ש ו פ ט ת ש ו פ ט
 
 _________________________
 
@@ -1737,7 +1934,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

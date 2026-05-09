@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    19/04/2005 (לפני 7686 ימים)
+                    19/04/2005 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/3007-05.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="3007/05 - אלון כהן נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F3007-05.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/070/030/A01&amp;fileName=05030070_A01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/070/030/A01&amp;fileName=05030070_A01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/070/030/A01&amp;fileName=05030070_A01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/070/030/A01&amp;fileName=05030070_A01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,11 +1829,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק ע&#34;פ 3007/05
 
-בבית המשפט
-העליון
+בבית המשפט העליון
 
-ע&#34;פ
-3007/05
+ע&#34;פ 3007/05
 
 בפני:
 
@@ -1572,125 +1841,47 @@
 
 אלון כהן
 
-נ
-ג ד
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-ערעור על החלטת פסלות של בית
-משפט השלום
+ערעור על החלטת פסלות של בית משפט השלום
 
-בצפת בת&#34;פ 1172/03 שניתנה
-ביום 14.3.05 על
+בצפת בת&#34;פ 1172/03 שניתנה ביום 14.3.05 על
 
 ידי כבוד השופט ש&#39; סרחאן
 
-בשם המערער: עו&#34;ד אורון
-שורץ
+בשם המערער: עו&#34;ד אורון שורץ
 
-בשם המשיבה: עו&#34;ד רחל
-מטר
+בשם המשיבה: עו&#34;ד רחל מטר
 
 פסק-דין
 
-ערעור על
-החלטתו של בית משפט השלום בצפת (השופט ש&#39; סרחאן) מיום 14.3.05 שלא לפסול עצמו
-מלדון בת&#34;פ 1172/03.
+ערעור על החלטתו של בית משפט השלום בצפת (השופט ש&#39; סרחאן) מיום 14.3.05 שלא לפסול עצמו מלדון בת&#34;פ 1172/03.
 
-1. המערער הורשע (ביום 4.4.04) בבית משפט
-השלום בצפת (השופט ש&#39; סרחאן) בת&#34;פ 2014/00 בעבירות שעניינן נהיגה בחוסר
-זהירות ובקלות ראש; גרם נזק לרכוש; שיבוש מהלכי משפט ותקיפה סתם. זמן מה לאחר מכן, הוגש כנגד המערער כתב אישום נוסף
-(ת&#34;פ 1172/03), שאף הוא מתנהל בבית משפט השלום בצפת, בפני השופט סרחאן. כתב
-האישום מייחס למערער ביצוע עבירות של קבלת דבר במרמה
-בנסיבות מחמירות; זיוף בנסיבות מחמירות, ושימוש במסמך מזויף בנסיבות מחמירות.
+1. המערער הורשע (ביום 4.4.04) בבית משפט השלום בצפת (השופט ש&#39; סרחאן) בת&#34;פ 2014/00 בעבירות שעניינן נהיגה בחוסר זהירות ובקלות ראש; גרם נזק לרכוש; שיבוש מהלכי משפט ותקיפה סתם. זמן מה לאחר מכן, הוגש כנגד המערער כתב אישום נוסף (ת&#34;פ 1172/03), שאף הוא מתנהל בבית משפט השלום בצפת, בפני השופט סרחאן. כתב האישום מייחס למערער ביצוע עבירות של קבלת דבר במרמה בנסיבות מחמירות; זיוף בנסיבות מחמירות, ושימוש במסמך מזויף בנסיבות מחמירות.
 
-2. במהלך הדיון בעניינו, ביקש המערער (ביום
-21.2.05) כי בית המשפט יפסול עצמו מלדון בתיק. לדבריו, הגיש תלונות למשטרה
-ולנציבות תלונות ציבור על שופטים, המפרטות שורה של מעשים פסולים שהובילו, כך
-לטענתו, להרשעתו בתיק הראשון. בין היתר, טען כי התביעה הטעתה בזדון את בית המשפט,
-וכי השופט סרחאן קיים בעברו, עובר למינויו כשופט, קשר עסקי משפחתי עם אחד העדים
-אשר העידו בתיק. עוד טען המערער, כי התביעה, המשטרה והשופט סרחאן, קשרו קשר
-להרשיעו באותו תיק. משכך, ביקש המערער את פסילת בית המשפט, בטענה שנוצרה סיטואציה
-מורכבת, בה נדרש בית המשפט לדון בעניינו בעוד שתלונות כנגדו תלויות ועומדות אצל
-הרשויות המוסמכות לחקור בדבר. לטענתו, יש במצב זה כדי להוות נסיבה היוצרת חשש ממשי
-למשוא פנים המצדיקה את פסילת בית המשפט.
+2. במהלך הדיון בעניינו, ביקש המערער (ביום 21.2.05) כי בית המשפט יפסול עצמו מלדון בתיק. לדבריו, הגיש תלונות למשטרה ולנציבות תלונות ציבור על שופטים, המפרטות שורה של מעשים פסולים שהובילו, כך לטענתו, להרשעתו בתיק הראשון. בין היתר, טען כי התביעה הטעתה בזדון את בית המשפט, וכי השופט סרחאן קיים בעברו, עובר למינויו כשופט, קשר עסקי משפחתי עם אחד העדים אשר העידו בתיק. עוד טען המערער, כי התביעה, המשטרה והשופט סרחאן, קשרו קשר להרשיעו באותו תיק. משכך, ביקש המערער את פסילת בית המשפט, בטענה שנוצרה סיטואציה מורכבת, בה נדרש בית המשפט לדון בעניינו בעוד שתלונות כנגדו תלויות ועומדות אצל הרשויות המוסמכות לחקור בדבר. לטענתו, יש במצב זה כדי להוות נסיבה היוצרת חשש ממשי למשוא פנים המצדיקה את פסילת בית המשפט.
 
-3. בית המשפט דחה (ביום 14.3.05) את בקשת
-הפסילה. בנימוקי הדחייה נכתב, כי חששו של המערער מפני משוא פנים הנו חשש
-סובייקטיבי בלבד, שאינו מצדיק את פסילת בית המשפט. צוינה ההלכה, שאין בכוחה של
-תלונה כנגד השופט כדי לפסלו מלדון בתיק, שכן אז ניתן בידי בעל דין את האפשרות
-לקבוע את המותב שידון בעניינו בעצם הגשת התלונה. זאת ועוד, מדובר בתלונה שבית
-המשפט לא נחשף אליה ומכאן שאין בעצם הידיעה על קיומה כדי להטות את שיקול דעתו של
-בית המשפט. יחד עם זאת, ראה בית המשפט לנכון לציין את הדברים הבאים:
+3. בית המשפט דחה (ביום 14.3.05) את בקשת הפסילה. בנימוקי הדחייה נכתב, כי חששו של המערער מפני משוא פנים הנו חשש סובייקטיבי בלבד, שאינו מצדיק את פסילת בית המשפט. צוינה ההלכה, שאין בכוחה של תלונה כנגד השופט כדי לפסלו מלדון בתיק, שכן אז ניתן בידי בעל דין את האפשרות לקבוע את המותב שידון בעניינו בעצם הגשת התלונה. זאת ועוד, מדובר בתלונה שבית המשפט לא נחשף אליה ומכאן שאין בעצם הידיעה על קיומה כדי להטות את שיקול דעתו של בית המשפט. יחד עם זאת, ראה בית המשפט לנכון לציין את הדברים הבאים:
 
-&#34;המדובר בתלונה אומללה, מופרכת, משוללת כל יסוד, ותכליתה להלך
-אימים על בית המשפט ועל מערכת התביעה. בית המשפט הנו בית משפט מקצועי מאוד, מנוסה
-מאוד, אובייקטיבי, טהור וכל נסיון להכתימו, הוא נסיון בזוי ודינו להיכשל... הנאשם
-לא פרש בפניי את מלוא הפרטים הקשורים לתלונה. בית המשפט אינו יודע במה המדובר. בית
-המשפט יגיב לתוכן התלונה, בהתאם ובמידת הצורך, כשיידרש לכך ולאחר שיוודע לו תוכנה.
-לענייננו, די לי לציין, כי המדובר, ככל הנראה, בעלילת שווא ועניין לנו בתלונה
-מופרכת, אומללה ונגועה במניעים פסולים, ואם תרצו לומר – פסולים עד למאוד, ותכליתה
-אחת: להלך אימים על בית-המשפט, לפגוע בעצמאותו ואי-תלותו ולחתור תחת אושיות שלטון
-החוק. היא מכוערת ובזויה עד כדי כך, שלא רק שלא צייתה לתמרור ה&#34;עצור&#34;
-שבסעיף 34כ לחוק העונשין, אלא דרסה אותו, בדרכה, אף ברגל גסה... לעניות דעתי,
-תלונת הנאשם מהווה ביקורת פוגענית, לגופו של בית המשפט, ושלא כדין. אין דרכו של
-בית המשפט להחזיר מלחמה שערה. הנני שופט שלום (תרתי משמע), צדק ואמת, ואנהג כדרכי
-באיפוק מרבי.&#34;
+&#34;המדובר בתלונה אומללה, מופרכת, משוללת כל יסוד, ותכליתה להלך אימים על בית המשפט ועל מערכת התביעה. בית המשפט הנו בית משפט מקצועי מאוד, מנוסה מאוד, אובייקטיבי, טהור וכל נסיון להכתימו, הוא נסיון בזוי ודינו להיכשל... הנאשם לא פרש בפניי את מלוא הפרטים הקשורים לתלונה. בית המשפט אינו יודע במה המדובר. בית המשפט יגיב לתוכן התלונה, בהתאם ובמידת הצורך, כשיידרש לכך ולאחר שיוודע לו תוכנה. לענייננו, די לי לציין, כי המדובר, ככל הנראה, בעלילת שווא ועניין לנו בתלונה מופרכת, אומללה ונגועה במניעים פסולים, ואם תרצו לומר – פסולים עד למאוד, ותכליתה אחת: להלך אימים על בית-המשפט, לפגוע בעצמאותו ואי-תלותו ולחתור תחת אושיות שלטון החוק. היא מכוערת ובזויה עד כדי כך, שלא רק שלא צייתה לתמרור ה&#34;עצור&#34; שבסעיף 34כ לחוק העונשין, אלא דרסה אותו, בדרכה, אף ברגל גסה... לעניות דעתי, תלונת הנאשם מהווה ביקורת פוגענית, לגופו של בית המשפט, ושלא כדין. אין דרכו של בית המשפט להחזיר מלחמה שערה. הנני שופט שלום (תרתי משמע), צדק ואמת, ואנהג כדרכי באיפוק מרבי.&#34;
 
-4. על החלטה זו הוגש הערעור שבפני. עתה ערעור
-זה מתמקד בהחלטת בית המשפט בעניין הפסלות. לדעת המערער, יש בהתבטאות בית המשפט
-כלפיו, ובביקורת שהשמיע, משום גילוי של משוא פנים מגובש כנגדו, המהווים חריצת דין
-בטרם עת, ללא כל הצדקה.
+4. על החלטה זו הוגש הערעור שבפני. עתה ערעור זה מתמקד בהחלטת בית המשפט בעניין הפסלות. לדעת המערער, יש בהתבטאות בית המשפט כלפיו, ובביקורת שהשמיע, משום גילוי של משוא פנים מגובש כנגדו, המהווים חריצת דין בטרם עת, ללא כל הצדקה.
 
-5. המשיבה, בתגובה לערעור, מבקשת לדחותו.
-לטענתה, עילת הפסילה עליה מסתמך המערער בהקשר זה נולדה רק בעקבות ההחלטה, ומכאן
-שהמערער הוא זה אשר יצר אותה. לגופם של דברים, המשיבה מודה כי אכן, מדובר בהתבטאות
-קשה, אך, גם זו אין בה כדי לפסול את בית המשפט. שכן, ההחלטה התייחסה לתלונה שהגיש
-המערער, אך לא למערער עצמו, וממילא אין בדברים אלה כדי לחרוץ את דינו של המערער.
+5. המשיבה, בתגובה לערעור, מבקשת לדחותו. לטענתה, עילת הפסילה עליה מסתמך המערער בהקשר זה נולדה רק בעקבות ההחלטה, ומכאן שהמערער הוא זה אשר יצר אותה. לגופם של דברים, המשיבה מודה כי אכן, מדובר בהתבטאות קשה, אך, גם זו אין בה כדי לפסול את בית המשפט. שכן, ההחלטה התייחסה לתלונה שהגיש המערער, אך לא למערער עצמו, וממילא אין בדברים אלה כדי לחרוץ את דינו של המערער.
 
-6. לאחר שמיעת טיעוני הצדדים ועיון בחומר
-שמונח לפני, באתי למסקנה כי דין הערעור להידחות. אכן, החלטת בית המשפט בעניין
-הפסילה מנוסחת בלשון חריפה. מוטב היה להן לאותן אמרות לולא נאמרו. על בית המשפט
-לנהוג לעולם באיפוק ובריסון, וגם בהשמיעו הערות ביקורתיות עליו להביא בחשבון איך
-עלולה הביקורת, בנקודה הספציפית שלגביה היא מושמעת, להתפרש בעיני הנוגע בדבר,
-הניצב אותה שעה בפני בית המשפט (ע&#34;פ 732/86 חליווה נ&#39; מדינת ישראל, פ&#34;ד מא(1) 412, 415). אולם, אין
-באמירה ביקורתית כשלעצמה, ואפילו נאמרה בחריפות, כדי לפסול את השופט הדן בתיק
-מלדון בו (ע&#34;פ 619/82 כדורי נ&#39; מדינת ישראל,
-פ&#34;ד לז(1) 52; ע&#34;א 5089/01 תאופיק נ&#39; מנהיים (לא
-פורסם)).
+6. לאחר שמיעת טיעוני הצדדים ועיון בחומר שמונח לפני, באתי למסקנה כי דין הערעור להידחות. אכן, החלטת בית המשפט בעניין הפסילה מנוסחת בלשון חריפה. מוטב היה להן לאותן אמרות לולא נאמרו. על בית המשפט לנהוג לעולם באיפוק ובריסון, וגם בהשמיעו הערות ביקורתיות עליו להביא בחשבון איך עלולה הביקורת, בנקודה הספציפית שלגביה היא מושמעת, להתפרש בעיני הנוגע בדבר, הניצב אותה שעה בפני בית המשפט (ע&#34;פ 732/86 חליווה נ&#39; מדינת ישראל, פ&#34;ד מא(1) 412, 415). אולם, אין באמירה ביקורתית כשלעצמה, ואפילו נאמרה בחריפות, כדי לפסול את השופט הדן בתיק מלדון בו (ע&#34;פ 619/82 כדורי נ&#39; מדינת ישראל, פ&#34;ד לז(1) 52; ע&#34;א 5089/01 תאופיק נ&#39; מנהיים (לא פורסם)).
 
-7. בסופו של דבר, השאלה העומדת לדיון היא,
-האם יש בהתבטאויותיו של בית המשפט במסגרת החלטת הפסלות, משום גיבוש עמדה סופית
-היוצרת חשש ממשי למשוא פנים באופן המייתר המשך המשפט בפניו (ראו ע&#34;פ 3144/01 שיבלי נ&#39; הוועדה לתכנון ובניה גליל (לא פורסם); ע&#34;פ 4223/02 עליאן נ&#39; מדינת ישראל, פ&#34;ד נו(4) 655, 659; ע&#34;פ
-9285/04 הפנתר לעבודות בניין ופיתוח בע&#34;מ נ&#39;
-מדינת ישראל (לא פורסם)). סופיות העמדה נגזרת מן האופן שבו
-הובעה ומן המסגרת הדיונית בה הובעה והוכרעה (ראו בג&#34;ץ 2148/94 גלברט נ&#39; יושב ראש ועדת החקירה, פ&#34;ד מח(3) 573, 588-589, 604-606;
-ע&#34;פ 1988/94 בראון נ&#39; מדינת ישראל,
-פ&#34;ד מח(3) 608, 625; ע&#34;פ 6462/02 מדינת ישראל נ&#39; מנדורי (לא פורסם); ע&#34;א 1016/97 פייקוב נ&#39; פייקוב - תמיר (לא פורסם); ע&#34;פ
-293/05 קקון נ&#39; מדינת ישראל (לא פורסם)). בענייננו,
-אף שהחלטת בית המשפט הנה בעלת נופך ביקורתי, אין מדובר בהחלטה המלמדת על קיומו של
-משוא פנים כלפי המערער. אמירות בית המשפט הופנו כלפי תלונה נקודתית שהגיש המערער,
-שאין בינה ולבין ההליך הנוכחי המתנהל בפני בית המשפט ולא כלום, ולא כלפי המערער
-עצמו (השוו: ע&#34;א 10738/04 אופקום 2000 אינק. נ&#39; קומברס מערכות בע&#34;מ (לא פורסם)). החלטת
-בית המשפט אינה מתייחסת להליך העיקרי שמתנהל כנגד המערער. אין בה הבעת דעה כלפי
-סיכוייו. אין בה התרשמות המשליכה על הליך העיקרי. היא אינה קובעת ממצאים כנגדו.
-אין בה משום גיבוש דעה סופית החורצת את דינו של המערער. לא ניתן ללמוד ממנה דבר
-לגבי אותו תיק. השאלה שבה בית המשפט נדרש להכריע היא אשמתו או חפותו של המערער.
-בשאלה זו לא הביע כל דעה, ואף אם נאמרה אמירה חריפה או ביקורתית כלפיו, אין היא
-משליכה באופן כלשהו על ניהול המשפט (ע&#34;פ 1971/03 בלול נ&#39; מדינת ישראל (לא פורסם)). נחה דעתי כי התבטאות בית
-המשפט לא ביססה תשתית אובייקטיבית ממנה ניתן להסיק כי דעתו של השופט נעולה, ולא
-יתאפשר לו לשפוט משפט צדק (רע&#34;א 287/88 מנוף סיגנל חברה לפיננסים והשקעות בע&#34;מ נ&#39; סליימה, פ&#34;ד מד(3)
-758). משכך, לא ניתן לומר כי קם לו חשש ממשי למשוא פנים המצדיק את פסילת בית
-המשפט.
+7. בסופו של דבר, השאלה העומדת לדיון היא, האם יש בהתבטאויותיו של בית המשפט במסגרת החלטת הפסלות, משום גיבוש עמדה סופית היוצרת חשש ממשי למשוא פנים באופן המייתר המשך המשפט בפניו (ראו ע&#34;פ 3144/01 שיבלי נ&#39; הוועדה לתכנון ובניה גליל (לא פורסם); ע&#34;פ 4223/02 עליאן נ&#39; מדינת ישראל, פ&#34;ד נו(4) 655, 659; ע&#34;פ 9285/04 הפנתר לעבודות בניין ופיתוח בע&#34;מ נ&#39; מדינת ישראל (לא פורסם)). סופיות העמדה נגזרת מן האופן שבו הובעה ומן המסגרת הדיונית בה הובעה והוכרעה (ראו בג&#34;ץ 2148/94 גלברט נ&#39; יושב ראש ועדת החקירה, פ&#34;ד מח(3) 573, 588-589, 604-606; ע&#34;פ 1988/94 בראון נ&#39; מדינת ישראל, פ&#34;ד מח(3) 608, 625; ע&#34;פ 6462/02 מדינת ישראל נ&#39; מנדורי (לא פורסם); ע&#34;א 1016/97 פייקוב נ&#39; פייקוב - תמיר (לא פורסם); ע&#34;פ 293/05 קקון נ&#39; מדינת ישראל (לא פורסם)). בענייננו, אף שהחלטת בית המשפט הנה בעלת נופך ביקורתי, אין מדובר בהחלטה המלמדת על קיומו של משוא פנים כלפי המערער. אמירות בית המשפט הופנו כלפי תלונה נקודתית שהגיש המערער, שאין בינה ולבין ההליך הנוכחי המתנהל בפני בית המשפט ולא כלום, ולא כלפי המערער עצמו (השוו: ע&#34;א 10738/04 אופקום 2000 אינק. נ&#39; קומברס מערכות בע&#34;מ (לא פורסם)). החלטת בית המשפט אינה מתייחסת להליך העיקרי שמתנהל כנגד המערער. אין בה הבעת דעה כלפי סיכוייו. אין בה התרשמות המשליכה על הליך העיקרי. היא אינה קובעת ממצאים כנגדו. אין בה משום גיבוש דעה סופית החורצת את דינו של המערער. לא ניתן ללמוד ממנה דבר לגבי אותו תיק. השאלה שבה בית המשפט נדרש להכריע היא אשמתו או חפותו של המערער. בשאלה זו לא הביע כל דעה, ואף אם נאמרה אמירה חריפה או ביקורתית כלפיו, אין היא משליכה באופן כלשהו על ניהול המשפט (ע&#34;פ 1971/03 בלול נ&#39; מדינת ישראל (לא פורסם)). נחה דעתי כי התבטאות בית המשפט לא ביססה תשתית אובייקטיבית ממנה ניתן להסיק כי דעתו של השופט נעולה, ולא יתאפשר לו לשפוט משפט צדק (רע&#34;א 287/88 מנוף סיגנל חברה לפיננסים והשקעות בע&#34;מ נ&#39; סליימה, פ&#34;ד מד(3) 758). משכך, לא ניתן לומר כי קם לו חשש ממשי למשוא פנים המצדיק את פסילת בית המשפט.
 
 אשר על כן, הערעור נדחה.
 
 ניתן היום‏, י‏&#39; ניסן, תשס&#34;ה (19.4.2005).
 
-ה
-נ ש י א
+ה נ ש י א
 
 _________________________
 
@@ -1715,7 +1906,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

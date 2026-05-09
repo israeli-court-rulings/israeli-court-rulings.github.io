@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    20/08/2002 (לפני 8659 ימים)
+                    20/08/2002 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/6996-02.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="6996/02 - יוסף חמיד מוסטפא זערוב נ. מפקד כוחות צה&#34;ל ברצועת עזה"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F6996-02.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/960/069/B04&amp;fileName=02069960_B04.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/960/069/B04&amp;fileName=02069960_B04.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/960/069/B04&amp;fileName=02069960_B04.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/960/069/B04&amp;fileName=02069960_B04.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,35 +1827,27 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            בבית המשפט העליון בשבתו כבית
-משפט גבוה לצדק
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
-בג&#34;ץ
-6996/02
+בג&#34;ץ 6996/02
 
-בפני: כבוד
-המשנה לנשיא ש&#39; לוין
+בפני: כבוד המשנה לנשיא ש&#39; לוין
 
 כבוד השופט י&#39; טירקל
 
 כבוד השופט א&#39; גרוניס
 
-העותר: יוסף
-חמיד מוסטפא זערוב
+העותר: יוסף חמיד מוסטפא זערוב
 
 נגד
 
-המשיב: מפקד
-כוחות צה&#34;ל ברצועת עזה
+המשיב: מפקד כוחות צה&#34;ל ברצועת עזה
 
-עתירה
-למתן צו על תנאי וצו ביניים
+עתירה למתן צו על תנאי וצו ביניים
 
-תאריך הישיבה: י&#34;א אלול תשס&#34;ב
-(19.8.2002)
+תאריך הישיבה: י&#34;א אלול תשס&#34;ב (19.8.2002)
 
-בשם
-העותר: עו&#34;ד איהאב עיראקי
+בשם העותר: עו&#34;ד איהאב עיראקי
 
 בשם המשיב: עו&#34;ד יוכי גנסין
 
@@ -1592,130 +1855,51 @@
 
 המשנה לנשיא ש&#39; לוין:
 
-1. עתירה זו סבה סביב החלטתו של המשיב - מפקד
-כוחות צה&#34;ל בחבל עזה - להורות על הריסת הבית בו התגורר בנו של העותר באופן
-קבוע ורצוף באזור המוואסי. לפי התשתית הראייתית שבידי המשיב יצא הבן ביום 12.5.02
-מן הבית בשליחות של ארגון טירור כשהוא מצוייד בנשק שהחביא בקרקע הסמוכה לבית ורצח
-בדם קר, על רקע לאומני, את המנוח ניסן דולינגר ז&#34;ל. הבן נתפס והוגש נגדו כתב
-אישום המייחס לו את גרימת מותו של המנוח ועבירות אחרות. הבית נאטם על אתר, לאחר
-שפונה מהמיטלטלין שהיו בו, והודע לבני הבית כבר ביום 12.5.02 על הכוונה להרסו,
-לאחר מיצוי הליך של השגה. ביום 16.5.02 השיג פרקליט העותר על החלטת ההריסה. ביום
-7.8.02 החליט המשיב להרוס את הבית (מש3/). בית סמוך שבו התגוררו קרובים רחוקים
-יותר של הבן רק נאטם. נימוקיו של המשיב התבססו על חומרת מעשה הרצח, ו&#34;החשיבות
-המיוחדת בהרתעה באזור המוואסי, הנמצא בסמוך ליישובי גוש קטיף&#34;. ניתנו לפרקליט
-העותר הודעה בדבר כוונת כוחות הצבא לבצע את ההריסה וארכה של 48 שעות להגשת עתירה, ומכאן
-העתירה שלפנינו, שהועברה לדיון לפני הרכב של שלושה, ובה ניתן צו ביניים.
+1. עתירה זו סבה סביב החלטתו של המשיב - מפקד כוחות צה&#34;ל בחבל עזה - להורות על הריסת הבית בו התגורר בנו של העותר באופן קבוע ורצוף באזור המוואסי. לפי התשתית הראייתית שבידי המשיב יצא הבן ביום 12.5.02 מן הבית בשליחות של ארגון טירור כשהוא מצוייד בנשק שהחביא בקרקע הסמוכה לבית ורצח בדם קר, על רקע לאומני, את המנוח ניסן דולינגר ז&#34;ל. הבן נתפס והוגש נגדו כתב אישום המייחס לו את גרימת מותו של המנוח ועבירות אחרות. הבית נאטם על אתר, לאחר שפונה מהמיטלטלין שהיו בו, והודע לבני הבית כבר ביום 12.5.02 על הכוונה להרסו, לאחר מיצוי הליך של השגה. ביום 16.5.02 השיג פרקליט העותר על החלטת ההריסה. ביום 7.8.02 החליט המשיב להרוס את הבית (מש3/). בית סמוך שבו התגוררו קרובים רחוקים יותר של הבן רק נאטם. נימוקיו של המשיב התבססו על חומרת מעשה הרצח, ו&#34;החשיבות המיוחדת בהרתעה באזור המוואסי, הנמצא בסמוך ליישובי גוש קטיף&#34;. ניתנו לפרקליט העותר הודעה בדבר כוונת כוחות הצבא לבצע את ההריסה וארכה של 48 שעות להגשת עתירה, ומכאן העתירה שלפנינו, שהועברה לדיון לפני הרכב של שלושה, ובה ניתן צו ביניים.
 
-פרקליט העותר לא חלק לפנינו על סמכותו של
-המשיב לבצע את הריסה הבית מכוח תקנה 119 לתקנות ההגנה (שעת חירום), 1945; אך טענתו
-היתה שאין ראיות מספיקות הקושרות את הבן למעשה הרצח וכי בנסיבות הענין מעשה ההריסה
-אינו מידתי ואינו מתחשב במידה מספקת בתושבי הבית שלא היתה להם ידיעה על פעולותיו
-של הבן. נתנו דעתנו לתגובת המשיב והגענו לכלל מסקנה שאין קיימת בידינו עילה מספקת
-להתערב בשיקוליו.
+פרקליט העותר לא חלק לפנינו על סמכותו של המשיב לבצע את הריסה הבית מכוח תקנה 119 לתקנות ההגנה (שעת חירום), 1945; אך טענתו היתה שאין ראיות מספיקות הקושרות את הבן למעשה הרצח וכי בנסיבות הענין מעשה ההריסה אינו מידתי ואינו מתחשב במידה מספקת בתושבי הבית שלא היתה להם ידיעה על פעולותיו של הבן. נתנו דעתנו לתגובת המשיב והגענו לכלל מסקנה שאין קיימת בידינו עילה מספקת להתערב בשיקוליו.
 
-2. אם כי נטען לפנינו על ידי העותר ששטחו של הבית
-נשוא העתירה הוא כ300- מ&#34;ר שטח בנוי, נתברר מהתרשים שהוגש לנו ששטחו אך 125
-מ&#34;ר והוא מכוסה בגג אסבסט. מדובר במבנה בן קומה אחת שבו התגוררה משפחתו
-הגרעינית של הבן שהיא בת 9 נפשות, כולל שני הורים וצאצאיהם. מן התרשים האמור עולה
-שאין קיימות יחידות מגורים נפרדות בבית ובני המשפחה כולם התגוררו בבית כולו. המשיב
-ער לכך שאין ראייה ששאר בני משפחת העותר היו מעורבים במעשיו של בנם, אך טענתו היא
-שבנסיבות הזמן והמקום מחייבים שיקולי הרתעה את הריסת הבית. כפי שהוסבר לנו במהלך
-הטיעון קיימת, לדעת המשיב, חשיבות מיוחדת בהרתעת מחבלים ומפגעים פוטנציאליים באזור
-המוואסי שבינו לבין ישובי גוש קטיף אין קיימת הפרדה פיזית. באיזור מיוחד זה אירעו
-פיגועים רבים וקיימות ידיעות על הכוונה לבצע פיגועים נוספים כנגד חיילים ואזרחים.
-להלן נאמרו בתגובת המשיב גם הדברים הבאים, בסעיף 27(ג) לתגובה:
+2. אם כי נטען לפנינו על ידי העותר ששטחו של הבית נשוא העתירה הוא כ300- מ&#34;ר שטח בנוי, נתברר מהתרשים שהוגש לנו ששטחו אך 125 מ&#34;ר והוא מכוסה בגג אסבסט. מדובר במבנה בן קומה אחת שבו התגוררה משפחתו הגרעינית של הבן שהיא בת 9 נפשות, כולל שני הורים וצאצאיהם. מן התרשים האמור עולה שאין קיימות יחידות מגורים נפרדות בבית ובני המשפחה כולם התגוררו בבית כולו. המשיב ער לכך שאין ראייה ששאר בני משפחת העותר היו מעורבים במעשיו של בנם, אך טענתו היא שבנסיבות הזמן והמקום מחייבים שיקולי הרתעה את הריסת הבית. כפי שהוסבר לנו במהלך הטיעון קיימת, לדעת המשיב, חשיבות מיוחדת בהרתעת מחבלים ומפגעים פוטנציאליים באזור המוואסי שבינו לבין ישובי גוש קטיף אין קיימת הפרדה פיזית. באיזור מיוחד זה אירעו פיגועים רבים וקיימות ידיעות על הכוונה לבצע פיגועים נוספים כנגד חיילים ואזרחים. להלן נאמרו בתגובת המשיב גם הדברים הבאים, בסעיף 27(ג) לתגובה:
 
-&#34;הבידוק
-הקפדני בכניסה לשטח המווסי מגביל את יכולת ארגוני הטירור לבצע פיגועים בשטח זה,
-אולם אחת הדרכים בעזרתן מתגברים הפעילים על המכשול היא הסתייעות בתושבי המוואסי
-להחדרת אמל&#34;ח ומפגעים תוך שהם משתמשים בתיעוד של תושבי המוואסי, או תוך
-הסתייעות בתושבים מקרב אזור המוואסי אשר נוטלים חלק בפעילות כנגד תושבי גוש קטיף
-וכוחות הבטחון באזור. יודגש כי מבנה ההתיישבות הפלסטינית במוואסי הינו חמולתי
-ולמתיישבים הפלסטינים שם יש קרובים רבים המתגוררים בחאן יונס המסתייעים בקרוביהם
-לקידום פח&#34;ע. סיוע נוסף אותו מקבלים ארגוני הטירור הינו איסוף מל&#34;מ
-המתבצע על ידי פועלים המועסקים בישובים היהודיים בגוש קטיף וכן על ידי תושבי
-המוואסי&#34;.
+&#34;הבידוק הקפדני בכניסה לשטח המווסי מגביל את יכולת ארגוני הטירור לבצע פיגועים בשטח זה, אולם אחת הדרכים בעזרתן מתגברים הפעילים על המכשול היא הסתייעות בתושבי המוואסי להחדרת אמל&#34;ח ומפגעים תוך שהם משתמשים בתיעוד של תושבי המוואסי, או תוך הסתייעות בתושבים מקרב אזור המוואסי אשר נוטלים חלק בפעילות כנגד תושבי גוש קטיף וכוחות הבטחון באזור. יודגש כי מבנה ההתיישבות הפלסטינית במוואסי הינו חמולתי ולמתיישבים הפלסטינים שם יש קרובים רבים המתגוררים בחאן יונס המסתייעים בקרוביהם לקידום פח&#34;ע. סיוע נוסף אותו מקבלים ארגוני הטירור הינו איסוף מל&#34;מ המתבצע על ידי פועלים המועסקים בישובים היהודיים בגוש קטיף וכן על ידי תושבי המוואסי&#34;.
 
-מחקירתו של הבן עלה כי גם הרצח שבוצע על ידו
-התאפשר בדרך של איסוף ידיעות על תושבי הגוש, המעסיקים פלשתינאיים, ושימוש בידע לשם
-ביצוע הרצח. עקב היעדרה של הפרדה פיזית בין תושבי אזור המוואסי לבין ישובי גוש
-קטיף בוצעו לאחרונה פיגועים חמורים, כמו פיגוע החדירה ליישוב עצמונה שבגוש קטיף,
-בו נהרגו חמישה ונפצעו עשרים וארבעה אנשים. לפי המידע שברשות המשיב, אפשר היה לבצע
-פיגוע זה רק בעקבות סיוע שניתן על ידי תושב המוואסי והוא הדין באירועים נוספים.
-נמצא שבנסיבות הזמן והמקום מקבלים, לפי גירסת המשיב, שיקולי ההרתעה בתחום האיזור
-שבו נמצא הבית חשיבות מיוחדת.
+מחקירתו של הבן עלה כי גם הרצח שבוצע על ידו התאפשר בדרך של איסוף ידיעות על תושבי הגוש, המעסיקים פלשתינאיים, ושימוש בידע לשם ביצוע הרצח. עקב היעדרה של הפרדה פיזית בין תושבי אזור המוואסי לבין ישובי גוש קטיף בוצעו לאחרונה פיגועים חמורים, כמו פיגוע החדירה ליישוב עצמונה שבגוש קטיף, בו נהרגו חמישה ונפצעו עשרים וארבעה אנשים. לפי המידע שברשות המשיב, אפשר היה לבצע פיגוע זה רק בעקבות סיוע שניתן על ידי תושב המוואסי והוא הדין באירועים נוספים. נמצא שבנסיבות הזמן והמקום מקבלים, לפי גירסת המשיב, שיקולי ההרתעה בתחום האיזור שבו נמצא הבית חשיבות מיוחדת.
 
-3. אנו סבורים - בניגוד לטענת העותר - שבמקרה דנן
-היו קיימות ראיות, לפחות ברמה המנהלית, לגבי ביצוע מעשה הרצח על ידי הבן. עוד אנו
-סבורים כי משנתן המשיב את דעתו למבנה ההנדסי של הבית ולעובדה שבני הבית כולם
-התגוררו בצוותא, אך סבר שיש לתת לשיקולי הרתעה המתחייבים מנסיבות הזמן והמקום
-חשיבות מכרעת, לא חרג המשיב מהגבולות הלגיטמיים של שיקול דעתו, גם אם אין קיימת
-ראייה ששאר תושבי הבית היו מודעים למעשיו של הבן. כבר נפסק בעבר כי השימוש בתקנה
-119 גם לצרכי הרתעה הוא לגיטימי: בג&#34;ץ 2006/97 פ&#34;ד נא(9) 651, והוא -
-כאשר האמצעי האמור נדרש כדי למנוע פגיעה נוספת באנשים חפים מפשע: בג&#34;ץ
-2418/97 פ&#34;ד נא(1) 226 (הכולל ריכוז אסמכתאות); ראה גם בג&#34;ץ 6299/97
-תק-על 97(4), 617, שבו עמד הנשיא ברק על מערכת האיזונים הראויה בין &#34;חומרת
-המעשה החבלני לבין היקף הסנקציה, בין הפגיעה הצפויה במשפחת המפגע לבין הצורך
-בהרתעת מפגעים פוטנציאליים עתידיים, בין זכותו הבסיסית של כל אחד לקניינו לבין
-זכותו וחובתו של השלטון לשמור על הבטחון והסדר הציבורי&#34;; וכן תוך שקילת
-&#34;זיקת המגורים של המפגע לבית, גודלו של הבית&#34;; ו&#34;השפעת הסנקציות על
-אנשים אחרים&#34; (עמ&#39; 6-5). המשיב טען לפנינו שהביא בחשבון את כל השיקולים
-האמורים. בדין טענה לפנינו, גב&#39; גנסין מטעם המדינה, כי יש לבחון את סבירות האמצעים
-אותם נוקטים הממונים על שמירת הסדר והבטחון באזור על רקע הנסיבות המשתנות: מדינת
-ישראל מצויה כיום בעיצומה של לוחמה בטרור, כאשר לדעת הממונים על הביטחון עשוייה
-נקיטת אמצעים הרתעתיים לגיטימיים - דווקא באזור המוואסי, בשל התנאים המיוחדים
-השוררים בו, לתרום להצלת חיי אנשים חפים מפשע ולהפחתה משמעותית של מעשי טירור. לפי
-גישה זו עשוי מעשה ההריסה להרתיע מפגעים פוטנציאליים אחרים מלבצע את זממם ולהדק את
-הפיקוח של בני משפחתו של מחבל פוטנציאלי מלבצע מעשי טירור; כשהתנאי המוקדם לשימוש
-בשיקול הדעת במקרה דנן הוא שהמפגע גר בבית ויצא ממנו כדי לבצע את הרצח כשהוא חמוש
-בכלי נשק שהוסתר ליד הבית. לא לנו להחליט מה יעילותם ותבונתם של אמצעים אלה כדי
-להשיג את המטרה האמורה. בגדר הביקורת השיפוטית שאנו מפעילים על המשיב שומה עלינו
-אך לבחון את חוקיות מעשיו בגדר שיקול דעתו, ואין בידינו לומר ששיקול דעת זה הופעל
-במקרה שלפנינו שלא כהלכה.
+3. אנו סבורים - בניגוד לטענת העותר - שבמקרה דנן היו קיימות ראיות, לפחות ברמה המנהלית, לגבי ביצוע מעשה הרצח על ידי הבן. עוד אנו סבורים כי משנתן המשיב את דעתו למבנה ההנדסי של הבית ולעובדה שבני הבית כולם התגוררו בצוותא, אך סבר שיש לתת לשיקולי הרתעה המתחייבים מנסיבות הזמן והמקום חשיבות מכרעת, לא חרג המשיב מהגבולות הלגיטמיים של שיקול דעתו, גם אם אין קיימת ראייה ששאר תושבי הבית היו מודעים למעשיו של הבן. כבר נפסק בעבר כי השימוש בתקנה 119 גם לצרכי הרתעה הוא לגיטימי: בג&#34;ץ 2006/97 פ&#34;ד נא(9) 651, והוא - כאשר האמצעי האמור נדרש כדי למנוע פגיעה נוספת באנשים חפים מפשע: בג&#34;ץ 2418/97 פ&#34;ד נא(1) 226 (הכולל ריכוז אסמכתאות); ראה גם בג&#34;ץ 6299/97 תק-על 97(4), 617, שבו עמד הנשיא ברק על מערכת האיזונים הראויה בין &#34;חומרת המעשה החבלני לבין היקף הסנקציה, בין הפגיעה הצפויה במשפחת המפגע לבין הצורך בהרתעת מפגעים פוטנציאליים עתידיים, בין זכותו הבסיסית של כל אחד לקניינו לבין זכותו וחובתו של השלטון לשמור על הבטחון והסדר הציבורי&#34;; וכן תוך שקילת &#34;זיקת המגורים של המפגע לבית, גודלו של הבית&#34;; ו&#34;השפעת הסנקציות על אנשים אחרים&#34; (עמ&#39; 6-5). המשיב טען לפנינו שהביא בחשבון את כל השיקולים האמורים. בדין טענה לפנינו, גב&#39; גנסין מטעם המדינה, כי יש לבחון את סבירות האמצעים אותם נוקטים הממונים על שמירת הסדר והבטחון באזור על רקע הנסיבות המשתנות: מדינת ישראל מצויה כיום בעיצומה של לוחמה בטרור, כאשר לדעת הממונים על הביטחון עשוייה נקיטת אמצעים הרתעתיים לגיטימיים - דווקא באזור המוואסי, בשל התנאים המיוחדים השוררים בו, לתרום להצלת חיי אנשים חפים מפשע ולהפחתה משמעותית של מעשי טירור. לפי גישה זו עשוי מעשה ההריסה להרתיע מפגעים פוטנציאליים אחרים מלבצע את זממם ולהדק את הפיקוח של בני משפחתו של מחבל פוטנציאלי מלבצע מעשי טירור; כשהתנאי המוקדם לשימוש בשיקול הדעת במקרה דנן הוא שהמפגע גר בבית ויצא ממנו כדי לבצע את הרצח כשהוא חמוש בכלי נשק שהוסתר ליד הבית. לא לנו להחליט מה יעילותם ותבונתם של אמצעים אלה כדי להשיג את המטרה האמורה. בגדר הביקורת השיפוטית שאנו מפעילים על המשיב שומה עלינו אך לבחון את חוקיות מעשיו בגדר שיקול דעתו, ואין בידינו לומר ששיקול דעת זה הופעל במקרה שלפנינו שלא כהלכה.
 
 לפיכך אנו דוחים את העתירה.
 
-המשנה
-לנשיא
+המשנה לנשיא
 
 השופט י&#39; טירקל:
 
 אני מסכים.
 
-ש
-ו פ ט
+ש ו פ ט
 
 השופט א&#39; גרוניס:
 
 אני מסכים.
 
-ש
-ו פ ט
+ש ו פ ט
 
 הוחלט כאמור לעיל.
 
-ניתן היום, י&#34;ב אלול תשס&#34;ב
-(20.8.2002).
+ניתן היום, י&#34;ב אלול תשס&#34;ב (20.8.2002).
 
-המשנה לנשיא ש
-ו פ ט ש ו פ ט
+המשנה לנשיא ש ו פ ט ש ו פ ט
 
 _________________
 
-העתק
-מתאים למקור 02069960.B04
+העתק מתאים למקור 02069960.B04
 
-נוסח
-זה כפוף לשינויי עריכה וניסוח - רשם.
+נוסח זה כפוף לשינויי עריכה וניסוח - רשם.
 
-בבית
-המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
+בבית המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
 
-בית
-המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
+בית המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
 
-לבתי
-המשפט אתר באינטרנט: www.court.gov.il
+לבתי המשפט אתר באינטרנט: www.court.gov.il
         </div>
     </section>
     
@@ -1734,7 +1918,7 @@ _________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

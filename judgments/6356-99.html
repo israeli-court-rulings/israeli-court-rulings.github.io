@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    01/07/2002 (לפני 8709 ימים)
+                    01/07/2002 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/6356-99.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="6356/99 - דרור חטר - ישי נ. ארבל עדנה"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F6356-99.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/560/063/L03&amp;fileName=99063560_L03.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/560/063/L03&amp;fileName=99063560_L03.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/560/063/L03&amp;fileName=99063560_L03.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/99/560/063/L03&amp;fileName=99063560_L03.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1560,33 +1831,25 @@
 
 ע&#34;א 6356/99
 
-בפני: כבוד
-השופטת ד&#39; דורנר
+בפני: כבוד השופטת ד&#39; דורנר
 
 כבוד השופט י&#39; אנגלרד
 
 כבוד השופט א&#39; ריבלין
 
-המערער: דרור
-חטר-ישי
+המערער: דרור חטר-ישי
 
 נגד
 
-המשיבה: עדנה
-ארבל
+המשיבה: עדנה ארבל
 
-ערעור
-על פסק-דינו של בית-המשפט המחוזי בחיפה מיום 1.8.99 בת.א. 1346/98 שניתן על-ידי
-כבוד השופט ש&#39; פינקלמן
+ערעור על פסק-דינו של בית-המשפט המחוזי בחיפה מיום 1.8.99 בת.א. 1346/98 שניתן על-ידי כבוד השופט ש&#39; פינקלמן
 
-תאריך
-הישיבה: כ&#34;א בסיוון תשס&#34;א (12.6.01)
+תאריך הישיבה: כ&#34;א בסיוון תשס&#34;א (12.6.01)
 
 בשם המערער: בעצמו; עו&#34;ד טל חטר-ישי
 
-בשם
-המשיבה: עו&#34;ד גלי בהרב-מיארה; עו&#34;ד
-שחר הררי
+בשם המשיבה: עו&#34;ד גלי בהרב-מיארה; עו&#34;ד שחר הררי
 
 פסק-דין
 
@@ -1594,362 +1857,153 @@
 
 העובדות, ההליכים והטענות
 
-1. בתאריך 26.1.97 הורתה המשיבה (להלן: המשיבה,
-או פרקליטת-המדינה), בכשרה כממלאת מקום היועץ המשפטי לממשלה, על פתיחה בחקירה
-פלילית בפרשה הידועה כ&#34;פרשת בר-און&#34;. לאחר חקירה מאומצת שארכה מספר
-חודשים, הגישה המשטרה את ממצאיה ומסרה את המלצותיה. בתאריך 18.4.97 כתבה
-פרקליטת-המדינה את חוות-דעתה בפרשה (להלן: חוות-הדעת). בגדרה של חוות-דעת זו, היא
-גוללה את סיפור מעורבותם הלכאורית של מספר חשודים, וביניהם אישי ציבור ונושאי
-משרות בכירות, במינויו של עו&#34;ד רוני בר-און לתפקיד היועץ המשפטי לממשלה.
-כעולה מחומר הראיות, המניע לפעולות אלה של החשודים היה תקווה, כי מינויו של
-עו&#34;ד בר-און כראש התביעה הכללית ישמש מנוף לקידום בלתי-חוקי של ענייניהם
-האישיים.
+1. בתאריך 26.1.97 הורתה המשיבה (להלן: המשיבה, או פרקליטת-המדינה), בכשרה כממלאת מקום היועץ המשפטי לממשלה, על פתיחה בחקירה פלילית בפרשה הידועה כ&#34;פרשת בר-און&#34;. לאחר חקירה מאומצת שארכה מספר חודשים, הגישה המשטרה את ממצאיה ומסרה את המלצותיה. בתאריך 18.4.97 כתבה פרקליטת-המדינה את חוות-דעתה בפרשה (להלן: חוות-הדעת). בגדרה של חוות-דעת זו, היא גוללה את סיפור מעורבותם הלכאורית של מספר חשודים, וביניהם אישי ציבור ונושאי משרות בכירות, במינויו של עו&#34;ד רוני בר-און לתפקיד היועץ המשפטי לממשלה. כעולה מחומר הראיות, המניע לפעולות אלה של החשודים היה תקווה, כי מינויו של עו&#34;ד בר-און כראש התביעה הכללית ישמש מנוף לקידום בלתי-חוקי של ענייניהם האישיים.
 
-2. בתאריך 20.4.97 הוגשה עתירה לבית-משפט זה,
-בגדרה התבקש בית-המשפט להורות ליועץ המשפטי לממשלה ולפרקליטת-המדינה להימנע מפרסום
-החלטתם המנומקת בפרשה. עתירה זו נדחתה, תוך שנקבע, כי ליועץ המשפטי לממשלה נתונה
-סמכות לנמק החלטה בדבר העמדה לדין, ואף מוטלת עליו חובה לעשות כן. באותו היום
-פורסמה אפוא בכלי-התקשורת חוות-דעתה של המשיבה.
+2. בתאריך 20.4.97 הוגשה עתירה לבית-משפט זה, בגדרה התבקש בית-המשפט להורות ליועץ המשפטי לממשלה ולפרקליטת-המדינה להימנע מפרסום החלטתם המנומקת בפרשה. עתירה זו נדחתה, תוך שנקבע, כי ליועץ המשפטי לממשלה נתונה סמכות לנמק החלטה בדבר העמדה לדין, ואף מוטלת עליו חובה לעשות כן. באותו היום פורסמה אפוא בכלי-התקשורת חוות-דעתה של המשיבה.
 
-3. המערער, שכיהן באותה עת כראש לשכת עורכי-הדין,
-נחקר בגין הפרשה על-ידי המשטרה, והיה אחד מן החשודים במעורבות בה. וכך נכתב לגביו
-בחוות-הדעת:
+3. המערער, שכיהן באותה עת כראש לשכת עורכי-הדין, נחקר בגין הפרשה על-ידי המשטרה, והיה אחד מן החשודים במעורבות בה. וכך נכתב לגביו בחוות-הדעת:
 
-מהחומר
-עולה, כי חבר הכנסת דרעי, עו&#34;ד חוטר ישי ואיש העסקים דוד אפל, הקשורים בקשרי
-חברות ועסקים, רצו במינויו של עו&#34;ד בר-און לתפקיד היועץ המשפטי לממשלה.
-השלושה פעלו באופן נמרץ להשגת מטרתם. דרעי ניצל את כוחו הפוליטי לצורך השגת מטרה
-זו, ואכן המטרה הושגה ובר-און מונה. בסמוך לתקופה זו קשרו עו&#34;ד חוטר ישי ודוד
-אפל קשרים עסקיים עם עו&#34;ד בר-און.
+מהחומר עולה, כי חבר הכנסת דרעי, עו&#34;ד חוטר ישי ואיש העסקים דוד אפל, הקשורים בקשרי חברות ועסקים, רצו במינויו של עו&#34;ד בר-און לתפקיד היועץ המשפטי לממשלה. השלושה פעלו באופן נמרץ להשגת מטרתם. דרעי ניצל את כוחו הפוליטי לצורך השגת מטרה זו, ואכן המטרה הושגה ובר-און מונה. בסמוך לתקופה זו קשרו עו&#34;ד חוטר ישי ודוד אפל קשרים עסקיים עם עו&#34;ד בר-און.
 
 ...
 
-עוד
-יצויין, כי באותה עת, היו תלויים נגד דרעי ואפל כתבי אישום, ובפרקליטות המדינה
-עמדה להכרעה שאלת הגשת כתב אישום נגד עו&#34;ד חוטר ישי. נראה שלשלושתם היה עניין
-במינויו של בר-און לתפקיד היועץ המשפטי לממשלה, שהוא כידוע ראש התביעה הכללית.
+עוד יצויין, כי באותה עת, היו תלויים נגד דרעי ואפל כתבי אישום, ובפרקליטות המדינה עמדה להכרעה שאלת הגשת כתב אישום נגד עו&#34;ד חוטר ישי. נראה שלשלושתם היה עניין במינויו של בר-און לתפקיד היועץ המשפטי לממשלה, שהוא כידוע ראש התביעה הכללית.
 
 ...
 
-הראיות
-נותנות בסיס מסויים להנחה, כי מי שהעלה את מועמדות בר-און לראשונה בפני ראש הממשלה
-- במישרין או בעקיפין - היה ח&#34;כ דרעי. הנחה זו מבוססת על כך שדרעי ומקורביו
-אפל וחוטר ישי קשורים ביניהם בקשרי עסקים. יצויין, כי חוטר ישי ואפל בחרו
-בעו&#34;ד בר-און לטפל בענייני נדל&#34;ן שהם קשורים בהם, אדם שהתמחותו המובהקת
-בתחום הפלילי.
+הראיות נותנות בסיס מסויים להנחה, כי מי שהעלה את מועמדות בר-און לראשונה בפני ראש הממשלה - במישרין או בעקיפין - היה ח&#34;כ דרעי. הנחה זו מבוססת על כך שדרעי ומקורביו אפל וחוטר ישי קשורים ביניהם בקשרי עסקים. יצויין, כי חוטר ישי ואפל בחרו בעו&#34;ד בר-און לטפל בענייני נדל&#34;ן שהם קשורים בהם, אדם שהתמחותו המובהקת בתחום הפלילי.
 
 ...
 
-על-פי
-הראיות, ככל הנראה, שמו של בר-און עלה לראשונה כמועמד אפשרי לתפקיד יועץ משפטי
-לממשלה, מפיו של איש העסקים דוד אפל, וראש לשכת עורכי הדין, עו&#34;ד חוטר ישי.
+על-פי הראיות, ככל הנראה, שמו של בר-און עלה לראשונה כמועמד אפשרי לתפקיד יועץ משפטי לממשלה, מפיו של איש העסקים דוד אפל, וראש לשכת עורכי הדין, עו&#34;ד חוטר ישי.
 
-בעקבות פרסומה של חוות-דעת זו הגיש המערער
-תביעה בבית-המשפט המחוזי בחיפה כנגד פרקליטת-המדינה בגין הוצאת לשון הרע. בתביעתו
-טען המערער, כי הדברים שיוחסו לו בחוות-הדעת אינם נכונים, כי נכתבו בזדון, וכי
-פגעו בשמו הטוב.
+בעקבות פרסומה של חוות-דעת זו הגיש המערער תביעה בבית-המשפט המחוזי בחיפה כנגד פרקליטת-המדינה בגין הוצאת לשון הרע. בתביעתו טען המערער, כי הדברים שיוחסו לו בחוות-הדעת אינם נכונים, כי נכתבו בזדון, וכי פגעו בשמו הטוב.
 
-4. בית-המשפט המחוזי (השופט שמואל פינקלמן) קבע
-כי דינה של התובענה להימחק על הסף מפאת היעדר עילה. הנמקתו הייתה, כי בכתיבת
-חוות-הדעת מילאה פרקליטת-המדינה תפקיד מעין-שיפוטי, ועל-כן פרסומה הוא &#34;פרסום
-מותר&#34; כמובנו בסעיפים 13(5) ו13-(9) לחוק איסור לשון הרע, תשכ&#34;ה1965-
-(להלן: החוק).
+4. בית-המשפט המחוזי (השופט שמואל פינקלמן) קבע כי דינה של התובענה להימחק על הסף מפאת היעדר עילה. הנמקתו הייתה, כי בכתיבת חוות-הדעת מילאה פרקליטת-המדינה תפקיד מעין-שיפוטי, ועל-כן פרסומה הוא &#34;פרסום מותר&#34; כמובנו בסעיפים 13(5) ו13-(9) לחוק איסור לשון הרע, תשכ&#34;ה1965- (להלן: החוק).
 
-על פסק-דין זה הגיש המערער את הערעור שבפנינו.
-טענתו המרכזית הייתה, כי בנסיבות שבהן התביעה הכללית מחליטה, כי אין מקום להגשתו
-של כתב-אישום נגד חשוד, הרי שמן הדין, כי תימנע מפרסום דברים שיש בהם כדי לפגוע בשמו
-הטוב. כן טען, כי פרסום חוות-הדעת הביא לידי &#34;הרשעתו הציבורית&#34;, תוך
-יצירת אמונה בקרב הציבור כי אף שלא הועמד לדין, היה הוא שותף למעשה פלילי חמור.
-אלא שבניגוד להליך משפטי מלא, שבמסגרתו נאשם נשמע בפני ערכאה שיפוטית, נהנה משורה
-של זכויות דיוניות, ומוקנית לו זכות ערעור, הרי ש&#34;הרשעתו&#34; בדרך של פרסום
-חוות-הדעת לא איפשרה לו למצות את זכותו להוכיח את חפותו.
+על פסק-דין זה הגיש המערער את הערעור שבפנינו. טענתו המרכזית הייתה, כי בנסיבות שבהן התביעה הכללית מחליטה, כי אין מקום להגשתו של כתב-אישום נגד חשוד, הרי שמן הדין, כי תימנע מפרסום דברים שיש בהם כדי לפגוע בשמו הטוב. כן טען, כי פרסום חוות-הדעת הביא לידי &#34;הרשעתו הציבורית&#34;, תוך יצירת אמונה בקרב הציבור כי אף שלא הועמד לדין, היה הוא שותף למעשה פלילי חמור. אלא שבניגוד להליך משפטי מלא, שבמסגרתו נאשם נשמע בפני ערכאה שיפוטית, נהנה משורה של זכויות דיוניות, ומוקנית לו זכות ערעור, הרי ש&#34;הרשעתו&#34; בדרך של פרסום חוות-הדעת לא איפשרה לו למצות את זכותו להוכיח את חפותו.
 
-במישור המשפטי טען המערער, כי החסינות המוענקת
-מתוקף סעיף 13 לחוק לאדם הממלא תפקיד מעין-שיפוטי אינה מוחלטת. לטענת המערער,
-איזכור שמו במסגרת חוות-הדעת לא נדרש לשם מילוי תפקידה המעין-שיפוטי של המשיבה,
-והיה בו כדי לפגוע שלא לצורך בשמו הטוב. מטעמים אלה סבר הוא, כי הדברים שנאמרו
-ביחס אליו אינם משרתים את תכליתו של הסדר החסינות, וממילא אינם נופלים לגדר
-תחולתו. משכך, לטענת המערער, ראוי הוא כי התובענה שהגיש לבית-המשפט המחוזי תידון
-לגופה, ויותר לו להביא את ראיותיו להוכחתה.
+במישור המשפטי טען המערער, כי החסינות המוענקת מתוקף סעיף 13 לחוק לאדם הממלא תפקיד מעין-שיפוטי אינה מוחלטת. לטענת המערער, איזכור שמו במסגרת חוות-הדעת לא נדרש לשם מילוי תפקידה המעין-שיפוטי של המשיבה, והיה בו כדי לפגוע שלא לצורך בשמו הטוב. מטעמים אלה סבר הוא, כי הדברים שנאמרו ביחס אליו אינם משרתים את תכליתו של הסדר החסינות, וממילא אינם נופלים לגדר תחולתו. משכך, לטענת המערער, ראוי הוא כי התובענה שהגיש לבית-המשפט המחוזי תידון לגופה, ויותר לו להביא את ראיותיו להוכחתה.
 
-5. בתגובתה תמכה המשיבה את יתדותיה בפסק-דינו של
-בית-המשפט המחוזי. לטענתה, כאשר הפרסום כשלעצמו הנו מותר, הרי שהוא מותר על כל
-חלקיו. מסקנה זו מתחייבת לטענתה מתכליתו של הסדר החסינות, המבקש למנוע הגשת תביעה
-נגד נושא משרה מעין-שיפוטית, אף אם הפרסום לגופו נגוע בלשון הרע. במקרה שלפנינו,
-משאין חולקים כי עצם ההחלטה בדבר העמדה לדין ניתנה בסמכות ונגזרה מתפקידה
-המעין-שיפוטי של פרקליטת המדינה, הרי שלטענתה, כל אשר נאמר בהחלטה שכזו ממילא חוסה
-תחת הוראת החסינות. כן הוסיפה המשיבה, כי פרסום מסוים זה אף הוכשר מפורשות על-ידי
-בית-המשפט העליון, בגדרה של העתירה שהוגשה טרם פרסומו, ושכאמור נדחתה.
+5. בתגובתה תמכה המשיבה את יתדותיה בפסק-דינו של בית-המשפט המחוזי. לטענתה, כאשר הפרסום כשלעצמו הנו מותר, הרי שהוא מותר על כל חלקיו. מסקנה זו מתחייבת לטענתה מתכליתו של הסדר החסינות, המבקש למנוע הגשת תביעה נגד נושא משרה מעין-שיפוטית, אף אם הפרסום לגופו נגוע בלשון הרע. במקרה שלפנינו, משאין חולקים כי עצם ההחלטה בדבר העמדה לדין ניתנה בסמכות ונגזרה מתפקידה המעין-שיפוטי של פרקליטת המדינה, הרי שלטענתה, כל אשר נאמר בהחלטה שכזו ממילא חוסה תחת הוראת החסינות. כן הוסיפה המשיבה, כי פרסום מסוים זה אף הוכשר מפורשות על-ידי בית-המשפט העליון, בגדרה של העתירה שהוגשה טרם פרסומו, ושכאמור נדחתה.
 
 המסגרת הנורמטיבית
 
-6. חסינותו של בעל תפקיד מעין-שיפוטי מפני תביעה
-בלשון הרע מעוגנת בסעיף 13 לחוק, הקובע:
+6. חסינותו של בעל תפקיד מעין-שיפוטי מפני תביעה בלשון הרע מעוגנת בסעיף 13 לחוק, הקובע:
 
-לא
-ישמש עילה למשפט פלילי או אזרחי:
+לא ישמש עילה למשפט פלילי או אזרחי:
 
 ...
 
-(5)
-פרסום על ידי שופט, חבר של בית דין דתי, בורר, או אדם אחר בעל סמכות שיפוטית או
-מעין-שיפוטית על פי דין, שנעשה תוך כדי דיון בפניהם או בהחלטתם, או פרסום על ידי
-בעל דין, בא כוחו של בעל דין או עד, שנעשה תוך כדי דיון כאמור...
+(5) פרסום על ידי שופט, חבר של בית דין דתי, בורר, או אדם אחר בעל סמכות שיפוטית או מעין-שיפוטית על פי דין, שנעשה תוך כדי דיון בפניהם או בהחלטתם, או פרסום על ידי בעל דין, בא כוחו של בעל דין או עד, שנעשה תוך כדי דיון כאמור...
 
-(9) פרסום
-שהמפרסם חייב לעשות על פי דין או על פי הוראה של רשות המוסמכת לכך כדין או שהוא
-רשאי לעשות על פי היתר של רשות כאמור;
+(9) פרסום שהמפרסם חייב לעשות על פי דין או על פי הוראה של רשות המוסמכת לכך כדין או שהוא רשאי לעשות על פי היתר של רשות כאמור;
 
-על רקע הוראות אלה, השאלות
-המתעוררות במקרה שלפנינו הן שתיים: ראשית, האם, ככלל, פרסומה של חוות-דעת על-ידי
-נציגת התביעה, המפרטת את שיקוליה המקצועיים בדבר העמדה לדין של חשודים בפרשה
-פלילית, הוא שימוש כדין בסמכות מעין-שיפוטית. ושנית, מהו גדר תחולתה של הוראת
-החסינות המוקנית לבעל התפקיד. אדון בשאלות אלה כסדרן.
+על רקע הוראות אלה, השאלות המתעוררות במקרה שלפנינו הן שתיים: ראשית, האם, ככלל, פרסומה של חוות-דעת על-ידי נציגת התביעה, המפרטת את שיקוליה המקצועיים בדבר העמדה לדין של חשודים בפרשה פלילית, הוא שימוש כדין בסמכות מעין-שיפוטית. ושנית, מהו גדר תחולתה של הוראת החסינות המוקנית לבעל התפקיד. אדון בשאלות אלה כסדרן.
 
 סמכות ההעמדה לדין כתפקיד מעין-שיפוטי
 
-7. התשובה לשאלה אם חוות-דעתה של פרקליטת המדינה
-בדבר העמדה לדין היא הפעלה של סמכות בעלת אופי מעין-שיפוטי היא בחיוב. לרשויות
-התביעה תפקיד מרכזי וייחודי בשמירה על שלטון החוק במובנו הרחב. בהפעילן את סמכותן,
-נתון להן שיקול-דעת בבחינת מכלול הסוגיות המשפטיות העולות מן המקרה הבא לפניהן,
-כמו גם באמידת משקלן של הראיות העולות מחומר החקירה. בהחלטתן בדבר העמדה לדין
-מביאות רשויות התביעה במניין שיקוליהן הן את טובת הציבור, שעל בטחונו הן מופקדות,
-והן את טובת הפרט שטרם הורשע, תוך שהן שמות להן למטרה למנוע פגיעה בלתי-מידתית
-בזכויותיו. אכן, לטיבו של שיקול-הדעת המופעל על-ידי התביעה, עשויה להיות השלכה
-מכרעת הן על בטחונה של החברה ועל חוסנה הפנימי, והן על גורלו האישי של היחיד.
+7. התשובה לשאלה אם חוות-דעתה של פרקליטת המדינה בדבר העמדה לדין היא הפעלה של סמכות בעלת אופי מעין-שיפוטי היא בחיוב. לרשויות התביעה תפקיד מרכזי וייחודי בשמירה על שלטון החוק במובנו הרחב. בהפעילן את סמכותן, נתון להן שיקול-דעת בבחינת מכלול הסוגיות המשפטיות העולות מן המקרה הבא לפניהן, כמו גם באמידת משקלן של הראיות העולות מחומר החקירה. בהחלטתן בדבר העמדה לדין מביאות רשויות התביעה במניין שיקוליהן הן את טובת הציבור, שעל בטחונו הן מופקדות, והן את טובת הפרט שטרם הורשע, תוך שהן שמות להן למטרה למנוע פגיעה בלתי-מידתית בזכויותיו. אכן, לטיבו של שיקול-הדעת המופעל על-ידי התביעה, עשויה להיות השלכה מכרעת הן על בטחונה של החברה ועל חוסנה הפנימי, והן על גורלו האישי של היחיד.
 
 יפים לעניין זה דבריו של פרופ&#39; מרדכי קרמניצר:
 
-תפיסת
-תפקידו המעין-שיפוטי של התובע אינה נובעת רק מכך שהוא מייצג את הציבור ואת המדינה,
-אלא, כאמור, גם מן הצורך לתגבר את הכוחות שהמשימה המוטלת עליהם היא חשיפת האמת.
-לציבור אין עניין בהרשעה כשלעצמה, אלא רק בהרשעת האשם. ויותר משהרשעת האשם חשובה,
-חשוב לציבור שלא יורשע חף.
+תפיסת תפקידו המעין-שיפוטי של התובע אינה נובעת רק מכך שהוא מייצג את הציבור ואת המדינה, אלא, כאמור, גם מן הצורך לתגבר את הכוחות שהמשימה המוטלת עליהם היא חשיפת האמת. לציבור אין עניין בהרשעה כשלעצמה, אלא רק בהרשעת האשם. ויותר משהרשעת האשם חשובה, חשוב לציבור שלא יורשע חף.
 
-[מרדכי
-קרמניצר, &#34;תפקידו של התובע בהליך פלילי&#34;, פלילים ה (תשנ&#34;ז),
-173, בע&#39; 174].
+[מרדכי קרמניצר, &#34;תפקידו של התובע בהליך פלילי&#34;, פלילים ה (תשנ&#34;ז), 173, בע&#39; 174].
 
-אכן, החלטות התביעה בדבר העמדה לדין, שבצדן
-אחריות כבדה, מתקבלות על בסיס איזון בין השיקולים השונים העומדים על כף המאזניים.
-במלאכת השקילה נדרשות רשויות התביעה לאמוד באופן אובייקטיבי את מכלול העובדות,
-האינטרסים והזכויות העומדים לבחינה. לשם שימורו של שיקול-הדעת, מובטח אי-תלותן של
-רשויות התביעה, והן לא מוכפפות להנחיות מקצועיות של גורמים ממונים בסולם ההיררכיה
-המינהלי.
+אכן, החלטות התביעה בדבר העמדה לדין, שבצדן אחריות כבדה, מתקבלות על בסיס איזון בין השיקולים השונים העומדים על כף המאזניים. במלאכת השקילה נדרשות רשויות התביעה לאמוד באופן אובייקטיבי את מכלול העובדות, האינטרסים והזכויות העומדים לבחינה. לשם שימורו של שיקול-הדעת, מובטח אי-תלותן של רשויות התביעה, והן לא מוכפפות להנחיות מקצועיות של גורמים ממונים בסולם ההיררכיה המינהלי.
 
-זאת ועוד: החלטה בדבר אי העמדה לדין, שמשמעותה
-סיום ההליכים העונשיים נגד החשוד, חייבת להיות מנומקת, ועל טעמיה להימסר למתלונן
-בכתב. בהתבסס על נימוקים אלה רשאי המתלונן להגיש ערר על ההחלטה, הנדון בתוך דלת
-אמותיה של מערכת התביעה. מן העבר האחר של המתרס, בעבירות מסוג פשע זכאי החשוד
-להגיש בקשה מנומקת כי רשויות התביעה יימנעו מהעמדתו לדין. על רשויות התביעה לדון
-בבקשות כאלה באופן הוגן וחסר פניות. כל אלה הם מאפייניו של הליך בעל אופי שיפוטי.
+זאת ועוד: החלטה בדבר אי העמדה לדין, שמשמעותה סיום ההליכים העונשיים נגד החשוד, חייבת להיות מנומקת, ועל טעמיה להימסר למתלונן בכתב. בהתבסס על נימוקים אלה רשאי המתלונן להגיש ערר על ההחלטה, הנדון בתוך דלת אמותיה של מערכת התביעה. מן העבר האחר של המתרס, בעבירות מסוג פשע זכאי החשוד להגיש בקשה מנומקת כי רשויות התביעה יימנעו מהעמדתו לדין. על רשויות התביעה לדון בבקשות כאלה באופן הוגן וחסר פניות. כל אלה הם מאפייניו של הליך בעל אופי שיפוטי.
 
-היטיבה להסביר זאת ועדת המשפטנים בדבר סמכויות
-היועץ המשפטי לממשלה (ועדת אגרנט):
+היטיבה להסביר זאת ועדת המשפטנים בדבר סמכויות היועץ המשפטי לממשלה (ועדת אגרנט):
 
-תפקיד
-של היועץ המשפטי משמעותו שעליו &#34;לפסוק&#34; בין הציבור לבין הפרט; להכריע
-בין אינטרס ציבורי אחד למשנהו. במקרה כזה החלטתו הסופית להגיש – או לא להגיש – את כתב האישום נושאת אמנם אופי
-&#34;מינהלי&#34;, אך הוא מצווה להגיע אליה בדרך &#34;שיפוטית&#34;.
+תפקיד של היועץ המשפטי משמעותו שעליו &#34;לפסוק&#34; בין הציבור לבין הפרט; להכריע בין אינטרס ציבורי אחד למשנהו. במקרה כזה החלטתו הסופית להגיש – או לא להגיש – את כתב האישום נושאת אמנם אופי &#34;מינהלי&#34;, אך הוא מצווה להגיע אליה בדרך &#34;שיפוטית&#34;.
 
-[דו&#34;ח ועדת המשפטנים
-בדבר סמכויות של היועץ המשפטי לממשלה (1962), 6].
+[דו&#34;ח ועדת המשפטנים בדבר סמכויות של היועץ המשפטי לממשלה (1962), 6].
 
-לעניין זה ראו גם: בג&#34;ץ 156/56 שור נ&#39;
-היועץ המשפטי לממשלה, פ&#34;ד יא(1) 285; בג&#34;ץ 935/89 גנור נ&#39; היועץ
-המשפטי לממשלה, פ&#34;ד מד(2), 485; ובדין האנגלי: John
-Ll. J. Edwards, The Attorney General, Politics and the Public Interest
-(1984), 111.
+לעניין זה ראו גם: בג&#34;ץ 156/56 שור נ&#39; היועץ המשפטי לממשלה, פ&#34;ד יא(1) 285; בג&#34;ץ 935/89 גנור נ&#39; היועץ המשפטי לממשלה, פ&#34;ד מד(2), 485; ובדין האנגלי: John Ll. J. Edwards, The Attorney General, Politics and the Public Interest (1984), 111.
 
-אכן, סממנים אלה של ההחלטה בדבר העמדה לדין של
-חשוד מעידים על אופייה השיפוטי של מלאכת התביעה.
+אכן, סממנים אלה של ההחלטה בדבר העמדה לדין של חשוד מעידים על אופייה השיפוטי של מלאכת התביעה.
 
-החסינות מפני תביעות לשון הרע בקשר להפעלת סמכות
-מעין-שיפוטית
+החסינות מפני תביעות לשון הרע בקשר להפעלת סמכות מעין-שיפוטית
 
-8. שאלת תחולתן של הוראות, החסינות מפני תביעות
-לשון הרע בקשר להפעלת סמכות מעין-שיפוטית, צריכה להיבחן על רקע תכליתן של הוראות
-אלה. מטרתה של החסינות המוקנית לבעלי סמכות מעין-שיפוטית היא להבטיח, כי יוכלו
-לבצע את תפקידם ללא מורא, ומבלי להעמידם אל מול הצורך להתגונן באופן אישי מפני
-תביעות בלשון הרע. ההנחה העומדת בבסיסו של ההסדר היא, כי כתיבתה של חוות-דעת
-מקצועית בצלה של תביעה פוטנציאלית בלשון הרע עלולה לפגוע באופייה האובייקטיבי
-ונטול-הפניות של חוות-הדעת, ולשבש את מהלכו התקין של ההליך המעין-שיפוטי.
+8. שאלת תחולתן של הוראות, החסינות מפני תביעות לשון הרע בקשר להפעלת סמכות מעין-שיפוטית, צריכה להיבחן על רקע תכליתן של הוראות אלה. מטרתה של החסינות המוקנית לבעלי סמכות מעין-שיפוטית היא להבטיח, כי יוכלו לבצע את תפקידם ללא מורא, ומבלי להעמידם אל מול הצורך להתגונן באופן אישי מפני תביעות בלשון הרע. ההנחה העומדת בבסיסו של ההסדר היא, כי כתיבתה של חוות-דעת מקצועית בצלה של תביעה פוטנציאלית בלשון הרע עלולה לפגוע באופייה האובייקטיבי ונטול-הפניות של חוות-הדעת, ולשבש את מהלכו התקין של ההליך המעין-שיפוטי.
 
-אכן, הוראת חסינות זו נדרשת הן כדי לשמור על
-הגינותו של ההליך המעין-שיפוטי, והן על-מנת להבטיח את יעילותו. הגינותו של הליך
-מעין-שיפוטי נשענת על כך, שבעל הסמכות נעדר עניין אישי בתוצאותיו ואיננו נרתע
-מהכרעה על-פי מיטב הכרתו. שעה שבעל הסמכות מחווה את דעתו המקצועית, אין שיקול-דעתו
-נפגם כתוצאה מן ההשלכות האפשריות שעשויות להיות להחלטתו על הליך עתידי, שבו הוא
-עצמו צפוי להיות בעל-דין. יעילותו של ההליך המעין-שיפוטי נשענת על כך, שלבעל
-הסמכות נתונה האפשרות להקדיש את עצמו באופן רצוף למילוי תפקידו, מבלי שיידרש
-להתגונן באופן תדיר מפני תביעות המוגשות נגדו בגין החלטות מקצועיות המתקבלות
-על-ידו. בעניין זה ראו והשוו אורי שנהר, דיני לשון הרע (תשנ&#34;ז),
-203-197.
+אכן, הוראת חסינות זו נדרשת הן כדי לשמור על הגינותו של ההליך המעין-שיפוטי, והן על-מנת להבטיח את יעילותו. הגינותו של הליך מעין-שיפוטי נשענת על כך, שבעל הסמכות נעדר עניין אישי בתוצאותיו ואיננו נרתע מהכרעה על-פי מיטב הכרתו. שעה שבעל הסמכות מחווה את דעתו המקצועית, אין שיקול-דעתו נפגם כתוצאה מן ההשלכות האפשריות שעשויות להיות להחלטתו על הליך עתידי, שבו הוא עצמו צפוי להיות בעל-דין. יעילותו של ההליך המעין-שיפוטי נשענת על כך, שלבעל הסמכות נתונה האפשרות להקדיש את עצמו באופן רצוף למילוי תפקידו, מבלי שיידרש להתגונן באופן תדיר מפני תביעות המוגשות נגדו בגין החלטות מקצועיות המתקבלות על-ידו. בעניין זה ראו והשוו אורי שנהר, דיני לשון הרע (תשנ&#34;ז), 203-197.
 
-9. על תכליות אלה עמד, בין היתר, בית-המשפט
-העליון בארצות-הברית מפי השופט הארלן:
+9. על תכליות אלה עמד, בין היתר, בית-המשפט העליון בארצות-הברית מפי השופט הארלן:
 
-The reasons for
-the recognition of the privilege have been often stated. It has been thought
-important that officials of government should be free to exercise their duties
-unembarrassed by the fear of damage suits in respect of acts done in the course
-of those duties - suits which would consume time and energies which would
-otherwise be devoted to governmental service and the threat of which might
-appreciably inhibit the fearless, vigorous, and effective administration of
-policies of government.
+The reasons for the recognition of the privilege have been often stated. It has been thought important that officials of government should be free to exercise their duties unembarrassed by the fear of damage suits in respect of acts done in the course of those duties - suits which would consume time and energies which would otherwise be devoted to governmental service and the threat of which might appreciably inhibit the fearless, vigorous, and effective administration of policies of government.
 
-[Barr
-v. Matteo, 360 U.S. 564, 571 (1959)].
+[Barr v. Matteo, 360 U.S. 564, 571 (1959)].
 
-אף במשפט האנגלי, שעליו מבוסס ההסדר הסטטוטורי
-בישראל, מוקנית חסינות מוחלטת מפני תביעות בלשון הרע לכל אדם הנוטל חלק בהליך
-משפטי:
+אף במשפט האנגלי, שעליו מבוסס ההסדר הסטטוטורי בישראל, מוקנית חסינות מוחלטת מפני תביעות בלשון הרע לכל אדם הנוטל חלק בהליך משפטי:
 
-The authorities
-establish beyond all question this: that neither party, witness, counsel, jury
-nor judge, can be put to answer civilly or criminally for words spoken in
-office; that no action for libel or slander lies whether against judges,
-counsel, witnesses, or parties, for words written or spoken in the course of
-any proceeding before any Court recognized by law, and this though the words
-written or spoken were written or spoken maliciously, without any justification
-or excuse, and from personal ill-will and anger against the person defamed.
+The authorities establish beyond all question this: that neither party, witness, counsel, jury nor judge, can be put to answer civilly or criminally for words spoken in office; that no action for libel or slander lies whether against judges, counsel, witnesses, or parties, for words written or spoken in the course of any proceeding before any Court recognized by law, and this though the words written or spoken were written or spoken maliciously, without any justification or excuse, and from personal ill-will and anger against the person defamed.
 
-[Royal
-Aquarium v. Parkinson, [1892] 1 Q.B 431, 451]
+[Royal Aquarium v. Parkinson, [1892] 1 Q.B 431, 451]
 
-10. ודוקו: משרה מעין-שיפוטית איננה מקנה לבעליה
-הכשר מוסרי או משפטי לפרסם דברים, שיש בהם משום לשון הרע. פרסום שכזה איננו נמנה
-עם הסמכויות הנגזרות מן המשרה המעין-שיפוטית, ואין במילוי תפקיד מעין-שיפוטי
-כשלעצמו כדי להפכו לראוי. אכן, משמעה של חסינות היא, כי על אף שמעשה עלול להיות בלתי
-ראוי ובלתי חוקי, בנסיבות מסוימות מיצוי הדין עם האחראים לו איננו מתיישב עם טובת
-הכלל. הוראת החסינות מבטאת אפוא את עמדת המחוקק, ולפיה אינטרס הציבור בשמירה על
-הגינותו של ההליך המעין-שיפוטי ועל יעילותו גובר על אינטרס הפרט להגנה מפני פגיעה
-בשמו הטוב. מדיניות זו הנה תולדה של איזון, הרואה בצמצום ההגנה על שמו הטוב של
-הפרט משום רע הכרחי שיש להסכין עמו, ושהצדקתו נובעת מן השאיפה להגן על טוהרו של
-ההליך המעין- שיפוטי ולאפשר את התנהלותו באורח סביר.
+10. ודוקו: משרה מעין-שיפוטית איננה מקנה לבעליה הכשר מוסרי או משפטי לפרסם דברים, שיש בהם משום לשון הרע. פרסום שכזה איננו נמנה עם הסמכויות הנגזרות מן המשרה המעין-שיפוטית, ואין במילוי תפקיד מעין-שיפוטי כשלעצמו כדי להפכו לראוי. אכן, משמעה של חסינות היא, כי על אף שמעשה עלול להיות בלתי ראוי ובלתי חוקי, בנסיבות מסוימות מיצוי הדין עם האחראים לו איננו מתיישב עם טובת הכלל. הוראת החסינות מבטאת אפוא את עמדת המחוקק, ולפיה אינטרס הציבור בשמירה על הגינותו של ההליך המעין-שיפוטי ועל יעילותו גובר על אינטרס הפרט להגנה מפני פגיעה בשמו הטוב. מדיניות זו הנה תולדה של איזון, הרואה בצמצום ההגנה על שמו הטוב של הפרט משום רע הכרחי שיש להסכין עמו, ושהצדקתו נובעת מן השאיפה להגן על טוהרו של ההליך המעין- שיפוטי ולאפשר את התנהלותו באורח סביר.
 
 יפים בהקשר זה דברי השופט לרנד הנד:
 
-It does indeed
-go without saying that an official, who is in fact guilty of using his powers
-to vent his spleen upon others, or for any other personal motive not connected
-with the public good, should not escape liability for the injuries he may so
-cause; and, if it were possible in practice to confine such complaints to the
-guilty, it would be monstrous to deny recovery. The justification for doing so
-is that it is impossible to know whether the claim is well founded until the
-case has been tried, and that to submit all officials, the innocent as well as
-the guilty, to the burden of a trial and to the inevitable danger of its
-outcome, would dampen the ardor of all but the most resolute, or the most
-irresponsible, in the unflinching discharge of their duties. Again and again
-the public interest calls for action which may turn out to be founded on a
-mistake, in the face of which an official may later find himself hard put to it
-to satisfy a jury of his good faith. ... As is so often the case, the answer
-must be found in a balance between the evils inevitable in either alternative.
-In this instance it has been thought in the end better to leave unredressed the
-wrongs done by dishonest officers than to subject those who try to do their
-duty to the constant dread of retaliation.
+It does indeed go without saying that an official, who is in fact guilty of using his powers to vent his spleen upon others, or for any other personal motive not connected with the public good, should not escape liability for the injuries he may so cause; and, if it were possible in practice to confine such complaints to the guilty, it would be monstrous to deny recovery. The justification for doing so is that it is impossible to know whether the claim is well founded until the case has been tried, and that to submit all officials, the innocent as well as the guilty, to the burden of a trial and to the inevitable danger of its outcome, would dampen the ardor of all but the most resolute, or the most irresponsible, in the unflinching discharge of their duties. Again and again the public interest calls for action which may turn out to be founded on a mistake, in the face of which an official may later find himself hard put to it to satisfy a jury of his good faith. ... As is so often the case, the answer must be found in a balance between the evils inevitable in either alternative. In this instance it has been thought in the end better to leave unredressed the wrongs done by dishonest officers than to subject those who try to do their duty to the constant dread of retaliation.
 
-[Gregoire
-v. Biddle, 177 F. 2d 579, 581 (2d. Cir. 1949)].
+[Gregoire v. Biddle, 177 F. 2d 579, 581 (2d. Cir. 1949)].
 
-11. החסינות המוקנית לנושא משרה מעין-שיפוטית עומדת
-לו כאשר מתבטא הוא במסגרת מילוי תפקידו. לדידי, מן הדין לפרש מסגרת זאת באופן רחב.
-יש לראותה ככוללת כל התבטאות של נושא המשרה, אשר אלמלא לשון הרע שבה, הייתה עולה בקנה
-אחד עם סמכויותיו החוקיות. לשון אחר, החסינות מוקנית לבעל התפקיד ביחס לכל התבטאות
-בעלת זיקה ממשית לתפקידו.
+11. החסינות המוקנית לנושא משרה מעין-שיפוטית עומדת לו כאשר מתבטא הוא במסגרת מילוי תפקידו. לדידי, מן הדין לפרש מסגרת זאת באופן רחב. יש לראותה ככוללת כל התבטאות של נושא המשרה, אשר אלמלא לשון הרע שבה, הייתה עולה בקנה אחד עם סמכויותיו החוקיות. לשון אחר, החסינות מוקנית לבעל התפקיד ביחס לכל התבטאות בעלת זיקה ממשית לתפקידו.
 
-לעניין זה אין נפקות לשאלה מהו המניע של נושא
-המשרה בהוצאת לשון הרע או אם לשון הרע נאמרה ברשלנות או במזיד. השוו שנהר, שם
-בע&#39; 205-191. שכן, בדיקת המניע, הרשלנות או הכוונה תחייב קיום הליך משפטי ודיון
-לגופם של דברים, ובקיום ההליך, כשלעצמו, יש השפעה מרתיעה על בעל התפקיד.
+לעניין זה אין נפקות לשאלה מהו המניע של נושא המשרה בהוצאת לשון הרע או אם לשון הרע נאמרה ברשלנות או במזיד. השוו שנהר, שם בע&#39; 205-191. שכן, בדיקת המניע, הרשלנות או הכוונה תחייב קיום הליך משפטי ודיון לגופם של דברים, ובקיום ההליך, כשלעצמו, יש השפעה מרתיעה על בעל התפקיד.
 
-לעומת זאת, כאשר מפרסם בעל התפקיד התבטאות,
-שאף אלמלא לשון הרע הנטען לגביה, לא ניתן לפרשה באורח סביר כפעולת לוואי הכרוכה
-במילוי תפקידו, הרי שהחסינות איננה חלה ביחס אליה. מסקנה זו נגזרת מן העובדה
-שתכליתה של הוראת החסינות היא להבטיח את תקינותו של ההליך המעין-שיפוטי, ואין היא
-מבקשת להגן על אינטרס אישי של נושא המשרה. לפיכך, בנסיבות שבהן לא מתקיימת זיקה
-ממשית בין תוכנו של הפרסום לבין אופיו של התפקיד ומטרותיו, אין הצדקה לשלילת זכות
-התביעה של הנפגע.
+לעומת זאת, כאשר מפרסם בעל התפקיד התבטאות, שאף אלמלא לשון הרע הנטען לגביה, לא ניתן לפרשה באורח סביר כפעולת לוואי הכרוכה במילוי תפקידו, הרי שהחסינות איננה חלה ביחס אליה. מסקנה זו נגזרת מן העובדה שתכליתה של הוראת החסינות היא להבטיח את תקינותו של ההליך המעין-שיפוטי, ואין היא מבקשת להגן על אינטרס אישי של נושא המשרה. לפיכך, בנסיבות שבהן לא מתקיימת זיקה ממשית בין תוכנו של הפרסום לבין אופיו של התפקיד ומטרותיו, אין הצדקה לשלילת זכות התביעה של הנפגע.
 
 מן הכלל אל הפרט
 
-12. במקרה שלפנינו, פרקליטת-המדינה, בכשרה כממלאת
-מקומו של היועץ המשפטי לממשלה, נדרשה להכריע בשאלה אם להעמיד לדין שורה של חשודים
-בפרשה פלילית. היא ראתה לפרסם החלטה מנומקת, המסבירה את טיב הראיות שעמדו לפניה
-נגד החשודים בפרשה ואת הטעמים להחלטותיה בדבר העמדה לדין. פרסום חוות-דעת מעין זו
-מצוי בזיקה מובהקת לתפקידה של פרקליטת-המדינה, ומשכך, חוסה הוא תחת הוראת החסינות
-הקבועה בחוק. טעם זה כשלעצמו מצדיק את קבלת טענות המשיבה ואת דחיית הערעור.
+12. במקרה שלפנינו, פרקליטת-המדינה, בכשרה כממלאת מקומו של היועץ המשפטי לממשלה, נדרשה להכריע בשאלה אם להעמיד לדין שורה של חשודים בפרשה פלילית. היא ראתה לפרסם החלטה מנומקת, המסבירה את טיב הראיות שעמדו לפניה נגד החשודים בפרשה ואת הטעמים להחלטותיה בדבר העמדה לדין. פרסום חוות-דעת מעין זו מצוי בזיקה מובהקת לתפקידה של פרקליטת-המדינה, ומשכך, חוסה הוא תחת הוראת החסינות הקבועה בחוק. טעם זה כשלעצמו מצדיק את קבלת טענות המשיבה ואת דחיית הערעור.
 
-13. מעבר לדרוש אוסיף, כי חוקיות הפרסום של
-חוות-הדעת המנומקת בפרשה זו, חרף העובדה שנגד חלק מן המעורבים בה הוחלט שלא להגיש
-כתב-אישום, נקבעה כבר פוזיטיבית על-ידי בית-משפט זה, בגדרה של העתירה שנדונה ביום
-פרסומה. וכך קבע בית-המשפט:
+13. מעבר לדרוש אוסיף, כי חוקיות הפרסום של חוות-הדעת המנומקת בפרשה זו, חרף העובדה שנגד חלק מן המעורבים בה הוחלט שלא להגיש כתב-אישום, נקבעה כבר פוזיטיבית על-ידי בית-משפט זה, בגדרה של העתירה שנדונה ביום פרסומה. וכך קבע בית-המשפט:
 
-לגוף
-העניין, טענתו העיקרית של העותר היא, כי פרסום החלטה מנומקת מהווה פעולה בחוסר
-סמכות מצד היועץ המשפטי לממשלה, שכן סמכותו של היועץ המשפטי, על פי הטענה, היא
-להגיש כתבי אישום או להחליט על אי הגשתם. טענה זו אין לה על מה שתסמוך. רשות
-מינהלית שמוקנית לה סמכות על פי דין רשאית ואף חייבת לנמק את החלטתה. ככלל, מחייב
-חוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב1982- בסעיף 63, ליתן טעם להחלטה
-שלא להעמיד לדין ולהודיעה למתלונן. פשיטא, כי הודעה כזו תימסר למתלונן כאשר החקירה
-נפתחה בעקבות תלונה של מאן דהוא. אולם אין בכך כדי ליתר את הצורך בהנמקת ההחלטה
-לסגירת תיק גם כאשר חקירה נפתחה בעקבות ידיעה שהגיעה למשטרה על ביצוע עבירה
-&#34;בכל דרך אחרת&#34; (סעיף 59 לחוק סדר הדין הפלילי [נוסח משולב],
-התשמ&#34;ב1982-). מידת הפירוט של ההחלטה על נימוקיה תיקבע על-ידי המשיבים בכל
-מקרה בהתאם לעניין שבפניהם.
+לגוף העניין, טענתו העיקרית של העותר היא, כי פרסום החלטה מנומקת מהווה פעולה בחוסר סמכות מצד היועץ המשפטי לממשלה, שכן סמכותו של היועץ המשפטי, על פי הטענה, היא להגיש כתבי אישום או להחליט על אי הגשתם. טענה זו אין לה על מה שתסמוך. רשות מינהלית שמוקנית לה סמכות על פי דין רשאית ואף חייבת לנמק את החלטתה. ככלל, מחייב חוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב1982- בסעיף 63, ליתן טעם להחלטה שלא להעמיד לדין ולהודיעה למתלונן. פשיטא, כי הודעה כזו תימסר למתלונן כאשר החקירה נפתחה בעקבות תלונה של מאן דהוא. אולם אין בכך כדי ליתר את הצורך בהנמקת ההחלטה לסגירת תיק גם כאשר חקירה נפתחה בעקבות ידיעה שהגיעה למשטרה על ביצוע עבירה &#34;בכל דרך אחרת&#34; (סעיף 59 לחוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב1982-). מידת הפירוט של ההחלטה על נימוקיה תיקבע על-ידי המשיבים בכל מקרה בהתאם לעניין שבפניהם.
 
-[בג&#34;ץ
-2523/97 ימיני נ&#39; היועץ המשפטי לממשלה (לא פורסם; ניתן בתאריך 20.4.97)].
+[בג&#34;ץ 2523/97 ימיני נ&#39; היועץ המשפטי לממשלה (לא פורסם; ניתן בתאריך 20.4.97)].
 
-בנסיבות אלה קמה לפרקליטת-המדינה חסינות מפני
-תביעה בלשון הרע. משכך, בדין נהג בית-המשפט המחוזי שעה שמחק את התביעה על הסף.
+בנסיבות אלה קמה לפרקליטת-המדינה חסינות מפני תביעה בלשון הרע. משכך, בדין נהג בית-המשפט המחוזי שעה שמחק את התביעה על הסף.
 
-אשר-על-כן אני מציעה לדחות את הערעור. בנסיבות
-המקרה לא ייעשה צו להוצאות.
+אשר-על-כן אני מציעה לדחות את הערעור. בנסיבות המקרה לא ייעשה צו להוצאות.
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
 השופט י&#39; אנגלרד:
 
 אני מסכים.
 
-ש
-ו פ ט
+ש ו פ ט
 
 השופט א&#39; ריבלין:
 
 אני מסכים.
 
-ש
-ו פ ט
+ש ו פ ט
 
 הוחלט כאמור בפסק-דינה של השופטת דורנר.
 
-ניתן היום, כ&#34;א בתמוז תשס&#34;ב
-(1.7.02).
+ניתן היום, כ&#34;א בתמוז תשס&#34;ב (1.7.02).
 
-ש ו פ ט ת ש
-ו פ ט ש ו פ ט
+ש ו פ ט ת ש ו פ ט ש ו פ ט
 
 _________________
 
-העתק
-מתאים למקור 99063560.L03
+העתק מתאים למקור 99063560.L03
 
-נוסח
-זה כפוף לשינויי עריכה וניסוח.
+נוסח זה כפוף לשינויי עריכה וניסוח.
 
 רשם
 
-בבית
-המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
+בבית המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
 
-בית
-המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
+בית המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
 
-לבתי
-המשפט אתר באינטרנט: www.court.gov.il
+לבתי המשפט אתר באינטרנט: www.court.gov.il
         </div>
     </section>
     
@@ -1968,7 +2022,7 @@ _________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

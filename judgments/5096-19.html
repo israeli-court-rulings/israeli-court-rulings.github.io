@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    07/08/2019 (לפני 2463 ימים)
+                    07/08/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5096-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5096/19 - אביב טלמור נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5096-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/960/050/v01&amp;fileName=19050960.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/960/050/v01&amp;fileName=19050960.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/960/050/v01&amp;fileName=19050960.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/960/050/v01&amp;fileName=19050960.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,135 +1827,57 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון
 
+ע&#34;פ 5096/19
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-ע&#34;פ  5096/19
-
-
-
-לפני:	
+לפני:
 
 כבוד הנשיאה א&#39; חיות
-
-
 
 המערער:
 
 אביב טלמור
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-
-
-ערעור על החלטת בית המשפט המחוזי בתל אביב-יפו מיום 21.7.2019 בת&#34;פ 60588-12-18 שניתנה על ידי כבוד השופט ח&#39; כבוב 
-
-
+ערעור על החלטת בית המשפט המחוזי בתל אביב-יפו מיום 21.7.2019 בת&#34;פ 60588-12-18 שניתנה על ידי כבוד השופט ח&#39; כבוב
 
 בשם המערער:	עו&#34;ד איריס שמואלי; עו&#34;ד משה שמיר
 
-
-
-	
-
 פסק-דין
 
-
-
-	ערעור על החלטת בית המשפט המחוזי בתל אביב-יפו (השופט ח&#39; כבוב) בת&#34;פ 60588-12-18 מיום 21.7.2019 שלא לפסול עצמו מלדון בעניינו של המערער.
-
-
+ערעור על החלטת בית המשפט המחוזי בתל אביב-יפו (השופט ח&#39; כבוב) בת&#34;פ 60588-12-18 מיום 21.7.2019 שלא לפסול עצמו מלדון בעניינו של המערער.
 
 נגד המערער הוגש כתב אישום המייחס לו, עם אחרים, עבירות של גניבה בידי מורשה, קבלת דבר במרמה בנסיבות מחמירות, עשיית פעולה ברכוש אסור, ניהול תיקי השקעות ללא רישיון, שיבוש מהלכי משפט ואי קיום דרישה בהתאם לחוק ניירות ערך, התשכ&#34;ח-1968. הרקע לביצוע עבירות אלה הוא פעילותה של הנאשמת 4 בכתב האישום, חברה אשר המערער שימש כבעלים וכמנהל שלה, אשר עסקה בתחום המסחר האלגוריתמי (להלן: החברה).
 
+כתב האישום הוגש בחודש דצמבר 2018 וביום 31.1.2019 התקיים דיון הקראה בהליך ונקבע דיון למתן מענה לכתב האישום על ידי הנאשמים. ביום 11.7.2019 הגיש המערער בקשה לפסילת המותב, וזאת לאור העובדה שבמהלך מעבר על חומרי החקירה התברר לו כי מספר שנים קודם לכן דן המותב בבקשה שהגישה הרשות לניירות ערך (להלן: הרשות) נגד החברה למתן צו המונע מהחברה לבצע פעילות של גיוס משקיעים או לקוחות וכן לקבל כספים לצורך ביצוע פעולות השקעה או ניהול כספים (ת&#34;א 43133-12-15; להלן: ההליך האזרחי). לשיטת המערער, העניין שנדון בהליך האזרחי הוא אותו עניין שנדון בכתב האישום, ובמסגרת הדיון בו הוצגו בפני המותב, במעמד צד אחד, מסמכים שונים מחומר החקירה. בעקבות כך קבע המותב כי החברה מנהלת תיקים ללא רישיון תוך גיוס מאות משקיעים, וכי לא עמדה בהתחייבותה בפני הרשות לחדול מפעילות של ניהול תיקים ללא רישיון. משקביעות אלה עומדות בלב כתב האישום, נטען כי מתקיימות נסיבות המצדיקות את פסילת המותב, שכן קם חשש כי בית המשפט גיבש דעה מוקדמת על סמך חומר הראיות שהוצג בפניו ויתכן שחומר זה יימצא בלתי קביל ולא ניתן יהיה לעשות בו שימוש בהליך הפלילי. בתגובתה לבקשה, ציינה המשיבה כי לשיטתה העובדה שהמותב דן בעבר בהליך האזרחי אינה פוסלת אותו מלדון בהליך מושא הערעור, שכן אין בהחלטות שניתנו בו כדי להצביע על עמדה סופית של בית המשפט או על גיבוש דעה מוקדמת ביחס לנאשמים או ביחס לתיק. זאת במיוחד הואיל ומדובר בהליך אזרחי למתן צו מניעה, שהקביעות בו הן לכאוריות בלבד. עוד צוין כי צו המניעה הקבוע שניתן בסוף ההליך ניתן בהסכמת המפרק שמונה לחברה, ומבלי שהתקיים דיון נוסף במעמד הצדדים. לבסוף, צוין כי החומרים שהוצגו בפני בית המשפט בהליך האזרחי כללו מספר מצומצם של מסמכים, אשר הועברו לידי באי-כוח המערער עם חומר החקירה בתיק והם אינם מעוררים סוגיות מיוחדות של קבילות או חיסיון וממילא אין בהם לעלות כדי חשיפת בית המשפט ל&#34;מסה קריטית&#34; של מידע בלתי קביל אשר יצדיק את פסילת המותב.
 
-
-	כתב האישום הוגש בחודש דצמבר 2018 וביום 31.1.2019 התקיים דיון הקראה בהליך ונקבע דיון למתן מענה לכתב האישום על ידי הנאשמים. ביום 11.7.2019 הגיש המערער בקשה לפסילת המותב, וזאת לאור העובדה שבמהלך מעבר על חומרי החקירה התברר לו כי מספר שנים קודם לכן דן המותב בבקשה שהגישה הרשות לניירות ערך (להלן: הרשות) נגד החברה למתן צו המונע מהחברה לבצע פעילות של גיוס משקיעים או לקוחות וכן לקבל כספים לצורך ביצוע פעולות השקעה או ניהול כספים (ת&#34;א 43133-12-15; להלן: ההליך האזרחי). לשיטת המערער, העניין שנדון בהליך האזרחי הוא אותו עניין שנדון בכתב האישום, ובמסגרת הדיון בו הוצגו בפני המותב, במעמד צד אחד, מסמכים שונים מחומר החקירה. בעקבות כך קבע המותב כי החברה מנהלת תיקים ללא רישיון תוך גיוס מאות משקיעים, וכי לא עמדה בהתחייבותה בפני הרשות לחדול מפעילות של ניהול תיקים ללא רישיון. משקביעות אלה עומדות בלב כתב האישום, נטען כי מתקיימות נסיבות המצדיקות את פסילת המותב, שכן קם חשש כי בית המשפט גיבש דעה מוקדמת על סמך חומר הראיות שהוצג בפניו ויתכן שחומר זה יימצא בלתי קביל ולא ניתן יהיה לעשות בו שימוש בהליך הפלילי. בתגובתה לבקשה, ציינה המשיבה כי לשיטתה העובדה שהמותב דן בעבר בהליך האזרחי אינה פוסלת אותו מלדון בהליך מושא הערעור, שכן אין בהחלטות שניתנו בו כדי להצביע על עמדה סופית של בית המשפט או על גיבוש דעה מוקדמת ביחס לנאשמים או ביחס לתיק. זאת במיוחד הואיל ומדובר בהליך אזרחי למתן צו מניעה, שהקביעות בו הן לכאוריות בלבד. עוד צוין כי צו המניעה הקבוע שניתן בסוף ההליך ניתן בהסכמת המפרק שמונה לחברה, ומבלי שהתקיים דיון נוסף במעמד הצדדים. לבסוף, צוין כי החומרים שהוצגו בפני בית המשפט בהליך האזרחי כללו מספר מצומצם של מסמכים, אשר הועברו לידי באי-כוח המערער עם חומר החקירה בתיק והם אינם מעוררים סוגיות מיוחדות של קבילות או חיסיון וממילא אין בהם לעלות כדי חשיפת בית המשפט ל&#34;מסה קריטית&#34; של מידע בלתי קביל אשר יצדיק את פסילת המותב.
-
-
-
-	ביום 21.7.2019, לאחר שמיעת טענות המערער, נדחתה בקשת הפסלות. המותב ציין כי ההליך האזרחי אינו זכור לו, וכי הוא עסק בבקשה למתן סעדים זמניים במעמד צד אחד אשר במסגרתה צורפו מספר מסמכים. נקבע כי בניגוד לטענת המערער, בהחלטה למתן צו מניעה זמני נקבעו קביעות לכאוריות אשר נסמכו על תצהיר שהוגש מטעם הרשות, וכי אין מדובר בקביעה &#34;שנסמכת על מהימנות שבית המשפט מייחס לטענה זו או אחרת או לעד זה או אחר, אלא לטענה שמועלית על ידי הרשות הא ותו לא&#34;. בית המשפט קמא הוסיף וציין כי נוסח ההחלטה מעיד על כך שלא גיבש עמדה כלשהי במסגרת הבקשה, וכי אין ממש בטענה לפיה נחשף ל&#34;מסה קריטית&#34; של חומרים, שכן אל הבקשה צורפו שמונה מסמכים מתוך חומר חקירה שכולל עשרות ארגזים. לבסוף, ציין המותב כי אין מקום להשוואה בין המקרה דנן למקרה אשר נדון בע&#34;פ 732/19 גרנובסקי נ&#39; מדינת ישראל (13.2.2019) (להלן: עניין גרנובסקי), אליו הפנה המערער ואשר בו ההליך בעניינו של נאשם הועבר לדיון בפני מותב אחר לאור העובדה שהמותב דן בהארכת מעצרו בטרם הגשת כתב האישום ונחשף לראיות בעניינו. 
-
-
+ביום 21.7.2019, לאחר שמיעת טענות המערער, נדחתה בקשת הפסלות. המותב ציין כי ההליך האזרחי אינו זכור לו, וכי הוא עסק בבקשה למתן סעדים זמניים במעמד צד אחד אשר במסגרתה צורפו מספר מסמכים. נקבע כי בניגוד לטענת המערער, בהחלטה למתן צו מניעה זמני נקבעו קביעות לכאוריות אשר נסמכו על תצהיר שהוגש מטעם הרשות, וכי אין מדובר בקביעה &#34;שנסמכת על מהימנות שבית המשפט מייחס לטענה זו או אחרת או לעד זה או אחר, אלא לטענה שמועלית על ידי הרשות הא ותו לא&#34;. בית המשפט קמא הוסיף וציין כי נוסח ההחלטה מעיד על כך שלא גיבש עמדה כלשהי במסגרת הבקשה, וכי אין ממש בטענה לפיה נחשף ל&#34;מסה קריטית&#34; של חומרים, שכן אל הבקשה צורפו שמונה מסמכים מתוך חומר חקירה שכולל עשרות ארגזים. לבסוף, ציין המותב כי אין מקום להשוואה בין המקרה דנן למקרה אשר נדון בע&#34;פ 732/19 גרנובסקי נ&#39; מדינת ישראל (13.2.2019) (להלן: עניין גרנובסקי), אליו הפנה המערער ואשר בו ההליך בעניינו של נאשם הועבר לדיון בפני מותב אחר לאור העובדה שהמותב דן בהארכת מעצרו בטרם הגשת כתב האישום ונחשף לראיות בעניינו.
 
 מכאן הערעור, בו חוזר המערער על הטענות שהועלו בבקשת הפסילה. המערער סבור כי בית המשפט קמא התייחס לבקשה ככזו שמבוססת על מראית פני הצדק בלבד, ולא על קיומו של חשש ממשי למשוא פנים, אך לגישתו קיים במקרה דנן חשש כזה. לשיטתו, החלטת המותב בבקשה לצו מניעה זמני במסגרת ההליך האזרחי אימצה את טענת הרשות שם, לפיה לפעילות החברה נדרש רישיון לניהול תיקים, טענה המוכחשת על ידי המערער בהליך דנן. נטען כי החלטת המותב בהליך האזרחי הובילה לעצירה כללית של עיסוק החברה, והייתה לה השפעה והשלכה מכרעת על המשך פעילותה ועל המשך פעילותו של המערער באמצעותה. לעובדות אלה, כך נטען, יש משמעות ומשקל בהגנת המערער ובנסיבות אלה הוא סבור כי קם חשש ממשי למשוא פנים אשר מצדיק את פסילת המותב. עוד חוזר המערער על טענתו לפיה במסגרת ההליך האזרחי נחשף המותב ל&#34;ערב עצום ורב של עובדות ונתונים, מצבור נרחב של מסמכים, מצגים ונתונים, אשר גולמו אל תוך עובדות הבקשה שהובאה בפניו&#34; וכי הדבר עולה כדי היחשפות ל&#34;מסה קריטית&#34; של מידע בלתי קביל ומצדיק אף הוא את פסילתו.
 
+דין הערעור להידחות. כידוע, המבחן לפסלות שופט הוא קיומן של נסיבות אשר יש בהן כדי ליצור חשש ממשי למשוא פנים. נקודת המוצא לדיון בענייננו היא כי העובדה ששופט דן בתיק אחר בעניינו של הנאשם היא כשלעצמה אינה מקימה עילה לפסילת המותב (ראו: ע&#34;פ 8091/17 ארביב נ&#39; הוועדה המקומית לתכנון ובניה אשדוד, פסקה 7 (23.10.2017)) וחזקה על בית המשפט כי ידון וישפוט במקרה שלפניו באופן מקצועי וללא משוא פנים. עם זאת, יתכנו מקרים חריגים שבהם הנסיבות הפרטניות של העניין יצדיקו פסילת השופט והעברת ההליך לדיון בפני מותב אחר. בענייננו, השאלה היא האם נוכח העובדה שהמותב דן לפני מספר שנים בהליך האזרחי שתואר יש הצדקה לפסילתו.
 
+אינני סבורה כך. בית המשפט קמא ציין כי מהחלטותיו בהליך האזרחי לא עולה כלל ועיקר שדעתו &#34;ננעלה&#34;. בהחלטתו מיום 21.12.2015 קיבל המותב את בקשת הרשות למתן צו מניעה זמני בקובעו כי &#34;יש לכאורה ממש בטענות&#34; שהעלתה הרשות בעניינה של החברה. ברי כי קביעה זו אינה מעידה על &#34;נעילת דעתו&#34; של בית המשפט בהליך הפלילי ובמיוחד בהינתן העובדה כי מדובר בהליכים שונים במהותם, אשר רף ההוכחה הנדרש בכל אחד מהם שונה בתכלית. אף בהחלטתו המאוחרת יותר למתן צו מניעה קבוע אין כדי להוביל למסקנה שאותה ביקש המערער להסיק, שכן מדובר בהחלטה שניתנה בהסכמת המפרק שמונה לחברה, ומבלי שיתקיים דיון לגופה של הבקשה.
 
-דין הערעור להידחות. כידוע, המבחן לפסלות שופט הוא קיומן של נסיבות אשר יש בהן כדי ליצור חשש ממשי למשוא פנים. נקודת המוצא לדיון בענייננו היא כי  העובדה ששופט דן בתיק אחר בעניינו של הנאשם היא כשלעצמה אינה מקימה עילה לפסילת המותב (ראו: ע&#34;פ 8091/17 ארביב נ&#39; הוועדה המקומית לתכנון ובניה אשדוד, פסקה 7 (23.10.2017)) וחזקה על בית המשפט כי ידון וישפוט במקרה שלפניו באופן מקצועי וללא משוא פנים. עם זאת, יתכנו מקרים חריגים שבהם הנסיבות הפרטניות של העניין יצדיקו פסילת השופט והעברת ההליך לדיון בפני מותב אחר. בענייננו, השאלה היא האם נוכח העובדה שהמותב דן לפני מספר שנים בהליך האזרחי שתואר יש הצדקה לפסילתו. 
+כמו כן, אין בידי לקבל את טענת המערער לפיה המותב נחשף ל&#34;מסה קריטית&#34; של מידע בלתי קביל. כעולה מהחלטת בית המשפט קמא, אל הבקשה למתן צו מניעה זמני צורפו שמונה נספחים בלבד, בהיקף של עשרות עמודים מתוך חומר חקירה המונה עשרות ארגזים. אף אם מדובר בחומר שקבילותו מוטלת בספק (ואינני מביעה כל עמדה בסוגיה זו), ברי כי אין הוא מגיע כדי &#34;מסה קריטית&#34; אשר יש בה להצדיק את פסילתו של המותב. על כל אלה יש להוסיף כי מדובר בהליך אזרחי אשר התקיים לפני למעלה משלוש שנים וחצי, ובית המשפט קמא ציין כי כלל אינו זכור לו ואף בכך יש כדי להפיג את החשש לקיומו של משוא פנים (ע&#34;פ 6956/12 רויטמן נ&#39; מדינת ישראל, פסקה 5 (3.10.2012)).
 
+אשר על כן, הערעור נדחה.
 
+ניתן היום, ‏ו&#39; באב התשע&#34;ט (‏7.8.2019).
 
-	אינני סבורה כך. בית המשפט קמא ציין כי מהחלטותיו בהליך האזרחי לא עולה כלל ועיקר שדעתו &#34;ננעלה&#34;. בהחלטתו מיום 21.12.2015 קיבל המותב את בקשת הרשות למתן צו מניעה זמני בקובעו כי &#34;יש לכאורה ממש בטענות&#34; שהעלתה הרשות בעניינה של החברה. ברי כי קביעה זו אינה מעידה על &#34;נעילת דעתו&#34; של בית המשפט בהליך הפלילי ובמיוחד בהינתן העובדה כי מדובר בהליכים שונים במהותם, אשר רף ההוכחה הנדרש בכל אחד מהם שונה בתכלית. אף בהחלטתו המאוחרת יותר למתן צו מניעה קבוע אין כדי להוביל למסקנה שאותה ביקש המערער להסיק, שכן מדובר בהחלטה שניתנה בהסכמת המפרק שמונה לחברה, ומבלי שיתקיים דיון לגופה של הבקשה. 
-
-
-
-	כמו כן, אין בידי לקבל את טענת המערער לפיה המותב נחשף ל&#34;מסה קריטית&#34; של מידע בלתי קביל. כעולה מהחלטת בית המשפט קמא, אל הבקשה למתן צו מניעה זמני צורפו שמונה נספחים בלבד, בהיקף של עשרות עמודים מתוך חומר חקירה המונה עשרות ארגזים. אף אם מדובר בחומר שקבילותו מוטלת בספק (ואינני מביעה כל עמדה בסוגיה זו), ברי כי אין הוא מגיע כדי &#34;מסה קריטית&#34; אשר יש בה להצדיק את פסילתו של המותב. על כל אלה יש להוסיף כי מדובר בהליך אזרחי אשר התקיים לפני למעלה משלוש שנים וחצי, ובית המשפט קמא ציין כי כלל אינו זכור לו ואף בכך יש כדי להפיג את החשש לקיומו של משוא פנים  (ע&#34;פ 6956/12 רויטמן נ&#39; מדינת ישראל, פסקה 5 (3.10.2012)).
-
-
-
-	אשר על כן, הערעור נדחה.
-
-
-
-	ניתן היום, ‏ו&#39; באב התשע&#34;ט (‏7.8.2019).
-
-
-
-
-
-
-
-
-
-
-
- ה נ ש י א ה
-
-
+ה נ ש י א ה
 
 _________________________
 
-   19050960_V01.docx   דז
+19050960_V01.docx דז
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1703,7 +1896,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

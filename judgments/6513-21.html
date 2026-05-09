@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    29/07/2024 (לפני 645 ימים)
+                    29/07/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/6513-21.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="6513/21 - בית אגודת ישראל בתל אביב יפו נ. הוועדה המקומית לתכנון ובניה"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F6513-21.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/130/065/m23&amp;fileName=21065130.M23&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/130/065/m23&amp;fileName=21065130.M23&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/130/065/m23&amp;fileName=21065130.M23&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/130/065/m23&amp;fileName=21065130.M23&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,93 +1827,47 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            6
-
-
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון 
-
-
+            בבית המשפט העליון
 
 בר&#34;ם 6513/21
 
-
-
-לפני:	
+לפני:
 
 כבוד ממלא מקום הנשיא ע&#39; פוגלמן
 
-
-
 כבוד השופט ד&#39; מינץ
 
-
-
 כבוד השופט ע&#39; גרוסקופף
-
-
 
 המבקשת:
 
 בית אגודת ישראל בתל אביב-יפו
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 הוועדה המקומית לתכנון ובניה תל אביב
 
-
-
 בקשת רשות לערער על פסק הדין של בית המשפט לעניינים מינהליים בתל אביב-יפו (כב&#39; השופט ה&#39; קירש) בעמ&#34;נ 2582-11-20 מיום 7.7.2021
-
-
 
 בשם המבקשת:
 
 עו&#34;ד איתמר מירון; עו&#34;ד דליה נוסבאום
 
-
-
 בשם המשיבה:
 
 עו&#34;ד אירית יומטוב; עו&#34;ד הראל וינטרוב; עו&#34;ד ישי גור אריה
 
-
-
 בשם היועצת המשפטית לממשלה:
-
-
 
 עו&#34;ד רן רוזנברג
 
-
-
 פסק-דין
-
-
 
 ממלא מקום הנשיא ע&#39; פוגלמן:
 
-
-
 המבקשת היא עמותה ללא כוונת רווח שמטרותיה, כמפורט בתקנונה: &#34;לקנות, לחכור, לשכור ולנהל, בתים ודירות, לצרכי פעולות דת, תרבות, חינוך, צדקה וחסד [...]&#34; (סעיף 3 לתקנון העמותה), וכן בעלת הזכויות בנכס מקרקעין בתל אביב שעליו ניצבו שני בניינים ישנים ששימשו כישיבה תורנית במשך שנים רבות (להלן: המקרקעין). בשנת 2015 ניתן למבקשת היתר בניה ביחס למקרקעין, שאפשר הקמת בניין מגורים בן 5 קומות שכולל 18 יחידות דיור. בחודש אפריל 2016 הוציאה הוועדה המקומית לתכנון ולבניה תל אביב (היא המשיבה בהליך דנן; להלן: הוועדה המקומית) למבקשת שומת היטל השבחה בגובה של כשני מיליון ש&#34;ח בשל אישורן של מספר תכניות, ובהן תוכנית מפורטת 2268 של הוועדה המקומית לתכנון ולבניה תל אביב-יפו &#34;אזור המודל בלב העיר&#34; (1989), אשר קבעה, בין היתר, כי האזור שבו נמצאים המקרקעין יוגדר כ&#34;אזור מגורים מיוחד&#34; (להלן: תוכנית 2268). בהמשך לכך, נדחתה השגה שהגישה המבקשת על חיובה בהיטל השבחה, שבמסגרתה טענה האחרונה כי היא זכאית לפטור שקבוע בסעיף 19(ב)(4) לתוספת השלישית לחוק התכנון והבניה, התשכ&#34;ה-1965 (להלן: סעיף הפטור ו-התוספת השלישית בהתאמה) שלשונו:
-
-
 
 פטור מהיטל
 
@@ -1650,63 +1875,33 @@
 
 (ב)	לא תחול חובת תשלום היטל בשל השבחה שהיא אחת מאלה:
 
-
-
-(4)    השבחה במקרקעין של מוסד לחינוך, לתרבות, למדע, לדת, לצדקה, לסעד, לבריאות או לספורט, או במקרקעין של הקדש ציבורי, כמשמעותו בחוק הנאמנות, התשל&#34;ט-1979, שאין עיסוקו לשם קבלת רווחים, אם אותם מקרקעין או התמורה בעדם, משמשים או מיועדים לשמש למטרות האמורות;
-
-
+(4) השבחה במקרקעין של מוסד לחינוך, לתרבות, למדע, לדת, לצדקה, לסעד, לבריאות או לספורט, או במקרקעין של הקדש ציבורי, כמשמעותו בחוק הנאמנות, התשל&#34;ט-1979, שאין עיסוקו לשם קבלת רווחים, אם אותם מקרקעין או התמורה בעדם, משמשים או מיועדים לשמש למטרות האמורות;
 
 ביום 4.8.2020 דחתה ועדת הערר לפיצויים והיטלי השבחה מחוז תל אביב (להלן: ועדת הערר) ערר שהגישה המבקשת על חיובה בהיטל השבחה. הגם שוועדת הערר קבעה, בין היתר, כי נוכח האמור בתקנון המבקשת היא מוסד כאמור בסעיף הפטור, וכן כי האחרונה עומדת גם בתנאי הסעיף שלפיו אין עיסוקה לשם קבלת רווחים, היא אינה זכאית לפטור מהיטל השבחה; זאת, משנקבע כי המבקשת לא עומדת בתנאי שקבוע בסעיף הפטור שלפיו &#34;המקרקעין משמשים או מיועדים לשמש למטרות המנויות בהוראת הפטור&#34;. בהקשר זה נקבע, כי אף אם ערב אישור תוכנית 2268 שימשו המקרקעין לצורך ישיבה תורנית אשר נכללת בהוראות סעיף הפטור, עם אישורה לא הותר במקרקעין שימוש מסוג זה; וכן כי למעשה ההשבחה מכוח התוכנית נובעת מהשינוי התכנוני שייעד את המקרקעין למגורים. עוד צוין כי תכליתו של הפטור היא להקל על מימוש זכויות מושבחות במקרקעין אשר משמשים או מיועדים לשמש למטרה ציבורית כאמור בסעיף הפטור – ומתן פטור בנסיבות העניין חורג מתכלית זו; זאת, אף אם לעמדת המבקשת, שלפיה יש לבחון את השימוש במועד אישור התוכנית המשביחה, יש עיגון בלשון הסעיף שקובע שהמקרקעין &#34;משמשים&#34; למטרות המנויות בו.
 
-
-
 המבקשת הגישה ערעור על החלטת ועדת הערר וביום 7.7.2021 דחה בית המשפט לעניינים מינהליים בתל אביב-יפו (כב&#39; השופט ה&#39; קירש) את הערעור. בית המשפט ציין, כי בשלב זה מוקד המחלוקת בין הצדדים הוא בשאלה אם הוראת סעיף הפטור חלה מקום שבו השימוש שנעשה במקרקעין ערב התכנית המשביחה עונה על הגדרות הסעיף, הגם ששימוש כאמור לא יימשך בשים לב לייעוד המקרקעין בתכנית המשביחה. בתוך כך, בית המשפט קבע, בעיקרם של דברים, כי החלטתה של ועדת הערר נתמכת הן בלשון הסעיף, הן בתכליות שעומדות בבסיסו. בית המשפט ציין, כי על פני הדברים התיבה &#34;משמשים&#34; יכולה לתמוך בגישתה של המבקשת, שלפיה יש לבחון את השימוש שנעשה במקרקעין ערב התכנית המשביחה במנותק מהשימוש שייעשה במקרקעין בעתיד. ואולם, בצד האמור נקבע כי בשים לב לסעיף 19(ב) לתוספת השלישית בכללותו, עמדתה זו של המבקשת מוקשית; זאת משמרבית המקרים שבהם קובע הסעיף האמור כי יינתן פטור מהיטל השבחה הם צופי פני עתיד. עוד נקבע, כי אף המישור התכליתי תומך בפרשנות שאימצה ועדת הערר בהחלטתה, שכן היא מבטיחה שייהנו מהפטור מוסדות שימשיכו לעשות שימוש במקרקעין למטרה ציבורית; וכי עמדה זו מוליכה לתוצאה קוהרנטית שמגשימה את תכליתו של סעיף הפטור. לבסוף, נקבע כי &#34;השימוש הקודם שנעשה במקרקעין איננו מעלה או מוריד: אף אם קודם לכן נעשה בהם שימוש למטרה ציבורית, הרי הבחירה לממש בדרך של היתר את ההשבחה הנובעת מתוכנית חדשה שאיננה מתירה שימוש למטרה ציבורית, משמיטה למעשה את ההצדקה העניינית להענקת הפטור&#34; (שם, סעיף 28); וכן כי פרשנות זו תואמת את פסק הדין בע&#34;א 5138/04 הוועדה המקומית לתכנון ובניה מטה יהודה נ&#39; ישוב נווה שלום חברה מוגבלת בערבות (30.8.2007), ואף עולה בקנה אחד עם ההוראות שחלות על מוסדות ציבור בהקשר מס רכישה.
-
-
 
 מכאן הבקשה שלפנינו, שבמסגרתה טוענת המבקשת כי המקרה דנן מעורר שאלה עקרונית בדבר פרשנות התיבה &#34;משמשים&#34; שבסעיף הפטור, והיא האם במקרה שבו בשל אישורה של תכנית משביחה, מקרקעין ששימשו למטרות שקבועות בסעיף הפטור אינם מיועדים עוד למטרות אלו, יחול הפטור. לשיטתה, הסעיף מבחין – בלשונו – בין שני מצבים: האחד, כאשר המקרקעין משמשים למטרות האמורות; השני, כאשר המקרקעין מיועדים לשמש למטרות אלו. בהקשר זה נטען, כי המועד שבו יש לבחון את השימוש שנעשה במקרקעין הוא ערב אישורה של התכנית המשביחה ובהתאם, בנסיבות המקרה, סעיף הפטור חל על המבקשת; וכן כי פרשנות ועדת הערר ובית המשפט לעניינים מינהליים חורגת מלשונו הברורה של המחוקק, ומאיינת למעשה את המצב הראשון שלפיו ערב אישורה של התכנית המשביחה שימשו המקרקעין נושא הפטור לאחת מן המטרות שקבועות בסעיף. בנוסף, נטען כי אף פרשנות תכליתית של סעיף הפטור מובילה למסקנה כי יש להחיל את הפטור במצבים כגון דא, וזאת בשים לב לתכלית שלפיה יש להקל על מוסדות שפועלים למען מטרות ציבוריות ולאפשר להם לממשן. לבסוף, נטען כי דחיית טענתה של המבקשת – שלפיה בשים לב לתחולת הפטור על מקרה שבו מוסד מוכר מקרקעין ומשתמש בתמורה מהמכירה למטרות ציבוריות, יש להחיל את הפטור גם במקרה שבו המוסד משתמש בפירות שנובעים מן השימוש במקרקעין לטובת מטרה ציבורית – מובילה להפלייתה של האחרונה ולעיוות התמריצים הכלכליים של מוסדות מסוג זה.
 
-
-
 התבקשה תשובה. הוועדה המקומית טוענת, בין היתר, כי הגם שהבקשה מעלה שאלה שחורגת מעניינם של הצדדים, אין המקרה דנן מצדיק מתן רשות לערער בגלגול שלישי מאחר שלא מתעוררת מחלוקת פסיקתית, ומשבית המשפט לעניינים מינהליים הגיע לתוצאה המשפטית הנכונה, בשים לב ללשון סעיף הפטור ולתכליותיו. לשיטת הוועדה המקומית, הפרשנות שנקבעה בוועדת הערר ובבית המשפט לעניינים מינהליים, שלפיה בעת מימוש בהיתר יחולו הוראות הפטור רק כאשר המקרקעין ימשיכו לשמש למטרה הציבורית, תואמת את הפסיקה בנושא. בנוסף, נטען כי התיבה &#34;משמשים או מיועדים לשמש&#34;, משמעותה כי המקרקעין שימשו עובר להיתר למטרות הציבוריות שמנויות בסעיף הפטור, וימשיכו לשמש כן; ולחלופין, כי מדובר במקרקעין שלא שימשו בעבר למטרות אלו, אך ישמשו בעתיד בהתאם לתכנית המשביחה ולהיתר הבניה. פרשנות זו, לשיטת הוועדה המקומית, תבטיח את קידום התכליות שבבסיס סעיף הפטור, וכן תשמר את הקשר הסיבתי הנדרש בין מתן הפטור מתשלום היטל ההשבחה לבין השבחת המקרקעין שבגינה מלכתחילה הוצא היטל כאמור.
-
-
 
 ביום 10.1.2022 ניתנה החלטה שלפיה היועץ המשפטי לממשלה יגיש את עמדתו בשאלה שעומדת במוקד הבקשה, וכן כי במסגרת עמדה זו יתייחס לזיקה בין ההליך נושא הבקשה לבין בר&#34;ם 2949/20 קהלת עדת הבוכרים בירושלים נ&#39; הוועדה המקומית לתכנון ובניה ירושלים ובר&#34;ם 9231/20 הוועדה המקומית לתכנון ובניה רמלה נ&#39; הכנסייה האוונגלית האפיסקופלית בירושלים (להלן: עניין קהלת עדת הבוכרים ועניין הכנסייה האוונגלית בהתאמה), בשים לב לכך שגם בהליכים אלה התבקשה עמדתו.
 
-
-
 ביום 14.4.2022 ניתן פסק הדין בעניין קהלת עדת הבוכרים שבמסגרתו נקבע כי התיבה &#34;התמורה בעדם&#34; שבסעיף הפטור חלה אך על מקרים של מימוש זכויות במקרקעין בדרך של מכר, כך שבמצבים שבהם אופן המימוש הוא היתר בניה ושהשימוש במקרקעין לא עונה עוד למטרות הציבוריות שקבועות בסעיף, לא יחול הפטור (זאת אף אם פירות השימוש במקרקעין מיועדים למטרות ציבוריות כפי שנקבעו בסעיף הפטור); וביום 13.8.2023 ניתן פסק הדין בעניין הכנסייה האוונגלית שם נקבע, בעיקרם של דברים, כי התנאים שקבועים בסעיף הפטור אינם מצטברים אלא חלופיים, כך שמוסד שמכר את מקרקעיו ומשתמש בתמורה לטובת מטרות ציבוריות יזכה בפטור אף אם המקרקעין עצמם לא משמשים או מיועדים לשמש למטרות ציבוריות (בקשה לדיון נוסף על פסק דין זה נדחתה בדנ&#34;ם 7035/23 הוועדה המקומית לתכנון ולבניה רמלה נ&#39; הכנסייה האוונגלית האפיסקופלית בירושלים ובמזרח התיכון (18.12.2023)).
-
-
 
 ביום 1.5.2024 הגישה היועצת המשפטית לממשלה (להלן גם: היועצת) את עמדתה שבמסגרתה נטען, כי בשים לב לפסקי הדין בעניין קהלת עדת הבוכרים ובעניין הכנסייה האוונגלית, השאלה שעומדת במוקד הבקשה שלפנינו אינה חורגת עוד מעניינם הפרטני של הצדדים או עולה כדי שאלה משפטית עקרונית שטרם הוכרעה בפסיקה. בתוך כך נטען, כי בשים לב לפסיקות אלו, יש להבחין בין ארבעה מצבים אפשריים כאשר עסקינן במוסד שהשתמש במקרקעין לטובת מטרות ציבוריות ערב אישורה של תכנית משביחה; האחד, כאשר התכנית המשביחה מאפשרת את המשך השימוש הציבורי, ומימוש הזכויות נעשה בדרך של הוצאת היתר בניה כך שהפעילות הציבורית בהתאם למטרות שבסעיף הפטור תמשיך להתקיים; השני, כאשר התכנית המשביחה מאפשרת את המשך השימוש הציבורי, ומימוש הזכויות נעשה בדרך של מכר כאשר התמורה תשמש להגשמת אחת מן המטרות הציבוריות שבסעיף; השלישי, כאשר התכנית המשביחה לא מאפשרת את המשך השימוש הציבורי, ומימוש הזכויות נעשה בדרך של מכר כך שהתמורה תשמש לטובת מי מהמטרות הציבוריות שקבועות בסעיף; והרביעי, כאשר התכנית המשביחה לא מאפשרת את המשך השימוש הציבורי, ומימוש הזכויות נעשה בדרך של הוצאת היתר בניה כך שהשימוש שייעשה במקרקעין לא תואם את המטרות שקבועות בסעיף הפטור (אף אם התמורה משימוש זה תיועד למטרות שקבועות בסעיף הפטור). לשיטת היועצת, בעוד שבשלושת המצבים הראשונים יחול הפטור מהיטל השבחה, במצב הרביעי – הוא המצב בענייננו, וכן בדומה לעניין קהלת עדת הבוכרים – לא יחול הפטור; וכי מצב דברים זה משקף פרשנות ראויה ונכונה להוראת הסעיף, אשר עולה בקנה אחד עם לשונו וכן עם תכליותיו.
 
-
-
 לאחר שעיינו בטענות הצדדים, וכן בעמדת היועצת המשפטית לממשלה, מצאנו כי הבקשה דנן מעוררת שאלה עקרונית שחורגת מעניינם של הצדדים והיא האם סעיף הפטור חל על מקרים שבהם התכנית המשביחה אינה מאפשרת עוד שימוש במקרקעין לטובת המטרות הציבוריות שקבועות בסעיף וכשמימוש הזכויות נעשה בדרך של היתר בניה. בהתאם, ראינו לעשות שימוש בסמכותנו לפי תקנה 149(2)(ב) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018 (להלן: התקנות) ותקנה 34 לתקנות בתי משפט לענינים מינהליים (סדרי דין), התשס&#34;א-2000, ולדון בבקשה כאילו ניתנה רשות לערער והוגש ערעור לפי הרשות שניתנה. לגופם של דברים – פסק דינו של בית המשפט לעניינים מינהליים מפורט ומנומק, והמסקנה הפרשנית שאליה הגיע מקובלת עלינו. אף לשיטתנו, בנסיבות שבהן התוכנית המשביחה אינה מאפשרת עוד את השימוש המזכה במתן פטור מהיטל השבחה, ובכפוף לכך שדרך מימוש הזכויות שבה בחר הנישום היא בהוצאת היתר בנייה ולא במכירת המקרקעין (בשים לב להכרעה בעניין הכנסייה האוונגלית), אין מקום לתחולתו של הפטור. למעשה, במצב דברים זה ההיגיון שעומד בבסיס הפטור מהיטל השבחה – שלפיו המטרות שמנויות בסעיף הפטור מקדמות את האינטרס הציבורי הרחב ומשכך עולות כדי תחליף לתשלום היטל ההשבחה – חדל להתקיים, ובהתאם אין מקום לתחולתו של הפטור.
-
-
 
 בנוסף, כפי שציינה היועצת המשפטית לממשלה בעמדתה, הפרשנות שלפיה סעיף הפטור לא יחול מקום שבו בעקבות התוכנית המשביחה לא ניתן עוד להשתמש במקרקעין באחד מן השימושים שקבועים בסעיף וכשדרך מימוש הזכויות היא בהוצאת היתר בניה, תואמת את לשון הסעיף ותכליותיו, ואף את הפסיקה שדנה בפרשנות סעיף זה ובפרט את שנקבע בעניין קהלת עדת הבוכרים. משאלה הם פני הדברים, מקום שבו לא מצאנו להתערב בקביעתו העובדתית של בית המשפט לעניינים מינהליים – שלפיה השימוש המותר במקרקעין לאחר אישורה של תוכנית 2268 אינו תואם את המטרות שקבועות בסעיף הפטור – ובשים לב לכך שקביעתו הפרשנית בנוגע לסעיף הפטור מקובלת עלינו, אנו דוחים את הערעור בהתאם לסמכותנו לפי תקנה 148(ב) לתקנות (ראו: בר&#34;ם 4308/22 הוועדה המקומית לתכנון ולבניה אשקלון נ&#39; יכין חקל בע&#34;מ, פסקה 8 (1.2.2024)).
 
-
-
 לבסוף, יצוין כי טענתה של המערערת בנוגע להבחנה בין מימוש הזכויות בדרך של הוצאת היתר בניה לבין מימושן על ידי מכירת המקרקעין בהקשר מתן פטור מהיטל השבחה אינה מקימה מתן רשות לערער בגלגול שלישי, בשים לב, בין היתר, להכרעות בעניין קהלת עדת הבוכרים ובעניין הכנסייה האוונגלית.
 
+הערעור נדחה אפוא.
 
+נוכח תרומתו של הערעור לחידוד הפרשנות של סעיף הפטור, המערערת תשא בהוצאות המשיבה על הצד הנמוך, בסך 7,500 ש&#34;ח.
 
-	הערעור נדחה אפוא.
-
-
-
-	נוכח תרומתו של הערעור לחידוד הפרשנות של סעיף הפטור, המערערת תשא בהוצאות המשיבה על הצד הנמוך, בסך 7,500 ש&#34;ח.
-
-
-
-	ניתן היום, ‏כ&#34;ג בתמוז התשפ&#34;ד (‏29.7.2024).
-
-
+ניתן היום, ‏כ&#34;ג בתמוז התשפ&#34;ד (‏29.7.2024).
 
 מ&#34;מ הנשיא
 
@@ -1716,15 +1911,9 @@
 
 _________________________
 
-   21065130_M23.docx   מב
+21065130_M23.docx מב
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1743,7 +1932,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

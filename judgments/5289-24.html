@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    03/07/2024 (לפני 671 ימים)
+                    03/07/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5289-24.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5289/24 - פלוני נ. בית הדין הרבני האזורי בירושלים"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5289-24.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/890/052/c01&amp;fileName=24052890.C01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/890/052/c01&amp;fileName=24052890.C01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/890/052/c01&amp;fileName=24052890.C01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/890/052/c01&amp;fileName=24052890.C01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,113 +1827,73 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
-
-
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
 בג&#34;ץ 5289/24
 
-
-
-לפני:	
+לפני:
 
 כבוד השופט נ&#39; סולברג
 
-
-
 כבוד השופטת י&#39; וילנר
 
-
-
 כבוד השופט ח&#39; כבוב
-
-
 
 העותרת:
 
 פלונית
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבים:
 
 1. בית הדין הרבני האזורי בירושלים
 
-
-
 2. בית הדין הרבני הגדול
-
-
 
 3. פלוני
 
-	
-
 עתירה לביטול פסק דינו והחלטתו של בית הדין הרבני הגדול בירושלים בתיק 1438316/1 מימים 12.05.2024 ו-28.05.2024
-
-	
 
 בשם העותר:
 
 עו&#34;ד יוסף מאיר אלבז
 
-
-
 פסק-דין
 
 השופט ח&#39; כבוב:
 
-	לפנינו עתירה לביטול פסק דינו והחלטתו של בית הדין הרבני הגדול בירושלים בתיק 1438316/1 מימים 12.05.2024 ו-28.05.2024, בהתאמה. בגדרם, התקבל באופן חלקי ערעור העותרת על פסק הדין של בית הדין הרבני האזורי בירושלים מיום 27.08.2023. יחד עם העתירה, התבקש צו ביניים שיורה על עיכוב ביצוע פסקי הדין.
+לפנינו עתירה לביטול פסק דינו והחלטתו של בית הדין הרבני הגדול בירושלים בתיק 1438316/1 מימים 12.05.2024 ו-28.05.2024, בהתאמה. בגדרם, התקבל באופן חלקי ערעור העותרת על פסק הדין של בית הדין הרבני האזורי בירושלים מיום 27.08.2023. יחד עם העתירה, התבקש צו ביניים שיורה על עיכוב ביצוע פסקי הדין.
 
-	כעולה מהעתירה ונספחיה, העותרת ומשיב 3 נישאו כדמו&#34;י בשנת 1994, כשבכתובה ננקב סכום בסך 1,300,000 ש&#34;ח. ביום 17.01.1999 אישר בית המשפט לענייני משפחה בירושלים הסכם ממון שנכרת בין השניים. בין היתר, נקבע בהסכם כי: &#34;כל הרכוש שהיה למי מהצדדים ערב הנשואין ימשיך ויישאר בחזקתו ובבעלותו הבלעדית של אותו צד, ולא ייכלל במסגרת הרכוש המשותף ו/או איזון המשאבים, ושוויו לא יאוזן בין הצדדים לא בתקופת הנשואין ולא עם פקיעתם מכל סיבה שהיא. למען הסר ספק הנכסים המפורטים להלן והרשומים ע&#34;ש האשה בלבד ואשר נרכשו לפני הנשואין הם בבעלותה הבלעדית של האשה והבעל מצהיר כי אין לו כל חלק בנכסים אלה. הנכסים הם: משק בגבעת יערים והוילה ברמת גן [...], או תמורתם של נכסים אלה&#34;. ברבות השנים הווילה נמכרה, והצדדים עברו להתגורר בדירה בעיר ירושלים שנרכשה ונרשמה על שם העותרת ומשיב 3 בחלקים שווים (להלן: הדירה). יודגש כי רישום הדירה המתואר, נעשה על ידי העותרת. 
+כעולה מהעתירה ונספחיה, העותרת ומשיב 3 נישאו כדמו&#34;י בשנת 1994, כשבכתובה ננקב סכום בסך 1,300,000 ש&#34;ח. ביום 17.01.1999 אישר בית המשפט לענייני משפחה בירושלים הסכם ממון שנכרת בין השניים. בין היתר, נקבע בהסכם כי: &#34;כל הרכוש שהיה למי מהצדדים ערב הנשואין ימשיך ויישאר בחזקתו ובבעלותו הבלעדית של אותו צד, ולא ייכלל במסגרת הרכוש המשותף ו/או איזון המשאבים, ושוויו לא יאוזן בין הצדדים לא בתקופת הנשואין ולא עם פקיעתם מכל סיבה שהיא. למען הסר ספק הנכסים המפורטים להלן והרשומים ע&#34;ש האשה בלבד ואשר נרכשו לפני הנשואין הם בבעלותה הבלעדית של האשה והבעל מצהיר כי אין לו כל חלק בנכסים אלה. הנכסים הם: משק בגבעת יערים והוילה ברמת גן [...], או תמורתם של נכסים אלה&#34;. ברבות השנים הווילה נמכרה, והצדדים עברו להתגורר בדירה בעיר ירושלים שנרכשה ונרשמה על שם העותרת ומשיב 3 בחלקים שווים (להלן: הדירה). יודגש כי רישום הדירה המתואר, נעשה על ידי העותרת.
 
-	ביום 09.02.2023, השניים התגרשו. העותרת הגישה תביעה לבית הדין הרבני האזורי בירושלים, בין היתר בעניין הכתובה והדירה. ביום 27.08.2023 נקבע כי הדירה שייכת לשני הצדדים, תוך שהוטעם כי: &#34;אין מקום לקבוע שהרישום המשותף לא נעשה ברצון [...] ה[עותרת] לא הצליחה להביא בדל ראיה או הצדקה לטענתה שהשיתוף בבית היה מותנה בשלום בית ביניהם [...] חרף הסכם הממון, בחרה ה[עותרת] לרשום את הדירה ע&#34;ש שני הצדדים. כך שע&#34;פ הדין והפסיקה, הרישום הוא הקובע, והוא יוצר מתנה או בעלות [...] ולכן הדירה שייכת לשני הצדדים כפי הרישום שלה&#34;. 
+ביום 09.02.2023, השניים התגרשו. העותרת הגישה תביעה לבית הדין הרבני האזורי בירושלים, בין היתר בעניין הכתובה והדירה. ביום 27.08.2023 נקבע כי הדירה שייכת לשני הצדדים, תוך שהוטעם כי: &#34;אין מקום לקבוע שהרישום המשותף לא נעשה ברצון [...] ה[עותרת] לא הצליחה להביא בדל ראיה או הצדקה לטענתה שהשיתוף בבית היה מותנה בשלום בית ביניהם [...] חרף הסכם הממון, בחרה ה[עותרת] לרשום את הדירה ע&#34;ש שני הצדדים. כך שע&#34;פ הדין והפסיקה, הרישום הוא הקובע, והוא יוצר מתנה או בעלות [...] ולכן הדירה שייכת לשני הצדדים כפי הרישום שלה&#34;.
 
-	ביחס לכתובה, נקבע כי &#34;הובהר לצדדים כי הכתובה בסך מוגזם [...] לאשה טענות לאלימות ואונס שחוותה מהבעל, הבעל מכחיש. טענות ה[עותרת] הקשות, לא הוכחו [...] ואמנם, מבקשת הסליחה של הבעל או משתיקתו יש קצת ראיה לכך שהוא פעל שלא כשורה כלפיי אשתו [...] לטענות האשה כי הבעל בגד בה [...] האשה מתארת שזה היה לפני 25 שנה, אך מאז חיו יחד שנים רבות והולידו ילד. כך שאין לכך משמעות באשר לחיוב כתובה&#34;, לאור כל האמור נקבע כי הבעל יחויב בגין הכתובה בסך של 30,000 ש&#34;ח בלבד. 
+ביחס לכתובה, נקבע כי &#34;הובהר לצדדים כי הכתובה בסך מוגזם [...] לאשה טענות לאלימות ואונס שחוותה מהבעל, הבעל מכחיש. טענות ה[עותרת] הקשות, לא הוכחו [...] ואמנם, מבקשת הסליחה של הבעל או משתיקתו יש קצת ראיה לכך שהוא פעל שלא כשורה כלפיי אשתו [...] לטענות האשה כי הבעל בגד בה [...] האשה מתארת שזה היה לפני 25 שנה, אך מאז חיו יחד שנים רבות והולידו ילד. כך שאין לכך משמעות באשר לחיוב כתובה&#34;, לאור כל האמור נקבע כי הבעל יחויב בגין הכתובה בסך של 30,000 ש&#34;ח בלבד.
 
-	העותרת לא השלימה עם פסק דינו של בית הדין האזורי וערערה לבית הדין הרבני הגדול בירושלים. בפסק הדין מיום 12.05.2024 התקבל באופן חלקי הערעור ביחס לכתובה ונקבע כי משיב 3 יחויב בסך של 600,000 ש&#34;ח, חלף 30,000 ש&#34;ח. זאת, בין היתר מן הטעם ש: &#34;עולה כי אכן האשה סבלה מאלימותו הפיזית של הבעל [...] ובעל אלים באופן שהוכח ותואר יש בו בכדי לקבוע שממנו יצאו הגרושין והוא חייב בתשלום כתובה ותוספת כתובה&#34;. עוד הודגש, כי &#34;טענת ביה&#34;ד קמא הייתה כי הסכום הנקוב בכתובה הוא סכום מוגזם אלא שהגם שהסכום הוא מוגזם מכל מקום יש לבחון לגופו של תיק מדוע נכתב סכום זה והבעל הסכים לכתיבת סכום זה וזאת בהתחשב בכך שהאשה הביאה לנישואין בית בשווי של למעלה מארבע מיליון ש&#34;ח&#34;.  
+העותרת לא השלימה עם פסק דינו של בית הדין האזורי וערערה לבית הדין הרבני הגדול בירושלים. בפסק הדין מיום 12.05.2024 התקבל באופן חלקי הערעור ביחס לכתובה ונקבע כי משיב 3 יחויב בסך של 600,000 ש&#34;ח, חלף 30,000 ש&#34;ח. זאת, בין היתר מן הטעם ש: &#34;עולה כי אכן האשה סבלה מאלימותו הפיזית של הבעל [...] ובעל אלים באופן שהוכח ותואר יש בו בכדי לקבוע שממנו יצאו הגרושין והוא חייב בתשלום כתובה ותוספת כתובה&#34;. עוד הודגש, כי &#34;טענת ביה&#34;ד קמא הייתה כי הסכום הנקוב בכתובה הוא סכום מוגזם אלא שהגם שהסכום הוא מוגזם מכל מקום יש לבחון לגופו של תיק מדוע נכתב סכום זה והבעל הסכים לכתיבת סכום זה וזאת בהתחשב בכך שהאשה הביאה לנישואין בית בשווי של למעלה מארבע מיליון ש&#34;ח&#34;.
 
-	לאחר שהעותרת הלינה על כך שבית הדין הרבני הגדול לא התייחס בפסק דינו לטענותיה ביחס לדירה, ביום 28.05.2024, ניתנה החלטתו בנדון תוך דחיית הערעור בעניין זה. נקבע, כי &#34;צדק בית הדין האזורי בכך שקניית הדירה מכספי החשבון המשותף אף אם לא היו מעורבים בו כספים משותפים כטענה [...] והעובדה ש[משיב 3] טיפל בקנייה ומסתבר שהחוזה לקניה היה על שם שניהם ו[העותרת] חתמה עליו ולכן כך נרשמה הדירה מראה על שיתוף. אבל בעיקר צדק בית הדין שרישום הדירה על שם שני הצדדים אינו כלול באמור בהסכם, והוא נחשב כנתינת מתנה לבעל, שהרי בוודאי יכולה הייתה להשאיר את הדירה על שמה כמו שהיה בדירה המקורית&#34;. עוד נקבע, כי: &#34;דירה הרשומה על שני צדדים נחשבת כשייכת לשני הצדדים בשווה ומתחלקת לפי הרישום, ואינה מתחלקת לפי איזון המשאבים ולכן אין מקום להכלילה בסעיף 8(2). בית הדין האזורי גם ציין כי טענת האשה שהרישום היה באונס לא הוכחה, אך היא מהווה הוכחה שהאשה ידעה שהרישום יקבע שהדירה שייכת במחציתה לאיש&#34;. 
+לאחר שהעותרת הלינה על כך שבית הדין הרבני הגדול לא התייחס בפסק דינו לטענותיה ביחס לדירה, ביום 28.05.2024, ניתנה החלטתו בנדון תוך דחיית הערעור בעניין זה. נקבע, כי &#34;צדק בית הדין האזורי בכך שקניית הדירה מכספי החשבון המשותף אף אם לא היו מעורבים בו כספים משותפים כטענה [...] והעובדה ש[משיב 3] טיפל בקנייה ומסתבר שהחוזה לקניה היה על שם שניהם ו[העותרת] חתמה עליו ולכן כך נרשמה הדירה מראה על שיתוף. אבל בעיקר צדק בית הדין שרישום הדירה על שם שני הצדדים אינו כלול באמור בהסכם, והוא נחשב כנתינת מתנה לבעל, שהרי בוודאי יכולה הייתה להשאיר את הדירה על שמה כמו שהיה בדירה המקורית&#34;. עוד נקבע, כי: &#34;דירה הרשומה על שני צדדים נחשבת כשייכת לשני הצדדים בשווה ומתחלקת לפי הרישום, ואינה מתחלקת לפי איזון המשאבים ולכן אין מקום להכלילה בסעיף 8(2). בית הדין האזורי גם ציין כי טענת האשה שהרישום היה באונס לא הוכחה, אך היא מהווה הוכחה שהאשה ידעה שהרישום יקבע שהדירה שייכת במחציתה לאיש&#34;.
 
-	מכאן העתירה שלפנינו. לטענת העותרת יש לבטל את פסקי הדין, שלשיטתה: &#34;התעלמו מההסכמות בהסכם הממון [...] ובכך הותירו את ה[עותרת] מנושלת מזכויותיה הבלעדיות בנכס שרכשה בירושלים [...] מכספי התמורה של נכס שהיה בבעלותה טרם הנישואים והוחרג במפורש מהשיתוף בתקופת נישואיהם וכן לא חייבו את משיב 3 במלוא סכום הכתובה על אף שנקבע כי האישה זכאית לחייבו בה&#34;. עוד הועלו טענות בדבר התעלמות בתי הדין מראיות וטענות שונות שהעלתה העותרת. כך נטען, כי פסקי הדין מנוגדים לעקרונות הצדק הטבעי, מובילים לעיוות דין וניתנו בחוסר סמכות, תוך התעלמות מהוראות החוק. 
+מכאן העתירה שלפנינו. לטענת העותרת יש לבטל את פסקי הדין, שלשיטתה: &#34;התעלמו מההסכמות בהסכם הממון [...] ובכך הותירו את ה[עותרת] מנושלת מזכויותיה הבלעדיות בנכס שרכשה בירושלים [...] מכספי התמורה של נכס שהיה בבעלותה טרם הנישואים והוחרג במפורש מהשיתוף בתקופת נישואיהם וכן לא חייבו את משיב 3 במלוא סכום הכתובה על אף שנקבע כי האישה זכאית לחייבו בה&#34;. עוד הועלו טענות בדבר התעלמות בתי הדין מראיות וטענות שונות שהעלתה העותרת. כך נטען, כי פסקי הדין מנוגדים לעקרונות הצדק הטבעי, מובילים לעיוות דין וניתנו בחוסר סמכות, תוך התעלמות מהוראות החוק.
 
 דיון והכרעה
 
-	לאחר עיון, מצאתי כי דין העתירה להידחות. 
+לאחר עיון, מצאתי כי דין העתירה להידחות.
 
-	סעיף 15(ד)(4) לחוק-יסוד: השפיטה קובע כי בית משפט זה, בשבתו כבית משפט גבוה לצדק, מוסמך, בין השאר: 
+סעיף 15(ד)(4) לחוק-יסוד: השפיטה קובע כי בית משפט זה, בשבתו כבית משפט גבוה לצדק, מוסמך, בין השאר:
 
 &#34;לתת צווים לבתי דין דתיים לדון בענין פלוני לפי סמכותם או להימנע מלדון או מלהוסיף ולדון בענין פלוני שלא לפי סמכותם; ובלבד שלא ייזקק בית המשפט לבקשה לפי פסקה זו אם המבקש לא עורר את שאלת הסמכות בהזדמנות הראשונה שהיתה לו; ואם לא היתה לו הזדמנות סבירה לעורר שאלת הסמכות עד שניתנה החלטה על ידי בית הדין הדתי, רשאי בית המשפט לבטל דיון שנתקיים או החלטה שניתנה על ידי בית הדין הדתי ללא סמכות&#34;.
 
-	משכך, נקבע כי בית משפט זה אינו יושב כערכאת ערעור על החלטות ופסקי דין שנתנו בתי הדין הרבניים והתערבותו בהם &#34;תחומה לארבע סוגים כלליים של מקרים: חריגה מסמכות; פגיעה בעקרונות הצדק הטבעי; סטייה מהוראות חוק המכוונות לבית הדין הדתי ומקרים בהם נדרש סעד מן הצדק מקום שהעניין אינו בסמכותו של בית משפט או בית דין אחר&#34; (בג&#34;ץ 6437/23 פלונית נ&#39; פלוני, פסקה 18 (28.12.2023)). לא מצאתי כי מקרה זה נמנה על אותם מקרים חריגים; ואסביר. 
+משכך, נקבע כי בית משפט זה אינו יושב כערכאת ערעור על החלטות ופסקי דין שנתנו בתי הדין הרבניים והתערבותו בהם &#34;תחומה לארבע סוגים כלליים של מקרים: חריגה מסמכות; פגיעה בעקרונות הצדק הטבעי; סטייה מהוראות חוק המכוונות לבית הדין הדתי ומקרים בהם נדרש סעד מן הצדק מקום שהעניין אינו בסמכותו של בית משפט או בית דין אחר&#34; (בג&#34;ץ 6437/23 פלונית נ&#39; פלוני, פסקה 18 (28.12.2023)). לא מצאתי כי מקרה זה נמנה על אותם מקרים חריגים; ואסביר.
 
-	כאמור לעיל, בתי הדין הרבניים קבעו, כעניין שבעובדה, כי רישום הדירה על שם שני הצדדים, על ידי העותרת, נעשה מרצון וכאקט של נתינת מתנה, כאשר בניגוד לטענותיה של העותרת – לא נפל כל פגם בכך. טענות העותרת לעניין הדירה ולעניין הכתובה, הן טענות ערעוריות באופיין הנוגעות לקביעות עובדתיות, שהתערבותנו בהן כפופה לאמת מידה מחמירה ביותר (בג&#34;ץ 5430/23 פלוני נ&#39; בית הדין הרבני הגדול בירושלים, פסקה 33 (07.12.2023)); ולאופן הפעלת שיקול הדעת המוענק לבתי הדין הרבניים, שגם בו איננו נוהגים להתערב. לא למותר להזכיר כי פסיקת בית הדין האזורי עברה, אך בחלקה, את מבחן ערכאת הערעור בתוך מערכת בתי הדין הרבניים, כאשר בתוך כך בית הדין הרבני הגדול הטה אוזן לטענות העותרת – והגדיל את סכום הכתובה פי 20, תוך שהוא מותח ביקורת על בית הדין האזורי בנדון. 
+כאמור לעיל, בתי הדין הרבניים קבעו, כעניין שבעובדה, כי רישום הדירה על שם שני הצדדים, על ידי העותרת, נעשה מרצון וכאקט של נתינת מתנה, כאשר בניגוד לטענותיה של העותרת – לא נפל כל פגם בכך. טענות העותרת לעניין הדירה ולעניין הכתובה, הן טענות ערעוריות באופיין הנוגעות לקביעות עובדתיות, שהתערבותנו בהן כפופה לאמת מידה מחמירה ביותר (בג&#34;ץ 5430/23 פלוני נ&#39; בית הדין הרבני הגדול בירושלים, פסקה 33 (07.12.2023)); ולאופן הפעלת שיקול הדעת המוענק לבתי הדין הרבניים, שגם בו איננו נוהגים להתערב. לא למותר להזכיר כי פסיקת בית הדין האזורי עברה, אך בחלקה, את מבחן ערכאת הערעור בתוך מערכת בתי הדין הרבניים, כאשר בתוך כך בית הדין הרבני הגדול הטה אוזן לטענות העותרת – והגדיל את סכום הכתובה פי 20, תוך שהוא מותח ביקורת על בית הדין האזורי בנדון.
 
-	הנה כי כן, בנסיבות העניין טענות העותרת לא נופלות בגדר החריגים המצדיקים את התערבות בית משפט זה (בג&#34;ץ 5507/22 פלונית נ&#39; בית הדין הרבני האזורי רחובות (09.11.2022)). 
+הנה כי כן, בנסיבות העניין טענות העותרת לא נופלות בגדר החריגים המצדיקים את התערבות בית משפט זה (בג&#34;ץ 5507/22 פלונית נ&#39; בית הדין הרבני האזורי רחובות (09.11.2022)).
 
-	העתירה נדחית בזאת, וממילא נדחית הבקשה למתן צו ביניים. אין צו להוצאות. 
+העתירה נדחית בזאת, וממילא נדחית הבקשה למתן צו ביניים. אין צו להוצאות.
 
-	ניתן היום, ‏כ&#34;ז בסיון התשפ&#34;ד (‏3.7.2024).
-
-
+ניתן היום, ‏כ&#34;ז בסיון התשפ&#34;ד (‏3.7.2024).
 
 ש ו פ ט
 
@@ -1672,15 +1903,9 @@
 
 _________________________
 
-   24052890_C01.docx   גק
+24052890_C01.docx גק
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1699,7 +1924,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

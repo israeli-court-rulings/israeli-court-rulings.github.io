@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    24/02/2021 (לפני 1896 ימים)
+                    24/02/2021 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8606-20.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8606/20 - מג&#39;אל ו-אפעאל נ. משרד האנרגיה"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8606-20.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/060/086/y09&amp;fileName=20086060.Y09&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/060/086/y09&amp;fileName=20086060.Y09&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/060/086/y09&amp;fileName=20086060.Y09&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/060/086/y09&amp;fileName=20086060.Y09&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,193 +1827,95 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 8606/20
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
-
-בג&#34;ץ  8606/20
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופט נ&#39; סולברג
 
-
-
 כבוד השופט ע&#39; גרוסקופף
-
-
 
 העותרים:
 
 1. מג&#39;אל ואפעאל
 
-
-
 2. קייסי לואי
-
-
 
 3. יאסמין קייסי
 
-
-
 4. חאג&#39; מוחמד עלם
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. משרד האנרגיה
 
-
-
 2. משרד הפנים
-
-
 
 3. חברת החשמל
 
-
-
 4. ועדה מקומית לתכנון ובניה עירון
 
-
-
 עתירה למתן צו על תנאי
-
-
 
 בשם העותרים:
 
 עו&#34;ד מוחמד גאלב יחיא
 
-
-
-
-
 בשם המשיבים 2-1:
 
 עו&#34;ד הדס ערן
-
-
-
-
 
 בשם המשיבה 3:
 
 עו&#34;ד בר משיח
 
-
-
-
-
 בשם המשיבה 4:
 
 עו&#34;ד רסמי דקה
 
-	
-
-	
-
 פסק-דין
-
-
 
 השופט ע&#39; גרוסקופף:
 
-
-
 לפנינו עתירה למתן צו על תנאי שיורה על חיבור בתי תושבי כפר קרע, ובכלל זה בתי העותרים 2 ו-3, לרשת החשמל, וזאת הגם שאין להם היתר בניה ו&#34;טופס 4&#34; מאת הועדה המקומית לתכנון ובניה עירון (להלן: הועדה המקומית). העתירה הוגשה על ידי עמותה רשומה הפועלת לפיתוח ורווחת כפר קרע ותושביו (העותרת 1) ושלושה מתושבי כפר קרע (העותרים 4-2). כמשיבים לעתירה צורפו משרד האנרגיה ומשרד הפנים (להלן: המדינה), וכן חברת החשמל והועדה המקומית.
-
-
 
 טענות הצדדים
 
-
-
 לטענת העותרים, הימנעות המשיבים מלחבר את הבתים בכפר קרע לרשת החשמל מנוגדת לדין, מאלצת את תושבי הכפר ליצור חיבורי חשמל ארעיים ומסוכנים, ומביאה לפגיעה קשה בזכויותיהם היסודיות, בפרט בהינתן מצבו הבריאותי הקשה של העותר 2, אשר כל הפסקת חשמל עלולה לסכן את חייו. העותרים מוסיפים וטוענים כי מדיניות המשיבים אף נעדרת היגיון פנימי מאחר שמתושבי כפר קרע לא נמנע חיבור לרשת הטלפון ולמערכת המים, למרות שאף אלה מחייבים את אותם אישורים בדין כמו חיבור לרשת החשמל.
-
-
 
 המדינה מצדה טוענת כי דין העתירה להידחות על הסף מחמת אי מיצוי הליכים ומפאת היותה עתירה כוללנית ונעדרת תשתית עובדתית מספקת. לטענת המדינה דין העתירה להידחות אף לגופה, מהטעמים שיפורטו בפסקאות 8-4 להלן. חברת החשמל והועדה המקומית סבורות גם הן כי העתירה אינה מגלה עילה להתערבות שיפוטית, ומוסיפות וטוענות להעדר יריבות בינן לבין העותרים.
 
-
-
 וזו, בתמצית, ההתייחסות הניתנת בתגובת המדינה לגופו של עניין: הוראות הדין העוסקות בחיבור מבנים לחשמל קבועות בחוק התכנון והבניה, התשכ&#34;ה-1965 (להלן: החוק), ובתקנות שהותקנו מכוחו. בהתאם להוראות אלו, חיבור מבנה לחשמל יעשה לאחר השלמת הליכי רישוי המבנה כדין (סעיף 157א(ב)(1)-(2) לחוק). יחד עם זאת, שר הפנים רשאי לקבוע בצו כי ניתן לחבר מבנים בשטח מסוים לחשמל אף לפני השלמת הליך הרישוי כדין, בהתקיים התנאים הבאים: להוצאת הצו קדמה התייעצות עם הועדה המחוזית הנוגעת בדבר; השטח כלול בתכנית מפורטת שהופקדה המתירה בניה בו, והרשות המאשרת, כהגדרתה בחוק, חיוותה דעתה כי לאחר אישור התכנית לא תהיה מניעה לקבלת היתר בניה בשטח האמור (סעיף 157א(ח) לחוק. להלן: צו שר הפנים). לעניין זה מוסיפה המדינה כי ביום 27.7.2014 פרסם שר הפנים דאז מתווה להפעלת שיקול דעתו בדבר מתן צווים לפי סעיף 157א(ח) לחוק (להלן: מתווה שר הפנים), בגדרו צוין כי &#34;השימוש בסמכות זו נדרש שיעשה במשורה ובמקרים חריגים בלבד בכדי שלא לעקר את הכלל שקבע המחוקק ואת התכלית שעמדה ביסוד קביעתו, שעניינה אכיפת הוראות חוק התכנון והבניה ומניעת עידוד לעבריינות ופגיעה בשלטון החוק&#34;. לשיטת המדינה, המדובר בהסדר המשקף איזון ראוי בין מכלול האינטרסים הנוגעים לעניין, וביניהם שמירה על עקרונות תכנוניים, בטיחות דיירי המבנים ושלטון החוק, לצד האפשרות לסטות מהכלל בנסיבות חריגות ובמקרים המצדיקים זאת.
 
-
-
-כפועל יוצא מהאמור, מבהירה המדינה בתגובתה כי לצורך קבלת היתר לחיבור מבנים לחשמל טרם השלמת הליכי הרישוי כדין, על העותרים לפעול למתן צו שר הפנים, בהתאם לתנאים הקבועים בסעיף 157א(ח) לחוק ולהנחיות המנהליות הקשורות לו. ואולם, לטענת המדינה, העותרים לא הצביעו על צו שר הפנים החל על המבנים בהם הם מתגוררים, ואף לא התייחסו באופן קונקרטי לקושי הניצב בדרכם להוצאת צו כאמור. במצב דברים זה, סבורה המדינה שלא קמה הצדקה להידרש לפגיעה הנטענת בזכויותיהם של העותרים באופן ערטילאי, בטרם ימצו את האפיקים שמעמיד להם הדין לחיבור מבניהם לחשמל. 
-
-
+כפועל יוצא מהאמור, מבהירה המדינה בתגובתה כי לצורך קבלת היתר לחיבור מבנים לחשמל טרם השלמת הליכי הרישוי כדין, על העותרים לפעול למתן צו שר הפנים, בהתאם לתנאים הקבועים בסעיף 157א(ח) לחוק ולהנחיות המנהליות הקשורות לו. ואולם, לטענת המדינה, העותרים לא הצביעו על צו שר הפנים החל על המבנים בהם הם מתגוררים, ואף לא התייחסו באופן קונקרטי לקושי הניצב בדרכם להוצאת צו כאמור. במצב דברים זה, סבורה המדינה שלא קמה הצדקה להידרש לפגיעה הנטענת בזכויותיהם של העותרים באופן ערטילאי, בטרם ימצו את האפיקים שמעמיד להם הדין לחיבור מבניהם לחשמל.
 
 כך בפרט לשיטת המדינה, שעה שלאורך השנים, ואף לאחרונה בשנת 2019, עודכנו ההנחיות המנהליות הקבועות במתווה שר הפנים באופן מקל. כך, יוזם התכנית המפורטת המופקדת יכול להיות כיום גם אדם פרטי, הוסרה המגבלה בדבר דרישה למספר מינימאלי של יחידות דיור בתכנית המופקדת ונקבע כי גורמי התכנון יפעלו כבר עם הפקדת התכנית להכנת צו שר הפנים, במקרים המתאימים. המדינה הוסיפה והתייחסה בהקשר זה לדיון שהתקיים ביום 16.6.2019 בנושא חיבור לחשמל ביישובי המגזר הערבי, בראשות המשנה ליועץ המשפטי לממשלה (משפט אזרחי), ובהשתתפות גורמים רבים וביניהם נציגי הציבור הערבי. בסיכום הדיון נקבע כי חיבור מבנים לחשמל על בסיס תכנית כוללנית בלבד עלול להכשיל קידום תכנון מפורט, וכי המנגנון הקבוע בסעיף 157א(ח) לחוק נועד למנוע זאת. לצד זאת, סוכם בדיון כי ינקטו אמצעים לייעול מימוש המנגנון בסעיף החוק הנ&#34;ל, וכן כי יש לערוך הקלות נוספות ליישומו של מנגנון זה. בהמשך לכך צוין בתגובת המדינה כי ביום 22.12.2020 התקבלה החלטת ממשלה מספר 664 המאמצת את המלצות הצוות הבין-משרדי בראשות המשנה ליועץ המשפטי לממשלה (משפט אזרחי) להסרת חסמים בדיור ובמקרקעין ביישובי החברה הערבית והדרוזית.
 
+המדינה מוסיפה ומדגישה כי לאמור לעיל קיים ביטוי גם בשטח. כאמור בתגובת המדינה, ביום 6.1.2020 ניתן על ידי שר האוצר דאז צו התכנון והבנייה (אי-תחולת סעיף 157א לחוק) (הוראת שעה), התש&#34;ף-2020, החל על מבנים המיועדים למגורים הכלולים בתכנית מופקדת מספר 354-0627059, ואשר מצויים בתחום השיפוט של המועצה המקומית כפר קרע. המבנים של העותרים 2 ו-3, אשר רק לגביהם ניתנו פרטים מזהים במסגרת העתירה, אינם מצויים בתחום התכנית המופקדת האמורה, ומשכך הוראות הצו הנ&#34;ל אינן חלות עליהם. יחד עם זאת, לטענת המדינה יש בצו זה כדי ללמד על התקדמות חיובית הנעשית בעת האחרונה, בכפר קרע עצמו, בכל הנוגע לחיבור מבנים לחשמל בהתאם לחריג הקבוע בסעיף 157א(ח) לחוק. לפיכך, ובהינתן ההקלות שנעשו בשנים האחרונות במתווה שר הפנים, מדגישה המדינה כי העתירה על הפירוט העובדתי והמשפטי הדל המוצג בה אינה מצביעה על הצדקה להתערבות שיפוטית בעניינם של העותרים.
 
-
-המדינה מוסיפה ומדגישה כי לאמור לעיל קיים ביטוי גם בשטח. כאמור בתגובת המדינה, ביום 6.1.2020 ניתן על ידי שר האוצר דאז צו התכנון והבנייה (אי-תחולת סעיף 157א לחוק) (הוראת שעה), התש&#34;ף-2020, החל על מבנים המיועדים למגורים הכלולים בתכנית מופקדת מספר 354-0627059, ואשר מצויים בתחום השיפוט של המועצה המקומית כפר קרע. המבנים של העותרים 2 ו-3, אשר רק לגביהם ניתנו פרטים מזהים במסגרת העתירה, אינם מצויים בתחום התכנית המופקדת האמורה, ומשכך הוראות הצו הנ&#34;ל אינן חלות עליהם. יחד עם זאת, לטענת המדינה יש בצו זה כדי ללמד על התקדמות חיובית הנעשית בעת האחרונה, בכפר קרע עצמו, בכל הנוגע לחיבור מבנים לחשמל בהתאם לחריג הקבוע בסעיף 157א(ח) לחוק. לפיכך, ובהינתן ההקלות שנעשו בשנים האחרונות במתווה שר הפנים, מדגישה המדינה כי העתירה על הפירוט העובדתי והמשפטי הדל המוצג בה אינה מצביעה על הצדקה להתערבות שיפוטית בעניינם של העותרים. 
-
-
-
-זאת ועוד, המדינה מתייחסת בתגובתה להתפתחויות התכנוניות שחלו מאז הוגשה העתירה. בתוך כך, צוינה החלטת ועדת המשנה להתנגדויות של הוועדה המחוזית חיפה מיום 28.1.2021 לאשר תכנית כוללנית לכפר קרע, המשנה בין היתר את שטחם של העותרים 4-2 מייעוד חקלאי ליעוד מוכלל למגורים. מתגובת הועדה המקומית עולה בנוסף כי היא שוקדת על הכנת תכניות מפורטות למקבצי הבתים הקיימים ללא היתר בכפר קרע על מנת לאפשר להם לקבל היתרים ולהתחבר לרשת החשמל. 
-
-
+זאת ועוד, המדינה מתייחסת בתגובתה להתפתחויות התכנוניות שחלו מאז הוגשה העתירה. בתוך כך, צוינה החלטת ועדת המשנה להתנגדויות של הוועדה המחוזית חיפה מיום 28.1.2021 לאשר תכנית כוללנית לכפר קרע, המשנה בין היתר את שטחם של העותרים 4-2 מייעוד חקלאי ליעוד מוכלל למגורים. מתגובת הועדה המקומית עולה בנוסף כי היא שוקדת על הכנת תכניות מפורטות למקבצי הבתים הקיימים ללא היתר בכפר קרע על מנת לאפשר להם לקבל היתרים ולהתחבר לרשת החשמל.
 
 דיון והכרעה
 
-
-
 לאחר שעיינו בעתירה ובתגובות המשיבים, הגענו למסקנה כי דין העתירה שלפנינו להידחות על הסף. להלן נציג בקצרה את נימוקינו.
-
-
 
 הלכה ידועה היא כי בטרם פנייה לבית משפט זה יש לפעול למיצוי הליכים אל מול הרשות המינהלית המוסמכת, וזאת מהטעם לפיו &#34;הידברות ישירה עם הרשות המוסמכת, עשויה לפתור את המחלוקת בין הצדדים ולייתר את הצורך בהתדיינות בין כתלי בית המשפט&#34; (בג&#34;ץ 4934/08 מלכית נ&#39; ראש ממשלת ישראל, פסקה 3 (9.3.2004)). כעולה מהעתירה ומתגובת המדינה, כל שנעשה בטרם פנו העותרים לבית משפט זה הוא פנייה בראשית שנת 2018 מטעם בא כוח העותרים לבאי כוח המדינה. בפניה זו הועלו טענות כלליות, לא נאמר בה דבר ביחס למי מהעותרים בעתירה דנן, והיא נחתמה במילים &#34;בטרם תוגש עתירה בשם מאות מתושבי היישוב כפר קרע, מתבקשים בזה ליתן עמדתכם בעניין בהקדם&#34;. המדינה הגיבה לפניה זו כבר ביום 11.1.2018, והוסיפה והשיבה ביום 13.5.2019 לפניה נוספת מטעם בא כוח העותרים, בה טען כי טרם קיבל מענה לפנייתו הראשונה. בנסיבות אלו, ברי כי העותרים בעתירה שלפנינו לא יצאו ידי חובתם למצות את ההליכים בעניינם תחילה על ידי פניה לרשויות המינהליות המוסמכות, ודי בכך לדחות את העתירה על הסף (בג&#34;ץ 2624/97 ידיד נ&#39; ממשלת ישראל, פ&#34;ד נא(3) 71, 83-82 (1997)).
 
-
-
 יאמר בנוסף, כי הסעד הראשון שהתבקש בעתירה, שעניינו &#34;חיבור בתי תושבים בכפר קרע לחשמל&#34;, הוא במובהק סעד כללי וכוללני, מפני שהוא נעדר כל ביסוס ופירוט עובדתי אשר יש בו כדי לאפשר בירור של העתירה. אף בהתייחס לעניינם של העותרים 4-2, אשר על פי הנטען הינם תושבי כפר קרע, אין העתירה כוללת תשתית עובדתית מינימאלית, כגון התייחסות למבנים המסוימים בהם מתגורר כל אחד מהם, מיקומם המדויק, מועד הקמתם והמצב התכנוני והקנייני ביחס למקרקעין עליהם הוקמו. באשר לעותר 4 אפילו לא צוינו פרטים מזהים כלשהם לגבי המקרקעין בכפר קרע בהם הוא מתגורר. דין העתירה להידחות, אפוא, גם מפאת היותה כללית וכוללנית, ולמצער בשל התשתית העובדתית הרעועה עליה היא נסמכת (בג&#34;ץ 46/00 ירדן נ&#39; ראש הממשלה (4.1.2000); בג&#34;ץ 1759/94 סרוזברג נ&#39; שר הביטחון, פ&#34;ד נה(1) 625, 631-630 (1994)).
 
-
-
-יתר על כן, לא רק שהתשתית העובדתית בעתירה לוקה בחסר, אלא שגם הטענות המשפטיות המוצגות בה הנן כלליות, ואינן מתייחסות כדבעי למכלול ההיבטים הנוגעים לחיבורם של מבנים לחשמל עוד בטרם השלמת הליכי הרישוי שלהם כדין – היבטים המפורטים בהרחבה בתגובות המשיבים ואשר הוצגו בתמצית לעיל. כך בפרט, בהינתן ההתפתחויות התכנוניות שחלו בעת האחרונה בכפר קרע, המפורטות גם הן בתגובות המשיבים, ואשר בגינן על העותרים לכל הפחות להתאים את עתירתם למצב הדברים העובדתי העדכני. 
-
-
+יתר על כן, לא רק שהתשתית העובדתית בעתירה לוקה בחסר, אלא שגם הטענות המשפטיות המוצגות בה הנן כלליות, ואינן מתייחסות כדבעי למכלול ההיבטים הנוגעים לחיבורם של מבנים לחשמל עוד בטרם השלמת הליכי הרישוי שלהם כדין – היבטים המפורטים בהרחבה בתגובות המשיבים ואשר הוצגו בתמצית לעיל. כך בפרט, בהינתן ההתפתחויות התכנוניות שחלו בעת האחרונה בכפר קרע, המפורטות גם הן בתגובות המשיבים, ואשר בגינן על העותרים לכל הפחות להתאים את עתירתם למצב הדברים העובדתי העדכני.
 
 סיכומם של דברים, שממספר טעמים שונים, לא כל שכן בהצטברם יחד, העתירה במתכונתה הנוכחית אינה יכולה להתקבל. למותר לציין כי אין באמור כדי לחסום את דרכם של העותרים מלפנות לבית משפט זה בעתיד, ככל שימצאו לנכון, ובעתירה מתאימה ועדכנית אשר תיתן את הדעת למכלול ההיבטים העובדתיים והמשפטיים הנוגעים לעניין.
 
+אשר על כן, העתירה נדחית. בנסיבות העניין, איננו עושים צו להוצאות.
 
-
-אשר על כן, העתירה נדחית. בנסיבות העניין, איננו עושים צו להוצאות.  
-
-
-
-	ניתן היום, י&#34;ב באדר התשפ&#34;א (‏24.2.2021).
-
-
+ניתן היום, י&#34;ב באדר התשפ&#34;א (‏24.2.2021).
 
 ש ו פ ט
 
@@ -1752,19 +1925,9 @@
 
 _________________________
 
-   20086060_Y09.docx   עו
+20086060_Y09.docx עו
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1783,7 +1946,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

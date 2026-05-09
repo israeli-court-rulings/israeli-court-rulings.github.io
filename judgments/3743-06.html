@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    20/07/2006 (לפני 7229 ימים)
+                    20/07/2006 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/3743-06.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="3743/06 - טל בננסון נ. עמנואל פלד"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F3743-06.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/430/037/N02&amp;fileName=06037430_N02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/430/037/N02&amp;fileName=06037430_N02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/430/037/N02&amp;fileName=06037430_N02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/06/430/037/N02&amp;fileName=06037430_N02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1578,8 +1849,7 @@
 
 עמנואל פלד
 
-ערעור על החלטת כבוד הרשמת ש&#39; ליבוביץ מיום 5.4.06 בבש&#34;א 5530/06
-ובבש&#34;א 3743/06
+ערעור על החלטת כבוד הרשמת ש&#39; ליבוביץ מיום 5.4.06 בבש&#34;א 5530/06 ובבש&#34;א 3743/06
 
 בשם המערער בבש&#34;א 3743/06 והמשיב בבש&#34;א 5530/06:
 
@@ -1591,78 +1861,19 @@
 
 פסק-דין
 
-שני
-הערעורים שלפניי הוגשו על החלטת הרשמת ש&#39; ליבוביץ מיום
-5.4.06 ליתן לפלד, שהוא המערער בבש&#34;א 5530/06 והמשיב בבש&#34;א 3743/06,
-פטור חלקי מתשלום אגרה ומהפקדת עירבון.
+שני הערעורים שלפניי הוגשו על החלטת הרשמת ש&#39; ליבוביץ מיום 5.4.06 ליתן לפלד, שהוא המערער בבש&#34;א 5530/06 והמשיב בבש&#34;א 3743/06, פטור חלקי מתשלום אגרה ומהפקדת עירבון.
 
-ביום 21.2.06 הגיש פלד בקשת רשות ערעור
-על פסק דינו של בית המשפט המחוזי בתל-אביב-יפו מיום 11.1.06. בית המשפט המחוזי
-קיבל ערעור שהגיש בננסון, שהוא המערער בבש&#34;א 3743/06 והמשיב בבש&#34;א
-5530/06, על פסק דינו של בית משפט השלום בהרצלייה מיום 5.7.04 בעניין תביעת לשון
-הרע שהגיש בננסון נגד פלד. בית המשפט המחוזי חייב את פלד לשלם לבננסון פיצוי ללא
-הוכחת נזק בסך 50,000 ש&#34;ח לפי סעיף 7א(ב) לחוק איסור לשון הרע, תשכ&#34;ה-1965,
-וכן חייבו בשכר טרחת עו&#34;ד בסך 20,000 ש&#34;ח. במסגרת בקשת רשות הערעור ביקש
-פלד פטור מתשלום אגרה ומהפקדת עירבון.
+ביום 21.2.06 הגיש פלד בקשת רשות ערעור על פסק דינו של בית המשפט המחוזי בתל-אביב-יפו מיום 11.1.06. בית המשפט המחוזי קיבל ערעור שהגיש בננסון, שהוא המערער בבש&#34;א 3743/06 והמשיב בבש&#34;א 5530/06, על פסק דינו של בית משפט השלום בהרצלייה מיום 5.7.04 בעניין תביעת לשון הרע שהגיש בננסון נגד פלד. בית המשפט המחוזי חייב את פלד לשלם לבננסון פיצוי ללא הוכחת נזק בסך 50,000 ש&#34;ח לפי סעיף 7א(ב) לחוק איסור לשון הרע, תשכ&#34;ה-1965, וכן חייבו בשכר טרחת עו&#34;ד בסך 20,000 ש&#34;ח. במסגרת בקשת רשות הערעור ביקש פלד פטור מתשלום אגרה ומהפקדת עירבון.
 
-מאז ניתנה החלטת הרשמת בבקשתו של פלד
-לפטור מאגרה ועירבון, לפיה יופחת סכום האגרה לסך של 500 ש&#34;ח וסכום העירבון
-לסך של 7,000 ש&#34;ח, עבר זמן רב במהלכו הגישו הצדדים לבית משפט זה בקשות שונות,
-וכן את הערעורים שלפניי. אסקור בקצרה את הבקשות שהגישו הצדדים במסגרת ההליך העיקרי
-כדי להמחיש עד כמה העסיקו הצדדים בית משפט זה. ראשית, ביום 7.5.06 הגיש בננסון
-בקשה למתן החלטה לדחיית בקשת רשות הערעור, נוכח חוסר המעש מצד פלד ואי קיום האמור
-בהחלטת הרשמת מיום 5.4.06, אף על פי שעוד ביום 4.5.06 הועברה לעיונו בקשה מטעם פלד
-לדחיית מועד תשלום אגרה והפקדת עירבון. בהמשך, ביום 14.5.06 הגיש פלד לבית המשפט
-בקשה לדחיית מועד תשלום אגרה והפקדת עירבון כדי לאפשר לו לגייס את הכסף ממקורות
-חיצוניים, בננסון התנגד לבקשה. ביום 14.6.06 ניתנה החלטת הרשמת בבקשות. הרשמת דחתה
-את הבקשה למתן החלטה לדחיית בקשת רשות הערעור, בין היתר, מן הטעם שהגשת הבקשה
-להארכת מועד לבננסון, הוכיחה כי פלד לא התכוון לזנוח את ההליך (אף על פי שהבקשה לא
-התקבלה לרישום בבית המשפט ולא כללה את בננסון כצד לה), ולכן אין מדובר בהליך שנזנח
-ושיש לגרוע אותו מהרישום. עוד ציינה הרשמת, כי אין לומר שהאיחור גרם להתמשכות
-ההליך באופן הפוגע באינטרס של בננסון במידה המצדיקה היעתרות לבקשה לדחיית בקשת
-רשות הערעור. באשר לבקשתו של פלד לדחיית מועד תשלום האגרה והפקדת עירבון, קבעה
-הרשמת כי פלד לא הוכיח טענותיו באשר למצבו הכלכלי הקשה, ולכן לא ניתן טעם שיצדיק
-מתן ארכה כמבוקש. עם זאת, בהתחשב בעובדה שפלד הינו אסיר, קבעה הרשמת כי העירבון
-יופקד תוך 21 יום מעת המצאת החלטתה. ביום 10.7.06 הגיש בננסון בקשה נוספת למתן
-החלטה לדחיית בקשת רשות הערעור בגין חוסר מעש, בהתאם לאמור בהחלטת הרשמת מיום
-14.6.06. בקשה אחרונה זו טרם נדונה על ידי הרשמת.
+מאז ניתנה החלטת הרשמת בבקשתו של פלד לפטור מאגרה ועירבון, לפיה יופחת סכום האגרה לסך של 500 ש&#34;ח וסכום העירבון לסך של 7,000 ש&#34;ח, עבר זמן רב במהלכו הגישו הצדדים לבית משפט זה בקשות שונות, וכן את הערעורים שלפניי. אסקור בקצרה את הבקשות שהגישו הצדדים במסגרת ההליך העיקרי כדי להמחיש עד כמה העסיקו הצדדים בית משפט זה. ראשית, ביום 7.5.06 הגיש בננסון בקשה למתן החלטה לדחיית בקשת רשות הערעור, נוכח חוסר המעש מצד פלד ואי קיום האמור בהחלטת הרשמת מיום 5.4.06, אף על פי שעוד ביום 4.5.06 הועברה לעיונו בקשה מטעם פלד לדחיית מועד תשלום אגרה והפקדת עירבון. בהמשך, ביום 14.5.06 הגיש פלד לבית המשפט בקשה לדחיית מועד תשלום אגרה והפקדת עירבון כדי לאפשר לו לגייס את הכסף ממקורות חיצוניים, בננסון התנגד לבקשה. ביום 14.6.06 ניתנה החלטת הרשמת בבקשות. הרשמת דחתה את הבקשה למתן החלטה לדחיית בקשת רשות הערעור, בין היתר, מן הטעם שהגשת הבקשה להארכת מועד לבננסון, הוכיחה כי פלד לא התכוון לזנוח את ההליך (אף על פי שהבקשה לא התקבלה לרישום בבית המשפט ולא כללה את בננסון כצד לה), ולכן אין מדובר בהליך שנזנח ושיש לגרוע אותו מהרישום. עוד ציינה הרשמת, כי אין לומר שהאיחור גרם להתמשכות ההליך באופן הפוגע באינטרס של בננסון במידה המצדיקה היעתרות לבקשה לדחיית בקשת רשות הערעור. באשר לבקשתו של פלד לדחיית מועד תשלום האגרה והפקדת עירבון, קבעה הרשמת כי פלד לא הוכיח טענותיו באשר למצבו הכלכלי הקשה, ולכן לא ניתן טעם שיצדיק מתן ארכה כמבוקש. עם זאת, בהתחשב בעובדה שפלד הינו אסיר, קבעה הרשמת כי העירבון יופקד תוך 21 יום מעת המצאת החלטתה. ביום 10.7.06 הגיש בננסון בקשה נוספת למתן החלטה לדחיית בקשת רשות הערעור בגין חוסר מעש, בהתאם לאמור בהחלטת הרשמת מיום 14.6.06. בקשה אחרונה זו טרם נדונה על ידי הרשמת.
 
-אשר לערעורים שלפניי. ערעורו של בננסון
-על החלטת הרשמת מיום 5.4.06, אשר לטענתו הומצאה לו ביום 16.4.06, בש&#34;א
-3743/06, הוגש ביום 4.5.06. לטענתו, החלטת הרשמת ליתן פטור חלקי מתשלום אגרה
-ומהפקדת עירבון שגויה כיוון שפלד לא עמד בנטל המוטל על המבקש פטור, ולא הוכיח
-באמצעות מסמכים כי מצבו הכלכלי קשה. עוד טען בננסון כי שגתה הרשמת בקביעתה שסיכויי
-הערעור אינם קלושים. לאחר שעיינתי בטענותיו של בננסון ובהחלטתה המנומקת של הרשמת,
-לא מצאתי עילה להתערב בהחלטה. שיקול הדעת במתן פטור מאגרה ובקביעת שיעור העירבון
-המוקנה לרשמת הינו רחב והאיזון אותו עשתה במקרה זה, בין ההגנה על האינטרסים של
-בננסון, לבין שמירה על זכות הגישה לערכאות של פלד, סביר בעיני ולפיכך, דין הערעור
-להידחות.
+אשר לערעורים שלפניי. ערעורו של בננסון על החלטת הרשמת מיום 5.4.06, אשר לטענתו הומצאה לו ביום 16.4.06, בש&#34;א 3743/06, הוגש ביום 4.5.06. לטענתו, החלטת הרשמת ליתן פטור חלקי מתשלום אגרה ומהפקדת עירבון שגויה כיוון שפלד לא עמד בנטל המוטל על המבקש פטור, ולא הוכיח באמצעות מסמכים כי מצבו הכלכלי קשה. עוד טען בננסון כי שגתה הרשמת בקביעתה שסיכויי הערעור אינם קלושים. לאחר שעיינתי בטענותיו של בננסון ובהחלטתה המנומקת של הרשמת, לא מצאתי עילה להתערב בהחלטה. שיקול הדעת במתן פטור מאגרה ובקביעת שיעור העירבון המוקנה לרשמת הינו רחב והאיזון אותו עשתה במקרה זה, בין ההגנה על האינטרסים של בננסון, לבין שמירה על זכות הגישה לערכאות של פלד, סביר בעיני ולפיכך, דין הערעור להידחות.
 
-ערעורו של פלד על החלטת הרשמת, בש&#34;א
-5530/06, הוגש ביום 29.6.06. ברישא לערעור נכתב כי הערעור מוגש על החלטת הרשמת
-מיום 16.4.06, בבקשה לפטור מתשלום אגרה ומהפקדת עירבון. בערעורו טוען פלד כי הוא
-חסר כל וכי אין בידו לשלם את הסכומים שנקבעו. בנוסף טוען כי הביע נכונות להשלים
-פרטים החסרים בבקשה במועד מאוחר, אך הזדמנות כזו לא ניתנה לו. לסיום טוען פלד, כי
-הטלת חובה להפקיד עירבון להבטחת הוצאות, מן הדין שתיעשה רק במקרים חריגים בלבד.
-דין הערעור להידחות על הסף ולגופו. המערער איחר במועד הגשת הערעור, איחור המצדיק
-דחיית הערעור על הסף. על פי תקנה 400 לתקנות סדר הדין האזרחי, תשמ&#34;ד-1984
-(להלן: התקנות) המועד להגשת ערעור על החלטת רשם הוא עשרים ימים מהיום שבו ניתנה
-ההחלטה, כאשר תקנה 402 לתקנות קובעת כי אם ההחלטה ניתנה שלא בפני המערער או המבקש
-בלי שהוזמן לשמוע את ההחלטה, יראו ביום מתן ההחלטה את היום שבו הומצא לו העתק
-ממנה. גם אם אקבל את גרסת הצדדים כי ההחלטה הומצאה להם ביום 16.4.06, הערעור הוגש
-באיחור של כחודשיים, מבלי שפלד הגיש בקשה להארכת מועד, ומבלי שנימק את האיחור
-בהגשת הערעור. דין הערעור להידחות גם לגופו. טענותיו של פלד באשר למצבו הכלכלי
-נעדרות תשתית ראייתית ואין הוא עומד בנטל המוטל על המבקש פטור מתשלום אגרה והפקדת
-עירבון. טענותיו באשר לנסיבות בהן תוטל חובה להפקיד עירבון אינן רלוונטיות לעניינו
-כיוון שבקשתו הוגשה במסגרת הליך של בקשת רשות ערעור, בעוד שהאסמכתאות אליהן הפנה
-מתייחסות לסיטואציה אחרת, חיוב בערובה לתשלום הוצאות בערכאה הראשונה שדנה בתובענה,
-לפי תקנה 519 לתקנות.
+ערעורו של פלד על החלטת הרשמת, בש&#34;א 5530/06, הוגש ביום 29.6.06. ברישא לערעור נכתב כי הערעור מוגש על החלטת הרשמת מיום 16.4.06, בבקשה לפטור מתשלום אגרה ומהפקדת עירבון. בערעורו טוען פלד כי הוא חסר כל וכי אין בידו לשלם את הסכומים שנקבעו. בנוסף טוען כי הביע נכונות להשלים פרטים החסרים בבקשה במועד מאוחר, אך הזדמנות כזו לא ניתנה לו. לסיום טוען פלד, כי הטלת חובה להפקיד עירבון להבטחת הוצאות, מן הדין שתיעשה רק במקרים חריגים בלבד. דין הערעור להידחות על הסף ולגופו. המערער איחר במועד הגשת הערעור, איחור המצדיק דחיית הערעור על הסף. על פי תקנה 400 לתקנות סדר הדין האזרחי, תשמ&#34;ד-1984 (להלן: התקנות) המועד להגשת ערעור על החלטת רשם הוא עשרים ימים מהיום שבו ניתנה ההחלטה, כאשר תקנה 402 לתקנות קובעת כי אם ההחלטה ניתנה שלא בפני המערער או המבקש בלי שהוזמן לשמוע את ההחלטה, יראו ביום מתן ההחלטה את היום שבו הומצא לו העתק ממנה. גם אם אקבל את גרסת הצדדים כי ההחלטה הומצאה להם ביום 16.4.06, הערעור הוגש באיחור של כחודשיים, מבלי שפלד הגיש בקשה להארכת מועד, ומבלי שנימק את האיחור בהגשת הערעור. דין הערעור להידחות גם לגופו. טענותיו של פלד באשר למצבו הכלכלי נעדרות תשתית ראייתית ואין הוא עומד בנטל המוטל על המבקש פטור מתשלום אגרה והפקדת עירבון. טענותיו באשר לנסיבות בהן תוטל חובה להפקיד עירבון אינן רלוונטיות לעניינו כיוון שבקשתו הוגשה במסגרת הליך של בקשת רשות ערעור, בעוד שהאסמכתאות אליהן הפנה מתייחסות לסיטואציה אחרת, חיוב בערובה לתשלום הוצאות בערכאה הראשונה שדנה בתובענה, לפי תקנה 519 לתקנות.
 
-כאמור לעיל, דין הערעורים להידחות.
-בנסיבות העניין אין צו להוצאות.
+כאמור לעיל, דין הערעורים להידחות. בנסיבות העניין אין צו להוצאות.
 
-ניתן היום, כ&#34;ד בתמוז התשס&#34;ו
-(20.7.2006).
+ניתן היום, כ&#34;ד בתמוז התשס&#34;ו (20.7.2006).
 
 ש ו פ ט ת
 
@@ -1689,7 +1900,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

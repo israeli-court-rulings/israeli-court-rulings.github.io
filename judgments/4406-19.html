@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    05/11/2019 (לפני 2373 ימים)
+                    05/11/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/4406-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="4406/19 - יונס סובח נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F4406-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/060/044/j01&amp;fileName=19044060.J01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/060/044/j01&amp;fileName=19044060.J01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/060/044/j01&amp;fileName=19044060.J01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/060/044/j01&amp;fileName=19044060.J01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,151 +1827,71 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            14
+            בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
+ע&#34;פ 4406/19
 
+ע&#34;פ 4411/19
 
+ע&#34;פ 4418/19
 
+ע&#34;פ 4439/19
 
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
-
-
-
-ע&#34;פ  4406/19
-
-ע&#34;פ  4411/19
-
-ע&#34;פ  4418/19
-
-ע&#34;פ  4439/19
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט מ&#39; מזוז
 
-
-
 כבוד השופט י&#39; אלרון
-
-
 
 כבוד השופט א&#39; שטיין
 
-
-
-
-
-המערערת ב-ע&#34;פ 4439/19 והמשיבה ב-ע&#34;פ 4406/19; 
+המערערת ב-ע&#34;פ 4439/19 והמשיבה ב-ע&#34;פ 4406/19;
 
 ע&#34;פ 4411/19 ו-ע&#34;פ 4418/19:
 
-
-
-
-
 מדינת ישראל
 
-
-
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיב 1 ב-ע&#34;פ 4439/19 והמערער ב-ע&#34;פ 4406/19:
 
-
-
 יונס סובח
-
-
-
-
 
 המשיב 2 ב-ע&#34;פ 4439/19 והמערער ב-ע&#34;פ 4418/19:
 
-
-
 אחמד סובח
-
-
 
 המשיב 3 ב-ע&#34;פ 4439/19 והמערער ב-ע&#34;פ 4411/19:
 
-
-
 מוחמד סובח
-
-
 
 ערעורים על גזר דינו של בית המשפט המחוזי בחיפה ב-ת&#34;פ 58670-11-18 מיום 14.5.2019 שניתן על ידי כב&#39; השופט י&#39; ליפשיץ
 
-
-
 תאריך הישיבה:
 
-כ&#34;ה בתשרי התש&#34;ף       
+כ&#34;ה בתשרי התש&#34;ף
 
-(24.10.2019) 
-
-
+(24.10.2019)
 
 בשם המערער ב-ע&#34;פ 4406/19 והמשיב 1 ב-ע&#34;פ 4439/19:
 
-
-
-עו&#34;ד כמיל עודה, עו&#34;ד ג&#39;ריס ברהום	
-
-
+עו&#34;ד כמיל עודה, עו&#34;ד ג&#39;ריס ברהום
 
 בשם המשיבים ב-ע&#34;פ 4411/19 ו- ב-ע&#34;פ 4418/19 והמשיבים ב-ע&#34;פ 4439/19:
 
-
-
-עו&#34;ד ליאור דוידי; עו&#34;ד טניה שאער; 
+עו&#34;ד ליאור דוידי; עו&#34;ד טניה שאער;
 
 עו&#34;ד אניס אמירא מועלם
 
-
-
 בשם המשיבה ב-ע&#34;פ 4406/19; ע&#34;פ 4411/19 ו-ע&#34;פ 4418/19 והמערערת ב-ע&#34;פ 4439/19:
 
-
-
-
-
-
-
 עו&#34;ד בת שבע אבגז
-
-
 
 בשם שירות המבחן :
 
 מר יוסי פולק
 
-	
-
-	
-
 פסק-דין
-
-
 
 השופט י&#39; אלרון:
 
@@ -1722,7 +1913,7 @@
 
 באותה עת, נסע מחמוד – בנו של ג&#39;מיל אבו שנב – יחד עם אשתו ובנו התינוק לכפר.
 
-המשיבים 1 ו-2 ואדם נוסף אשר זהותו אינה ידועה החליטו לפגוע במחמוד והצטיידו מבעוד מועד בשני אקדחים. השלושה המתינו למחמוד בכניסה לכפר ברכבם. משהגיע מחמוד למקום והבחין בהם, החל בנסיעה מהירה לעבר ביתו והשלושה נסעו בעקבותיו, כאשר המשיב 2 נוהג ברכב. 
+המשיבים 1 ו-2 ואדם נוסף אשר זהותו אינה ידועה החליטו לפגוע במחמוד והצטיידו מבעוד מועד בשני אקדחים. השלושה המתינו למחמוד בכניסה לכפר ברכבם. משהגיע מחמוד למקום והבחין בהם, החל בנסיעה מהירה לעבר ביתו והשלושה נסעו בעקבותיו, כאשר המשיב 2 נוהג ברכב.
 
 מחמוד הגיע לביתו, החנה את רכבו, ירד ממנו וניגש לעבר הכביש הראשי.
 
@@ -1790,7 +1981,7 @@
 
 לשיטת באי-כוח המדינה, &#34;מדובר בירי שהוא חיסול חשבונות לכל דבר ועניין&#34; המצדיק ענישה מחמירה ומרתיעה.
 
-כמו כן, נטען כי העובדה שהמשיב 3 ביצע את הירי אל עבר שלושה אנשים שונים בזה אחר זה מלמדת, כלשון נימוקי הערעור, על &#34;אדישות מוחלטת לחיי אדם ועל נכונות להשתמש בנשק ולפגוע באחרים ללא הצדקה&#34;. 
+כמו כן, נטען כי העובדה שהמשיב 3 ביצע את הירי אל עבר שלושה אנשים שונים בזה אחר זה מלמדת, כלשון נימוקי הערעור, על &#34;אדישות מוחלטת לחיי אדם ועל נכונות להשתמש בנשק ולפגוע באחרים ללא הצדקה&#34;.
 
 משכך, ולנוכח העובדה כי המשיבים לא הסגירו לידי רשויות האכיפה את האקדחים אשר שימשו אותם בביצוע הירי – נטען כי שגה בית המשפט המחוזי כאשר נתן משקל של ממש להודייתם במיוחס להם ולקבלת האחריות על מעשיהם, וכי יש להחמיר בעונשם של המשיבים &#34;החמרה ניכרת&#34;.
 
@@ -1816,7 +2007,7 @@
 
 המקרה שלפנינו נמנה לטעמי עם אותם מקרים חריגים אשר בהם נדרשת התערבותו של בית משפט זה בשבתו כערכאת ערעור, וזאת לנוכח מדיניות הענישה המחמירה אשר יש לנקוט כלפי עבירות הכוללות שימוש בנשק חם כאמצעי ליישוב סכסוכים.
 
-השימוש בנשק חם ככלי ליישוב סכסוכים הפך לרעה חולה, וכמעשה של יום ביומו גובה חיי אדם ולעיתים אף את חייהם של חפים מפשע אשר כל חטאם היה כי התהלכו באותה עת ברחובה של עיר. בשנים האחרונות אף חלה עליה מתמדת במספר אירועי הירי המדווחים למשטרה (ראו למשל: דו&#34;ח מבקר המדינה התמודדות משטרת ישראל עם החזקת אמצעי לחימה לא חוקיים ואירועי ירי ביישובי החברה הערבית וביישובים מעורבים 28 (2018)). 
+השימוש בנשק חם ככלי ליישוב סכסוכים הפך לרעה חולה, וכמעשה של יום ביומו גובה חיי אדם ולעיתים אף את חייהם של חפים מפשע אשר כל חטאם היה כי התהלכו באותה עת ברחובה של עיר. בשנים האחרונות אף חלה עליה מתמדת במספר אירועי הירי המדווחים למשטרה (ראו למשל: דו&#34;ח מבקר המדינה התמודדות משטרת ישראל עם החזקת אמצעי לחימה לא חוקיים ואירועי ירי ביישובי החברה הערבית וביישובים מעורבים 28 (2018)).
 
 על רקע המציאות אותה אנו חווים למרבה הצער מדי יום, אנו עדים לקריאה ציבורית נרגשת להגברת האכיפה כלפי עבירות נשק – ולהחמרה במדיניות הענישה הנוהגת.
 
@@ -1850,7 +2041,7 @@
 
 מעשים חמורים אלו מצדיקים ענישה מחמירה ומרתיעה, החורגת מהעונשים שגזר בית המשפט המחוזי על המשיבים.
 
-בית המשפט המחוזי הקל כאמור בעונשיהם של השלושה בין היתר על רקע קיומה של &#34;סולחה&#34; בין בני משפחותיהם אשר התגבשה לאחר האירוע. זאת, הן בשל האפשרות כי הסכמות בני המשפחות ימנעו אירועים אלימים נוספים בעתיד; והן מאחר שיש בהסכמות אלה בצירוף הודאת המשיבים כדי לבטא נטילת אחריות ממשית על מעשיהם. 
+בית המשפט המחוזי הקל כאמור בעונשיהם של השלושה בין היתר על רקע קיומה של &#34;סולחה&#34; בין בני משפחותיהם אשר התגבשה לאחר האירוע. זאת, הן בשל האפשרות כי הסכמות בני המשפחות ימנעו אירועים אלימים נוספים בעתיד; והן מאחר שיש בהסכמות אלה בצירוף הודאת המשיבים כדי לבטא נטילת אחריות ממשית על מעשיהם.
 
 אולם לטעמי, במקרה דנן אין בעצם קיומה של &#34;סולחה&#34; בין בני המשפחות כדי להצדיק הקלה משמעותית בעונשי המשיבים.
 
@@ -1866,7 +2057,7 @@
 
 הדבר נכון במיוחד בנסיבות המקרה דנן.
 
-החלטת המשיבים שלא למסור את נשקיהם מלמדת כי לא הפנימו את חומרת מעשיהם וכי חרטתם מסויגת ואינה שלמה. זאת, שהרי כלי הנשק נותרו זמינים ועלולים לשמש לביצוע עבירות דומות בעתיד – בין אם על ידם ובין אם על-ידי אחרים. 
+החלטת המשיבים שלא למסור את נשקיהם מלמדת כי לא הפנימו את חומרת מעשיהם וכי חרטתם מסויגת ואינה שלמה. זאת, שהרי כלי הנשק נותרו זמינים ועלולים לשמש לביצוע עבירות דומות בעתיד – בין אם על ידם ובין אם על-ידי אחרים.
 
 משפגיעת המשיבים בביטחון הציבור נמשכת, איני סבור כי יש בהודאתם כדי לבטא חרטה כנה על מעשיהם. תמיכה למסקנה זו נמצאת אף בתסקירי שירות המבחן ובתסקירים המשלימים אשר הוגשו לעיוננו, בהם צוין כי כל אחד מהמשיבים התקשה ליטול אחריות בגין מעשיו ולהפנים את החומרה הגלומה בהם.
 
@@ -1882,67 +2073,39 @@
 
 השופט מ&#39; מזוז:
 
-
-
 אני מסכים לפסק דינו של חברי השופט י&#39; אלרון, ואוסיף אך הערה משלימה קצרה.
 
+התופעה של החזקת נשק שלא כדין על ידי אזרחים מהווה איום על שלום הציבור ועל הסדר הציבורי. היא התשתית ו&#34;הגורם בלעדו איין&#34; (causa sine qua non) למגוון רחב של עבירות, החל בעבירות איומים ושוד מזוין, המשך בעבירות גרימת חבלה חמורה וכלה בעבירות המתה. לעתים קרובות הנשק הבלתי חוקי נרכש מלכתחילה למטרות עבירה, ואף אם הנשק נרכש למטרות &#34;הגנה עצמית&#34;, הזמינות של הנשק מעודדת את השימוש בו לביצוע עבירות שונות ולחרפת תוצאותיהן.
 
-
-התופעה של החזקת נשק שלא כדין על ידי אזרחים מהווה איום על שלום הציבור ועל הסדר הציבורי. היא התשתית ו&#34;הגורם בלעדו איין&#34; (causa sine qua non) למגוון רחב של עבירות, החל בעבירות איומים ושוד מזוין, המשך בעבירות גרימת חבלה חמורה וכלה בעבירות המתה. לעתים קרובות הנשק הבלתי חוקי נרכש מלכתחילה למטרות עבירה, ואף אם הנשק נרכש למטרות &#34;הגנה עצמית&#34;, הזמינות של הנשק מעודדת את השימוש בו לביצוע עבירות שונות ולחרפת תוצאותיהן. 
-
-
-
-על כן, המאבק בתופעות האלימות החמורות בחברה הישראלית בהן נעשה שימוש בנשק מחייב, מעבר למאמץ &#34;לשים יד&#34; על כלי הנשק הבלתי חוקיים הרבים שבידי הציבור, גם ענישה מחמירה ומרתיעה בעבירות נשק, לרבות על עצם החזקה או רכישה שלא כדין של נשק. אזכיר כי המחוקק ביטא את גישתו המחמירה לתופעה זו כאשר קבע עונשים מחמירים של 7 שנות מאסר על רכישה או החזקה של נשק בלא רשות על פי דין, 10 שנות מאסר על נשיאה או הובלה של נשק בלא רשות על פי דין, ו- 15 שנות מאסר על ייצור, יבוא או סחר בנשק בלא רשות על פי דין (סעיף 144 לחוק העונשין, התשל&#34;ז-1977); זאת אף בלא שנעשה בנשק שימוש לביצוע עבירה נוספת. 
-
-
+על כן, המאבק בתופעות האלימות החמורות בחברה הישראלית בהן נעשה שימוש בנשק מחייב, מעבר למאמץ &#34;לשים יד&#34; על כלי הנשק הבלתי חוקיים הרבים שבידי הציבור, גם ענישה מחמירה ומרתיעה בעבירות נשק, לרבות על עצם החזקה או רכישה שלא כדין של נשק. אזכיר כי המחוקק ביטא את גישתו המחמירה לתופעה זו כאשר קבע עונשים מחמירים של 7 שנות מאסר על רכישה או החזקה של נשק בלא רשות על פי דין, 10 שנות מאסר על נשיאה או הובלה של נשק בלא רשות על פי דין, ו- 15 שנות מאסר על ייצור, יבוא או סחר בנשק בלא רשות על פי דין (סעיף 144 לחוק העונשין, התשל&#34;ז-1977); זאת אף בלא שנעשה בנשק שימוש לביצוע עבירה נוספת.
 
 ביעור תופעת החזקת כלי נשק בלתי חוקיים הוא אפוא אינטרס ציבורי מהמעלה הראשונה ותנאי הכרחי למאבק בתופעות הפשיעה האלימה לסוגיה הרווחות במקומותינו, בבחינת &#34;ייבוש הביצה&#34; המשמשת ערס לגידולן של תופעות אלה. מהלך כזה מחייב הירתמות גם של בתי המשפט, על ידי ענישה מחמירה ומרתיעה לעבירות נשק בלתי חוקי באשר הן, וכל שכן מקום שנעשה בנשק כזה שימוש בביצוע עבירות אלימות לסוגיהן.
-
-
 
 ש ו פ ט
 
 השופט א&#39; שטיין:
 
-
-
-	אני מצטרף לחוות דעתו של חברי השופט י&#39; אלרון ולהערותיו של חברי השופט מ&#39; מזוז.
+אני מצטרף לחוות דעתו של חברי השופט י&#39; אלרון ולהערותיו של חברי השופט מ&#39; מזוז.
 
 ש ו פ ט
 
+הוחלט כאמור בפסק דינו של השופט י&#39; אלרון.
 
+ניתן ביום, ‏ז&#39; בחשון התש&#34;פ (‏5.11.2019).
 
-הוחלט כאמור בפסק דינו של השופט י&#39; אלרון. 
-
-	ניתן ביום, ‏ז&#39; בחשון התש&#34;פ (‏5.11.2019).
-
-	תוקן היום, כ&#34;א בחשון התש&#34;פ (19.11.2019).
-
-
+תוקן היום, כ&#34;א בחשון התש&#34;פ (19.11.2019).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
 
 _________________________
 
-   19044060_J01.docx   עע
+19044060_J01.docx עע
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1961,7 +2124,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

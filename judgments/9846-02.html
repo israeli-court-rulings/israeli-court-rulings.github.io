@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    11/12/2003 (לפני 8181 ימים)
+                    11/12/2003 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/9846-02.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="9846/02 - איוון בן אנדרי פופוב נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F9846-02.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/460/098/N02&amp;fileName=02098460_N02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/460/098/N02&amp;fileName=02098460_N02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/460/098/N02&amp;fileName=02098460_N02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/02/460/098/N02&amp;fileName=02098460_N02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,8 +1829,7 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק ע&#34;פ 9846/02
 
-בבית המשפט העליון
-בשבתו כבית משפט לערעורים פליליים
+בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
 ע&#34;פ 9846/02
 
@@ -1581,9 +1851,7 @@
 
 מדינת ישראל
 
-ערעור על גזר הדין של בית המשפט
-המחוזי בתל-אביב-יפו מיום 6.10.02 בת.פ.ח. 5008/99 שניתן על ידי כבוד השופטים:
-ש&#39; סירוטה, ט&#39; אברהם ונ&#39; אחיטוב
+ערעור על גזר הדין של בית המשפט המחוזי בתל-אביב-יפו מיום 6.10.02 בת.פ.ח. 5008/99 שניתן על ידי כבוד השופטים: ש&#39; סירוטה, ט&#39; אברהם ונ&#39; אחיטוב
 
 תאריך הישיבה:
 
@@ -1605,112 +1873,31 @@
 
 השופטת ד&#39; ביניש:
 
-עניינו של המערער בא בפני בית משפט זה בפעם
-השניה. בית המשפט המחוזי בתל-אביב-יפו הרשיע את המערער ברצח. המערער הגיש ערעור על
-הרשעתו ובמסגרת הערעור הסכימו הצדדים להמיר את ההרשעה ברצח להרשעה בהריגה. בעקבות
-הסכמה זו הוחזר התיק לבית המשפט המחוזי אשר בהרכב אחר גזר את דינו של המערער
-והעמיד את עונשו על 16 שנות מאסר בפועל החל מיום מעצרו ושתי שנות מאסר על תנאי. על
-גזר דין זה הוגש הערעור שבפנינו.
+עניינו של המערער בא בפני בית משפט זה בפעם השניה. בית המשפט המחוזי בתל-אביב-יפו הרשיע את המערער ברצח. המערער הגיש ערעור על הרשעתו ובמסגרת הערעור הסכימו הצדדים להמיר את ההרשעה ברצח להרשעה בהריגה. בעקבות הסכמה זו הוחזר התיק לבית המשפט המחוזי אשר בהרכב אחר גזר את דינו של המערער והעמיד את עונשו על 16 שנות מאסר בפועל החל מיום מעצרו ושתי שנות מאסר על תנאי. על גזר דין זה הוגש הערעור שבפנינו.
 
-בגזר דינו ציין בית
-המשפט קמא כי הממצאים שנקבעו בהכרעת הדין לא שונו בעת קבלת הערעור בבית המשפט
-העליון, ובהתאם לכך קבע בית המשפט את המסכת העובדתית שהביאה להרשעת המערער. על פי
-הממצאים האמורים התברר כי המנוח, שהיה בן 55 שנים במותו, שהה בביתו בעת שהמערער
-הגיע אליו על פי הזמנתו. המערער, צעיר בן 18, הכיר את המנוח במפגש אקראי ברחוב.
-הוא היה מובטל שעלה לארץ כשנה קודם לכן מברית המועצות לשעבר. המנוח יצר עמו קשר
-והבטיח לסייע לו במציאת עבודה. בערב הארוע, כאשר הגיע המערער לבית המנוח, לא היה
-זה ביקורו הראשון במקום, הוא ידע שהמנוח הוא הומוסקסואל, ובהיותו במקום ישבו
-השניים לצפות בסרט פורנוגרפי. בעת הצפיה, הניח המנוח את ידו על ברכו של המערער,
-ובתגובה העיף המערער את היד הצידה. כשביקש המנוח לקום מהספה עליה ישבו, היכה
-המערער את המנוח בגרונו עד כי המנוח נשנק ונפל ארצה. בשלב זה, גילה המערער שביקש
-לצאת מהדירה שדלת הכניסה נעולה, ומולו כבר עמד המנוח כשסכין בידו. יצוין כי הוא
-עצמו אמר בהודאתו כי המנוח &#34;בודאי לא רצה לדקור אותי&#34;; במצב שנוצר
-במקום, הוא בעט במנוח שתי בעיטות על פי תורת הלחימה &#34;קיק-בוקס&#34; בה היה
-בקי, בעיטה אחת בלסת והשניה בסרעפת והמנוח נפל ארצה. אז השתלט המערער על המנוח,
-לקח את הסכין מידו, נעץ אותה במקומות שונים בגופו וגרם למותו. בגופו של המנוח
-נמצאו עשרים וחמש דקירות סכין. לאחר ארוע זה נרדם, ככל הנראה, המערער בדירה – כך
-על כל פנים היתה גרסתו בחקירה. כשהתעורר ניסה המערער לביים שוד. הוא לבש חליפה של
-המנוח כדי לצאת מהבנין בלבוש הולם, הוא לקח את כרטיס האשראי שלו, הוציא חפצים
-מהבית, ובהם מכשיר וידאו חדש, טייפ ואוסף סכינים שמצא שם. המערער ניגב בצעיף את טביעות
-אצבעותיו בדירה, הפעיל את המזגן כדי שהגופה לא תירקב ולא יעלה ריח מהדירה, העביר
-את הרכוש מהדירה למכונית המנוח. לשם כך עלה מהמכונית לדירה מספר פעמים. לאחר מכן נסע
-המערער לכיוון שפת הים במכוניתו של המנוח, זרק את הסכין הקטלנית לים, מכר את
-הסיגריות לעוברי אורח, ורק אחר כך שב לביתו. את כרטיס האשראי השליך לאחר שנוכח כי
-פג תוקפו.
+בגזר דינו ציין בית המשפט קמא כי הממצאים שנקבעו בהכרעת הדין לא שונו בעת קבלת הערעור בבית המשפט העליון, ובהתאם לכך קבע בית המשפט את המסכת העובדתית שהביאה להרשעת המערער. על פי הממצאים האמורים התברר כי המנוח, שהיה בן 55 שנים במותו, שהה בביתו בעת שהמערער הגיע אליו על פי הזמנתו. המערער, צעיר בן 18, הכיר את המנוח במפגש אקראי ברחוב. הוא היה מובטל שעלה לארץ כשנה קודם לכן מברית המועצות לשעבר. המנוח יצר עמו קשר והבטיח לסייע לו במציאת עבודה. בערב הארוע, כאשר הגיע המערער לבית המנוח, לא היה זה ביקורו הראשון במקום, הוא ידע שהמנוח הוא הומוסקסואל, ובהיותו במקום ישבו השניים לצפות בסרט פורנוגרפי. בעת הצפיה, הניח המנוח את ידו על ברכו של המערער, ובתגובה העיף המערער את היד הצידה. כשביקש המנוח לקום מהספה עליה ישבו, היכה המערער את המנוח בגרונו עד כי המנוח נשנק ונפל ארצה. בשלב זה, גילה המערער שביקש לצאת מהדירה שדלת הכניסה נעולה, ומולו כבר עמד המנוח כשסכין בידו. יצוין כי הוא עצמו אמר בהודאתו כי המנוח &#34;בודאי לא רצה לדקור אותי&#34;; במצב שנוצר במקום, הוא בעט במנוח שתי בעיטות על פי תורת הלחימה &#34;קיק-בוקס&#34; בה היה בקי, בעיטה אחת בלסת והשניה בסרעפת והמנוח נפל ארצה. אז השתלט המערער על המנוח, לקח את הסכין מידו, נעץ אותה במקומות שונים בגופו וגרם למותו. בגופו של המנוח נמצאו עשרים וחמש דקירות סכין. לאחר ארוע זה נרדם, ככל הנראה, המערער בדירה – כך על כל פנים היתה גרסתו בחקירה. כשהתעורר ניסה המערער לביים שוד. הוא לבש חליפה של המנוח כדי לצאת מהבנין בלבוש הולם, הוא לקח את כרטיס האשראי שלו, הוציא חפצים מהבית, ובהם מכשיר וידאו חדש, טייפ ואוסף סכינים שמצא שם. המערער ניגב בצעיף את טביעות אצבעותיו בדירה, הפעיל את המזגן כדי שהגופה לא תירקב ולא יעלה ריח מהדירה, העביר את הרכוש מהדירה למכונית המנוח. לשם כך עלה מהמכונית לדירה מספר פעמים. לאחר מכן נסע המערער לכיוון שפת הים במכוניתו של המנוח, זרק את הסכין הקטלנית לים, מכר את הסיגריות לעוברי אורח, ורק אחר כך שב לביתו. את כרטיס האשראי השליך לאחר שנוכח כי פג תוקפו.
 
-הן בערכאה הדיונית
-והן בפנינו, ניסו סנגוריו של המערער לטעון כי המערער היה נתון במצב של שכרות קשה
-בעת מעשי ההמתה, כי מטעם זה נפל לתרדמת וכי היה על בית המשפט להביא בחשבון את מצבו
-זה כאשר הוא בא להעריך את חומרת המעשה ואת אופיו. למעשה טענו הסנגורים עוד בדיון
-הראשון כי למערער עומדת הגנת השכרות. כן טענו כי למצב זה הביא אותו המנוח, כאשר
-השקה אותו במשקאות חריפים משום שביקש לבצע בו מעשים מיניים, ולקיים עמו יחסי מין.
-בית המשפט בהכרעת הדין המקורית, דחה גרסה זו, הן ביחס לכמות האלכוהול אשר נטען כי
-המערער שתה עובר לארוע הקטלני והן ביחס לסיפור התרדמה הפתאומית אשר נפלה על
-המערער. למסקנה זו הגיע בהתייחסו לעדויות המומחים שהובאו לצורך זה מטעם ההגנה. בית
-המשפט קמא אף ציין את השליטה העצמית &#34;המופלאה&#34; של המערער בעת שתקף את
-המנוח בתרגיל לחימה מסוג &#34;קיק-בוקס&#34; כאמור, ובמהלך כל הארוע, שליטה
-שאינה אפשרית במצב השכרות שבאי-כוח המערער טענו. ממצאים אלה שימשו את בית המשפט המחוזי
-בגזרו את דינו של המערער.
+הן בערכאה הדיונית והן בפנינו, ניסו סנגוריו של המערער לטעון כי המערער היה נתון במצב של שכרות קשה בעת מעשי ההמתה, כי מטעם זה נפל לתרדמת וכי היה על בית המשפט להביא בחשבון את מצבו זה כאשר הוא בא להעריך את חומרת המעשה ואת אופיו. למעשה טענו הסנגורים עוד בדיון הראשון כי למערער עומדת הגנת השכרות. כן טענו כי למצב זה הביא אותו המנוח, כאשר השקה אותו במשקאות חריפים משום שביקש לבצע בו מעשים מיניים, ולקיים עמו יחסי מין. בית המשפט בהכרעת הדין המקורית, דחה גרסה זו, הן ביחס לכמות האלכוהול אשר נטען כי המערער שתה עובר לארוע הקטלני והן ביחס לסיפור התרדמה הפתאומית אשר נפלה על המערער. למסקנה זו הגיע בהתייחסו לעדויות המומחים שהובאו לצורך זה מטעם ההגנה. בית המשפט קמא אף ציין את השליטה העצמית &#34;המופלאה&#34; של המערער בעת שתקף את המנוח בתרגיל לחימה מסוג &#34;קיק-בוקס&#34; כאמור, ובמהלך כל הארוע, שליטה שאינה אפשרית במצב השכרות שבאי-כוח המערער טענו. ממצאים אלה שימשו את בית המשפט המחוזי בגזרו את דינו של המערער.
 
-בטרם גזר בית המשפט
-קמא את עונשו של המערער, הוא ביקש תסקיר מעודכן משירות המבחן. מן התסקיר עלתה
-תמונה עגומה ביחס למערער, אשר על אף היותו צעיר לימים, הינו מכור לסמים אשר למרבה
-הצער, כל נסיונות הגמילה שנעשו בו מאז בואו ארצה נכשלו. עוד התברר כי מהמוסדות בהם
-שהה לצורכי טיפול, הורחק המערער עקב בעיות התנהגות. בגזר דינו עמד בית המשפט קמא
-על כך כי מלבד החומרה המופלגת של עבירת ההריגה אשר ביצע המערער, אין להקל ראש גם
-בהתנהגותו המאוחרת של המערער המצביעה על אישיותו ועל &#34;הקלות הבלתי נסבלת בה
-התייחס למעשה הקטילה ועל העדר כל חרטה&#34;. בעוד גופת המנוח מוטלת לרגלי המערער,
-הוא פעל לטשטוש עקבות המעשה ולהפקת רווחים מהרכוש. בית המשפט סבר כי הבעת החרטה
-שהביע המערער בעת מסירת הודאתו במשטרה אינה כנה, כיוון שהיא עומדת בסתירה מוחלטת
-לכל מעשיו.
+בטרם גזר בית המשפט קמא את עונשו של המערער, הוא ביקש תסקיר מעודכן משירות המבחן. מן התסקיר עלתה תמונה עגומה ביחס למערער, אשר על אף היותו צעיר לימים, הינו מכור לסמים אשר למרבה הצער, כל נסיונות הגמילה שנעשו בו מאז בואו ארצה נכשלו. עוד התברר כי מהמוסדות בהם שהה לצורכי טיפול, הורחק המערער עקב בעיות התנהגות. בגזר דינו עמד בית המשפט קמא על כך כי מלבד החומרה המופלגת של עבירת ההריגה אשר ביצע המערער, אין להקל ראש גם בהתנהגותו המאוחרת של המערער המצביעה על אישיותו ועל &#34;הקלות הבלתי נסבלת בה התייחס למעשה הקטילה ועל העדר כל חרטה&#34;. בעוד גופת המנוח מוטלת לרגלי המערער, הוא פעל לטשטוש עקבות המעשה ולהפקת רווחים מהרכוש. בית המשפט סבר כי הבעת החרטה שהביע המערער בעת מסירת הודאתו במשטרה אינה כנה, כיוון שהיא עומדת בסתירה מוחלטת לכל מעשיו.
 
-התביעה ביקשה מבית
-המשפט קמא לגזור על המערער את העונש המירבי בטענה שמעשה ההריגה שהורשע בו הינו על
-גבול הרצח. בית המשפט לא קיבל טענה זו בסברו כי יש להקל עם המערער במידת-מה עקב
-העובדה שנקלע לדירת המנוח ולא הצליח לצאת ממנה מלכתחילה כשהמנוח ניסה לפתותו. בשים
-לב לכל השיקולים הללו, גזר בית המשפט קמא את העונש האמור.
+התביעה ביקשה מבית המשפט קמא לגזור על המערער את העונש המירבי בטענה שמעשה ההריגה שהורשע בו הינו על גבול הרצח. בית המשפט לא קיבל טענה זו בסברו כי יש להקל עם המערער במידת-מה עקב העובדה שנקלע לדירת המנוח ולא הצליח לצאת ממנה מלכתחילה כשהמנוח ניסה לפתותו. בשים לב לכל השיקולים הללו, גזר בית המשפט קמא את העונש האמור.
 
-בערעור לפנינו, עשו
-הסנגורים המלומדים של המערער כל שניתן כדי לשכנענו שבית המשפט קמא החמיר עם המערער
-יתר על המידה. בין היתר, טענו כי עונשו של המערער חורג מרמת הענישה המקובלת
-בעבירות מן הסוג שהורשע בהן. הם שבו וניסו לשכנענו כי עקב גילו הצעיר ומצוקתו של
-המערער שנגרמה בשל התנהגות המנוח, ובהתחשב במצב השכרות שהיה נתון בו, מן הראוי היה
-להקל במידה ניכרת בעונשו.
+בערעור לפנינו, עשו הסנגורים המלומדים של המערער כל שניתן כדי לשכנענו שבית המשפט קמא החמיר עם המערער יתר על המידה. בין היתר, טענו כי עונשו של המערער חורג מרמת הענישה המקובלת בעבירות מן הסוג שהורשע בהן. הם שבו וניסו לשכנענו כי עקב גילו הצעיר ומצוקתו של המערער שנגרמה בשל התנהגות המנוח, ובהתחשב במצב השכרות שהיה נתון בו, מן הראוי היה להקל במידה ניכרת בעונשו.
 
-שקלנו את טענות
-הסנגורים, בחנו אותן אחת לאחת, אך לא מצאנו כל הצדקה להתערב בעונש שנגזר על
-המערער. המסגרת העובדתית שעל פיה נקבעו הממצאים הכרוכים בעבירה, נקבעה בבית המשפט
-קמא. טענות הסנגורים באשר לאופן פעולתו של המערער בשעת מעשה הקטילה ובעת היותו
-בדירת המנוח נדחו. מהשתלשלות העובדות כפי שתוארה לעיל, ניכר כי המערער הצליח
-להתגבר בקלות רבה על המנוח, שעה שהפילו לארץ, ואף גרם לו לתחושת חנק. ואם לא די
-היה בכך, יכול היה להוציא ממנו את מפתחות הדירה שעה שאחז את הסכין בידו. אף על-פי
-כן לא כך נהג המערער. הוא דקר את המנוח באכזריות בכל חלקי גופו. הוא הגדיל לעשות כשנוכח
-בתוצאות מעשיו, הוא לא חש כל חרטה או רתיעה כשנטל מרכושו של המנוח, כשטישטש את
-טביעות האצבע, והצליח להעלים את הסכין. המערער פעל בדרך מצמררת שאינה עולה בקנה
-אחד עם התיאור של נער חלש וחסר אונים שנקלע לתנאי מצוקה.
+שקלנו את טענות הסנגורים, בחנו אותן אחת לאחת, אך לא מצאנו כל הצדקה להתערב בעונש שנגזר על המערער. המסגרת העובדתית שעל פיה נקבעו הממצאים הכרוכים בעבירה, נקבעה בבית המשפט קמא. טענות הסנגורים באשר לאופן פעולתו של המערער בשעת מעשה הקטילה ובעת היותו בדירת המנוח נדחו. מהשתלשלות העובדות כפי שתוארה לעיל, ניכר כי המערער הצליח להתגבר בקלות רבה על המנוח, שעה שהפילו לארץ, ואף גרם לו לתחושת חנק. ואם לא די היה בכך, יכול היה להוציא ממנו את מפתחות הדירה שעה שאחז את הסכין בידו. אף על-פי כן לא כך נהג המערער. הוא דקר את המנוח באכזריות בכל חלקי גופו. הוא הגדיל לעשות כשנוכח בתוצאות מעשיו, הוא לא חש כל חרטה או רתיעה כשנטל מרכושו של המנוח, כשטישטש את טביעות האצבע, והצליח להעלים את הסכין. המערער פעל בדרך מצמררת שאינה עולה בקנה אחד עם התיאור של נער חלש וחסר אונים שנקלע לתנאי מצוקה.
 
-כאמור, גם מתסקיר
-שירות המבחן עולה תמונה קשה ביחס למערער, המכור לסמים מגיל צעיר, נכשל בנסיונות של
-גמילה ותוך תקופה קצרה צבר גם הרשעות קודמות.
+כאמור, גם מתסקיר שירות המבחן עולה תמונה קשה ביחס למערער, המכור לסמים מגיל צעיר, נכשל בנסיונות של גמילה ותוך תקופה קצרה צבר גם הרשעות קודמות.
 
-על רקע זה, אין
-לומר כי בית המשפט קמא החמיר עם המערער יתר על המידה. בידוע הוא כי עבירות ההריגה
-הן שונות זו מזו במידת חומרתן על פי נסיבותיהן; אף כי כל מעשה המתה בו קופחו חיי
-אדם חמור הוא, הרי יש ונסיבות מקלות אופפות את המעשה, ויש מעשה הריגה שבנסיבותיו קרוב
-הוא מאד לעבירת הרצח. אכן, גילו הצעיר של המערער ונסיבותיו האישיות הקשות הן
-נסיבות לקולה, עם זאת, ניתן לומר כי המעשה אשר בגינו הורשע בפרשה שבפנינו מצוי בקרבת
-הגבול החמור של מעשי ההריגה, המקרב את המעשה במידה ניכרת לעבירת הרצח.
+על רקע זה, אין לומר כי בית המשפט קמא החמיר עם המערער יתר על המידה. בידוע הוא כי עבירות ההריגה הן שונות זו מזו במידת חומרתן על פי נסיבותיהן; אף כי כל מעשה המתה בו קופחו חיי אדם חמור הוא, הרי יש ונסיבות מקלות אופפות את המעשה, ויש מעשה הריגה שבנסיבותיו קרוב הוא מאד לעבירת הרצח. אכן, גילו הצעיר של המערער ונסיבותיו האישיות הקשות הן נסיבות לקולה, עם זאת, ניתן לומר כי המעשה אשר בגינו הורשע בפרשה שבפנינו מצוי בקרבת הגבול החמור של מעשי ההריגה, המקרב את המעשה במידה ניכרת לעבירת הרצח.
 
-אשר על כן, לא
-ראינו מקום להתערב כדי להקל בעונשו של המערער.
+אשר על כן, לא ראינו מקום להתערב כדי להקל בעונשו של המערער.
 
 הערעור נדחה.
 
-ניתן היום,
-ט&#34;ז בכסלו התשס&#34;ד (11.12.2003).
+ניתן היום, ט&#34;ז בכסלו התשס&#34;ד (11.12.2003).
 
-ש ו פ ט ש ו פ
-ט ת ש ו פ ט
+ש ו פ ט ש ו פ ט ת ש ו פ ט
 
 _________________________
 
@@ -1735,7 +1922,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

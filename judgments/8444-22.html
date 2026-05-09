@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    26/03/2023 (לפני 1136 ימים)
+                    26/03/2023 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8444-22.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8444/22 - פלוני נ. משרד הביטחון"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8444-22.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/440/084/p09&amp;fileName=22084440.P09&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/440/084/p09&amp;fileName=22084440.P09&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/440/084/p09&amp;fileName=22084440.P09&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/440/084/p09&amp;fileName=22084440.P09&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,169 +1827,81 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 8444/22
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
-
-בג&#34;ץ  8444/22
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופט א&#39; שטיין
 
-
-
 כבוד השופטת ר&#39; רונן
-
-
 
 העותר:
 
 פלוני
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבים:
 
 1. משרד הביטחון
 
-
-
 2. שירות הביטחון הכללי
-
-
 
 3. משרד ראש הממשלה
 
-	
-
 עתירה למתן צו על תנאי
-
-
 
 בשם העותר:
 
-עו&#34;ד מתן לקר 
-
-
+עו&#34;ד מתן לקר
 
 בשם המשיבים:
 
-עו&#34;ד יעל קולודני 
-
-	
-
-	
+עו&#34;ד יעל קולודני
 
 פסק-דין
 
-
-
 השופטת ר&#39; רונן:
 
-
-
-	עניינה של העתירה שלפנינו בבקשת העותר כי נורה למשיבים להעניק לו תעודת &#34;משרת בכבוד&#34; בגין השירות ששירת לטענתו בשירות הביטחון הכללי (המשיב 2. להלן: השב&#34;כ). כן מעלה העותר טענות שונות ביחס לאי-גיוסו לשירות חובה, ולהבטחות מנהליות שניתנו לו לכאורה על ידי המשיבים.
-
-
+עניינה של העתירה שלפנינו בבקשת העותר כי נורה למשיבים להעניק לו תעודת &#34;משרת בכבוד&#34; בגין השירות ששירת לטענתו בשירות הביטחון הכללי (המשיב 2. להלן: השב&#34;כ). כן מעלה העותר טענות שונות ביחס לאי-גיוסו לשירות חובה, ולהבטחות מנהליות שניתנו לו לכאורה על ידי המשיבים.
 
 העותר, יליד 1999, הוא אזרח ישראלי. במועד בו אמור היה העותר להתחיל בהליכי רישום ובדיקה לקראת גיוסו לשירות ביטחון, הוא שהה בכפר שיקום לנפגעי סמים (להלן: כפר השיקום). על פי הנהוג, מדי תקופה מעביר כפר השיקום ליחידת מיטב (המופקדת על ביצוע הליכי מיון ושיבוץ של כלל המיועדים לשירות ביטחון והחיילים בצה&#34;ל; להלן: מיטב) רשימה של בני נוער אשר לגביהם מבוקש להקפיא את הליכי הגיוס לשירות ביטחון לפרק זמן מסוים לטובת המשך הטיפול בהם. בהתאם, נשלח ביום 27.3.2016 מכתב מטעם כפר השיקום ללשכת הגיוס הרלוונטית, המבקש להקפיא את הליך גיוסו של העותר ב-6 חודשים. באפריל 2016 אושרה ההקפאה.
 
-
-
 בחלוף כשנה, לאחר שכפר השיקום הודיע למיטב כי העותר עזב, הוחלט ביום 30.3.2017 להפשיר את הליכי הגיוס שלו. על כן, זומן העותר לביצוע הליכי רישום ובדיקה לקראת גיוסו לשירות ביטחון ביום 14.5.2017, והתייצב במועד. בהמשך, זומן העותר לבדיקת קצין בריאות הנפש ביום 25.5.2017. בבדיקה אובחן העותר כסובל מקשיי הסתגלות, ונקבע לו הציון הגבוה ביותר המסמל קשיי הסתגלות בהתאם להגדרות הקבועות בהוראת קבע אכ&#34;א 31-02-07 &#34;סימול קשיי הסתגלות לשירות (קה&#34;ס)&#34; (20.2.2011). על רקע זה, הוחלט ביום 19.10.2017 לפטור את העותר משירות ביטחון בשל אי-התאמתו לשירות צבאי.
-
-
 
 ביום 7.11.2017 נשלח לעותר מכתב מטעם מפקד לשכת הגיוס, בו הוא עודכן על ההחלטה לפטור אותו מגיוס לשירות ביטחון. במכתב הובהר לעותר כי ככל שברצונו לערער על הפטור, הוא רשאי לפנות ללשכת הגיוס בבקשה מנומקת, בצירוף מסמכים רלוונטיים.
 
-
-
 על פי הנטען בעתירה, ביום 15.8.2018 התקשרו אל העותר מהשב&#34;כ במטרה לגייסו, &#34;תוך הבטחת שווא כי לאחר סיום &#39;שירותו&#39; הוא יתגייס לצה&#34;ל&#34; (סעיף 9 לכתב העתירה). עוד נטען בעתירה כי העותר השלים שירות של 3 שנים ואף יותר ביחידה של השב&#34;כ, וכי &#34;במסגרת תפקידו בשירות הובטחו לעותר הבטחות מנהליות רבות כי יסייעו לו להתגייס לצה&#34;ל&#34; (סעיף 11 לכתב העתירה).
-
-
 
 זאת ועוד, לטענת העותר במשך &#34;למעלה משנה וחצי שיגר עשרות אם לא מאות מכתבי בענייננו דנן למשיבים (הם משרד הביטחון, השב&#34;כ ומשרד ראש הממשלה – ר.ר) – אך מעולם אף גורם לא השיב ולו בתו אחד&#34; (סעיף 12 לכתב העתירה). לעתירה צירף העותר פנייה אחת מיום 19.9.2022, ששלח באמצעות בא כוחו למשיבים. בפנייה זו נטען כי העותר סיים שירות של 3 שנים בשב&#34;כ; כי במהלך השירות הובטחו לו הבטחות מנהליות רבות לפיהן יסייעו לו להתגייס לצה&#34;ל, אשר לא התממשו; וכי כעת הוא מבקש לקבל הכרה בשירות שביצע באמצעות קבלת תעודת &#34;משרת חובה&#34;.
 
+מתגובת המשיבים עולה כי קיים תיעוד לפניות נוספות שביצע העותר. כך, במהלך דצמבר 2020 פנה העותר לראשונה למוקד מיטב בסוגיה של חזרה לשירות לאחר שקיבל פטור משירות ביטחון. מתיעוד השיחה עולה כי נמסר לעותר שעליו להעביר לידי מיטב מכתב אישי מפורט, חוות דעת ממסגרת של עבודה, לימודים או התנדבות, וחוות דעת מטפל ככל שהוא מצוי בטיפול פסיכולוגי או פסיכיאטרי. בהמשך, פנה העותר שוב בחודש מרץ 2021 למוקד מיטב בנושא הערעור על הפטור שקיבל, ונמסר לו שלא התקבלו מסמכים מטעמו.
 
+ביום 18.3.2021 נקלטו במיטב מסמכים ששלח העותר. עם זאת, לאחר עיון במסמכים התברר כי העותר העביר חוות דעת ישנה משנת 2020 ממסגרת בה עבד, וכי יש צורך בחוות דעת עדכנית משנת 2021 לצורך המשך הטיפול בעניינו. לאחר מכן, קיים העותר שיחת טלפון ביום 6.4.2021 עם נציג יחידת מיטב, במהלכה הוא ביקש לבטל את הפטור שקיבל. לצורך טיפול בבקשתו, התבקש העותר להעביר חוות דעת תפקודית עדכנית מהמסגרת בה היה מצוי באותם ימים. ואולם, מאז ועד היום לא שלח העותר חוות דעת כאמור ואף לא יצר פעם נוספת קשר עם יחידת מיטב. משכך, בקשתו לא נבחנה והוא לא זומן להמשיך תהליך לבחינת חזרה מפטור.
 
-מתגובת המשיבים עולה כי קיים תיעוד לפניות נוספות שביצע העותר. כך, במהלך דצמבר 2020 פנה העותר לראשונה למוקד מיטב בסוגיה של חזרה לשירות לאחר שקיבל פטור משירות ביטחון. מתיעוד השיחה עולה כי נמסר לעותר שעליו להעביר לידי מיטב מכתב אישי מפורט, חוות דעת ממסגרת של עבודה, לימודים או התנדבות, וחוות דעת מטפל ככל שהוא מצוי בטיפול פסיכולוגי או פסיכיאטרי. בהמשך, פנה העותר שוב בחודש מרץ 2021 למוקד מיטב בנושא הערעור על הפטור שקיבל, ונמסר לו שלא התקבלו מסמכים מטעמו. 
+מעבר לכך, מתגובת המשיבים עולה כי אותרה הודעת דוא&#34;ל ששלח העותר ביום 14.6.2022, שמוענה לראש השב&#34;כ. במסגרת ההודעה טען העותר כי השלים שירות של 3 שנים בשב&#34;כ וביקש לקבל הכרה רשמית על שירותו. ביום 28.6.2022 נשלח לעותר מענה מטעם אגף פניו הציבור במשרד ראש הממשלה, בה צוין כי בהתאם לסעיף 19 לחוק שירות הביטחון הכללי, התשס&#34;ב-2002 (להלן: חוק השב&#34;כ) – הקובע כי &#34;כללים, הוראות השירות, נוהלי השירות וזהות עובדי השירות והפועלים מטעמו, בעבר או בהווה... הם חסויים וגילוים או פרסומם אסור&#34; – אין אפשרות להתייחס לטענות העולות במכתב או לספק אישורים בעניינים אלה. כן צוין כי בכל עניין הנוגע לגיוס לשירות צבאי, יש לפנות לצה&#34;ל.
 
-
-
-	ביום 18.3.2021 נקלטו במיטב מסמכים ששלח העותר. עם זאת, לאחר עיון במסמכים התברר כי העותר העביר חוות דעת ישנה משנת 2020 ממסגרת בה עבד, וכי יש צורך בחוות דעת עדכנית משנת 2021 לצורך המשך הטיפול בעניינו. לאחר מכן, קיים העותר שיחת טלפון ביום 6.4.2021 עם נציג יחידת מיטב, במהלכה הוא ביקש לבטל את הפטור שקיבל. לצורך טיפול בבקשתו, התבקש העותר להעביר חוות דעת תפקודית עדכנית מהמסגרת בה היה מצוי באותם ימים. ואולם, מאז ועד היום לא שלח העותר חוות דעת כאמור ואף לא יצר פעם נוספת קשר עם יחידת מיטב. משכך, בקשתו לא נבחנה והוא לא זומן להמשיך תהליך לבחינת חזרה מפטור.
-
-
-
-	מעבר לכך, מתגובת המשיבים עולה כי אותרה הודעת דוא&#34;ל ששלח העותר ביום 14.6.2022, שמוענה לראש השב&#34;כ. במסגרת ההודעה טען העותר כי השלים שירות של 3 שנים בשב&#34;כ וביקש לקבל הכרה רשמית על שירותו. ביום 28.6.2022 נשלח לעותר מענה מטעם אגף פניו הציבור במשרד ראש הממשלה, בה צוין כי בהתאם לסעיף 19 לחוק שירות הביטחון הכללי, התשס&#34;ב-2002 (להלן: חוק השב&#34;כ) – הקובע כי &#34;כללים, הוראות השירות, נוהלי השירות וזהות עובדי השירות והפועלים מטעמו, בעבר או בהווה... הם חסויים וגילוים או פרסומם אסור&#34; – אין אפשרות להתייחס לטענות העולות במכתב או לספק אישורים בעניינים אלה. כן צוין כי בכל עניין הנוגע לגיוס לשירות צבאי, יש לפנות לצה&#34;ל.
-
-
-
-	על רקע זה הגיש העותר ביום 8.12.2022 את העתירה דנן.
-
-
+על רקע זה הגיש העותר ביום 8.12.2022 את העתירה דנן.
 
 לאחר שעיינו בעתירה ובתגובה המקדמית לה, הגענו למסקנה כי דינה להידחות על הסף בהיעדר עילה להתערבות.
 
+תעודת &#34;שחרור בכבוד&#34; היא תעודה שניתנת על ידי צה&#34;ל לחיילים משוחררים אשר השלימו פרק זמן מסוים מתוך שירות החובה אליו נדרשו בהתאם לחוק שירות בטחון [נוסח משולב], התשמ&#34;ו-1986, בכפוף לעמידה בתנאים שנקבעו על ידי אגף כוח אדם בצה&#34;ל. במקרה דנן אין חולק כי העותר לא שירת בצה&#34;ל בהתאם לחוק שירות ביטחון, ומשכך הוא אינו עומד בתנאי הסף לקבלת תעודת &#34;שחרור בכבוד&#34;.
 
+עוד יצוין כי סעיף 26א לחוק שירות ביטחון קובע כי שר הביטחון יכול לקבוע בצו, באישור הממשלה וועדת החוץ והביטחון של הכנסת, כי שירות ביחידות צבאיות במסגרת משרד הביטחון ויחידות סמך של משרד הביטחון ומשרד ראש הממשלה שתכלית פעילותן היא בטחון המדינה ותושביה – ייחשב כ&#34;שירות מוכר&#34;, אשר דינו כדין שירות סדיר לכל דבר וענין. אלא שהעותר לא טען, וממילא לא הוכיח, כי הוא ביצע שירות ביחידה צבאית כאמור.
 
-תעודת &#34;שחרור בכבוד&#34; היא תעודה שניתנת על ידי צה&#34;ל לחיילים משוחררים אשר השלימו פרק זמן מסוים מתוך שירות החובה אליו נדרשו בהתאם לחוק שירות בטחון [נוסח משולב], התשמ&#34;ו-1986, בכפוף לעמידה בתנאים שנקבעו על ידי אגף כוח אדם בצה&#34;ל. במקרה דנן אין חולק כי העותר לא שירת בצה&#34;ל בהתאם לחוק שירות ביטחון, ומשכך הוא אינו עומד בתנאי הסף לקבלת תעודת &#34;שחרור בכבוד&#34;. 
-
-
-
-	עוד יצוין כי סעיף 26א לחוק שירות ביטחון קובע כי שר הביטחון יכול לקבוע בצו, באישור הממשלה וועדת החוץ והביטחון של הכנסת, כי שירות ביחידות צבאיות במסגרת משרד הביטחון ויחידות סמך של משרד הביטחון ומשרד ראש הממשלה שתכלית פעילותן היא בטחון המדינה ותושביה – ייחשב כ&#34;שירות מוכר&#34;, אשר דינו כדין שירות סדיר לכל דבר וענין. אלא שהעותר לא טען, וממילא לא הוכיח, כי הוא ביצע שירות ביחידה צבאית כאמור.
-
-
-
-	ודוק – מקריאת העתירה לא ברור מהו הבסיס אשר בגינו סבור העותר כי הוא זכאי לקבלת תעודת &#34;שחרור בכבוד&#34;. אף אם נקבל את טענת העותר כי הוא שירת בשב&#34;כ במשך כ-3 שנים, הרי שכאמור לעיל אין שירות זה מזכה אותו בקבלת תעודה כאמור. על רקע דברים אלה, ברי כי לא הונחה בעתירה כל תשתית עובדתית או משפטית המקימה עילה להתערבותו של בית משפט זה (ראו והשוו: בג&#34;ץ 1037/22 פלונית נ&#39; ראש אכ&#34;א (צה&#34;ל), פסקה 8 (22.2.2022); בג&#34;ץ 8333/21 סמוטריץ נ&#39; מדינת ישראל (6.12.2021); בג&#34;ץ 8983/22 פלונית נ&#39; המפקח הכללי של משטרת ישראל, פסקה 2 (21.2.2023); בג&#34;ץ 7397/22 חברוני נ&#39; מפקד יחידת מיטב, פסקה 20 (16.3.2023)). 
-
-
+ודוק – מקריאת העתירה לא ברור מהו הבסיס אשר בגינו סבור העותר כי הוא זכאי לקבלת תעודת &#34;שחרור בכבוד&#34;. אף אם נקבל את טענת העותר כי הוא שירת בשב&#34;כ במשך כ-3 שנים, הרי שכאמור לעיל אין שירות זה מזכה אותו בקבלת תעודה כאמור. על רקע דברים אלה, ברי כי לא הונחה בעתירה כל תשתית עובדתית או משפטית המקימה עילה להתערבותו של בית משפט זה (ראו והשוו: בג&#34;ץ 1037/22 פלונית נ&#39; ראש אכ&#34;א (צה&#34;ל), פסקה 8 (22.2.2022); בג&#34;ץ 8333/21 סמוטריץ נ&#39; מדינת ישראל (6.12.2021); בג&#34;ץ 8983/22 פלונית נ&#39; המפקח הכללי של משטרת ישראל, פסקה 2 (21.2.2023); בג&#34;ץ 7397/22 חברוני נ&#39; מפקד יחידת מיטב, פסקה 20 (16.3.2023)).
 
 בכל הנוגע לטענות העותר בעניין ההחלטה שלא לגייסו לשירות בצה&#34;ל, דינן להידחות על הסף גם מחמת שיהוי ואי-מיצוי ההליכים. כמפורט לעיל, העותר קיבל פטור משירות צבאי כבר בשנת 2017. חרף זאת, על פי התיעוד הקיים בידי המשיבים, פנייתו הראשונה של העותר בעניין הפטור הייתה רק בשנת 2020, בחלוף כשלוש שנים לאחר שניתן. יתרה מכך, על פי התיעוד המצוי בידי המשיבים, גם לאחר מכן לא פעל העותר בהתאם להנחיות שקיבל, ולא השלים את שליחת המסמכים הדרושים לצורך בחינת עניינו. יצוין כי העותר בעתירתו לא הציג כל טענה או מסמך שיש בהם כדי לסתור את האמור. אומנם, מבין השורות של כתב העתירה עולה כי על פי טענת העותר הוא אכן הגיש ערעור ביחס לפטור שקיבל משירות ביטחון. ואולם, טענה זו הועלתה כבדרך אגב, מבלי שהוצג כל פירוט ביחס אליה וממילא מבלי שנתמכה בדבר.
 
-
-
 לבסוף, יצוין כי חלק גדול מכתב העתירה מוקדש לטענות העותר כי המשיבים הפרו הבטחות מנהליות רבות שניתנו לו, לפיהן הם יאפשרו לו להתגייס לצה&#34;ל. ואולם, גם טענות אלה נטענו בעלמא, מבלי שהוצג ולו פירוט מינימלי ביחס להבטחות האמורות. כך למשל, העותר לא פירט מיהו אותו גורם במשיבים שנתן לו את ההבטחות; באילו מועדים הן ניתנו; מה היה תוכנן של הבטחות אלה; וכיוצא באלה. משכך, גם לעניין זה לא הניח העותר כל תשתית עובדתית או משפטית המצדיקה את התערבותנו.
-
-
 
 לנוכח האמור, העתירה נדחית. העותר יישא בהוצאות המשיבים בסך 2,000 ש&#34;ח.
 
-
-
-	ניתן היום, ‏ד&#39; בניסן התשפ&#34;ג (‏26.3.2023).
-
-
-
-
+ניתן היום, ‏ד&#39; בניסן התשפ&#34;ג (‏26.3.2023).
 
 ש ו פ ט
 
@@ -1726,19 +1909,11 @@
 
 ש ו פ ט ת
 
-
-
 _________________________
 
-   22084440_P09.docx   יכ
+22084440_P09.docx יכ
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1757,7 +1932,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

@@ -434,8 +434,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -525,11 +529,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -542,29 +702,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -604,7 +763,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -619,7 +778,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -650,6 +809,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -987,7 +1213,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1391,7 +1617,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    18/12/2025 (לפני 138 ימים)
+                    18/12/2025 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -2357,13 +2583,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/39518-11-25.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="39518-11-25 - נסים סולב נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F39518-11-25.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/12/18/2025-11-39518-1-2&amp;fileName=dae7522eeeee41799acb27107cde79e1&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/12/18/2025-11-39518-1-2&amp;fileName=dae7522eeeee41799acb27107cde79e1&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/12/18/2025-11-39518-1-2&amp;fileName=dae7522eeeee41799acb27107cde79e1&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/12/18/2025-11-39518-1-2&amp;fileName=dae7522eeeee41799acb27107cde79e1&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -2374,119 +2645,61 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
+            בבית המשפט העליון
 
-
-
-בבית המשפט העליון
-
-עפס&#34;פ 39518-11-25 
-
-
+עפס&#34;פ 39518-11-25
 
 לפני:
 
 כבוד הנשיא יצחק עמית
 
-
-
 המערער:
 
 נסים סולב
 
-
-
 נגד
-
-
 
 המשיבה:
 
 מדינת ישראל
 
-
-
-
-
 ערעור על החלטתו של בית המשפט השלום בבאר שבע בת&#34;פ 10117-04-23 מיום 12.11.2025 שניתנה על ידי כב&#39; השופט יריב בן דוד; בקשה לעיכוב הליכים
-
-
 
 בשם המערער:
 
-עו&#34;ד גיל נמיר 
-
-
-
-
+עו&#34;ד גיל נמיר
 
 פסק-דין
 
+ערעור על החלטת בית משפט השלום בבאר שבע (כב&#39; השופט י&#39; בן דוד) מיום 12.11.2025 בת&#34;פ 10117-04-23 שלא לפסול עצמו מלדון בעניינו של המערער.
 
+1.	עניינו של ההליך מושא הערעור שלפניי בכתב אישום שהוגש נגד המערער ביום 7.4.2023 שמייחס לו עבירה של תקיפה הגורמת חבלה של ממש לבן זוג לפי סעיף 380 בשילוב עם סעיף 382(ג) לחוק העונשין, התשל&#34;ז-1977. בתמצית יצוין כי המתלוננת – היא אשת המערער – לא התייצבה לשני דיוני הוכחות שאליהם זומנה. לאחר שהמתלוננת לא התייצבה לדיון הוכחות נוסף, ביום 12.5.2025 החליט המותב שיתר עדי התביעה, שלא זומנו לדיונים הקודמים, יתייצבו לדיון הוכחות שנקבע ליום 10.9.2025.
 
-	ערעור על החלטת בית משפט השלום בבאר שבע (כב&#39; השופט י&#39; בן דוד) מיום 12.11.2025 בת&#34;פ 10117-04-23 שלא לפסול עצמו מלדון בעניינו של המערער.
+2.	למחרת, ביום 13.5.2025 הגיש המערער בקשה לפסילת המותב, שבגדרה הלין על החלטה זו של &#34;ייזום שינוי סדר הבאת העדים&#34;. כנטען, החלטה זו בשילוב התבטאויות שונות של המותב כנגד המערער – שלא תועדו בפרוטוקול – הקימו לטענת המערער חשש ממשי למשוא פנים. בקשה זו נדחתה בהחלטה מיום 28.5.2025, שבגדרה צוין כי זימון יתר עדי התביעה לדיון הקבוע ליום 10.9.2025 נעשה נוכח אי התייצבותה של המתלוננת ומתוך רצון לקדם את ניהול הליך, וממילא מדובר בהחלטה דיונית שאינה מקימה כשלעצמה עילת פסלות. כמו כן, דחה המותב את טענת המערער לעניין ההתבטאויות שלא מופיעות בפרוטוקול. על החלטה זו לא הוגש ערעור.
 
-
-
-1.	עניינו של ההליך מושא הערעור שלפניי בכתב אישום שהוגש נגד המערער ביום 7.4.2023 שמייחס לו עבירה של תקיפה הגורמת חבלה של ממש לבן זוג לפי סעיף 380 בשילוב עם סעיף 382(ג) לחוק העונשין, התשל&#34;ז-1977. בתמצית יצוין כי המתלוננת – היא אשת המערער – לא התייצבה לשני דיוני הוכחות שאליהם זומנה. לאחר שהמתלוננת לא התייצבה לדיון הוכחות נוסף, ביום 12.5.2025 החליט המותב שיתר עדי התביעה, שלא זומנו לדיונים הקודמים, יתייצבו לדיון הוכחות שנקבע ליום 10.9.2025. 
-
-
-
-2.	למחרת, ביום 13.5.2025 הגיש המערער בקשה לפסילת המותב, שבגדרה הלין על החלטה זו של &#34;ייזום שינוי סדר הבאת העדים&#34;. כנטען, החלטה זו בשילוב התבטאויות שונות של המותב כנגד המערער – שלא תועדו בפרוטוקול – הקימו לטענת המערער חשש ממשי למשוא פנים. בקשה זו נדחתה בהחלטה מיום 28.5.2025, שבגדרה צוין כי זימון יתר עדי התביעה לדיון הקבוע ליום 10.9.2025 נעשה נוכח אי התייצבותה של המתלוננת ומתוך רצון לקדם את ניהול הליך, וממילא מדובר בהחלטה דיונית שאינה מקימה כשלעצמה עילת פסלות. כמו כן, דחה המותב את טענת המערער לעניין ההתבטאויות שלא מופיעות בפרוטוקול. על החלטה זו לא הוגש ערעור. 
-
-
-
-3.	ההליך הוסיף להתנהל, וביני לביני, הגיש המערער שתי תלונות על התנהלות המשיבה לנציבות תלונות הציבור על מייצגי המדינה בערכאות. כעולה ממסכמים שצירף המערער, הוא הלין, בין היתר, על הגשת תגובות באיחור מצד המשיבה, על אמירות פוגעניות שטען כי נאמרו כלפיו על ידי באי-כוח המשיבה, וכן על כך שהמשיבה לא העבירה לו חומרי חקירה כנדרש; תלונותיו התקבלו בחלקן (להלן יחד: החלטות הנציבות). 
-
-
+3.	ההליך הוסיף להתנהל, וביני לביני, הגיש המערער שתי תלונות על התנהלות המשיבה לנציבות תלונות הציבור על מייצגי המדינה בערכאות. כעולה ממסכמים שצירף המערער, הוא הלין, בין היתר, על הגשת תגובות באיחור מצד המשיבה, על אמירות פוגעניות שטען כי נאמרו כלפיו על ידי באי-כוח המשיבה, וכן על כך שהמשיבה לא העבירה לו חומרי חקירה כנדרש; תלונותיו התקבלו בחלקן (להלן יחד: החלטות הנציבות).
 
 4.	ביום 5.11.2025 הגיש המערער בקשה להעברת מקום הדיון בהליך (הד&#34;פ 14939-11-25), ובמקביל הגיש בקשה למותב לעכב את הדיון בהליך עד להכרעה בבקשה כאמור. בהחלטה מיום 9.11.2025 קבע בית המשפט כי דיון ההוכחות שנקבע ליום 12.11.2025 יוותר על כנו, וכי ככל שלא תתקבל החלטה בבקשה להעברת מקום הדיון עד ליום 11.11.2025 – הבקשה לעיכוב ההליך תישקל שוב.
 
- 
+5.	ביום 11.11.2025, משטרם ניתנה החלטה בבקשה להעברת מקום הדיון בהליך, בית המשפט קבע שדיון ההוכחות שנקבע למחרת יתקיים במועדו. בית המשפט ציין כי דיון זה נקבע כבר בחודש ספטמבר – בעוד שהבקשה להעברת מקום דיון הוגשה כאמור רק ביום 5.11.2025. בית המשפט דחה את עמדת המערער שלפיה יש לעכב את ניהול ההליך אך בשל הבקשה להעברת מקום הדיון; זאת, בעיקרו של דבר, נוכח האינטרס שבקידום ההליך ובשים לב למשך הזמן שהוא מתנהל.
 
-5.	ביום 11.11.2025, משטרם ניתנה החלטה בבקשה להעברת מקום הדיון בהליך, בית המשפט קבע שדיון ההוכחות שנקבע למחרת יתקיים במועדו. בית המשפט ציין כי דיון זה נקבע כבר בחודש ספטמבר – בעוד שהבקשה להעברת מקום דיון הוגשה כאמור רק ביום 5.11.2025. בית המשפט דחה את עמדת המערער שלפיה יש לעכב את ניהול ההליך אך בשל הבקשה להעברת מקום הדיון; זאת, בעיקרו של דבר, נוכח האינטרס שבקידום ההליך ובשים לב למשך הזמן שהוא מתנהל. 
-
-
-
-6.	למחרת, הגיש המערער בקשה נוספת לפסילת המותב. המערער טען, בין היתר, כי נוכח החלטות הנציבות היה על המותב &#34;למתוח ביקורת&#34; על המשיבה ולהורות לה להעביר לעיונו את חומרי החקירה. בנוסף, השיג המערער על החלטת המותב שלא לדחות את הדיון שנקבע ליום 12.11.2025. לבסוף, חזר המערער על טענותיו בבקשת הפסלות הקודמת לעניין שינוי סדר הופעת העדים, וכן על טענותיו בעניין התבטאויות שונות של המותב. 
-
-
+6.	למחרת, הגיש המערער בקשה נוספת לפסילת המותב. המערער טען, בין היתר, כי נוכח החלטות הנציבות היה על המותב &#34;למתוח ביקורת&#34; על המשיבה ולהורות לה להעביר לעיונו את חומרי החקירה. בנוסף, השיג המערער על החלטת המותב שלא לדחות את הדיון שנקבע ליום 12.11.2025. לבסוף, חזר המערער על טענותיו בבקשת הפסלות הקודמת לעניין שינוי סדר הופעת העדים, וכן על טענותיו בעניין התבטאויות שונות של המותב.
 
 7.	בו ביום דחה המותב את בקשת הפסלות. תחילה קבע המותב, כי רוב טענות המערער בבקשת הפסלות נדונו ונדחו כבר בהחלטת הפסלות הקודמת שעליה לא ערער. המותב קבע שהחלטתו שלא לעכב את הדיון בהליך עד להכרעה בבקשה להעברת מקום הדיון היא החלטה דיונית מובהקת שנוגעת לניהול ההליך ואשר מסורה לשיקול דעתו. עוד נקבע, שאין בטענות המערער על היעדר התייחסות המותב להחלטות הנציבות כדי לבסס חשש ממשי למשוא פנים. בהמשך לכך, ומשהודיע המערער כי בכוונתו לערער על החלטת הפסלות ככל שזו תידחה, המותב נימק את החלטתו להמשיך בניהול ההליך עד להכרעה בערעור דנן בהתאם למצוות סעיף 147(א) לחוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב-1982 (להלן: חוק סדר הדין הפלילי). בהקשר זה ציין המותב שבקשת הפסלות הוגשה ערב דיון הוכחות שאליו זומנו עדים רבים; את משך הזמן שבו ההליך מתנהל; וכן את החפיפה הרבה שבין נימוקי הבקשה הנוכחית לבקשת הפסלות הקודמת שנדחתה.
 
-
-
-8.	מכאן הערעור שלפניי, שבמסגרתו שב המערער על טענותיו בבקשת הפסלות. המערער משיג על החלטת המותב שלא לדחות את הדיון בהליך עד להכרעה בבקשה להעברת מקום הדיון, כמו גם על ההחלטה שלא לעכב את ההליך עד להכרעה בערעור דנן. כמו כן, שב המערער על טענתו שלפיה החלטות הנציבות לא זכו להתייחסות ראויה מצד המותב. לבסוף טוען המערער כי המותב שינה מיוזמתו את סדר העדת העדים באופן שהיטיב עם המשיבה וכן שב על טענותיו לעניין התבטאויות שונות של המותב. 
-
- 
+8.	מכאן הערעור שלפניי, שבמסגרתו שב המערער על טענותיו בבקשת הפסלות. המערער משיג על החלטת המותב שלא לדחות את הדיון בהליך עד להכרעה בבקשה להעברת מקום הדיון, כמו גם על ההחלטה שלא לעכב את ההליך עד להכרעה בערעור דנן. כמו כן, שב המערער על טענתו שלפיה החלטות הנציבות לא זכו להתייחסות ראויה מצד המותב. לבסוף טוען המערער כי המותב שינה מיוזמתו את סדר העדת העדים באופן שהיטיב עם המשיבה וכן שב על טענותיו לעניין התבטאויות שונות של המותב.
 
 9.	לאחר שעיינתי בערעור על נספחיו, הגעתי לכלל מסקנה כי דינו להידחות אף מבלי להידרש לתשובה. אמת המידה לפסילת שופט מלשבת בדין היא התקיימותן של נסיבות שיוצרות חשש ממשי למשוא פנים בניהול ההליך (סעיף 77א(א) לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984), ואיני סבור כי נסיבות כאמור מתקיימות בענייננו. טענות המערער מכוונות בעיקרן כלפי העשייה השיפוטית עצמה, בעוד שהפעילות השיפוטית תקים עילת פסלות רק במקרים קיצוניים וחריגים, כאשר ניתן ללמוד ממנה, כשלעצמה, על נעילת דעתו של המותב (ראו מני רבים: ע&#34;פ 2054/24 פלוני נ&#39; מדינת ישראל, פסקה 5 ‏(19.3.2024‏)).‏‏
 
-
-
 10.	כאמור, המערער טוען כי שגה המותב בהחלטתו שלא לדחות את הדיון שנקבע ליום 12.11.2025 נוכח בקשתו להעביר את מקום הדיון בהליך. ואולם, החלטה זו היא החלטה דיונית מובהקת שמסורה לשיקול דעתו של בית המשפט, ואין בה כשלעצמה כדי להקים עילה לפסילת המותב (עפס&#34;פ 71020-04-25 זגל נ&#39; מדינת ישראל, פסקה 4 ‏(‏20.5.2025‏); ‏עפס&#34;פ 53983-03-25 אלגבי נ&#39; מדינת ישראל, פסקה 5 ‏(29.4.2025‏)‏). נוכח הנימוקים שבבסיס ההחלטה איני סבור כי מתעורר חשש ממשי למשוא פנים מצד המותב. באופן דומה, טענות המערער בעניין שינוי סדר הופעת עדים מכוונות אף הן כלפי החלטות דיוניות, שאין בהן להקים עילת פסלות (עפס&#34;פ 18085-11-24 סלוטה נ&#39; מדינת ישראל, פסקה 6 ‏(8.12.2024‏) (להלן: עניין סלוטה); ע&#34;פ 4232/23 ביטון נ&#39; מדינת ישראל, פסקה 13 ‏(18.6.2023‏)‏‏).
 
+11.	עוד טוען המערער, כי היה על המותב להפסיק את הדיון בהליך עד לבירור הערעור דנן. ברם, גם טענה זו אינה מקימה עילת פסלות. כפי שעולה בבירור מסעיף 147(א) לחוק סדר הדין הפלילי, שופט שדן בהליך רשאי להמשיך במשפט גם אם בעל דין מודיע שבכוונתו לערער על החלטת פסלות וזאת מנימוקים שיירשמו (עניין סלוטה, פסקה 7). כאמור, המותב נימק החלטה זו בהתאם למצוות הסעיף ולא מצאתי כי נפל פגם במישור זה.
 
+מעבר לכך, ברי שאין בטענות המערער ביחס להתנהלות המשיבה ולהחלטות הנציבות כדי לבסס עילה לפסלות המותב. אף אין בידי לקבל את טענת המערער שלפיה יש בכך שהמותב לא &#34;נזף&#34; במשיבה כדי להצביע על קיומו של חשש ממשי למשוא פנים מצדו. לבסוף, טענות המערער ביחס ל&#34;אמירות שיפוטיות בעייתיות&#34; נדונו ונדחו בהחלטת הפסלות הראשונה שעליה המערער לא ערער; מכל מקום, טענות אלו נטענו בעלמא, ללא פירוט מספק ואין בהן כדי לבסס קיומו של עילת פסלות – אף לא בקירוב (ע&#34;פ 1292/23 מורוגוב נ&#39; מדינת ישראל, פסקה 10 (20.2.2023); ע&#34;פ 4076/22 פלוני נ&#39; מדינת ישראל, פסקה 4 ‏(22.6.2022‏)).‏‏
 
-11.	עוד טוען המערער, כי היה על המותב להפסיק את הדיון בהליך עד לבירור הערעור דנן. ברם, גם טענה זו אינה מקימה עילת פסלות. כפי שעולה בבירור מסעיף 147(א) לחוק סדר הדין הפלילי, שופט שדן בהליך רשאי להמשיך במשפט גם אם בעל דין מודיע שבכוונתו לערער על החלטת פסלות וזאת מנימוקים שיירשמו (עניין סלוטה, פסקה 7). כאמור, המותב נימק החלטה זו בהתאם למצוות הסעיף ולא מצאתי כי נפל פגם במישור זה. 
-
- 
-
-	מעבר לכך, ברי שאין בטענות המערער ביחס להתנהלות המשיבה ולהחלטות הנציבות כדי לבסס עילה לפסלות המותב. אף אין בידי לקבל את טענת המערער שלפיה יש בכך שהמותב לא &#34;נזף&#34; במשיבה כדי להצביע על קיומו של חשש ממשי למשוא פנים מצדו. לבסוף, טענות המערער ביחס ל&#34;אמירות שיפוטיות בעייתיות&#34; נדונו ונדחו בהחלטת הפסלות הראשונה שעליה המערער לא ערער; מכל מקום, טענות אלו נטענו בעלמא, ללא פירוט מספק ואין בהן כדי לבסס קיומו של עילת פסלות – אף לא בקירוב (ע&#34;פ 1292/23 מורוגוב נ&#39; מדינת ישראל, פסקה 10 (20.2.2023); ע&#34;פ 4076/22 פלוני נ&#39; מדינת ישראל, פסקה 4 ‏(22.6.2022‏)).‏‏
-
-
-
-	סוף דבר שלפנינו בקשת סרק וערעור סרק. אשר על כן, הערעור נדחה וממילא נדחית גם הבקשה לעיכוב הליכים.
-
-
+סוף דבר שלפנינו בקשת סרק וערעור סרק. אשר על כן, הערעור נדחה וממילא נדחית גם הבקשה לעיכוב הליכים.
 
 ניתן היום, כ&#34;ח כסלו תשפ&#34;ו (18 דצמבר 2025).
-
-
-
-
-
-
 
 יצחק עמית
 
@@ -2509,7 +2722,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

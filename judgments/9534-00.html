@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    10/03/2002 (לפני 8822 ימים)
+                    10/03/2002 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/9534-00.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="9534/00 - בנימין הרץ נ. מרדכי מנטל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F9534-00.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/00/340/095/E07&amp;fileName=00095340_E07.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/00/340/095/E07&amp;fileName=00095340_E07.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/00/340/095/E07&amp;fileName=00095340_E07.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/00/340/095/E07&amp;fileName=00095340_E07.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,39 +1829,31 @@
         <div class="nested-content" style="line-height: 1.8;">
             בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
-ע&#34;א
-9534/00
+ע&#34;א 9534/00
 
 וערעור שכנגד
 
-בפני: כבוד
-הנשיא א&#39; ברק
+בפני: כבוד הנשיא א&#39; ברק
 
 כבוד השופט ת&#39; אור
 
 כבוד השופט א&#39; ריבלין
 
-המערערים: 1.
-בנימין הרץ
+המערערים: 1. בנימין הרץ
 
-2. מגדל חברה לביטוח
-בע&#34;מ
+2. מגדל חברה לביטוח בע&#34;מ
 
-3. אבנר איגוד לביטוח
-נפגעי רכב בע&#34;מ
+3. אבנר איגוד לביטוח נפגעי רכב בע&#34;מ
 
 נגד
 
-המשיבים: 1.
-מרדכי מנטל
+המשיבים: 1. מרדכי מנטל
 
 2. דבורה מנטל ו10- אח&#39;
 
-ערעור וערעור שכנגד על פסק דינו של בית המשפט המחוזי בירושלים
-בת&#34;א 1079/97 שניתן ביום 30.11.00 על ידי כבוד השופטת י&#39; הכט
+ערעור וערעור שכנגד על פסק דינו של בית המשפט המחוזי בירושלים בת&#34;א 1079/97 שניתן ביום 30.11.00 על ידי כבוד השופטת י&#39; הכט
 
-בשם
-המערערים: עו&#34;ד אליעזר גדות
+בשם המערערים: עו&#34;ד אליעזר גדות
 
 בשם המשיבים: עו&#34;ד אהרון ברקאי
 
@@ -1598,103 +1861,51 @@
 
 השופט ת&#39; אור:
 
-1. המשיב הראשון (להלן: התובע), יליד
-15.10.42, נפגע ביום 16.11.95 בתאונת דרכים. התובע ואשתו (להלן: המשיבים),
-תבעו מהמערערים בבית המשפט המחוזי פיצויים בגין הנזק שנגרם להם עקב התאונה הנדונה.
-לא היתה מחלוקת בדבר חובת המערערים לפצותם על נזקיהם בתאונה.
+1. המשיב הראשון (להלן: התובע), יליד 15.10.42, נפגע ביום 16.11.95 בתאונת דרכים. התובע ואשתו (להלן: המשיבים), תבעו מהמערערים בבית המשפט המחוזי פיצויים בגין הנזק שנגרם להם עקב התאונה הנדונה. לא היתה מחלוקת בדבר חובת המערערים לפצותם על נזקיהם בתאונה.
 
-ערעור המערערים והערעור שכנגד של המשיבים אשר
-בפנינו, מכוונים כלפי שיעור הפיצויים שנפסקו.
+ערעור המערערים והערעור שכנגד של המשיבים אשר בפנינו, מכוונים כלפי שיעור הפיצויים שנפסקו.
 
-2. התובע נפגע קשות בתאונה, בעיקר בפגיעה מוחית
-קשה. על פי קביעתו של בית המשפט המחוזי, בהסתמכו על קביעתו של המומחה הרפואי,
-פרופ&#39; עורי (להלן: המומחה), בפסק דינו:
+2. התובע נפגע קשות בתאונה, בעיקר בפגיעה מוחית קשה. על פי קביעתו של בית המשפט המחוזי, בהסתמכו על קביעתו של המומחה הרפואי, פרופ&#39; עורי (להלן: המומחה), בפסק דינו:
 
-&#34;פגיעת
-המוח של התובע מתבטאת בטטרפלגיה ספסטית קשה, אילמות, אי יכולת בליעה ותלות מוחלטת
-בזולת לביצוע כל פעולות היומיום. מונשם דרך פיום הקנה, מואל דרך צינור המוחדר
-לקיבתו, ואינו שולט כלל על סוגריו. פרופ&#39; עורי לא הצליח להפיק מהתובע תגובה למגע
-באזורים שונים בגופו. נסיונות לבקש אותו למצמץ או לבצע תנועה ברגל או ביד כתגובה
-לגירויים שונים העלו תגובות קלות בלבד. פרופ&#39; עורי קבע, כי התובע זקוק לסיעוד מלא
-בכל שעות היממה&#34;.
+&#34;פגיעת המוח של התובע מתבטאת בטטרפלגיה ספסטית קשה, אילמות, אי יכולת בליעה ותלות מוחלטת בזולת לביצוע כל פעולות היומיום. מונשם דרך פיום הקנה, מואל דרך צינור המוחדר לקיבתו, ואינו שולט כלל על סוגריו. פרופ&#39; עורי לא הצליח להפיק מהתובע תגובה למגע באזורים שונים בגופו. נסיונות לבקש אותו למצמץ או לבצע תנועה ברגל או ביד כתגובה לגירויים שונים העלו תגובות קלות בלבד. פרופ&#39; עורי קבע, כי התובע זקוק לסיעוד מלא בכל שעות היממה&#34;.
 
-עוד קבע בית המשפט, בהסתמכו על חוות דעתו של
-המומחה:
+עוד קבע בית המשפט, בהסתמכו על חוות דעתו של המומחה:
 
-&#34;גירויים
-שמקורם במלל או בצליל עשויים להקל על הבדידות או הניתוק התקשורתי שלו עם הסובב
-עימו, אך לדעת פרופ&#39; עורי אין בהם כדי לתקן את הנזק המוחי הקשה ביותר, וכנראה בלתי
-הפיך&#34;.
+&#34;גירויים שמקורם במלל או בצליל עשויים להקל על הבדידות או הניתוק התקשורתי שלו עם הסובב עימו, אך לדעת פרופ&#39; עורי אין בהם כדי לתקן את הנזק המוחי הקשה ביותר, וכנראה בלתי הפיך&#34;.
 
-בהתאם למצבו של התובע, הוא נזקק לעזרת הזולת
-משך כל שעות היממה, הוא איבד כליל את כושר עבודתו והוא נזקק לאזרים מיוחדים
-ולהוצאות מיוחדות בהתחשב במצבו הרפואי הקשה.
+בהתאם למצבו של התובע, הוא נזקק לעזרת הזולת משך כל שעות היממה, הוא איבד כליל את כושר עבודתו והוא נזקק לאזרים מיוחדים ולהוצאות מיוחדות בהתחשב במצבו הרפואי הקשה.
 
-3. בית המשפט קבע את הפיצוי המגיע לתובע בפרטי
-הנזק השונים. כן קבע, בהסתמכו על חוות דעתו של המומחה, כי קוצרה תוחלת חייו של
-התובע כדי 10% מזו שהיתה לו לולא התאונה. במחלוקת שהיתה בין בעלי הדין אם ראוי
-לפסוק את הפיצויים המגיעים לתובע בסכום גלובלי חד פעמי, או שמא בדרך של תשלומים
-עתיים, החליט בית המשפט על תשלום חד פעמי.
+3. בית המשפט קבע את הפיצוי המגיע לתובע בפרטי הנזק השונים. כן קבע, בהסתמכו על חוות דעתו של המומחה, כי קוצרה תוחלת חייו של התובע כדי 10% מזו שהיתה לו לולא התאונה. במחלוקת שהיתה בין בעלי הדין אם ראוי לפסוק את הפיצויים המגיעים לתובע בסכום גלובלי חד פעמי, או שמא בדרך של תשלומים עתיים, החליט בית המשפט על תשלום חד פעמי.
 
-בערעור וערעור שכנגד שהוגשו על ידי בעלי הדין,
-הם תוקפים את שיעור הפיצויים בפרטי נזק שונים. לדעת המערערים, נפסקו סכומים גבוהים
-מהראוי, ולדעת המשיבים הם קופחו בסכומים שנפסקו וגם בכך שבחלק מפרטי הנזק לא נפסק
-להם דבר. המערערים תוקפים גם את החלטת בית המשפט המחוזי לפסוק את הפיצויים בדרך של
-תשלום חד פעמי, וכן על קביעת קיצור תוחלת חייו של התובע עקב התאונה בשיעור 10%
-בלבד.
+בערעור וערעור שכנגד שהוגשו על ידי בעלי הדין, הם תוקפים את שיעור הפיצויים בפרטי נזק שונים. לדעת המערערים, נפסקו סכומים גבוהים מהראוי, ולדעת המשיבים הם קופחו בסכומים שנפסקו וגם בכך שבחלק מפרטי הנזק לא נפסק להם דבר. המערערים תוקפים גם את החלטת בית המשפט המחוזי לפסוק את הפיצויים בדרך של תשלום חד פעמי, וכן על קביעת קיצור תוחלת חייו של התובע עקב התאונה בשיעור 10% בלבד.
 
-4. אומר מיד, שבאשר לסכום הפיצויים שנפסק, אין
-הצדקה שנתערב בו. יתכן ובפרט זה או אחר פסק בית המשפט בסכום גבוה במקצת מהראוי
-ובפרטים אחרים מיעט בסכום הפיצויים. המדובר בהערכות אשר מטבע הדברים קשה לדייק
-בהן. מכל מקום, הסכום הכולל שנפסק לתובע נראה לנו הולם את נסיבות המקרה, ומטעם זה
-לא נתערב בסכום הפיצויים הכולל שנפסק.
+4. אומר מיד, שבאשר לסכום הפיצויים שנפסק, אין הצדקה שנתערב בו. יתכן ובפרט זה או אחר פסק בית המשפט בסכום גבוה במקצת מהראוי ובפרטים אחרים מיעט בסכום הפיצויים. המדובר בהערכות אשר מטבע הדברים קשה לדייק בהן. מכל מקום, הסכום הכולל שנפסק לתובע נראה לנו הולם את נסיבות המקרה, ומטעם זה לא נתערב בסכום הפיצויים הכולל שנפסק.
 
-בהחליטו על קיצור תוחלת חיים בשיעור 10% בלבד,
-יתכן, מבלי שנקבע זאת כעובדה, שבית המשפט היטיב במקצת עם המשיבים. אך היה זה
-בהסתמך על חוות דעתו של המומחה, מבלי שהיו ראיות אחרות בפני בית המשפט. בנסיבות
-אלה, אין עילה שנתערב בקביעה זו.
+בהחליטו על קיצור תוחלת חיים בשיעור 10% בלבד, יתכן, מבלי שנקבע זאת כעובדה, שבית המשפט היטיב במקצת עם המשיבים. אך היה זה בהסתמך על חוות דעתו של המומחה, מבלי שהיו ראיות אחרות בפני בית המשפט. בנסיבות אלה, אין עילה שנתערב בקביעה זו.
 
-לא מצאנו עילה להתערב גם בהחלטה על תשלום
-הפיצויים בסכום חד פעמי ולא בתשלומים עתיים. כפי שעולה מפסק הדין, רצוי לתובע
-ולמשפחתו שהתובע יקבל את המגיע לו בתשלום אחד, דבר אשר עשוי לעזור במימון מקום
-מגורים הולם לתובע בהקדם. גם אין כל חשש שהכספים שיתקבלו לא ינוצלו לתכליתם
-הראויה. כפי שציין בית המשפט, משפחתו של התובע חמה ומלוכדת, בראשה עומדת אשת
-התובע, אשה משכילה ומעשית, אשר גם מונתה כאפוטרופס שלו. ומוסיף בית המשפט, שיהיה
-זה לטובת התובע אם הפיצויים לא יהיו בדרך של תשלומים עתיים, כי בכך ינותק הקשר בין
-התובע למערערים, דבר שלא היה אפשרי במקרה של תשלומים עתיים. כפי שמציין בית המשפט,
-החשיבות של ניתוק קשר זה היא על רקע סכסוכים בין הצדדים בעבר בקשר לתשלומים של
-המערערים לתובע.
+לא מצאנו עילה להתערב גם בהחלטה על תשלום הפיצויים בסכום חד פעמי ולא בתשלומים עתיים. כפי שעולה מפסק הדין, רצוי לתובע ולמשפחתו שהתובע יקבל את המגיע לו בתשלום אחד, דבר אשר עשוי לעזור במימון מקום מגורים הולם לתובע בהקדם. גם אין כל חשש שהכספים שיתקבלו לא ינוצלו לתכליתם הראויה. כפי שציין בית המשפט, משפחתו של התובע חמה ומלוכדת, בראשה עומדת אשת התובע, אשה משכילה ומעשית, אשר גם מונתה כאפוטרופס שלו. ומוסיף בית המשפט, שיהיה זה לטובת התובע אם הפיצויים לא יהיו בדרך של תשלומים עתיים, כי בכך ינותק הקשר בין התובע למערערים, דבר שלא היה אפשרי במקרה של תשלומים עתיים. כפי שמציין בית המשפט, החשיבות של ניתוק קשר זה היא על רקע סכסוכים בין הצדדים בעבר בקשר לתשלומים של המערערים לתובע.
 
-שקלנו את כלל הנסיבות האחרות, וגם בהן לא
-מצאנו עילה להתערב בהחלטת בית המשפט.
+שקלנו את כלל הנסיבות האחרות, וגם בהן לא מצאנו עילה להתערב בהחלטת בית המשפט.
 
-6. התוצאה היא, שהן הערעור והן הערעור שכנגד
-נדחים. בנסיבות המקרה, כל צד ישא בהוצאותיו.
+6. התוצאה היא, שהן הערעור והן הערעור שכנגד נדחים. בנסיבות המקרה, כל צד ישא בהוצאותיו.
 
 ניתן היום, כח&#39; באדר התשס&#34;ב (12.3.2002).
 
-ה נ ש י
-א ש ו פ ט ש ו פ ט
+ה נ ש י א ש ו פ ט ש ו פ ט
 
 _________________
 
-העתק
-מתאים למקור 00095340.E07 /עכב
+העתק מתאים למקור 00095340.E07 /עכב
 
-נוסח
-זה כפוף לשינויי עריכה וניסוח.
+נוסח זה כפוף לשינויי עריכה וניסוח.
 
-שמריהו
-כהן - מזכיר ראשי
+שמריהו כהן - מזכיר ראשי
 
-בבית
-המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
+בבית המשפט העליון פועל מרכז מידע, טל&#39; 02-6750444
 
-בית
-המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
+בית המשפט פתוח להערות והצעות: pniot@supreme.court.gov.il
 
-לבתי
-המשפט אתר באינטרנט: www.court.gov.il
+לבתי המשפט אתר באינטרנט: www.court.gov.il
         </div>
     </section>
     
@@ -1713,7 +1924,7 @@ _________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

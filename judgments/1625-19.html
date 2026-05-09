@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    16/04/2019 (לפני 2576 ימים)
+                    16/04/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/1625-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="1625/19 - תמיר כהן נ. פעילים ניהול תיקי השקעות בע&#34;מ"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F1625-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/250/016/f07&amp;fileName=19016250.F07&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/250/016/f07&amp;fileName=19016250.F07&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/250/016/f07&amp;fileName=19016250.F07&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/250/016/f07&amp;fileName=19016250.F07&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,169 +1827,81 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 1625/19
 
-
-
-
-1
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
-
-בג&#34;ץ  1625/19
-
-
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט ע&#39; פוגלמן
 
-
-
 כבוד השופט ג&#39; קרא
 
-
-
 כבוד השופט א&#39; שטיין
-
-
 
 העותר:
 
 תמיר כהן
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. פעילים ניהול תיקי השקעות בע&#34;מ
 
-
-
 2. בית הדין הארצי לעבודה
-
-
 
 עתירה למתן צו על תנאי
 
-
-
 בשם העותר:
 
-בעצמו			
-
-	
+בעצמו
 
 פסק-דין
 
-
-
 השופט א&#39; שטיין:
 
+לפנינו עתירה למתן צו על תנאי המכוונת נגד פסק דינו של בית הדין הארצי לעבודה בע&#34;ע 17762-12-17 (השופטים ל&#39; גליקסמן, ר&#39; פוליאק, ח&#39; אופק-גנדלר) מתאריך 28.2.2019 (להלן: בית הדין הארצי). פסק דין זה ניתן בהסכמת הצדדים בדרך של פשרה, בהתאם לסעיף 79א לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984 (להלן: חוק בתי המשפט).
 
+רקע עובדתי וההליכים בבתי הדין לעבודה
 
-		לפנינו עתירה למתן צו על תנאי המכוונת נגד פסק דינו של בית הדין הארצי לעבודה בע&#34;ע 17762-12-17 (השופטים ל&#39; גליקסמן, ר&#39; פוליאק, ח&#39; אופק-גנדלר) מתאריך 28.2.2019 (להלן: בית הדין הארצי). פסק דין זה ניתן בהסכמת הצדדים בדרך של פשרה, בהתאם לסעיף 79א לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984 (להלן: חוק בתי המשפט).
+בין השנים 2010-1994, להוציא הפסקה של שנה אחת במהלכן, עבד העותר בחברה &#34;פעילים ניהול תיקי השקעות בע&#34;מ&#34;, חברה פיננסית המתמחה בניהול תיקי השקעות. בתקופה הרלוונטית לעתירה, בין השנים 2010-2006, הועסק העותר כמנהל אזור. במסגרת תפקיד זה, בנוסף לשכר הבסיס ששולם לו, שולמה לו גם פרמיה בשיעור של 4.5% מתוך סך דמי הניהול ששולמו לחברה מלקחותיה באזור פעילותו. בשנת 2010, על מנת לתמרץ את מנהלי האזורים להשקיע יותר משאבים בגיוס לקוחות חדשים, יצרה החברה מודל פרמיה חדש שבמסגרתו עיקר הפרמיה שולמה למנהלי אזורים עבור גיוס לקוחות חדשים לחברה (להלן: מודל הפרמיה החדש או המודל). העותר התנגד לשינוי חוזה העסקתו בהתאם למודל זה, ובעקבות זאת נתגלע בינו ובין החברה סכסוך שהוביל לפיטוריו בשלהי שנת 2010.
 
-	
+ביום 6.10.2013 הגיש העותר תביעה נגד המשיבה בבית הדין האזורי לעבודה תל אביב-יפו (להלן: בית הדין האזורי), בגדרה טען שלל טענות באשר להתנהלותה הלקויה לאורך שנות העסקתו. טענתו העיקרית נגעה לפיטוריו על רקע התנגדותו להוספת מודל הפרמיה החדש לחוזה העסקתו בשל אי חוקיותו. לדידו, המודל יצר אצל מנהלי האזורים תמריץ להתמקד בגיוס לקוחות חדשים, שלא בהכרח מתאימים לחברה, על פני שירות הלקוחות הקיימים. לגישת העותר, תמריץ זה נוגד את הוראת סעיף 17(א) לחוק הסדרת העיסוק בייעוץ השקעות, בשיווק השקעות ובניהול תיקי השקעות, התשנ&#34;ה-1995 (להלן: חוק הסדרת העיסוק בייעוץ השקעות). יתר טענות העותר נסבו על סירובה של המשיבה לשלם לו תשלומים ופיצויים שונים שלדבריו מגיעים לו על פי דין.
 
-	רקע עובדתי וההליכים בבתי הדין לעבודה 
+בפסק דינו מיום 26.11.2017 דחה בית הדין האזורי לעבודה את מרבית טענותיו של העותר, למעט שתי טענות שנגעו לתשלום גמול שעות נוספות ולפיצוי המגיע לו מכוח סעיפים 3 ו-5(א) לחוק הודעה לעובד ולמועמד לעבודה (תנאי עבודה והליכי מיון וקבלה לעבודה), התשס&#34;ב-2002.
 
-	
+על פסק דין זה הגיש העותר ערעור לבית הדין הארצי. הדיון בערעורו התקיים ביום 28.2.2019, ובסופו הסמיכו בעלי הדין את בית הדין לפסוק בדרך של פשרה לפי סעיף 79א לחוק בתי המשפט. לנוכח הסכמתם, פסק בית הדין הארצי כי על המשיבה לשלם לעותר סך של 60,000 ש&#34;ח.
 
-		בין השנים 2010-1994, להוציא הפסקה של שנה אחת במהלכן, עבד העותר בחברה &#34;פעילים ניהול תיקי השקעות בע&#34;מ&#34;, חברה פיננסית המתמחה בניהול תיקי השקעות. בתקופה הרלוונטית לעתירה, בין השנים 2010-2006, הועסק העותר כמנהל אזור. במסגרת תפקיד זה, בנוסף לשכר הבסיס ששולם לו, שולמה לו גם פרמיה בשיעור של 4.5% מתוך סך דמי הניהול ששולמו לחברה מלקחותיה באזור פעילותו. בשנת 2010, על מנת לתמרץ את מנהלי האזורים להשקיע יותר משאבים בגיוס לקוחות חדשים, יצרה החברה מודל פרמיה חדש שבמסגרתו עיקר הפרמיה שולמה למנהלי אזורים עבור גיוס לקוחות חדשים לחברה (להלן: מודל הפרמיה החדש או המודל). העותר התנגד לשינוי חוזה העסקתו בהתאם למודל זה, ובעקבות זאת נתגלע בינו ובין החברה סכסוך שהוביל לפיטוריו בשלהי שנת 2010.
+על פסק דין זה הוגשה העתירה דכאן, בגדרה מלין העותר על התנהלותו של בית הדין הארצי בדיון שהתקיים בערעורו.
 
+טענות העותר
 
+העותר טוען כי במהלך הדיון בערעורו בית הדין הארצי התעלם מכללי הראיות, נתן משקל שגוי לראיות שהובאו בפניו, ואף לא דן בבקשתו לקיים את הדיון בדלתיים פתוחות, וזאת בניגוד להחלטתו מיום 5.12.2018. העותר מוסיף וטוען כי בית הדין לא נתן דעתו על טעויות שנפלו בפסק דינו של בית הדין האזורי אשר כוללות, בין היתר, קביעות עובדתיות סותרות, פירוש לא נכון של הדין ומתן משקל בלתי נכון לראיות.
 
-		ביום 6.10.2013 הגיש העותר תביעה נגד המשיבה בבית הדין האזורי לעבודה תל אביב-יפו (להלן: בית הדין האזורי), בגדרה טען שלל טענות באשר להתנהלותה הלקויה לאורך שנות העסקתו. טענתו העיקרית נגעה לפיטוריו על רקע התנגדותו להוספת מודל הפרמיה החדש לחוזה העסקתו בשל אי חוקיותו. לדידו, המודל יצר אצל מנהלי האזורים תמריץ להתמקד בגיוס לקוחות חדשים, שלא בהכרח מתאימים לחברה, על פני שירות הלקוחות הקיימים. לגישת העותר, תמריץ זה נוגד את הוראת סעיף 17(א) לחוק הסדרת העיסוק בייעוץ השקעות, בשיווק השקעות ובניהול תיקי השקעות, התשנ&#34;ה-1995 (להלן: חוק הסדרת העיסוק בייעוץ השקעות). יתר טענות העותר נסבו על סירובה של המשיבה לשלם לו תשלומים ופיצויים שונים שלדבריו מגיעים לו על פי דין. 
+העותר מבקש אפוא כי נבטל את פסק דינו של בית הדין הארצי, ושנורה על החזרת התיק לבית הדין האזורי, וכן על ניהולו בדלתיים פתוחות. לדידו, נסיבות עניינו מצדיקות את התערבותנו: ראשית, ניהול הדיון בתיק בדלתיים סגורות, תוך התעלמות מבקשתו לנהלו בדלתיים פתוחות, מעיד על כך שההליך נוהל בצורה לא הוגנת ושהופעל עליו לחץ לקבל את הצעת הפשרה של בית הדין הארצי; שנית, בהליך בעניינו נפלו פגמים רבים, כמו גם טעויות עובדתיות ומשפטיות מהותיות; שלישית, חלק מטעויות אלו מעלות שאלה משפטית כללית החשובה לציבור המשקיעים.
 
+דיון והכרעה
 
+עיינתי בעתירה ובנספחיה ובאתי לכלל מסקנה כי דין העתירה להידחות על הסף, ללא צורך בקבלת תגובת המשיבים. הלכה היא כי בית משפט זה אינו יושב כערכאת ערעור על פסקי דינו של בית הדין הארצי לעבודה, וכי ההתערבות בהחלטותיו תיעשה בריסון רב, במשורה ובמקרים חריגים בלבד, בהם מתגלית בפסק הדין טעות מהותית בעלת חשיבות כללית, וכאשר התערבותו של בית משפט זה נדרשת כדי למנוע חוסר צדק משווע (ראו: בג&#34;ץ 525/84 חטיב נ&#39; בית הדין הארצי לעבודה, ירושלים, פ&#34;ד מ(1) 673, 674-673 (1986); בג&#34;ץ 7029/95 הסתדרות העובדים הכללית החדשה נ&#39; בית-הדין הארצי לעבודה, פ&#34;ד נא(2) 63, 90-89 (1997); בג&#34;ץ 3515/18 שדולת הנשים בישראל נ&#39; בית הדין הארצי לעבודה, פסקה 20 (15.5.2018). הדברים הם בבחינת קל וחומר כאשר מדובר בפסק דין שניתן בדרך של פשרה לפי סעיף 79א לחוק בתי המשפט. במקרים אלו התערבותנו תהיה מצומצמת אף יותר, ותוגבל לאותם מקרים נדירים ויוצאי דופן בהם פסק הדין שניתן חרג באופן קיצוני ביותר מגבולות הסבירות, במסקנותיו או בסכומים שנפסקו בו (ראו ע&#34;א 8560/17 אדרי אל ישראל קרקעות בע&#34;מ נ&#39; אפיקי נדל&#34;ן בצפון בע&#34;מ, פסקה 14 לפסק דינה של השופטת ד&#39; ברק-ארז (10.3.2019); ע&#34;א 1639/97‏ אגיאפוליס בע&#34;מ נ&#39; הקסטודיה אינטרנציונלה דה טרה סנטה (17.1.1999); רע&#34;א 6756/96 זוננשוילי נ&#39; חוד, חברה לתעשיית מוצרי מתכת בע&#34;מ (15.12.1997)). ע&#34;א 516/17 חברה קדישא גחש&#34;א נ&#39; קל בניין (23.7.2017).
 
-		בפסק דינו מיום 26.11.2017 דחה בית הדין האזורי לעבודה את מרבית טענותיו של העותר, למעט שתי טענות שנגעו לתשלום גמול שעות נוספות ולפיצוי המגיע לו מכוח סעיפים 3 ו-5(א) לחוק הודעה לעובד ולמועמד לעבודה (תנאי עבודה והליכי מיון וקבלה לעבודה), התשס&#34;ב-2002.
+המקרה שלפנינו אינו בא בגדר אותם מקרים חריגים. למעלה מכך: רוב טענותיו של העותר נגד פסק דינו של בית הדין הארצי הן טענות ערעוריות מובהקות שאינן חורגות מתחום עניינו הספציפי, וממילא אינן מעלות שום שאלה משפטית בעלת חשיבות ציבורית רחבה.
 
+אני מציע אפוא לחבריי לדחות עתירה זו על הסף ללא צו להוצאות.
 
-
-		על פסק דין זה הגיש העותר ערעור לבית הדין הארצי. הדיון בערעורו התקיים ביום 28.2.2019, ובסופו הסמיכו בעלי הדין את בית הדין לפסוק בדרך של פשרה לפי סעיף 79א לחוק בתי המשפט. לנוכח הסכמתם, פסק בית הדין הארצי כי על המשיבה לשלם לעותר סך של 60,000 ש&#34;ח.
-
-
-
-		על פסק דין זה הוגשה העתירה דכאן, בגדרה מלין העותר על התנהלותו של בית הדין הארצי בדיון שהתקיים בערעורו.
-
-
-
-	טענות העותר
-
-
-
-		העותר טוען כי במהלך הדיון בערעורו בית הדין הארצי התעלם מכללי הראיות, נתן משקל שגוי לראיות שהובאו בפניו, ואף לא דן בבקשתו לקיים את הדיון בדלתיים פתוחות, וזאת בניגוד להחלטתו מיום 5.12.2018. העותר מוסיף וטוען כי בית הדין לא נתן דעתו על טעויות שנפלו בפסק דינו של בית הדין האזורי אשר כוללות, בין היתר, קביעות עובדתיות סותרות, פירוש לא נכון של הדין ומתן משקל בלתי נכון לראיות. 
-
-
-
-		העותר מבקש אפוא כי נבטל את פסק דינו של בית הדין הארצי, ושנורה על החזרת התיק לבית הדין האזורי, וכן על ניהולו בדלתיים פתוחות. לדידו, נסיבות עניינו מצדיקות את התערבותנו: ראשית, ניהול הדיון בתיק בדלתיים סגורות, תוך התעלמות מבקשתו לנהלו בדלתיים פתוחות, מעיד על כך שההליך נוהל בצורה לא הוגנת ושהופעל עליו לחץ לקבל את הצעת הפשרה של בית הדין הארצי; שנית, בהליך בעניינו נפלו פגמים רבים, כמו גם טעויות עובדתיות ומשפטיות מהותיות; שלישית, חלק מטעויות אלו מעלות שאלה משפטית כללית החשובה לציבור המשקיעים.
-
-
-
-	דיון והכרעה
-
-	
-
-		עיינתי בעתירה ובנספחיה ובאתי לכלל מסקנה כי דין העתירה להידחות על הסף, ללא צורך בקבלת תגובת המשיבים. הלכה היא כי בית משפט זה אינו יושב כערכאת ערעור על פסקי דינו של בית הדין הארצי לעבודה, וכי ההתערבות בהחלטותיו תיעשה בריסון רב, במשורה ובמקרים חריגים בלבד, בהם מתגלית בפסק הדין טעות מהותית בעלת חשיבות כללית, וכאשר התערבותו של בית משפט זה נדרשת כדי למנוע חוסר צדק משווע (ראו: בג&#34;ץ 525/84 חטיב נ&#39; בית הדין הארצי לעבודה, ירושלים, פ&#34;ד מ(1) 673, 674-673 (1986); בג&#34;ץ 7029/95 הסתדרות העובדים הכללית החדשה נ&#39; בית-הדין הארצי לעבודה, פ&#34;ד נא(2) 63, 90-89 (1997); בג&#34;ץ 3515/18 שדולת הנשים בישראל נ&#39; בית הדין הארצי לעבודה, פסקה 20 (15.5.2018). הדברים הם בבחינת קל וחומר כאשר מדובר בפסק דין שניתן בדרך של פשרה לפי סעיף 79א לחוק בתי המשפט. במקרים אלו התערבותנו תהיה מצומצמת אף יותר, ותוגבל לאותם מקרים נדירים ויוצאי דופן בהם פסק הדין שניתן חרג באופן קיצוני ביותר מגבולות הסבירות, במסקנותיו או בסכומים שנפסקו בו (ראו ע&#34;א 8560/17 אדרי אל ישראל קרקעות בע&#34;מ נ&#39; אפיקי נדל&#34;ן בצפון בע&#34;מ, פסקה 14 לפסק דינה של השופטת ד&#39; ברק-ארז (10.3.2019); ע&#34;א 1639/97‏ אגיאפוליס בע&#34;מ נ&#39; הקסטודיה אינטרנציונלה דה טרה סנטה (17.1.1999); רע&#34;א 6756/96 זוננשוילי נ&#39; חוד, חברה לתעשיית מוצרי מתכת בע&#34;מ (15.12.1997)). ע&#34;א 516/17 חברה קדישא גחש&#34;א נ&#39; קל בניין (23.7.2017).
-
-
-
-		המקרה שלפנינו אינו בא בגדר אותם מקרים חריגים. למעלה מכך: רוב טענותיו של העותר נגד פסק דינו של בית הדין הארצי הן טענות ערעוריות מובהקות שאינן חורגות מתחום עניינו הספציפי, וממילא אינן מעלות שום שאלה משפטית בעלת חשיבות ציבורית רחבה.
-
-
-
-		אני מציע אפוא לחבריי לדחות עתירה זו על הסף ללא צו להוצאות.
-
-
-
-	ניתן היום, ‏יא&#39; בניסן התשע&#34;ט (‏16.4.2019).
-
-
-
-
+ניתן היום, ‏יא&#39; בניסן התשע&#34;ט (‏16.4.2019).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
 
 _________________________
 
-   19016250_F07.docx   דג
+19016250_F07.docx דג
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1737,7 +1920,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

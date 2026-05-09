@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    05/05/2021 (לפני 1826 ימים)
+                    05/05/2021 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/3033-21.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="3033/21 - שמעון חלפון נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F3033-21.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/330/030/v03&amp;fileName=21030330.V03&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/330/030/v03&amp;fileName=21030330.V03&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/330/030/v03&amp;fileName=21030330.V03&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/330/030/v03&amp;fileName=21030330.V03&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,159 +1827,71 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון
 
+ע&#34;פ 3033/21
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-ע&#34;פ  3033/21
-
-
-
-לפני:	
+לפני:
 
 כבוד הנשיאה א&#39; חיות
-
-
 
 המערער:
 
 שמעון חלפון
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-
-
 ערעור על החלטת בית משפט השלום בראשון לציון בת&#34;פ 40534-07-19 שניתנה ביום 29.4.2021 על ידי השופט ע&#39; מיכלס
-
-
 
 בשם המערער:
 
 בעצמו
 
-
-
 פסק-דין
 
-
-
-	ערעור על החלטותיו של בית משפט השלום בראשון לציון (השופט ע&#39; מיכלס) מיום 29.4.2021 בת&#34;פ 40534-07-19 שלא לפסול את עצמו מלדון בעניינו של המערער.
-
-
+ערעור על החלטותיו של בית משפט השלום בראשון לציון (השופט ע&#39; מיכלס) מיום 29.4.2021 בת&#34;פ 40534-07-19 שלא לפסול את עצמו מלדון בעניינו של המערער.
 
 1.	ביום 17.7.2019 הוגש נגד המערער כתב אישום המייחס לו ריבוי עבירות של הפרת צו פיקוח לפי סעיף 22(א) לחוק הגנה על הציבור מפני ביצוע עבירות מין, התשס&#34;ו-2006 וכן עבירה של תקיפת עובד ציבור ועבירה של הפרת הוראה חוקית. במהלך ניהול ההליך התגלעו מחלוקות בין המערער ובין עורכי הדין שמונו לייצגו מטעם הסנגוריה הציבורית. במהלך דיון ביום 31.5.2020 ציין המערער &#34;לשאלת בית המשפט, האם אתה מעוניין שהסנגור הציבורי הארצי ימנה לך עורך דין אחר – לא. מר יואב [ספיר] שייצג אותי, אני לא רוצה אף אחד אחר. [...] אם זה לא יואב ספיר אני לא מעוניין&#34; (עמ&#39; 17 שורות 15-9 לפרוטוקול הדיון). על רקע זה הורה בית המשפט קמא בהמשך הדיון על שחרור הסנגוריה הציבורית מייצוגו של המערער. המערער הוסיף וביקש כי ימונה עבורו סנגור פרטי במימון ציבורי, אך לאחר שהתקבלו עמדותיהן של הסנגוריה הציבורית ושל המשיבה בנושא, בית המשפט קמא דחה את בקשתו ביום 29.7.2020. בית המשפט קבע כי אין מקור חוקי שמסמיך אותו למנות סנגור לנאשם שלא באמצעות הסניגוריה הציבורית או בפיקוחה, וכי ממילא קיים סיכוי קטן ביותר שמהלך מעין זה יישא פרי בכל הנוגע למערער; זאת, בין היתר, בשים לב לעובדה ש&#34;באופן כמעט חסר תקדים, מונו לייצג את [המערער] במרוצת השנים לא פחות מ-16 סניגורים ציבוריים, עם כולם בחר שלא לשתף פעולה ובכולם מצא להטיל דופי&#34; (ההדגשה במקור).
 
-
-
 2.	לאחר שהמערער לא התייצב למספר דיוני הוכחות שנקבעו בהליך והוצאו בעניינו מספר צווי הבאה, ביום 27.4.2021 התקיים דיון בנוכחותו של המערער. בתחילת הדיון ציין המערער בפני בית המשפט &#34;אני אומר שאתה נכפף לפרקליטות, מייצג את הפרקליטות, הופך אותי למטרה מול הפרקליטות לא יכול להיות שאדם יהיה משפט [כך במקור]. אין לי עורך דין לדיונים האלה. עוד צורך נוסף שמראה כמה צריך אדם שיהיה לו עורך דין&#34; (עמ&#39; 93 שורות 16-14 לפרוטוקול הדיון). בהמשך הדיון הורה בית המשפט קמא על מעצרו של המערער עד למועד הדיון שנקבע ליום 29.4.2021, וציין כי החלטתו זו ניתנת, בין היתר, בעקבות דחיית בקשתו של המערער לקבלת ייצוג מטעם הסנגוריה הציבורית &#34;ולאחר שאין כל דרך להבטיח את התייצבות [המערער] לדיון ההוכחות הקבוע ליום 29/4/2021&#34;. כעולה מפרוטוקול הדיון, בהמשך התפרץ המערער בצעקות לעבר בית המשפט, קרא לו לפסול את עצמו וגידף אותו.
-
-
 
 3.	ביום 29.4.2021 התקיים דיון הוכחות נוסף שבתחילתו טען המערער כך:
 
-
-
-&#34;אני מבקש שתוציא אותי מהמעצר. זה לא חורה לך? אני לא יודע לנהל את המשפט. [...] יום אחד לא הגעתי כי שוטר ירה בדם קר לאישתו בראש. מסוכנות להשתמש בנשק חי לא עושה לכם כלום, אבל נשיקה על הלחי שאני צריך לקבל פיקוח על עברייני המין. 
+&#34;אני מבקש שתוציא אותי מהמעצר. זה לא חורה לך? אני לא יודע לנהל את המשפט. [...] יום אחד לא הגעתי כי שוטר ירה בדם קר לאישתו בראש. מסוכנות להשתמש בנשק חי לא עושה לכם כלום, אבל נשיקה על הלחי שאני צריך לקבל פיקוח על עברייני המין.
 
 אני מבקש לנוכח חילופי הדברים, אני רוצה לבקש פסלות על העניין הזה&#34; (עמ&#39; 96 שורות 13-8 לפרוטוקול).
 
-
-
-	בית המשפט קמא דחה את בקשת הפסלות על אתר, בציינו כי &#34;חילופי הדברים&#34; שאליהם התייחס המערער &#34;הם למעשה דברי [המערער] עצמו שהפנה דברים קשים לבית המשפט, בפרט בדיון האחרון בו מצא המערער לקלל את בית המשפט באופן שצוין בפרוטוקול הדיון&#34;. בית המשפט הבהיר כי העובדה שהמערער הפנה קללות לבית המשפט אינה מקימה עילת פסלות; כי הסיבה לכך שהמערער הושם במעצר היא העובדה שלא התייצב למספר דיוני הוכחות; וכי &#34;משפטו [של המערער] מתנהל לצורך בירור האמת, הוא רשאי לשאול שאלות את העדים, כפי שעשה בדיוני הוכחות קודמים בהם נכח&#34;.
-
-
+בית המשפט קמא דחה את בקשת הפסלות על אתר, בציינו כי &#34;חילופי הדברים&#34; שאליהם התייחס המערער &#34;הם למעשה דברי [המערער] עצמו שהפנה דברים קשים לבית המשפט, בפרט בדיון האחרון בו מצא המערער לקלל את בית המשפט באופן שצוין בפרוטוקול הדיון&#34;. בית המשפט הבהיר כי העובדה שהמערער הפנה קללות לבית המשפט אינה מקימה עילת פסלות; כי הסיבה לכך שהמערער הושם במעצר היא העובדה שלא התייצב למספר דיוני הוכחות; וכי &#34;משפטו [של המערער] מתנהל לצורך בירור האמת, הוא רשאי לשאול שאלות את העדים, כפי שעשה בדיוני הוכחות קודמים בהם נכח&#34;.
 
 4.	בתגובה העלה המערער טענת פסלות נוספת כהאי לישנא:
 
-
-
 &#34;אתה משתמש באנשי צור כחלטורה לאתר אותי. אני חושש פה למשוא פנים, אתה משתמש ביחידת צור, אתה מנסה ליצור קשר עם יחידת צור לדעת איפה אני. [...] אני חושש כעת שיש פה משוא פנים היות ואתה נעזר ביחידת צור לענייניך השיפוטיים, אני חושש למשוא פנים בסופו של דבר במתן הכרעת הדין והלאה. זו עוד סיבה שאני מבקש פסלות, במידה ולא תיתן פסלות ...&#34; (כך במקור; עמ&#39; 97 שורות 24-20 לפרוטוקול).
 
-	
-
-
-
-	בקשה זו נדחתה אף היא על ידי בית המשפט קמא, אשר ציין בהחלטתו כי הוא &#34;לא נעזר ביחידת צור לצורך איתורו [של המערער], וככל שהדבר נעשה, ייתכן [והמשיבה] עשתה כן, שכן לא ניתן היה ליצור עמו קשר בשום צורה על-מנת להביאו לבית המשפט&#34;.
-
-
+בקשה זו נדחתה אף היא על ידי בית המשפט קמא, אשר ציין בהחלטתו כי הוא &#34;לא נעזר ביחידת צור לצורך איתורו [של המערער], וככל שהדבר נעשה, ייתכן [והמשיבה] עשתה כן, שכן לא ניתן היה ליצור עמו קשר בשום צורה על-מנת להביאו לבית המשפט&#34;.
 
 5.	מכאן הערעור שלפניי. המערער, שכאמור אינו מיוצג, טוען כי המותב &#34;מתנכל&#34; לו בכך שהוא מסרב למנות לו סנגור. עוד טוען המערער כי צווי ההבאה שהוצאו בעניינו &#34;היו התנכלות גרידא&#34;; כי המותב &#34;גרם [למערער] לקלל אותו&#34; (ההדגשה במקור); וכי &#34;דבר זה יגרום להרשעת[ו] [של המערער] ולעוד דברים&#34;. על כן מבקש המערער &#34;לקיים דיון או לחלופין למנות ל[ו] סניגור רק לעניין הפסלות&#34;. להשלמת התמונה יצוין כי בקשת המערער למינוי סנגור בהליך דנן נדחתה בהחלטת הרשם ר&#39; גולדשטיין מהיום (5.5.2021), ולא מצאתי מקום להיעתר לבקשה זו גם בשלב זה.
 
-
-
 6.	עיינתי בערעור על נספחיו ובאתי לידי מסקנה כי דינו להידחות. המבחן לפסילת שופט מעוגן בסעיף 77א לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984, ולפיו יש לבחון אם קיימות נסיבות שיש בהן כדי ליצור חשש ממשי למשוא פנים מצדו. לא מצאתי כי נסיבות מעין אלו מתקיימות בענייננו, וזאת אף מבלי להידרש לעובדה שהטענות שהעלה המערער בערעורו – שעניינן בסוגיית ייצוגו והאופן שבו הוא הושפע, לטענתו, מהתנהלות המותב – נבדלות באופן משמעותי מהטענות שהעלה בבקשות הפסלות ואשר שימשו בסיס להחלטות נושא הערעור דנן.
 
+כפי שנפסק בעבר, אין מקום לקבל טענה לאווירה עכורה בין המותב ובין בעל הדין שמעלה את טענת הפסלות שעה ש&#34;מחולל האווירה הזו היה המערער עצמו&#34; (ע&#34;פ 160/21 גבאי נ&#39; מדינת ישראל - אגף המכס‏, פסקה 6 (21.1.2021)). לפיכך, טענותיו של המערער בנוגע לאופן שבו המותב &#34;גרם&#34; לו להגיב, לטענתו, אין בהן כדי להקים עילת פסלות. מכל מקום, לא שוכנעתי כי המערער עמד בנטל להוכיח שהתנהלותו של המותב – בין במהלך הדיונים ביום 27.4.2021 ו-29.4.2021 ובין בהחלטות שאליהן התייחס המערער – מעידה על חשש ממשי למשוא פנים.
 
+לכך יש להוסיף כי השגותיו של המערער על ההחלטות שנוגעות לייצוגו הועלו בשיהוי משמעותי, שכן ההחלטה הדוחה את בקשתו למימון ציבורי של סנגור פרטי ניתנה כתשעה חודשים טרם הגשת בקשת הפסלות, וההחלטה המורה על שחרור הסנגוריה הציבורית מייצוגו ניתנה עוד קודם לכן. שיהוי זה מצדיק כשלעצמו את דחיית טענותיו של המערער בנושא הייצוג (ע&#34;פ 3121/20 פלוני נ&#39; מדינת ישראל, פסקה 6 (4.6.2020)) – אך למעלה מן הצורך אוסיף כי לא שוכנעתי שהחלטותיו אלו של בית המשפט קמא מעידות על חשש ממשי למשוא פנים מצדו. זאת, בפרט נוכח המאמצים שנעשו לאורך ניהול ההליך על ידי בית המשפט קמא ועל ידי הסנגוריה הציבורית לשם הבטחת ייצוגו של המערער (ראו והשוו: ע&#34;פ 291/21 בוקובזה נ&#39; מדינת ישראל, פסקה 9 (27.1.2021)).
 
-	כפי שנפסק בעבר, אין מקום לקבל טענה לאווירה עכורה בין המותב ובין בעל הדין שמעלה את טענת הפסלות שעה ש&#34;מחולל האווירה הזו היה המערער עצמו&#34; (ע&#34;פ 160/21 גבאי נ&#39; מדינת ישראל - אגף המכס‏, פסקה 6 (21.1.2021)). לפיכך, טענותיו של המערער בנוגע לאופן שבו המותב &#34;גרם&#34; לו להגיב, לטענתו, אין בהן כדי להקים עילת פסלות. מכל מקום, לא שוכנעתי כי המערער עמד בנטל להוכיח שהתנהלותו של המותב – בין במהלך הדיונים ביום 27.4.2021 ו-29.4.2021 ובין בהחלטות שאליהן התייחס המערער – מעידה על חשש ממשי למשוא פנים.
+אשר על כן, הערעור נדחה.
 
+ניתן היום, ‏כ&#34;ג באייר התשפ&#34;א (‏5.5.2021).
 
-
-	לכך יש להוסיף כי השגותיו של המערער על ההחלטות שנוגעות לייצוגו הועלו בשיהוי משמעותי, שכן ההחלטה הדוחה את בקשתו למימון ציבורי של סנגור פרטי ניתנה כתשעה חודשים טרם הגשת בקשת הפסלות, וההחלטה המורה על שחרור הסנגוריה הציבורית מייצוגו ניתנה עוד קודם לכן. שיהוי זה מצדיק כשלעצמו את דחיית טענותיו של המערער בנושא הייצוג (ע&#34;פ 3121/20 פלוני נ&#39; מדינת ישראל, פסקה 6 (4.6.2020)) – אך למעלה מן הצורך אוסיף כי לא שוכנעתי שהחלטותיו אלו של בית המשפט קמא מעידות על חשש ממשי למשוא פנים מצדו. זאת, בפרט נוכח המאמצים שנעשו לאורך ניהול ההליך על ידי בית המשפט קמא ועל ידי הסנגוריה הציבורית לשם הבטחת ייצוגו של המערער (ראו והשוו: ע&#34;פ 291/21 בוקובזה נ&#39; מדינת ישראל, פסקה 9 (27.1.2021)). 
-
-
-
-	אשר על כן, הערעור נדחה.
-
-
-
-	ניתן היום, ‏כ&#34;ג באייר התשפ&#34;א (‏5.5.2021).
-
-
-
-
-
-
-
-
-
-
-
- ה נ ש י א ה
-
-
+ה נ ש י א ה
 
 _________________________
 
-   21030330_V03.docx   רי
+21030330_V03.docx רי
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1727,7 +1910,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

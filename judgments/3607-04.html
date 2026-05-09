@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    20/12/2007 (לפני 6711 ימים)
+                    20/12/2007 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/3607-04.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="3607/04 - עותמאן אלסאנע נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F3607-04.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/070/036/O08&amp;fileName=04036070_o08.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/070/036/O08&amp;fileName=04036070_o08.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/070/036/O08&amp;fileName=04036070_o08.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/070/036/O08&amp;fileName=04036070_o08.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1580,9 +1851,7 @@
 
 מדינת ישראל
 
-ערעור על פסק דינו של בית המשפט
-המחוזי בבאר-שבע, מיום 4.3.04, בתיק פל. 8084/00, שניתן על ידי כבוד השופט י&#39;
-אלון
+ערעור על פסק דינו של בית המשפט המחוזי בבאר-שבע, מיום 4.3.04, בתיק פל. 8084/00, שניתן על ידי כבוד השופט י&#39; אלון
 
 תאריך הישיבה:
 
@@ -1606,88 +1875,23 @@
 
 השופט א&#39; א&#39; לוי:
 
-1. בכתב אישום שהוגש לבית המשפט המחוזי בבאר שבע נטען, כי המערער
-נמנה על קבוצה של 5 קושרים, אשר הגיעו בתאריך 27.7.00, בשעת לילה, לגבול ישראל
-ירדן, מתוך כוונה לייבא לארץ סם מסוכן מסוג הירואין. בשלב כלשהו נראו המערער והאני
-אלסנע (להלן: האני) הולכים לנקודת הגבול הקרובה לנאות הככר, וכאשר חזרו משם הם נשאו
-עמם שני שקים. אנשי משטרה שארבו במקום קראו לשניים לעצור, אולם אלה שמטו את השקים
-ופתחו בבריחה רגלית, אולם שוטרים שרדפו אחריהם עצרו אותם.
+1. בכתב אישום שהוגש לבית המשפט המחוזי בבאר שבע נטען, כי המערער נמנה על קבוצה של 5 קושרים, אשר הגיעו בתאריך 27.7.00, בשעת לילה, לגבול ישראל ירדן, מתוך כוונה לייבא לארץ סם מסוכן מסוג הירואין. בשלב כלשהו נראו המערער והאני אלסנע (להלן: האני) הולכים לנקודת הגבול הקרובה לנאות הככר, וכאשר חזרו משם הם נשאו עמם שני שקים. אנשי משטרה שארבו במקום קראו לשניים לעצור, אולם אלה שמטו את השקים ופתחו בבריחה רגלית, אולם שוטרים שרדפו אחריהם עצרו אותם.
 
-בדיקת תכולתם של השקים העלתה כי מדובר בסם מסוכן מסוג הרואין,
-במשקל 19.735
-ק&#34;ג נטו.
+בדיקת תכולתם של השקים העלתה כי מדובר בסם מסוכן מסוג הרואין, במשקל 19.735 ק&#34;ג נטו.
 
-בגין עובדות אלו יוחסו למערער עבירות של קשירת קשר לבצע
-לפשע, ייבוא סם מסוכן והחזקת סם שלא לצריכה עצמית, עבירות לפי סעיף 499(א)(1) לחוק
-העונשין, התשל&#34;ז-1977, וסעיפים 13 ו-7(א)+(ג) לפקודת הסמים המסוכנים [נוסח
-חדש], התשל&#34;ג-1973.
+בגין עובדות אלו יוחסו למערער עבירות של קשירת קשר לבצע לפשע, ייבוא סם מסוכן והחזקת סם שלא לצריכה עצמית, עבירות לפי סעיף 499(א)(1) לחוק העונשין, התשל&#34;ז-1977, וסעיפים 13 ו-7(א)+(ג) לפקודת הסמים המסוכנים [נוסח חדש], התשל&#34;ג-1973.
 
-2. במהלך משפטו התגונן המערער בגרסה כי בבוקר המקרה הוא הגיע עם
-האני לאזור ים המלח, ואת זמנם בילו בשחייה. שעה שפנו להתקלח פנה אליהם אדם שזהותו נותרה
-עלומה, והציע להם לעבוד בחממות שבבעלותו הנמצאות באזור נאות הכיכר, וזאת בתמורה
-לשכר יומי של 100 ש&#34;ח. בהמשך, הסיע אותם האלמוני לאזור החממות והורה להם להמתין
-שם. אותו אדם בושש לחזור, ובעודם ממתינים בסככה כלשהי הם הבחינו בשוטרים רצים
-וחולפים על פניהם, ולאחר זמן מה כששבו על עקבותיהם הם עצרו אותם, חרף טענתם כי לא
-היה להם קשר לסם שנתפס.
+2. במהלך משפטו התגונן המערער בגרסה כי בבוקר המקרה הוא הגיע עם האני לאזור ים המלח, ואת זמנם בילו בשחייה. שעה שפנו להתקלח פנה אליהם אדם שזהותו נותרה עלומה, והציע להם לעבוד בחממות שבבעלותו הנמצאות באזור נאות הכיכר, וזאת בתמורה לשכר יומי של 100 ש&#34;ח. בהמשך, הסיע אותם האלמוני לאזור החממות והורה להם להמתין שם. אותו אדם בושש לחזור, ובעודם ממתינים בסככה כלשהי הם הבחינו בשוטרים רצים וחולפים על פניהם, ולאחר זמן מה כששבו על עקבותיהם הם עצרו אותם, חרף טענתם כי לא היה להם קשר לסם שנתפס.
 
-3. גרסה זו של המערער לאירועים לא קנתה אחיזה בלבו של בית המשפט,
-הואיל ומצא אותה בלתי אמינה ומופרכת מעיקרה. למסקנה זו הגיע בית המשפט בבכרו את
-עדותם של השוטרים שהיו מעורבים במעצרם של המערער וחברו. לעניין זה העיד סגן-ניצב
-יורם סופר, כי בעקבות מידע שהתקבל בדבר עסקת סמים העומדת להתבצע בגבול, פרסו הוא
-ופקודיו מארב כבר ביום 26.7.00. משהמארב לא העלה באותו יום דבר, חזרו על כך
-השוטרים גם ביום המחרת, ובסביבות השעה 21:30 הבחינו בשתי דמויות הנעות מכביש הערבה
-מזרחה, תוך שהן חולפות במרחק של מטרים ספורים מהמארב. בהמשך, נראו השניים נפגשים
-עם אדם שהגיע מהצד הירדני של הגבול, וכאשר שבו משם נשא כל אחד מהם שק. כאשר הגיעו
-ליד המקום בו ארבו השוטרים, ניתנה הוראה לעצור אותם, אולם השניים הניחו את השקים
-ונמלטו, עד אשר נעצרו על ידי שוטרים שדלקו בעקבותיהם.
+3. גרסה זו של המערער לאירועים לא קנתה אחיזה בלבו של בית המשפט, הואיל ומצא אותה בלתי אמינה ומופרכת מעיקרה. למסקנה זו הגיע בית המשפט בבכרו את עדותם של השוטרים שהיו מעורבים במעצרם של המערער וחברו. לעניין זה העיד סגן-ניצב יורם סופר, כי בעקבות מידע שהתקבל בדבר עסקת סמים העומדת להתבצע בגבול, פרסו הוא ופקודיו מארב כבר ביום 26.7.00. משהמארב לא העלה באותו יום דבר, חזרו על כך השוטרים גם ביום המחרת, ובסביבות השעה 21:30 הבחינו בשתי דמויות הנעות מכביש הערבה מזרחה, תוך שהן חולפות במרחק של מטרים ספורים מהמארב. בהמשך, נראו השניים נפגשים עם אדם שהגיע מהצד הירדני של הגבול, וכאשר שבו משם נשא כל אחד מהם שק. כאשר הגיעו ליד המקום בו ארבו השוטרים, ניתנה הוראה לעצור אותם, אולם השניים הניחו את השקים ונמלטו, עד אשר נעצרו על ידי שוטרים שדלקו בעקבותיהם.
 
-גרסתו של סנ&#34;צ סופר נתמכה בעדויותיהם של שוטרים נוספים אשר
-נטלו חלק באותו אירוע, ועדויות אלו מפריכות מכל וכל את גרסת המערער לפיה הוא והאני
-לא יצאו כלל מהסככה, וממילא איש לא רדף אחריהם. חרף זאת, סבר בא-כוחו של המערער
-דאז, וכך סבור גם סנגורו דהיום, כי נוכח סתירות שנתגלו בעדויות השוטרים לא היה
-מקום להשתית על עדותם את הרשעת המערער. השקפתו של השופט המלומד בבית המשפט המחוזי
-היתה שונה. הוא קבע כי אין באותן סתירות כדי לערער את התמונה המצטיירת מדבריהם של
-עדי המשיבה, ולפיה נעצר המערער לאחר מרדף, ועל כן את גרסת &#34;העבודה שהוצעה
-לו&#34; ו&#34;המתנה בסככה&#34; הוא בדה מלבו.
+גרסתו של סנ&#34;צ סופר נתמכה בעדויותיהם של שוטרים נוספים אשר נטלו חלק באותו אירוע, ועדויות אלו מפריכות מכל וכל את גרסת המערער לפיה הוא והאני לא יצאו כלל מהסככה, וממילא איש לא רדף אחריהם. חרף זאת, סבר בא-כוחו של המערער דאז, וכך סבור גם סנגורו דהיום, כי נוכח סתירות שנתגלו בעדויות השוטרים לא היה מקום להשתית על עדותם את הרשעת המערער. השקפתו של השופט המלומד בבית המשפט המחוזי היתה שונה. הוא קבע כי אין באותן סתירות כדי לערער את התמונה המצטיירת מדבריהם של עדי המשיבה, ולפיה נעצר המערער לאחר מרדף, ועל כן את גרסת &#34;העבודה שהוצעה לו&#34; ו&#34;המתנה בסככה&#34; הוא בדה מלבו.
 
-4. לא ראינו מקום לשנות מאותו ממצא זה של בית המשפט המחוזי,
-ומדעתנו לא שינינו גם לאחר שעיינו בנימוקי הערעור שבכתב, והאזנו לטיעון בא-כוח
-המערער על פה. אנו נוהגים כך, ראשית, הואיל ואין זו דרכה של ערכאת ערעור להתערב בממצאים שבעובדה אותם
-קבעה הערכאה הדיונית, בעקבות התרשמותה הישירה והבלתי אמצעית ממהימנותם של העדים אשר
-הופיעו בפניה. שנית, מה שהוגדרו
-כ&#34;סתירות&#34; בעדויות השוטרים, הן ככל הנראה טעויות שמקורן בחולשתו של הזיכרון
-האנושי, ותוצאה של מיקום העדים שצפו על הזירה. שלישית, וזה העיקר, מפיו של המערער נשמעה גרסה לא עקבית ותמוהה
-שגם בלבנו לא עוררה אמון. בחקירתו במשטרת ישראל, למחרת מעצרו הוא טען (ראו ת/14,
-עמ&#39; 5), כי אותו אלמוני שפגש הציע לו עבודה תמורת שכר יומי של 100 ש&#34;ח. לשאלה
-למה לא הלך לעבוד, השיב המערער: &#34;בגלל שהוא רצה לתת לי רק מאה שקל&#34;. ובת/9, עמ&#39; 1 השיב המערער באותו עניין: &#34;הבן אדם
-זרק אותנו שם בגלל שלא נתן לנו מחיר טוב, לא הסכמנו לעבוד איתו והוא נסע&#34;. הנה כי כן, המערער והאלמוני לא הגיעו לעמק השווה
-בנושא השכר, ועל כורחנו מצאנו את עצמנו תוהים מדוע ראה המערער צורך לנסוע לאותן
-חממות אף שהקדים והבהיר למציע כי הוא מסרב לתנאי השכר שהוצעו לו. שבעתיים תהינו
-מדוע לא עמדו המערער וחברו על כך שהאלמוני יחזיר אותם למקום ממנו אספם, כדי שיוכלו
-לעשות את דרכם חזרה למקום מושבם. נראה כי גם המערער הבין את חוסר הסבירות שבגרסה
-זו, ועל כן עשה בעדותו בבית המשפט מאמצים לעצבה מחדש. הפעם הוא טען כי הגיע לעמק
-השווה עם האלמוני בנושא השכר, אולם נותרה מחלוקת בנושא עלות המגורים, מאחר והוא
-היה אמור לשהות במקום העבודה המוצע בכל ימי העסקתו (ראו עמ&#39; 13 לפרוטוקול ישיבת
-יום 4.12.03). ושוב לא נותר אלא לתהות, מדוע הסכים המערער לנסוע עם אותו אלמוני
-כאשר נושא כה חשוב כמו עלות המגורים טרם סוכם?
+4. לא ראינו מקום לשנות מאותו ממצא זה של בית המשפט המחוזי, ומדעתנו לא שינינו גם לאחר שעיינו בנימוקי הערעור שבכתב, והאזנו לטיעון בא-כוח המערער על פה. אנו נוהגים כך, ראשית, הואיל ואין זו דרכה של ערכאת ערעור להתערב בממצאים שבעובדה אותם קבעה הערכאה הדיונית, בעקבות התרשמותה הישירה והבלתי אמצעית ממהימנותם של העדים אשר הופיעו בפניה. שנית, מה שהוגדרו כ&#34;סתירות&#34; בעדויות השוטרים, הן ככל הנראה טעויות שמקורן בחולשתו של הזיכרון האנושי, ותוצאה של מיקום העדים שצפו על הזירה. שלישית, וזה העיקר, מפיו של המערער נשמעה גרסה לא עקבית ותמוהה שגם בלבנו לא עוררה אמון. בחקירתו במשטרת ישראל, למחרת מעצרו הוא טען (ראו ת/14, עמ&#39; 5), כי אותו אלמוני שפגש הציע לו עבודה תמורת שכר יומי של 100 ש&#34;ח. לשאלה למה לא הלך לעבוד, השיב המערער: &#34;בגלל שהוא רצה לתת לי רק מאה שקל&#34;. ובת/9, עמ&#39; 1 השיב המערער באותו עניין: &#34;הבן אדם זרק אותנו שם בגלל שלא נתן לנו מחיר טוב, לא הסכמנו לעבוד איתו והוא נסע&#34;. הנה כי כן, המערער והאלמוני לא הגיעו לעמק השווה בנושא השכר, ועל כורחנו מצאנו את עצמנו תוהים מדוע ראה המערער צורך לנסוע לאותן חממות אף שהקדים והבהיר למציע כי הוא מסרב לתנאי השכר שהוצעו לו. שבעתיים תהינו מדוע לא עמדו המערער וחברו על כך שהאלמוני יחזיר אותם למקום ממנו אספם, כדי שיוכלו לעשות את דרכם חזרה למקום מושבם. נראה כי גם המערער הבין את חוסר הסבירות שבגרסה זו, ועל כן עשה בעדותו בבית המשפט מאמצים לעצבה מחדש. הפעם הוא טען כי הגיע לעמק השווה עם האלמוני בנושא השכר, אולם נותרה מחלוקת בנושא עלות המגורים, מאחר והוא היה אמור לשהות במקום העבודה המוצע בכל ימי העסקתו (ראו עמ&#39; 13 לפרוטוקול ישיבת יום 4.12.03). ושוב לא נותר אלא לתהות, מדוע הסכים המערער לנסוע עם אותו אלמוני כאשר נושא כה חשוב כמו עלות המגורים טרם סוכם?
 
-5. נוכח האמור, דעתנו היא שבית המשפט המחוזי היה רשאי לדחות את
-הסברו של המערער להמצאו בזירה, וכך נותרה בפני בית המשפט גרסתם של השוטרים בלבד
-ועובדת תפיסת הסם. אלה האחרונים מצביעים, ובמידה הנדרשת בפלילים, כי החשד שדבק
-במערער כמי שביצע שתיים מהעבירות שיוחסו לו (קשירת הקשר והחזקת סם מסוכן), היה לו
-בסיס איתן בראיות המשיבה. גם העובדה שהמערער זוכה מעבירת ייבוא הסם אינה יכולה
-לסייע בידי המערער, הואיל ואותו זיכוי מקורו בספק שהתעורר בלבו של השופט של בית
-משפט קמא, ביחס לדרך בה הגיע הסם לידי המערער והאני במפגשם בגבול.
+5. נוכח האמור, דעתנו היא שבית המשפט המחוזי היה רשאי לדחות את הסברו של המערער להמצאו בזירה, וכך נותרה בפני בית המשפט גרסתם של השוטרים בלבד ועובדת תפיסת הסם. אלה האחרונים מצביעים, ובמידה הנדרשת בפלילים, כי החשד שדבק במערער כמי שביצע שתיים מהעבירות שיוחסו לו (קשירת הקשר והחזקת סם מסוכן), היה לו בסיס איתן בראיות המשיבה. גם העובדה שהמערער זוכה מעבירת ייבוא הסם אינה יכולה לסייע בידי המערער, הואיל ואותו זיכוי מקורו בספק שהתעורר בלבו של השופט של בית משפט קמא, ביחס לדרך בה הגיע הסם לידי המערער והאני במפגשם בגבול.
 
-6. באשר לעונש – המערער נדון ל-13 שנות מאסר ו-3 שנים מאסר על-תנאי,
-ואף שעונש זה אינו קל, הוא התחייב מהכמות העצומה של הסם שנתפסה בחזקתו. מי שמעורב
-בפרשה חמורה מסוג זה אינו עוד בבחינת דג רקק בשרשרת העבריינית שחבריה מפיצים את
-נגע הסמים ממניע של בצע כסף. מעורב מסוג זה הוא עבריין שככל הנראה מקורותיו של הסם
-מוכרים לו היטב, ומכאן סכנתו המופלגת המחייבת את כליאתו לתקופה ממושכת. עם זאת,
-החלטנו ללכת לקראת המערער קמעא, ואנו עושים זאת הואיל והמעורב הנוסף בפרשה, האני
-אל אסנע, נדון בחודש ינואר 2007 ל-12 שנות מאסר בלבד. לא מצאנו כי קיימת עילה
-להחמיר עם המערער יותר משנעשה בעניין שותפו, ומכאן החלטתנו להעמיד את תקופת המאסר
-בפועל בה ישא על 12 שנים. יתר חלקי גזר דינו של בית המשפט המחוזי, יעמדו בעינם.
+6. באשר לעונש – המערער נדון ל-13 שנות מאסר ו-3 שנים מאסר על-תנאי, ואף שעונש זה אינו קל, הוא התחייב מהכמות העצומה של הסם שנתפסה בחזקתו. מי שמעורב בפרשה חמורה מסוג זה אינו עוד בבחינת דג רקק בשרשרת העבריינית שחבריה מפיצים את נגע הסמים ממניע של בצע כסף. מעורב מסוג זה הוא עבריין שככל הנראה מקורותיו של הסם מוכרים לו היטב, ומכאן סכנתו המופלגת המחייבת את כליאתו לתקופה ממושכת. עם זאת, החלטנו ללכת לקראת המערער קמעא, ואנו עושים זאת הואיל והמעורב הנוסף בפרשה, האני אל אסנע, נדון בחודש ינואר 2007 ל-12 שנות מאסר בלבד. לא מצאנו כי קיימת עילה להחמיר עם המערער יותר משנעשה בעניין שותפו, ומכאן החלטתנו להעמיד את תקופת המאסר בפועל בה ישא על 12 שנים. יתר חלקי גזר דינו של בית המשפט המחוזי, יעמדו בעינם.
 
 ניתן היום, א&#39; בטבת התשס&#34;ח (10.12.07).
 
@@ -1720,7 +1924,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    19/09/2002 (לפני 8629 ימים)
+                    19/09/2002 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/9338-01.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="9338/01 - מדינת ישראל נ. נאצר(בן פוזי סעיד)עווידה"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F9338-01.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/380/093/M03&amp;fileName=01093380_M03.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/380/093/M03&amp;fileName=01093380_M03.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/380/093/M03&amp;fileName=01093380_M03.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/01/380/093/M03&amp;fileName=01093380_M03.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1560,14 +1831,11 @@
 
 ע&#34;פ 9338/01
 
-בפני: כבוד
-השופט א&#39; מצא
+בפני: כבוד השופט א&#39; מצא
 
-כבוד
-השופט י&#39; טירקל
+כבוד השופט י&#39; טירקל
 
-כבוד
-השופטת א&#39; פרוקצ&#39;יה
+כבוד השופטת א&#39; פרוקצ&#39;יה
 
 המערערת: מדינת ישראל
 
@@ -1575,149 +1843,67 @@
 
 המשיב: נאצר עווידה
 
-ערעור
-על פסק דינו של בית המשפט המחוזי בירושלים
+ערעור על פסק דינו של בית המשפט המחוזי בירושלים
 
-בת.פ.
-1005/01 מיום 15.10.01 שניתן בפני כבוד השופט
+בת.פ. 1005/01 מיום 15.10.01 שניתן בפני כבוד השופט
 
-בועז
-אוקון
+בועז אוקון
 
 תאריך הישיבה: ג&#39; בתשרי תשס&#34;ג (9.9.02)
 
-בשם המערערת: עו&#34;ד ש&#39;
-טובבין
+בשם המערערת: עו&#34;ד ש&#39; טובבין
 
-בשם המשיב: עו&#34;ד
-מ&#39; חביב-אללה
+בשם המשיב: עו&#34;ד מ&#39; חביב-אללה
 
 פסק-דין
 
 השופט י&#39; טירקל:
 
-1. בית המשפט המחוזי בירושלים (כבוד השופט ב&#39;
-אוקון), הרשיע את המשיב, אחרי שמיעת ראיות, בעבירה של חבלה בכוונה מחמירה, לפי
-סעיף 329(א)(2) לחוק העונשין תשל&#34;ז - 1977. נקבע בהכרעת הדין, בתמצית, כי
-המשיב נהג במשאית בכביש ירושלים רמאללה מדרום לצפון, ובהגיעו לצומת א-ראם פנה
-במהירות גבוהה לתוך סמטה שבה עמדו שישה חיילים, בכוונה לפגוע בהם. המשיב אכן פגע
-בהם, אך לא נקבעו ממצאים בדבר חומרת הפגיעה. בית המשפט גזר על המשיב עונש של מאסר
-לתקופה של 42 חודשים לריצוי בפועל, בצירוף מאסר מותנה לתקופה של 30 חודשים. כמו כן
-פסל אותו מלהחזיק או לקבל רשיון נהיגה למשך 10 שנים.
+1. בית המשפט המחוזי בירושלים (כבוד השופט ב&#39; אוקון), הרשיע את המשיב, אחרי שמיעת ראיות, בעבירה של חבלה בכוונה מחמירה, לפי סעיף 329(א)(2) לחוק העונשין תשל&#34;ז - 1977. נקבע בהכרעת הדין, בתמצית, כי המשיב נהג במשאית בכביש ירושלים רמאללה מדרום לצפון, ובהגיעו לצומת א-ראם פנה במהירות גבוהה לתוך סמטה שבה עמדו שישה חיילים, בכוונה לפגוע בהם. המשיב אכן פגע בהם, אך לא נקבעו ממצאים בדבר חומרת הפגיעה. בית המשפט גזר על המשיב עונש של מאסר לתקופה של 42 חודשים לריצוי בפועל, בצירוף מאסר מותנה לתקופה של 30 חודשים. כמו כן פסל אותו מלהחזיק או לקבל רשיון נהיגה למשך 10 שנים.
 
 המדינה ערערה על קולת עונשו של המשיב.
 
-2. בכתב הערעור וכן בטענות באת כוח המדינה
-נטען כי העונש שנגזר על המשיב אינו הולם את חומרת העבירות שבהן הורשע ואין בו
-ביטוי הולם לנסיבותיו החמורות של המקרה. העונש אף אינו משקף את מדיניות הענישה
-הראויה בעבירות מסוג זה. נטען כי מדובר &#34;במי ששקל והחליט לפגוע פגיעה קשה
-ביותר בחיילים, אך בשל היותם חיילים, מתוך שנאה ורצון לגרום נזק גדול ככל
-הניתן&#34;. באת כוח המדינה הוסיפה כי בשנת 1992 הורשע המשיב בעבירה של הנחת
-חומרי חבלה בכוונה לגרום למוות שבגינה נגזרו עליו 3 שנות מאסר. יודגש כאן כי העונש
-המירבי הקבוע לעבירה הוא 20 שנות מאסר.
+2. בכתב הערעור וכן בטענות באת כוח המדינה נטען כי העונש שנגזר על המשיב אינו הולם את חומרת העבירות שבהן הורשע ואין בו ביטוי הולם לנסיבותיו החמורות של המקרה. העונש אף אינו משקף את מדיניות הענישה הראויה בעבירות מסוג זה. נטען כי מדובר &#34;במי ששקל והחליט לפגוע פגיעה קשה ביותר בחיילים, אך בשל היותם חיילים, מתוך שנאה ורצון לגרום נזק גדול ככל הניתן&#34;. באת כוח המדינה הוסיפה כי בשנת 1992 הורשע המשיב בעבירה של הנחת חומרי חבלה בכוונה לגרום למוות שבגינה נגזרו עליו 3 שנות מאסר. יודגש כאן כי העונש המירבי הקבוע לעבירה הוא 20 שנות מאסר.
 
-כנגדה טען בא כוח המשיב כי מעשהו של
-המשיב לא היה מתוכנן וכי הודה בפגיעה בחיילים מיד אחרי שנעצר. כמו כן נפגע המשיב
-מיריות החיילים בעצמו וכתוצאה מכך נקטעה אצבעו. עוד ציין כי בעת הרשעתו הקודמת,
-לפני כעשר שנים, היה רק בן 20 שנה ומאז לא היה מעורב בפלילים. לדעתו, הולם העונש
-את רמת הענישה המקובלת.
+כנגדה טען בא כוח המשיב כי מעשהו של המשיב לא היה מתוכנן וכי הודה בפגיעה בחיילים מיד אחרי שנעצר. כמו כן נפגע המשיב מיריות החיילים בעצמו וכתוצאה מכך נקטעה אצבעו. עוד ציין כי בעת הרשעתו הקודמת, לפני כעשר שנים, היה רק בן 20 שנה ומאז לא היה מעורב בפלילים. לדעתו, הולם העונש את רמת הענישה המקובלת.
 
-3. ערעור זה בדין יסודו. לדעתנו לא מדד בית
-המשפט המחוזי למשיב את העונש במידה הראויה לו; העונש אף אינו משקף את רמת הענישה
-הראויה לעושי מעשים כאלה בכלל.
+3. ערעור זה בדין יסודו. לדעתנו לא מדד בית המשפט המחוזי למשיב את העונש במידה הראויה לו; העונש אף אינו משקף את רמת הענישה הראויה לעושי מעשים כאלה בכלל.
 
-ראינו כי המשיב התכוון לפגוע פגיעה חמורה
-בקבוצה של חיילים, בכך שנהג את משאיתו לעברם במהירות גבוהה. רק בדרך נס לא קיפח איש
-מהם את חייו. בעשותו את מעשהו היתה המשאית בידיו ככלי נשק, או כאמצעי חבלה אחר,
-לביצוע מטרתו; ומכאן שאין להבחין בינו לבין מי שירה בכלי יריה, פוצץ מטען חבלה, או
-עשה מעשה פיגוע אחר במטרה להרוג או לפצוע. יתר על כן, על אופיו הרע של המשיב ועל
-הסיכון הנובע ממנו מעידות גם הרשעותיו הקודמות בעבירות של הנחת חומרי חבלה בכוונה
-לגרום מוות, סיכון חיי אדם בנתיב תחבורה, הצתת רכב מנועי במזיד, חברות בהתאגדות
-בלתי חוקית, תקיפה בתנאים מחמירים ותקיפה סתם. על כך מעידים גם הדברים שאמר
-בהודעותיו במשטרה שמהם עולה שהדחף לפגוע בחיילים גבר עליו; כלשונו &#34;אני בלי
-רגשות, בלי לחשוב על שום דבר, ראיתי את עצמי נכנס בחיילים. משהו חזק משך לי את
-הידיים לצד של החיילים. ג&#39;ין (שֵד) - משך לי את הידיים חזק לכיוון של
-החיילים&#34;. עושי מעשים כאלה ראוי להם שייענשו בכל חומרת הדין, כגמול על מעשיהם
-וכהרתעה להם ולעוברי עבירה בכוח. אין הם ראויים לרחמים.
+ראינו כי המשיב התכוון לפגוע פגיעה חמורה בקבוצה של חיילים, בכך שנהג את משאיתו לעברם במהירות גבוהה. רק בדרך נס לא קיפח איש מהם את חייו. בעשותו את מעשהו היתה המשאית בידיו ככלי נשק, או כאמצעי חבלה אחר, לביצוע מטרתו; ומכאן שאין להבחין בינו לבין מי שירה בכלי יריה, פוצץ מטען חבלה, או עשה מעשה פיגוע אחר במטרה להרוג או לפצוע. יתר על כן, על אופיו הרע של המשיב ועל הסיכון הנובע ממנו מעידות גם הרשעותיו הקודמות בעבירות של הנחת חומרי חבלה בכוונה לגרום מוות, סיכון חיי אדם בנתיב תחבורה, הצתת רכב מנועי במזיד, חברות בהתאגדות בלתי חוקית, תקיפה בתנאים מחמירים ותקיפה סתם. על כך מעידים גם הדברים שאמר בהודעותיו במשטרה שמהם עולה שהדחף לפגוע בחיילים גבר עליו; כלשונו &#34;אני בלי רגשות, בלי לחשוב על שום דבר, ראיתי את עצמי נכנס בחיילים. משהו חזק משך לי את הידיים לצד של החיילים. ג&#39;ין (שֵד) - משך לי את הידיים חזק לכיוון של החיילים&#34;. עושי מעשים כאלה ראוי להם שייענשו בכל חומרת הדין, כגמול על מעשיהם וכהרתעה להם ולעוברי עבירה בכוח. אין הם ראויים לרחמים.
 
-טעם נוסף לצורך להחמיר בעונש נובע מן
-המצב שבו מצויים עתה המדינה ואזרחיה. לא מכבר נאמר כי &#34;מאז סוף חודש ספטמבר
-2000 מתנהלת באזורי יהודה והשומרון וחבל עזה לחימה קשה. אין זו פעילות משטרתית.
-זהו סכסוך מזויין. במסגרתו בוצעו כ- 14,000 פיגועים נגד החיים, הגוף והרכוש של
-אזרחים ותושבים ישראלים חפים מפשע ובהם זקנים וילדים, גברים ונשים. למעלה מ- 600
-אזרחים ותושבים של מדינת ישראל נהרגו. למעלה מ- 4,500 נפצעו, חלקם באורח קשה
-ביותר. - - - השכול והכאב שוטפים אותנו&#34;. (דברי הנשיא א&#39; ברק בבג&#34;ץ
-7015/02, 7019/02 כיפאח מחמד אחמד עג&#39;ורי ואח&#39; נ&#39; מפקד כוחות צה&#34;ל ואח&#39;
-(טרם פורסם. ניתן ביום 3.9.02)). המשיב העמיד את עצמו במחנה המפַגעים, ודינו ככל
-אחד מהם.
+טעם נוסף לצורך להחמיר בעונש נובע מן המצב שבו מצויים עתה המדינה ואזרחיה. לא מכבר נאמר כי &#34;מאז סוף חודש ספטמבר 2000 מתנהלת באזורי יהודה והשומרון וחבל עזה לחימה קשה. אין זו פעילות משטרתית. זהו סכסוך מזויין. במסגרתו בוצעו כ- 14,000 פיגועים נגד החיים, הגוף והרכוש של אזרחים ותושבים ישראלים חפים מפשע ובהם זקנים וילדים, גברים ונשים. למעלה מ- 600 אזרחים ותושבים של מדינת ישראל נהרגו. למעלה מ- 4,500 נפצעו, חלקם באורח קשה ביותר. - - - השכול והכאב שוטפים אותנו&#34;. (דברי הנשיא א&#39; ברק בבג&#34;ץ 7015/02, 7019/02 כיפאח מחמד אחמד עג&#39;ורי ואח&#39; נ&#39; מפקד כוחות צה&#34;ל ואח&#39; (טרם פורסם. ניתן ביום 3.9.02)). המשיב העמיד את עצמו במחנה המפַגעים, ודינו ככל אחד מהם.
 
-4. במקום אחר, אגב הרהור במדיניות הענישה
-הראויה - אמנם, בעבירות הריגה - ציינתי כי:
+4. במקום אחר, אגב הרהור במדיניות הענישה הראויה - אמנם, בעבירות הריגה - ציינתי כי:
 
-&#34;למונח &#34;רמת הענישה&#34; פנים שונות. כך
-נאמר ש&#34;יש המשתמשים בו לתיאור ממוצע סטטיסטי של אמת המידה העונשית שננקטה,
-במהלך תקופה נתונה, ביחס לעבירות מסוג מסוים. במשמעותו האחרת, אמור מושג זה לשקף
-את אמת המידה העונשית הראויה לאותו סוג של עבירות. ולא הרי זו כהרי זו&#34;. (דברי
-השופט א&#39; מצא בע&#34;פ 1655/99 עינאד יוסף נ&#39; מדינת ישראל (טרם פורסם)).
-לעיתים, ובמיוחד כאשר מדובר בעבירות של הריגה, קשה לקבוע, על פי העונשים שגזרו בתי
-המשפט, &#34;ממוצע סטטיסטי של אמת מידה&#34; מקובלת, או &#34;מידה עונשית
-ראויה&#34;, ובתי המשפט גוזרים את העונש במקרה שהובא לפניהם לפי שיקולים מקובלים
-של ענישה - כמו נסיבות המקרה ונסיבותיו האישיות של העבריין שאותם
-&#34;משקלל&#34; בית המשפט בכל מקרה ומקרה (עיינו, לדוגמא: דנ&#34;פ 3371/98 אזואלוס
-נ&#39; מדינת ישראל, פ&#34;ד נד(4) 502)&#34;. (ע&#34;פ 1456/01 חליל חדד נ&#39;
-מדינת ישראל, פ&#34;ד נו(1) 609, 612 - 613).
+&#34;למונח &#34;רמת הענישה&#34; פנים שונות. כך נאמר ש&#34;יש המשתמשים בו לתיאור ממוצע סטטיסטי של אמת המידה העונשית שננקטה, במהלך תקופה נתונה, ביחס לעבירות מסוג מסוים. במשמעותו האחרת, אמור מושג זה לשקף את אמת המידה העונשית הראויה לאותו סוג של עבירות. ולא הרי זו כהרי זו&#34;. (דברי השופט א&#39; מצא בע&#34;פ 1655/99 עינאד יוסף נ&#39; מדינת ישראל (טרם פורסם)). לעיתים, ובמיוחד כאשר מדובר בעבירות של הריגה, קשה לקבוע, על פי העונשים שגזרו בתי המשפט, &#34;ממוצע סטטיסטי של אמת מידה&#34; מקובלת, או &#34;מידה עונשית ראויה&#34;, ובתי המשפט גוזרים את העונש במקרה שהובא לפניהם לפי שיקולים מקובלים של ענישה - כמו נסיבות המקרה ונסיבותיו האישיות של העבריין שאותם &#34;משקלל&#34; בית המשפט בכל מקרה ומקרה (עיינו, לדוגמא: דנ&#34;פ 3371/98 אזואלוס נ&#39; מדינת ישראל, פ&#34;ד נד(4) 502)&#34;. (ע&#34;פ 1456/01 חליל חדד נ&#39; מדינת ישראל, פ&#34;ד נו(1) 609, 612 - 613).
 
-עוד נאמר שם על נקודת המוצא הראויה
-בבואנו לקבוע את העונש שיש להטיל בעבירה מסוימת:
+עוד נאמר שם על נקודת המוצא הראויה בבואנו לקבוע את העונש שיש להטיל בעבירה מסוימת:
 
-&#34;לפי אחת מן הגישות, נקודת המוצא היא &#34;קו
-האפס&#34; - דהיינו, העונש המינימלי שניתן להטיל - שממנה עולה העונש ומחמיר לפי
-נסיבות המקרה, נסיבותיו האישיות של העבריין, תדירותה או נדירותה של העבירה, הרתעת
-עבריינים בכוח ועצמת הסלידה ושאט הנפש של החברה. גישה אחרת רואה כנקודת מוצא את
-העונש המרבי הקבוע בחוק, כאשר השיקולים הנזכרים יש בהם כדי להקל מן העונש המרבי. -
-- - גישה נוספת, גישת ביניים, משקפת רמת ענישה שהותוותה בפסיקתם של בתי המשפט, המיושמת
-בכל מקרה - לחומרה או לקולה - על ידי שיקולי הענישה שפורטו לעיל. דומה כי זאת,
-בדרך כלל, הגישה המקובלת לגבי רוב סוגי העבירות. (שם, בעמ&#39; 613).
+&#34;לפי אחת מן הגישות, נקודת המוצא היא &#34;קו האפס&#34; - דהיינו, העונש המינימלי שניתן להטיל - שממנה עולה העונש ומחמיר לפי נסיבות המקרה, נסיבותיו האישיות של העבריין, תדירותה או נדירותה של העבירה, הרתעת עבריינים בכוח ועצמת הסלידה ושאט הנפש של החברה. גישה אחרת רואה כנקודת מוצא את העונש המרבי הקבוע בחוק, כאשר השיקולים הנזכרים יש בהם כדי להקל מן העונש המרבי. - - - גישה נוספת, גישת ביניים, משקפת רמת ענישה שהותוותה בפסיקתם של בתי המשפט, המיושמת בכל מקרה - לחומרה או לקולה - על ידי שיקולי הענישה שפורטו לעיל. דומה כי זאת, בדרך כלל, הגישה המקובלת לגבי רוב סוגי העבירות. (שם, בעמ&#39; 613).
 
-סבורני כי היום - וכלפי עבירות כמו זאת
-הנידונה - יש לנקוט בגישה המחמירה, לאמור, בגישה הרואה בעונש המרבי את נקודת
-המוצא; שממנו מפחיתים, לפי נסיבות המקרה, נסיבותיו האישיות של העבריין, תדירותה או
-נדירותה של העבירה, הרתעת עבריינים בכוח ועצמת הסלידה ושאט הנפש של החברה. בבואנו
-לשקול את משקלם היחסי של כל אחד מאלה, יש לייחס משקל כבד במיוחד להרתעה ולעצמת
-הסלידה של החברה. בשוותנו לנגד עינינו שיקולים אלה המסקנה היא כי עונש המאסר שנגזר
-על המשיב בבית המשפט המחוזי אינו מבטא את רמת הענישה ההולמת ויש להעמיד את העונש
-על מכונו הראוי. עם זאת אין אנו מתעלמים ממדיניותנו שלא למצות כערכאת ערעור את
-מלוא העונש.
+סבורני כי היום - וכלפי עבירות כמו זאת הנידונה - יש לנקוט בגישה המחמירה, לאמור, בגישה הרואה בעונש המרבי את נקודת המוצא; שממנו מפחיתים, לפי נסיבות המקרה, נסיבותיו האישיות של העבריין, תדירותה או נדירותה של העבירה, הרתעת עבריינים בכוח ועצמת הסלידה ושאט הנפש של החברה. בבואנו לשקול את משקלם היחסי של כל אחד מאלה, יש לייחס משקל כבד במיוחד להרתעה ולעצמת הסלידה של החברה. בשוותנו לנגד עינינו שיקולים אלה המסקנה היא כי עונש המאסר שנגזר על המשיב בבית המשפט המחוזי אינו מבטא את רמת הענישה ההולמת ויש להעמיד את העונש על מכונו הראוי. עם זאת אין אנו מתעלמים ממדיניותנו שלא למצות כערכאת ערעור את מלוא העונש.
 
-לפיכך יבוטל עונש המאסר לריצוי בפועל
-שנגזר על המשיב ותחתיו יגזר עליו עונש מאסר לתקופה של 11 שנים לריצוי בפועל,
-בניכוי תקופת מעצרו. עונשי המאסר המותנה והפסילה יעמדו בעינם.
+לפיכך יבוטל עונש המאסר לריצוי בפועל שנגזר על המשיב ותחתיו יגזר עליו עונש מאסר לתקופה של 11 שנים לריצוי בפועל, בניכוי תקופת מעצרו. עונשי המאסר המותנה והפסילה יעמדו בעינם.
 
 ש ו פ ט
 
 השופט א&#39; מצא:
 
-אני
-מסכים.
+אני מסכים.
 
 ש ו פ ט
 
-השופטת א&#39;
-פרוקצ&#39;יה:
+השופטת א&#39; פרוקצ&#39;יה:
 
-אני
-מסכימה.
+אני מסכימה.
 
 ש ו פ ט ת
 
-הוחלט כאמור בפסק דינו של השופט י&#39;
-טירקל.
+הוחלט כאמור בפסק דינו של השופט י&#39; טירקל.
 
-ניתן היום, י&#34;ג בתשרי תשס&#34;ג
-(19.9.02).
+ניתן היום, י&#34;ג בתשרי תשס&#34;ג (19.9.02).
 
-ש ו פ ט ש
-ו פ ט ש ו פ ט ת
+ש ו פ ט ש ו פ ט ש ו פ ט ת
         </div>
     </section>
     
@@ -1736,7 +1922,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

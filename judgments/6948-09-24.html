@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    29/10/2024 (לפני 553 ימים)
+                    29/10/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/6948-09-24.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="6948-09-24 - אלישקוב טאמאז יצחק נ. א.ר.א.ב בונוס בע&#34;מ"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F6948-09-24.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/10/29/2024-9-6948-4-2&amp;fileName=49c32ae37db047759f1bc94e91c76ecc&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/10/29/2024-9-6948-4-2&amp;fileName=49c32ae37db047759f1bc94e91c76ecc&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/10/29/2024-9-6948-4-2&amp;fileName=49c32ae37db047759f1bc94e91c76ecc&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/10/29/2024-9-6948-4-2&amp;fileName=49c32ae37db047759f1bc94e91c76ecc&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,19 +1827,9 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            2
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
- ע&#34;א 6948-09-24
-
-
+ע&#34;א 6948-09-24
 
 לפני:
 
@@ -1578,227 +1839,91 @@
 
 כבוד השופט יחיאל כשר
 
-
-
 המערער:
 
 אלישקוב טאמאז יצחק
 
-
-
-  נגד
-
-
+נגד
 
 המשיבה:
 
 א.ר.א.ב בונוס בע&#34;מ
 
-
-
-
-
 ערעור על פסק הדין של בית המשפט המחוזי בתל אביב-יפו, מיום 26.5.2024, בת&#34;א 57335-09-23 ובת&#34;א 53666-11-23, שניתן על-ידי כבוד השופט ג&#39; הס
 
-
-
 בשם המערער:
-
-
 
 בשם המשיבה:
 
 בעצמו
 
-
-
-עו&#34;ד רון טורקלטאוב 
-
-
-
-
+עו&#34;ד רון טורקלטאוב
 
 פסק-דין
 
-
-
 השופט נ&#39; סולברג:
 
-
-
-	ערעור על פסק הדין של בית המשפט המחוזי בתל אביב-יפו, מיום 26.5.2024, בת&#34;א 57335-09-23 ובת&#34;א 53666-11-23 (השופט ג&#39; הס), שבגדרו סולקו תביעות המערער על הסף.  
-
-
+ערעור על פסק הדין של בית המשפט המחוזי בתל אביב-יפו, מיום 26.5.2024, בת&#34;א 57335-09-23 ובת&#34;א 53666-11-23 (השופט ג&#39; הס), שבגדרו סולקו תביעות המערער על הסף.
 
 רקע עובדתי והליכים קודמים
 
-ביום 23.3.2014, נחתם הסכם הלוואה בין המערער לבין המשיבה, חברת א.ר.א.ב בונוס בע&#34;מ, שבגדרו התחייבה המשיבה להעמיד לטובת המערער 3 הלוואות שונות, בסך כולל של 4,000,000 ₪. בהמשך אותה שנה, נחתם נספח להסכם ההלוואה, שבו התחייבה המשיבה להלוות למערער סכום נוסף של 650,000 ₪, בשיעורי ריבית וריבית פיגורים שונים.  
+ביום 23.3.2014, נחתם הסכם הלוואה בין המערער לבין המשיבה, חברת א.ר.א.ב בונוס בע&#34;מ, שבגדרו התחייבה המשיבה להעמיד לטובת המערער 3 הלוואות שונות, בסך כולל של 4,000,000 ₪. בהמשך אותה שנה, נחתם נספח להסכם ההלוואה, שבו התחייבה המשיבה להלוות למערער סכום נוסף של 650,000 ₪, בשיעורי ריבית וריבית פיגורים שונים.
 
-
-
-ביום 2.12.2015, הגיש המערער תביעה נגד המשיבה ונגד עורך דינו לשעבר, שבגדרה טען, בין היתר, כי יש לבטל את הסכם ההלוואה, לנוכח פגמים שונים שנפלו בו. במהלך הדיון בתביעה, אימצו המערער והמשיבה את המלצת בית המשפט לסיים את ההתדיינות ביניהם בהסכמה. לפיכך, ביום 29.12.2015, נתן בית המשפט המחוזי תוקף של פסק דין להסכמות הצדדים (להלן: הסכם הפשרה הראשון). בהמשך לכך, ביום 19.7.2016, נחתמה פסיקתה שלפיה נכון ליום 29.6.2016, חב המערער למשיבה סכום של 6,688,400 ש&#34;ח. ביום 14.9.2016, הגיש המערער בקשה לביטול פסק הדין שאישר את הסכם הפשרה הראשון, ולביטול הפסיקתה שנחתמה מכוחו. הבקשה – נדחתה; זאת, בין היתר, בשל הגשת הבקשה במסגרת אותו הליך, חלף הגשת תביעה נפרדת לביטול פסק הדין.  
-
-
+ביום 2.12.2015, הגיש המערער תביעה נגד המשיבה ונגד עורך דינו לשעבר, שבגדרה טען, בין היתר, כי יש לבטל את הסכם ההלוואה, לנוכח פגמים שונים שנפלו בו. במהלך הדיון בתביעה, אימצו המערער והמשיבה את המלצת בית המשפט לסיים את ההתדיינות ביניהם בהסכמה. לפיכך, ביום 29.12.2015, נתן בית המשפט המחוזי תוקף של פסק דין להסכמות הצדדים (להלן: הסכם הפשרה הראשון). בהמשך לכך, ביום 19.7.2016, נחתמה פסיקתה שלפיה נכון ליום 29.6.2016, חב המערער למשיבה סכום של 6,688,400 ש&#34;ח. ביום 14.9.2016, הגיש המערער בקשה לביטול פסק הדין שאישר את הסכם הפשרה הראשון, ולביטול הפסיקתה שנחתמה מכוחו. הבקשה – נדחתה; זאת, בין היתר, בשל הגשת הבקשה במסגרת אותו הליך, חלף הגשת תביעה נפרדת לביטול פסק הדין.
 
 על רקע האמור, ביום 16.1.2017, הגיש המערער תביעה נפרדת לבית המשפט המחוזי (ת&#34;א 35264-01-17), שבגדרה העלה טענות רבות הנוגעות לפגמים שנפלו בהסכם הפשרה, ואשר מצדיקים, לשיטתו, את ביטולו. ביום 1.2.2017, הגיעו הצדדים להסכמות חדשות, חלף הסכם הפשרה הראשון. בתוך כך, הוסכם כי המערער ישלם למשיבה סך של 8,000,000 ₪, עד יום 1.6.2017; וכי אם לא ישולם מלוא הסכום עד למועד זה, יצבור החוב ריבית פיגורים מוסכמת בשיעורים שונים (להלן: הסכם הפשרה השני). כן הוסכם, כי עד יום 18.4.2017, תימסר אחת מהדירות הנמצאות בבעלות המערער לידי בא-כוח המשיבה, שישמש ככונס נכסים; וכי אם המערער, או מי מטעמו, ישהה בנכס לאחר מועד זה, יבוטל הסכם הפשרה השני, כך שהסכם הפשרה הראשון יעמוד בתוקפו. אם כן, הסכם הפשרה השני קיבל תוקף של פסק הדין, וביום 21.3.2017, חתם בית המשפט המחוזי על פסיקתה מכוחו. גם הפעם, הגיש המערער בקשה לביטול ההסכם. הבקשה – נדחתה, בהתבסס על כך שעם מתן פסק הדין שאשרר את הסכמות הצדדים, קם בית המשפט מכסאו.
 
+המערער לא אמר נואש, והגיש לבית המשפט המחוזי תביעה למתן סעד הצהרתי, המורה על ביטול הסכם ההלוואה, הסכם הפשרה הראשון, הסכם הפשרה השני, פסקי הדין של בית המשפט המחוזי שנתנו תוקף להסכמי הפשרה, והפסיקתות שנחתמו בעקבות החלטות אלו (ת&#34;א 55047-11-17). גם תביעה זו – נדחתה, כמו גם ערעור שהגיש המערער לבית משפט זה (ראו: ע&#34;א 647/20 אלישקוב נ&#39; א.ר.א.ב בונוס בע&#34;מ (2.9.2021) (להלן: עניין אלישקוב)).
 
-
-המערער לא אמר נואש, והגיש לבית המשפט המחוזי תביעה למתן סעד הצהרתי, המורה על ביטול הסכם ההלוואה, הסכם הפשרה הראשון, הסכם הפשרה השני, פסקי הדין של בית המשפט המחוזי שנתנו תוקף להסכמי הפשרה, והפסיקתות שנחתמו בעקבות החלטות אלו (ת&#34;א 55047-11-17). גם תביעה זו – נדחתה, כמו גם ערעור שהגיש המערער לבית משפט זה (ראו: ע&#34;א 647/20 אלישקוב נ&#39; א.ר.א.ב בונוס בע&#34;מ (2.9.2021) (להלן: עניין אלישקוב)).  
-
-
-
-אחר הדברים האלה, הגיש המערער שתי תביעות נוספות לבית המשפט המחוזי, שבהן עתר לביטול הסכמי ההלוואה, ולשורה של סעדים נוספים. חלק מהמשיבים בהליך (שכולם, למעט המשיבה, אינם משיבים בהליך דנן) הגישו בקשות לסילוק התביעות על הסף, בשל קיומו של מעשה בית דין, ולנוכח פגמים שנפלו בכתבי התביעה. הבקשות – התקבלו. בית המשפט המחוזי סילק את התביעות על הסף, תוך שנקבע, לגבי טענות המערער המופנות כלפי המשיבה, כי &#34;פסק הדין הראשון, השני, השלישי וכן פסק הדין של בית [משפט זה] יוצרים השתק עילה בעניין התביעה כנגד [המשיבה], ומכאן יש להורות על דחיית כלל הטענות הנוגעות לביטול הסכמי ההלוואה, על נספחיהם, לביטול הסכמי הפשרה שקיבלו תוקף של פסק דין והפסיקתות שנחתמו מכוחם, וכן על דחיית כל טענה הכרוכה או הקשורה בכך&#34;. אשר לטענות שהפנה המערער כלפי יתר המשיבים בהליך, נקבע כי אלה &#34;אינן יכולות להעניק [לו] את הסעדים להם עותר בתביעות&#34;; משכך, ובהינתן קיומם של פגמים בכתב התביעה, הורה בית המשפט המחוזי על מחיקת הטענות. 
-
-
+אחר הדברים האלה, הגיש המערער שתי תביעות נוספות לבית המשפט המחוזי, שבהן עתר לביטול הסכמי ההלוואה, ולשורה של סעדים נוספים. חלק מהמשיבים בהליך (שכולם, למעט המשיבה, אינם משיבים בהליך דנן) הגישו בקשות לסילוק התביעות על הסף, בשל קיומו של מעשה בית דין, ולנוכח פגמים שנפלו בכתבי התביעה. הבקשות – התקבלו. בית המשפט המחוזי סילק את התביעות על הסף, תוך שנקבע, לגבי טענות המערער המופנות כלפי המשיבה, כי &#34;פסק הדין הראשון, השני, השלישי וכן פסק הדין של בית [משפט זה] יוצרים השתק עילה בעניין התביעה כנגד [המשיבה], ומכאן יש להורות על דחיית כלל הטענות הנוגעות לביטול הסכמי ההלוואה, על נספחיהם, לביטול הסכמי הפשרה שקיבלו תוקף של פסק דין והפסיקתות שנחתמו מכוחם, וכן על דחיית כל טענה הכרוכה או הקשורה בכך&#34;. אשר לטענות שהפנה המערער כלפי יתר המשיבים בהליך, נקבע כי אלה &#34;אינן יכולות להעניק [לו] את הסעדים להם עותר בתביעות&#34;; משכך, ובהינתן קיומם של פגמים בכתב התביעה, הורה בית המשפט המחוזי על מחיקת הטענות.
 
 מכאן הערעור שלפנינו, שעמו הוגשה גם בקשה למתן סעד זמני בערעור. ביום 8.9.2024, הוריתי על מתן צו ארעי לגבי פינוי אחת מהדירות שפורטו בבקשה, עד למתן החלטה אחרת.
-
-
 
 דיון והכרעה
 
 לאחר עיון בערעור, על נספחיו, ומשנתתי את דעתי לפסק הדין של בית המשפט המחוזי ולצבר ההליכים שקדמו לו, באתי לכלל מסקנה כי דין הערעור להידחות על הסף, ללא צורך בתשובה מאת המשיבה. זאת, מתוקף סמכותנו שלפי תקנה 138(א)(1) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018. עיון בערעור דנן מלמד, כי בכל הנוגע לטענותיו המופנות כלפי המשיבה, המערער אינו מעלה טענות חדשות, אלא ממקד את ערעורו בהסכמי הפשרה ופסקי הדין הקודמים, עמם אין הוא משלים. זאת, חרף העובדה שטענות אלא נדונו ונדחו, הן על-ידי בית המשפט המחוזי, הן על-ידי בית משפט זה, בפסקי דין חלוטים (להרחבה, ראו עניין אלישקוב).
 
-
-
-בהקשר זה, ציין בית המשפט המחוזי, בצדק, כי &#34;התובע העלה את מכלול טענותיו כנגד הסכמי ההלוואה, הדרך בה נערכו, הריבית שנגבתה, ישום ההסכמים ועוד, וכן את טענותיו כנגד הסכמי הפשרה והפסיקתות שנחתמו בעקבותיהם, במסגרת הליכים קודמים. בשניים מההליכים חתם התובע על הסכם פשרה שקיבל תוקף של פסק דין, בשלישי קבע בית המשפט המחוזי כי הסכמי הפשרה נותרים על כנם וברביעי אישר בית המשפט העליון את פסק הדין של בית המשפט המחוזי. מכאן [...] לא ניתן לשוב ולדון באותן עילות ממש במסגרת התביעות שלפני, וקיים השתק עילה ברור לגבי מכלול עילות אלו. כמו כן קיים השתק עילה לגבי עילות נוספות שיכול היה התובע לעלות בעניין זה בהליכים הקודמים, ובחר שלא לעלות&#34;. משאלו פני הדברים, בדין הורה בית המשפט המחוזי לסלק על הסף את תביעת המערער נגד המשיבה, מחמת קיומו של מעשה בית דין. 
-
-
+בהקשר זה, ציין בית המשפט המחוזי, בצדק, כי &#34;התובע העלה את מכלול טענותיו כנגד הסכמי ההלוואה, הדרך בה נערכו, הריבית שנגבתה, ישום ההסכמים ועוד, וכן את טענותיו כנגד הסכמי הפשרה והפסיקתות שנחתמו בעקבותיהם, במסגרת הליכים קודמים. בשניים מההליכים חתם התובע על הסכם פשרה שקיבל תוקף של פסק דין, בשלישי קבע בית המשפט המחוזי כי הסכמי הפשרה נותרים על כנם וברביעי אישר בית המשפט העליון את פסק הדין של בית המשפט המחוזי. מכאן [...] לא ניתן לשוב ולדון באותן עילות ממש במסגרת התביעות שלפני, וקיים השתק עילה ברור לגבי מכלול עילות אלו. כמו כן קיים השתק עילה לגבי עילות נוספות שיכול היה התובע לעלות בעניין זה בהליכים הקודמים, ובחר שלא לעלות&#34;. משאלו פני הדברים, בדין הורה בית המשפט המחוזי לסלק על הסף את תביעת המערער נגד המשיבה, מחמת קיומו של מעשה בית דין.
 
 אשר לטענות שמעלה המערער כלפי מי שהיו משיבים נוספים בהליך שהתנהל בבית המשפט המחוזי, הרי שהלה לא צירף אותם כמשיבים במסגרת הודעת הערעור, ואין מקום להידרש לטענות אלה בגדרי הליך זה. מעבר לצורך, אציין כי בדין סולקה על הסף התביעה נגד אותם נתבעים מטעמי העדר עילה. כפי שהסביר בית משפט קמא, גם אם כל הנטען בכתב התביעה ביחס לנתבעים אלו נכון, אין הוא מאפשר לקבל את הסעדים המבוקשים בכתב התביעה נגדם.
 
-
-
 אשר על כן, אציע לחברַי כי נורה על דחיית הערעור, וממילא, גם על ביטול הצו הארעי.
 
+לפנים משורת הדין, ומשלא התבקשה תשובה, אציע לחברַי כי לא נעשה צו להוצאות.
 
-
-	לפנים משורת הדין, ומשלא התבקשה תשובה, אציע לחברַי כי לא נעשה צו להוצאות.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-נעם סולברג 
+נעם סולברג
 
 שופט
-
-
-
-
-
-
 
 השופט ח&#39; כבוב:
 
-
-
 אני מסכים.
-
-
-
-
-
-
-
-
-
-
-
-
 
 חאלד כבוב
 
 שופט
-
-
-
-
-
-
-
-
-
-
-
-
 
 השופט י&#39; כשר:
 
-
-
 אני מסכים.
 
-
-
-
-
-
-
-
-
-
-
-
-
-יחיאל כשר 
+יחיאל כשר
 
 שופט
-
-
-
-
-
-
-
-
 
 לפיכך, הוחלט כאמור בפסק דינו של השופט נעם סולברג.
 
-
-
 ניתן היום, כ&#34;ז תשרי תשפ&#34;ה (29 אוקטובר 2024).
 
-
-
-
-
-נעם סולברג 
+נעם סולברג
 
 שופט
-
-
-
-
-
-
-
-
 
 חאלד כבוב
 
 שופט
 
-
-
-
-
-
-
-
-
-יחיאל כשר 
+יחיאל כשר
 
 שופט
         </div>
@@ -1819,7 +1944,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

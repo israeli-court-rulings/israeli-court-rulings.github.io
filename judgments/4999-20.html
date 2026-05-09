@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    24/11/2020 (לפני 1988 ימים)
+                    24/11/2020 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/4999-20.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="4999/20 - ועדת המאוימים נ. פלוני"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F4999-20.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/990/049/b12&amp;fileName=20049990.B12&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/990/049/b12&amp;fileName=20049990.B12&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/990/049/b12&amp;fileName=20049990.B12&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/990/049/b12&amp;fileName=20049990.B12&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,203 +1827,105 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            2
-
-
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים בעניינים מינהליים
-
-
+            בבית המשפט העליון בשבתו כבית משפט לערעורים בעניינים מינהליים
 
 עע&#34;מ 4999/20
 
-
-
-לפני:	
+לפני:
 
 כבוד השופט מ&#39; מזוז
 
-
-
 כבוד השופט ג&#39; קרא
 
-
-
 כבוד השופט א&#39; שטיין
-
-
 
 המערערים:
 
 1. ועדת המאוימים
 
-
-
 2. מתאם פעולות הממשלה בשטחים
-
-
 
 3. מדינת ישראל
 
-	
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. פלוני
 
-
-
 2. פלונית
-
-
 
 3. פלוני
 
-
-
 4. פלוני
-
-
 
 5. פלונית
 
-
-
 6. פלונית
-
-			     	
 
 ערעור על פסק דינו של בית המשפט המחוזי בתל אביב-יפו (סגן הנשיא ח&#39; ברנר) בעת&#34;מ 17613-09-19 מיום 5.6.2020
 
-	
-
 תאריך הישיבה:
 
-ז&#39; בכסלו התשפ&#34;א       
+ז&#39; בכסלו התשפ&#34;א
 
-(23.11.2020) 
-
-
+(23.11.2020)
 
 בשם המערערים:
 
 עו&#34;ד שי כהן
 
-
-
 בשם המשיבים:
 
 עו&#34;ד עילם ידין
 
-	
-
 פסק-דין
-
-
 
 השופט מ&#39; מזוז:
 
+1. 	הערעור מכוון נגד פסק דינו של בית המשפט המחוזי בתל אביב-יפו, בשבתו כבית משפט לעניינים מינהליים, מיום 5.6.2020, בעתירה מינהלית שהגישו המשיבים נגד החלטת המערערת 1, ועדת המאוימים (להלן: הוועדה), במסגרתה נדחתה בקשתם לקבלת היתרי שהייה בישראל. בית המשפט (סגן הנשיא ח&#39; ברנר) קיבל את העתירה, ביטל את החלטת הוועדה והורה על מתן היתרי שהייה למשיבים, שיעמדו בתוקף למשך חמש שנים, ובסיומן ייבחן מחדש עניינם של המשיבים.
 
+2. 	המשיבים הם בני משפחה, פלסטינים תושבי אזור יהודה והשומרון. המשיב 1 הוא אב המשפחה; המשיבה 2 היא אם המשפחה; המשיבים 4-3 הם בניהם הבגירים (ילידי 1993 ו- 1995), והמשיבות 6-5 הן הבנות הקטינות של בני הזוג, ילידות 2004 ו- 2005 (להלן ובהתאמה: האב, האם, הבנים, ו- הבנות הקטינות).
 
-	1. 	הערעור מכוון נגד פסק דינו של בית המשפט המחוזי בתל אביב-יפו, בשבתו כבית משפט לעניינים מינהליים, מיום 5.6.2020, בעתירה מינהלית שהגישו המשיבים נגד החלטת המערערת 1, ועדת המאוימים (להלן: הוועדה), במסגרתה נדחתה בקשתם לקבלת היתרי שהייה בישראל. בית המשפט (סגן הנשיא ח&#39; ברנר) קיבל את העתירה, ביטל את החלטת הוועדה והורה על מתן היתרי שהייה למשיבים, שיעמדו בתוקף למשך חמש שנים, ובסיומן ייבחן מחדש עניינם של המשיבים.
+בשנת 2015, לאחר הליכים שונים, הוחלט על ידי הוועדה להעניק לאב, לאם ולבנות הקטינות היתר שהיה בישראל לשנה, במהלכה ייערך בירור יסודי של מצבם. באשר לבנים, נדחתה הבקשה בהיעדר מידע המבסס מאוימות או סכנה הנשקפת להם, ומאחר שהם מהווים סכנה לשלום הציבור בישראל עקב עברם הפלילי המכביד. ביום 28.3.2016 דנה הוועדה בעניינם של האב, האם, והבנות הקטינות והגיעה למסקנה, על יסוד החומר העדכני שהונח בפניה, כי לא קיימת מאוימות ולא נשקפת להם סכנה בשטחי הרשות הפלסטינית. לפיכך הוחלט לדחות את בקשותיהם, אך לפנים משורת הדין ניתן להם היתר שהייה אחרון למשך שישה חודשים לצורכי התארגנות לקראת יציאה מישראל. המשיבים לא יצאו מישראל, ובחודש יוני 2016, במהלך תקופת ההתארגנות שאושרה להם כאמור, התראיינו האב והבנים לשתי תכניות בטלוויזיה הישראלית, בפנים גלויות.
 
-	
+3. 	בחודש פברואר 2019 שבה ודחתה הוועדה בקשה נוספת של המשיבים לקבלת היתרי שהיה בישראל, ובחודש ספטמבר 2019 הגישו המשיבים את העתירה מושא הערעור לבית המשפט המחוזי בתל אביב-יפו, בשבתו כבית משפט לעניינים מינהליים, נגד החלטת הוועדה בעניינם. במסגרת העתירה ניתן צו ביניים המונע את הרחקתם מישראל.
 
-	2. 	המשיבים הם בני משפחה, פלסטינים תושבי אזור יהודה והשומרון. המשיב 1 הוא אב המשפחה; המשיבה 2 היא אם המשפחה; המשיבים 4-3 הם בניהם הבגירים (ילידי 1993 ו- 1995), והמשיבות 6-5 הן הבנות הקטינות של בני הזוג, ילידות 2004 ו- 2005 (להלן ובהתאמה: האב, האם, הבנים, ו- הבנות הקטינות).
+ביום 5.6.2020 ניתן פסק הדין בו קיבל כאמור בית המשפט את העתירה, ביטל את החלטת הוועדה מיום 5.2.2019 והורה על מתן היתרי שהייה למשיבים כולם למשך חמש שנים. בתמצית, נקבע כי לאב נשקפת סכנה בשטחי הרשות הפלסטינית, בעיקר בעקבות הכתבות שפורסמו בעניינם, שכן השכל הישר מורה, כך נקבע, כי הפרסום עלול ליצור אנטגוניזם נגד האב אשר יוביל לניסיון לפגוע בו, וזאת על אף שמהחומר שהוצג עולה כי שיתוף הפעולה מצד האב היה מזערי, לא משמעותי ונטול חשיבות של ממש, והסתיים לפני שנים רבות. סכנה זו, לדעת בית המשפט, מקרינה גם על שאר בני המשפחה, למרות שאין כל טענה כי שיתפו פעולה עם ישראל. בתוך כך דחה בית המשפט את טענות המדינה בנוגע לכך שהסיכון הנטען נוצר ביודעין על ידי המשיבים עצמם על ידי הראיונות שנתנו בפנים גלויות, וכן בנוגע לסכנה הנשקפת לציבור בישראל עקב המעורבות בפלילים של הבנים, ואף של האב, אף שנקבע כי לשני הבנים עבר פלילי חמור ועדכני הכולל אף מידע מודיעיני מכביד.
 
-	
-
-		בשנת 2015, לאחר הליכים שונים, הוחלט על ידי הוועדה להעניק לאב, לאם ולבנות הקטינות היתר שהיה בישראל לשנה, במהלכה ייערך בירור יסודי של מצבם. באשר לבנים, נדחתה הבקשה בהיעדר מידע המבסס מאוימות או סכנה הנשקפת להם, ומאחר שהם מהווים סכנה לשלום הציבור בישראל עקב עברם הפלילי המכביד. ביום 28.3.2016 דנה הוועדה בעניינם של האב, האם, והבנות הקטינות והגיעה למסקנה, על יסוד החומר העדכני שהונח בפניה, כי לא קיימת מאוימות ולא נשקפת להם סכנה בשטחי הרשות הפלסטינית. לפיכך הוחלט לדחות את בקשותיהם, אך לפנים משורת הדין ניתן להם היתר שהייה אחרון למשך שישה חודשים לצורכי התארגנות לקראת יציאה מישראל. המשיבים לא יצאו מישראל, ובחודש יוני 2016, במהלך תקופת ההתארגנות שאושרה להם כאמור, התראיינו האב והבנים לשתי תכניות בטלוויזיה הישראלית, בפנים גלויות.
-
-	
-
-	3. 	בחודש פברואר 2019 שבה ודחתה הוועדה בקשה נוספת של המשיבים לקבלת היתרי שהיה בישראל, ובחודש ספטמבר 2019 הגישו המשיבים את העתירה מושא הערעור לבית המשפט המחוזי בתל אביב-יפו, בשבתו כבית משפט לעניינים מינהליים, נגד החלטת הוועדה בעניינם. במסגרת העתירה ניתן צו ביניים המונע את הרחקתם מישראל.
-
-
-
-ביום 5.6.2020 ניתן פסק הדין בו קיבל כאמור בית המשפט את העתירה, ביטל את החלטת הוועדה מיום 5.2.2019 והורה על מתן היתרי שהייה למשיבים כולם למשך חמש שנים.  בתמצית, נקבע כי לאב נשקפת סכנה בשטחי הרשות הפלסטינית, בעיקר בעקבות הכתבות שפורסמו בעניינם, שכן השכל הישר מורה, כך נקבע, כי הפרסום עלול ליצור אנטגוניזם נגד האב אשר יוביל לניסיון לפגוע בו, וזאת על אף שמהחומר שהוצג עולה כי שיתוף הפעולה מצד האב היה מזערי, לא משמעותי ונטול חשיבות של ממש, והסתיים לפני שנים רבות. סכנה זו, לדעת בית המשפט, מקרינה גם על שאר בני המשפחה, למרות שאין כל טענה כי שיתפו פעולה עם ישראל. בתוך כך דחה בית המשפט את טענות המדינה בנוגע לכך שהסיכון הנטען נוצר ביודעין על ידי המשיבים עצמם על ידי הראיונות שנתנו בפנים גלויות, וכן בנוגע לסכנה הנשקפת לציבור בישראל עקב המעורבות בפלילים של הבנים, ואף של האב, אף שנקבע כי לשני הבנים עבר פלילי חמור ועדכני הכולל אף מידע מודיעיני מכביד.
-
-	
-
-	4. 	בערעורה שטחה המדינה שורה של טענות נגד פסק הדין, ובין היתר - כי התערבות בית המשפט בשיקול דעת הוועדה, שהיא גוף ביטחוני מקצועי, בהערכת שאלת המאוימות והסיכון, חורגת מכללי הביקורת שיפוטית לפיהם בית המשפט לא ישים את שיקול דעתו תחת שיקול הדעת של הרשות, ובמיוחד כאשר מדובר בשאלות מקצועיות; כי ביחסו משקל נמוך לכך שהמשיבים הם שיצרו במודע את הסיכון הנטען כלפיהם, כאשר כבר ניתנה החלטה לפיה עליהם לעזוב את ישראל, יצר תמריץ ליצור מאוימות יש מאין על ידי כל מי ששוהה בישראל שלא כדין; כי התעלם מעברם הפלילי המכביד של הבנים וממידע משטרתי חמור ועדכני בעניינם, תוך הטלת סיכון משמעותי לפתחו של הציבור; לבסוף, כי שגה בית המשפט עת העניק למשיבים היתר שהיה למשך 5 שנים, בעוד שלפי נהלי הוועדה היא מעניקה היתרים לפרק זמן של מספר חודשים ועד שנה אחת בלבד. בכך הסעד שניתן למשיבים חורג מזה שהיו עשויים לקבל גם אילו הוועדה הייתה נעתרת לבקשתם. עוד נטען לענין זה כי מתן היתר למשך חמש שנים תוך שלילת סמכות הוועדה לבחון את מצב הדברים מעת לעת, מאיין למעשה את סמכותה באשר הוא מונע ממנה לבחון את התשתית העדכנית הקיימת בנוגע למאוים  בהתאם לנסיבות העדכניות.
-
-
+4. 	בערעורה שטחה המדינה שורה של טענות נגד פסק הדין, ובין היתר - כי התערבות בית המשפט בשיקול דעת הוועדה, שהיא גוף ביטחוני מקצועי, בהערכת שאלת המאוימות והסיכון, חורגת מכללי הביקורת שיפוטית לפיהם בית המשפט לא ישים את שיקול דעתו תחת שיקול הדעת של הרשות, ובמיוחד כאשר מדובר בשאלות מקצועיות; כי ביחסו משקל נמוך לכך שהמשיבים הם שיצרו במודע את הסיכון הנטען כלפיהם, כאשר כבר ניתנה החלטה לפיה עליהם לעזוב את ישראל, יצר תמריץ ליצור מאוימות יש מאין על ידי כל מי ששוהה בישראל שלא כדין; כי התעלם מעברם הפלילי המכביד של הבנים וממידע משטרתי חמור ועדכני בעניינם, תוך הטלת סיכון משמעותי לפתחו של הציבור; לבסוף, כי שגה בית המשפט עת העניק למשיבים היתר שהיה למשך 5 שנים, בעוד שלפי נהלי הוועדה היא מעניקה היתרים לפרק זמן של מספר חודשים ועד שנה אחת בלבד. בכך הסעד שניתן למשיבים חורג מזה שהיו עשויים לקבל גם אילו הוועדה הייתה נעתרת לבקשתם. עוד נטען לענין זה כי מתן היתר למשך חמש שנים תוך שלילת סמכות הוועדה לבחון את מצב הדברים מעת לעת, מאיין למעשה את סמכותה באשר הוא מונע ממנה לבחון את התשתית העדכנית הקיימת בנוגע למאוים בהתאם לנסיבות העדכניות.
 
 המשיבים מצדם סמכו ידיהם על פסק דינו של בית משפט קמא ועל נימוקיו, תוך הדגשת הנסיבות האישיות הייחודיות של בני משפחת המשיבים, ואת חששם מהסכנה הנשקפת להם בשטחי הרשות הפלסטינית.
 
+5. 	לאחר ששמענו את טיעוני באי כוח הצדדים, ובעקבות הערותינו לפיהן אנו סבורים כי פסק הדין קמא מעורר קשיים לא מבוטלים בקביעותיו ובנימוקיו, ולאחר שיג ושיח בין הצדדים, הושגה הסכמה, לפי המלצתנו, בנוגע לאב, לאם ולבנות הקטינות (המשיבים 1, 2, 5 ו-6), לפיה פסק הדין בעניינם יבוטל, וחלף הקבוע בפסק הדין יוענקו להם היתרי שהיה זמניים למשך שנה אחת, מיום מתן פסק דיננו זה. לקראת תום תקופה זו יוכלו הם לשוב ולפנות לוועדה בבקשה להארכת היתרי השהיה, והוועדה תדון ותחליט בבקשות לפי שיקול דעתה.
 
+6. 	אשר לבנים (משיבים 3 ו-4), לאחר ששמענו טיעון נוסף בעניינם הגענו לכלל מסקנה, כי יש לקבל את ערעור המדינה ולבטל את פסק הדין בעניינם.
 
-	5. 	לאחר ששמענו את טיעוני באי כוח הצדדים, ובעקבות הערותינו לפיהן אנו סבורים כי פסק הדין קמא מעורר קשיים לא מבוטלים בקביעותיו ובנימוקיו, ולאחר שיג ושיח בין הצדדים, הושגה הסכמה, לפי המלצתנו, בנוגע לאב, לאם ולבנות הקטינות (המשיבים 1, 2, 5 ו-6), לפיה פסק הדין בעניינם יבוטל, וחלף הקבוע בפסק הדין יוענקו להם היתרי שהיה זמניים למשך שנה אחת, מיום מתן פסק דיננו זה. לקראת תום תקופה זו יוכלו הם לשוב ולפנות לוועדה בבקשה להארכת היתרי השהיה, והוועדה תדון ותחליט בבקשות לפי שיקול דעתה.
+כאמור, בנוגע לבנים אין כל טענה כי שיתפו פעולה עם מדינת ישראל, והוועדה מצאה באופן עקבי, בכל הדיונים שהתקיימו בעניינם החל משנת 2015, כי הם אינם מאוימים ולא נשקפת להם סכנה בשטחי הרשות הפלסטינית. קביעתו של בית משפט קמא, לפיה הסכנה הנשקפת לטעמו לאב המשפחה מקרינה גם על שאר בני המשפחה, אינה מעוגנת בכל ממצא עובדתי, ומנוגדת כאמור לחוות דעת העקבית של גורמי הביטחון, ועל כן אינה יכולה לעמוד.
 
-	
+לכך יש להוסיף את הסכנה לשלום הציבור הנשקפת מהם עקב עבר פלילי חמור ועדכני הכולל אף מידע מודיעיני מכביד. כידוע, שיקול זה הנוגע לסכנה לשלום הציבור, לצד השיקול של מאוימות, הם השיקולים המנחים בעבודת הוועדה.
 
-	6. 	אשר לבנים (משיבים 3 ו-4), לאחר ששמענו טיעון נוסף בעניינם הגענו לכלל מסקנה, כי יש לקבל את ערעור המדינה ולבטל את פסק הדין בעניינם. 
+7. 	סוף דבר: אנו מקבלים את הערעור ומורים על ביטול פסק דינו של בית משפט קמא, בכפוף לאמור להלן:
 
-	
+בנוגע לאב, לאם ולבנות הקטינות - חלף הקבוע בפסק הדין יוענקו להם היתרי שהיה זמניים למשך שנה אחת מהיום, כאשר לקראת תום תקופה זו יוכלו הם לשוב ולפנות לוועדה בבקשה להארכת היתרי השהיה, והוועדה תדון ותחליט בבקשות לפי שיקול דעתה, בהתאם לאמות המידה הנהוגות בוועדה.
 
-		כאמור, בנוגע לבנים אין כל טענה כי שיתפו פעולה עם מדינת ישראל, והוועדה מצאה באופן עקבי, בכל הדיונים שהתקיימו בעניינם החל משנת 2015, כי הם אינם מאוימים ולא נשקפת להם סכנה בשטחי הרשות הפלסטינית. קביעתו של בית משפט קמא, לפיה הסכנה הנשקפת לטעמו לאב המשפחה מקרינה גם על שאר בני המשפחה, אינה מעוגנת בכל ממצא עובדתי, ומנוגדת כאמור לחוות דעת העקבית של גורמי הביטחון, ועל כן אינה יכולה לעמוד.
+בנוגע לבנים - פסק הדין בעניינם מבוטל, ועליהם לעזוב את המדינה. לצורכי התארגנות תותר המשך שהייתם בישראל עד לתום 60 ימים מהיום.
 
-	
+בנסיבות הענין אין צו להוצאות.
 
-		לכך יש להוסיף את הסכנה לשלום הציבור הנשקפת מהם עקב עבר פלילי חמור ועדכני הכולל אף מידע מודיעיני מכביד. כידוע, שיקול זה הנוגע לסכנה לשלום הציבור, לצד השיקול של מאוימות, הם השיקולים המנחים בעבודת הוועדה. 
-
-	
-
-	7. 	סוף דבר: אנו מקבלים את הערעור ומורים על ביטול פסק דינו של בית משפט קמא, בכפוף לאמור להלן:
-
-	
-
-		בנוגע לאב, לאם ולבנות הקטינות - חלף הקבוע בפסק הדין יוענקו להם היתרי שהיה זמניים למשך שנה אחת מהיום, כאשר לקראת תום תקופה זו יוכלו הם לשוב ולפנות לוועדה בבקשה להארכת היתרי השהיה, והוועדה תדון ותחליט בבקשות לפי שיקול דעתה, בהתאם לאמות המידה הנהוגות בוועדה.
-
-		
-
-		בנוגע לבנים - פסק הדין בעניינם מבוטל, ועליהם לעזוב את המדינה. לצורכי התארגנות תותר המשך שהייתם בישראל עד לתום 60 ימים מהיום.
-
-
-
-			בנסיבות הענין אין צו להוצאות.
-
-		
-
-			ניתן היום, ‏ח&#39; בכסלו התשפ&#34;א (‏24.11.2020).
-
-
+ניתן היום, ‏ח&#39; בכסלו התשפ&#34;א (‏24.11.2020).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
 
 _________________________
 
-   20049990_B12.docx   סח
+20049990_B12.docx סח
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1771,7 +1944,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

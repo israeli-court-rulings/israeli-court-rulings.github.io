@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    29/09/2025 (לפני 218 ימים)
+                    29/09/2025 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/38130-08-25.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="38130-08-25 - אמיר אייל נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F38130-08-25.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/9/29/2025-8-38130-1-2&amp;fileName=489918ac271442cb98a5178292798e1a&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/9/29/2025-8-38130-1-2&amp;fileName=489918ac271442cb98a5178292798e1a&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/9/29/2025-8-38130-1-2&amp;fileName=489918ac271442cb98a5178292798e1a&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/9/29/2025-8-38130-1-2&amp;fileName=489918ac271442cb98a5178292798e1a&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,107 +1827,55 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            2
+            בבית המשפט העליון
 
-
-
-בבית המשפט העליון
-
-עפס&#34;פ 38130-08-25 
-
-
+עפס&#34;פ 38130-08-25
 
 לפני:
 
 כבוד הנשיא יצחק עמית
 
-
-
 המערער:
 
 אמיר אייל
 
-
-
 נגד
-
-
 
 המשיבה:
 
 מדינת ישראל
 
-
-
-
-
 ערעור על החלטתו של בית המשפט השלום בירושלים בת&#34;פ 52481-03-25 מיום 12.8.2025 שניתנה על ידי כב&#39; השופטת הבכירה שרון לארי-בבלי
-
-
 
 בשם המערער:
 
-עו&#34;ד סימון דונכין 
-
-
-
-
+עו&#34;ד סימון דונכין
 
 פסק-דין
 
-
-
 ערעור על החלטת בית משפט השלום בירושלים (כב&#39; השופטת הבכירה ש&#39; לארי-בבלי) מיום 12.8.2025 בת&#34;פ 52481-03-25 שלא לפסול עצמו מלדון בעניינו של המערער.
 
+1.	עניינו של ההליך מושא הערעור דנן בכתב אישום המייחס למערער עבירה לפי סעיף 186(א) לחוק העונשין, התשל&#34;ז-1977, של החזקת אגרופן או סכין שלא כדין. על פי הנטען בכתב האישום, המערער נתפס כשהחזיק בכיס מכנסיו סכין מתקבעת שאורך הלהב שלה כ-8 ס&#34;מ ואורכה בסך הכל 16 ס&#34;מ.
 
+2.	ביום 14.7.2025 נערך דיון מקדמי בהליך, במסגרת &#34;יום מוקד&#34;. כעולה מפרוטוקול הדיון, לאחר שהציג בא-כוח המדינה את הסכין בפני בא-כוח המערער, הביע המותב את התרשמותו לפיה &#34;אכן מדובר בסכין מתקבעת&#34;. בהמשך, איפשר המותב לבא-כוח המערער להביא מומחה מטעמו שיבחן את הסכין בנוכחות המשטרה (חלף בקשתו של בא-כוח המערער לקבל את הסכין לידיו) ונעתר לבקשתו לדחות את מועד הדיון המקדמי לצורך כך.
 
-		1.	עניינו של ההליך מושא הערעור דנן בכתב אישום המייחס למערער עבירה לפי סעיף 186(א) לחוק העונשין, התשל&#34;ז-1977, של החזקת אגרופן או סכין שלא כדין. על פי הנטען בכתב האישום, המערער נתפס כשהחזיק בכיס מכנסיו סכין מתקבעת שאורך הלהב שלה כ-8 ס&#34;מ ואורכה בסך הכל 16 ס&#34;מ.
+3.	ביום 11.8.2025 הגיש המערער הודעה מטעמו במסגרתה טען כי הוא כופר בעובדות כתב האישום וביקש כי המותב יפסול את עצמו, תוך שציין כי הנימוקים לכך יובאו בפני המותב בדיון הקרוב. באותו יום, ניתנה החלטת המותב, בה הובהר כי &#34;ככל שמבקש הסניגור את פסילת המותב – יגיש בקשתו המנומקת ללא דיחוי&#34;.
 
+4.	למחרת, ביום 12.8.2025 הגיש המערער את בקשת הפסלות שבמוקד הערעור שלפניי. לטענת המערער, המותב ראה את הסכין במהלך הדיון ממרחק של כשני מטרים, וקביעתו כי מדובר בסכין מתקבעת, היא קביעה עובדתית נחרצת בעניין ראיה שבליבת התיק. קביעה זו, לטענת המערער, מצביעה על &#34;נעילת דעתו&#34; של המותב, ועל כן, נדרשת פסילתו.
 
+5.	עוד באותו יום דחה המותב את בקשת הפסלות. בהחלטתו, עמד המותב על כך שאיפשר למערער להביא מומחה מטעמו אשר יגיש חוות דעת בעניין הסכין. בהקשר זה הוסבר, כי אם המערער סבור שאין מדובר בסכין אסורה לפי הדין, וכי בניגוד להתרשמות המותב אין מדובר בסכין מתקבעת, באפשרות המערער להציג חוות דעת כאמור. כמו כן צוין, כי המותב משמש כשופט &#34;מוקד&#34;, ועל כן, ככל שהמערער כופר באישום, ממילא מותב אחר ישמע את הראיות בתיק ויקבע אם אכן מדובר בסכין מתקבעת.
 
-		2.	ביום 14.7.2025 נערך דיון מקדמי בהליך, במסגרת &#34;יום מוקד&#34;. כעולה מפרוטוקול הדיון, לאחר שהציג בא-כוח המדינה את הסכין בפני בא-כוח המערער, הביע המותב את התרשמותו לפיה &#34;אכן מדובר בסכין מתקבעת&#34;. בהמשך, איפשר המותב לבא-כוח המערער להביא מומחה מטעמו שיבחן את הסכין בנוכחות המשטרה (חלף בקשתו של בא-כוח המערער לקבל את הסכין לידיו) ונעתר לבקשתו לדחות את מועד הדיון המקדמי לצורך כך. 
+6.	מכאן הערעור שבפניי, במסגרתו שב וטוען המערער כי דעתו של המותב ננעלה בעניין שבליבת ההליך. בתוך כך, טוען המערער כי המותב קבע כלל ראייתי לרעתו של המערער, שלפיו עליו להציג חוות דעת כדי לסתור את טענת המדינה, בעוד שהמדינה עצמה פטורה מהגשת חוות דעת. עוד טוען המערער כי כבר הודיע בהודעתו כי הוא כופר באישום, אך נוכח הדיון הקבוע בפני אותו מותב הוא אינו משלים עם הנימוק שניתן בהחלטת הפסלות, לפיו ככל שהמערער כופר באישום ממילא ההליך ישמע בפני מותב אחר.
 
-	
+7.	לאחר שעיינתי בערעור על נספחיו, הגעתי לכלל מסקנה כי דינו להידחות אף מבלי להידרש לתשובה. מן המפורט לעיל עולה כי המותב איפשר למערער להציג חוות דעת מומחה מטעמו בעניינה של הסכין בשלב הדיון המקדמי, ואף נעתר לבקשתו לדחיית המשך הדיון המקדמי לצורך כך. זאת, חרף התרשמותו כי מדובר בסכין מתקבעת. החלטה זו כשלעצמה מלמדת כי בניגוד לטענת המערער, דעתו של המותב לא ננעלה. ממילא יצוין כי עמדות מעין אלו, הנוגעות לחומרי חקירה, או אף לסעיפי האישום ולעונש הראוי, מובעות במקרים רבים על ידי שופט ב&#34;יום מוקד&#34;, וזאת במטרה לסייע בקידום ההתדיינות ולהביאה לכלל סיום בדיון המקדמי (ראו לעניין זה ע&#34;פ 8360/19 זיסמן נ&#39; מדינת ישראל, פסקה 20 (18.3.2020) (להלן: עניין זיסמן)). התנהלות בלתי פורמלית זאת, נועדה לאפשר לשופט המוקד לאמוד את הסיכויים והסיכונים שיש בהליך לכל אחד מהצדדים, ולהבין מהם גבולות הגזרה שבגדרם ניתן יהיה לסיים את ההליך בהסדר מוסכם (שם, בפסקה 16). מכאן, שאין בהתרשמות המותב, בנסיבות העניין, משום חשש למשוא פנים.
 
-		3.	ביום 11.8.2025 הגיש המערער הודעה מטעמו במסגרתה טען כי הוא כופר בעובדות כתב האישום וביקש כי המותב יפסול את עצמו, תוך שציין כי הנימוקים לכך יובאו בפני המותב בדיון הקרוב. באותו יום, ניתנה החלטת המותב, בה הובהר כי &#34;ככל שמבקש הסניגור את פסילת המותב – יגיש בקשתו המנומקת ללא דיחוי&#34;. 
+8.	אשר לטענת המערער בדבר היתרון הפרוצדוראלי לו זכתה המדינה בשל הדרישה להצגת חוות דעת מטעמו כדי לסתור את טענת המדינה. טענה זו מהווה טענה ערעורית מובהקת ואינה מעלה חשש ממשי למשוא פנים. כידוע, בשיטתנו לא ניתן לערער, ככלל, על החלטות ביניים שניתנו בהליך הפלילי, והליכי פסלות לא נועדו על מנת לעקוף כלל זה (ע&#34;פ 5282/07 בראון נ&#39; מדינת ישראל, פסקה 4 (13.8.2007)). ובכל מקרה מדובר בטענה שנטענה לראשונה במסגרת הערעור, מבלי שלמותב ניתנה אפשרות להתייחס אליה, ועל כן דינה להידחות ולוּ רק מן הטעם הזה (עפס&#34;פ 59175-06-25 קטרון נ&#39; מדינת ישראל, פסקה 4 (1.9.2025)).
 
-	
+9.	לסיום, ובכל הנוגע לטענת המערער כי הוא כופר באישום ועומד על הערעור דנן בפרט לנוכח הדיון הנוסף הקבוע בפני המותב (פסקה 14 להודעת הערעור). כפי שגם צוין בהחלטת הפסלות, ככל שהדיון המקדמי לא יסתיים בהכרעת דין, ממילא יועבר הדיון בו למותב אחר (ראו בסעיף143א(ה) לחוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב-1982 (להלן: החסד&#34;פ); ראו גם בעניין זיסמן, בפסקה 17). עוד יוער בהקשר זה, כי בהתאם לסעיף 143א(ו) לחסד&#34;פ, פרוטוקול הדיון המקדמי לא יועבר לעיון המותב האחר שידון בהליך, ולא ישמש ראיה בכל הליך משפטי אחר, פרט לערעור על פסק דין שניתן בהליך מקדמי, אלא בהסכמת בעלי הדין (ראו גם שם, בפסקה 14). כמו כן, יובהר, כי ככל שהמערער סבור כי אין מקום להמשך הליך ה&#34;מוקד&#34;, הערעור הנוכחי אינו המקום לדון בכך.
 
-		4.	למחרת, ביום 12.8.2025 הגיש המערער את בקשת הפסלות שבמוקד הערעור שלפניי. לטענת המערער, המותב ראה את הסכין במהלך הדיון ממרחק של כשני מטרים, וקביעתו כי מדובר בסכין מתקבעת, היא קביעה עובדתית נחרצת בעניין ראיה שבליבת התיק. קביעה זו, לטענת המערער, מצביעה על &#34;נעילת דעתו&#34; של המותב, ועל כן, נדרשת פסילתו.
-
-	
-
-		5.	עוד באותו יום דחה המותב את בקשת הפסלות. בהחלטתו, עמד המותב על כך שאיפשר למערער להביא מומחה מטעמו אשר יגיש חוות דעת בעניין הסכין. בהקשר זה הוסבר, כי אם המערער סבור שאין מדובר בסכין אסורה לפי הדין, וכי בניגוד להתרשמות המותב אין מדובר בסכין מתקבעת, באפשרות המערער להציג חוות דעת כאמור. כמו כן צוין, כי המותב משמש כשופט &#34;מוקד&#34;, ועל כן, ככל שהמערער כופר באישום, ממילא מותב אחר ישמע את הראיות בתיק ויקבע אם אכן מדובר בסכין מתקבעת.
-
-	
-
-		6.	מכאן הערעור שבפניי, במסגרתו שב וטוען המערער כי דעתו של המותב ננעלה בעניין שבליבת ההליך. בתוך כך, טוען המערער כי המותב קבע כלל ראייתי לרעתו של המערער, שלפיו עליו להציג חוות דעת כדי לסתור את טענת המדינה, בעוד שהמדינה עצמה פטורה מהגשת חוות דעת. עוד טוען המערער כי כבר הודיע בהודעתו כי הוא כופר באישום, אך נוכח הדיון הקבוע בפני אותו מותב הוא אינו משלים עם הנימוק שניתן בהחלטת הפסלות, לפיו ככל שהמערער כופר באישום ממילא ההליך ישמע בפני מותב אחר.
-
- 
-
-		7.	לאחר שעיינתי בערעור על נספחיו, הגעתי לכלל מסקנה כי דינו להידחות אף מבלי להידרש לתשובה. מן המפורט לעיל עולה כי המותב איפשר למערער להציג חוות דעת מומחה מטעמו בעניינה של הסכין בשלב הדיון המקדמי, ואף נעתר לבקשתו לדחיית המשך הדיון המקדמי לצורך כך. זאת, חרף התרשמותו כי מדובר בסכין מתקבעת. החלטה זו כשלעצמה מלמדת כי בניגוד לטענת המערער, דעתו של המותב לא ננעלה. ממילא יצוין כי עמדות מעין אלו, הנוגעות לחומרי חקירה, או אף לסעיפי האישום ולעונש הראוי, מובעות במקרים רבים על ידי שופט ב&#34;יום מוקד&#34;, וזאת במטרה לסייע בקידום ההתדיינות ולהביאה לכלל סיום בדיון המקדמי (ראו לעניין זה ע&#34;פ 8360/19 זיסמן נ&#39; מדינת ישראל, פסקה 20 (18.3.2020) (להלן: עניין זיסמן)). התנהלות בלתי פורמלית זאת, נועדה לאפשר לשופט המוקד לאמוד את הסיכויים והסיכונים שיש בהליך לכל אחד מהצדדים, ולהבין מהם גבולות הגזרה שבגדרם ניתן יהיה לסיים את ההליך בהסדר מוסכם (שם, בפסקה 16). מכאן, שאין בהתרשמות המותב, בנסיבות העניין, משום חשש למשוא פנים.
-
-
-
-		8.	אשר לטענת המערער בדבר היתרון הפרוצדוראלי לו זכתה המדינה בשל הדרישה להצגת חוות דעת מטעמו כדי לסתור את טענת המדינה. טענה זו מהווה טענה ערעורית מובהקת ואינה מעלה חשש ממשי למשוא פנים. כידוע, בשיטתנו לא ניתן לערער, ככלל, על החלטות ביניים שניתנו בהליך הפלילי, והליכי פסלות לא נועדו על מנת לעקוף כלל זה (ע&#34;פ 5282/07 בראון נ&#39; מדינת ישראל, פסקה 4 (13.8.2007)). ובכל מקרה מדובר בטענה שנטענה לראשונה במסגרת הערעור, מבלי שלמותב ניתנה אפשרות להתייחס אליה, ועל כן דינה להידחות ולוּ רק מן הטעם הזה (עפס&#34;פ 59175-06-25 קטרון נ&#39; מדינת ישראל, פסקה 4 (1.9.2025)). 
-
-	
-
-		9.	לסיום, ובכל הנוגע לטענת המערער כי הוא כופר באישום ועומד על הערעור דנן בפרט לנוכח הדיון הנוסף הקבוע בפני המותב (פסקה 14 להודעת הערעור). כפי שגם צוין בהחלטת הפסלות, ככל שהדיון המקדמי לא יסתיים בהכרעת דין, ממילא יועבר הדיון בו למותב אחר (ראו בסעיף143א(ה) לחוק סדר הדין הפלילי [נוסח משולב], התשמ&#34;ב-1982 (להלן: החסד&#34;פ); ראו גם בעניין זיסמן, בפסקה 17). עוד יוער בהקשר זה, כי בהתאם לסעיף 143א(ו) לחסד&#34;פ, פרוטוקול הדיון המקדמי לא יועבר לעיון המותב האחר שידון בהליך, ולא ישמש ראיה בכל הליך משפטי אחר, פרט לערעור על פסק דין שניתן בהליך מקדמי, אלא בהסכמת בעלי הדין (ראו גם שם, בפסקה 14). כמו כן, יובהר, כי ככל שהמערער סבור כי אין מקום להמשך הליך ה&#34;מוקד&#34;, הערעור הנוכחי אינו המקום לדון בכך.
-
-	 
-
-		10.	אשר על כן, הערעור נדחה.
-
-		
+10.	אשר על כן, הערעור נדחה.
 
 ניתן היום, ז&#39; תשרי תשפ&#34;ו (29 ספטמבר 2025).
-
-
-
-
-
-
 
 יצחק עמית
 
@@ -1679,7 +1898,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

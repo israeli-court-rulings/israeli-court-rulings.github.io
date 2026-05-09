@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    24/05/2021 (לפני 1807 ימים)
+                    24/05/2021 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/3136-20.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="3136/20 - סאלח אבו עיאש נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F3136-20.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/360/031/m05&amp;fileName=20031360.M05&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/360/031/m05&amp;fileName=20031360.M05&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/360/031/m05&amp;fileName=20031360.M05&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/360/031/m05&amp;fileName=20031360.M05&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,237 +1827,117 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
-
-
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
-
-
+            בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
 ע&#34;פ 3136/20
 
-
-
-לפני:	
+לפני:
 
 כבוד השופט ע&#39; פוגלמן
 
-
-
 כבוד השופט נ&#39; סולברג
 
-
-
 כבוד השופטת י&#39; וילנר
-
-
 
 המערערים:
 
 1. סאלח אבו עאיש
 
-
-
 2. בשיר אבו עאיש
-
-
 
 3. נביל אבו עאיש
 
-
-
 4. עבד אל רחמן אבו עאיש
 
-
-
-
-
 נ ג ד
-
-
 
 המשיבה:
 
 מדינת ישראל
 
-
-
 ערעור על גזר הדין של בית המשפט המחוזי בבאר שבע (כב&#39; השופט ד&#39; בן טולילה) בת&#34;פ 60759-05-16 מיום 5.2.2020
-
-
 
 תאריך הישיבה:
 
-א&#39; בסיון התשפ&#34;א  
+א&#39; בסיון התשפ&#34;א
 
-(12.5.2021) 
-
-
+(12.5.2021)
 
 בשם המערערים:
 
 עו&#34;ד משה שרמן; עו&#34;ד חיים רוט
 
-
-
 בשם המשיבה:
 
 עו&#34;ד יובל קדר
-
-
 
 בשם שירות המבחן למבוגרים:
 
 עו&#34;ס ברכה וייס
 
-
-
 פסק-דין
-
-
 
 השופט ע&#39; פוגלמן:
 
-
-
-	המערערים הורשעו על פי הודאתם בהסדר טיעון בעבירות של חטיפה לשם סחיטה וסחיטה באיומים. בית המשפט המחוזי בבאר שבע (כב&#39; השופט ד&#39; בן טולילה) גזר עליהם עונשי מאסר בפועל (כמפורט להלן); עונשי מאסר על תנאי כפי שפורט בגזר הדין; קנס בסך 8,000 ש&#34;ח או 40 ימי מאסר תמורתו; ופיצויים בסך 15,000 ש&#34;ח למתלונן. הערעור שלפנינו נסב על חומרת עונשי המאסר בפועל.
-
-
+המערערים הורשעו על פי הודאתם בהסדר טיעון בעבירות של חטיפה לשם סחיטה וסחיטה באיומים. בית המשפט המחוזי בבאר שבע (כב&#39; השופט ד&#39; בן טולילה) גזר עליהם עונשי מאסר בפועל (כמפורט להלן); עונשי מאסר על תנאי כפי שפורט בגזר הדין; קנס בסך 8,000 ש&#34;ח או 40 ימי מאסר תמורתו; ופיצויים בסך 15,000 ש&#34;ח למתלונן. הערעור שלפנינו נסב על חומרת עונשי המאסר בפועל.
 
 תמצית העובדות וההליכים
 
-
-
 המערערים הם קרובי משפחה. לפי האמור בכתב האישום המתוקן, בשנת 2016 הציע אחיהם של המערערים 2-1 (להלן: המוכר) לאדם אחר (להלן: הקונה) למכור לו כבשים. הקונה פנה לחברו (להלן: המתלונן) והציע לו להצטרף לעסקה המתגבשת, והמתלונן הסכים. בהמשך הודיע המתלונן למוכר ולקונה כי אינו מעוניין בקיום העסקה, והם המשיכו במשא ומתן והודיעו למתלונן שלא יהיה חלק מהעסקה. בחלוף זמן מה התגלע סכסוך בין המוכר לקונה, והמוכר פנה למתלונן וביקש את עזרתו בגביית חוב מהקונה (להלן: החוב). לאחר שהמתלונן סירב, רקמו המערערים תכנית לחטוף את המתלונן, לכלוא אותו ולסחוט באיומים ממנו ומקרוביו את החוב. ביום 12.3.2016, לאחר שכשל ניסיון נוסף לגבות את החוב מהקונה, סיכם המערער 3 בכזב עם המתלונן שייפגשו בתחנת דלק. המתלונן הגיע לתחנת הדלק בהמשך אותו יום. המערערים 4-3 סימנו לו לנסוע אחריהם עד למקום שבו הסתתרו המערער 2 ואדם נוסף (להלן: האחר), שנשא סכין. המערער 3 גרם למתלונן לצאת מרכבו בתואנת שווא. כאשר יצא המתלונן מרכבו, התנפלו עליו המערערים 3-2 והאחר; האחר הצמיד את הסכין לצוואר המתלונן, והשלושה הכניסו את המתלונן לרכב ונסעו מהמקום. המערערים איימו על המתלונן שעליו לשלם את חובו של הקונה, וָלֹא – יפגעו בו. חוליית החוטפים עברה בין מקומות מסתור עם המתלונן. ביום 14.3.2016, לאחר משא ומתן עם משפחתו של המתלונן, הוסכם כי המתלונן ישוחרר בתמורה לתשלום בסך 350,000 ש&#34;ח. הסכום הועבר, וסמוך לשעה 23:00 שוחרר המתלונן.
-
-
 
 נוכח מעשים אלה יוחסו למערערים עבירות של חטיפה לשם סחיטה וסחיטה באיומים, לפי סעיפים 372 ו-428 סיפה לחוק העונשין, התשל&#34;ז-1977 (להלן: חוק העונשין), בהתאמה. ביום 6.3.2019 הורשעו המערערים בעבירות המתוארות על יסוד הודאתם, כחלק מהסדר טיעון שלא כלל הסכמה לעניין העונש. בהתאם למוסכם בהסדר הטיעון, ביום 4.6.2019 הוגשו תסקירי שירות מבחן לגבי המערערים (להלן: התסקירים). על כל אחד מהמערערים צוין בתסקירים, בין היתר, כי אינו מודה בביצוע העבירות; כי הוא מתקשה להתייחס אליהן במושגים של ביקורת עצמית וקבלת אחריות; וכי קיימת רמת סיכון להישנותה של התנהגות פוגענית או להמשך מעורבות פלילית. בעת בחינת עברם הפלילי של המערערים עמד שירות המבחן על כך שהמערערים 2 ו-4 נעדרים עבר פלילי; שנגד המערער 1 תלויים ועומדים שני תיקים משנת 2019 בגין הסעת עובד זר (לשלמות התמונה יצוין כי המערער 1 הורשע בביצוע העבירות שיוחסו לו בתיקים אלה, ונגזרו עליו בין היתר עונשי מאסר בפועל שיחפפו את עונש המאסר בגין העבירות דנן); ושלמערער 3 שתי הרשעות מהשנים 2013-2012 על העסקת עובד זר, שבגינן נשא בין היתר עונש מאסר למשך חודש ימים. עוד צוין שהמתלונן מבטא קשיים רגשיים ונפשיים משמעותיים בעקבות אירוע החטיפה, ושהסכסוכים בין המערערים למתלונן ומשפחתו עדיין פעילים ו&#34;נפיצים&#34;. בעקבות כל זאת הומלץ על ענישה מוחשית שתרתיע ושתציב גבולות. בתסקירים משלימים שהוגשו ביום 24.6.2019 (להלן: התסקירים המשלימים) תואר כי, בשונה מבעבר, כל אחד מהמערערים הודה בביצוע העבירות ודיווח שהוא מבין את חומרתן. עם זאת, שירות המבחן התרשם שהתייחסות המערערים לעבירות נובעת מתחושת איום מפני תוצאת ההליך המשפטי, ושהם אינם פנויים לערוך בחינה עצמית ביקורתית, ועל כן נותרו המלצות התסקירים על כנן.
 
-
-
 ביום 5.2.2020 קבע בית המשפט המחוזי בגזר דין מפורט שהמערערים פגעו בחירות של המתלונן, בכבודו, בשלום גופו, בשלוות נפשו, בביטחונו ובאוטונומיית הרצון החופשי שלו, כמו גם בסדר הציבורי ובשלטון החוק. עוד צוין שהעבירות בוצעו בצוותא, בתכנון, בשטח גדול ובפרק זמן לא קצר, בפגיעה במתלונן ומשפחתו ובדומה לפעילות של עבריינים מיומנים; ושהפגיעה בערכים המוגנים קשה. בית המשפט מצא שהמערערים 4-2 פעלו יחד על פי תכנית חטיפה סדורה וחלוקת תפקידים מוגדרת, ולכן יש לקבוע להם מתחם עונש דומה; ואילו המערער 1 לא השתתף השתתפות פיזית בחטיפה, בהעברת המתלונן בין מקומות המסתור או בשמירה עליו, ולכן נקבע לו מתחם עונש נפרד. לאחר שסקר את רמת הענישה הנוהגת ושקל את כל אלה, קבע בית המשפט כי מתחם העונש ההולם בעניינו של המערער 1 עומד על 54-27 חודשי מאסר בפועל, ובעניין המערערים 4-2 – על 60-36 חודשי מאסר בפועל. בקביעת העונש בתוך המתחם נתן בית המשפט משקל להודאת המערערים, לחלוף הזמן, לשיקולי שיקום ולשיקולי הרתעה. בית המשפט התחשב גם במסקנות התסקירים והתסקירים המשלימים ובצורך להטיל עיצומים כספיים בשל הרקע הכספי של העבירות. על רקע כל השיקולים האמורים גזר בית המשפט על המערערים 4-1 מאסרים בפועל שאורכם 28, 37, 39 ו-37 חודשים בהתאמה, בניכוי ימי מעצרם; 5 חודשי מאסר על תנאי למשך 3 שנים על עבירות אלימות מסוג עוון או עבירות איומים; 10 חודשי מאסר על תנאי למשך 3 שנים על עבירות אלימות מסוג פשע, לרבות חטיפה וסחיטה באיומים; קנס בסך 8,000 ש&#34;ח או 40 ימי מאסר תמורתו; ופיצוי למתלונן בסך 15,000 ש&#34;ח. כן הורה בית המשפט על חילוט רכבו של המערער 2, ששימש לביצוע העבירות.
-
-
 
 טענות הצדדים
 
-
-
 המערערים משיגים לפנינו על מתחמי הענישה שנקבעו להם; על עונשי המאסר בפועל שנקבעו להם בתוך המתחמים; ועל דרך נשיאת העונש. לטענתם, מתחמי העונש ההולם שנקבעו גבוהים ממדיניות הענישה הנוהגת ומהראוי בנסיבות העניין. עוד נטען שיש לקבוע את העונשים בתחתית המתחמים ולאפשר את נשיאתם בעבודות שירות, בין היתר מפני שהמערערים מנהלים אורח חיים נורמטיבי ונעדרים דפוסי התנהגות עבריינית, ומפני שב-4 השנים שחלפו בין הגשת כתב האישום להרשעתם הם לא הסתבכו בפלילים. המערערים מדגישים את שיקולי השיקום וסבורים שניתן משקל רב מדי לשיקולי הרתעה. כן נטען כי בתסקירים ובתסקירים המשלימים לא ניתן משקל מספק לייחודיותו של כל אחד מהמערערים, וכי קיים פער בין ההתרשמות הכללית של שירות המבחן להמלצותיו הסופיות. לחלופין, המערערים מבקשים לחרוג מטעמי שיקום מהמתחמים שנקבעו.
-
-
 
 בדיון שנערך לפנינו טענה המשיבה כי אין עילה להתערב בפסק הדין של בית המשפט המחוזי, בין היתר בשים לב לכך שעונשי המאסר שנגזרו על המערערים עולים בקנה אחד עם מדיניות הענישה הנוהגת (ואף נמצאים בתחתיתה) והולמים את הנסיבות החמורות של המקרה. עוד צוין כי בעקבות המקרה המצב הנפשי והמצב הכלכלי של המתלונן חמורים. המשיבה סומכת ידיה על מסקנות התסקירים והתסקירים המשלימים, שבין היתר מעידים על הצורך בהרתעת היחיד והרבים בנסיבות דנן.
 
-
-
 לבית משפט זה הוגשו תסקירים משלימים נוספים בעניינם של המערערים. צוין בהם כי כל אחד מהמערערים מועסק כאסיר עבודה ללא עבירות משמעת וללא התנהגות חריגה, למעט אירוע אחד שבו הורחק המערער 3 מהמחלקה בבית הסוהר בעקבות התנהגות שלילית וכוחנית. עוד צוין כי המערערים 4-2 משתפים פעולה עם גורמי הטיפול ומשולבים בקבוצות טיפוליות שונות בתחום האלימות, ואילו המערער 1 נעדר מוטיבציה להשתלב במחלקה לטיפול בנושא.
-
-
 
 דיון והכרעה
 
-
-
 לאחר ששקלנו את נימוקי הערעור בכתב והאזנו לטיעוני הצדדים בדיון שהתקיים לפנינו, מצאנו כי דין הערעור להידחות. כידוע, לא בנקל תיטה ערכאת הערעור להתערב בעונש שהטילה הערכאה הדיונית, למעט במקרים חריגים שבהם נפלה טעות מהותית בפסק הדין או אם ישנה סטייה ברורה ממדיניות הענישה הנוהגת (ע&#34;פ 1859/20 פלוני נ&#39; מדינת ישראל, פסקה 7 (23.12.2020); ע&#34;פ 8435/17 נפתלי נ&#39; מדינת ישראל, פסקה 13 (7.4.2019); ע&#34;פ 4302/18 בוקשטיין נ&#39; מדינת ישראל, פסקה 8 (21.1.2019)). נוסף על כך, לערכאה הדיונית נתון שיקול דעת רחב אף בקביעת מתחם העונש במקרה שלפניה, וככלל ערכאת הערעור לא תתערב בו אם העונש הולם את חומרת המעשים (ע&#34;פ 1059/21 פלוני נ&#39; מדינת ישראל, פסקה 13 (29.4.2021); ע&#34;פ 4232/20 פלוני נ&#39; מדינת ישראל, פסקה 8 (12.11.2020)). בלי לקבוע מסמרות בהתייחס לגבולות המתחם, לא מצאנו כי המקרה שלפנינו נמנה עם אותם מקרים חריגים המצדיקים התערבות בעונש.
-
-
 
 בית משפט זה עמד לא פעם על החומרה הגלומה בעבירות אלימות בכלל, ובעבירות חטיפה בפרט (ע&#34;פ 6560/15 סריס נ&#39; מדינת ישראל, פסקה 10 (2.5.2016); ע&#34;פ 2204/15 ביטון נ&#39; מדינת ישראל, פסקה 8 (2.8.2015)). עבירות אלו מגינות על ערכי יסוד חשובים:
 
-
-
 &#34;אמצעי החטיפה כדרך לגבות חוב ... פוגע באושיות המשפט. עוד יש לזכור כי מטבעם של דברים, סופה של חטיפה אינו תמיד נראה בתחילת המעשה. נקודה זו נכונה במיוחד מנקודת מבטו של נפגע העבירה, הוא הנחטף... הפגיעה בנחטף אינה רק בשלילת חירותו שבוצעה בפועל, אלא בפוטנציאל הסיכון הטמון במעשה, שעלול אף להתדרדר לפגיעה פיזית חמורה. יצויין בהקשר זה הפחד ואי הוודאות המלווים את משפחת הנחטף במהלך ה&#39;משא ומתן&#39; בינם לבין החוטפים... בית המשפט חייב להשמיע קולו נגד תופעות מעין אלו המערערות על סמכותו ותפקידו בחברה&#34; (ע&#34;פ 4131/13 שמארי נ&#39; מדינת ישראל, פסקה 5 (13.3.2014) (להלן: עניין שמארי)).
-
-
 
 איננו סבורים כי מקרה זה חריג בהשוואה למדיניות הענישה בנסיבות דומות. זאת בשים לב לנסיבות המקרה, שכוללות בין היתר חטיפה שנמשכה זמן ממושך, מעל יומיים מלאים, לאחר תכנון והיערכות מוקדמת; העברת המתלונן בין מקומות מסתור; מעורבות של גורמים רבים באירוע; ליווי המעשים באיומים חוזרים, גם באמצעות סכין; סיום אירוע החטיפה רק בהיעתרות לתנאי המערערים ותשלום הכופר שדרשו; נזק נפשי ונזק כלכלי חמור למתלונן ולמשפחתו; והתרשמות שירות המבחן מהמערערים (ראו והשוו ע&#34;פ 6478/12 דרדון נ&#39; מדינת ישראל (17.4.2013); עניין שמארי; ע&#34;פ 3298/12 סולימן נ&#39; מדינת ישראל (23.10.2012); ע&#34;פ 2254/07 מדינת ישראל נ&#39; טארונשוילי (4.7.2007)). בית המשפט המחוזי קבע את עונשי המערערים בטווח הנמוך של מתחמי העונש. בכך נתן משקל להודאתם; להיעדר עבר פלילי אצל המערערים 2 ו-4 ולקיומו של עבר פלילי שאינו מכביד בעניינם של המערערים 1 ו-3; לחייהם הנורמטיביים ולהשלכות הניכרות של ההליך הפלילי עליהם ועל בני משפחותיהם. בית המשפט המחוזי התחשב גם בפוטנציאל השיקום של כל אחד מהמערערים. בתסקירים המשלימים שהוגשו לנו תוארה השתלבותם של המערערים 4-2 בקבוצות טיפול בתחום האלימות. עם זאת, לא מצאנו שמדובר באחד מאותם מקרים שהגיעו לדרגת &#34;סיכוי של ממש לשיקום&#34; שמצדיק לסטות לקולה מן המתחם שנקבע (סעיף 40ד לחוק העונשין; ע&#34;פ 6637/17 קרנדל נ&#39; מדינת ישראל (18.4.2018)). התוצאה היא שאין מקום להתערב בעונשים שהטיל בית המשפט המחוזי על המערערים.
 
-
-
-	אשר על כן, החלטנו לדחות את הערעור.
-
-
+אשר על כן, החלטנו לדחות את הערעור.
 
 ש ו פ ט
-
-
-
-
 
 השופט נ&#39; סולברג:
 
-
-
-	אני מסכים.
-
-
-
-
+אני מסכים.
 
 ש ו פ ט
-
-
-
-
 
 השופטת י&#39; וילנר:
 
-
-
-	אני מסכימה.
-
-
-
-
+אני מסכימה.
 
 ש ו פ ט ת
 
+הוחלט כאמור בפסק דינו של השופט ע&#39; פוגלמן.
 
-
-	הוחלט כאמור בפסק דינו של השופט ע&#39; פוגלמן.
-
-
-
-	ניתן היום, ‏י&#34;ג בסיון התשפ&#34;א (‏24.5.2021).
-
-
-
-
+ניתן היום, ‏י&#34;ג בסיון התשפ&#34;א (‏24.5.2021).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט ת
-
-
 
 _________________________
 
- 20031360_M05.docx עא
+20031360_M05.docx עא
 
 מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
         </div>
     </section>
     
@@ -1805,7 +1956,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

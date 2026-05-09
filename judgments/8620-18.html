@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    07/02/2019 (לפני 2644 ימים)
+                    07/02/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8620-18.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8620/18 - עו&#34;ד יובל מור-מוסלי ו62 אחרים נ. מדינת ישראל -רשות האוכלוסין"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8620-18.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/200/086/f04&amp;fileName=18086200.F04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/200/086/f04&amp;fileName=18086200.F04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/200/086/f04&amp;fileName=18086200.F04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/200/086/f04&amp;fileName=18086200.F04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,133 +1827,61 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 8620/18
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
-
-בג&#34;ץ  8620/18
-
-
-
-לפני:	
+לפני:
 
 כבוד השופטת ע&#39; ברון
 
-
-
 כבוד השופט ג&#39; קרא
 
-
-
 כבוד השופט א&#39; שטיין
-
-
 
 העותרים:
 
 עו&#34;ד יובל מור-מוסלי ו-62 אחרים
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבה:
 
-מדינת ישראל – רשות האוכלוסין וההגירה 
-
-	
+מדינת ישראל – רשות האוכלוסין וההגירה
 
 עתירה למתן צו על -תנאי
 
-	
-
 בשם העותרים:
 
-העותר 1 בעצמו 
-
-
+העותר 1 בעצמו
 
 בשם המשיבה:
 
 עו&#34;ד רן רוזנברג
 
-	
-
-	
-
 פסק-דין
-
-
 
 השופט א&#39; שטיין:
 
+בעתירה שלפנינו מתבקש צו על תנאי שיורה למשיבה לנמק מדוע לא תכיר בייפויי-הכוח שניתנו לעותר 1 על ידי העותרים 63-2, לבצע פעולות משפטיות בשמם ובמקומם, ומדוע לא יועברו כספי הפיקדון, אשר הופקדו עבור העותרים 63-2 על ידי מעסיקיהם בישראל, לחשבונותיהם בבנקים שבסין, או לחלופין, לחשבון הבנק של העותר 1.
 
-
-בעתירה שלפנינו מתבקש צו על תנאי שיורה למשיבה לנמק מדוע לא תכיר בייפויי-הכוח שניתנו לעותר 1 על ידי העותרים 63-2, לבצע פעולות משפטיות בשמם ובמקומם, ומדוע לא יועברו כספי הפיקדון, אשר הופקדו עבור העותרים 63-2 על ידי מעסיקיהם בישראל, לחשבונותיהם בבנקים שבסין, או לחלופין, לחשבון הבנק של העותר 1. 
-
-
-
-לפי הנטען בעתירה, העותרים 63-2 הינם אזרחי סין אשר הועסקו בישראל כעובדים זרים בענף הבנייה. בתום תקופת העסקתם, עם עזיבתם את ישראל לצמיתות, שכרו העותרים 63-2 את שירותיו המשפטיים של העותר 1, וייפו את כוחו של הלה לשחרר את כספי הפיקדון שמעסיקיהם הפקידו עבורם בהתאם לסעיף 1יא(א) לחוק עובדים זרים, התשנ&#34;א-1991 (להלן: חוק עובדים זרים). המשיבה סירבה להכיר בייפויי-הכוח הנ&#34;ל מהטעם שאלה לא נערכו בהתאם לאמור בסעיף 30 לפקודת הראיות [נוסח חדש], התשל&#34;א-1971 (להלן: פקודת הראיות). 
-
- 
+לפי הנטען בעתירה, העותרים 63-2 הינם אזרחי סין אשר הועסקו בישראל כעובדים זרים בענף הבנייה. בתום תקופת העסקתם, עם עזיבתם את ישראל לצמיתות, שכרו העותרים 63-2 את שירותיו המשפטיים של העותר 1, וייפו את כוחו של הלה לשחרר את כספי הפיקדון שמעסיקיהם הפקידו עבורם בהתאם לסעיף 1יא(א) לחוק עובדים זרים, התשנ&#34;א-1991 (להלן: חוק עובדים זרים). המשיבה סירבה להכיר בייפויי-הכוח הנ&#34;ל מהטעם שאלה לא נערכו בהתאם לאמור בסעיף 30 לפקודת הראיות [נוסח חדש], התשל&#34;א-1971 (להלן: פקודת הראיות).
 
 לטענת העותרים, המשיבה מעכבת שלא כדין את העברת כספי הפיקדון לידי העותרים 63-2 וזאת, בין היתר, בניגוד להוראות הקבועות לעניין זה בסעיף 1יא(ד) לחוק עובדים זרים; תקנה 9 לתקנות עובדים זרים (פיקדון לעובדים זרים), התשע&#34;ו-2016; וכן סעיף ה.3.א לנוהל רשות האוכלוסין וההגירה &#34;נוהל פיקדון לעובדים זרים המועסקים בענף הבניין, בטכנולוגיה ייחודית ובחברות סיעוד&#34; (1.8.2016) (להלן: נוהל פיקדון לעובדים זרים). לשיטתם, בקשה להעברת כספי פיקדון לזכות חשבון בנק המתנהל על שמו של עובד זר אשר עזב את ישראל לצמיתות ולא באופן זמני, אינה כרוכה בהמצאת ייפוי-כוח, ואף אין כל חובה להגישה על ידי העובד עצמו. בנוסף טוענים העותרים, כי דרישת המשיבה כי הם יציגו לפניה ייפוי-כוח בהתאם לסעיף 30 לפקודת הראיות אינה מעוגנת בחקיקה ראשית, ואף לא בחקיקת משנה, אלא רק בנוהל פיקדון לעובדים זרים. כמו כן טוענים העותרים, כי סירובה של המשיבה להכיר בייפויי-הכוח שהציגו לפניה פוגע שלא כדין בהתקשרותו של העותר 1 עם העותרים 63-2; בחופש העיסוק של העותר 1; וכן בזכויות הקניין והייצוג של העותרים 63-2. העותרים אף טוענים, כי פקודת הראיות היא מסכת דינים נושנה וארכאית; ומשכך, אין בסעיף 30 לפקודה זו כדי לפגום בייפויי-הכוח שניסחו.
 
-
-
 ביקשתי את תגובתה המקדמית של המשיבה וזו הגישה את תגובתה ביום 9.1.2019. לטענת המשיבה, אין מקום שבית משפט זה יזקק לעתירה דנן בשל קיומו של סעד חלופי. לדבריה, עניינה של העתירה – שחרור כספי פיקדון של עובדים זרים – מוסדר בפרק ד&#39; לחוק עובדים זרים, אשר מנוי בתוספת הראשונה לחוק בתי משפט לענינים מינהליים, התש&#34;ס-2000 (להלן: חוק בתי משפט לעניינים מינהליים או החוק); ומשכך, קמה לבית משפט לעניינים מינהליים סמכות לדון בסעד המבוקש בגדרי העתירה דנן. לגופם של דברים, שבה המשיבה וטוענת כי ייפויי-הכוח שביסוד העתירה נעדרים תוקף משפטי מאחר שלא נחתמו כמותווה בסעיף 30 לפקודת הראיות וכי יש לדחות טענותיהם של העותרים בעניין זה. עוד טוענת המשיבה, כי באפשרות העותרים 63-2 להגיש בקשה מקוונת לשחרור כספי הפיקדון שלהם באופן עצמאי; ולפיכך, אין ממש בטענת העותרים כי מדיניות המשיבה פוגעת ביכולתם למצות את זכויותיהם הכלכליות ואת זכותו של העותר 1 לחופש העיסוק.
 
-
-
-נוכח תגובת המשיבה, ביקשתי מהעותרים לעדכנני האם הם עומדים על עתירתם. בתגובתם מיום 15.1.2019 ביקשו העותרים שנדון בעתירה או, למצער, שנעביר הדיון בה לבית המשפט המחוזי ירושלים בשבתו כבית משפט לעניינים מינהליים וזאת מכוח סעיף 79 לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984. לשיטת העותרים, טענתם בדבר תוקפם המשפטי של ייפויי-הכוח שהציגו לפני המשיבה, המהווה אחד האדנים עליהם נסמכת העתירה, מושתתת על פרשנותו של סעיף 30 לפקודת הראיות, וזו איננה כלולה בתוספת הראשונה לחוק בתי משפט לעניינים מינהליים; ועל-כן, בסמכותנו לדון בעתירה גופה. בהמשך לאמור, מבקשים העותרים שנדון גם בטענתם לעניין שחרור כספי הפיקדון של העובדים הזרים, וזאת מכוח הלכת &#34;הטפל הולך אחר העיקר&#34; או מכוח סעיף 6 לחוק בתי משפט לעניינים מינהליים; ולמצער, מכוח סמכותו המקבילה של בג&#34;ץ.   
-
-
+נוכח תגובת המשיבה, ביקשתי מהעותרים לעדכנני האם הם עומדים על עתירתם. בתגובתם מיום 15.1.2019 ביקשו העותרים שנדון בעתירה או, למצער, שנעביר הדיון בה לבית המשפט המחוזי ירושלים בשבתו כבית משפט לעניינים מינהליים וזאת מכוח סעיף 79 לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984. לשיטת העותרים, טענתם בדבר תוקפם המשפטי של ייפויי-הכוח שהציגו לפני המשיבה, המהווה אחד האדנים עליהם נסמכת העתירה, מושתתת על פרשנותו של סעיף 30 לפקודת הראיות, וזו איננה כלולה בתוספת הראשונה לחוק בתי משפט לעניינים מינהליים; ועל-כן, בסמכותנו לדון בעתירה גופה. בהמשך לאמור, מבקשים העותרים שנדון גם בטענתם לעניין שחרור כספי הפיקדון של העובדים הזרים, וזאת מכוח הלכת &#34;הטפל הולך אחר העיקר&#34; או מכוח סעיף 6 לחוק בתי משפט לעניינים מינהליים; ולמצער, מכוח סמכותו המקבילה של בג&#34;ץ.
 
 סבורני, כי דין העתירה להידחות על הסף נוכח קיומו של סעד חלופי בדמות פנייה לבית משפט לעניינים מינהליים.
 
-
-
-המתכונת הדיונית אשר מתאימה לבירור טענותיהם של העותרים בכל הקשור לשחרור כספי הפיקדון של העובדים הזרים, היא הגשת עתירה לבית משפט לעניינים מינהליים. זאת, בהתאם לסעיף 5(1) בצירוף פרט 12(4) לתוספת הראשונה לחוק בתי משפט לעניינים מינהליים, אשר מסמיך את בית המשפט לעניינים מינהליים לדון בעתירה שעניינה החלטה של רשות בענייני &#34;מינהל אוכלוסין, עובדים זרים ומסתננים&#34;, אשר ניתנה, בין היתר, מכוחו של חוק עובדים זרים. ודוק: &#34;החלטה של רשות&#34; לפי חוק עובדים זרים כאמור בפרט 12(4) לתוספת הראשונה לחוק, כוללת בחובה גם החלטה לעניין נוהלים. משכך, ברי הוא, כי גם החלטה בענייני נוהל נתונה תחת שבט ביקורתו השיפוטית של בית משפט לעניינים מינהליים (ראו בג&#34;ץ 6227/07 נבות נ&#39; שר התעשיה (31.7.2007)). למותר לציין כי בית משפט לעניינים מינהליים יוכל להידרש לכל הטענות המועלות במסגרת העתירה דנן, אשר נלוות לסוגיה העומדת בליבה, ובכללן אלו המכוונות לשאלת פרשנותו של סעיף 30 לפקודת הראיות ולהיותו, כביכול, ארכאי. בנסיבות העניין, היות שלעותרים עומד סעד חלופי אין מקום שבית משפט זה, בשבתו כבית משפט גבוה לצדק, יידרש לעתירה בגדר סמכותו המקבילה (השוו: בג&#34;ץ 2325/10 אלכסנדר נ&#39; משרד הפנים (3.12.2013); ובג&#34;ץ 878/09 גאיסינסקי נ&#39; שר הפנים (4.2.2009)). קביעה זו מתיישבת היטב עם המגמה הכוללת אשר עמדה ביסוד חקיקתו של חוק בתי משפט לעניינים מינהליים: העברה הדרגתית של הסמכות לדון בעניינים מינהליים מבג&#34;ץ לבתי המשפט המחוזיים בשבתם כבתי משפט לעניינים מינהליים (ראו סעיף 1 לחוק בתי משפט לעניינים מינהליים; בג&#34;ץ 8071/01 יעקובוביץ נ&#39; היועץ המשפטי לממשלה, פ&#34;ד נז(1) 121, פסקאות 13-11 (18.11.2002); ודפנה ברק-ארז משפט מינהלי כרך ד 222 (2017)). חוק זה אומנם לא גרע מסמכותו המקבילה של בג&#34;ץ לדון בעניינים מינהליים שפורטו בו, אך ככלל יש לשמרה למקרים חריגים בלבד שבהם עולות שאלות משפטיות עקרוניות החשובות למערכת המשפט בכללותה (שם, עמ&#39; 234-233). 
-
-
+המתכונת הדיונית אשר מתאימה לבירור טענותיהם של העותרים בכל הקשור לשחרור כספי הפיקדון של העובדים הזרים, היא הגשת עתירה לבית משפט לעניינים מינהליים. זאת, בהתאם לסעיף 5(1) בצירוף פרט 12(4) לתוספת הראשונה לחוק בתי משפט לעניינים מינהליים, אשר מסמיך את בית המשפט לעניינים מינהליים לדון בעתירה שעניינה החלטה של רשות בענייני &#34;מינהל אוכלוסין, עובדים זרים ומסתננים&#34;, אשר ניתנה, בין היתר, מכוחו של חוק עובדים זרים. ודוק: &#34;החלטה של רשות&#34; לפי חוק עובדים זרים כאמור בפרט 12(4) לתוספת הראשונה לחוק, כוללת בחובה גם החלטה לעניין נוהלים. משכך, ברי הוא, כי גם החלטה בענייני נוהל נתונה תחת שבט ביקורתו השיפוטית של בית משפט לעניינים מינהליים (ראו בג&#34;ץ 6227/07 נבות נ&#39; שר התעשיה (31.7.2007)). למותר לציין כי בית משפט לעניינים מינהליים יוכל להידרש לכל הטענות המועלות במסגרת העתירה דנן, אשר נלוות לסוגיה העומדת בליבה, ובכללן אלו המכוונות לשאלת פרשנותו של סעיף 30 לפקודת הראיות ולהיותו, כביכול, ארכאי. בנסיבות העניין, היות שלעותרים עומד סעד חלופי אין מקום שבית משפט זה, בשבתו כבית משפט גבוה לצדק, יידרש לעתירה בגדר סמכותו המקבילה (השוו: בג&#34;ץ 2325/10 אלכסנדר נ&#39; משרד הפנים (3.12.2013); ובג&#34;ץ 878/09 גאיסינסקי נ&#39; שר הפנים (4.2.2009)). קביעה זו מתיישבת היטב עם המגמה הכוללת אשר עמדה ביסוד חקיקתו של חוק בתי משפט לעניינים מינהליים: העברה הדרגתית של הסמכות לדון בעניינים מינהליים מבג&#34;ץ לבתי המשפט המחוזיים בשבתם כבתי משפט לעניינים מינהליים (ראו סעיף 1 לחוק בתי משפט לעניינים מינהליים; בג&#34;ץ 8071/01 יעקובוביץ נ&#39; היועץ המשפטי לממשלה, פ&#34;ד נז(1) 121, פסקאות 13-11 (18.11.2002); ודפנה ברק-ארז משפט מינהלי כרך ד 222 (2017)). חוק זה אומנם לא גרע מסמכותו המקבילה של בג&#34;ץ לדון בעניינים מינהליים שפורטו בו, אך ככלל יש לשמרה למקרים חריגים בלבד שבהם עולות שאלות משפטיות עקרוניות החשובות למערכת המשפט בכללותה (שם, עמ&#39; 234-233).
 
 המקרה שלפנינו אינו מעורר שום שאלה כזאת ועל כן איננו נופל בגדרו של החריג. אוסיף, למעלה מן הנדרש, כי ניסיון החיים מלמד שסעיף 30 לפקודת הראיות לא מטיל גזירות שהציבור לא יכול לעמוד בהן. אוסיף גם, כי סעיף זה חוקק שנים רבות לפני חוקי היסוד, והוא ממילא לא פוגע בשום זכות חוקתית (חרף גילו המופלג). כמו כן אוסיף את המובן מאליו: פסק דיננו זה לא יחסום שום טענה שבדעת העותרים להעלותה לפני בית המשפט לעניינים מינהליים.
 
-
-
 הנני מציע אפוא לחבריי כי נדחה עתירה זו על הסף בשל קיומו של סעד חלופי וכי נחייב את העותר 1 בהוצאות בסך של 3,000 ₪ לטובת אוצר המדינה.
 
-
-
-
-
-	ניתן היום, ‏ב&#39; באדר א התשע&#34;ט (‏7.2.2019).
-
-
-
-
-
-
+ניתן היום, ‏ב&#39; באדר א התשע&#34;ט (‏7.2.2019).
 
 ש ו פ ט ת
 
@@ -1690,23 +1889,11 @@
 
 ש ו פ ט
 
-
-
 _________________________
 
-   18086200_F04.docx   עב
+18086200_F04.docx עב
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1725,7 +1912,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

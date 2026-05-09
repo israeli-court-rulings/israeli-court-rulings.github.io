@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    19/10/2004 (לפני 7868 ימים)
+                    19/10/2004 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5022-04.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5022/04 - אברהם ברונר נ. אברהם סמט"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5022-04.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/220/050/A01&amp;fileName=04050220_A01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/220/050/A01&amp;fileName=04050220_A01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/220/050/A01&amp;fileName=04050220_A01.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/220/050/A01&amp;fileName=04050220_A01.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1568,8 +1839,7 @@
 
 המערערים:
 
-1. אברהם
-ברונר
+1. אברהם ברונר
 
 2. גבריאל רוזנברג
 
@@ -1579,107 +1849,35 @@
 
 אברהם סמט
 
-ערעור על החלטת בית-משפט השלום בירושלים מיום 18.5.04
-בבש&#34;א 3939/03 שניתנה על-ידי כבוד סגן-הנשיא י&#39; שמעוני
+ערעור על החלטת בית-משפט השלום בירושלים מיום 18.5.04 בבש&#34;א 3939/03 שניתנה על-ידי כבוד סגן-הנשיא י&#39; שמעוני
 
 פסק-דין
 
-ערעור
-על החלטת בית משפט השלום בירושלים (סגן הנשיא י&#39; שמעוני) מיום 18.5.04 שלא לפסול
-עצמו מלשבת בבש&#34;א 3939/03.
+ערעור על החלטת בית משפט השלום בירושלים (סגן הנשיא י&#39; שמעוני) מיום 18.5.04 שלא לפסול עצמו מלשבת בבש&#34;א 3939/03.
 
-1. בין הצדדים מתנהלים הליכים משפטיים
-שעניינם עבודות בנייה המבוצעות בפרויקט בנייה בירושלים. בין היתר, הגיש המשיב,
-המתגורר בבית שכן, תובענה לבית משפט השלום בירושלים כנגד מספר דיירים וכנגד מבצעי
-העבודות (ת.א. 3769/04). במסגרת התובענה הוצא (ביום 4.3.04) צו מניעה זמני כנגד
-המשך עבודות הבנייה. משלא פסקו עבודות הבנייה הגיש המשיב שתי בקשות לפי פקודת
-בזיון בית המשפט כנגד המערערים ומספר דיירים נוספים (בש&#34;א 3465/04 ובש&#34;א
-3646/04). בית המשפט (השופט ר&#39; יעקובי) הטיל (ביום 21.4.04) קנס על תנאי בסכום של
-15,000 ש&#34;ח לכל יום של הפרת צו המניעה וקבע כי על המערערים ועל דייר נוסף
-ליתן טעם מדוע לא יוטל עליהם קנס בפועל ומדוע לא יורה בית המשפט על הריסת כל הבנייה
-אשר התבצעה לאחר מתן צו המניעה. בין לבין, המשיב הגיש בקשה נוספת לפי פקודת בזיון
-בית המשפט (בש&#34;א 3939/04) בנוגע להפרות נוספות של צו המניעה. בהחלטתו (מיום
-9.5.04), שנשאה את הכותרת בש&#34;א 3939/04, דחה בית המשפט את עמדת המערערים
-(בבש&#34;א 3465/04 ובבש&#34;א 3646/04) והחליט לכוף קנס של 70,000 ש&#34;ח על
-המערערים ועל דייר נוסף, אשר אי תשלומו יוביל לשלושה ימי מאסר. כן נקבע, כי הדיון
-בבש&#34;א 3939/04 יתנהל בפני שופט תורן וזאת עקב יציאת השופט ר&#39; יעקובי לשבתון.
-מנוסח ההחלטה לא ברור האם החלטת בית המשפט מתייחסת לכל שלושת הבקשות לפי פקודת
-בזיון בית המשפט או רק לשתיים המוקדמות בזמן. המשך הטיפול בהפרת צו המניעה הועבר
-לידיו של השופט התורן, סגן הנשיא י&#39; שמעוני. בית משפט השלום (סגן הנשיא י&#39; שמעוני)
-קיים דיון בעניינו של המערער 1 בלבד, משלא התייצב המערער 2 עקב מחלה. בהחלטתו,
-המתייחסת למערער 1, קבע (ביום 13.5.04) כי:
+1. בין הצדדים מתנהלים הליכים משפטיים שעניינם עבודות בנייה המבוצעות בפרויקט בנייה בירושלים. בין היתר, הגיש המשיב, המתגורר בבית שכן, תובענה לבית משפט השלום בירושלים כנגד מספר דיירים וכנגד מבצעי העבודות (ת.א. 3769/04). במסגרת התובענה הוצא (ביום 4.3.04) צו מניעה זמני כנגד המשך עבודות הבנייה. משלא פסקו עבודות הבנייה הגיש המשיב שתי בקשות לפי פקודת בזיון בית המשפט כנגד המערערים ומספר דיירים נוספים (בש&#34;א 3465/04 ובש&#34;א 3646/04). בית המשפט (השופט ר&#39; יעקובי) הטיל (ביום 21.4.04) קנס על תנאי בסכום של 15,000 ש&#34;ח לכל יום של הפרת צו המניעה וקבע כי על המערערים ועל דייר נוסף ליתן טעם מדוע לא יוטל עליהם קנס בפועל ומדוע לא יורה בית המשפט על הריסת כל הבנייה אשר התבצעה לאחר מתן צו המניעה. בין לבין, המשיב הגיש בקשה נוספת לפי פקודת בזיון בית המשפט (בש&#34;א 3939/04) בנוגע להפרות נוספות של צו המניעה. בהחלטתו (מיום 9.5.04), שנשאה את הכותרת בש&#34;א 3939/04, דחה בית המשפט את עמדת המערערים (בבש&#34;א 3465/04 ובבש&#34;א 3646/04) והחליט לכוף קנס של 70,000 ש&#34;ח על המערערים ועל דייר נוסף, אשר אי תשלומו יוביל לשלושה ימי מאסר. כן נקבע, כי הדיון בבש&#34;א 3939/04 יתנהל בפני שופט תורן וזאת עקב יציאת השופט ר&#39; יעקובי לשבתון. מנוסח ההחלטה לא ברור האם החלטת בית המשפט מתייחסת לכל שלושת הבקשות לפי פקודת בזיון בית המשפט או רק לשתיים המוקדמות בזמן. המשך הטיפול בהפרת צו המניעה הועבר לידיו של השופט התורן, סגן הנשיא י&#39; שמעוני. בית משפט השלום (סגן הנשיא י&#39; שמעוני) קיים דיון בעניינו של המערער 1 בלבד, משלא התייצב המערער 2 עקב מחלה. בהחלטתו, המתייחסת למערער 1, קבע (ביום 13.5.04) כי:
 
-&#34;שמעתי טענות ב&#34;כ הצדדים ועיינתי עיון מעמיק בכל המסמכים,
-הן בתיק העיקרי והן בתיקים בהליכי הביניים. אין חולק כי העבודות בפרויקט נשוא
-התביעה והבקשה נמשכות מזה זמן רב, תוך הפרה בוטה ומתמשכת של כל המשיבים ובכלל זה
-המשיב שלפנינו. בית משפט זה נתן החלטותיו ביום 1.3.04, 4.3.04, 15.3.04, 21.3.04
-ולאחרונה ב- 9.5.04. בהחלטה זו כאמור הוטל על המשיב קנס כספי ואם לא ישולם, יאסר
-למשך 3 ימים.
+&#34;שמעתי טענות ב&#34;כ הצדדים ועיינתי עיון מעמיק בכל המסמכים, הן בתיק העיקרי והן בתיקים בהליכי הביניים. אין חולק כי העבודות בפרויקט נשוא התביעה והבקשה נמשכות מזה זמן רב, תוך הפרה בוטה ומתמשכת של כל המשיבים ובכלל זה המשיב שלפנינו. בית משפט זה נתן החלטותיו ביום 1.3.04, 4.3.04, 15.3.04, 21.3.04 ולאחרונה ב- 9.5.04. בהחלטה זו כאמור הוטל על המשיב קנס כספי ואם לא ישולם, יאסר למשך 3 ימים.
 
-חרף כל ההחלטות שניתנו, העבודות בפרויקט נמשכו, תוך הפרת צווי בית
-המשפט ותוך ביזויים.
+חרף כל ההחלטות שניתנו, העבודות בפרויקט נמשכו, תוך הפרת צווי בית המשפט ותוך ביזויים.
 
-כפי שציינתי, מדובר בהפרות בוטות, תוך רמיסת החוק. כל משיבים, ובכלל
-זה המשיב שבפנינו [המערער 1- א.ב.], מתעלמים באופן מכוון מההחלטות וממשיכים בביצוע
-העבודות. לאחרונה אף פנו לבד&#34;צ, על מנת לגרור את המבקש [המשיב- א.ב.] לדיון
-בפניו וכל זאת לע מנת למשוך את ההליכים ולאפשר סיום הליכי הבניה.
+כפי שציינתי, מדובר בהפרות בוטות, תוך רמיסת החוק. כל משיבים, ובכלל זה המשיב שבפנינו [המערער 1- א.ב.], מתעלמים באופן מכוון מההחלטות וממשיכים בביצוע העבודות. לאחרונה אף פנו לבד&#34;צ, על מנת לגרור את המבקש [המשיב- א.ב.] לדיון בפניו וכל זאת לע מנת למשוך את ההליכים ולאפשר סיום הליכי הבניה.
 
-יודגש כי לכל עבודות הבניה אין היתר ואף הוצא צו הריסה על ידי רשויות
-התכנון.&#34;
+יודגש כי לכל עבודות הבניה אין היתר ואף הוצא צו הריסה על ידי רשויות התכנון.&#34;
 
-עוד קבע בית המשפט בהחלטתו, כי המערער 1
-הפר את צווי בית המשפט המחייבים אותו בתשלום קנסות על ביצוע עבודות הבנייה בניגוד
-לצו המניעה והחליט לכוף עליו שלושה ימי מאסר.
+עוד קבע בית המשפט בהחלטתו, כי המערער 1 הפר את צווי בית המשפט המחייבים אותו בתשלום קנסות על ביצוע עבודות הבנייה בניגוד לצו המניעה והחליט לכוף עליו שלושה ימי מאסר.
 
-2. המערערים הגישו (ביום 18.5.04) בקשה לפסול
-את בית המשפט מלדון בעניינם. לטענתם, בית המשפט גיבש את עמדתו השלילית לגביהם, כפי
-שהדברים באו לידי ביטוי בהחלטתו (מיום 13.5.04). המשיב טען בתגובה, כי אין עילה
-לבקשת הפסילה וכי כל מטרתה היא לעכב את המשך ההליכים בתיק ובכך לאפשר את המשך
-עבודות הבנייה. בית המשפט דחה (ביום 18.5.04) את הבקשה. נקבע, כי החלטתו נסמכת על
-קביעותיו של השופט ר&#39; יעקובי בעניינם של המערערים ומכל מקום כלל לא התגבשה עילה
-לפסילתו. עוד ציין בית המשפט, כי החלטתו ניתנה במסגרת של שופט תורן הדן בבקשות לפי
-פקודת ביזיון בית משפט וכי אינו מביע כל עמדה ביחס לתובענה המתנהלת בין הצדדים
-בפני השופט ר&#39; יעקובי.
+2. המערערים הגישו (ביום 18.5.04) בקשה לפסול את בית המשפט מלדון בעניינם. לטענתם, בית המשפט גיבש את עמדתו השלילית לגביהם, כפי שהדברים באו לידי ביטוי בהחלטתו (מיום 13.5.04). המשיב טען בתגובה, כי אין עילה לבקשת הפסילה וכי כל מטרתה היא לעכב את המשך ההליכים בתיק ובכך לאפשר את המשך עבודות הבנייה. בית המשפט דחה (ביום 18.5.04) את הבקשה. נקבע, כי החלטתו נסמכת על קביעותיו של השופט ר&#39; יעקובי בעניינם של המערערים ומכל מקום כלל לא התגבשה עילה לפסילתו. עוד ציין בית המשפט, כי החלטתו ניתנה במסגרת של שופט תורן הדן בבקשות לפי פקודת ביזיון בית משפט וכי אינו מביע כל עמדה ביחס לתובענה המתנהלת בין הצדדים בפני השופט ר&#39; יעקובי.
 
-3. על החלטת בית משפט השלום שלא לפסול עצמו
-הוגש הערעור שבפני. המערערים חוזרים על טענתם ומוסיפים לה טענות על יחסו השלילי של
-בית המשפט, כפי שהוא התבטא, בין היתר, בהוצאות שהשית עליהם (בהחלטתו מיום 18.5.04)
-ובדחייתו את בקשת המערער 1 לעכב את ביצוע המאסר שהושת עליו. כן טוענים המערערים,
-כי השופט ר&#39; יעקובי העביר לסגן הנשיא י&#39; שמעוני את הטיפול בבש&#34;א 3939/04 בלבד
-ולא בבקשות האחרות (בש&#34;א 3465/04 ובש&#34;א 3646/04) ולכן החלטתו ניתנה ללא
-סמכות. לטענתם, החלטותיו של בית המשפט בעניינם מקימות חשש ממשי למשוא פנים המצדיק
-את פסילתו.
+3. על החלטת בית משפט השלום שלא לפסול עצמו הוגש הערעור שבפני. המערערים חוזרים על טענתם ומוסיפים לה טענות על יחסו השלילי של בית המשפט, כפי שהוא התבטא, בין היתר, בהוצאות שהשית עליהם (בהחלטתו מיום 18.5.04) ובדחייתו את בקשת המערער 1 לעכב את ביצוע המאסר שהושת עליו. כן טוענים המערערים, כי השופט ר&#39; יעקובי העביר לסגן הנשיא י&#39; שמעוני את הטיפול בבש&#34;א 3939/04 בלבד ולא בבקשות האחרות (בש&#34;א 3465/04 ובש&#34;א 3646/04) ולכן החלטתו ניתנה ללא סמכות. לטענתם, החלטותיו של בית המשפט בעניינם מקימות חשש ממשי למשוא פנים המצדיק את פסילתו.
 
-4. לאחר שעיינתי בחומר שבפני, הגעתי למסקנה
-כי דין הערעור להידחות. טענות המערערים מכוונות כנגד החלטותיו של בית המשפט במסגרת
-ההליכים המתנהלים בין המערערים למשיב. השאלה העומדת לדיון היא, האם יש בהחלטותיו
-של בית המשפט משום גיבוש עמדה סופית היוצרת חשש ממשי למשוא פנים. כפי שכבר נקבע
-בפסיקה, סופיות העמדה נגזרת מן האופן שבו הובעה ומן המסגרת הדיונית בה הובעה
-והוכרעה (ראו: בג&#34;ץ 2148/94 גלברט נ&#39; יושב ראש ועדת
-החקירה, פ&#34;ד מח(3) 573, 588-589, 604-606; ע&#34;פ 1988/94 בראון נ&#39; מדינת ישראל, פ&#34;ד מח(3) 608, 625; ע&#34;א
-1016/97 פייקוב נ&#39; פייקוב-תמיר (לא
-פורסם)). החלטתו של בית המשפט (מיום 13.5.04) ניתנה במסגרתם של הליכים שעניינם
-הפרת צווי בתי משפט (צו מניעה וצווים בהתאם לפקודת בזיון בית המשפט). עובדת הפרתם
-של צווים אלה נקבעה במספר החלטות קודמות (מפי השופט ר&#39; יעקובי). אכן, סגן הנשיא י&#39;
-שמעוני לא קבע ממצא חדש שלא נקבע בהחלטות הקודמות, ביחס להפרת צווי בית המשפט.
-החלטתו עוסקת בשאלה, האם שילם המערער 1 את הקנס שהטיל עליו השופט ר&#39; יעקובי (ביום
-9.5.04) בגין הפרת צווי בית משפט. אין היא קובעת, כי המערערים הפרו צווי בית משפט
-ובכללם את הצו המטיל עליהם תשלום קנס. אכן, קביעה זו נעשתה בעבר ועל בסיסה ניתנה
-ההחלטה נוכחית. לפיכך, לא שוכנעתי בקיומה של עילה בדין לפסילתו של בית המשפט. אף
-בטענות הנוספות אותן העלו המערערים אין כדי להקים עילה לפסילתו של בית המשפט. כפי
-שנפסק לא אחת, הדרך לתקיפת החלטות אלה היא על ידי הגשת ערעור או רשות ערעור (בהתאם
-לסדרי הדין) ולא באמצעות בקשה לפסלות שופט. את הביקורת יש להפנות לגופה של ההחלטה
-(ראו: ע&#34;א 1557/96 אלעני נ&#39; טוויל (לא פורסם);
-ע&#34;א 7186/98 מלול נ&#39; ג&#39;אן (לא פורסם);
-ע&#34;א 8681/03 בורנשטיין נ&#39; סטולמן (לא פורסם)).
+4. לאחר שעיינתי בחומר שבפני, הגעתי למסקנה כי דין הערעור להידחות. טענות המערערים מכוונות כנגד החלטותיו של בית המשפט במסגרת ההליכים המתנהלים בין המערערים למשיב. השאלה העומדת לדיון היא, האם יש בהחלטותיו של בית המשפט משום גיבוש עמדה סופית היוצרת חשש ממשי למשוא פנים. כפי שכבר נקבע בפסיקה, סופיות העמדה נגזרת מן האופן שבו הובעה ומן המסגרת הדיונית בה הובעה והוכרעה (ראו: בג&#34;ץ 2148/94 גלברט נ&#39; יושב ראש ועדת החקירה, פ&#34;ד מח(3) 573, 588-589, 604-606; ע&#34;פ 1988/94 בראון נ&#39; מדינת ישראל, פ&#34;ד מח(3) 608, 625; ע&#34;א 1016/97 פייקוב נ&#39; פייקוב-תמיר (לא פורסם)). החלטתו של בית המשפט (מיום 13.5.04) ניתנה במסגרתם של הליכים שעניינם הפרת צווי בתי משפט (צו מניעה וצווים בהתאם לפקודת בזיון בית המשפט). עובדת הפרתם של צווים אלה נקבעה במספר החלטות קודמות (מפי השופט ר&#39; יעקובי). אכן, סגן הנשיא י&#39; שמעוני לא קבע ממצא חדש שלא נקבע בהחלטות הקודמות, ביחס להפרת צווי בית המשפט. החלטתו עוסקת בשאלה, האם שילם המערער 1 את הקנס שהטיל עליו השופט ר&#39; יעקובי (ביום 9.5.04) בגין הפרת צווי בית משפט. אין היא קובעת, כי המערערים הפרו צווי בית משפט ובכללם את הצו המטיל עליהם תשלום קנס. אכן, קביעה זו נעשתה בעבר ועל בסיסה ניתנה ההחלטה נוכחית. לפיכך, לא שוכנעתי בקיומה של עילה בדין לפסילתו של בית המשפט. אף בטענות הנוספות אותן העלו המערערים אין כדי להקים עילה לפסילתו של בית המשפט. כפי שנפסק לא אחת, הדרך לתקיפת החלטות אלה היא על ידי הגשת ערעור או רשות ערעור (בהתאם לסדרי הדין) ולא באמצעות בקשה לפסלות שופט. את הביקורת יש להפנות לגופה של ההחלטה (ראו: ע&#34;א 1557/96 אלעני נ&#39; טוויל (לא פורסם); ע&#34;א 7186/98 מלול נ&#39; ג&#39;אן (לא פורסם); ע&#34;א 8681/03 בורנשטיין נ&#39; סטולמן (לא פורסם)).
 
 5. אשר על כן, הערעור נדחה.
 
-ניתנה היום, ד&#39; בחשוון תשס&#34;ה
-(19.10.04)
+ניתנה היום, ד&#39; בחשוון תשס&#34;ה (19.10.04)
 
-ה
-נ ש י א
+ה נ ש י א
 
 _________________________
 
@@ -1704,7 +1902,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

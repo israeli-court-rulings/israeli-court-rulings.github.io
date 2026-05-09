@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    05/10/2006 (לפני 7152 ימים)
+                    05/10/2006 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1540,13 +1766,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/7244-04.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="7244/04 - נהיד פרהנגיאן נ&#39; מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F7244-04.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/072/20C&amp;fileName=04072440_20C.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/072/20C&amp;fileName=04072440_20C.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/072/20C&amp;fileName=04072440_20C.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/440/072/20C&amp;fileName=04072440_20C.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1559,11 +1830,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק בג&#34;ץ 7244/04
 
-בבית המשפט
-העליון בשבתו כבית משפט גבוה לצדק
+בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
-בג&#34;ץ
-7244/04
+בג&#34;ץ 7244/04
 
 בפני:
 
@@ -1575,8 +1844,7 @@
 
 העותרים:
 
-1. נהיד
-פרהנגיאן
+1. נהיד פרהנגיאן
 
 2. יהחיאל סוסן פרהנגיאן
 
@@ -1622,81 +1890,39 @@
 
 פסק-דין
 
-עניינה
-של עתירה זו בפרשיה כאובה: העלמם של 12 יהודים אירניים שניסו לעלות ארצה מאירן
-בשנת 1994 ו-1997 וגורלם לא נודע. בני משפחותיהם של הנעדרים, ומר יהודה כסיף
-שסיפורם נגע ללבו והוא נרתם בכל מרצו לסייע להם, טוענים לאזלת יד של המשיבה, ממשלת
-ישראל, בטיפול בפרשה. לטענתם, המשיבה איננה ממצה את כל הדרכים ומישורי הפעולה
-האפשריים לנסות לאתר ולשחרר את הנעדרים או למצער לקבל מידע בדבר גורלם. התבקשנו
-להורות למשיבה לפרט אלו צעדים נקטה עד כה כדי לקבל מידע אודות הנעדרים, ואם אין
-בכוחה לנקוט צעדים נוספים – להורות לה לנמק מדוע.
+עניינה של עתירה זו בפרשיה כאובה: העלמם של 12 יהודים אירניים שניסו לעלות ארצה מאירן בשנת 1994 ו-1997 וגורלם לא נודע. בני משפחותיהם של הנעדרים, ומר יהודה כסיף שסיפורם נגע ללבו והוא נרתם בכל מרצו לסייע להם, טוענים לאזלת יד של המשיבה, ממשלת ישראל, בטיפול בפרשה. לטענתם, המשיבה איננה ממצה את כל הדרכים ומישורי הפעולה האפשריים לנסות לאתר ולשחרר את הנעדרים או למצער לקבל מידע בדבר גורלם. התבקשנו להורות למשיבה לפרט אלו צעדים נקטה עד כה כדי לקבל מידע אודות הנעדרים, ואם אין בכוחה לנקוט צעדים נוספים – להורות לה לנמק מדוע.
 
-2. המדינה ציינה בתגובתה כי במהלך השנים נעשתה
-פעילות, לרבות פעילות חשאית, במטרה לנסות ולהגיע לפתרון תעלומת היעלמם של הנעדרים.
-פעילות זו כללה פניות לגורמים שונים כגון גורמים מדיניים ובטחוניים בעולם, שהוערך
-כי אפשר ויוכלו לפעול בנושא, וכן פנייה לארגוניים יהודיים ובינלאומיים שונים.
-למרבה הצער מאמצי המשיבה ופעילותה לא שפכו אור על הפרשה. גורל הנעדרים לא נודע עד
-היום. בדיון שהתקיים ביום 20.4.2005 בפני הרכב (הנשיא ברק, השופטת פרוקצ&#39;יה והשופט
-ג&#39;ובראן) עיין ההרכב, במעמד צד אחד בהסכמת ב&#34;כ העותרים, ברשימה מפורטת של
-פעולות שנעשו.
+2. המדינה ציינה בתגובתה כי במהלך השנים נעשתה פעילות, לרבות פעילות חשאית, במטרה לנסות ולהגיע לפתרון תעלומת היעלמם של הנעדרים. פעילות זו כללה פניות לגורמים שונים כגון גורמים מדיניים ובטחוניים בעולם, שהוערך כי אפשר ויוכלו לפעול בנושא, וכן פנייה לארגוניים יהודיים ובינלאומיים שונים. למרבה הצער מאמצי המשיבה ופעילותה לא שפכו אור על הפרשה. גורל הנעדרים לא נודע עד היום. בדיון שהתקיים ביום 20.4.2005 בפני הרכב (הנשיא ברק, השופטת פרוקצ&#39;יה והשופט ג&#39;ובראן) עיין ההרכב, במעמד צד אחד בהסכמת ב&#34;כ העותרים, ברשימה מפורטת של פעולות שנעשו.
 
-בעקבות העיון החליט ההרכב, באותה ישיבה לאפשר
-לב&#34;כ המשיבה לעבור על כל החומר שהוצג במעמד צד אחד, ולמסור חלקים ממנו לבאת
-כוח העותרים. עוד הוחלט ביוזמת בית המשפט לבחון את האפשרות של מינוי מתאם מטעם ראש
-הממשלה שיתאם את פעולות כל הגורמים בעניין נשוא העתירה. המדינה מסרה בעקבות החלטה
-זו הודעה ובה פירוט, ככל שיכלה למסור באופן גלוי, על פעולותיה, וכן הודע על מינויו
-של מתאם ומינויו של איש קשר בין המדינה לבין העותרים.
+בעקבות העיון החליט ההרכב, באותה ישיבה לאפשר לב&#34;כ המשיבה לעבור על כל החומר שהוצג במעמד צד אחד, ולמסור חלקים ממנו לבאת כוח העותרים. עוד הוחלט ביוזמת בית המשפט לבחון את האפשרות של מינוי מתאם מטעם ראש הממשלה שיתאם את פעולות כל הגורמים בעניין נשוא העתירה. המדינה מסרה בעקבות החלטה זו הודעה ובה פירוט, ככל שיכלה למסור באופן גלוי, על פעולותיה, וכן הודע על מינויו של מתאם ומינויו של איש קשר בין המדינה לבין העותרים.
 
-3. בתגובה להודעת המדינה טענו העותרים כי
-עודם מגששים באפילה, והם ביקשו שהמדינה תשיב על 44 שאלות בעניין המידע שברשותה,
-פעולותיה בעבר ובעתיד, הכל כמפורט בתגובה. על טענות אלה חזרו העותרים בדיון שקיימנו
-ביום 27.9.2006.
+3. בתגובה להודעת המדינה טענו העותרים כי עודם מגששים באפילה, והם ביקשו שהמדינה תשיב על 44 שאלות בעניין המידע שברשותה, פעולותיה בעבר ובעתיד, הכל כמפורט בתגובה. על טענות אלה חזרו העותרים בדיון שקיימנו ביום 27.9.2006.
 
-4. בדיון שקיימנו כאמור עיינו, אף אנו, בחומר
-החסוי בו עיין ההרכב הקודם, ואף שמענו הסברים נוספים במעמד צד אחד. נציגי המשיבה
-הבטיחו נאמנה במהלך הדיון על פה, וכך נמסר לעותרים בדיון, כי כל מידע מהותי שיתקבל,
-ככל שיתקבל, אודות הנעדרים יימסר גם לעותרים. כן הבהירו נציגי המדינה כי מידעים
-שונים שהעבירו העותרים נבדקו כולם, וישנה נכונות לשוב ולבחון אותם. המדינה הבהירה
-עוד כי אין לה התנגדות לכל פעילות גלויה של העותרים כמו גם לפרסום הליך זה למעט אותם
-העניינים שנמסרו בדלתיים סגורות במעמד צד אחד. לאור האמור מוסר בזה צו איסור
-הפרסום מההליך לרבות פסק דיננו זה, צו לו התנגדו העותרים מלכתחילה.
+4. בדיון שקיימנו כאמור עיינו, אף אנו, בחומר החסוי בו עיין ההרכב הקודם, ואף שמענו הסברים נוספים במעמד צד אחד. נציגי המשיבה הבטיחו נאמנה במהלך הדיון על פה, וכך נמסר לעותרים בדיון, כי כל מידע מהותי שיתקבל, ככל שיתקבל, אודות הנעדרים יימסר גם לעותרים. כן הבהירו נציגי המדינה כי מידעים שונים שהעבירו העותרים נבדקו כולם, וישנה נכונות לשוב ולבחון אותם. המדינה הבהירה עוד כי אין לה התנגדות לכל פעילות גלויה של העותרים כמו גם לפרסום הליך זה למעט אותם העניינים שנמסרו בדלתיים סגורות במעמד צד אחד. לאור האמור מוסר בזה צו איסור הפרסום מההליך לרבות פסק דיננו זה, צו לו התנגדו העותרים מלכתחילה.
 
-5. חוששתני שמעבר לקבלת אינפורמציה מהמדינה
-וחשיפת חלק ממנה בפני העותרים, לא נוכל לסייע לעותרים. הנסיון מלמד כי אין בכגון
-דא מתכון בטוח להצלחה או, חלילה לכשלון. העובדה שהמדינה לא הצליחה עד כה להשיג
-מידע על הנעדרים אין משמעותה שישנה אוזלת יד מצדה ואין היא מעידה על אדישות לגורל
-הנעדרים. חיסוי הפעולות אף הוא אינו בגדר חיפוי על מחדלים. העותרים, במר לבם,
-משליכים יהבם על כך שבית משפט זה ימצא מזור לבעייתם. למרבה הצער אין לבית המשפט
-כלים לפתרון תעלומת היעלמם של הנעדרים, והלוואי ואלה ישובו לחיק משפחותיהם בהקדם.
+5. חוששתני שמעבר לקבלת אינפורמציה מהמדינה וחשיפת חלק ממנה בפני העותרים, לא נוכל לסייע לעותרים. הנסיון מלמד כי אין בכגון דא מתכון בטוח להצלחה או, חלילה לכשלון. העובדה שהמדינה לא הצליחה עד כה להשיג מידע על הנעדרים אין משמעותה שישנה אוזלת יד מצדה ואין היא מעידה על אדישות לגורל הנעדרים. חיסוי הפעולות אף הוא אינו בגדר חיפוי על מחדלים. העותרים, במר לבם, משליכים יהבם על כך שבית משפט זה ימצא מזור לבעייתם. למרבה הצער אין לבית המשפט כלים לפתרון תעלומת היעלמם של הנעדרים, והלוואי ואלה ישובו לחיק משפחותיהם בהקדם.
 
-6. איננו רואים מנוס אלא לקבוע שמעבר למה
-שנעשה עד כה, במסגרת עתירה זו כפי שפורט - הסתיים הדיון בעתירה.
+6. איננו רואים מנוס אלא לקבוע שמעבר למה שנעשה עד כה, במסגרת עתירה זו כפי שפורט - הסתיים הדיון בעתירה.
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
 השופט ס&#39; ג&#39;ובראן:
 
 אני מסכים.
 
-ש
-ו פ ט
+ש ו פ ט
 
 השופטת ד&#39; ברלינר:
 
 אני מסכימה.
 
-ש
-ו פ ט ת
+ש ו פ ט ת
 
-הוחלט כאמור בפסק דינה של השופטת מ&#39;
-נאור.
+הוחלט כאמור בפסק דינה של השופטת מ&#39; נאור.
 
-ניתן היום, י&#34;ג בתשרי תשס&#34;ז
-(5.10.2006).
+ניתן היום, י&#34;ג בתשרי תשס&#34;ז (5.10.2006).
 
-ש ו פ ט ת ש
-ו פ ט ש ו פ ט ת
+ש ו פ ט ת ש ו פ ט ש ו פ ט ת
 
 _________________________
 
@@ -1721,7 +1947,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

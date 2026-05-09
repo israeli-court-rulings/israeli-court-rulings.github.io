@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    19/02/2024 (לפני 806 ימים)
+                    19/02/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/1237-24.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="1237/24 - פלוני נ. משרד הבריאות"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F1237-24.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/370/012/o01&amp;fileName=24012370.O01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/370/012/o01&amp;fileName=24012370.O01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/370/012/o01&amp;fileName=24012370.O01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/24/370/012/o01&amp;fileName=24012370.O01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,171 +1827,87 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט לערעורים בעניינים מינהליים
 
+עע&#34;מ 1237/24
 
-
-
-
-1
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים בעניינים מינהליים
-
-
-
-עע&#34;מ  1237/24
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט נ&#39; סולברג
 
-
-
 כבוד השופט י&#39; אלרון
 
-
-
 כבוד השופטת י&#39; וילנר
-
-
 
 המערערת:
 
 פלונית
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבים:
 
 1. משרד הבריאות, היחידה לקנאביס רפואי
 
-
-
 2. יובל לנדשפט, ראש היק&#34;ר
 
-	
-
 ערעור על פסק דינו של בית המשפט המחוזי בירושלים, בשבתו כבית משפט לעניינים מינהליים, מיום 11.12.2023 בעת&#34;מ 16887-04-23, שניתן על-ידי כבוד השופט א&#39; דראל – סג&#34;נ; ובקשה לעיכוב ביצוע
-
-	
 
 בשם המערערת:
 
 עו&#34;ד חגי קלעי; עו&#34;ד גל בריר
 
-
-
 פסק-דין
-
-
 
 השופט נ&#39; סולברג:
 
-
-
-ערעור על פסק הדין של בית המשפט המחוזי בירושלים, בשבתו כבית משפט לעניינים מינהליים, מיום 11.12.2023, בעת&#34;מ 16887-04-23 (סגן הנשיא א&#39; דראל), שבו נדחתה עתירת המערערת לאפשר לה לעשות שימוש במינון גבוה של קנאביס רפואי על סמך המלצת רופא מטפל. זאת, מבלי לפנות לקבלת אישור מאת מנהל בית חולים, מנהל המערך הרלבנטי בבית חולים, או רופא מחוזי בקופת חולים, כפי שנדרש בנוהל הרלבנטי. 
-
-
+ערעור על פסק הדין של בית המשפט המחוזי בירושלים, בשבתו כבית משפט לעניינים מינהליים, מיום 11.12.2023, בעת&#34;מ 16887-04-23 (סגן הנשיא א&#39; דראל), שבו נדחתה עתירת המערערת לאפשר לה לעשות שימוש במינון גבוה של קנאביס רפואי על סמך המלצת רופא מטפל. זאת, מבלי לפנות לקבלת אישור מאת מנהל בית חולים, מנהל המערך הרלבנטי בבית חולים, או רופא מחוזי בקופת חולים, כפי שנדרש בנוהל הרלבנטי.
 
 רקע עובדתי ועיקרי פסק הדין של בית המשפט המחוזי
 
-המערערת, מתמודדת עם מחלה כרונית קשה, מחזיקה מזה שנים ארוכות ברישיון שימוש בקנאביס רפואי, במינון גבוה יחסית; 180 גרם לחודש. ביום 1.3.2023 הוארך רישיונה של המערערת למשך שנה נוספת. באותו מעמד הובהר לה, כי אם תחפוץ להאריך שוב את תוקף הרישיון, עליה לפעול על-פי הכללים הנהוגים. קרי: לפנות לקבלת אישור מאת מנהל בית חולים, מנהל המערך הרלבנטי בבית חולים, או רופא מחוזי, בקופת החולים שבה היא חברה (להלן: &#39;גורם מאשר&#39;), בהתאם להוראות נוהל &#39;רישיונות לשימוש בקנביס&#39;, שהיה בתוקף בעת ההיא (נוהל מס&#39; 106, גרסה 7, מחודש ינואר 2022) (להלן: הנוהל). 
-
-
+המערערת, מתמודדת עם מחלה כרונית קשה, מחזיקה מזה שנים ארוכות ברישיון שימוש בקנאביס רפואי, במינון גבוה יחסית; 180 גרם לחודש. ביום 1.3.2023 הוארך רישיונה של המערערת למשך שנה נוספת. באותו מעמד הובהר לה, כי אם תחפוץ להאריך שוב את תוקף הרישיון, עליה לפעול על-פי הכללים הנהוגים. קרי: לפנות לקבלת אישור מאת מנהל בית חולים, מנהל המערך הרלבנטי בבית חולים, או רופא מחוזי, בקופת החולים שבה היא חברה (להלן: &#39;גורם מאשר&#39;), בהתאם להוראות נוהל &#39;רישיונות לשימוש בקנביס&#39;, שהיה בתוקף בעת ההיא (נוהל מס&#39; 106, גרסה 7, מחודש ינואר 2022) (להלן: הנוהל).
 
 המערערת, מסיבה שלא הובררה, סירבה לעשות כן. חלף פנייה לקבלת אישור מאת &#39;גורם מאשר&#39;, פנתה המערערת למשיבים בדרישה לקבלת רישיון ב&#39;דרך עוקפת&#39;, על סמך המלצת הרופא המטפל, מבלי לקבל אישור &#39;גורם מאשר&#39;. לאחר שבועיים-ימים, בטרם ניתן מענה מאת המשיבים, הגישה המערערת עתירה מינהלית. ביום 11.12.2023 התקיים דיון בעתירה. בו ביום ניתן פסק הדין של בית המשפט המחוזי. העתירה – נדחתה. תחילה צוין, כי נוכח דחיית טענות המערערת לגופן, נמנע בית המשפט מלהידרש לטענת הסף של המשיבים, שלפיה העתירה הוגשה מבלי למצות הליכים כדבעי. כמו כן, נדחו טענות המערערת בדבר קיומו של &#39;השתק שיפוטי&#39;. לגוף הענין נקבע, כי &#34;באשר לעצם הדרישה המופנית [למערערת] להצטייד באישור מנהל רפואי מחוזי של קופת החולים שבה היא חברה, הרי שזו נובעת מהנוהל, ולא מצאתי בה כל פגם [...]. הסמכות ושיקול הדעת הם של הרשות המנהלית, וזו אמורה לתת את הרישיון ולקבוע את המינון על יסוד תשתית ראייתית כפי שתמצא לנכון. לצורך התוויית שיקול הדעת, קבעו המשיבים את נוהל &#39;רישיונות לשימוש בקנביס&#39;, שמספרו 106, [והוא] מעודכן מעת לעת&#34;. בית המשפט המחוזי הוסיף ועמד על דרישות הנוהל העדכניות, שלפיהן נדרשת המלצת רופא &#39;מומחה&#39;, ולאחר מכן אישור &#39;גורם מאשר&#39;. נוכח האמור נפסק, כי &#34;דרישת המשיבים בנוהל לפיה האישור יינתן על ידי בעל תפקיד בהווה, כמו גם הדרישה לבחינה כפולה – של רופא ממליץ ושל דרג בכיר מאשר – אינה מקימה עילה להתערבות בשיקול דעתם של המשיבים, ואינה מלמדת על התעמרות [במערערת] כטענתה&#34;. לבסוף הודגש, כי &#34;המשיבים אפשרו פרק זמן של שנה לצורך הצגת האישור, ודומה כי חלף פנייה לבית המשפט ניתן היה לפנות לגורם מאשר לקבלת האישור, ולייתר את העתירה&#34;.
 
-
-
-	מכאן הערעור שלפנינו. יחד עם הערעור הוגשה בקשה למתן צו ביניים, &#39;צו עשה זמני&#39;, המורה למשיבים להמשיך ולהעניק למערערת רישיון שימוש בקנאביס רפואי, במינון של 180 גרם לחודש, עד להכרעה בערעור. 
-
-
+מכאן הערעור שלפנינו. יחד עם הערעור הוגשה בקשה למתן צו ביניים, &#39;צו עשה זמני&#39;, המורה למשיבים להמשיך ולהעניק למערערת רישיון שימוש בקנאביס רפואי, במינון של 180 גרם לחודש, עד להכרעה בערעור.
 
 טענות המערערת
 
-תחילה טוענת המערערת, כי חלק מטענותיה לא זכה למענה בפסק הדין של בית המשפט המחוזי. עוד טוענת המערערת, כי הנחיות הנוהל אינן יכולות לפטור את הרשות המינהלית מחובתה לשקול כל מקרה לגופו. המערערת מוסיפה ותוקפת את הוראות הנוהל גופו, וטוענת כי דינו להתבטל מהטעם שהוא אינו עולה בקנה אחד עם חוק זכויות החולה, התשנ&#34;ו-1996. לבסוף טוענת המערערת, כי בניגוד לקביעות פסק הדין של בית המשפט המחוזי, הרי שהחלטת המשיבים לוקה בשרירותיות חמורה, אינה סבירה, ובלתי-מידתית. 
-
-
+תחילה טוענת המערערת, כי חלק מטענותיה לא זכה למענה בפסק הדין של בית המשפט המחוזי. עוד טוענת המערערת, כי הנחיות הנוהל אינן יכולות לפטור את הרשות המינהלית מחובתה לשקול כל מקרה לגופו. המערערת מוסיפה ותוקפת את הוראות הנוהל גופו, וטוענת כי דינו להתבטל מהטעם שהוא אינו עולה בקנה אחד עם חוק זכויות החולה, התשנ&#34;ו-1996. לבסוף טוענת המערערת, כי בניגוד לקביעות פסק הדין של בית המשפט המחוזי, הרי שהחלטת המשיבים לוקה בשרירותיות חמורה, אינה סבירה, ובלתי-מידתית.
 
 דיון והכרעה
 
-לאחר שעיינתי בערעור, על נספחיו, ושקלתי את נימוקיו, באתי לכלל מסקנה כי דין הערעור – להידחות, ללא צורך בתשובה מאת המשיבים. זאת, בהתאם לסמכותנו שלפי תקנה 138(א)(1) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018 (להלן: תקסד&#34;א), שחלה על ההליך שלפנינו מכוחה של תקנה 34(א) לתקנות בתי משפט לענינים מינהליים (סדרי דין), התשס&#34;א-2000 (להלן: תקנות בתי משפט לעניינים מינהליים). אף אם אתעלם מטענות הסף שהעלו המשיבים בבית המשפט המחוזי, הרי שצדק בית המשפט המחוזי במסקנתו, כי יש להורות על דחיית העתירה. 
-
-
+לאחר שעיינתי בערעור, על נספחיו, ושקלתי את נימוקיו, באתי לכלל מסקנה כי דין הערעור – להידחות, ללא צורך בתשובה מאת המשיבים. זאת, בהתאם לסמכותנו שלפי תקנה 138(א)(1) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018 (להלן: תקסד&#34;א), שחלה על ההליך שלפנינו מכוחה של תקנה 34(א) לתקנות בתי משפט לענינים מינהליים (סדרי דין), התשס&#34;א-2000 (להלן: תקנות בתי משפט לעניינים מינהליים). אף אם אתעלם מטענות הסף שהעלו המשיבים בבית המשפט המחוזי, הרי שצדק בית המשפט המחוזי במסקנתו, כי יש להורות על דחיית העתירה.
 
 תחילה באשר לטענות המערערת המבקשות לתקוף את הוראות הנוהל גופו, ולהכריז על בטלותו. טענות אלו לא נטענו לפני בית המשפט המחוזי. אין מקום לדון בהן לראשונה בערכאת הערעור; ערעור אינו &#39;מקצה שיפורים&#39; (ע&#34;א 7909/16 סיף מתכות בע&#34;מ נ&#39; הממונה האזורי – אגף המכס ומע&#34;מ, באר שבע, פסקה 29 והאסמכתאות שם (26.04.2018)).
 
+טענות המערערת המבקשות לסטות מן הנוהל במקרה הפרטני – דינן להידחות גם הן. נקודת המוצא של טיעונים מעין אלו, מניחה קיומו של נוהל בר-תוקף, אך מבקשת לסטות מהוראותיו בשל נימוקים כבדי-משקל. נימוקים שכאלו – לא הוצגו לפנינו. המערערת מנהלת מערכה משפטית ארוכה, זה קרוב לשנה. טענות ומענות ללא קץ, אך העיקר חסר מן הספר. הפכתי והפכתי בטענות המערערת, הן לפני בית המשפט המחוזי, הן לפנינו, ולא מצאתי טעם מבורר, מדוע לא הלכה המערערת בדרך המלך, ופנתה תיכף ומיד ל&#39;גורם מאשר&#39; בהתאם להוראות הנוהל, בטרם הגישה את עתירתה. ממה נפשך: אם היתה ניתנת החלטה על מתן רישיון למערערת, שוב לא היה צורך בניהול הליכים משפטיים. ככל שבקשתה היתה נדחית, היה סיפק בידה לפנות לערכאות המתאימות לבירור טענותיה, תוך מתן אפשרות למצות את בירורן של הטענות, בטרם יגיע מועד חידוש הרישיון.
 
+המערערת טוענת, כי הדרישה למלא אחר הוראות הנוהל &#34;הינה מכבידה ואף בלתי אפשרית&#34;, אך בכך אין די. על המערערת מוטל הנטל להוכיח מדוע אותה דרישה לאישור &#39;גורם מאשר&#39; אינה אפשרית מבחינתה. נטל זה – לא הורם, אף לא בקירוב. גם אם אותו &#39;גורם מאשר&#39; &#34;אינו מלווה את המערערת ביום יום&#34;, אין בכך כדי להצדיק את עקיפת הנוהל; אדרבה, זוהי בדיוק מטרתו. רופא מומחה, המצוי בנבכי הטיפול הניתן למערערת, יוכל להמליץ על מתן הטיפול הנדרש. לאחר מכן, &#39;גורם מאשר&#39; בעל ראיה רוחבית וכוללנית, הוא שיקבל את ההחלטה הסופית.
 
-טענות המערערת המבקשות לסטות מן הנוהל במקרה הפרטני – דינן להידחות גם הן. נקודת המוצא של טיעונים מעין אלו, מניחה קיומו של נוהל בר-תוקף, אך מבקשת לסטות מהוראותיו בשל נימוקים כבדי-משקל. נימוקים שכאלו – לא הוצגו לפנינו. המערערת מנהלת מערכה משפטית ארוכה, זה קרוב לשנה. טענות ומענות ללא קץ, אך העיקר חסר מן הספר. הפכתי והפכתי בטענות המערערת, הן לפני בית המשפט המחוזי, הן לפנינו, ולא מצאתי טעם מבורר, מדוע לא הלכה המערערת בדרך המלך, ופנתה תיכף ומיד ל&#39;גורם מאשר&#39; בהתאם להוראות הנוהל, בטרם הגישה את עתירתה. ממה נפשך: אם היתה ניתנת החלטה על מתן רישיון למערערת, שוב לא היה צורך בניהול הליכים משפטיים. ככל שבקשתה היתה נדחית, היה סיפק בידה לפנות לערכאות המתאימות לבירור טענותיה, תוך מתן אפשרות למצות את בירורן של הטענות, בטרם יגיע מועד חידוש הרישיון. 
-
-
-
-המערערת טוענת, כי הדרישה למלא אחר הוראות הנוהל &#34;הינה מכבידה ואף בלתי אפשרית&#34;, אך בכך אין די. על המערערת מוטל הנטל להוכיח מדוע אותה דרישה לאישור &#39;גורם מאשר&#39; אינה אפשרית מבחינתה. נטל זה – לא הורם, אף לא בקירוב. גם אם אותו &#39;גורם מאשר&#39; &#34;אינו מלווה את המערערת ביום יום&#34;, אין בכך כדי להצדיק את עקיפת הנוהל; אדרבה, זוהי בדיוק מטרתו. רופא מומחה, המצוי בנבכי הטיפול הניתן למערערת, יוכל להמליץ על מתן הטיפול הנדרש. לאחר מכן, &#39;גורם מאשר&#39; בעל ראיה רוחבית וכוללנית, הוא שיקבל את ההחלטה הסופית. 
-
-
-
-המערערת מוסיפה וטוענת, כי היא ניצבת בפני שוקת שבורה, משום שמועד פקיעת תוקף הרישיון שברשותה קרב ובא. עם כל ההבנה למצבה של המערערת, והצער שבדבר – אין לה להלין אלא על עצמה. המערערת לא השכילה לנצל אותה שנה תמימה שניתנה לה כדי להסדיר את רישיונה &#39;כדת כראוי וכנכון&#39;. רק &#39;ברגע האחרון&#39;, לאחר שעתירתה נדחתה, השכילה המערערת לפסוע בדרך שמתווה הנוהל, ולפנות לקבלת אישורו של &#39;גורם מאשר&#39;; הרי זה – מעט מדי ומאוחר מדי. על כל פנים, טענותיה, ככל שישנן, ביחס לפנייתה זו ולמענה שקיבלה, גם הן אין מקומן בהליך שלפנינו. המערערת יכולה להשיג עליהן במתווה המוסדר בהוראות הנוהל; לא במסגרת ההליך הנוכחי. 
-
-
+המערערת מוסיפה וטוענת, כי היא ניצבת בפני שוקת שבורה, משום שמועד פקיעת תוקף הרישיון שברשותה קרב ובא. עם כל ההבנה למצבה של המערערת, והצער שבדבר – אין לה להלין אלא על עצמה. המערערת לא השכילה לנצל אותה שנה תמימה שניתנה לה כדי להסדיר את רישיונה &#39;כדת כראוי וכנכון&#39;. רק &#39;ברגע האחרון&#39;, לאחר שעתירתה נדחתה, השכילה המערערת לפסוע בדרך שמתווה הנוהל, ולפנות לקבלת אישורו של &#39;גורם מאשר&#39;; הרי זה – מעט מדי ומאוחר מדי. על כל פנים, טענותיה, ככל שישנן, ביחס לפנייתה זו ולמענה שקיבלה, גם הן אין מקומן בהליך שלפנינו. המערערת יכולה להשיג עליהן במתווה המוסדר בהוראות הנוהל; לא במסגרת ההליך הנוכחי.
 
 טרם סיום אעיר בקצרה, כי מוטב היה לבית המשפט המחוזי להידרש לבקשה לסילוק על הסף, שהוגשה על-ידי המשיבים. בקשה לסילוק על הסף, כשמה כן היא. מטרתה להוביל לסילוק על הסף של עתירות מבלי לדון בהן לגופן, בהתקיים התנאים הנדרשים. נכון וראוי לפעול &#39;לפי הספר&#39;. הכרעה בטענות הסף תחילה, ורק במידת הצורך – היזקקות לטענות לגופן. לאחרונה אמרתי, כי &#34;בית המשפט המחוזי בחר שלא לדון בטענות הסף של המשיבות, והכריע בעתירה לגופה. לא היה מקום לעשות כן: &#39;טענות סף תחילה, טענות לגופו של עניין אחר כך&#39;; מקום שבו נטענות טענות סף, מן הראוי להכריע בהן תחילה. ככל שיש בהן ממש, הרי שדי בכך כעקרון, בדרך כלל, כדי לדחות את העתירה. אין מקום לבררה לגופה. עלינו לחוס על המשאבים השיפוטיים. במקרים המתאימים, ניתן וראוי אף לשקול את סילוקה של העתירה על הסף, מבלעדי דיון בה, בהתאם להוראות תקנה 7(א)(2) לתקנות בתי משפט לעניינים מינהליים&#34; (בג&#34;ץ 1305/24 מזיד נ&#39; ועדת המשנה לפיקוח על בניה ביו&#34;ש, פסקה 5 (18.2.2024)).
 
-
-
 עוד אעיר, כי המערערת צירפה לערעורה מסמכים מהעת האחרונה, מסמכים שמטבע הדברים לא הוגשו לבית המשפט המחוזי. זאת, בניגוד לאמור בתקנה 134(ב) לתקסד&#34;א, שחלה גם היא על ההליך הנוכחי מכוח תקנה 34(א) לתקנות בתי משפט מינהליים. לא היה מקום לעשות כן. ככל שהמערערת חפצה לצרף מסמכים נוספים, היה עליה לפנות בבקשה להגשת ראיות חדשות, בהתאם לתקנה 144 לתקסד&#34;א.
 
+אשר על כן, הערעור נדחה בזאת. בכך מתייתר הצורך להכריע בבקשה למתן סעד זמני עד להכרעה בערעור.
 
+לפנים משורת הדין, משלא התבקשה תשובה לערעור, בהינתן המתכונת הדיונית שבה ניתן פסק דין זה, ובהתחשב במצבה הרפואי המעיק של המערערת, לא נעשה צו להוצאות.
 
-אשר על כן, הערעור נדחה בזאת. בכך מתייתר הצורך להכריע בבקשה למתן סעד זמני עד להכרעה בערעור. 
-
-
-
-	לפנים משורת הדין, משלא התבקשה תשובה לערעור, בהינתן המתכונת הדיונית שבה ניתן פסק דין זה, ובהתחשב במצבה הרפואי המעיק של המערערת, לא נעשה צו להוצאות. 
-
-
-
-	ניתן היום, ‏י&#39; באדר א התשפ&#34;ד (‏19.2.2024).
-
-
-
-
+ניתן היום, ‏י&#39; באדר א התשפ&#34;ד (‏19.2.2024).
 
 ש ו פ ט
 
-      ש ו פ ט
+ש ו פ ט
 
 ש ו פ ט ת
 
-
-
 _________________________
 
-   24012370_O01.docx   יר
+24012370_O01.docx יר
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1739,7 +1926,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

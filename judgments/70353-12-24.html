@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    19/01/2025 (לפני 471 ימים)
+                    19/01/2025 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/70353-12-24.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="70353-12-24 - אליעזר אוליבר נ. מיכה בר מאיר"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F70353-12-24.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/1/19/2024-12-70353-1-2&amp;fileName=76ebf43eac304305b40759727b017230&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/1/19/2024-12-70353-1-2&amp;fileName=76ebf43eac304305b40759727b017230&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/1/19/2024-12-70353-1-2&amp;fileName=76ebf43eac304305b40759727b017230&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/1/19/2024-12-70353-1-2&amp;fileName=76ebf43eac304305b40759727b017230&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,33 +1827,19 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            2
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
- עפ&#34;ס 70353-12-24
-
-
+עפ&#34;ס 70353-12-24
 
 לפני:
 
-כבוד ממלא מקום הנשיא יצחק עמית 
-
-
+כבוד ממלא מקום הנשיא יצחק עמית
 
 המערער:
 
 אליעזר אוליבר
 
-
-
-  נגד
-
-
+נגד
 
 המשיבים:
 
@@ -1590,83 +1847,37 @@
 
 2. איילת בר מאיר
 
-
-
-
-
 ערעור על החלטתו של בית המשפט השלום בחדרה בת&#34;א 42356-12-22 מיום 16.12.2024 שניתנה על ידי כב&#39; השופט יעקב גולדברג
-
-
 
 בשם המערער:
 
-
-
-עו&#34;ד חיים בשארי 
-
-
+עו&#34;ד חיים בשארי
 
 פסק-דין
 
-
-
-
-
-	ערעור על החלטת בית משפט השלום בחדרה (כב&#39; השופט י&#39; גולדברג) מיום 16.12.2024 בת&#34;א 42356-12-22 שלא לפסול עצמו מלדון בעניינו של המערער.
-
-
+ערעור על החלטת בית משפט השלום בחדרה (כב&#39; השופט י&#39; גולדברג) מיום 16.12.2024 בת&#34;א 42356-12-22 שלא לפסול עצמו מלדון בעניינו של המערער.
 
 1.	עניינו של ההליך בתביעה כספית שהגיש המערער נגד המשיבים. ביום 24.11.2024 התקיים דיון הוכחות במסגרתו כל צד העיד את עדיו. במהלך חקירתו החוזרת של המשיב 1 הוא נשאל שאלה שלשיטת המערער נועדה להטיל באחרון דופי. בית המשפט פסל את השאלה ובא כוח המשיבים ביקש להסירה ואף התנצל (פרוטוקול הדיון מיום 24.11.2024, עמ&#39; 20, שורות 18-13). לאחר ששמיעת ההוכחות הסתיימה, בית המשפט הציע כי התביעה תידחה ללא צו להוצאות. בא כוח המשיבים הסכים להצעה ואילו בא כוח המערער התנגד. בסיום הדיון ניתנה החלטה לפיה &#34;[המערער] ימציא לבית המשפט עמדתו להצעת ביהמ&#34;ש לפיה התביעה תידחה ללא צו להוצאות ושני הצדדים יתחייבו להימנע מהגשת הליכים זה כנגד זה בקשר לכל הפרשה&#34;. ביום 28.11.2024 הודיע המערער כי הוא עומד על טענותיו ומעוניין להגיש את סיכומיו. בהחלטה מיום 1.12.2024 נקבע כי המערער יגיש את סיכומיו עד ליום 8.12.2024 והמשיבים יגישו את סיכומיהם עד ליום 8.1.2025.
 
+2.	ביום 8.12.2024 הגיש המערער בקשה לפסילת המותב. בבקשה נטען כי השאלה שנועדה להטיל דופי במערער לא נמחקה מהפרוטוקול חרף פסילתה על ידי בית המשפט; כי בסוף דיון ההוכחות החליט המותב כי יש בידיו את הכלים להכריע מידית ולדחות את התביעה; וכי החלטת בית המשפט מיום 1.12.2024 השאירה למערער רק חמישה ימי עבודה להגשת סיכומיו בעוד המשיבים קיבלו חודש להגשת סיכומיהם, באופן שמצביע על משוא פנים מובהק של המותב. עוד באותו היום ניתנה החלטת בית המשפט המבהירה כי בהחלטה מיום 1.12.2024 &#34;נפלה טעות סופר מצערת וברור כי בית המשפט לא התכוון לתת [למערער] 8 ימים לצורך הכנת הסיכומים&#34;. בהחלטה תוקנו מועדי הגשת הסיכומים כך שלכל אחד מן הצדדים ניתן חודש ימים. בסיום ההחלטה נכתב כי &#34;ככל שלא נחה דעתו של ב&#34;כ [המערער] והוא מוסיף ועומד על בקשת הפסלות ימציא הודעה בעניין ללא דיחוי&#34;.
 
-
-2.	ביום 8.12.2024 הגיש המערער בקשה לפסילת המותב. בבקשה נטען כי השאלה שנועדה להטיל דופי במערער לא נמחקה מהפרוטוקול חרף פסילתה על ידי בית המשפט; כי בסוף דיון ההוכחות החליט המותב כי יש בידיו את הכלים להכריע מידית ולדחות את התביעה; וכי החלטת בית המשפט מיום 1.12.2024 השאירה למערער רק חמישה ימי עבודה להגשת סיכומיו בעוד המשיבים קיבלו חודש להגשת סיכומיהם, באופן שמצביע על משוא פנים מובהק של המותב. עוד באותו היום ניתנה החלטת בית המשפט המבהירה כי בהחלטה מיום 1.12.2024 &#34;נפלה טעות סופר מצערת וברור כי בית המשפט לא התכוון לתת [למערער] 8 ימים לצורך הכנת הסיכומים&#34;. בהחלטה תוקנו מועדי הגשת הסיכומים כך שלכל אחד מן הצדדים ניתן חודש ימים. בסיום ההחלטה נכתב כי &#34;ככל שלא נחה דעתו של ב&#34;כ [המערער] והוא מוסיף ועומד על בקשת הפסלות ימציא הודעה בעניין ללא דיחוי&#34;. 
-
-
-
-	ביום 11.12.2024 הודיע המערער כי הוא עומד על בקשתו לפסול את המותב מלשבת בדין משהוא גיבש דעה מוקדמת על המערער. ביום 15.12.2024 הגישו המשיבים את תגובתם לפיה הם מתנגדים לבקשה משום שאין בהצעת בית המשפט כדי לכבול את שיקול דעתו או כדי להצביע על חשש ממשי למשוא פנים; ומשום שמועדי הגשת הסיכומים תוקנו.
-
-
+ביום 11.12.2024 הודיע המערער כי הוא עומד על בקשתו לפסול את המותב מלשבת בדין משהוא גיבש דעה מוקדמת על המערער. ביום 15.12.2024 הגישו המשיבים את תגובתם לפיה הם מתנגדים לבקשה משום שאין בהצעת בית המשפט כדי לכבול את שיקול דעתו או כדי להצביע על חשש ממשי למשוא פנים; ומשום שמועדי הגשת הסיכומים תוקנו.
 
 3.	ביום 16.12.2024 ניתנה החלטת המותב הדוחה את הבקשה לפסילתו. בהחלטה נקבע כי אמנם נפלה טעות סופר בקביעת מועדי הסיכומים אך היא תוקנה מיד לאחר שהדבר הובא לידיעת בית המשפט והיא אינה מעידה על משוא פנים; כי אין מניעה בסיום שלב הראיות שבית המשפט ימסור לצדדים את התרשמותו ויציע להם הצעה לסיום ההליך, ואין בכך כדי לכבול את שיקול דעתו; וכי המלצת בית המשפט איננה מבטאת דעה מוקדמת לגבי בעלי הדין ולמען הסר ספק אין למותב כל עמדה נגד או בעד המערער.
 
-
-
 4.	מכאן הערעור שלפניי. המערער חוזר על טענותיו באשר לפרוטוקול הדיון ממנו לא נמחקה השאלה שנועדה להטיל בו דופי; באשר להצעת בית המשפט שניתנה בסיום דיון ההוכחות; ובאשר לקביעת מועדי הסיכומים. לעמדתו, המותב גילה דעה נחרצת וסופית לפיה דין התביעה להידחות, באופן שלא יאפשר את המשך ניהולו האובייקטיבי של ההליך, ובנסיבות אלה מתעורר חשש ממשי למשוא פנים מצד המותב.
-
-
 
 5.	דין הערעור להידחות אף מבלי להידרש לתשובה.
 
-
-
-	כידוע, המבחן לפסילת שופט, הקבוע בסעיף 77א(א) לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984, הוא אם מתקיימות נסיבות שיש בהן כדי ליצור חשש ממשי למשוא פנים בניהול המשפט. איני סבור כי נסיבות אלו מתקיימות בענייננו. לעניין הצעת בית המשפט שניתנה בסיום דיון ההוכחות. נפסק זה מכבר כי &#34;ניהול יעיל של הליכים משפטיים על ידי שופט מביא אותו, ולפעמים מחייב אותו, להביע דעה בזהירות ובמתינות לגבי ההליך התלוי לפניו&#34; (ע&#34;א 3065/17 מ.ע.ג.ן יעוץ וניהול נכסים בע&#34;מ נ&#39; דבבג&#39;ני, פסקה 7 (‏20.6.2017); ראו גם עפ&#34;ס 68343-11-24 צמח נ&#39; דרורי, פסקה 6 (9.12.2024)); ואף להציע למי מבעלי הדין לשקול לחזור בו מן ההליך שהגיש (ע&#34;א 454/20 חליאלה נ&#39; המועצה המקומית כפר משהד, פסקה 7 והאסמכתה שם (1.3.2020)), ואין בכך כשלעצמו כדי להקים עילה לפסילתו. הצעת בית המשפט ניתנה לאחר שהסתיים שלב ההוכחות, וכאמור בהחלטת המותב בבקשת הפסלות, היא מבטאת את התרשמותו של בית המשפט בשלב מתקדם זה של ההליך. גם אם הצעת בית המשפט נטעה בלב המערער חשש סובייקטיבי למשוא פנים, הרי שאין בכך די, והמבחן לפסילת שופט מלשבת בדין הוא מבחן אובייקטיבי (ע&#34;א 6050/06 קונובר נ&#39; בלום, פסקה 5 (25.9.2006)). המותב הבהיר כי ההצעה &#34;אינה כובלת את שיקול דעתו וככל [שהמערער] ישכנע בסיכומיו כי הצליח להרים את נטל הוכחת התביעה, תביעתו תתקבל&#34; וכי אין לו &#34;כל עמדה נגד [המערער] או בעדו וכך הדבר ביחס ליתר בעלי הדין&#34;. משאלו הם פני הדברים, בחינה אובייקטיבית של דברי בית המשפט לא מצביעה על קיומו של חשש ממשי מפני משוא פנים או כי דעתו &#39;ננעלה&#39;. 
-
-
+כידוע, המבחן לפסילת שופט, הקבוע בסעיף 77א(א) לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984, הוא אם מתקיימות נסיבות שיש בהן כדי ליצור חשש ממשי למשוא פנים בניהול המשפט. איני סבור כי נסיבות אלו מתקיימות בענייננו. לעניין הצעת בית המשפט שניתנה בסיום דיון ההוכחות. נפסק זה מכבר כי &#34;ניהול יעיל של הליכים משפטיים על ידי שופט מביא אותו, ולפעמים מחייב אותו, להביע דעה בזהירות ובמתינות לגבי ההליך התלוי לפניו&#34; (ע&#34;א 3065/17 מ.ע.ג.ן יעוץ וניהול נכסים בע&#34;מ נ&#39; דבבג&#39;ני, פסקה 7 (‏20.6.2017); ראו גם עפ&#34;ס 68343-11-24 צמח נ&#39; דרורי, פסקה 6 (9.12.2024)); ואף להציע למי מבעלי הדין לשקול לחזור בו מן ההליך שהגיש (ע&#34;א 454/20 חליאלה נ&#39; המועצה המקומית כפר משהד, פסקה 7 והאסמכתה שם (1.3.2020)), ואין בכך כשלעצמו כדי להקים עילה לפסילתו. הצעת בית המשפט ניתנה לאחר שהסתיים שלב ההוכחות, וכאמור בהחלטת המותב בבקשת הפסלות, היא מבטאת את התרשמותו של בית המשפט בשלב מתקדם זה של ההליך. גם אם הצעת בית המשפט נטעה בלב המערער חשש סובייקטיבי למשוא פנים, הרי שאין בכך די, והמבחן לפסילת שופט מלשבת בדין הוא מבחן אובייקטיבי (ע&#34;א 6050/06 קונובר נ&#39; בלום, פסקה 5 (25.9.2006)). המותב הבהיר כי ההצעה &#34;אינה כובלת את שיקול דעתו וככל [שהמערער] ישכנע בסיכומיו כי הצליח להרים את נטל הוכחת התביעה, תביעתו תתקבל&#34; וכי אין לו &#34;כל עמדה נגד [המערער] או בעדו וכך הדבר ביחס ליתר בעלי הדין&#34;. משאלו הם פני הדברים, בחינה אובייקטיבית של דברי בית המשפט לא מצביעה על קיומו של חשש ממשי מפני משוא פנים או כי דעתו &#39;ננעלה&#39;.
 
 6.	לעניין מועדי הגשת הסיכומים – המותב הבהיר כי מדובר ב&#34;טעות סופר מצערת&#34; והיא אכן תוקנה באופן מידי. אין בידי לקבל את טענות המערער, ובנסיבות העניין לא מצאתי כי מתעורר חשש ממשי למשוא פנים מצד המותב. לא למותר לציין כי החלטות דיוניות אינן מקימות ככלל עילה לפסילת המותב (עפ&#34;ס 22421-10-24 פלונית נ&#39; פלוני, פסקה 9 (1.12.2024); ע&#34;א 5714/24 עבדאללה נ&#39; פקיד שומה נצרת, פסקה 6 (5.9.2024)), ויש להניח כי די היה בהגשת בקשה להבהרת ההחלטה כדי להוביל לתיקון הטעות.
 
-
-
 7.	לבסוף, גם בטענה הנוגעת לפרוטוקול הדיון מיום 24.11.2024 לא מצאתי ממש. פרוטוקול הדיון משקף ככל הניתן את שנאמר באולם, ועולה ממנו כי בא כוח המשיבים חזר בו מהשאלה והיא הוסרה. ככל שהמערער סבר כי יש מקום למחוק את השאלה לחלוטין מהפרוטוקול, היה עליו להגיש בקשה מתאימה לבית המשפט, ומכל מקום, ברי כי אין בכך כדי להקים עילה לפסילת המותב (ראו והשוו: ע&#34;א 1349/24 פלוני נ&#39; פלוני, פסקה 6 (21.4.2024)).
-
-
 
 8.	סוף דבר, שהערעור נדחה. משלא נתבקשה תשובה, לא ייעשה צו להוצאות.
 
-
-
 ניתן היום, י&#34;ט טבת תשפ&#34;ה (19 ינואר 2025).
-
-
-
-
-
-
-
-
-
-
 
 יצחק עמית
 
@@ -1689,7 +1900,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

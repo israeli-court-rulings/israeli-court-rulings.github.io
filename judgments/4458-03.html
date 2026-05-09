@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    22/06/2005 (לפני 7622 ימים)
+                    22/06/2005 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/4458-03.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="4458/03 - פלוני נ. ראש ממשלת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F4458-03.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/580/044/R13&amp;fileName=03044580_R13.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/580/044/R13&amp;fileName=03044580_R13.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/580/044/R13&amp;fileName=03044580_R13.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/580/044/R13&amp;fileName=03044580_R13.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,11 +1829,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק בג&#34;ץ 4458/03
 
-בבית המשפט
-העליון בשבתו כבית משפט גבוה לצדק
+בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
-בג&#34;ץ
-4458/03
+בג&#34;ץ 4458/03
 
 בפני:
 
@@ -1580,8 +1849,7 @@
 
 המשיבים:
 
-1. ראש ממשלת
-ישראל
+1. ראש ממשלת ישראל
 
 2. שרות הבטחון הכללי
 
@@ -1607,106 +1875,29 @@
 
 השופטת א&#39; פרוקצ&#39;יה:
 
-1. זו
-עתירה של אשה ושישה מילדיה המבקשים המשך סיוע חומרי ואחר מהמדינה בעילה של סייענות
-לכוחות הבטחון של בעלה המנוח ושניים מבניה שאחד מהם עותר בעתירה זו (להלן – עותר
-7). העותר 7 סייע לכוחות הבטחון בשנת 1993, ותרומתו דורגה כבינונית. אבי המשפחה
-המנוח, שנרצח במרץ 2001, סייע אף הוא לשירותי הבטחון במשך תקופה קצרה. כן סייע בן
-משפחה נוסף, שאינו שותף לעתירה, באמצעות קשר קצר-טווח שקיים עם שירותי הבטחון.
-סייענות העותר 7 היא שהיוותה נושא הסיוע השיקומי שניתן לו עצמו ולבני משפחתו
-הנילווים שכללו את אביו המנוח ואמו, ואת אחיו ואחיותיו. האב המנוח והאחר שקיימו
-קשר קצר עם הרשויות לא זכו למעמד עצמאי כסייענים מכח תרומתם הם לבטחון.
+1. זו עתירה של אשה ושישה מילדיה המבקשים המשך סיוע חומרי ואחר מהמדינה בעילה של סייענות לכוחות הבטחון של בעלה המנוח ושניים מבניה שאחד מהם עותר בעתירה זו (להלן – עותר 7). העותר 7 סייע לכוחות הבטחון בשנת 1993, ותרומתו דורגה כבינונית. אבי המשפחה המנוח, שנרצח במרץ 2001, סייע אף הוא לשירותי הבטחון במשך תקופה קצרה. כן סייע בן משפחה נוסף, שאינו שותף לעתירה, באמצעות קשר קצר-טווח שקיים עם שירותי הבטחון. סייענות העותר 7 היא שהיוותה נושא הסיוע השיקומי שניתן לו עצמו ולבני משפחתו הנילווים שכללו את אביו המנוח ואמו, ואת אחיו ואחיותיו. האב המנוח והאחר שקיימו קשר קצר עם הרשויות לא זכו למעמד עצמאי כסייענים מכח תרומתם הם לבטחון.
 
-2.
-העותר 7 היה בקשר עם גורמי הבטחון הישראליים בשנת 1993, ובשנת 1994 הוכר עקב
-תרומתו כזכאי שיקום מטעם משיבה 3. הוא טופל בהליך שיקום עד יולי 2000. במהלך תקופת
-השיקום נתקיימו מיפגשים רבים בין העותר לבין נציגי המינהלה לצורך מתן סיוע לו בהליך
-שיקומו, ועיקרם נגע לענייני דיור, תעסוקה, ומתן תמיכה נפשית. בני משפחתו של העותר
-7 הובאו לישראל מהשטחים שלא בתיאום עם המשיבים, וחרף כך הוגדרו בתוך פרק זמן קצר
-כבני משפחה נילווים לעותר 7 לצורך קבלת סיוע. הדבר התבטא בעיקר במתן תמיכה כספית
-בדיור, ובמתן ליווי וסיוע רצוף בפתרון בעיותיהם וצרכיהם בכל תחומי החיים.
+2. העותר 7 היה בקשר עם גורמי הבטחון הישראליים בשנת 1993, ובשנת 1994 הוכר עקב תרומתו כזכאי שיקום מטעם משיבה 3. הוא טופל בהליך שיקום עד יולי 2000. במהלך תקופת השיקום נתקיימו מיפגשים רבים בין העותר לבין נציגי המינהלה לצורך מתן סיוע לו בהליך שיקומו, ועיקרם נגע לענייני דיור, תעסוקה, ומתן תמיכה נפשית. בני משפחתו של העותר 7 הובאו לישראל מהשטחים שלא בתיאום עם המשיבים, וחרף כך הוגדרו בתוך פרק זמן קצר כבני משפחה נילווים לעותר 7 לצורך קבלת סיוע. הדבר התבטא בעיקר במתן תמיכה כספית בדיור, ובמתן ליווי וסיוע רצוף בפתרון בעיותיהם וצרכיהם בכל תחומי החיים.
 
-3. במסגרת
-השיקום, לעותר 7 ניתן סיוע במציאת עבודה ומימון חלקי בלימוד נהיגה במשאית לצורך
-תעסוקה. הוא קיבל שכר דירה מלא וכך גם בני משפחתו, העותרים 1 עד 6. עם סיום הליך
-שיקומו בשנת 2000, אושרה לו השתתפות בשכר דירה למשך 10 שנים. כן הוכרה זכאותו
-להטבה כספית נוספת ממועד תום שיקומו ולמשך 10 שנים נוספות. במהלך שנות שיקומו,
-קיבל העותר 7 מהמשיבים סכום הקרוב ל-400.000 ₪ במזומן וכן קיבל סכומי כסף נוספים לאחר
-תום הליך שיקומו, מאז שנת 2000. פרט לכך שולמו לו כספים מהביטוח הלאומי.
+3. במסגרת השיקום, לעותר 7 ניתן סיוע במציאת עבודה ומימון חלקי בלימוד נהיגה במשאית לצורך תעסוקה. הוא קיבל שכר דירה מלא וכך גם בני משפחתו, העותרים 1 עד 6. עם סיום הליך שיקומו בשנת 2000, אושרה לו השתתפות בשכר דירה למשך 10 שנים. כן הוכרה זכאותו להטבה כספית נוספת ממועד תום שיקומו ולמשך 10 שנים נוספות. במהלך שנות שיקומו, קיבל העותר 7 מהמשיבים סכום הקרוב ל-400.000 ₪ במזומן וכן קיבל סכומי כסף נוספים לאחר תום הליך שיקומו, מאז שנת 2000. פרט לכך שולמו לו כספים מהביטוח הלאומי.
 
-4. העותרים
-6-1 מוגדרים לצורך הליך הסיוע הניתן על ידי המדינה כ&#34;נילווי שיקום&#34;. הם
-קיבלו סיוע מאז 1995 ועד 2000 בהתאם לנוהלים הקיימים בנושא זה. מבין ההטבות שקבלו
-יש למנות מתן תעודות זהות ישראליות, מימון שכר דירה, שיפוץ הדירה בה התגוררו,
-מימון למודים באולפן לעברית, מימון חינוך מבוגרים וילדים. כן ניתן להם ליווי ויעוץ
-בתחומים שונים ושולמו להם כספים במזומן. במהלך תקופת השיקום קבלה המשפחה כ-217,000
-₪ וסכום נוסף של 85,000 לאחר חודש ספטמבר 2000. בפגישה שהתקיימה בסוף שנת 1999,
-הודיעו נציגי המינהלה לאב המשפחה כי יהיה עליו לפנות את הדירה, בה התגוררה המשפחה,
-אולם נוכח סירוב המשפחה, הוחלט להאריך את הסיוע בשנה נוספת עד נובמבר 2000, מטעמים
-הומניטריים ולפנים משורת הדין.
+4. העותרים 6-1 מוגדרים לצורך הליך הסיוע הניתן על ידי המדינה כ&#34;נילווי שיקום&#34;. הם קיבלו סיוע מאז 1995 ועד 2000 בהתאם לנוהלים הקיימים בנושא זה. מבין ההטבות שקבלו יש למנות מתן תעודות זהות ישראליות, מימון שכר דירה, שיפוץ הדירה בה התגוררו, מימון למודים באולפן לעברית, מימון חינוך מבוגרים וילדים. כן ניתן להם ליווי ויעוץ בתחומים שונים ושולמו להם כספים במזומן. במהלך תקופת השיקום קבלה המשפחה כ-217,000 ₪ וסכום נוסף של 85,000 לאחר חודש ספטמבר 2000. בפגישה שהתקיימה בסוף שנת 1999, הודיעו נציגי המינהלה לאב המשפחה כי יהיה עליו לפנות את הדירה, בה התגוררה המשפחה, אולם נוכח סירוב המשפחה, הוחלט להאריך את הסיוע בשנה נוספת עד נובמבר 2000, מטעמים הומניטריים ולפנים משורת הדין.
 
-5. בשל
-סכסוכים משפחתיים, בדצמבר 1999 עזב אב המשפחה המנוח את משפחתו בישראל וחזר לשטחי
-הרשות הפלסטינית. במרץ 2001 נרצח בביתו מחוץ לישראל. ביולי 2000 הודיעו נציגי
-המינהלה לעותרים כי הטיפול השיקומי שניתן להם הסתיים, וכי עליהם לפנות את הדירה
-והוצע להם לפנות לרשויות שונות לבקש סיוע, בהיותם בעלי תעודות זהות ישראליות. עקב
-סירוב המשפחה לפנות את הדירה במועד שנדרשו לכך, הוארך הסיוע בשנה נוספת ולאחר מכן מומן
-שכר הדירה של העותרים 1 עד 6 עד יולי 2003, לפנים משורת הדין. גם הליך שיקומו של
-עותר 7 הסתיים בשנת 2000, אך כאמור, הוא ממשיך לקבל קצבה חודשית בסך 1,000 ₪ וכן
-שכר דירה למשך 10 שנים.
+5. בשל סכסוכים משפחתיים, בדצמבר 1999 עזב אב המשפחה המנוח את משפחתו בישראל וחזר לשטחי הרשות הפלסטינית. במרץ 2001 נרצח בביתו מחוץ לישראל. ביולי 2000 הודיעו נציגי המינהלה לעותרים כי הטיפול השיקומי שניתן להם הסתיים, וכי עליהם לפנות את הדירה והוצע להם לפנות לרשויות שונות לבקש סיוע, בהיותם בעלי תעודות זהות ישראליות. עקב סירוב המשפחה לפנות את הדירה במועד שנדרשו לכך, הוארך הסיוע בשנה נוספת ולאחר מכן מומן שכר הדירה של העותרים 1 עד 6 עד יולי 2003, לפנים משורת הדין. גם הליך שיקומו של עותר 7 הסתיים בשנת 2000, אך כאמור, הוא ממשיך לקבל קצבה חודשית בסך 1,000 ₪ וכן שכר דירה למשך 10 שנים.
 
-6.
-העותרים טוענים כי המשיבים הפסיקו שלא כדין את הסיוע המגיע להם. הם מצביעים על
-החלטת ממשלה הקובעת את עקרון התמיכה הממשלתית בסייענים וטוענים כי המדינה לא מיצתה
-את חובתה כלפיהם. לדבריהם, בעבר היו בעלי נכסים במקום מושבם מחוץ לישראל, ונוכח
-הארועים שבגינם התגלגלו לארץ ירדו מנכסיהם, וצרכיהם בשיקום לא מוצו, בין לענין
-דיור, בין לענין פרנסה, בין לענין הכשרה לתעסוקה, וכיוצא באלה. עוד טענו כי הבטחות
-שניתנו להם על ידי נציגי הרשויות הופרו, וכי בהיקף הסיוע שקבלו קימת הפלייה לרעה
-בינם לבין סייענים אחרים אשר כלפיהם היו הרשויות נדיבות יותר. כן קבלו על כך
-שהקריטריונים לתמיכה בסייענים חסויים, ולא הותר להם לבחון באמצעותם אם יושמו כהלכה
-במקרה זה.
+6. העותרים טוענים כי המשיבים הפסיקו שלא כדין את הסיוע המגיע להם. הם מצביעים על החלטת ממשלה הקובעת את עקרון התמיכה הממשלתית בסייענים וטוענים כי המדינה לא מיצתה את חובתה כלפיהם. לדבריהם, בעבר היו בעלי נכסים במקום מושבם מחוץ לישראל, ונוכח הארועים שבגינם התגלגלו לארץ ירדו מנכסיהם, וצרכיהם בשיקום לא מוצו, בין לענין דיור, בין לענין פרנסה, בין לענין הכשרה לתעסוקה, וכיוצא באלה. עוד טענו כי הבטחות שניתנו להם על ידי נציגי הרשויות הופרו, וכי בהיקף הסיוע שקבלו קימת הפלייה לרעה בינם לבין סייענים אחרים אשר כלפיהם היו הרשויות נדיבות יותר. כן קבלו על כך שהקריטריונים לתמיכה בסייענים חסויים, ולא הותר להם לבחון באמצעותם אם יושמו כהלכה במקרה זה.
 
-7. שמענו
-את טיעוני הצדדים, ועיינו במעמד צד אחד בנוהלים החסויים של מינהלת הסיוע למשוקמים.
-באנו לכלל מסקנה כי דין העתירה להידחות. החלטת ועדת השרים לענייני בטחון מיום
-12.1.94 קבעה מדיניות תמיכה בגורמים המסייעים לבטחון ישראל ובני משפחותיהם. מקורה
-של מדיניות הסיוע בטעמים הומניטריים. במסגרת מדיניות הממשלה האמורה, הוקמה מינהלה
-מרכזית המטפלת בנושא זה על פי נוהלים שנקבעו. המגמה הבסיסית במדיניות הסיוע היא –
-לסייע למשוקם ובני משפחתו לעמוד ברשות עצמם. במסגרת זו הנטייה היא לאפשר למשוקמים
-לקבל תושבות קבע ולעיתים אף אזרחות ישראלית. מטרת השיקום היא לתת בידי המשוקם כלים
-ואמצעים לבנות חיים עצמאיים ולהשתלב בחברה בישראל, לקראת חיים ברשות עצמו בלא תלות
-באחר. כמו כן, על פי הכללים, מרכיבי הסיוע הניתן מותאמים לכל מקרה לגופו, על פי
-נתוניו המיוחדים ולאור פרמטרים שונים. לגורמי המינהלה שיקול דעת רחב בהפעלת אמות
-המידה למתן הסיוע וביישומן למקרה הפרטני, כאשר התכלית העיקרית היא – לגמול למסייע
-על תרומתו לחברה בישראל ולסלול בפניו דרך להשתלב בחברה עד שיעמוד ברשות עצמו. מגמה
-זו היא המכוונת את היקף הסיוע הניתן, את טיבו, ומשך זמנו.
+7. שמענו את טיעוני הצדדים, ועיינו במעמד צד אחד בנוהלים החסויים של מינהלת הסיוע למשוקמים. באנו לכלל מסקנה כי דין העתירה להידחות. החלטת ועדת השרים לענייני בטחון מיום 12.1.94 קבעה מדיניות תמיכה בגורמים המסייעים לבטחון ישראל ובני משפחותיהם. מקורה של מדיניות הסיוע בטעמים הומניטריים. במסגרת מדיניות הממשלה האמורה, הוקמה מינהלה מרכזית המטפלת בנושא זה על פי נוהלים שנקבעו. המגמה הבסיסית במדיניות הסיוע היא – לסייע למשוקם ובני משפחתו לעמוד ברשות עצמם. במסגרת זו הנטייה היא לאפשר למשוקמים לקבל תושבות קבע ולעיתים אף אזרחות ישראלית. מטרת השיקום היא לתת בידי המשוקם כלים ואמצעים לבנות חיים עצמאיים ולהשתלב בחברה בישראל, לקראת חיים ברשות עצמו בלא תלות באחר. כמו כן, על פי הכללים, מרכיבי הסיוע הניתן מותאמים לכל מקרה לגופו, על פי נתוניו המיוחדים ולאור פרמטרים שונים. לגורמי המינהלה שיקול דעת רחב בהפעלת אמות המידה למתן הסיוע וביישומן למקרה הפרטני, כאשר התכלית העיקרית היא – לגמול למסייע על תרומתו לחברה בישראל ולסלול בפניו דרך להשתלב בחברה עד שיעמוד ברשות עצמו. מגמה זו היא המכוונת את היקף הסיוע הניתן, את טיבו, ומשך זמנו.
 
-8. מטעמים
-הקשורים בבטחון המדינה, הקריטריונים של המינהלה הם חסויים, ובית משפט זה בעבר לא
-ראה להתערב בהחלטת הרשויות שלא להתיר עיון בהם גם למי שנוגע בדבר (בג&#34;צ
-5499/95 ובג&#34;צ 2221/99). איננו רואים מקום לסטות מעמדת בית המשפט בסוגיה זו.
+8. מטעמים הקשורים בבטחון המדינה, הקריטריונים של המינהלה הם חסויים, ובית משפט זה בעבר לא ראה להתערב בהחלטת הרשויות שלא להתיר עיון בהם גם למי שנוגע בדבר (בג&#34;צ 5499/95 ובג&#34;צ 2221/99). איננו רואים מקום לסטות מעמדת בית המשפט בסוגיה זו.
 
-8. לא
-מצאנו להתערב בשיקול דעת המשיבה 3 בהפסיקה את הסיוע לעותרים במועדים ובדרך שפורטו
-לעיל. הסיוע ניתן להם לאורך מספר שנים בתחומי חיים שונים. הם נסתייעו בכסף, בדיור,
-בעזרה בעבודה, ובחינוך. לאחר שנים לא מעטות, מוצה הליך הסיוע שניתן לעותרים כאשר
-הרשויות נוכחו כי יש בידיהם כלים לעמוד ברשות עצמם ולהשתלב בחיי הארץ. יש צדק גם
-בטענה כי החזקתם בתעודות זהות ישראליות מאפשרת להם לתפקד כיום כאזרחי ישראל ואף
-לקבל עזרה מרשויות המדינה בהתאם למקובל. עיינו במעמד צד אחד בפרטי נוהלי הסיוע
-שהוצגו לעיוננו ובפרוטוקולים הנוגעים לדיוני הרשות המוסמכת בעניינם של העותרים ולא
-מצאנו כי גישת המשיבים בעניינם חורגת מהעקרונות הקבועים במדיניות הממשלה או כי היא
-לוקה בחוסר סבירות כלשהו, ולא כל שכן בהיקף המצדיק התערבות. לא מצאנו אף כל יסוד
-לטענת ההפלייה שעלתה בהתייחסות הרשות המוסמכת לעותרים ביחס לאחרים במעמד דומה.
+8. לא מצאנו להתערב בשיקול דעת המשיבה 3 בהפסיקה את הסיוע לעותרים במועדים ובדרך שפורטו לעיל. הסיוע ניתן להם לאורך מספר שנים בתחומי חיים שונים. הם נסתייעו בכסף, בדיור, בעזרה בעבודה, ובחינוך. לאחר שנים לא מעטות, מוצה הליך הסיוע שניתן לעותרים כאשר הרשויות נוכחו כי יש בידיהם כלים לעמוד ברשות עצמם ולהשתלב בחיי הארץ. יש צדק גם בטענה כי החזקתם בתעודות זהות ישראליות מאפשרת להם לתפקד כיום כאזרחי ישראל ואף לקבל עזרה מרשויות המדינה בהתאם למקובל. עיינו במעמד צד אחד בפרטי נוהלי הסיוע שהוצגו לעיוננו ובפרוטוקולים הנוגעים לדיוני הרשות המוסמכת בעניינם של העותרים ולא מצאנו כי גישת המשיבים בעניינם חורגת מהעקרונות הקבועים במדיניות הממשלה או כי היא לוקה בחוסר סבירות כלשהו, ולא כל שכן בהיקף המצדיק התערבות. לא מצאנו אף כל יסוד לטענת ההפלייה שעלתה בהתייחסות הרשות המוסמכת לעותרים ביחס לאחרים במעמד דומה.
 
-לאור
-האמור, באנו לכלל מסקנה כי אין מקום להתערב בהחלטת המשיבה 3 באשר לעותרים, ולפיכך
-דין העתירה להידחות.
+לאור האמור, באנו לכלל מסקנה כי אין מקום להתערב בהחלטת המשיבה 3 באשר לעותרים, ולפיכך דין העתירה להידחות.
 
-ניתן
-היום, ט&#34;ו בסיון תשס&#34;ה (22.6.05).
+ניתן היום, ט&#34;ו בסיון תשס&#34;ה (22.6.05).
 
-ש ו פ ט ת ש ו
-פ ט ש ו פ ט ת
+ש ו פ ט ת ש ו פ ט ש ו פ ט ת
 
 _________________________
 
@@ -1731,7 +1922,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

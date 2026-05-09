@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    20/04/2020 (לפני 2206 ימים)
+                    20/04/2020 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/1213-20.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="1213/20 - ד.ד.עוזר השקעות ובניין בע&#34;מ נ. עמיקם לוי מלמד"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F1213-20.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/130/012/r02&amp;fileName=20012130.R02&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/130/012/r02&amp;fileName=20012130.R02&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/130/012/r02&amp;fileName=20012130.R02&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/130/012/r02&amp;fileName=20012130.R02&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,189 +1827,83 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון
 
+רע&#34;א 1213/20
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-רע&#34;א  1213/20
-
-
-
-לפני:	
+לפני:
 
 כבוד השופטת י&#39; וילנר
-
-
 
 המבקשות:
 
 1. ד.ד.עוזר השקעות ובניין בע&#34;מ
 
-
-
 2. לאה ויטמן
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיב:
 
 עמיקם לוי מלמד
 
-
-
 בקשת רשות ערעור על החלטת בית המשפט המחוזי בירושלים בבר&#34;ע 12736-12-19 מיום 10.1.2020, שניתנה על-ידי כב&#39; השופט מ&#39; בר-עם
-
-
 
 בשם המבקשות:	עו&#34;ד אברהם קטלן
 
 בשם המשיב:	עו&#34;ד גולן בן-צבי
 
-	
-
-	
-
 פסק-דין
-
-
 
 1.	בקשת רשות ערעור על החלטת בית המשפט המחוזי בירושלים (כב&#39; השופט מ&#39; בר-עם) בבר&#34;ע 12736-12-19 מיום 10.1.2020, בגדרה נדחתה בקשת רשות הערעור אשר הגישו המבקשות על פסק דינו של בית משפט השלום בירושלים (כב&#39; השופט ג&#39; ארנברג) ברע&#34;צ 34253-03-19 מיום 31.10.2019. בפסק דינו האמור דחה בית משפט השלום את ערעור המבקשות על החלטת רשם ההוצאה לפועל מיום 21.2.2019, בה נדחתה בקשת המבקשות להגדלת קרן החוב של המשיב.
 
-
-
 רקע בקצרה
-
-
 
 2.	בתמצית, אציין כי בין הצדדים מתנהל מזה מספר שנים תיק בהוצאה לפועל שעניינו מימוש פסק דין במסגרתו אושר פסק בורר אשר ניתן בהליך בוררות שהתקיים ביניהם (להלן: פסק הבורר). בפסק הבורר חויב המשיב לשלם למבקשות פיצוי מוסכם בסך של 10,000 דולר לחודש (להלן: קרן החוב) בגין התקופה שמיום מתן פסק הבורר ועד למועד בו יסיר הלה כל מכשול מצדו לקבלת היתר בניה וצו הריסה לנכס הנדון, וכן יעשה כל שנדרש לשם הוצאת ההיתר והצו כאמור. בהמשך לכך, הגישו המבקשות בקשה לרשם ההוצאה לפועל להגדלת קרן החוב, וזאת בטענה כי המשיב לא עמד בתנאים שנקבעו כאמור בפסק הבורר. המשיב התנגד לבקשה וטען כי על המבקשות לנקוט בהליך משפטי נפרד בעניין זה.
 
-
-
-3.	ביום 21.2.2019 דחה רשם ההוצאה לפועל את הבקשה להגדלת קרן החוב בהחלטה קצרה שאביאה כלשונה: 
-
-		
+3.	ביום 21.2.2019 דחה רשם ההוצאה לפועל את הבקשה להגדלת קרן החוב בהחלטה קצרה שאביאה כלשונה:
 
 &#34;עמדת החייב [המשיב, י.ו.] מקובלת עליי ותואמת את ההלכה אשר נפסקה ברע&#34;א 4448/06 ארלנגר נ&#39; היכל שלמה, נבו [כך במקור]. ככל והזוכה [המבקשות י.ו.] עומדת על גביית סכומי החוב, עליה לנקוט בהליך משפטי שיקבע כי קמה לה זכאות לכך, תוך מתן אפשרות לחייב להתגונן כדין מפניו. לכן, הריני דוחה הבקשה להגדלת קרן&#34;.
 
+4.	על החלטה זו הגישו המבקשות השגה לבית משפט השלום שהוכתרה על ידן כ&#34;כתב ערעור&#34;, אם כי אציין שההליך נפתח על ידי מזכירות בית המשפט כבקשת רשות ערעור (רע&#34;צ 34253-03-19). בתשובתו, טען המשיב, בין היתר, כי לא עומדת למבקשות זכות ערעור על החלטת רשם ההוצאה לפועל, וכי היה עליהן להגיש בקשת רשות לערער על החלטה זו. לפיכך, כך נטען, יש לדחות את הערעור על הסף. בתגובה טענו המבקשות כי הלכה למעשה הוגשה על ידן בקשת רשות ערעור ואך בשל טעות סופר הוכתרה היא על ידן כהודעת ערעור. בהתאם לכך, ביקשו המבקשות כי יותר להן לתקן את כותרת הערעור ולהחליפה לבקשת רשות לערער. עוד עמדו המבקשות על מספר נימוקים שיש בהם, לטענתן, כדי להצדיק מתן רשות ערעור בנדון, ובתוך כך טענו כי רשם ההוצאה לפועל חרג מסמכותו; כי חריגה זו גורמת להן עיוות דין ופוגעת בזכויותיהן הקנייניות; וכי בקשת רשות הערעור מעוררת שאלה משפטית החורגת מעניינם הפרטני של הצדדים. עוד נטען כי מדובר בפגם טכני פרוצדורלי. במקביל הגישו המבקשות בקשה נפרדת ונוספת לתיקון הודעת הערעור ובתשובתן לתגובת המשיב לבקשה זו חזרו על טענותיהם כאמור.
 
+5.	בפסק דינו מיום 31.10.2019 דחה בית משפט השלום את ערעור המבקשות על הסף וקבע כי היה עליהן להגיש בקשת רשות ערעור, שכן הדין אינו מקנה זכות ערעור על החלטה הדוחה בקשת זוכה להגדלת קרן החוב. בתוך כך, נדחתה, הלכה למעשה, בקשת המבקשות לתקן את הודעת הערעור.
 
-4.	על החלטה זו הגישו המבקשות השגה לבית משפט השלום שהוכתרה על ידן כ&#34;כתב ערעור&#34;, אם כי אציין שההליך נפתח על ידי מזכירות בית המשפט כבקשת רשות ערעור (רע&#34;צ 34253-03-19). בתשובתו, טען המשיב, בין היתר, כי לא עומדת למבקשות זכות ערעור על החלטת רשם ההוצאה לפועל, וכי היה עליהן להגיש בקשת רשות לערער על החלטה זו. לפיכך, כך נטען, יש לדחות את הערעור על הסף. בתגובה טענו המבקשות כי הלכה למעשה הוגשה על ידן בקשת רשות ערעור ואך בשל טעות סופר הוכתרה היא על ידן כהודעת ערעור. בהתאם לכך, ביקשו המבקשות כי יותר להן לתקן את כותרת הערעור ולהחליפה לבקשת רשות לערער. עוד עמדו המבקשות על מספר נימוקים שיש בהם, לטענתן, כדי להצדיק מתן רשות ערעור בנדון, ובתוך כך טענו כי רשם ההוצאה לפועל חרג מסמכותו; כי חריגה זו גורמת להן עיוות דין ופוגעת בזכויותיהן הקנייניות; וכי בקשת רשות הערעור מעוררת שאלה משפטית החורגת מעניינם הפרטני של הצדדים. עוד נטען כי  מדובר בפגם טכני פרוצדורלי. במקביל הגישו המבקשות בקשה נפרדת ונוספת לתיקון הודעת הערעור ובתשובתן לתגובת המשיב לבקשה זו חזרו על טענותיהם כאמור. 
+6.	על פסק דין זה הגישו המבקשות בקשת רשות ערעור לבית המשפט המחוזי. בהחלטתו דחה בית המשפט המחוזי את הבקשה וקבע כי מקובלת עליו קביעת בית משפט השלום לפיה הדרך להשיג על החלטת רשם ההוצאה לפועל בעניין הגדלת קרן החוב היא בבקשת רשות ערעור. לגוף העניין, העיר בית המשפט המחוזי כי מקום בו נקבע בפסק דין חיוב מותנה המחייב בירור עובדתי, כבענייננו, אין מנוס אלא להידרש להליך משפטי נוסף על יסוד פסק הדין בערכאה המבררת, כפי שקבע רשם ההוצאה לפועל.
 
-
-
-5.	בפסק דינו מיום 31.10.2019 דחה בית משפט השלום את ערעור המבקשות על הסף וקבע כי היה עליהן להגיש בקשת רשות ערעור, שכן הדין אינו מקנה זכות ערעור על החלטה הדוחה בקשת זוכה להגדלת קרן החוב. בתוך כך, נדחתה, הלכה למעשה, בקשת המבקשות לתקן את הודעת הערעור. 
-
-
-
-6.	על פסק דין זה הגישו המבקשות בקשת רשות ערעור לבית המשפט המחוזי. בהחלטתו דחה בית המשפט המחוזי את הבקשה וקבע כי מקובלת עליו קביעת בית משפט השלום לפיה הדרך להשיג על החלטת רשם ההוצאה לפועל בעניין הגדלת קרן החוב היא בבקשת רשות ערעור. לגוף העניין, העיר בית המשפט המחוזי כי מקום בו נקבע בפסק דין חיוב מותנה המחייב בירור עובדתי, כבענייננו, אין מנוס אלא להידרש להליך משפטי נוסף על יסוד פסק הדין בערכאה המבררת, כפי שקבע רשם ההוצאה לפועל. 
-
-
-
-7.	על החלטה זו של בית המשפט המחוזי נסבה בקשת רשות הערעור שלפניי. לצד הבקשה הוגשה אף בקשה לעיכוב הדיון בבקשה שהגיש המשיב ללשכת ההוצאה לפועל למחיקת הערות בדבר הליך כינוס הנכסים אשר נרשמו על נכסיו. בהחלטה מיום 25.2.2020 ניתן צו ארעי לעיכוב הדיון כאמור עד למתן החלטה אחרת.  
-
-
+7.	על החלטה זו של בית המשפט המחוזי נסבה בקשת רשות הערעור שלפניי. לצד הבקשה הוגשה אף בקשה לעיכוב הדיון בבקשה שהגיש המשיב ללשכת ההוצאה לפועל למחיקת הערות בדבר הליך כינוס הנכסים אשר נרשמו על נכסיו. בהחלטה מיום 25.2.2020 ניתן צו ארעי לעיכוב הדיון כאמור עד למתן החלטה אחרת.
 
 8.	בבקשתן, חוזרות המבקשות על טענותיהן בפני הערכאות קמא, הן במישור הפרוצדוראלי והן לגוף העניין. מנגד, סומך המשיב ידיו על פסק דינו של בית משפט השלום ועל החלטתו של בית המשפט המחוזי וחוזר אף הוא על טענותיו בפני בית משפט השלום. עוד טוען המשיב, בין היתר, כי הדיון בבקשה דנן הוא תיאורטי בלבד מאחר שתיק ההוצאה לפועל נסגר זה מכבר, כי המשיבות הרחיבו בבקשתן את חזית המחלוקת, וכי לא היה מקום לאפשר את תיקון הודעת הערעור (אציין כי החלטת בית המשפט המחוזי ניתנה אומנם בלא צורך להידרש לתשובת המשיב, אך המשיב העלה את מלוא טענותיו בתשובותיו אשר הוגשו הן לבית משפט השלום והן במסגרת הבקשה שלפניי).
 
-
-
 דיון והכרעה
 
-
-
-	9.	לאחר עיון בבקשת רשות הערעור ובתשובה לה, הגעתי לכלל מסקנה כי יש לקבל את הבקשה ולדון בה כאילו ניתנה רשות לערער והוגש ערעור על-פיה, כאמור בתקנה 410 לתקנות סדר הדין האזרחי, התשמ&#34;ד-1984. זאת, על מנת שלא לפגוע בזכות הגישה לערכאות של המבקשות. אקדים ואומר כי דין הערעור להתקבל – כפי שיבואר להלן.
-
-
+9.	לאחר עיון בבקשת רשות הערעור ובתשובה לה, הגעתי לכלל מסקנה כי יש לקבל את הבקשה ולדון בה כאילו ניתנה רשות לערער והוגש ערעור על-פיה, כאמור בתקנה 410 לתקנות סדר הדין האזרחי, התשמ&#34;ד-1984. זאת, על מנת שלא לפגוע בזכות הגישה לערכאות של המבקשות. אקדים ואומר כי דין הערעור להתקבל – כפי שיבואר להלן.
 
 10.	אני סבורה כי ראוי היה לקבל את בקשת המשיבות לתקן את הודעת הערעור, ובהמשך לכך, לתת להן רשות ערעור.
 
+לצורך הדיון דנן לא ראיתי צורך להכריע בשאלה האם עמדה למבקשות זכות ערעור על החלטת רשם ההוצאה לפועל בעניינן או שמא היה עליהן להגיש בקשת רשות ערעור. אף אם אניח כי היה על המבקשות להגיש בקשת רשות לערער, הרי שהלכה למעשה, כך נעשה על ידן בסופו של דבר. כאמור, המבקשות ביקשו מבית משפט השלום לאפשר להן לתקן את הודעת הערעור ולהפכה לבקשת רשות ערעור (תחילה כאמור בתגובתן לבקשת המשיב להורות להן להמציא את בקשת רשות הערעור, שם נימקו בהרחבה מדוע יש לתת להם רשות ערעור (ראו סעיפים 3 ו-4 לתשובה), ובהמשך לכך, בבקשה נפרדת שהגישו בנדון). ואולם, לא מצאתי בהחלטות הערכאות קמא טעם מבורר מדוע לא התקבלה בקשה זו – שהיא בקשה הגיונית ומתבקשת בנסיבות שנוצרו - וכן מדוע לא ניתנה הרשות לערער. אדגיש כי בית משפט השלום כלל לא נימק את החלטתו שלא לאפשר את התיקון המבוקש (אף בהנחה שלא נפלה טעות סופר), ובית המשפט המחוזי לא התייחס לסוגיה זו (למרות שהמבקשות העלו לפניו טענה חלופית בעניין זה כאמור בסעיף 40 לבקשתן שם).
 
+11.	לדידי, כאמור, על מנת ליתן למבקשות את יומן בבית המשפט וכדי למנוע עיוות דין, ראוי היה לאפשר להן לתקן את הודעת הערעור. אדגיש כי משעה שהודעת הערעור הוגשה אף תוך המועד הקבוע בדין להגשת בקשת רשות ערעור, ולאחר שהמבקשות נימקו את בקשתן לקבלת רשות כאמור, הרי שבסופו של דבר, הפגם שנפל בהודעת הערעור הוא פגם פרוצדוראלי גרידא, ולא מצאתי במה יגרע חלקו של המשיב מתיקונו של פגם זה.
 
-	לצורך הדיון דנן לא ראיתי צורך להכריע בשאלה האם עמדה למבקשות זכות ערעור על החלטת רשם ההוצאה לפועל בעניינן או שמא היה עליהן להגיש בקשת רשות ערעור. אף אם אניח כי היה על המבקשות להגיש בקשת רשות לערער, הרי שהלכה למעשה, כך נעשה על ידן בסופו של דבר. כאמור, המבקשות ביקשו מבית משפט השלום לאפשר להן לתקן את הודעת הערעור ולהפכה לבקשת רשות ערעור (תחילה כאמור בתגובתן לבקשת המשיב להורות להן להמציא את בקשת רשות הערעור, שם נימקו בהרחבה מדוע יש לתת להם רשות ערעור (ראו סעיפים 3 ו-4 לתשובה), ובהמשך לכך, בבקשה נפרדת שהגישו בנדון). ואולם, לא מצאתי בהחלטות הערכאות קמא טעם מבורר מדוע לא התקבלה בקשה זו – שהיא בקשה הגיונית ומתבקשת בנסיבות שנוצרו - וכן מדוע לא ניתנה הרשות לערער. אדגיש כי בית משפט השלום כלל לא נימק את החלטתו שלא לאפשר את התיקון המבוקש (אף בהנחה שלא נפלה טעות סופר), ובית המשפט המחוזי לא התייחס לסוגיה זו (למרות שהמבקשות העלו לפניו טענה חלופית בעניין זה כאמור בסעיף 40 לבקשתן שם). 
+אשר על כן, יש לראות בהודעת הערעור שהוגשה כבקשת רשות ערעור על החלטת רשם ההוצאה לפועל.
 
-	
+12.	אשר לעצם מתן הרשות – אני סבורה כי ההנמקה התמציתית, העולה עד כדי היעדר הנמקה, של החלטת רשם ההוצאה לפועל לדחות את בקשת המשיבות להגדלת קרן החוב (כפי שמובא לעיל), כמו גם חשיבות השאלה המשפטית המתעוררת בענייננו בנוגע לאופן מימוש פסק דין המותנה בחיובים שונים, מצדיקות מתן רשות ערעור על החלטת הרשם (וראו בהקשר זה אף את עמדתו של בית משפט השלום אשר ציין בפסק דינו כי הוא אינו משוכנע שראוי היה לקבוע, כפי קבע רשם ההוצאה לפועל, כי מקום בו נקבע בפסק דין חיוב מותנה המחייב בירור עובדתי, נדרש הזוכה לנקוט בהליך משפטי נפרד).
 
-11.	לדידי, כאמור, על מנת ליתן למבקשות את יומן בבית המשפט וכדי למנוע עיוות דין, ראוי היה לאפשר להן לתקן את הודעת הערעור. אדגיש כי משעה שהודעת הערעור הוגשה אף תוך המועד הקבוע בדין להגשת בקשת רשות ערעור, ולאחר שהמבקשות נימקו את בקשתן לקבלת רשות כאמור, הרי שבסופו של דבר, הפגם שנפל בהודעת הערעור הוא פגם פרוצדוראלי גרידא, ולא מצאתי במה יגרע חלקו של המשיב מתיקונו של פגם זה. 
+13.	נוכח האמור, אני מקבלת את ערעור המבקשות, ומורה כי החלטת בית המשפט המחוזי ופסק דינו של בית משפט השלום, לרבות סכום ההוצאות שנפסק לזכות המשיב – מבוטלים. הודעת הערעור שהגישו המבקשות תהווה למעשה בקשת רשות ערעור. כמו כן, ניתנת למבקשות רשות לערער על החלטת רשם ההוצאה לפועל, ובית משפט השלום ידון בערעורן לגופו. אדגיש כי אין בהחלטה זו כדי להביע עמדה כלשהי לגוף הערעור ובית משפט השלום יכריע בעניין כחוכמתו (במאמר מוסגר אציין כי לא מצאתי שהבקשה דנן תיאורטית כנטען על ידי המשיב, שהרי אם יתקבל ערעורן של המבקשות על ידי בית משפט השלום, ממילא יפתח תיק ההוצאה לפועל מחדש).
 
+הצו הארעי שניתן בהחלטתי מיום 25.2.2020 יעמוד בעינו עד להחלטה אחרת של בית משפט השלום.
 
+המשיב יישא בהוצאות המשיבות בסכום של 3,500 ש&#34;ח.
 
-	אשר על כן, יש לראות בהודעת הערעור שהוגשה כבקשת רשות ערעור על החלטת רשם ההוצאה לפועל. 
-
-
-
-12.	אשר לעצם מתן הרשות – אני סבורה כי ההנמקה התמציתית, העולה עד כדי היעדר הנמקה, של החלטת רשם ההוצאה לפועל לדחות את בקשת המשיבות להגדלת קרן החוב (כפי שמובא לעיל), כמו גם חשיבות השאלה המשפטית המתעוררת בענייננו בנוגע לאופן מימוש פסק דין המותנה בחיובים שונים, מצדיקות מתן רשות ערעור על החלטת הרשם (וראו בהקשר זה אף את עמדתו של בית משפט השלום אשר ציין בפסק דינו כי הוא אינו משוכנע שראוי היה לקבוע, כפי קבע רשם ההוצאה לפועל, כי מקום בו נקבע בפסק דין חיוב מותנה המחייב בירור עובדתי, נדרש הזוכה לנקוט בהליך משפטי נפרד). 
-
-
-
-13.	נוכח האמור, אני מקבלת את ערעור המבקשות, ומורה כי החלטת בית המשפט המחוזי ופסק דינו של בית משפט השלום, לרבות סכום ההוצאות שנפסק לזכות המשיב – מבוטלים. הודעת הערעור שהגישו המבקשות תהווה למעשה בקשת רשות ערעור. כמו כן, ניתנת למבקשות רשות לערער על החלטת רשם ההוצאה לפועל, ובית משפט השלום ידון בערעורן לגופו. אדגיש כי אין בהחלטה זו כדי להביע עמדה כלשהי לגוף הערעור ובית משפט השלום יכריע בעניין כחוכמתו (במאמר מוסגר אציין כי לא מצאתי שהבקשה דנן תיאורטית כנטען על ידי המשיב, שהרי אם יתקבל ערעורן של המבקשות על ידי בית משפט השלום, ממילא יפתח תיק ההוצאה לפועל מחדש). 
-
-
-
-	הצו הארעי שניתן בהחלטתי מיום 25.2.2020 יעמוד בעינו עד להחלטה אחרת של בית משפט השלום. 
-
-
-
-	המשיב יישא בהוצאות המשיבות בסכום של 3,500 ש&#34;ח. 
-
-
-
-
-
-           ניתן היום, ‏כ&#34;ו בניסן התש&#34;ף (‏20.4.2020).
-
-	
-
-
-
-
-
-
-
-
+ניתן היום, ‏כ&#34;ו בניסן התש&#34;ף (‏20.4.2020).
 
 ש ו פ ט ת
 
-
-
-
-
 _________________________
 
-   20012130_R02.docx   שג
+20012130_R02.docx שג
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1757,7 +1922,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

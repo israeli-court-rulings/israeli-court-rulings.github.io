@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    21/10/2004 (לפני 7866 ימים)
+                    21/10/2004 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5692-04.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5692/04 - מוסך המרכבה (חולון 1992) בע&#34;מ נ. מנשה אלינובק"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5692-04.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/920/056/A02&amp;fileName=04056920_A02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/920/056/A02&amp;fileName=04056920_A02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/920/056/A02&amp;fileName=04056920_A02.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/920/056/A02&amp;fileName=04056920_A02.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,8 +1829,7 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק ע&#34;א 5692/04
 
-בבית המשפט העליון בשבתו
-כבית משפט לערעורים אזרחיים
+בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
 ע&#34;א 5692/04
 
@@ -1575,115 +1845,39 @@
 
 המשיבים:
 
-1. מנשה
-אלינובק
+1. מנשה אלינובק
 
 2. גילה אלינובק
 
-ערעור פסלות שופט על החלטתו של בית משפט השלום בתל-אביב-יפו, בת.א.
-20435/03, שניתנה על ידי כבוד
+ערעור פסלות שופט על החלטתו של בית משפט השלום בתל-אביב-יפו, בת.א. 20435/03, שניתנה על ידי כבוד
 
 השופט ח&#39; טובי
 
 בשם המערערת: עו&#34;ד א&#39; לוי
 
-בשם המשיבים: עו&#34;ד ב&#39;
-גליק
+בשם המשיבים: עו&#34;ד ב&#39; גליק
 
 פסק-דין
 
-ערעור על החלטתו של בית משפט השלום
-בתל-אביב (השופט ח&#39; טובי) שלא לפסול עצמו מלדון בת&#34;א 20435/03.
+ערעור על החלטתו של בית משפט השלום בתל-אביב (השופט ח&#39; טובי) שלא לפסול עצמו מלדון בת&#34;א 20435/03.
 
-1. בבית משפט השלום בתל-אביב מתנהלת תובענה
-נגד המערערת, שעניינה תביעת המשיבים לתשלום דמי שכירות בגין נכס בחולון שהושכר
-למערערת. הנכס נמסר למשיב 1 מעיריית חולון עד לשנת 1997. בשנת 1998 השכירו המשיבים
-את המבנה למערערת, לטובת הקמת מוסך במקום. המערערת הגישה בקשה לעיריית חולון לקבלת
-רישיון עסק. בתשובה הודע למערערת כי השטח שייך לעירייה, ולפיכך לא תוכל לקבל
-רישיון. בעקבות הודעה זו הפסיקה המערערת את תשלום דמי השכירות, והצדדים הודיעו זה
-לזו על ביטול ההסכמים שביניהם.
+1. בבית משפט השלום בתל-אביב מתנהלת תובענה נגד המערערת, שעניינה תביעת המשיבים לתשלום דמי שכירות בגין נכס בחולון שהושכר למערערת. הנכס נמסר למשיב 1 מעיריית חולון עד לשנת 1997. בשנת 1998 השכירו המשיבים את המבנה למערערת, לטובת הקמת מוסך במקום. המערערת הגישה בקשה לעיריית חולון לקבלת רישיון עסק. בתשובה הודע למערערת כי השטח שייך לעירייה, ולפיכך לא תוכל לקבל רישיון. בעקבות הודעה זו הפסיקה המערערת את תשלום דמי השכירות, והצדדים הודיעו זה לזו על ביטול ההסכמים שביניהם.
 
-2. מכאן תביעת המשיבים נגד המערערת לתשלום
-דמי שכירות, דמי אחזקה וכן לסילוק ידה מהנכס. המערערת הגישה בקשת רשות להתגונן.
-בטרם ניתנה החלטה בבקשה זו, ניתן (ביום 9.6.03) פסק דין בבית משפט השלום בכפר-סבא
-(ת&#34;א 5571/01), בתביעה של עיריית חולון נגד משיב 1 בקשר לנכס. תביעת העירייה
-נתקבלה, ונפסק כי על המשיב לפנות את השטח, בשל סיום תקופת הרשות. בדיון בבקשת
-הרשות להתגונן, נתן בית המשפט (השופט ד&#39; מור) למערערת רשות להתגונן אך לעניין סכום
-דמי השכירות, בקבעו כי אפילו אם לאור פסק הדין של בית משפט השלום בכפר-סבא יש ספק
-לגבי זכויות המשיבים בשטח, הרי שעדיין עומדת למשיבים הזכות לקבל דמי שכירות ממי
-שנכנס למקום מטעמם. בשולי ההחלטה נאמר, כי במידה והמערערת סבורה שאינה חייבת לשלם
-דמי שכירות כלל, הרי שבאפשרותה להגיש בקשה לסילוק על הסף. בקשה כאמור אכן הוגשה,
-אך בקדם המשפט חזרה בה המערערת מהבקשה בהמלצת בית המשפט (השופט ח&#39; טובי). בישיבה
-נוספת (ביום 27.1.04) הציע בית המשפט כי הצדדים יגיעו לפשרה על תשלום דמי השכירות.
-פשרה כאמור לא הושגה. לאחר חילופי ייצוג אצל המערערת, הגישה זו (ביום 13.4.04)
-בקשה לתיקון כתב הגנה (בש&#34;א 162714/04), על בסיס פסק הדין לטובת העירייה. בית
-המשפט דחה (ביום 7.6.04) את הבקשה. נקבע כי לאור דחיית הבקשה לסילוק על הסף, אין
-זה סביר להכניס אותן טענות בדרך של תיקון כתב הגנה. כן נקבע כי אין קשר בין פסק
-הדין לטובת העירייה לבין ההליך הנוכחי.
+2. מכאן תביעת המשיבים נגד המערערת לתשלום דמי שכירות, דמי אחזקה וכן לסילוק ידה מהנכס. המערערת הגישה בקשת רשות להתגונן. בטרם ניתנה החלטה בבקשה זו, ניתן (ביום 9.6.03) פסק דין בבית משפט השלום בכפר-סבא (ת&#34;א 5571/01), בתביעה של עיריית חולון נגד משיב 1 בקשר לנכס. תביעת העירייה נתקבלה, ונפסק כי על המשיב לפנות את השטח, בשל סיום תקופת הרשות. בדיון בבקשת הרשות להתגונן, נתן בית המשפט (השופט ד&#39; מור) למערערת רשות להתגונן אך לעניין סכום דמי השכירות, בקבעו כי אפילו אם לאור פסק הדין של בית משפט השלום בכפר-סבא יש ספק לגבי זכויות המשיבים בשטח, הרי שעדיין עומדת למשיבים הזכות לקבל דמי שכירות ממי שנכנס למקום מטעמם. בשולי ההחלטה נאמר, כי במידה והמערערת סבורה שאינה חייבת לשלם דמי שכירות כלל, הרי שבאפשרותה להגיש בקשה לסילוק על הסף. בקשה כאמור אכן הוגשה, אך בקדם המשפט חזרה בה המערערת מהבקשה בהמלצת בית המשפט (השופט ח&#39; טובי). בישיבה נוספת (ביום 27.1.04) הציע בית המשפט כי הצדדים יגיעו לפשרה על תשלום דמי השכירות. פשרה כאמור לא הושגה. לאחר חילופי ייצוג אצל המערערת, הגישה זו (ביום 13.4.04) בקשה לתיקון כתב הגנה (בש&#34;א 162714/04), על בסיס פסק הדין לטובת העירייה. בית המשפט דחה (ביום 7.6.04) את הבקשה. נקבע כי לאור דחיית הבקשה לסילוק על הסף, אין זה סביר להכניס אותן טענות בדרך של תיקון כתב הגנה. כן נקבע כי אין קשר בין פסק הדין לטובת העירייה לבין ההליך הנוכחי.
 
-3. מיד עם מתן ההחלטה ביקשה המערערת את פסילת
-בית המשפט. המערערת טענה כי לאור דחיית בקשתה לתיקון כתב ההגנה, יהיה המשך הדיון
-בבחינת &#34;משחק מכור&#34;. לחילופין, ביקשה כי הדיון יעוכב עד למתן החלטה
-בבקשת רשות לערעור שבכוונתה להגיש לבית המשפט המחוזי על ההחלטה שלא להתיר תיקון
-כתב הגנה.
+3. מיד עם מתן ההחלטה ביקשה המערערת את פסילת בית המשפט. המערערת טענה כי לאור דחיית בקשתה לתיקון כתב ההגנה, יהיה המשך הדיון בבחינת &#34;משחק מכור&#34;. לחילופין, ביקשה כי הדיון יעוכב עד למתן החלטה בבקשת רשות לערעור שבכוונתה להגיש לבית המשפט המחוזי על ההחלטה שלא להתיר תיקון כתב הגנה.
 
-4. בית המשפט לא מצא &#34;שמץ של טעם
-וסיבה&#34; לפסול עצמו מלהמשיך לדון בתיק. הוא ציין כי הלכה ידועה היא &#34;כי
-כאשר בית המשפט נותן החלטה בבקשת ביניים הרי זו החלטה לכאורית על פי מה שנראה לבית
-המשפט בחומר המונח על פניו באותה עת, ואין בכך לחוות דעה בתיק לגופו&#34;. משכך,
-לא קמה עילה לפסילת בית המשפט. עם זאת, נענה בית המשפט לבקשה החלופית של המערערת
-לעכב את הדיון, על מנת לאפשר הגשת בקשת רשות ערעור לבית המשפט המחוזי.
+4. בית המשפט לא מצא &#34;שמץ של טעם וסיבה&#34; לפסול עצמו מלהמשיך לדון בתיק. הוא ציין כי הלכה ידועה היא &#34;כי כאשר בית המשפט נותן החלטה בבקשת ביניים הרי זו החלטה לכאורית על פי מה שנראה לבית המשפט בחומר המונח על פניו באותה עת, ואין בכך לחוות דעה בתיק לגופו&#34;. משכך, לא קמה עילה לפסילת בית המשפט. עם זאת, נענה בית המשפט לבקשה החלופית של המערערת לעכב את הדיון, על מנת לאפשר הגשת בקשת רשות ערעור לבית המשפט המחוזי.
 
-5. על דחיית בקשת הפסלות הוגש הערעור שבפני.
-לטענת המערערת, הערעור אינו ניסוב על החלטת הביניים, אלא על גישת בית המשפט
-המשתמעת מתוכן החלטות אלה. גישה שמלמדת, לדעת המערערת, כי ננעל שיקול דעתו של בית
-המשפט ו&#34;המשחק מכור&#34;. לטענתה, בית המשפט כבר הכריע למעשה בתיק, תוך
-שהוא מציין כי התנהלותה של המערערת חסרת תום לב ונועדה אך לדחות את הקץ. משמע,
-שהקץ כבר ידוע לבית המשפט. המשיבים, בתגובה לערעור, תומכים בהחלטת בית המשפט.
-לטענתם, ההחלטה אינה מעלה חשש כלשהו למשוא פנים או לדעה קדומה. מדובר בהחלטה
-שניתנה במסגרת הליך ביניים ואין בכך להעיד על העמדה הסופית לאחר שמיעת הראיות.
-לאחר הגשת הערעור הגישה המערערת בקשה לצירוף מסמכים, לה התנגדו המשיבים. מבלי
-להתייחס לבקשה גופה, אציין כי אין במסמכים שביקשה המערערת להגיש כדי לשנות תוצאת
-ערעור זה.
+5. על דחיית בקשת הפסלות הוגש הערעור שבפני. לטענת המערערת, הערעור אינו ניסוב על החלטת הביניים, אלא על גישת בית המשפט המשתמעת מתוכן החלטות אלה. גישה שמלמדת, לדעת המערערת, כי ננעל שיקול דעתו של בית המשפט ו&#34;המשחק מכור&#34;. לטענתה, בית המשפט כבר הכריע למעשה בתיק, תוך שהוא מציין כי התנהלותה של המערערת חסרת תום לב ונועדה אך לדחות את הקץ. משמע, שהקץ כבר ידוע לבית המשפט. המשיבים, בתגובה לערעור, תומכים בהחלטת בית המשפט. לטענתם, ההחלטה אינה מעלה חשש כלשהו למשוא פנים או לדעה קדומה. מדובר בהחלטה שניתנה במסגרת הליך ביניים ואין בכך להעיד על העמדה הסופית לאחר שמיעת הראיות. לאחר הגשת הערעור הגישה המערערת בקשה לצירוף מסמכים, לה התנגדו המשיבים. מבלי להתייחס לבקשה גופה, אציין כי אין במסמכים שביקשה המערערת להגיש כדי לשנות תוצאת ערעור זה.
 
-6. לאחר שעיינתי בחומר שלפני, נחה דעתי כי
-דין הערעור להידחות. החלטת בית המשפט שלא לאפשר למערערת תיקון כתב הגנה, אינה
-מקימה חשש ממשי למשוא פנים בניהול המשפט. הדרך להתמודד עם החלטות מעין אלה היא
-בערכאת ערעור (בהתאם לסדרי הדין), ולא באמצעות הגשת בקשת פסלות (ע&#34;א 2505/00 חברת קוביק נ&#39; מיקרוסופט קורפוריישן (לא פורסם); ע&#34;א 10619/02 בן עמי נ&#39; קידר (לא פורסם)). ואכן, לדברי המערערת הוגשה בקשת רשות
-ערעור כאמור, ובית המשפט אף נענה לבקשה החלופית של המערערת והפסיק את הדיון כדי
-לאפשר את הגשת הבקשה. ללמדך שאין בהחלטתו משום גיבושה של דעה מוגמרת בעניין. הוא
-הדין לגבי הצעת הפשרה של בית המשפט. כידוע, אין בהצעתו הראשונית של בית המשפט
-להגיע להסכמה כדי להצביע על גיבוש דעה מוגמרת לגבי תוצאות התביעה (ע&#34;א
-7265/98 חליחלד נ&#39; ברסקי, פ&#34;ד
-נב(5) 477, 479; ע&#34;א 4674/00 החברה המאוחדת למזרח
-הקרוב נ&#39; ונונו, פ&#34;ד נה(2) 145, 148)). במיוחד כאשר מועד העלאת
-ההצעה קדם לשמיעת ההוכחות. הלכה היא, כי בית המשפט רשאי להביע את דעתו על סיכויי
-התביעה וההגנה, דעה שהיא רק בבחינת השערה לכאורה לפי שלב השמיעה שבו נתון ההליך
-השיפוטי. הבעת עמדה כזו על-ידי בית המשפט, בסגנון זהיר, אין בה כדי לפסלו מלהמשיך
-בדיון (ע&#34;א 7362/03 בן חיים נ&#39; ניסים (לא
-פורסם); רע&#34;א 287/88 מנוף סיגנל חברה
-לפיננסים נ&#39; ראזק, פ&#34;ד מד(3) 758, 761). בענייננו מדובר בעמדה שהובעה
-בשלב מוקדם של ההליך, בקדם המשפט, ואין בה כדי להעיד כי &#34;ננעל&#34; ליבו של
-בית המשפט (ע&#34;א 9930/02 געש נ&#39; פזקר (לא
-פורסם)). לבסוף, אף הביקורת על אופן התנהלות המערערת אינה מגלה עילת פסילה. אכן, &#34;על
-בית המשפט לנהוג לעולם באיפוק ובריסון, וגם בהשמיעו הערות ביקורתיות עליו להביא
-בחשבון איך עלולה הביקורת לשמה, בנקודה הספציפית שלגביה היא מושמעת, להתפרש בעיני
-הנוגע בדבר, הניצב אותה שעה בפני בית המשפט&#34; (ע&#34;פ 732/86 חליווה נ&#39; מדינת ישראל, פ&#34;ד מא(1) 412, 415). יחד עם
-זאת, אין באמירה ביקורתית כשלעצמה, ואפילו נאמרה בחריפות, כדי לפסול את השופט הדן
-בתיק מלדון בו (ע&#34;א 5089/01 תאופיק נ&#39; מנהיים (לא
-פורסם)). בעניינו צוין כי התנהלות המערערת חסרת תום לב וכי היא נוקטת בסחבת. אכן
-זו אמירה ביקורתית, אך אין היא חריפה במידה כזו המקימה חשש ממשי למשוא פנים בניהול
-המשפט (ע&#34;א 2668/96 וינברג-דורון ושות&#39; נ&#39;
-לייב (לא פורסם)).
+6. לאחר שעיינתי בחומר שלפני, נחה דעתי כי דין הערעור להידחות. החלטת בית המשפט שלא לאפשר למערערת תיקון כתב הגנה, אינה מקימה חשש ממשי למשוא פנים בניהול המשפט. הדרך להתמודד עם החלטות מעין אלה היא בערכאת ערעור (בהתאם לסדרי הדין), ולא באמצעות הגשת בקשת פסלות (ע&#34;א 2505/00 חברת קוביק נ&#39; מיקרוסופט קורפוריישן (לא פורסם); ע&#34;א 10619/02 בן עמי נ&#39; קידר (לא פורסם)). ואכן, לדברי המערערת הוגשה בקשת רשות ערעור כאמור, ובית המשפט אף נענה לבקשה החלופית של המערערת והפסיק את הדיון כדי לאפשר את הגשת הבקשה. ללמדך שאין בהחלטתו משום גיבושה של דעה מוגמרת בעניין. הוא הדין לגבי הצעת הפשרה של בית המשפט. כידוע, אין בהצעתו הראשונית של בית המשפט להגיע להסכמה כדי להצביע על גיבוש דעה מוגמרת לגבי תוצאות התביעה (ע&#34;א 7265/98 חליחלד נ&#39; ברסקי, פ&#34;ד נב(5) 477, 479; ע&#34;א 4674/00 החברה המאוחדת למזרח הקרוב נ&#39; ונונו, פ&#34;ד נה(2) 145, 148)). במיוחד כאשר מועד העלאת ההצעה קדם לשמיעת ההוכחות. הלכה היא, כי בית המשפט רשאי להביע את דעתו על סיכויי התביעה וההגנה, דעה שהיא רק בבחינת השערה לכאורה לפי שלב השמיעה שבו נתון ההליך השיפוטי. הבעת עמדה כזו על-ידי בית המשפט, בסגנון זהיר, אין בה כדי לפסלו מלהמשיך בדיון (ע&#34;א 7362/03 בן חיים נ&#39; ניסים (לא פורסם); רע&#34;א 287/88 מנוף סיגנל חברה לפיננסים נ&#39; ראזק, פ&#34;ד מד(3) 758, 761). בענייננו מדובר בעמדה שהובעה בשלב מוקדם של ההליך, בקדם המשפט, ואין בה כדי להעיד כי &#34;ננעל&#34; ליבו של בית המשפט (ע&#34;א 9930/02 געש נ&#39; פזקר (לא פורסם)). לבסוף, אף הביקורת על אופן התנהלות המערערת אינה מגלה עילת פסילה. אכן, &#34;על בית המשפט לנהוג לעולם באיפוק ובריסון, וגם בהשמיעו הערות ביקורתיות עליו להביא בחשבון איך עלולה הביקורת לשמה, בנקודה הספציפית שלגביה היא מושמעת, להתפרש בעיני הנוגע בדבר, הניצב אותה שעה בפני בית המשפט&#34; (ע&#34;פ 732/86 חליווה נ&#39; מדינת ישראל, פ&#34;ד מא(1) 412, 415). יחד עם זאת, אין באמירה ביקורתית כשלעצמה, ואפילו נאמרה בחריפות, כדי לפסול את השופט הדן בתיק מלדון בו (ע&#34;א 5089/01 תאופיק נ&#39; מנהיים (לא פורסם)). בעניינו צוין כי התנהלות המערערת חסרת תום לב וכי היא נוקטת בסחבת. אכן זו אמירה ביקורתית, אך אין היא חריפה במידה כזו המקימה חשש ממשי למשוא פנים בניהול המשפט (ע&#34;א 2668/96 וינברג-דורון ושות&#39; נ&#39; לייב (לא פורסם)).
 
-אשר על כן, הערעור נדחה. המערערת תישא
-בהוצאות המשיבים בסך 3,000 ₪.
+אשר על כן, הערעור נדחה. המערערת תישא בהוצאות המשיבים בסך 3,000 ₪.
 
-ניתנה היום, ו&#39; בחשון התשס&#34;ה
-(21.10.2004).
+ניתנה היום, ו&#39; בחשון התשס&#34;ה (21.10.2004).
 
-ה
-נ ש י א
+ה נ ש י א
 
 _________________________
 
@@ -1708,7 +1902,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

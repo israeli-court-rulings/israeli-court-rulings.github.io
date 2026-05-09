@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    21/05/2019 (לפני 2541 ימים)
+                    21/05/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/1193-18.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="1193/18 - רגבים נ. שר הבטחון"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F1193-18.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/930/011/f09&amp;fileName=18011930.F09&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/930/011/f09&amp;fileName=18011930.F09&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/930/011/f09&amp;fileName=18011930.F09&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/18/930/011/f09&amp;fileName=18011930.F09&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,249 +1827,123 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 1193/18
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-בג&#34;ץ  1193/18
-
-
-
-לפני:	
+לפני:
 
 כבוד הנשיאה א&#39; חיות
 
-
-
 כבוד השופט ג&#39; קרא
 
-
-
 כבוד השופט א&#39; שטיין
-
-
 
 העותרת:
 
 רגבים
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. שר הבטחון
 
-
-
 2. אלוף פיקוד המרכז
-
-
 
 3. ראש המנהל האזרחי
 
-
-
 4. עבד אל חלים מוחמד אבו קביטה
-
-
 
 5. איברהים מוחמד אבו קביטה
 
-
-
 6. מחמוד מוחמד אבו קביטה
-
-
 
 7. אחמד מוחמד אבו קביטה
 
-
-
 8. עבאס מוחמד אבו קביטה
-
-
 
 עתירה למתן צו על תנאי וצו ביניים
 
-
-
 תאריך הישיבה:
 
-י&#34;ח באדרה ב תשע&#34;ט      
+י&#34;ח באדרה ב תשע&#34;ט
 
-(25.03.2019) 
-
-
+(25.03.2019)
 
 בשם העותר:
 
 עו&#34;ד אברהם סגל; עו&#34;ד יעל סינמון
 
-
-
-
-
 בשם המשיבים 3-1:
 
 עו&#34;ד לירון הופפלד
-
-
-
-
 
 פסק-דין
 
 השופט א&#39; שטיין:
 
-
-
 העתירה
 
+בעתירה זו נתבקשנו ליתן צו על תנאי שיורה למשיבים 3-1 (שייקראו להלן: המדינה) לנמק מדוע אינם נוקטים בפעולות האכיפה הנדרשות להוצאה ומימוש של צווי הפסקת עבודה והריסה ביחס ל-14 מבנים שהוקמו ונבנו שלא כדין וללא היתרים בסמיכות לישוב יתיר שבהר חברון, ואשר סומנו במספרים 14-1 בתצלום אוויר שהופיע בגוף העתירה (להלן: הצווים והמבנים הלא חוקיים, לפי העניין).
 
-
-בעתירה זו נתבקשנו ליתן צו על תנאי שיורה למשיבים 3-1 (שייקראו להלן: המדינה) לנמק מדוע אינם נוקטים בפעולות האכיפה הנדרשות להוצאה ומימוש של צווי הפסקת עבודה והריסה ביחס ל-14 מבנים שהוקמו ונבנו שלא כדין וללא היתרים בסמיכות לישוב יתיר שבהר חברון, ואשר סומנו במספרים 14-1 בתצלום אוויר שהופיע בגוף העתירה (להלן: הצווים והמבנים הלא חוקיים, לפי העניין). 
-
-
-
-	כמו כן נתבקשנו להורות למשיבים 8-4, שלטענת העותרת נושאים באחריות לבנייה הבלתי חוקית הנ&#34;ל, לנמק מדוע לא יחדלו ממנה או מביצוע כל פעולה אחרת לשם קידומה. בנוסף, נתבקשנו להורות למדינה למסור לידי העותרת את פרטי זהותם של מפרי חוקי הבנייה הנוספים אשר פעלו באותו מתחם והקימו בו חלק מהמבנים הלא חוקיים. העותרת גם ביקשה כי ניתן צו ביניים שיורה למשיבים 8-4 להקפיא את מצב הבנייה הקיים במתחם ולא לעשות בו שום פעולת בנייה עד למתן פסק דין סופי בעתירה. 
-
-
+כמו כן נתבקשנו להורות למשיבים 8-4, שלטענת העותרת נושאים באחריות לבנייה הבלתי חוקית הנ&#34;ל, לנמק מדוע לא יחדלו ממנה או מביצוע כל פעולה אחרת לשם קידומה. בנוסף, נתבקשנו להורות למדינה למסור לידי העותרת את פרטי זהותם של מפרי חוקי הבנייה הנוספים אשר פעלו באותו מתחם והקימו בו חלק מהמבנים הלא חוקיים. העותרת גם ביקשה כי ניתן צו ביניים שיורה למשיבים 8-4 להקפיא את מצב הבנייה הקיים במתחם ולא לעשות בו שום פעולת בנייה עד למתן פסק דין סופי בעתירה.
 
 לאחר העברת העתירה לדיון לפני מותב תלתא וקביעת מועד הדיון, הגישה המדינה את תגובתה לעתירה ואחריה באה הודעת עדכון מטעמה.
 
-
-
 טענות הצדדים
-
-
 
 העותרת טוענת כי המדינה לא עושה די כדי לאכוף את הצווים ולמצות את הדין עם המפרים. לדברי העותרת, מדובר במדיניות של &#34;שב ואל תעשה&#34; אשר מיטיבה עם מפריהם של חוקי הבנייה ומסכנת את שלום הציבור ואת בטחונו.
 
+עוד טוענת העותרת, כי המדינה לא השיבה כנדרש לפניותיה הרבות שבהן היא דרשה – ושבה ודרשה – לנקוט בהליכי פיקוח ואכיפה כנגד הבנייה הבלתי חוקית ולמצות את הדין עם המפרים. לטענת העותרת, אי-התייחסות המדינה לפניותיה והימנעותה ממתן מענה ענייני להן מהוות הפרה של החובות אשר חלות על המדינה מכוח סעיפים 2 ו-2א לחוק לתיקון סדרי המינהל (החלטות והנמקות), התשי&#34;ט-1958 (להלן: חוק ההנמקות). העותרת מוסיפה וטוענת, כי הפרה זו שוללת מהמדינה את חזקת התקינות בכל הנוגע להתנהלותה בקשר למבנים הלא חוקיים וכי סעיף 6 לחוק ההנמקות מחייב את המדינה להוכיח כי התנהלות זו עולה בקנה אחד עם הדין.
 
-
-עוד טוענת העותרת, כי המדינה לא השיבה כנדרש לפניותיה הרבות שבהן היא דרשה – ושבה ודרשה – לנקוט בהליכי פיקוח ואכיפה כנגד הבנייה הבלתי חוקית ולמצות את הדין עם המפרים. לטענת העותרת, אי-התייחסות המדינה לפניותיה  והימנעותה ממתן מענה ענייני להן מהוות הפרה של החובות אשר חלות על המדינה מכוח סעיפים 2 ו-2א לחוק לתיקון סדרי המינהל (החלטות והנמקות), התשי&#34;ט-1958 (להלן: חוק ההנמקות). העותרת מוסיפה וטוענת, כי הפרה זו שוללת מהמדינה את חזקת התקינות בכל הנוגע להתנהלותה בקשר למבנים הלא חוקיים וכי סעיף 6 לחוק ההנמקות מחייב את המדינה להוכיח כי התנהלות זו עולה בקנה אחד עם הדין.
-
-
-
-לבסוף, טוענת העותרת כי המדינה לא הרימה את נטל ההוכחה האמור וכי ממילא הוכח שהתנהלות המדינה ביחס לצווים ולמבנים הלא חוקיים לוקה בחוסר סבירות קיצוני. מטעמים אלה, מבקשת מאתנו העותרת כי נוציא מלפנינו את הצווים המבוקשים לעיל. 
-
-
+לבסוף, טוענת העותרת כי המדינה לא הרימה את נטל ההוכחה האמור וכי ממילא הוכח שהתנהלות המדינה ביחס לצווים ולמבנים הלא חוקיים לוקה בחוסר סבירות קיצוני. מטעמים אלה, מבקשת מאתנו העותרת כי נוציא מלפנינו את הצווים המבוקשים לעיל.
 
 המדינה איננה חולקת על כך שבמבחן התוצאה הצווים בדבר הפסקת עבודה והריסת המבנים אינם נאכפים. ואולם, לטענת המדינה אין מקום לייחס לה בכגון דא חדלון שלטוני, מאחר שהיא פעלה – ומוסיפה לפעול – ביחס למבנים הלא חוקיים בהתבסס על מארג שיקולים מורכב שעניינו הקצאת כוח-אדם ומשאבים אחרים אשר נדרשים לאכיפת חוקי הבנייה. המדינה מוסיפה וטוענת, כי לצד שיקולים מקצועיים אלה היא שקלה, ועודנה שוקלת, שיקולים מדיניים וביטחוניים אשר לעתים אינם מאפשרים את ביצועם של צווי הריסה. באשר למבנים הלא חוקיים שבהם עסקינן, מסרה לנו המדינה כי הצווים אשר הוצאו לגבי המבנים שסומנו בעתירה במספרים 2, 3, 4, 6, 7, 9, 11, 13 ו-14 נמסרו למפרים ואחר כך נדונו לפני וועדת המשנה לפיקוח על הבנייה. בסופו של אותו דיון, הוציאה הוועדה צווים סופיים בדבר הפסקת עבודה והריסת המבנים. עוד נמסר, כי צווים סופיים כאמור הוצאו גם ביחס למבנים שסומנו במספרים 1 ו-5. לגבי המבנים שסומנו במספרים 8 ו-12 טרם ננקטו צעדי אכיפה נוספים במטרה להביא להריסתם, אך הדבר לא ירד מסדר היום של רשויות האכיפה. באשר למבנה שסומן במספר 10, תיק הבנייה הבלתי חוקית שנפתח בעניינו לפני שנים רבות טרם אותר ומסיבה זו האכיפה הוקפאה (נכון לעכשיו).
 
- 
-
-על יסוד האמור לעיל, המדינה טוענת כי פעולות האכיפה שעשתה, כפי שעשתה, ביחס לצווים ולמבנים הלא חוקיים הינן פועל יוצא של אילוצים לגיטימיים. המדינה מפרטת ומסבירה בהקשר זה, כי היא פעלה, ועודנה פועלת, בהתאם לסדר עדיפויותיה אשר נקבע על ידיה – הן ביחס לבנייה הפלסטינית והן בנוגע לבנייה הישראלית באזור – תחת אילוץ של משאבים מוגבלים ותוך התחשבות בשיקולים מדיניים וביטחוניים. המדינה מסכמת וטוענת כי היא הפעילה את שיקול דעתה מבלי לחרוג ממתחם הסבירות; ומשכך, אין בנמצא שום עילה משפטית הקוראת להתערבותנו בהחלטות שקיבלה. 
-
-
+על יסוד האמור לעיל, המדינה טוענת כי פעולות האכיפה שעשתה, כפי שעשתה, ביחס לצווים ולמבנים הלא חוקיים הינן פועל יוצא של אילוצים לגיטימיים. המדינה מפרטת ומסבירה בהקשר זה, כי היא פעלה, ועודנה פועלת, בהתאם לסדר עדיפויותיה אשר נקבע על ידיה – הן ביחס לבנייה הפלסטינית והן בנוגע לבנייה הישראלית באזור – תחת אילוץ של משאבים מוגבלים ותוך התחשבות בשיקולים מדיניים וביטחוניים. המדינה מסכמת וטוענת כי היא הפעילה את שיקול דעתה מבלי לחרוג ממתחם הסבירות; ומשכך, אין בנמצא שום עילה משפטית הקוראת להתערבותנו בהחלטות שקיבלה.
 
 דיון והכרעה
 
-
-
-הלכה היא עמנו שבית משפט זה איננו נוהג להתערב בשיקול דעתה של רשות שלטונית בנוגע לסדרי העדיפויות שהיא קובעת לעצמה באכיפת החוק (ראו בג&#34;ץ 7601/18 רגבים נ&#39; שר הביטחון, פסקה 4 (10.4.2019); בג&#34;ץ 6002/17 רגבים נ&#39; שר הביטחון, פסקה 6 (13.2.2019); בג&#34;ץ 4912/10 שפיר הנדסה אזרחית וימית בע&#34;מ נ&#39; מועצת התכנון העליונה, ועדת המשנה לכרייה ולחציבה, פסקה 14 (20.11.2016); בג&#34;ץ 6243/08 התנועה לשמירת אדמות הלאום נ&#39; שר הבטחון, מר אהוד ברק, פסקה 24 והאסמכתאות המובאות שם (2.12.2010); בג&#34;ץ 6288/09 עראערה נ&#39; מרדכי, פסקה 12 (2.3.2010); וכן בג&#34;צ 1161/06 תנועת &#34;אנחנו על המפה&#34; נ&#39; שר הבטחון, פסקה 10 (14.10.2007)). כפי שהסביר זאת, בשעתו, השופט נ&#39; הנדל, כלל יסודי זה עומד על שלושה נדבכים: 
-
-
+הלכה היא עמנו שבית משפט זה איננו נוהג להתערב בשיקול דעתה של רשות שלטונית בנוגע לסדרי העדיפויות שהיא קובעת לעצמה באכיפת החוק (ראו בג&#34;ץ 7601/18 רגבים נ&#39; שר הביטחון, פסקה 4 (10.4.2019); בג&#34;ץ 6002/17 רגבים נ&#39; שר הביטחון, פסקה 6 (13.2.2019); בג&#34;ץ 4912/10 שפיר הנדסה אזרחית וימית בע&#34;מ נ&#39; מועצת התכנון העליונה, ועדת המשנה לכרייה ולחציבה, פסקה 14 (20.11.2016); בג&#34;ץ 6243/08 התנועה לשמירת אדמות הלאום נ&#39; שר הבטחון, מר אהוד ברק, פסקה 24 והאסמכתאות המובאות שם (2.12.2010); בג&#34;ץ 6288/09 עראערה נ&#39; מרדכי, פסקה 12 (2.3.2010); וכן בג&#34;צ 1161/06 תנועת &#34;אנחנו על המפה&#34; נ&#39; שר הבטחון, פסקה 10 (14.10.2007)). כפי שהסביר זאת, בשעתו, השופט נ&#39; הנדל, כלל יסודי זה עומד על שלושה נדבכים:
 
 &#34;האחד, הרשות בעלת משאבים מוגבלים, המלאכה רבה ומתרבה ומכאן הצורך לקבוע סדרי עדיפויות. השני, מלאכת האכיפה מעוררת לעתים קשיים. לא פעם, אין להסתפק בפעולה חד-פעמית כדי להביא לאכיפה יעילה, אלא מדובר בתהליך. השלישי, שיקולי הרשות בעניין זה אינם אריתמטיים או חד-ממדיים. מערכת השיקולים בנושא הרגיש של אכיפת דיני תכנון ובנייה בכלל, ובאזור יהודה ושומרון בפרט, טומנת בחובה ראייה כוללת, שמביאה לידי ביטוי לא רק את מידת הפרת החוק, אלא גם את &#34;המרקם החברתי הרלבנטי... היבט הסיכון הביטחוני; משך הזמן שחלף מאז בניית המבנה הבלתי-חוקי עשוי אף הוא לשמש שיקול בתעדוף האכיפה; רגישותו של האתר מבחינות שונות...&#34; (דברי השופטת פרוקצ&#39;יה בבג&#34;ץ 6243/08 התנועה לשמירת אדמות הלאום ואח&#39; נ&#39; שר הביטחון (2.2.10)), קיימים גם שיקולים של מדיניות, ביטחון, אופיים של אזורים מסוימים ועוד&#34; (ראו בג&#34;ץ 72/09 רגבים (לשעבר התנועה לשמירת אדמות הלאום) נ&#39; שר הביטחון אהוד ברק, פסקה 5 (13.11.2011) (להלן: בג&#34;ץ 72/09) (ההדגשה במקור – א.ש.); וראו גם עע&#34;מ 2847/13 איסמעילוף נ&#39; ראש ממשלת ישראל, פסקה 8 (23.3.2016)).
 
-
-
-
-
 ודוק: התערבות בג&#34;ץ בשיקול דעת כאמור תתאפשר רק במקרים בהם הוכחה התנערות מלאה או הימנעות בלתי סבירה מאכיפת החוק על ידי הרשות או כאשר סדרי העדיפויות שהרשות הציבה לעצמה בענייני האכיפה נגועים באי חוקיות, בחוסר סבירות קיצוני או בפגם חמור אחר אשר יורד לשורש העניין (ראו בג&#34;ץ 8912/16 רגבים נ&#39; שר הביטחון, פסקה 12 (4.11.2018); בג&#34;ץ 8381/15 רגבים נ&#39; שר הבטחון, פסקה 5 (26.12.2017); בג&#34;ץ 5665/11 כפר אדומים כפר שיתופי להתיישבות קהילתית בע&#34;מ נ&#39; שר הבטחון, פסקה 16 (10.10.2012); בג&#34;ץ 8806/10 רגבים נ&#39; ראש הממשלה, פסקה 7 והאסמכתאות המובאות שם (4.9.2011); בג&#34;ץ 72/09, פסקה 5; וכן בג&#34;ץ 1555/06 קינג נ&#39; עיריית ירושלים (15.5.2006)). במקרה דנן, פגם בסדר גודל כזה איננו בנמצא. אמצעי האכיפה שננקטו ביחס למפרי הצווים והמבנים הלא חוקיים היו אמנם חלקיים ולא הביאו עדיין לתוצאה המיוחלת, אולם יחד עם כך לא ניתן להאשים את המדינה ב&#34;שב ואל תעשה&#34; ובחדלון אשר עולה כדי חוסר סבירות קיצוני. משכך, בין אם נצדיק את פעולות האכיפה שננקטו על ידי המדינה ובין אם לאו, אין זה ראוי שנעמיד את עצמנו במקומה ונחליף את שיקול דעתה בשיקול דעתנו.
-
-
 
 לצד מסקנה זו, ברצוני להביע מורת רוח על שהמדינה לא קיימה את חובותיה לפי חוק ההנמקות כאשר היא נמנעה מלענות לפניות העותרת במועדים ובאופן שחוק זה קבע. כעולה מהעתירה ומנספחיה, ביום 25.5.2017 פנתה העותרת לראשונה למדינה בעניין המבנים הלא חוקיים – ומשחלף המועד למתן מענה כאמור בסעיף 2(א) לחוק ההנמקות – שבה העותרת ופנתה למדינה ביום 2.8.2017. לפנייה זו, השיבה המדינה ביום 8.8.2017 כי &#34;בהתאם לפנייתך ובמידת הצורך, ינקטו הליכי פיקוח ואכיפה בהתאם לנהלים, ומימוש האכיפה יקבע בהתאם לסדר העדיפויות&#34;. משנותר המצב על כנו, הוסיפה העותרת ופנתה אל המדינה בהודעות תזכורת ביום 11.9.2017 וביום 18.12.2017, אשר נותרו ללא מענה. לכך מתווספת העובדה כי המדינה לא התייחסה בתגובתה לעתירה לטענות העותרת בנוגע לאי קיום החובות האמורות. בנסיבות אלה, שקלתי אם יהא זה ראוי שנחייב את המדינה לשאת בהוצאות העותרת חרף העובדה שלא נוכל לתת לעותרת את מבוקשה (ראו דפנה ברק-ארז משפט מינהלי כרך א 434 (2010)), אולם החלטתי לעת הזו להסתפק בהבעת מורת-רוח.
 
-
-
 אשר על כן, הנני מציע לחבריי שנדחה עתירה זו ללא צו להוצאות.
-
-
-
-
 
 ש ו פ ט
 
 הנשיאה א&#39; חיות:
 
-	
-
-
-
-	אני מסכימה.
-
-
+אני מסכימה.
 
 ה נ ש י א ה
 
-
-
 השופט ג&#39; קרא:
 
-
-
-
-
-	אני מסכים.
+אני מסכים.
 
 ש ו פ ט
 
+הוחלט כאמור בפסק דינו של השופט א&#39; שטיין.
 
+ניתן היום, ‏ט&#34;ו באייר התשע&#34;ט (‏20.5.2019).
 
-	הוחלט כאמור בפסק דינו של השופט א&#39; שטיין.
-
-
-
-
-
-	ניתן היום, ‏ט&#34;ו באייר התשע&#34;ט (‏20.5.2019).
-
-
-
-
-
- ה נ ש י א ה
+ה נ ש י א ה
 
 ש ו פ ט
 
 ש ו פ ט
-
-
-
-
 
 _________________________
 
-   18011930_F09.docx   עב
+18011930_F09.docx עב
 
-מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333 ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1817,7 +1962,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

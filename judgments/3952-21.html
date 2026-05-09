@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    16/06/2021 (לפני 1784 ימים)
+                    16/06/2021 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/3952-21.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="3952/21 - פלוני נ. פלוני"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F3952-21.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/520/039/y01&amp;fileName=21039520.Y01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/520/039/y01&amp;fileName=21039520.Y01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/520/039/y01&amp;fileName=21039520.Y01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/520/039/y01&amp;fileName=21039520.Y01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,177 +1827,87 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 3952/21
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
-
-בג&#34;ץ  3952/21
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופט ע&#39; גרוסקופף
 
-
-
 כבוד השופט א&#39; שטיין
-
-
 
 העותר:
 
 פלוני
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבים:
 
 1. פלונית
 
-
-
 2. בית הדין השרעי לערעורים
-
-
 
 3. בית הדין השרעי האזורי
 
-	
-
 עתירה למתן צו על תנאי וצו ביניים
-
-	
 
 בשם העותר:
 
 עו&#34;ד אומימה חאמד
 
-
-
 פסק-דין
-
-
 
 השופט ע&#39; גרוסקופף:
 
+לפנינו עתירה המכוונת כלפי פסק דינו של בית הדין השרעי לערעורים מיום 20.4.2021 בתיק מס&#39; 181/2021. בפסק דין זה נדחה ערעור שהוגש על פסק דינו של בית הדין השרעי בנצרת מיום 7.2.2021 בתיק מס&#39; 2977/2020, אשר דחה את תביעת העותר לחלוקת רכוש.
 
+1.	על פי הנטען בעתירה, העותר והמשיבה 1 (להלן: המשיבה) נישאו בהתאם להלכה המוסלמית ביום 6.8.1999 ונולדו להם 3 ילדים. לימים, עלו יחסיהם על שרטון ובין השניים התנהלו מספר הליכים כמפורט להלן:
 
-	לפנינו עתירה המכוונת כלפי פסק דינו של בית הדין השרעי לערעורים מיום 20.4.2021 בתיק מס&#39; 181/2021. בפסק דין זה נדחה ערעור שהוגש על פסק דינו של בית הדין השרעי בנצרת מיום 7.2.2021 בתיק מס&#39; 2977/2020, אשר דחה את תביעת העותר לחלוקת רכוש.
+(-) ביום 24.8.2020 הגישה המשיבה לבית הדין השרעי בנצרת תביעת בוררות (&#34;תחכים&#34;), תביעה למזונות קטין ותביעה למזונות אישה.
 
+(-) ביום 14.9.2020 הגישה המשיבה בקשה ליישוב סכסוך בפני בית משפט לענייני משפחה בנצרת (להלן: תביעת יישוב הסכסוך שהגישה המשיבה).
 
+(-) ביום 30.9.2020 הגיש העותר לבית הדין השרעי בנצרת תביעה לחלוקת רכוש, היא התביעה בה עסקינן (להלן: תביעת הרכוש שהגיש העותר).
 
-1.	על פי הנטען בעתירה, העותר והמשיבה 1 (להלן: המשיבה) נישאו בהתאם להלכה המוסלמית ביום 6.8.1999 ונולדו להם 3 ילדים. לימים, עלו יחסיהם על שרטון ובין השניים התנהלו מספר הליכים כמפורט להלן: 
-
-
-
-	(-) ביום 24.8.2020 הגישה המשיבה לבית הדין השרעי בנצרת תביעת בוררות (&#34;תחכים&#34;), תביעה למזונות קטין ותביעה למזונות אישה.
-
-
-
-	(-) ביום 14.9.2020 הגישה המשיבה בקשה ליישוב סכסוך בפני בית משפט לענייני משפחה בנצרת (להלן: תביעת יישוב הסכסוך שהגישה המשיבה).
-
-
-
-	(-) ביום 30.9.2020 הגיש העותר לבית הדין השרעי בנצרת תביעה לחלוקת רכוש, היא התביעה בה עסקינן (להלן: תביעת הרכוש שהגיש העותר).
-
-
-
-	(-) ביום 28.10.2020 הגישה המשיבה בקשה לסגירת תיק יישוב סכסוך בפני בית המשפט לענייני משפחה בנצרת, כאשר ביום 17.12.2020 נסגר התיק. בהמשך לכך, ביום 20.12.2020 הגישה המשיבה תביעה לחלוקת רכוש לבית המשפט לענייני משפחה.
-
-
+(-) ביום 28.10.2020 הגישה המשיבה בקשה לסגירת תיק יישוב סכסוך בפני בית המשפט לענייני משפחה בנצרת, כאשר ביום 17.12.2020 נסגר התיק. בהמשך לכך, ביום 20.12.2020 הגישה המשיבה תביעה לחלוקת רכוש לבית המשפט לענייני משפחה.
 
 2.	ביום 7.2.2021 דחה בית הדין השרעי בנצרת את תביעת הרכוש שהגיש העותר, וזאת בשל היעדר סמכות על פי מירוץ הסמכויות בין הערכאות. על פי מירוץ הסמכויות, כך נקבע, בית המשפט לענייני משפחה רכש ראשון את הסמכות לדון בתביעה לחלוקת רכוש, בשל תביעת יישוב הסכסוך שהגישה המשיבה, אשר קדמה לתביעת הרכוש שהגיש העותר. העותר ערער על החלטה זו לפני בית הדין השרעי לערעורים. ביום 20.4.2021 נדחה הערעור מנימוק אחר, והוא שלבית הדין השרעי אין כלל סמכות עניינית לדון בתביעת הרכוש שהגיש העותר (להלן: פסק הדין).
 
+3.	העותר בעתירתו מעלה שתי טענות מרכזיות: ראשית, נטען כי החלטתו של בית הדין השרעי לערעורים ניתנה בהרכב חסר, וזאת בניגוד להוראות הדין. לטענת העותר, משלא נכתב &#34;אני מסכים&#34; על ידי שניים מחברי המותב שלא כתבו את חוות הדעת העיקרית, ולא הובעה על ידם כל התייחסות לאמור בפסק הדין, הרי שיש לראות את ההחלטה כאילו ניתנה בדן יחיד ולא בהרכב תלתא כנדרש. שנית, טוען העותר כי פסק דינו של בית הדין השרעי לערעורים מנוגד להלכה שנקבעה בבית משפט זה בעניין בג&#34;ץ 7212/09‏ פלוני נ&#39; פלונית (3.7.2013) (להלן: בג&#34;ץ 7212/09), על פיה לבית הדין השרעי יש סמכות עניינית לדון בתביעה רכושית בין בני זוג כל עוד הם נשואים, כגון זו שהגיש העותר.
 
-
-3.	העותר בעתירתו מעלה שתי טענות מרכזיות: ראשית, נטען כי החלטתו של בית הדין השרעי לערעורים ניתנה בהרכב חסר, וזאת בניגוד להוראות הדין. לטענת העותר, משלא נכתב &#34;אני מסכים&#34; על ידי שניים מחברי המותב שלא כתבו את חוות הדעת העיקרית, ולא הובעה על ידם כל התייחסות לאמור בפסק הדין, הרי שיש לראות את ההחלטה כאילו ניתנה בדן יחיד ולא בהרכב תלתא כנדרש. שנית, טוען העותר כי פסק דינו של בית הדין השרעי לערעורים מנוגד להלכה שנקבעה בבית משפט זה בעניין בג&#34;ץ 7212/09‏ פלוני נ&#39; פלונית (3.7.2013) (להלן: בג&#34;ץ 7212/09), על פיה לבית הדין השרעי יש סמכות עניינית לדון בתביעה רכושית בין בני זוג כל עוד הם נשואים, כגון זו שהגיש העותר. 
-
-
-
-4.	לאחר שעיינו בעתירה על צרופותיה, הגענו לכלל מסקנה כי דינה להידחות אף מבלי להידרש לתגובת המשיבים. הלכה מושרשת וידועה היא כי בית המשפט הגבוה לצדק אינו יושב כערכאת ערעור על החלטותיהם של בתי הדין הדתיים, ובכלל זאת בתי הדין השרעיים, וכי התערבות בהחלטות אלו מוגבלת למקרים חריגים בלבד, כגון חריגה מסמכות, פגיעה בעקרונות הצדק הטבעי וסטייה מהוראות חוק המופנות כלפי בתי הדין הדתיים (ראו, למשל: בג&#34;ץ 9534/11 פלוני נ&#39; בית  הדין  השרעי לים, פסקה ג&#39; (27.12.2011); בג&#34;ץ 9230/17 פלוני נ&#39; בית הדין השרעי העליון לים, פסקה 6 (27.11.2017)). העתירה שלפנינו אינה נמנית עם אותם מקרים חריגים המצדיקים התערבות.
-
-
+4.	לאחר שעיינו בעתירה על צרופותיה, הגענו לכלל מסקנה כי דינה להידחות אף מבלי להידרש לתגובת המשיבים. הלכה מושרשת וידועה היא כי בית המשפט הגבוה לצדק אינו יושב כערכאת ערעור על החלטותיהם של בתי הדין הדתיים, ובכלל זאת בתי הדין השרעיים, וכי התערבות בהחלטות אלו מוגבלת למקרים חריגים בלבד, כגון חריגה מסמכות, פגיעה בעקרונות הצדק הטבעי וסטייה מהוראות חוק המופנות כלפי בתי הדין הדתיים (ראו, למשל: בג&#34;ץ 9534/11 פלוני נ&#39; בית הדין השרעי לים, פסקה ג&#39; (27.12.2011); בג&#34;ץ 9230/17 פלוני נ&#39; בית הדין השרעי העליון לים, פסקה 6 (27.11.2017)). העתירה שלפנינו אינה נמנית עם אותם מקרים חריגים המצדיקים התערבות.
 
 5.	אשר לטענה הראשונה שהעלה העותר, אין בה ממש. אכן, עיון בפסק הדין של בית הדין השרעי לערעורים מעלה כי פסק הדין נכתב על ידי הקאדי מוחמד עבד אלרחם אבו עוביד, אשר שמו מופיע בראשית פסק הדין. ואולם, בתחתית פסק הדין חתומים שמותיהם של יתר חברי המותב (הקאדי איאד זחאלקה והקאדי זיאד להואני), דבר המעיד כי פסק הדין ניתן על דעת כל חברי המותב. העובדה כי לא נוספו במפורש המילים &#34;אני מסכים&#34;, או כל התייחסות אחרת, לצד שמותיהם וחתימתם של יתר חברי המותב איננה אלא היבט טכני-צורני בלבד. בוודאי שלא ניתן להסיק ממנה כי ההחלטה ניתנה שלא על דעת חברי המותב, לא כל שכן כי ניתנה בהרכב חסר. משכך, דין טענה זו להידחות.
 
-
-
 6.	טענתו השנייה של העותר מכוונת כלפי תוכנו של פסק הדין בטענה כי מסקנתו מנוגדת להלכה שנקבעה בבג&#34;ץ 7212/09. לדברי העותר, בהתבסס על פסק דין זה, וכן שורה של פסקי דין שניתנה על ידי בתי הדין השרעיים, לבית הדין השרעי סמכות לדון בתביעות רכוש בין בני זוג במהלך קיום קשר הנישואין, וכן סמכות לדון בתביעה ממונית בין בני זוג כל עוד קשר הנישואין לא הותר. על כן, משקשר הנישואין בין העותר והמשיבה לא הותר, הרי שלבית הדין השרעי סמכות עניינית לדון בתביעת הרכוש שהגיש העותר. אין בידי לקבל טענה זו.
 
+7.	מן ההיבט המשפטי, העותר מבקש לטעון כי תביעת הרכוש שהגיש נכנסת בגדר תביעה בקשר עם נישואין וגירושין, אשר לבית הדין השרעי סמכות לדון בה מכוח סעיף 7 לחוק הפרוצדורה של בית הדין המוסלמים הדתיים, 1933. בבג&#34;ץ 7212/09 נקבע כי מבחן העזר להכרעה בשאלה האם תביעה פלונית היא &#34;בקשר עם נישואין וגירושין&#34;, הוא כדלהלן:
 
+תביעה תהיה בסמכותו של בית הדין השרעי, אם מקורה במעמד (סטטוס) הנישואין או הגירושין עצמם. לעומת זאת, אם התביעה מתבססת על עילות אזרחיות רגילות, אשר רק נוצרו במהלך הנישואין, אזי התביעה &#34;איננה בקשר עם נישואין וגירושין&#34; (ההדגשה במקור; בג&#34;ץ 7212/09, פסקה 14).
 
-7.	מן ההיבט המשפטי, העותר מבקש לטעון כי תביעת הרכוש שהגיש נכנסת בגדר תביעה בקשר עם נישואין וגירושין, אשר לבית הדין השרעי סמכות לדון בה מכוח סעיף 7 לחוק הפרוצדורה של בית הדין המוסלמים הדתיים, 1933. בבג&#34;ץ 7212/09 נקבע כי מבחן העזר להכרעה בשאלה האם תביעה פלונית היא &#34;בקשר עם נישואין וגירושין&#34;, הוא כדלהלן: 
+עינינו הרואות כי אין בבג&#34;ץ 7212/09 כדי לבסס את ההבחנה לה טוען העותר – אם קשר הנישואין הותר, ואם לאו. ההבחנה הנדרשת מבוססת על מקורה של התביעה וטיבה (וראו גם: ע&#34;א 77/77 ראבי נ&#39; ראבי, פ&#34;ד לג(1) 729 (1979) הנזכר בבג&#34;ץ 7212/09, וכן בג&#34;ץ 1000/92 בבלי נ&#39; בית הדין הרבני הגדול, פ&#34;ד מח(2) 221 (1994)). ודוק, שאלת קיומו של קשר נישואין היא בוודאי רלוונטית לבחינת מקורה של התביעה. ואולם, אין בה די על מנת לקבוע האם מדובר בתביעה &#34;בקשר עם נישואין וגירושין&#34;.
 
-
-
-תביעה תהיה בסמכותו של בית הדין השרעי, אם מקורה במעמד (סטטוס) הנישואין או הגירושין עצמם. לעומת זאת, אם התביעה מתבססת על עילות אזרחיות רגילות, אשר רק נוצרו במהלך הנישואין, אזי התביעה &#34;איננה בקשר עם נישואין וגירושין&#34; (ההדגשה במקור; בג&#34;ץ 7212/09, פסקה 14). 
-
-
-
-	עינינו הרואות כי אין בבג&#34;ץ 7212/09 כדי לבסס את ההבחנה לה טוען העותר – אם קשר הנישואין הותר, ואם לאו. ההבחנה הנדרשת מבוססת על מקורה של התביעה וטיבה (וראו גם: ע&#34;א 77/77 ראבי נ&#39; ראבי, פ&#34;ד לג(1) 729 (1979) הנזכר בבג&#34;ץ 7212/09, וכן בג&#34;ץ 1000/92 בבלי נ&#39; בית הדין הרבני הגדול, פ&#34;ד מח(2) 221 (1994)). ודוק, שאלת קיומו של קשר נישואין היא בוודאי רלוונטית לבחינת מקורה של התביעה. ואולם, אין בה די על מנת לקבוע האם מדובר בתביעה &#34;בקשר עם נישואין וגירושין&#34;.
-
-
-
-8.	מן ההיבט הדיוני, העתירה נעדרת תשתית עובדתית בסיסית על מנת שניתן יהיה לבחון את טענת העותר בהינתן המבחן האמור (ראו והשוו: בג&#34;ץ 621/21 פלוני נ&#39; בית הדין השרעי לים, פסקה 5 (2.6.2021)). על פי פסק הדין של בית הדין השרעי לערעורים, העותר הגיש תביעה בעניין חלוקת הרכוש, ומהמשך הדברים עולה כי הכוונה לתביעה לאיזון משאבים לפי חוק יחסי ממון בין בני זוג, התשל&#34;ג-1973. תביעה זו, כך על פי תיאור העותר, עניינה ב&#34;שימור זכויות ונכסים וחלוקתה בנוסף לחיוב [המשיבה] שלא לשנות מצב קיים בנכסים, כספים וחשבונות&#34; (סעיף 5 לעתירה). הא ותו לא. העותר לא צירף את כתב התביעה, ואף לא פירט מהן עילות התביעה שנכללו בו ומהם הסעדים המבוקשים. בנסיבות אלה, לא ביסס העותר את טענתו כי תביעת חלוקת הרכוש היא בקשר עם הנישואין וגירושין, וכל שניתן ללמוד מהעתירה הוא שהתביעה הוגשה קודם שהותרו הנישואין. בכך, כאמור, אין די מבחינת הדין המהותי על מנת להקנות סמכות לבית הדין השרעי. 
-
-
+8.	מן ההיבט הדיוני, העתירה נעדרת תשתית עובדתית בסיסית על מנת שניתן יהיה לבחון את טענת העותר בהינתן המבחן האמור (ראו והשוו: בג&#34;ץ 621/21 פלוני נ&#39; בית הדין השרעי לים, פסקה 5 (2.6.2021)). על פי פסק הדין של בית הדין השרעי לערעורים, העותר הגיש תביעה בעניין חלוקת הרכוש, ומהמשך הדברים עולה כי הכוונה לתביעה לאיזון משאבים לפי חוק יחסי ממון בין בני זוג, התשל&#34;ג-1973. תביעה זו, כך על פי תיאור העותר, עניינה ב&#34;שימור זכויות ונכסים וחלוקתה בנוסף לחיוב [המשיבה] שלא לשנות מצב קיים בנכסים, כספים וחשבונות&#34; (סעיף 5 לעתירה). הא ותו לא. העותר לא צירף את כתב התביעה, ואף לא פירט מהן עילות התביעה שנכללו בו ומהם הסעדים המבוקשים. בנסיבות אלה, לא ביסס העותר את טענתו כי תביעת חלוקת הרכוש היא בקשר עם הנישואין וגירושין, וכל שניתן ללמוד מהעתירה הוא שהתביעה הוגשה קודם שהותרו הנישואין. בכך, כאמור, אין די מבחינת הדין המהותי על מנת להקנות סמכות לבית הדין השרעי.
 
 9.	סוף דבר: העתירה נדחית. העותר יישא בהוצאות לטובת המדינה בסך 1,000 ש&#34;ח.
 
-
-
-
-
-	ניתן היום, ‏ו&#39; בתמוז התשפ&#34;א (‏16.6.2021).
-
-
-
-
-
-
+ניתן היום, ‏ו&#39; בתמוז התשפ&#34;א (‏16.6.2021).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
 
 _________________________
 
-   21039520_Y01.docx   למ
+21039520_Y01.docx למ
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1745,7 +1926,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

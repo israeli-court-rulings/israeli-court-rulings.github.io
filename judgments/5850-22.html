@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    07/09/2022 (לפני 1336 ימים)
+                    07/09/2022 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5850-22.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5850/22 - פלוני נ. משרד הרווחה והשירותים החברתיים"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5850-22.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/500/058/c02&amp;fileName=22058500.C02&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/500/058/c02&amp;fileName=22058500.C02&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/500/058/c02&amp;fileName=22058500.C02&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/22/500/058/c02&amp;fileName=22058500.C02&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,155 +1827,91 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 5850/22
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-
-
-בג&#34;ץ  5850/22
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט נ&#39; סולברג
 
-
-
 כבוד השופט א&#39; שטיין
 
-
-
 כבוד השופט ח&#39; כבוב
-
-
 
 העותר:
 
 פלוני
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבים:
 
 1. משרד הרווחה והשירותים החברתיים
 
-
-
 2. פלונית
 
+3. המחלקה לשירותים חברתיים, מועצה אזורית
 
-
-3. המחלקה לשירותים חברתיים, מועצה אזורית 
-
-     עמק חפר
-
-	
+עמק חפר
 
 עתירה למתן צו על תנאי וצו ביניים
 
-	
-
 בשם העותר:
 
-עו&#34;ד שמואל פלור 
-
-
-
-	
+עו&#34;ד שמואל פלור
 
 פסק-דין
 
-
-
 השופט ח&#39; כבוב:
 
-	זוהי העתירה השלישית המוגשת במסגרת מערכת היחסים שבין העותר והמשיבים, ועניינה בקשה שנוציא שני צווים:
+זוהי העתירה השלישית המוגשת במסגרת מערכת היחסים שבין העותר והמשיבים, ועניינה בקשה שנוציא שני צווים:
 
-	הראשון – צו ביניים המורה למשיבה 3, היא המחלקה לשירותים חברתיים במועצה האזורית עמק חפר (להלן: המחלקה בעמק חפר), &#34;שלא לקיים ועדת ת&#34;ט [ככל שניתן להבין, &#34;תכנון וטיפול&#34; – ח.כ.], שככל הידוע נועדה להתקיים ב-7.9.22, אלא לאחר מתן פסק דין בעתירה זו ו/או לאחר מתן החלטה בערר שהגיש העותר למשיב [משיב 1 – ח.כ.]...ו/או זמן סביר לאחר שהעותר יקבל מהמשיבה 3 מענה מלא ושלם לפנייתו למשיבה 3 מה-16.8.22&#34;.
+הראשון – צו ביניים המורה למשיבה 3, היא המחלקה לשירותים חברתיים במועצה האזורית עמק חפר (להלן: המחלקה בעמק חפר), &#34;שלא לקיים ועדת ת&#34;ט [ככל שניתן להבין, &#34;תכנון וטיפול&#34; – ח.כ.], שככל הידוע נועדה להתקיים ב-7.9.22, אלא לאחר מתן פסק דין בעתירה זו ו/או לאחר מתן החלטה בערר שהגיש העותר למשיב [משיב 1 – ח.כ.]...ו/או זמן סביר לאחר שהעותר יקבל מהמשיבה 3 מענה מלא ושלם לפנייתו למשיבה 3 מה-16.8.22&#34;.
 
-	השני – צו על-תנאי, &#34;המורה למשיב לבוא וליתן טעם מדוע לא יעביר את מינוי עו&#34;ס לס.ד. [ככל שניתן להבין, &#34;לעניין סדרי דין&#34; – ח.כ.] (ומינוי עו&#34;ס נוספת) למ.מ. [מועצה מקומית – ח.כ.] אליכין במחוז מרכז של המשיב [משיב 1 – ח.כ.], במקום העברת המינויים הללו למשיבה 3 במחוז מרכז של המשיב [המשיב 1 – ח.כ.], כבהחלטתו מיום 28.8.22, נשוא עתירה זו&#34;. 
+השני – צו על-תנאי, &#34;המורה למשיב לבוא וליתן טעם מדוע לא יעביר את מינוי עו&#34;ס לס.ד. [ככל שניתן להבין, &#34;לעניין סדרי דין&#34; – ח.כ.] (ומינוי עו&#34;ס נוספת) למ.מ. [מועצה מקומית – ח.כ.] אליכין במחוז מרכז של המשיב [משיב 1 – ח.כ.], במקום העברת המינויים הללו למשיבה 3 במחוז מרכז של המשיב [המשיב 1 – ח.כ.], כבהחלטתו מיום 28.8.22, נשוא עתירה זו&#34;.
 
-	בפתח הדברים יוער, כי העתירה לוקה בחוסר בהירות ובלאקוניות באופן המקשה עד מאוד לברר את טענות העותר לגופן, ונדמה כי די היה בכך לדחותה (בג&#34;ץ 5300/22 פלונית נ&#39; בית הדין הרבני האזורי פתח תקווה, פסקה 2 (07.08.2022); בג&#34;ץ 1514/22 תג&#39;ר נ&#39; בית הדין הרבני, פסקה 2 (02.03.2022)). ברם, בשל רגישות הנושא בו עסקינן, החלטנו לבור את הבר מן התבן ככל הניתן. משכך, תוצג התשתית העובדתית לעתירה, בהתאם לשניתן להבין ממנה.
+בפתח הדברים יוער, כי העתירה לוקה בחוסר בהירות ובלאקוניות באופן המקשה עד מאוד לברר את טענות העותר לגופן, ונדמה כי די היה בכך לדחותה (בג&#34;ץ 5300/22 פלונית נ&#39; בית הדין הרבני האזורי פתח תקווה, פסקה 2 (07.08.2022); בג&#34;ץ 1514/22 תג&#39;ר נ&#39; בית הדין הרבני, פסקה 2 (02.03.2022)). ברם, בשל רגישות הנושא בו עסקינן, החלטנו לבור את הבר מן התבן ככל הניתן. משכך, תוצג התשתית העובדתית לעתירה, בהתאם לשניתן להבין ממנה.
 
-	ברקע לעתירה עומדות שתי עתירות קודמות בעניינו של העותר. 
+ברקע לעתירה עומדות שתי עתירות קודמות בעניינו של העותר.
 
-	הראשונה, בג&#34;ץ 3946/22 פלוני נ&#39; משרד הרווחה והשירותים החברתיים (12.07.2022), בגדרה ביקש העותר, כי בית משפט זה יוציא צו על-תנאי המורה למשיב 1 לבוא וליתן טעם מדוע לא יועבר הטיפול בעניינו ובעניין ילדיו המשותפים עם משיבה 2 – גרושתו – מהמחלקה לשירותים חברתיים של המועצה האזורית מנשה, לניהול המחלקה בעמק חפר – ולחלופין, למועצה המקומית אליכין (להלן: המחלקה באליכין) או למועצה האזורית לב השרון. עתירה זו נמחקה משזו מיצתה את עצמה, לאחר שמשיב 1 קיבל החלטה להעביר את הטיפול בעניינו של העותר ובילדיו למחלקה בעמק חפר  (להלן: העתירה הראשונה).
+הראשונה, בג&#34;ץ 3946/22 פלוני נ&#39; משרד הרווחה והשירותים החברתיים (12.07.2022), בגדרה ביקש העותר, כי בית משפט זה יוציא צו על-תנאי המורה למשיב 1 לבוא וליתן טעם מדוע לא יועבר הטיפול בעניינו ובעניין ילדיו המשותפים עם משיבה 2 – גרושתו – מהמחלקה לשירותים חברתיים של המועצה האזורית מנשה, לניהול המחלקה בעמק חפר – ולחלופין, למועצה המקומית אליכין (להלן: המחלקה באליכין) או למועצה האזורית לב השרון. עתירה זו נמחקה משזו מיצתה את עצמה, לאחר שמשיב 1 קיבל החלטה להעביר את הטיפול בעניינו של העותר ובילדיו למחלקה בעמק חפר (להלן: העתירה הראשונה).
 
-	השנייה, בג&#34;ץ 4887/22 פלונית נ&#39; משרד הרווחה והשירותים החברתיים (17.08.2022), בגדרה השיגה משיבה 2 על ההחלטה האמורה להעביר את הטיפול בעניינו של העותר וילדיהם המשותפים למחלקה בעמק חפר. זאת, בטענה כי העברה זו – שלישית במספר – תסב להם נזק, וכי ההחלטה על ההעברה לוקה בחוסר סבירות. עתירה זו נדחתה על הסף, בהיעדר עילה להתערבות (להלן: העתירה השנייה).
+השנייה, בג&#34;ץ 4887/22 פלונית נ&#39; משרד הרווחה והשירותים החברתיים (17.08.2022), בגדרה השיגה משיבה 2 על ההחלטה האמורה להעביר את הטיפול בעניינו של העותר וילדיהם המשותפים למחלקה בעמק חפר. זאת, בטענה כי העברה זו – שלישית במספר – תסב להם נזק, וכי ההחלטה על ההעברה לוקה בחוסר סבירות. עתירה זו נדחתה על הסף, בהיעדר עילה להתערבות (להלן: העתירה השנייה).
 
-	לאחר שניתן פסק הדין בעתירה השנייה, פנה העותר אל משיב 1 מספר פעמים בבקשה, כי הטיפול בעניינו ובעניין ילדיו יועבר למחלקה באליכין. זאת, בשל סכסוך לכאורה בין המועצה האזורית עמק חפר ובין מי מקרובי משפחתו של העותר, וכי לעמדתו המועצה האזורית עמק חפר מפלה בין תושביה. כן ציין העותר, כי המחלקה באליכין קרובה יותר הן למקום מגוריו (במועצה המקומית אליכין), הן למקום מגוריה של משיבה 2. עוד פנה העותר למחלקה בעמק חפר בנושא של הוועדה לתכנון ולטיפול (שאותה מכנה העותר &#34;ועדת ת&#34;ט&#34;) שנקבעה – ככל שניתן להבין – לדון בעניין ילדיו. במסגרת זו השיג העותר על כך שלא קיבל זימון לוועדה זו זמן מספק מראש; וביקש הוא פרטים על אודות חברי הוועדה, המועד שבו נקבע הדיון בפני הוועדה, החומר שיעמוד לפניה, סמכויותיה, החוק שמסמיך את עצם קיום הוועדה – ועוד. 
+לאחר שניתן פסק הדין בעתירה השנייה, פנה העותר אל משיב 1 מספר פעמים בבקשה, כי הטיפול בעניינו ובעניין ילדיו יועבר למחלקה באליכין. זאת, בשל סכסוך לכאורה בין המועצה האזורית עמק חפר ובין מי מקרובי משפחתו של העותר, וכי לעמדתו המועצה האזורית עמק חפר מפלה בין תושביה. כן ציין העותר, כי המחלקה באליכין קרובה יותר הן למקום מגוריו (במועצה המקומית אליכין), הן למקום מגוריה של משיבה 2. עוד פנה העותר למחלקה בעמק חפר בנושא של הוועדה לתכנון ולטיפול (שאותה מכנה העותר &#34;ועדת ת&#34;ט&#34;) שנקבעה – ככל שניתן להבין – לדון בעניין ילדיו. במסגרת זו השיג העותר על כך שלא קיבל זימון לוועדה זו זמן מספק מראש; וביקש הוא פרטים על אודות חברי הוועדה, המועד שבו נקבע הדיון בפני הוועדה, החומר שיעמוד לפניה, סמכויותיה, החוק שמסמיך את עצם קיום הוועדה – ועוד.
 
-	ביום 28.08.2022 דחה משיב 1 את בקשת העותר, בנימוק כי &#34;העברת הטיפול למחלקה לשירותים חברתיים בעמק חפר, נעשית לאור מקום מגוריך בתחומי המועצה האזורית עמק חפר...&#34;. עוד צוין, כי אין קשר בין המחלקה בעמק חפר ובין הסכסוך אותו ציין העותר, וכן כי &#34;עובדות המחלקה לשירותים חברתיים בעמק חפר הן עובדות מקצועיות ומסורות, אשר אני סמוכה ובטוחה כי יטפלו בך ובמשפחתך על הצד הטוב ביותר...&#34;. 
+ביום 28.08.2022 דחה משיב 1 את בקשת העותר, בנימוק כי &#34;העברת הטיפול למחלקה לשירותים חברתיים בעמק חפר, נעשית לאור מקום מגוריך בתחומי המועצה האזורית עמק חפר...&#34;. עוד צוין, כי אין קשר בין המחלקה בעמק חפר ובין הסכסוך אותו ציין העותר, וכן כי &#34;עובדות המחלקה לשירותים חברתיים בעמק חפר הן עובדות מקצועיות ומסורות, אשר אני סמוכה ובטוחה כי יטפלו בך ובמשפחתך על הצד הטוב ביותר...&#34;.
 
-	בהמשך לכך, ובאותו היום, הגיש העותר בקשה שכותרתה &#34;בקשה לעיון חוזר בהכרעת השתייכות – משפחת [...]&#34;, במסגרתה חזר על השגותיו נגד ההחלטה מיום 28.08.2022. ביום 31.08.2022 דחה משיב 1 בקשה זו, משסבר כי המענה שניתן לעותר במסגרת החלטתו מיום 28.08.2022, עונה על כלל הטענות שהוא העלה; וכי אין לו &#34;מה להוסיף בעניין זה&#34;.
+בהמשך לכך, ובאותו היום, הגיש העותר בקשה שכותרתה &#34;בקשה לעיון חוזר בהכרעת השתייכות – משפחת [...]&#34;, במסגרתה חזר על השגותיו נגד ההחלטה מיום 28.08.2022. ביום 31.08.2022 דחה משיב 1 בקשה זו, משסבר כי המענה שניתן לעותר במסגרת החלטתו מיום 28.08.2022, עונה על כלל הטענות שהוא העלה; וכי אין לו &#34;מה להוסיף בעניין זה&#34;.
 
-	ביום 02.09.2022, הגיש העותר בקשה לוועדת הערר של משיב 1, במסגרתה חזר על השגותיו הן ביחס לוועדה לתכון ולטיפול שנקבעה, הן ביחס להחלטה שלא להעביר את הטיפול בעניינו ובעניין ילדיו למחלקה באליכין. נכון למועד כתיבת שורות אלו, טרם התקבלה החלטה בבקשתו.
+ביום 02.09.2022, הגיש העותר בקשה לוועדת הערר של משיב 1, במסגרתה חזר על השגותיו הן ביחס לוועדה לתכון ולטיפול שנקבעה, הן ביחס להחלטה שלא להעביר את הטיפול בעניינו ובעניין ילדיו למחלקה באליכין. נכון למועד כתיבת שורות אלו, טרם התקבלה החלטה בבקשתו.
 
-	במסגרת עתירתו, מעלה העותר טענות מכל הבא ליד, אשר לחלקן אין כל קשר לעתירה. נדמה כי טענות העותר במהותן מופנות נגד התנהלותו של משיב 1, אשר לא דן בפניותיו ב&#34;לב פתוח ובנפש חפצה&#34;; לא נתן לו זכות לטעון את טענותיו; האציל סמכויותיו לעו&#34;ד מטעמו; ודחה את בקשתו להעביר את הטיפול בעניינו למחלקה באליכין – על אף היותה קרובה יותר למקום מגוריו שלו ושל גרושתו ומהווה &#34;לוח חלק&#34; שאינה נמצאת בגדרי &#34;רשות מקומית שמי ממשפחת העותר מסוכסך עימה&#34;. 
+במסגרת עתירתו, מעלה העותר טענות מכל הבא ליד, אשר לחלקן אין כל קשר לעתירה. נדמה כי טענות העותר במהותן מופנות נגד התנהלותו של משיב 1, אשר לא דן בפניותיו ב&#34;לב פתוח ובנפש חפצה&#34;; לא נתן לו זכות לטעון את טענותיו; האציל סמכויותיו לעו&#34;ד מטעמו; ודחה את בקשתו להעביר את הטיפול בעניינו למחלקה באליכין – על אף היותה קרובה יותר למקום מגוריו שלו ושל גרושתו ומהווה &#34;לוח חלק&#34; שאינה נמצאת בגדרי &#34;רשות מקומית שמי ממשפחת העותר מסוכסך עימה&#34;.
 
 דיון והכרעה
 
-	לאחר עיון בעתירה ובנספחיה, מצאנו כי דינה – דחייה על הסף; וזאת, בשל היעדר עילה להתערבות.
+לאחר עיון בעתירה ובנספחיה, מצאנו כי דינה – דחייה על הסף; וזאת, בשל היעדר עילה להתערבות.
 
-	תחילה יוער, כי חלק מטענות העותר נגד התנהלותו של משיב 1 נעדרות כל עיגון עובדתי ומשפטי מינימאלי, ואף עומדות בסתירה לתשתית העובדתית שהניח העותר. כך למשל, העותר לא הצביע על כל טעם לביסוס טענתו, לפיה משיב 1 האציל סמכותו לעורך דין מטעמו שלא כדין. כמו כן, טענתו של העותר כי לא ניתנה לו זכות טיעון עומדת בניגוד לכך שההחלטה להעביר את הטיפול בעניינו ובעניין ילדיו למחלקה בעמק חפר, ניתנה לאחר שהגיש בעניין זה עתירה, שהעברה כאמור הייתה הסעד העיקרי שהתבקש במסגרתה.
+תחילה יוער, כי חלק מטענות העותר נגד התנהלותו של משיב 1 נעדרות כל עיגון עובדתי ומשפטי מינימאלי, ואף עומדות בסתירה לתשתית העובדתית שהניח העותר. כך למשל, העותר לא הצביע על כל טעם לביסוס טענתו, לפיה משיב 1 האציל סמכותו לעורך דין מטעמו שלא כדין. כמו כן, טענתו של העותר כי לא ניתנה לו זכות טיעון עומדת בניגוד לכך שההחלטה להעביר את הטיפול בעניינו ובעניין ילדיו למחלקה בעמק חפר, ניתנה לאחר שהגיש בעניין זה עתירה, שהעברה כאמור הייתה הסעד העיקרי שהתבקש במסגרתה.
 
-	מעבר לכך, ההחלטה של משיב 1 היא החלטה המצויה בתחום מומחיותו, וממילא העותר לא הצביע על פגם ממשי שנפל בה (ראו: העתירה השנייה, בפסקה 9 והאסמכתאות שם; בג&#34;ץ 6269/12 הנהגת ההורים הארצית נ&#39; שר החינוך, פסקה 16 (29.04.2015)). כאמור, החלטה זו אף תואמת את בקשת העותר במסגרת העתירה הראשונה. על כך יש להוסיף, כי טרם ניתנה החלטה בבקשה שהגיש העותר לוועדת הערר של משיב 1, אשר עשויה לייתר את הצורך בהגשת עתירה לבית משפט זה – דבר המעיד על קיומו של סעד חלופי שיש בו, כשלעצמו, כדי לדחות את העתירה. 
+מעבר לכך, ההחלטה של משיב 1 היא החלטה המצויה בתחום מומחיותו, וממילא העותר לא הצביע על פגם ממשי שנפל בה (ראו: העתירה השנייה, בפסקה 9 והאסמכתאות שם; בג&#34;ץ 6269/12 הנהגת ההורים הארצית נ&#39; שר החינוך, פסקה 16 (29.04.2015)). כאמור, החלטה זו אף תואמת את בקשת העותר במסגרת העתירה הראשונה. על כך יש להוסיף, כי טרם ניתנה החלטה בבקשה שהגיש העותר לוועדת הערר של משיב 1, אשר עשויה לייתר את הצורך בהגשת עתירה לבית משפט זה – דבר המעיד על קיומו של סעד חלופי שיש בו, כשלעצמו, כדי לדחות את העתירה.
 
-	אשר על כן, העתירה נדחית. משלא התבקשה תגובת המשיבים ובשים לב לנסיבות העניין – אין צו להוצאות.
+אשר על כן, העתירה נדחית. משלא התבקשה תגובת המשיבים ובשים לב לנסיבות העניין – אין צו להוצאות.
 
-
-
-
-
-	ניתן היום, ‏י&#34;א באלול התשפ&#34;ב (‏7.9.2022).
-
-
-
-
+ניתן היום, ‏י&#34;א באלול התשפ&#34;ב (‏7.9.2022).
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
 
 _________________________
 
-   22058500_C02.docx   מא
+22058500_C02.docx מא
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1723,7 +1930,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

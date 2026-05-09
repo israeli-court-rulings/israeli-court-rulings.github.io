@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    01/07/2004 (לפני 7978 ימים)
+                    01/07/2004 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/10426-03.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="10426/03 - מדינת ישראל נ. פרנסואה אביטל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F10426-03.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/260/104/H08&amp;fileName=03104260_H08.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/260/104/H08&amp;fileName=03104260_H08.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/260/104/H08&amp;fileName=03104260_H08.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/03/260/104/H08&amp;fileName=03104260_H08.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1560,8 +1831,7 @@
 
 בבית המשפט העליון
 
-רע&#34;ב
-10426/03
+רע&#34;ב 10426/03
 
 בפני:
 
@@ -1581,9 +1851,7 @@
 
 פרנסואה אביטל
 
-ערעור על פסק-דינו של בית-המשפט
-המחוזי בחיפה בתיק עע&#34;א 219/03, עע&#34;א 240/03, עע&#34;א 170/03, מיום
-10.11.03, שניתן על-ידי כבוד השופט ר&#39; שפירא
+ערעור על פסק-דינו של בית-המשפט המחוזי בחיפה בתיק עע&#34;א 219/03, עע&#34;א 240/03, עע&#34;א 170/03, מיום 10.11.03, שניתן על-ידי כבוד השופט ר&#39; שפירא
 
 תאריך הישיבה:
 
@@ -1603,124 +1871,43 @@
 
 השופט ס&#39; ג&#39;ובראן:
 
-המשיב מרצה בבית מעצר קישון עונש של חמש
-שנות מאסר בגין עבירות של סחיטה באיומים, הדחה בחקירה, סחיטה בכוח, קשירת קשר
-לביצוע פשע, רכישת נשק, תקיפה, איומים, שידול לסחיטה בכוח וניסיון סחיטה בכוח.
+המשיב מרצה בבית מעצר קישון עונש של חמש שנות מאסר בגין עבירות של סחיטה באיומים, הדחה בחקירה, סחיטה בכוח, קשירת קשר לביצוע פשע, רכישת נשק, תקיפה, איומים, שידול לסחיטה בכוח וניסיון סחיטה בכוח.
 
-המשיב
-מסווג לצורך חופשות לקטגוריה א&#39;, קרי &#34;מנוע חופשות&#34;. כן מוחזק הוא באגף
-הפרדה מיום 1.10.02, היום שבו נרצח אביו, פליקס אבוטבול.
+המשיב מסווג לצורך חופשות לקטגוריה א&#39;, קרי &#34;מנוע חופשות&#34;. כן מוחזק הוא באגף הפרדה מיום 1.10.02, היום שבו נרצח אביו, פליקס אבוטבול.
 
-ביום
-17.3.03, הגיש המשיב לבית-המשפט המחוזי בחיפה עתירת אסיר כנגד החלטת שירות בתי
-הסוהר, שלא לשלבו בתנאי כליאה רגילים, אלא להחזיקו באגף הפרדה.
+ביום 17.3.03, הגיש המשיב לבית-המשפט המחוזי בחיפה עתירת אסיר כנגד החלטת שירות בתי הסוהר, שלא לשלבו בתנאי כליאה רגילים, אלא להחזיקו באגף הפרדה.
 
-ביום
-21.5.03 וביום 28.5.03, הוגשו מטעמו של המשיב שתי עתירות נוספות לבית-המשפט
-המחוזי, בהן ביקש, כי תשונה הקטגוריה בה הוא מסווג, על-מנת שתתאפשר יציאתו לחופשות
-וכי יינתן לו לצאת לחופשה מיוחדת.
+ביום 21.5.03 וביום 28.5.03, הוגשו מטעמו של המשיב שתי עתירות נוספות לבית-המשפט המחוזי, בהן ביקש, כי תשונה הקטגוריה בה הוא מסווג, על-מנת שתתאפשר יציאתו לחופשות וכי יינתן לו לצאת לחופשה מיוחדת.
 
-ביום
-12.8.03, החליט בית-המשפט המחוזי בחיפה (כב&#39; השופט ר&#39; שפירא) לקבל את העתירות
-וקבע, כי על שירות בתי הסוהר להוציא את המשיב מאגף ההפרדה ואף לאפשר הוצאתו
-לחופשות. עוד קבע, כי אין להעניש את המשיב בגין מעשים המיוחסים לאביו ואין להחמיר
-עימו רק על בסיס מידע המצביע על סכנה לחייו ועל הסיכון כי יפגע באחרים. כמו-כן קבע
-בית-המשפט המחוזי, כי שלילה מוחלטת של חופשות והחזקת המשיב בהפרדה מלאה ובבידוד
-לאורך כל מאסרו על-מנת להגן על חייו או על חיי אחרים, הינה בנסיבות העניין שלילת
-זכויות ובמידה העולה על הנדרש. בית-המשפט המחוזי הוסיף וקבע, כי ניתן להתנות את
-חופשתו בתנאים שיאפשרו לו להיפגש עם אשתו וילדיו ויימנעו מאחרים להגיע אליו.
+ביום 12.8.03, החליט בית-המשפט המחוזי בחיפה (כב&#39; השופט ר&#39; שפירא) לקבל את העתירות וקבע, כי על שירות בתי הסוהר להוציא את המשיב מאגף ההפרדה ואף לאפשר הוצאתו לחופשות. עוד קבע, כי אין להעניש את המשיב בגין מעשים המיוחסים לאביו ואין להחמיר עימו רק על בסיס מידע המצביע על סכנה לחייו ועל הסיכון כי יפגע באחרים. כמו-כן קבע בית-המשפט המחוזי, כי שלילה מוחלטת של חופשות והחזקת המשיב בהפרדה מלאה ובבידוד לאורך כל מאסרו על-מנת להגן על חייו או על חיי אחרים, הינה בנסיבות העניין שלילת זכויות ובמידה העולה על הנדרש. בית-המשפט המחוזי הוסיף וקבע, כי ניתן להתנות את חופשתו בתנאים שיאפשרו לו להיפגש עם אשתו וילדיו ויימנעו מאחרים להגיע אליו.
 
-על
-החלטתו זו של בית-המשפט המחוזי הגישה מדינת ישראל (להלן: המדינה) בקשת רשות ערעור
-לבית-משפט זה (רע&#34;ב 7535/03). ביום 1.10.03, הורה בית-משפט זה (כב&#39; השופטים
-י&#39; טירקל, א&#39; ריבלין ו-מ&#39; נאור) להחזיר את הדיון בעניינו של המשיב לבית-המשפט
-המחוזי, על-מנת שזה ידון בנושא פעם נוספת, לאחר שבעלי הדין יגישו הודעות מעודכנות.
+על החלטתו זו של בית-המשפט המחוזי הגישה מדינת ישראל (להלן: המדינה) בקשת רשות ערעור לבית-משפט זה (רע&#34;ב 7535/03). ביום 1.10.03, הורה בית-משפט זה (כב&#39; השופטים י&#39; טירקל, א&#39; ריבלין ו-מ&#39; נאור) להחזיר את הדיון בעניינו של המשיב לבית-המשפט המחוזי, על-מנת שזה ידון בנושא פעם נוספת, לאחר שבעלי הדין יגישו הודעות מעודכנות.
 
-דיון
-כאמור אכן התקיים בבית-המשפט המחוזי ביום 28.10.03, וביום 10.11.03, החליט
-בית-המשפט המחוזי לדחות את העתירות הנוגעות להחזקתו בהפרדה של המשיב ולקבל את
-העתירה בכל הנוגע ליציאתו של המשיב לחופשות. בית-המשפט המחוזי קבע בהחלטתו, כי
-החומר המודיעיני שהוצג לעיונו מתייחס למסוכנות הנשקפת למשיב עצמו וכן למסוכנות
-הנשקפת ממנו ומחומר זה עולה, כי הוא מעורב במגוון רב של פעילויות בלתי חוקיות
-במסגרת הפשע המאורגן וכי אכן נשקף לו ולאחרים סיכון, אולם קבע, כי על אף הסיכון
-אין לשלול את חופשותיו שלילה מוחלטת וכי יש לאפשר יציאתו לחופשות בתנאי פיקוח
-שייקבעו על-ידי המשטרה.
+דיון כאמור אכן התקיים בבית-המשפט המחוזי ביום 28.10.03, וביום 10.11.03, החליט בית-המשפט המחוזי לדחות את העתירות הנוגעות להחזקתו בהפרדה של המשיב ולקבל את העתירה בכל הנוגע ליציאתו של המשיב לחופשות. בית-המשפט המחוזי קבע בהחלטתו, כי החומר המודיעיני שהוצג לעיונו מתייחס למסוכנות הנשקפת למשיב עצמו וכן למסוכנות הנשקפת ממנו ומחומר זה עולה, כי הוא מעורב במגוון רב של פעילויות בלתי חוקיות במסגרת הפשע המאורגן וכי אכן נשקף לו ולאחרים סיכון, אולם קבע, כי על אף הסיכון אין לשלול את חופשותיו שלילה מוחלטת וכי יש לאפשר יציאתו לחופשות בתנאי פיקוח שייקבעו על-ידי המשטרה.
 
-על
-החלטתו זו של בית-המשפט המחוזי הגישה המדינה, ביום 24.11.03, בקשת רשות ערעור לבית
-משפט זה.
+על החלטתו זו של בית-המשפט המחוזי הגישה המדינה, ביום 24.11.03, בקשת רשות ערעור לבית משפט זה.
 
-ביום
-26.1.04, ניתנה למדינה רשות ערעור והערעור הועבר לדיון בפנינו.
+ביום 26.1.04, ניתנה למדינה רשות ערעור והערעור הועבר לדיון בפנינו.
 
-על-כן,
-דנים אנו כעת בערעור גופו.
+על-כן, דנים אנו כעת בערעור גופו.
 
-בראש
-ובראשונה טוענת המדינה, כי אין לאסירים כל זכות קנויה לצאת לחופשות בהיותם נתונים
-במאסר עליו הורה בית-משפט, אלא מדובר בפריבילגיה בלבד. לטענתה, מתן חופשה לאסיר
-הינה סמכות שבשיקול-דעת, ובהחלטה האם להעניק לאסיר פלוני חופשה, על המדינה לאזן
-בין רצונו של האסיר לצאת לחופשה לבין אינטרסים אחרים וביניהם חובתו של שירות בתי
-הסוהר להגן על שלומו ובטחונו של הציבור ושל האסיר. עוד טוענת היא, כי אינטרס ההגנה
-על הציבור ועל האסיר מפני מסוכנותו של האחרון מהווה טעם מוצדק ומובהק לשלילת חופשה
-ובנסיבות המקרה, ההחלטה שלא לאפשר למשיב לצאת לחופשות נסמכה על חומר מודיעיני רב
-ומגוון וכן על חוות-דעת חד משמעיות של גורמים מקצועיים, שניתנו על יסוד החומר
-המודיעיני, המלמד כי נשקפת סכנה ממשית לשלום הציבור וכן לחיי המשיב עצמו, באם
-תתאפשר יציאתו לחופשות. עוד הוסיפה המדינה וטענה, כי שלילת חופשותיו של המשיב
-מהווה פגיעה הפחותה משמעותית מהחזקתו בהפרדה ולכן משהשתכנע בית-המשפט המחוזי, כי
-המסוכנות הנשקפת למשיב וממנו הינה כה חמורה עד כדי הצדקת החזקת המשיב בהפרדה בין
-כתלי בית הסוהר, הרי המסקנה המתבקשת היא, כי מסוכנותו זו צופנת בחובה סיכון רב
-לשלום הציבור ואף ביתר שאת, מחוץ לכותלי בית הסוהר ועל כן אין מקום לאפשר את
-יציאותיו לחופשות.
+בראש ובראשונה טוענת המדינה, כי אין לאסירים כל זכות קנויה לצאת לחופשות בהיותם נתונים במאסר עליו הורה בית-משפט, אלא מדובר בפריבילגיה בלבד. לטענתה, מתן חופשה לאסיר הינה סמכות שבשיקול-דעת, ובהחלטה האם להעניק לאסיר פלוני חופשה, על המדינה לאזן בין רצונו של האסיר לצאת לחופשה לבין אינטרסים אחרים וביניהם חובתו של שירות בתי הסוהר להגן על שלומו ובטחונו של הציבור ושל האסיר. עוד טוענת היא, כי אינטרס ההגנה על הציבור ועל האסיר מפני מסוכנותו של האחרון מהווה טעם מוצדק ומובהק לשלילת חופשה ובנסיבות המקרה, ההחלטה שלא לאפשר למשיב לצאת לחופשות נסמכה על חומר מודיעיני רב ומגוון וכן על חוות-דעת חד משמעיות של גורמים מקצועיים, שניתנו על יסוד החומר המודיעיני, המלמד כי נשקפת סכנה ממשית לשלום הציבור וכן לחיי המשיב עצמו, באם תתאפשר יציאתו לחופשות. עוד הוסיפה המדינה וטענה, כי שלילת חופשותיו של המשיב מהווה פגיעה הפחותה משמעותית מהחזקתו בהפרדה ולכן משהשתכנע בית-המשפט המחוזי, כי המסוכנות הנשקפת למשיב וממנו הינה כה חמורה עד כדי הצדקת החזקת המשיב בהפרדה בין כתלי בית הסוהר, הרי המסקנה המתבקשת היא, כי מסוכנותו זו צופנת בחובה סיכון רב לשלום הציבור ואף ביתר שאת, מחוץ לכותלי בית הסוהר ועל כן אין מקום לאפשר את יציאותיו לחופשות.
 
-מנגד,
-טוען המשיב, כי בית-המשפט המחוזי פעל במסגרת סמכויותיו והפעיל שיקול-דעת ראוי,
-סביר והגיוני על פי הסמכויות המוענקות לו בדין. לטענתו, תפקיד בית-המשפט הדן
-בעתירות אסירים הינו לבקר את החלטותיו של שירות בתי הסוהר ובענייננו שקל בית-המשפט
-המחוזי את מכלול השיקולים וערך את האיזונים הראויים. באשר למידע המודיעיני שהתקבל
-בעניינו, טוען המשיב, כי מוענקת להם חשיבות יתר. כן טוען הוא, כי יש לתת משקל
-להתנהגותו המופתית ותפקודו בבית המעצר.
+מנגד, טוען המשיב, כי בית-המשפט המחוזי פעל במסגרת סמכויותיו והפעיל שיקול-דעת ראוי, סביר והגיוני על פי הסמכויות המוענקות לו בדין. לטענתו, תפקיד בית-המשפט הדן בעתירות אסירים הינו לבקר את החלטותיו של שירות בתי הסוהר ובענייננו שקל בית-המשפט המחוזי את מכלול השיקולים וערך את האיזונים הראויים. באשר למידע המודיעיני שהתקבל בעניינו, טוען המשיב, כי מוענקת להם חשיבות יתר. כן טוען הוא, כי יש לתת משקל להתנהגותו המופתית ותפקודו בבית המעצר.
 
-דין
-הערעור להתקבל.
+דין הערעור להתקבל.
 
-מן
-המפורסמות היא, כי השאלה אם אסיר ראוי לקבל חופשות כאלה או אחרות אינה נתונה
-להכרעה של בית-המשפט. לא לבית-המשפט המחוזי כערכאה ראשונה ולא לבית-משפט זה כערכאת
-ערעור. הסמכות לתת לאסיר חופשה וההחלטה אם אסיר ראוי לקבל חופשה, לרבות השאלה מה
-התנאים הנלווים לחופשה, הופקדה על-פי החוק בידי השר לביטחון פנים (ראו סעיף 36(א)
-לפקודת בתי הסוהר (נוסח חדש)). השר לביטחון פנים אצל את הסמכות לנושאי תפקידים
-מסוימים בשירות בתי הסוהר. בידי שירות בתי הסוהר מצויים הנתונים בדבר התנהגות
-האסיר בבית הסוהר, המסוכנות שלו, הנסיבות האישיות והמשפחתיות ועוד שיקולים עניינים
-(ראו רע&#34;ב 3019/98 מדינת ישראל נ&#39; יצחק ארזי,
-פ&#34;ד נב (2) 743, 746).
+מן המפורסמות היא, כי השאלה אם אסיר ראוי לקבל חופשות כאלה או אחרות אינה נתונה להכרעה של בית-המשפט. לא לבית-המשפט המחוזי כערכאה ראשונה ולא לבית-משפט זה כערכאת ערעור. הסמכות לתת לאסיר חופשה וההחלטה אם אסיר ראוי לקבל חופשה, לרבות השאלה מה התנאים הנלווים לחופשה, הופקדה על-פי החוק בידי השר לביטחון פנים (ראו סעיף 36(א) לפקודת בתי הסוהר (נוסח חדש)). השר לביטחון פנים אצל את הסמכות לנושאי תפקידים מסוימים בשירות בתי הסוהר. בידי שירות בתי הסוהר מצויים הנתונים בדבר התנהגות האסיר בבית הסוהר, המסוכנות שלו, הנסיבות האישיות והמשפחתיות ועוד שיקולים עניינים (ראו רע&#34;ב 3019/98 מדינת ישראל נ&#39; יצחק ארזי, פ&#34;ד נב (2) 743, 746).
 
-משנמצא,
-כי התנגדותו של שירות בתי הסוהר ליציאת המבקש לחופשה, בשלב זה, מעוגנת בדין ואינה
-לוקה בחוסר סבירות, לא היה מקום שבית-המשפט המחוזי יקבע את אשר קבע.
+משנמצא, כי התנגדותו של שירות בתי הסוהר ליציאת המבקש לחופשה, בשלב זה, מעוגנת בדין ואינה לוקה בחוסר סבירות, לא היה מקום שבית-המשפט המחוזי יקבע את אשר קבע.
 
-יפים
-הדברים שנאמרו בהקשר זה ברע&#34;ב 2410/93 מדינת ישראל ו-2
-אחרים נ&#39; רוני לוי, פ&#34;ד מז(3), 802:
+יפים הדברים שנאמרו בהקשר זה ברע&#34;ב 2410/93 מדינת ישראל ו-2 אחרים נ&#39; רוני לוי, פ&#34;ד מז(3), 802:
 
-&#34;הלכה פסוקה היא, כי תפקידו
-של שופט בית-המשפט המחוזי, הדן בעתירת אסירים, הוא תפקיד ביקורת של רשות שופטת על
-החלטותיה של הרשות המבצעת. ביסודה של ביקורת זו אינה עומדת השאלה כיצד היה השופט,
-אילו עטה איצטלה של איש ביצוע, מחליט. אכן, על השופט לשאול עצמו אם שלטונות בית
-הסוהר שקלו את כל השיקולים הרלבנטיים, ואיזנו ביניהם בצורה ראויה. אם התשובה היא
-בחיוב, אל-לו לשופט להחליף את שיקול דעת השלטונות בשיקול דעתו שלו, גם אם לסברתו
-שלו היה מקום לערוך איזון ראוי אחר&#34;.
+&#34;הלכה פסוקה היא, כי תפקידו של שופט בית-המשפט המחוזי, הדן בעתירת אסירים, הוא תפקיד ביקורת של רשות שופטת על החלטותיה של הרשות המבצעת. ביסודה של ביקורת זו אינה עומדת השאלה כיצד היה השופט, אילו עטה איצטלה של איש ביצוע, מחליט. אכן, על השופט לשאול עצמו אם שלטונות בית הסוהר שקלו את כל השיקולים הרלבנטיים, ואיזנו ביניהם בצורה ראויה. אם התשובה היא בחיוב, אל-לו לשופט להחליף את שיקול דעת השלטונות בשיקול דעתו שלו, גם אם לסברתו שלו היה מקום לערוך איזון ראוי אחר&#34;.
 
-אכן,
-מניעת חופשה מאסיר במשך שנים היא תוצאה קשה ויש לקוות, שעם הזמן ועם השתנות
-הנסיבות תוענק למשיב חופשה. אלא, שלעת הזאת, ההחלטה למנוע מן המשיב חופשות מעוגנת
-בסכנה הנשקפת לציבור ולמשיב עצמו מיציאתו לחופשה. חשש זה עולה מהמידע המודיעיני
-אשר הועבר לעיוננו. לפיכך, החלטת שירות בתי-הסוהר, האחראית לביטחונו של המשיב,
-מצויה איפוא במתחם הסבירות ואין מקום להתערב בה.
+אכן, מניעת חופשה מאסיר במשך שנים היא תוצאה קשה ויש לקוות, שעם הזמן ועם השתנות הנסיבות תוענק למשיב חופשה. אלא, שלעת הזאת, ההחלטה למנוע מן המשיב חופשות מעוגנת בסכנה הנשקפת לציבור ולמשיב עצמו מיציאתו לחופשה. חשש זה עולה מהמידע המודיעיני אשר הועבר לעיוננו. לפיכך, החלטת שירות בתי-הסוהר, האחראית לביטחונו של המשיב, מצויה איפוא במתחם הסבירות ואין מקום להתערב בה.
 
-אשר-על-כן,
-הערעור מתקבל. החלטתו של בית-המשפט המחוזי מיום 10.11.03 מתבטלת, ככל שעוסקת היא
-בעניין החופשות.
+אשר-על-כן, הערעור מתקבל. החלטתו של בית-המשפט המחוזי מיום 10.11.03 מתבטלת, ככל שעוסקת היא בעניין החופשות.
 
 ש ו פ ט
 
@@ -1728,8 +1915,7 @@
 
 אני מסכים.
 
-ה
-נ ש י א
+ה נ ש י א
 
 השופט א&#39; גרוניס:
 
@@ -1737,14 +1923,11 @@
 
 ש ו פ ט
 
-הוחלט
-כאמור, בפסק דינו של השופט ס&#39; ג&#39;ובראן.
+הוחלט כאמור, בפסק דינו של השופט ס&#39; ג&#39;ובראן.
 
-ניתן
-היום, י&#34;ב בתמוז תשס&#34;ד (1.7.04).
+ניתן היום, י&#34;ב בתמוז תשס&#34;ד (1.7.04).
 
-ה נ ש י א
-ש ו פ ט ש ו פ ט
+ה נ ש י א ש ו פ ט ש ו פ ט
 
 _________________________
 
@@ -1769,7 +1952,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

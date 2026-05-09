@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    26/07/2022 (לפני 1379 ימים)
+                    26/07/2022 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/4745-20.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="4745/20 - מנאל עראר נ. עו&#34;ד מיכאל מרדכי - מנהל מיוחד לנכסי החייב"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F4745-20.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/450/047/j22&amp;fileName=20047450.J22&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/450/047/j22&amp;fileName=20047450.J22&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/450/047/j22&amp;fileName=20047450.J22&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/450/047/j22&amp;fileName=20047450.J22&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,219 +1827,101 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
+ע&#34;א 4745/20
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
-
-
-
-
-ע&#34;א  4745/20
-
-
-
-
-
-לפני:	
+לפני:
 
 כבוד הנשיאה א&#39; חיות
 
-
-
 כבוד השופטת ע&#39; ברון
 
-
-
 כבוד השופט י&#39; אלרון
-
-
 
 המערערים:
 
 1. מנאל עראר
 
-
-
 2. היבה עראר
-
-
 
 3. עבד אל כארים עראר
 
-
-
 4. מוחמד עראר
-
-
 
 5. מג&#39;די עראר
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. עו&#34;ד מיכאל מרדכי - מנהל מיוחד לנכסי החייב
 
-
-
 2. כונס הנכסים הרשמי
-
-
 
 3. עארף עראר
 
-
-
 ערעור על פסק דינו של בית המשפט המחוזי מרכז-לוד ב-פש&#34;ר 59276-06-17 מיום 31.3.2020 שניתן על ידי השופט ר&#39; חיימוביץ
-
-
 
 תאריך הישיבה:
 
-י&#34;ט בתמוז התשפ&#34;ב       
+י&#34;ט בתמוז התשפ&#34;ב
 
-(18.07.2022) 
-
-
+(18.07.2022)
 
 בשם המערערים:
 
 עו&#34;ד פרי-אל ברוורמן
 
-
-
-
-
 בשם המשיב 1:
 
 עו&#34;ד בן אנקוה
-
-
-
-
 
 בשם המשיב 2:
 
 עו&#34;ד חיים זקס
 
-
-
-
-
 המשיב 3:
 
-בעצמו 
-
-
-
-
-
-
-
-
+בעצמו
 
 פסק-דין
 
-
-
-
-
 השופט י&#39; אלרון:
-
-
-
-
 
 לפנינו ערעור על פסק דינו של בית המשפט המחוזי מרכז-לוד (השופט ר&#39; חיימוביץ) ב-פש&#34;ר 59276-06-17, מיום 31.3.2020, בגדרו התקבלה בקשת המנהל המיוחד, המשיב 1, לפי סעיף 96 לפקודת פשיטת הרגל [נוסח חדש], התש&#34;ם-1980 (להלן: הפקודה). בפסק הדין, בית המשפט המחוזי הורה על ביטול הענקת בניין מגורים בן שלוש קומות (להלן: המבנה) מהמשיב 3, עראף עראר (להלן: החייב) לילדיו. הערעור הוגש על ידי גרושתו של החייב וארבעת ילדיהם.
 
+בתמצית יתואר, כי במסגרת הליך הגירושין בין החייב למערערת 1 (להלן: המערערת) בית המשפט לענייני משפחה אישר ביום 29.2.2016 הסכם גירושין בין השניים. בהסכם זה נקבע, בין היתר, כי הזכויות במבנה תועברנה לילדיהם של בני הזוג. כ-4 חודשים לאחר מכן, החייב הגיש בקשה למתן צו כינוס בגין חובות בסכום של כ-750 אלף ש&#34;ח, ובסמוך לאחר מכן ניתן צו כמבוקש.
 
-
-בתמצית יתואר, כי במסגרת הליך הגירושין בין החייב למערערת 1 (להלן: המערערת) בית המשפט לענייני משפחה אישר ביום 29.2.2016 הסכם גירושין בין השניים. בהסכם זה נקבע, בין היתר, כי הזכויות במבנה תועברנה לילדיהם של בני הזוג. כ-4 חודשים לאחר מכן, החייב הגיש בקשה למתן צו כינוס בגין חובות בסכום של כ-750 אלף ש&#34;ח, ובסמוך לאחר מכן ניתן צו כמבוקש. 
-
-
-
-	לטענת המערערים והחייב, בשנת 2001, שנים רבות לפני שנקלע לקשיים כלכליים, החייב העביר את זכויותיו במבנה לילדיו. לתמיכה בטיעונם, הציגו תצהירים עליהם החייב והמערערת חתמו, כביכול, בשנת 2001 (להלן: התצהירים). במסגרת תצהירים אלו, החייב הצהיר כי הוא מעביר את זכויותיו בקרקע ובמבנה לילדיו; ואילו המערערת הצהירה כי היא מוותרת על כל זכויותיה במבנה לטובת ילדיה. על כן, נטען כי מדובר במתנה מהורה לילדיו הקודמת בזמן למעשה פשיטת הרגל, ומקנה לילדי החייב עדיפות על פני נושיו.
-
-
+לטענת המערערים והחייב, בשנת 2001, שנים רבות לפני שנקלע לקשיים כלכליים, החייב העביר את זכויותיו במבנה לילדיו. לתמיכה בטיעונם, הציגו תצהירים עליהם החייב והמערערת חתמו, כביכול, בשנת 2001 (להלן: התצהירים). במסגרת תצהירים אלו, החייב הצהיר כי הוא מעביר את זכויותיו בקרקע ובמבנה לילדיו; ואילו המערערת הצהירה כי היא מוותרת על כל זכויותיה במבנה לטובת ילדיה. על כן, נטען כי מדובר במתנה מהורה לילדיו הקודמת בזמן למעשה פשיטת הרגל, ומקנה לילדי החייב עדיפות על פני נושיו.
 
 טענה זו נדחתה על ידי בית המשפט המחוזי, בין היתר, מאחר שהעברת הזכויות לילדי החייב לא הושלמה ברישום או תועדה במרשם אובייקטיבי כלשהו. בית המשפט המחוזי אף קבע: &#34;התצהירים מ-2001 נחשפו רק ב-2015 במסגרת תצהירי המשיבה [המערערת – י&#39; א&#39;] בבית-המשפט לענייני משפחה, אך אותה עת החייב כבר היה שקוע בחובות כבדים ונפתחו נגדו מספר תיקי הוצאה לפועל בסכומים גבוהים. די בכך כדי להטיל ספק רב באמינות התצהירים ובמניעי הצדדים, ואכן החייב והמשיבה [המערערת – י&#39; א&#39;] לא הצליחו להסביר את הצורך בחתימת תצהירים הדדיים ב-2001, אף שמדובר במהלך חריג למדי שאינו מקובל בין בני זוג...&#34; (פסקה 15 לפסק הדין).
 
+כמו כן, בית המשפט המחוזי קבע כי בעלות החייב במגרש עליו הוקם המבנה (להלן: המגרש), התגבשה רק בשנת 2014 ולאחר שניתן צו לקיום צוואת אביו. משכך, בשנת 2001 החייב לא היה הבעלים של המגרש ולא היה בכוחו להעניק במתנה את הבעלות בו לאחרים. בנוסף נקבע, כי גם אם החייב היה יכול להעביר את הזכויות האובליגטוריות שניתנו לו מכוח התחייבות אביו להעביר לו את המגרש במתנה, הרי שמדובר בעסקת מתנה שלא הושלמה, ואילו רק במקרים חריגים תועדף זכותו של מקבל ההבטחה למתנה על זכות הנושה.
 
+בית המשפט המחוזי הוסיף וקבע, כי קבלת עמדת המערערים והחייב תרוקן מתוכן את הליכי חדלות הפירעון, היות שתאפשר לכל אדם לחתום על תצהיר לפיו בכוונתו להעניק את רכושו במתנה לילדיו; להסתיר את קיומו של התצהיר משך שנים; ולו יקלע להליכי חדלות פירעון, לטעון על בסיסו כי הוא מקנה לילדיו עדיפות על פני זכויות הנושים.
 
-	כמו כן, בית המשפט המחוזי קבע כי בעלות החייב במגרש עליו הוקם המבנה (להלן: המגרש), התגבשה רק בשנת 2014 ולאחר שניתן צו לקיום צוואת אביו. משכך, בשנת 2001 החייב לא היה הבעלים של המגרש ולא היה בכוחו להעניק במתנה את הבעלות בו לאחרים. בנוסף נקבע, כי גם אם החייב היה יכול להעביר את הזכויות האובליגטוריות שניתנו לו מכוח התחייבות אביו להעביר לו את המגרש במתנה, הרי שמדובר בעסקת מתנה שלא הושלמה, ואילו רק במקרים חריגים תועדף זכותו של מקבל ההבטחה למתנה על זכות הנושה.
+טענה חלופית אשר הועלתה, כי הענקת הזכויות במבנה נעשתה כחלק מאיזון משאבים בין החייב למערערת – נדחתה אף היא. זאת, משלא הוצגה כל ראיה לאיזון משאבים כנטען – לא הוסבר האיזון שכביכול נעשה וכיצד חושב; לא הודגמה התמורה שקיבל החייב או הזכויות עליהן המערערת ויתרה; ואף לא פורטו הנכסים, זכויות וחובות הצדדים על בסיסם בוצע האיזון הנטען או החישוב שבבסיסו. לצד זאת, בהינתן הראיות שהוצגו בדבר אופן מימון הקמת המבנה, נקבע כי מחצית מהזכויות בו בבעלות המערערת.
 
-
-
-	בית המשפט המחוזי הוסיף וקבע, כי קבלת עמדת המערערים והחייב תרוקן מתוכן את הליכי חדלות הפירעון, היות שתאפשר לכל אדם לחתום על תצהיר לפיו בכוונתו להעניק את רכושו במתנה לילדיו; להסתיר את קיומו של התצהיר משך שנים; ולו יקלע להליכי חדלות פירעון, לטעון על בסיסו כי הוא מקנה לילדיו עדיפות על פני זכויות הנושים. 
-
-
-
-	טענה חלופית אשר הועלתה, כי הענקת הזכויות במבנה נעשתה כחלק מאיזון משאבים בין החייב למערערת – נדחתה אף היא. זאת, משלא הוצגה כל ראיה לאיזון משאבים כנטען – לא הוסבר האיזון שכביכול נעשה וכיצד חושב; לא הודגמה התמורה שקיבל החייב או הזכויות עליהן המערערת ויתרה; ואף לא פורטו הנכסים, זכויות וחובות הצדדים על בסיסם בוצע האיזון הנטען או החישוב שבבסיסו. לצד זאת, בהינתן הראיות שהוצגו בדבר אופן מימון הקמת המבנה, נקבע כי מחצית מהזכויות בו בבעלות המערערת. 
-
-
-
-לבסוף, בית המשפט המחוזי קבע כי יסודות סעיף 96 לפקודה התקיימו, מאחר שההענקה לילדיו של החייב בוצעה פחות משנתיים מהמועד בו הפך לחדל פירעון; היות שבמועד ההענקה החייב היה שקוע בחובות; ומשלא הוכח כי ההענקה נעשתה בתמורה או כי נעשה הסדר איזון משאבים. על כן, התוצאה היא שהענקת המבנה לילדי החייב בטלה כלפי בעל התפקיד. 
-
- 
+לבסוף, בית המשפט המחוזי קבע כי יסודות סעיף 96 לפקודה התקיימו, מאחר שההענקה לילדיו של החייב בוצעה פחות משנתיים מהמועד בו הפך לחדל פירעון; היות שבמועד ההענקה החייב היה שקוע בחובות; ומשלא הוכח כי ההענקה נעשתה בתמורה או כי נעשה הסדר איזון משאבים. על כן, התוצאה היא שהענקת המבנה לילדי החייב בטלה כלפי בעל התפקיד.
 
 במוקד הערעור ניצבת אפוא השגת המערערים על קביעות בית המשפט המחוזי ביחס לאותנטיות התצהירים והמשמעות המשפטית שיש ליתן להם. המערערים שבים ועומדים על הטענה כי חובותיו של החייב החלו להיווצר, לכל המוקדם, בשנת 2015. קרי, כ-14 שנה לאחר שהעניק את המבנה לילדיו במתנה באמצעות התצהירים. יצוין, כי בערעור אף נכללו טענות לא מעטות, חלקן עובדתיות, אשר לא הועלו לפני בית המשפט המחוזי.
 
-
-
-	מנגד, המשיב 1 וכונס הנכסים הרשמי טוענים כי דין הערעור להידחות – ככלל, בהתאם לנימוקיו של בית המשפט המחוזי. המשיב 3 לא הגיש סיכומים מטעמו, אולם התייצב לדיון בערעור והשמיע את עמדתו בקצרה. 
-
-
+מנגד, המשיב 1 וכונס הנכסים הרשמי טוענים כי דין הערעור להידחות – ככלל, בהתאם לנימוקיו של בית המשפט המחוזי. המשיב 3 לא הגיש סיכומים מטעמו, אולם התייצב לדיון בערעור והשמיע את עמדתו בקצרה.
 
 עיינו היטב בטיעוני הצדדים ושמענו השלמות טיעון בעל-פה. מסקנתנו היא כי ממצאיו של בית המשפט המחוזי – הן במישור העובדתי, הן במישור המשפטי – מנומקים, סדורים ומבוססים היטב על חומר הראיות שהונח לפניו.
 
+בגדר זאת, בית המשפט המחוזי קבע כאמור כי אמינות התצהירים מוטלת בספק רב. כך התרשם לאחר קיום דיון הוכחות בו העידו החייב, המערערת ועדים נוספים. אין מדובר בקביעות אשר ערכאת הערעור נוהגת להתערב בהן (ראו, מני רבים: ע&#34;א 4571/22 חביב נ&#39; חביב, פסקה 17 (19.7.2022)), ובמקרה שלפנינו לא הוצג טעם המצדיק סטייה מהכלל האמור.
 
+קושי נוסף מתעורר מניסיונה של המערערת להיבנות בהליך זה מהתצהירים, בעוד שבהליך שהתנהל בבית משפט לענייני משפחה (תמ&#34;ש 46591-12-13) נטען בשמה כי הם אינם אכיפים, ואף כי התצהיר עליו המערערת חתמה &#34;חסר כל נפקות משפטית&#34; (פרו&#39; מיום 20.1.2015, עמ&#39; 3, ש&#39; 26-18). מבלי להידרש לקביעה האם התנהלות המערערת עולה כדי השתק שיפוטי (ראו: ע&#34;א 9056/12 קינג נ&#39; פקיד השומה ירושלים, פסקה 11 (4.8.2014)), הרי שדרך הילוך זו ודאי מחזקת את מסקנות בית המשפט המחוזי בדבר היעדר מהימנות גרסתם הנוכחית של המערערת והחייב באשר לנפקות התצהירים.
 
-	בגדר זאת, בית המשפט המחוזי קבע כאמור כי אמינות התצהירים מוטלת בספק רב. כך התרשם לאחר קיום דיון הוכחות בו העידו החייב, המערערת ועדים נוספים. אין מדובר בקביעות אשר ערכאת הערעור נוהגת להתערב בהן (ראו, מני רבים: ע&#34;א 4571/22 חביב נ&#39; חביב, פסקה 17 (19.7.2022)), ובמקרה שלפנינו לא הוצג טעם המצדיק סטייה מהכלל האמור.
+כעת לטענות החדשות אשר הועלו לפנינו. כפי שנקבע &#34;ערכאת הערעור ככלל לא תידרש לטענות שמועלות לפניה לראשונה המשנות את חזית הדיון. כלל זה חל ביתר שאת כאשר מדובר בטענות עובדתיות, כאשר אין לאפשר למערער לערוך &#34;מקצה שיפורים&#34; ולעורר דיון בטענות חדשות שלא נדונו ולא הוכרעו...&#34; (ע&#34;א 2079/20 עמותת ועידת המדעים וההשכלה האסלמית נ&#39; פקיד שומה ירושלים 3, פסקה 34 (27.10.2021); ראו גם: ע&#34;א 8052/19 בוחניק נ&#39; מדינת ישראל - רשות המיסים אגף המכס והמע&#34;מ, פסקה 19 (14.11.2021)). בהקשר זה, מובן כי הפניית החיצים בגין אי העלאת טענות כאלו ואחרות לפני הערכאה קמא כלפי בא-כוחם הקודם של המערערים – אין בה כדי להשפיע על תוצאת הערעור.
 
+משכך, לאחר שבחנו את טענות הצדדים אשר נפרשו לפנינו בהרחבה, לא מצאנו כל טעות בפסק דינו של בית המשפט קמא – בעובדה, במשפט או בקשר ביניהם. בהתאם, אנו מורים על דחיית הערעור לפי תקנה 460(ב) לתקנות סדר הדין האזרחי, התשמ&#34;ד-1984.
 
+בנסיבות העניין, לא ייעשה צו להוצאות.
 
-	קושי נוסף מתעורר מניסיונה של המערערת להיבנות בהליך זה מהתצהירים, בעוד שבהליך שהתנהל בבית משפט לענייני משפחה (תמ&#34;ש 46591-12-13) נטען בשמה כי הם אינם אכיפים, ואף כי התצהיר עליו המערערת חתמה &#34;חסר כל נפקות משפטית&#34; (פרו&#39; מיום 20.1.2015, עמ&#39; 3, ש&#39; 26-18). מבלי להידרש לקביעה האם התנהלות המערערת עולה כדי השתק שיפוטי (ראו: ע&#34;א 9056/12 קינג נ&#39; פקיד השומה ירושלים, פסקה 11 (4.8.2014)), הרי שדרך הילוך זו ודאי מחזקת את מסקנות בית המשפט המחוזי בדבר היעדר מהימנות גרסתם הנוכחית של המערערת והחייב באשר לנפקות התצהירים.  
-
-
-
-	כעת לטענות החדשות אשר הועלו לפנינו. כפי שנקבע &#34;ערכאת הערעור ככלל לא תידרש לטענות שמועלות לפניה לראשונה המשנות את חזית הדיון. כלל זה חל ביתר שאת כאשר מדובר בטענות עובדתיות, כאשר אין לאפשר למערער לערוך &#34;מקצה שיפורים&#34; ולעורר דיון בטענות חדשות שלא נדונו ולא הוכרעו...&#34; (ע&#34;א 2079/20 עמותת ועידת המדעים וההשכלה האסלמית נ&#39; פקיד שומה ירושלים 3, פסקה 34 (27.10.2021); ראו גם: ע&#34;א 8052/19 בוחניק נ&#39; מדינת ישראל - רשות המיסים אגף המכס והמע&#34;מ, פסקה 19 (14.11.2021)). בהקשר זה, מובן כי הפניית החיצים בגין אי העלאת טענות כאלו ואחרות לפני הערכאה קמא כלפי בא-כוחם הקודם של המערערים – אין בה כדי להשפיע על תוצאת הערעור.      
-
-
-
-משכך, לאחר שבחנו את טענות הצדדים אשר נפרשו לפנינו בהרחבה, לא מצאנו כל טעות בפסק דינו של בית המשפט קמא – בעובדה, במשפט או בקשר ביניהם. בהתאם, אנו מורים על דחיית הערעור לפי תקנה 460(ב) לתקנות סדר הדין האזרחי, התשמ&#34;ד-1984.  
-
-
-
-	בנסיבות העניין, לא ייעשה צו להוצאות. 
-
-
-
-	ניתן היום, ‏כ&#34;ז בתמוז התשפ&#34;ב (‏26.7.2022).
-
-
-
-
+ניתן היום, ‏כ&#34;ז בתמוז התשפ&#34;ב (‏26.7.2022).
 
 ה נ ש י א ה
 
@@ -1776,27 +1929,11 @@
 
 ש ו פ ט
 
-
-
-
-
-
-
 _________________________
 
-   20047450_J22.docx   עע
+20047450_J22.docx עע
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1815,7 +1952,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    02/09/2020 (לפני 2071 ימים)
+                    02/09/2020 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5381-20.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5381/20 - נתן לוין נ. הוועדה הבוחנת למקצוע עריכת דין בישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5381-20.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/810/053/v01&amp;fileName=20053810.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/810/053/v01&amp;fileName=20053810.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/810/053/v01&amp;fileName=20053810.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/810/053/v01&amp;fileName=20053810.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,157 +1827,71 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
+            בבית המשפט העליון
 
+עע&#34;מ 5381/20
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-עע&#34;מ  5381/20
-
-
-
-לפני:	
+לפני:
 
 כבוד הנשיאה א&#39; חיות
-
-
 
 המערערים:
 
 1. נתן לוין
 
-
-
 2. אמיר גחם
-
-
 
 3. אניטה אלמקייס
 
 4. רחאל מוסא
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 הוועדה הבוחנת למקצוע עריכת דין בישראל
 
-
-
 ערעור על פסק דינו של בית המשפט המחוזי בירושלים בשבתו כבית משפט לעניינים מינהליים מיום 30.7.2020 בעת&#34;מ 41354-03-20 אשר ניתן על ידי כבוד השופטת ע&#39; אבמן-מולר
-
-
 
 בשם המערערים:	עו&#34;ד ישראל שמיר
 
-	
-
 פסק-דין
 
-
-
-
-
-	ערעור על החלטת בית המשפט לעניינים מינהליים בירושלים (השופטת ע&#39; אבמן-מולר) מיום 30.7.2020 בעת&#34;מ 41354-03-20 שלא לפסול עצמו מלדון בעניינם של המערערים.
-
-
+ערעור על החלטת בית המשפט לעניינים מינהליים בירושלים (השופטת ע&#39; אבמן-מולר) מיום 30.7.2020 בעת&#34;מ 41354-03-20 שלא לפסול עצמו מלדון בעניינם של המערערים.
 
 המערערים ניגשו למבחן ההסמכה לשם קבלת רישיון עריכת דין שנערך ביום 12.12.2019, אך נכשלו בבחינה. עררים שהגישו ביחס לציון שקיבלו בפרק מטלת הכתיבה שבמבחן נדחו אף הם. משכך עתרו המערערים ושבעה נבחנים נוספים (להלן ביחד: העותרים) ביום 22.3.2020 לבית המשפט קמא וביקשו כי בית המשפט יורה למשיבה לבדוק את פרק מטלת הכתיבה שבמבחן פעם נוספת באמצעות בודק חיצוני. כמו כן ביקשו העותרים להורות למשיבה להגיש לבית המשפט את מסמך &#34;המחוון הפנימי&#34; אשר באמצעותו בדקו בודקי המבחנים מטעם המשיבה את פרק מטלת הכתיבה. ביום 4.6.2020 נדחתה בקשה זו לאחר קבלת עמדת המשיבה.
 
-
-
-	הדיון בעתירה התקיים ביום 20.7.2020 ולקראת סיומו שאל בית המשפט את הצדדים &#34;האם לאור ההלכות שנפסקו בבית המשפט העליון לעניין חובת ההנמקה ובדיקת מטלות הכתיבה הם עומדים על עתירתם&#34;. בא-כוח העותרים הודיע כי הם עומדים על עתירתם, אך לאחר הפסקה הודיעו חלק מהעותרים כי הם מבקשים למחוק את העתירה בעניינם. בשלב זה, כעולה מפרוטוקול הדיון הציע בית המשפט לבא-כוח העותרים הפסקה נוספת כדי ליצור קשר עם העותרים הנוספים, אשר לא נכחו באולם בשל המגבלות שהוטלו על מספר הנוכחים בעקבות התפשטות נגיף הקורונה. בתשובה ציין בא-כוח העותרים &#34;לאור הערת בית המשפט בטרם ההפסקה, אבהיר שהעותרים משוכנעים בצדקם ולאור המצב הכלכלי הקשה בו הם נמצאים בתקופת הקורונה ולא היה מקום להערת בית המשפט שייצאו על מנת לחשוב האם למשוך את העתירה. לא ניתן לנצל את המשבר הכלכלי בו נמצאים העותרים כאשר הם משוכנעים בצדקתם. אני לא מבקש הפסקה כדי ליצור קשר עם העותרים האחרים. אני עושה את טובת העותרים בלבד&#34;. בית המשפט הורה על מחיקת העותרים שביקשו לעשות כן מן העתירה וההליך נדחה למתן פסק דין. בימים שלאחר הדיון ביקשו שני עותרים נוספים, אשר לא נכחו בדיון בשל המגבלה האמורה, להימחק מן העתירה, ובקשות אלה התקבלו.
-
-
+הדיון בעתירה התקיים ביום 20.7.2020 ולקראת סיומו שאל בית המשפט את הצדדים &#34;האם לאור ההלכות שנפסקו בבית המשפט העליון לעניין חובת ההנמקה ובדיקת מטלות הכתיבה הם עומדים על עתירתם&#34;. בא-כוח העותרים הודיע כי הם עומדים על עתירתם, אך לאחר הפסקה הודיעו חלק מהעותרים כי הם מבקשים למחוק את העתירה בעניינם. בשלב זה, כעולה מפרוטוקול הדיון הציע בית המשפט לבא-כוח העותרים הפסקה נוספת כדי ליצור קשר עם העותרים הנוספים, אשר לא נכחו באולם בשל המגבלות שהוטלו על מספר הנוכחים בעקבות התפשטות נגיף הקורונה. בתשובה ציין בא-כוח העותרים &#34;לאור הערת בית המשפט בטרם ההפסקה, אבהיר שהעותרים משוכנעים בצדקם ולאור המצב הכלכלי הקשה בו הם נמצאים בתקופת הקורונה ולא היה מקום להערת בית המשפט שייצאו על מנת לחשוב האם למשוך את העתירה. לא ניתן לנצל את המשבר הכלכלי בו נמצאים העותרים כאשר הם משוכנעים בצדקתם. אני לא מבקש הפסקה כדי ליצור קשר עם העותרים האחרים. אני עושה את טובת העותרים בלבד&#34;. בית המשפט הורה על מחיקת העותרים שביקשו לעשות כן מן העתירה וההליך נדחה למתן פסק דין. בימים שלאחר הדיון ביקשו שני עותרים נוספים, אשר לא נכחו בדיון בשל המגבלה האמורה, להימחק מן העתירה, ובקשות אלה התקבלו.
 
 ביום 20.7.2020, לאחר תום הדיון, הגיש בא-כוח העותרים בקשה לתיקון פרוטוקול, במסגרתה טען, בין היתר, כי לאחר שבית המשפט הציע כי תערך הפסקה נוספת בדיון, אמר בא-כוח העותרים &#34;ככל שבית המשפט מורה לי לצאת ולברר עם העותרים שאינם נמצאים בטלפון, אעשה כן, ככל שמבוקשת דעתי, וכמייצג העותרים ואני פועל רק לטובתם&#34;. ביום 22.7.2020 הגיש בא-כוח המערערים בקשה לפסילת המותב לאחר שהתברר כי דעתו &#34;ננעלה&#34; בנוגע לתוצאות ההליך, וזאת הן לאור ההחלטה מיום 4.6.2020 לדחות את הבקשה לגילוי &#34;המחוון הפנימי&#34; והן נוכח הערת המותב במהלך הדיון בכל הנוגע להלכות בית המשפט העליון בנוגע לחובת ההנמקה המוטלת על המשיבה. נטען כי בהערה זו, ובהצעה כי העותרים ימשכו את עתירתם לאורה, הפעיל המותב &#34;לחץ בלתי מידתי, אשר חזר על עצמו&#34; במהלך הדיון ואשר הוביל בפועל לבקשות מטעם חלק מהעותרים, הן במהלך הדיון והן לאחריו, להימחק מההליך. עוד נטען כי המותב נהג במשוא פנים עת התיר, בהחלטה מיום 19.7.2020, הגשת עיקרי טיעון מטעם המשיבה על דרך ההפניה לכתב תשובתה, וכי החלטה זו מחזקת את המסקנה לפיה המותב כבר גיבש דעתו ביחס לעתירה.
 
+ביום 30.7.2020, לאחר קבלת עמדת המשיבה בעניין, קיבל בית המשפט קמא באופן חלקי את הבקשה לתיקון הפרוטוקול וקבע כי:
 
+&#34;... כפי שמצוין בפרוטוקול, לאחר ההפסקה (שכידוע לב&#34;כ העותרים, התבקשה על ידי העותרים עצמם), ומשהתברר שהעותרים האחרים (שלא יכלו להיות נוכחים באולם בשל מגבלות התו הסגול) לא עודכנו על מהלך הדיון, נשאל ב&#34;כ העותרים האם הוא מעוניין בהפסקה נוספת כדי ליצור קשר עם העותרים הנוספים, ודברים אלה נרשמו בפרוטוקול (עמ&#39; 6, שו&#39; 31-12).
 
-ביום 30.7.2020, לאחר קבלת עמדת המשיבה בעניין, קיבל בית המשפט קמא באופן חלקי את הבקשה לתיקון הפרוטוקול וקבע כי: 
-
-
-
-&#34;... כפי שמצוין בפרוטוקול, לאחר ההפסקה (שכידוע לב&#34;כ העותרים, התבקשה על ידי העותרים עצמם), ומשהתברר שהעותרים האחרים (שלא יכלו להיות נוכחים באולם בשל מגבלות התו הסגול) לא עודכנו על מהלך הדיון, נשאל ב&#34;כ העותרים האם הוא מעוניין בהפסקה נוספת כדי ליצור קשר עם העותרים הנוספים, ודברים אלה נרשמו בפרוטוקול (עמ&#39; 6, שו&#39; 31-12). 
-
-
-
-ככל הזכור לבית המשפט, ב&#34;כ העותרים אכן אמר כי ככל שבית המשפט מורה לו לצאת, הוא יעשה זאת, ובית המשפט הבהיר כי אין הוא מורה לו לעשות כן וכי אין הוא מתערב בקשר בינו לבין לקוחותיו. דברים אלה לא מצאו ביטוי בפרוטוקול. 
-
-
+ככל הזכור לבית המשפט, ב&#34;כ העותרים אכן אמר כי ככל שבית המשפט מורה לו לצאת, הוא יעשה זאת, ובית המשפט הבהיר כי אין הוא מורה לו לעשות כן וכי אין הוא מתערב בקשר בינו לבין לקוחותיו. דברים אלה לא מצאו ביטוי בפרוטוקול.
 
 על כך השיב ב&#34;כ העותרים , כפי שנרשם בפרוטוקול בעמ&#39; 6 שו&#39; 20-19, שאינו מבקש לעשות הפסקה כדי ליצור קשר עם העותרים האחרים וכי הוא עושה את טובתם בלבד.
 
-
-
 הנה כי כן, הדברים שנאמרו בעניין זה, הן על ידי בית המשפט והן על ידי ב&#34;כ העותרים, נרשמו בפרוטוקול, אך לא במלואם. אין מניעה להוסיף לפרוטוקול, לפני שורה 19 את דברי ב&#34;כ העותרים לפיהם &#34;ככל שבית המשפט מורה לי לצאת ולדבר עם העותרים שאינם נמצאים, אעשה כן&#34; ודברי בית המשפט כי &#34;בית המשפט אינו מורה לב&#34;כ העותרים לעשות כן והקשר שבינו לבין לקוחותיו אינו מעניינו של בית המשפט&#34;, תוך הותרת הדברים שנרשמו בשו&#39; 13-12 ו-20-19 בעמ&#39; 6 לפרוטוקול.&#34;
-
-
 
 בהמשך אותו היום דחה בית המשפט קמא את בקשת הפסלות, וזאת לאחר שהמשיבה התנגדה לה, ולאחר קבלת תשובת העותרים לתגובת המשיבה. בכל הנוגע להחלטות מיום 4.6.2020 ומיום 19.7.2020, נקבע כי הטענות המופנות כלפיהן הן ערעוריות במהותן ואינן מקימות עילת פסלות. עוד צוין, בכל הנוגע להחלטה מיום 4.6.2020, כי היה על העותרים להגיש את טענותיהם בעניין בסמוך למועד קבלת ההחלטה, אך כזאת לא נעשה. אשר להתבטאויות המותב במהלך הדיון, צוין כי &#34;מאחר ובתום שמיעת טענות הצדדים, לא ניתנה הסכמת ב&#34;כ העותרים לקיום דיון מחוץ לפרוטוקול, דיון כזה לא נערך, ודברי בית המשפט נרשמו לפרוטוקול והוקראו לצדדים בדיוק כפי שהם כתובים בפרוטוקול&#34;. צוין כי בית המשפט שאל שאלות וביקש לחדד את טענות העותרים ובמסגרת זו נשאלו העותרים &#34;האם לאור ההלכות שנפסקו בבית המשפט העליון בסוגיות שעל הפרק הם עומדים על עתירתם&#34;. נקבע כי מדובר בהבעת דעה אשר מתבקשת ולעתים אף מתחייבת לשם ניהול יעיל של ההליך, וכי בהתאם לפסיקה בעניין, בית המשפט רשאי להציע לתובע לשקול חזרה מהתביעה או להציע לנתבע לשקול את קבלת התביעה נגדו כולה או מקצתה, מבלי שיהיה בכך כדי לבסס עילת פסלות. בהמשך אותו היום, ביקש בא-כוח העותרים כי מתן פסק הדין בהליך יעוכב עד לאחר הכרעת בית המשפט העליון בערעור שיוגש על החלטת הפסלות, ובקשה זו התקבלה בהחלטה מיום 2.8.2020.
 
+מכאן הערעור שבפניי, בו שבים המערערים על טענותיהם בפני בית המשפט קמא.
 
-
-מכאן הערעור שבפניי, בו שבים המערערים על טענותיהם בפני בית המשפט קמא. 
-
-
-
-דין הערעור להידחות. המבחן לפסילת שופט מלשבת בדין הוא זה הקבוע בסעיף 77א לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984 ולפיו יש לבחון האם קיימות נסיבות שיש בהן כדי ליצור חשש ממשי למשוא פנים מצד המותב. כפי שציין המותב בהחלטתו, טענות המערערים בנוגע להחלטות מיום 4.6.2020 ומיום 19.7.2020 הן ערעוריות באופיין, ואין מקומן בהליכי פסלות. ממילא לא מצאתי כי יש בהחלטות אלה משום חשש כלשהו למשוא פנים. אף לא מצאתי כי יש בהערות המותב במהלך הדיון בהליך משום חשש כאמור, וכבר נפסק כי &#34;אין מניעה שבית המשפט יתייחס במהלך הדיון לחולשות שבעמדתו של בעל דין מסוים ואף יציע לתובע לשקול חזרה מהתביעה&#34; (ע&#34;א 5686/18 פישלר נ&#39; ג&#39;י. אי. ארליך 1995 בע&#34;מ, פסקה 5 (12.8.2018)). במקרה דנן לא עלה בידי המערערים להראות כי בדברי בית המשפט או בהצעתו היה כדי להקים חשש ממשי למשוא פנים אשר יצדיק את פסילתו. מסקנה זו מתחזקת בהינתן העובדה שדברי המותב והצעתו הועלו בשלב מתקדם מאד של ההליך, לאחר סיום שמיעת טענות הצדדים (השוו: ע&#34;פ 7100/18 זנגול נ&#39; מדינת ישראל – הוועדה המקומית לתכנון ולבניה, פסקה 4 (24.10.2018)). 
-
-
+דין הערעור להידחות. המבחן לפסילת שופט מלשבת בדין הוא זה הקבוע בסעיף 77א לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984 ולפיו יש לבחון האם קיימות נסיבות שיש בהן כדי ליצור חשש ממשי למשוא פנים מצד המותב. כפי שציין המותב בהחלטתו, טענות המערערים בנוגע להחלטות מיום 4.6.2020 ומיום 19.7.2020 הן ערעוריות באופיין, ואין מקומן בהליכי פסלות. ממילא לא מצאתי כי יש בהחלטות אלה משום חשש כלשהו למשוא פנים. אף לא מצאתי כי יש בהערות המותב במהלך הדיון בהליך משום חשש כאמור, וכבר נפסק כי &#34;אין מניעה שבית המשפט יתייחס במהלך הדיון לחולשות שבעמדתו של בעל דין מסוים ואף יציע לתובע לשקול חזרה מהתביעה&#34; (ע&#34;א 5686/18 פישלר נ&#39; ג&#39;י. אי. ארליך 1995 בע&#34;מ, פסקה 5 (12.8.2018)). במקרה דנן לא עלה בידי המערערים להראות כי בדברי בית המשפט או בהצעתו היה כדי להקים חשש ממשי למשוא פנים אשר יצדיק את פסילתו. מסקנה זו מתחזקת בהינתן העובדה שדברי המותב והצעתו הועלו בשלב מתקדם מאד של ההליך, לאחר סיום שמיעת טענות הצדדים (השוו: ע&#34;פ 7100/18 זנגול נ&#39; מדינת ישראל – הוועדה המקומית לתכנון ולבניה, פסקה 4 (24.10.2018)).
 
 סיכומם של דברים, הערעור נדחה. משלא התבקשה תגובת המשיבה, לא ייעשה צו להוצאות.
 
+ניתן היום, ‏י&#34;ג באלול התש&#34;ף (‏2.9.2020).
 
-
-	ניתן היום, ‏י&#34;ג באלול התש&#34;ף (‏2.9.2020).
-
-
-
-
-
-
-
-
-
- ה נ ש י א ה
+ה נ ש י א ה
 
 _________________________
 
-   20053810_V01.docx   גק
+20053810_V01.docx גק
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1725,7 +1910,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

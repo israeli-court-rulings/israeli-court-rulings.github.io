@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    11/11/2019 (לפני 2367 ימים)
+                    11/11/2019 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5508-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5508/19 - פלוני נ. פלוני"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5508-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/080/055/v01&amp;fileName=19055080.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/080/055/v01&amp;fileName=19055080.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/080/055/v01&amp;fileName=19055080.V01&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/080/055/v01&amp;fileName=19055080.V01&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,131 +1827,57 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            2
+            בבית המשפט העליון
 
+ע&#34;א 5508/19
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-ע&#34;א  5508/19
-
-
-
-לפני:	
+לפני:
 
 כבוד הנשיאה א&#39; חיות
-
-
 
 המערער:
 
 פלוני
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבה:
 
 פלונית
 
-	
-
-ערעור על החלטת בית המשפט לענייני משפחה בראשון לציון מיום 28.7.2019 בתמ&#34;ש 16621-05-13 ובתמ&#34;ש 39247-10-13 אשר ניתנה על ידי כבוד סגנית הנשיאה ר&#39; מקייס  
-
-	
+ערעור על החלטת בית המשפט לענייני משפחה בראשון לציון מיום 28.7.2019 בתמ&#34;ש 16621-05-13 ובתמ&#34;ש 39247-10-13 אשר ניתנה על ידי כבוד סגנית הנשיאה ר&#39; מקייס
 
 בשם המערער:	עו&#34;ד בן סמואל; עו&#34;ד אמיר רוזנברג
 
-	
-
 פסק-דין
 
-
-
-	ערעור על החלטת בית המשפט לענייני משפחה בראשון לציון (סגנית הנשיאה ר&#39; מקייס) מיום 28.7.2019 בתמ&#34;ש 16621-05-13 ובתמ&#34;ש 39247-10-13, שלא לפסול עצמו מלדון בענייניו של המערער.
-
-
+ערעור על החלטת בית המשפט לענייני משפחה בראשון לציון (סגנית הנשיאה ר&#39; מקייס) מיום 28.7.2019 בתמ&#34;ש 16621-05-13 ובתמ&#34;ש 39247-10-13, שלא לפסול עצמו מלדון בענייניו של המערער.
 
 1.	בין הצדדים, בני זוג לשעבר, מתנהלים שני הליכים בפני בית המשפט לענייני משפחה בפתח תקווה: תביעה מטעם המערער בסוגיות הנוגעות לבתם המשותפת של הצדדים, קטינה ילידת שנת 2007 (תמ&#34;ש 16621-05-13; להלן: התביעה בעניין הקטינה); ותביעה מטעם המשיבה לאכיפת הוראות &#34;הפרק הרכושי&#34; בהסכם שנחתם בין הצדדים (תמ&#34;ש 39247-10-13; להלן: התביעה הרכושית). יצוין כי בפסק-דינו מיום 2.8.2018 הכריע בית המשפט קמא בתביעה בעניין הקטינה, ואילו התביעה הרכושית מצויה בשלב ההוכחות.
 
-
-
 2.	ביום 15.7.2019 הגיש המערער בקשה לפסילת המותב מלדון בשני ההליכים. לטענתו, פוסט שפורסם ברשת החברתית פייסבוק ביום 2.7.2019 העלה כי באותו היום, בעיצומם של ההליכים המשפטיים המתנהלים בין הצדדים, יזם המותב מפגש סודי בבית המשפט לענייני משפחה בראשון לציון (להלן: המפגש) לשם &#34;פיתוח מודל לקביעת הכרעות שיפוטיות בעניינים בהם עולה ניכור הורי&#34;. למפגש הוזמנו, כך נטען בבקשה, בא-כוחו לשעבר של המערער, באת-כוחה של המשיבה, המכהנת גם כיושבת ראש מחוז המרכז בלשכת עורכי הדין וכן &#34;מקורבים נוספים לרבות עורכי דין אשר ייצגו את עורכת הדין רומי קנבל [באת-כוח המשיבה] וסייעו לה להיבחר כיו&#34;ר לשכת עורכי הדין במחוז מרכז&#34;. המערער טען עוד כי ביום 30.6.2019 דחה המותב דיון הוכחות בתביעה הרכושית שאמור היה להתקיים ביום 2.7.2019, וזאת לשם השתתפות במפגש. המערער סבר כי יש בהתנהלות זו כדי להקים חשש ממשי למשוא פנים בניהול המשפט, בפרט נוכח העובדה שנושא המפגש – ניכור הורי – הוא הנושא שבו עוסקת התביעה בעניין הקטינה. המערער ציין כי משנודע לו על דבר המפגש ועל כך שבא-כוחו לשעבר ייצג את באת-כוח המשיבה בענייניה האישיים והפוליטיים, גמלה בליבו ההחלטה לפטרו מייצוגו וכך אכן עשה במקביל להגשת בקשת הפסלות. המערער טען בהקשר זה כי &#34;היה על בית המשפט לדעת כי ייצוגה של עוה&#34;ד קנבל ע&#34;י עוה&#34;ד כרמלי [בא-כוחו לשעבר של המערער] במקביל לייצוגו של [המערער] ע&#34;י עוה&#34;ד כרמלי מול עוה&#34;ד קנבל בתיק זה נעשה מאחורי גבו וללא ידיעתו של המבקש&#34;. המערער הפנה למספר החלטות שניתנו על-ידי המותב בבקשות שהגיש בציינו כי יש באלה כדי לתמוך בבקשת הפסילה (סעיפים 36-34 לבקשת הפסלות שצורפה כנספח כ&#34;ו לערעור).
 
+3.	ביום 28.7.2019, לאחר קבלת עמדות המשיבה ובא-כוחו לשעבר של המערער (אשר התנגדו לבקשה), דחה בית המשפט את בקשת הפסלות. בית המשפט ציין כי המפגש הנטען היה אחד משני מפגשים אשר נערכו במטרה להציג לעורכי-דין העוסקים בתחום דיני המשפחה במחוז מודל חדש שגובש לשם התמודדות עם תופעת הפגיעה בקשר בין הורה לילד (להלן: המודל). צוין כי זימון עורכי הדין למפגשים נעשה על-פי שיקול-דעתה של לשכת עורכי הדין וכי במהלך המפגשים לא הייתה למותב כל שיחה אישית או פרטית עם עורכי הדין, לרבות עם באת-כוח המשיבה. בית המשפט הטעים כי הכריע בתביעה בעניין הקטינה כבר ביום 2.8.2018 וכי החלטתו האחרונה בהליך זה ניתנה ביום 11.3.2019, כך ש&#34;הפגישה שהתקיימה ביום 2.7.19 התקיימה 4 חודשים לאחר שהסתיים הטיפול של מותב זה בסוגיית הקשר שבין המבקש לבין בתו הקטינה&#34;. עוד צוין, כי ביום 1.5.2017 נדחתה בקשת פסלות שהוגשה מטעם המערער (באמצעות בא-כוחו לשעבר) אשר הופנתה בעיקרה כנגד החלטות שהתקבלו על-ידי המותב ונקבע כי &#34;חרף תחושתו הסובייקטיבית של המבקש [המערער], שאני מצרה על קיומה, אינני מוצאת מקום לפסול עצמי מהמשך הטיפול בעניינו&#34;. בית המשפט קבע כי דברים אלה יפים ביתר שאת ביחס לבקשה הנוכחית. אשר לטענותיו של המערער כלפי בא-כוחו לשעבר וקשריו עם באת-כוח המשיבה, נקבע כי מקומן של טענות אלה אינו בבקשת פסלות, ומכל מקום &#34;הניסיון לייחס למותב זה את הידיעה שלפיה עורך הדין כרמלי, בא כוחו של המבקש, ייצג או מייצג את עורכת הדין קנבל במערכת הבחירות של לשכת עורכי הדין הוא מופרך וממילא אינו מקים עילת פסלות שופט&#34;. בית המשפט קמא הוסיף ודחה את טענת המערער כנגד החלטתו מיום 30.6.2019 בדבר דחיית דיון ההוכחות, בציינו כי ההחלטה ניתנה נוכח אילוצים שהועלו מצד המערער כעולה מהודעות שקדמו למתן ההחלטה ומן ההחלטה עצמה. כך גם נדחו טענותיו של המערער נגד החלטות שניתנו בעניינו בעבר תוך שנקבע כי היה עליו להשיג עליהן באמצעות הליך ערעורי מתאים, כפי שאכן עשה בחלק מהמקרים. לפיכך, ציין בית המשפט כי בכוונתו &#34;להמשיך ולבחון את המחלוקת בין הצדדים על יסוד הראיות שיובאו לפניו על ידם [...] תוך גילוי אובייקטיביות, יושרה, הגינות וכושר מקצועי ואישי כלפי הצדדים, וללא כל משוא פנים&#34;.
 
+4.	מכאן הערעור דנן, במסגרתו שב המערער על טענותיו בפני בית המשפט קמא ביחס למפגש וביחס להחלטות שניתנו על-ידי המותב. המערער סבור כי מדובר במפגש חשאי שיזם המותב במטרה לקדם את המודל בסיועה של יושבת ראש מחוז מרכז בלשכת עורכי הדין, וזאת בניגוד לנהלים ולקוד האתי החל על שופטים מכהנים. לשיטתו, דברי המותב לפיהם זימון עורכי הדין למפגש נעשה על-פי שיקול-דעתה של לשכת עורכי הדין אינם מתיישבים עם גרסת באת-כוח המשיבה (שנכללה בתשובת המשיבה לבקשת הפסלות) כי &#34;את הזימונים הוציאו הגורמים הרלוונטיים בלשכה, בתיאום עם לשכת סגנית הנשיאה&#34;. הוא מוסיף וטוען כי אופיו של המפגש, מתכונתו והנסיבות שאפפו אותו, מובילים למסקנה לפיה קיים חשש ממשי למשוא פנים ואף &#34;משוא פנים ודאי, הנובע מהעובדה כי השופט רואה בב&#34;כ הצד שכנגד &#39;פרטנר&#39; לדיון בהכרעות [...] באותם עניינים בהם הוא דן בתיק זה&#34;, אשר מצדיקים את פסילת המותב.
 
-3.	ביום 28.7.2019, לאחר קבלת עמדות המשיבה ובא-כוחו לשעבר של המערער (אשר התנגדו לבקשה), דחה בית המשפט את בקשת הפסלות. בית המשפט ציין כי המפגש הנטען היה אחד משני מפגשים אשר נערכו במטרה להציג לעורכי-דין העוסקים בתחום דיני המשפחה במחוז מודל חדש שגובש לשם התמודדות עם תופעת הפגיעה בקשר בין הורה לילד (להלן: המודל). צוין כי זימון עורכי הדין למפגשים נעשה על-פי שיקול-דעתה של לשכת עורכי הדין וכי במהלך המפגשים לא הייתה למותב כל שיחה אישית או פרטית עם עורכי הדין, לרבות עם באת-כוח המשיבה. בית המשפט הטעים כי הכריע בתביעה בעניין הקטינה כבר ביום 2.8.2018 וכי החלטתו האחרונה בהליך זה ניתנה ביום 11.3.2019, כך ש&#34;הפגישה שהתקיימה ביום 2.7.19 התקיימה 4 חודשים לאחר שהסתיים הטיפול של מותב זה בסוגיית הקשר שבין המבקש לבין בתו הקטינה&#34;. עוד צוין, כי ביום 1.5.2017 נדחתה בקשת פסלות שהוגשה מטעם המערער (באמצעות בא-כוחו לשעבר) אשר הופנתה בעיקרה כנגד החלטות שהתקבלו על-ידי המותב ונקבע כי &#34;חרף תחושתו הסובייקטיבית של המבקש [המערער], שאני מצרה על קיומה, אינני מוצאת מקום לפסול עצמי מהמשך הטיפול בעניינו&#34;. בית המשפט קבע כי דברים אלה יפים ביתר שאת ביחס לבקשה הנוכחית. אשר לטענותיו של המערער כלפי בא-כוחו לשעבר וקשריו עם באת-כוח המשיבה, נקבע כי מקומן של טענות אלה אינו בבקשת פסלות, ומכל מקום &#34;הניסיון לייחס למותב זה את הידיעה שלפיה עורך הדין כרמלי, בא כוחו של המבקש, ייצג או מייצג את עורכת הדין קנבל במערכת הבחירות של לשכת עורכי הדין הוא מופרך וממילא אינו מקים עילת פסלות שופט&#34;. בית המשפט קמא הוסיף ודחה את טענת המערער כנגד החלטתו מיום 30.6.2019 בדבר דחיית דיון ההוכחות, בציינו כי ההחלטה ניתנה נוכח אילוצים שהועלו מצד המערער כעולה מהודעות שקדמו למתן ההחלטה ומן ההחלטה עצמה. כך גם נדחו טענותיו של המערער נגד החלטות שניתנו בעניינו בעבר תוך שנקבע כי היה עליו להשיג עליהן באמצעות הליך ערעורי מתאים, כפי שאכן עשה בחלק מהמקרים. לפיכך, ציין בית המשפט כי בכוונתו &#34;להמשיך ולבחון את המחלוקת בין הצדדים על יסוד הראיות שיובאו לפניו על ידם [...] תוך גילוי אובייקטיביות, יושרה, הגינות וכושר מקצועי ואישי כלפי הצדדים, וללא כל משוא פנים&#34;. 
+ביום 23.9.2019 הגיש המערער בקשה להוספת מסמך לערעור. המסמך שצירופו מתבקש הוא עותק כתבה שפורסמה בעיתון &#34;כלכליסט&#34; ביום 10.9.2019, בה צוין בין היתר כי לשכת עורכי הדין לא הייתה שותפה בגיבושו של המודל. לטענתו, דברים אלו עומדים בסתירה להחלטת המותב ויש בהם כדי לחזק את הטענות המועלות בערעור. עוד יצוין כי ביום 7.11.2019 הגישה המשיבה בקשה למתן החלטה בערעור.
 
+5.	דין הערעור להידחות. המבחן לפסילת שופט מלשבת בדין הוא זה הקבוע בסעיף 77א(א) לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984 (להלן: חוק בתי המשפט) ולפיו, יש לבחון האם קיימות נסיבות שיש בהן כדי ליצור חשש ממשי למשוא פנים מצד המותב (ע&#34;א 5185/19 פלוני נ&#39; פלונית, פסקה 5 (22.9.2019) (להלן: עניין פלוני)). מהחלטת המותב עולה כי המפגש נועד לשם הצגת מודל שגובש על ידי בית המשפט לענייני משפחה במחוז מרכז בפני עורכי הדין בתחום זה. השאלה אם מפגש זה מקים עילת פסלות כבר נדונה בעניין פלוני, בו נקבע כי &#34;המותב קיימה את המפגש ב&#34;כובעה&#34; כסגנית הנשיאה של בתי משפט השלום מחוז מרכז לענייני משפחה ובמהלכו לא התקיימו שיחות אישיות או פרטיות בינה ובין מי מעורכי הדין שנכחו בו&#34; (פסקה 5) והאמור שם נכון גם בענייננו.
 
+אשר לטענות המערער כלפי החלטות המותב בעניינו. טענות אלה אין מקומן במסגרת ערעור פסלות ואין בהן כדי להקים עילת פסלות (ע&#34;א 3041/19 פלונית נ&#39; פלוני, פסקה 5 (18.6.2019)), לא כל שכן קבלת הערעור בשל מראית פני הצדק.
 
-4.	מכאן הערעור דנן, במסגרתו שב המערער על טענותיו בפני בית המשפט קמא ביחס למפגש וביחס להחלטות שניתנו על-ידי המותב. המערער סבור כי מדובר במפגש חשאי שיזם המותב במטרה לקדם את המודל בסיועה של יושבת ראש מחוז מרכז בלשכת עורכי הדין, וזאת בניגוד לנהלים ולקוד האתי החל על שופטים מכהנים. לשיטתו, דברי המותב לפיהם זימון עורכי הדין למפגש נעשה על-פי שיקול-דעתה של לשכת עורכי הדין אינם מתיישבים עם גרסת באת-כוח המשיבה (שנכללה בתשובת המשיבה לבקשת הפסלות) כי &#34;את הזימונים הוציאו הגורמים הרלוונטיים בלשכה, בתיאום עם לשכת סגנית הנשיאה&#34;. הוא מוסיף וטוען כי אופיו של המפגש, מתכונתו והנסיבות שאפפו אותו, מובילים למסקנה לפיה קיים חשש ממשי למשוא פנים ואף &#34;משוא פנים ודאי, הנובע מהעובדה כי השופט רואה בב&#34;כ הצד שכנגד &#39;פרטנר&#39; לדיון בהכרעות [...] באותם עניינים בהם הוא דן בתיק זה&#34;, אשר מצדיקים את פסילת המותב. 
+אשר על כן, הערעור נדחה. משלא התבקשה תגובת המשיבה, אין צו להוצאות.
 
+ניתן היום, ‏י&#34;ג בחשון התש&#34;ף (‏11.11.2019).
 
-
-	ביום 23.9.2019 הגיש המערער בקשה להוספת מסמך לערעור. המסמך שצירופו מתבקש הוא עותק כתבה שפורסמה בעיתון &#34;כלכליסט&#34; ביום 10.9.2019, בה צוין בין היתר כי לשכת עורכי הדין לא הייתה שותפה בגיבושו של המודל. לטענתו, דברים אלו עומדים בסתירה להחלטת המותב ויש בהם כדי לחזק את הטענות המועלות בערעור. עוד יצוין כי ביום 7.11.2019 הגישה המשיבה בקשה למתן החלטה בערעור.
-
-
-
-5.	דין הערעור להידחות. המבחן לפסילת שופט מלשבת בדין הוא זה הקבוע בסעיף 77א(א) לחוק בתי המשפט [נוסח משולב], התשמ&#34;ד-1984 (להלן: חוק בתי המשפט) ולפיו, יש לבחון האם קיימות נסיבות שיש בהן כדי ליצור חשש ממשי למשוא פנים מצד המותב (ע&#34;א 5185/19 פלוני נ&#39; פלונית, פסקה 5 (22.9.2019) (להלן: עניין פלוני)). מהחלטת המותב עולה כי המפגש נועד לשם הצגת מודל שגובש על ידי בית המשפט לענייני משפחה במחוז מרכז בפני עורכי הדין בתחום זה. השאלה אם מפגש זה מקים עילת פסלות כבר נדונה בעניין פלוני, בו נקבע כי &#34;המותב קיימה את המפגש ב&#34;כובעה&#34; כסגנית הנשיאה של בתי משפט השלום מחוז מרכז לענייני משפחה ובמהלכו לא התקיימו שיחות אישיות או פרטיות בינה ובין מי מעורכי הדין שנכחו בו&#34; (פסקה 5) והאמור שם נכון גם בענייננו. 
-
-
-
-	אשר לטענות המערער כלפי החלטות המותב בעניינו. טענות אלה אין מקומן במסגרת ערעור פסלות ואין בהן כדי להקים עילת פסלות (ע&#34;א 3041/19 פלונית נ&#39; פלוני, פסקה 5 (18.6.2019)), לא כל שכן קבלת הערעור בשל מראית פני הצדק. 
-
-
-
-	אשר על כן, הערעור נדחה. משלא התבקשה תגובת המשיבה, אין צו להוצאות. 
-
-
-
-
-
-
-
-	ניתן היום, ‏י&#34;ג בחשון התש&#34;ף (‏11.11.2019).
-
-
-
-
-
-
-
-
-
-
-
- ה נ ש י א ה
+ה נ ש י א ה
 
 _________________________
 
-   19055080_V01.docx   גק
+19055080_V01.docx גק
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1699,7 +1896,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

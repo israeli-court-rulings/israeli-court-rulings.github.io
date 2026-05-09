@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    19/08/2025 (לפני 259 ימים)
+                    19/08/2025 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5206-07-25.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5206-07-25 - נדא אלסעודי נ. רשות האוכלוסין וההגירה משרד הפנים"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5206-07-25.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/8/19/2025-7-5206-3-2&amp;fileName=1d54506d7918477aa9bf5ceb40cdd8d9&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/8/19/2025-7-5206-3-2&amp;fileName=1d54506d7918477aa9bf5ceb40cdd8d9&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/8/19/2025-7-5206-3-2&amp;fileName=1d54506d7918477aa9bf5ceb40cdd8d9&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/8/19/2025-7-5206-3-2&amp;fileName=1d54506d7918477aa9bf5ceb40cdd8d9&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,23 +1827,9 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון
 
-
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-עע&#34;מ 5206-07-25 
-
-
-
- 
+עע&#34;מ 5206-07-25
 
 לפני:
 
@@ -1580,129 +1837,67 @@
 כבוד השופטת דפנה ברק-ארז
 כבוד השופט יחיאל כשר
 
-
-
 המערערות:
 
 1. נדא אלסעודי
 
 2. פלונית
 
-
-
 נגד
-
-
 
 המשיבה:
 
 רשות האוכלוסין וההגירה
 
-
-
-
-
 ערעור על פסק הדין של בית המשפט המחוזי בירושלים, בשבתו כבית משפט לעניינים מינהליים, מיום 23.4.2025, בעת&#34;מ 1131-12-24, שניתן על-ידי השופטת ע&#39; זינגר
-
-
 
 בשם המערערות:
 
-
-
-עו&#34;ד רעות שאער; עו&#34;ד עודד פלר 
-
-
+עו&#34;ד רעות שאער; עו&#34;ד עודד פלר
 
 פסק-דין
-
-
 
 המשנה לנשיא נעם סולברג:
 
 ערעור על פסק הדין של בית המשפט המחוזי בירושלים, בשבתו כבית משפט לעניינים מינהליים, מיום 23.4.2025, בעת&#34;מ 1131-12-24 (השופטת ע&#39; זינגר), שבגדרו נדחתה על הסף עתירת המערערות. עניינו של ההליך שלפנינו, בבקשת המערערת 1 (להלן: המערערת), כי תונפק לה תעודת זהות.
 
+רקע רלבנטי, בתמצית: המערערת, אזרחית ישראל ילידת 1980, נישאה בשנת 1999 לתושב רצועת עזה, ועברה להתגורר עמו שם. בשנת 2005, הצהירה המערערת כי היא מתגוררת ברצועת עזה, וויתרה על תעודת הזהות הישראלית שברשותה, לשם קבלת תעודת זהות פלסטינית; בהתאם, חדלה להיות תושבת ישראל. המערערת 2, בִּתה הקטינה של המערערת, נולדה בעזה בשנת 2016. ביום 6.12.2023, נכנסה המערערת לישראל, יחד עם ארבעה מילדיה ובהם המערערת 2, לאחר שניתן להם אישור לכך, בעקבות פרוץ מלחמת &#39;חרבות ברזל&#39;.
 
+לטענת המערערת, פניותיה למשיבה, רשות האוכלוסין וההגירה, בבקשה כי תונפק לה תעודת זהות, לנוכח העתקת מקום מגוריה חזרה לישראל – עלו בתוהו. זאת, לאחר שהמשיבה סירבה, &#34;הלכה למעשה&#34; לבקשתה; תוך שהתנתה את הנפקת התעודה בהצגת שורת מסמכים שונים – שאין ביכולתה של המערערת להשיג – אשר יעידו על כך שמרכז חייה נמצא כיום בישראל. על רקע דרישה זו, ביום 15.8.2025, הוגשה למשיבה &#34;פנייה מרוכזת [...] בשמה של קבוצת נשים הנפגעות ממדיניות המשיבה המתוארת&#34;, על-ידי באת-כוחן של המערערות.
 
-רקע רלבנטי, בתמצית: המערערת, אזרחית ישראל ילידת 1980, נישאה בשנת 1999 לתושב רצועת עזה, ועברה להתגורר עמו שם. בשנת 2005, הצהירה המערערת כי היא מתגוררת ברצועת עזה, וויתרה על תעודת הזהות הישראלית שברשותה, לשם קבלת תעודת זהות פלסטינית; בהתאם, חדלה להיות תושבת ישראל. המערערת 2, בִּתה הקטינה של המערערת, נולדה בעזה בשנת 2016. ביום 6.12.2023, נכנסה המערערת לישראל, יחד עם ארבעה מילדיה ובהם המערערת 2, לאחר שניתן להם אישור לכך, בעקבות פרוץ מלחמת &#39;חרבות ברזל&#39;. 
-
-
-
-לטענת המערערת, פניותיה למשיבה, רשות האוכלוסין וההגירה, בבקשה כי תונפק לה תעודת זהות, לנוכח העתקת מקום מגוריה חזרה לישראל – עלו בתוהו. זאת, לאחר שהמשיבה סירבה, &#34;הלכה למעשה&#34; לבקשתה; תוך שהתנתה את הנפקת התעודה בהצגת שורת מסמכים שונים – שאין ביכולתה של המערערת להשיג – אשר יעידו על כך שמרכז חייה נמצא כיום בישראל. על רקע דרישה זו, ביום 15.8.2025, הוגשה למשיבה &#34;פנייה מרוכזת [...] בשמה של קבוצת נשים הנפגעות ממדיניות המשיבה המתוארת&#34;, על-ידי באת-כוחן של המערערות. 
-
-
-
-במענה מטעם המשיבה, מיום 14.11.2024, עמדה על סמכותה לדרוש את המסמכים האמורים כתנאי להנפקת תעודת זהות, על-פי הפרשנות שניתנה בפסיקה לסעיף 24 לחוק מרשם האוכלוסין, התשכ&#34;ה-1965 (להלן: חוק מרשם האוכלוסין). זאת, תוך שפירטה על קורות הטיפול בבקשותיהן הפרטניות של הנשים שבשמן הוגשה הפניה. לצד זאת, משלא צורף לפניה יפוי כוח מטעם המערערת, לא כלל מענה המשיבה התייחסות לעניינה הפרטני. יפוי כוח כאמור הוגש רק ביום 17.11.2024, וביום 1.12.2024 – בחלוף שבועיים, וטרם ניתן מענה נוסף מטעם המשיבה – הגישו המערערות עתירה לבית המשפט המחוזי. 
-
-
+במענה מטעם המשיבה, מיום 14.11.2024, עמדה על סמכותה לדרוש את המסמכים האמורים כתנאי להנפקת תעודת זהות, על-פי הפרשנות שניתנה בפסיקה לסעיף 24 לחוק מרשם האוכלוסין, התשכ&#34;ה-1965 (להלן: חוק מרשם האוכלוסין). זאת, תוך שפירטה על קורות הטיפול בבקשותיהן הפרטניות של הנשים שבשמן הוגשה הפניה. לצד זאת, משלא צורף לפניה יפוי כוח מטעם המערערת, לא כלל מענה המשיבה התייחסות לעניינה הפרטני. יפוי כוח כאמור הוגש רק ביום 17.11.2024, וביום 1.12.2024 – בחלוף שבועיים, וטרם ניתן מענה נוסף מטעם המשיבה – הגישו המערערות עתירה לבית המשפט המחוזי.
 
 העתירה – נדחתה על הסף, מחמת אי-מיצוי הליכים, ובהיותה מוקדמת. בפסק הדין, מיום 23.4.2025, נקבע כי &#34;אין מקום לאפשר דיון עקרוני ותיאורטי באשר לאילו מסמכים נדרשים כדי להוכיח הימצאות בישראל – לשם קבלת תעודת זהות. במקרה הנדון בעתירה זו, מדובר במי שהגישה בקשה, התבקשה להמציא מסמכים [...] ברם, טרם המציאה את אלו. [...] אין מקום גם לקיים דיון בדבר קושי נטען להמצאת מסמך זה או אחר, כאשר העותרת טרם הגישה כלל מסמכים, אלו טרם נבדקו וטרם נקבע כי הם אינם מספקים&#34;. לפיכך נפסק, כי על המערערת להגיש &#34;את כל המסמכים אשר לטעמה יש בהם די להוכחת חייה כאן [...]. לאחר הצגתם תינתן החלטה [...] ואם ימצא ליקוי באותה החלטה, היא תוכל לתקוף אותה&#34;.
 
-
-
-	מכאן הערעור שלפנינו.
-
-
+מכאן הערעור שלפנינו.
 
 המערערות סבורות, כי שגה בית המשפט המחוזי כשדחה את עתירתן על הסף. בתוך כך נטען, כי &#34;בית משפט קמא לא הבהיר מדוע המערערת אינה זכאית לתקוף את עצם הדרישה שתציג למשיבה מסמכים ותעמוד בחקירת מרכז חיים לצורך קבלת תעודת זהות&#34;. עוד נטען, כי &#34;אין הצדקה שהמערערת לא תוכל להביא את עניינה בפני בית המשפט – לרבות את עצם טענתה כי המשיבה אינה מוסמכת לדרוש מסמכים ולקיים חקירת מרכז חיים – אלא רק לאחר שתשתף פעולה עם דרישות, שלטענתה כלל אינן חוקיות&#34;.
 
+לגופם של דברים, שָבוֹת המערערות על טענותיהן כלפי המשיבה, בדבר הדרישה להצגת מסמכים שיעידו על כך שמרכז חייה של המערערת נמצא בישראל. בהקשר זה נטען, כי אף אם המשיבה מוסמכת לדרוש מסמכים כאמור, הרי ש&#34;על פי כל פרשנות סבירה&#34;, ולנוכח הכללים המנחים שנקבעו בפסיקה לגבי חוק מרשם האוכלוסין, המשיבה רשאית להעלות דרישה כאמור רק בהתבסס על מידע קונקרטי, שיש בו כדי להעלות חשד כי מרכז החיים של המבקש להנפיק תעודת זהות איננו בישראל. בהעדר מידע כאמור לגבי המערערת, דרישת המשיבה בעניינה נגועה, כך נטען, בהפליה פסולה ובשרירותיות, ופוגעת בזכויותיה לתכלית שאינה ראויה.
 
-
-לגופם של דברים, שָבוֹת המערערות על טענותיהן כלפי המשיבה, בדבר הדרישה להצגת מסמכים שיעידו על כך שמרכז חייה של המערערת נמצא בישראל. בהקשר זה נטען, כי אף אם המשיבה מוסמכת לדרוש מסמכים כאמור, הרי ש&#34;על פי כל פרשנות סבירה&#34;, ולנוכח הכללים המנחים שנקבעו בפסיקה לגבי חוק מרשם האוכלוסין, המשיבה רשאית להעלות דרישה כאמור רק בהתבסס על מידע קונקרטי, שיש בו כדי להעלות חשד כי מרכז החיים של המבקש להנפיק תעודת זהות איננו בישראל. בהעדר מידע כאמור לגבי המערערת, דרישת המשיבה בעניינה נגועה, כך נטען, בהפליה פסולה ובשרירותיות, ופוגעת בזכויותיה לתכלית שאינה ראויה. 
-
-
-
-למקרא הערעור, על נספחיו, ולאחר עיון בפסק הדין של בית המשפט המחוזי, באתי לכלל מסקנה כי דין הערעור להידחות, אף ללא צורך בתשובה מאת המשיבה. כך אציע אפוא לחברַי כי נעשה, על-פי סמכותנו מכוח תקנה 138(א)(1) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018, שחלה בהליך דנן בהתאם לתקנה 34 לתקנות בתי משפט לענינים מינהליים (סדרי דין), התשס&#34;א-2000. 
-
-
+למקרא הערעור, על נספחיו, ולאחר עיון בפסק הדין של בית המשפט המחוזי, באתי לכלל מסקנה כי דין הערעור להידחות, אף ללא צורך בתשובה מאת המשיבה. כך אציע אפוא לחברַי כי נעשה, על-פי סמכותנו מכוח תקנה 138(א)(1) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018, שחלה בהליך דנן בהתאם לתקנה 34 לתקנות בתי משפט לענינים מינהליים (סדרי דין), התשס&#34;א-2000.
 
 העתירה שהוגשה לבית המשפט המחוזי עוסקת, הלכה למעשה, בשני מישורים – מישור עקרוני, שעניינו בעצם הדרישה להצגת המסמכים על-ידי המערערת; ומישור קונקרטי, שעניינו בסירוב המשיבה להנפיק למערערת תעודת זהות. סבורני, כי מהשתלשלות האירועים המתוארת עולה, כי במישור העקרוני – לא נעשה מיצוי הליכים כנדרש מול הרשות; ואילו במישור הקונקרטי – הרי שמדובר בעתירה מוקדמת. אסביר.
 
-
-
 אשר למישור העקרוני, המערערות לא הצביעו על שגיאה בקביעת בית המשפט המחוזי, שלפיה לא מיצו הליכים כנדרש; ודאי לא כזו שיהיה בה כדי להצדיק את התערבותנו. כאמור, פניה מטעמן המלינה על עצם דרישת המסמכים בעניינן, לא נשלחה אל המשיבה, כדת וכדין, בצירוף יפוי כוח, עד יום 17.11.2024; ובחלוף שבועיים בלבד משליחתה, הוגשה העתירה. ברי כי אין מדובר בפרק זמן שהותיר למשיבה שהות מספקת לגיבוש תשובה בדבר הדרישה להצגת מסמכים בעניינה של המערערת. לפיכך, אין לראות בפניה האמורה משום מיצוי הליכים כנדרש (ראו, מִני רבים: עע&#34;מ 681/24 זמיר נ&#39; נתיבי ישראל – החברה הלאומית לתשתיות תחבורה בע&#34;מ, פסקה 3 (1.4.2024); בג&#34;ץ 697/23 משמר הדמוקרטיה הישראלית נ&#39; ממשלת ישראל ה-37, פסקה 2 והאסמכתאות שם (26.1.2023)).
 
-
-
-זאת ועוד, בערעור נטען אמנם כי עתירת המערערות תקפה את &#34;עצם הדרישה&#34; להצגת המסמכים; היינו, עניינה במישור העקרוני, כך שהכרעת בית המשפט המחוזי – המורה למערערת להשתדל ולמלא אחר אותה דרישה, בטרם תפנה לבית המשפט – יסודה בטעות. ברם, הדברים אינם עולים בקנה אחד עם האמור בפתח העתירה שהגישו המערערות, שלפיו עניינה מתמקד דווקא במישור הקונקרטי – &#34;בסירוב המשיבה להיענות לבקשה להנפקת תעודת זהות עבור ה[מערערת]&#34;; ואף לא עם הסעד שנתבקש בה, &#34;להורות למשיבה להנפיק ל[מערערת] תעודת זהות&#34;. 
-
-
+זאת ועוד, בערעור נטען אמנם כי עתירת המערערות תקפה את &#34;עצם הדרישה&#34; להצגת המסמכים; היינו, עניינה במישור העקרוני, כך שהכרעת בית המשפט המחוזי – המורה למערערת להשתדל ולמלא אחר אותה דרישה, בטרם תפנה לבית המשפט – יסודה בטעות. ברם, הדברים אינם עולים בקנה אחד עם האמור בפתח העתירה שהגישו המערערות, שלפיו עניינה מתמקד דווקא במישור הקונקרטי – &#34;בסירוב המשיבה להיענות לבקשה להנפקת תעודת זהות עבור ה[מערערת]&#34;; ואף לא עם הסעד שנתבקש בה, &#34;להורות למשיבה להנפיק ל[מערערת] תעודת זהות&#34;.
 
 בין כה ובין כה, אף אם המערערת חולקת על עצם הדרישה להצגת המסמכים, והיא זו שניצבה בלב עתירתה, בלאו הכי, היה עליה להמתין להחלטה הדוחה את בקשתה בגין אי-צירוף המסמכים שהתבקשו על-ידי המשיבה, עובר להגשת העתירה. מובן, כי אין באפשרותה לפנות לבית המשפט לקבלת סעד, טרם התקבלה החלטה סופית של הרשות בעניינה (ראו: עע&#34;מ 1102/24 הרוש נ&#39; מתאם הפעולות בשטחים, פסקה 4 והאסמכתאות שם (11.2.2024); בג&#34;ץ 52367-03-25 מועצה אזורית יואב נ&#39; שר הבינוי והשיכון, פסקה 11 (29.7.2025)). על כן, בהמשך לאמור, בהתייחס למישור הקונקרטי, סבורני כי בצדק קבע בית המשפט המחוזי כי מדובר בעתירה מוקדמת; וכי לוּ תסורב בקשתה, תוכל המערערת להגיש עתירה מתאימה, ככל שתהא לה עילה לעשות כן. ממילא, טענותיה בעניין – שמורות לה.
 
-
-
-אציע אפוא לחברַי כי נדחה את הערעור. עוד אציע, בנסיבות העניין, ומשלא נתבקשה תשובה, כי לא נעשה צו להוצאות. 
-
-
-
-
+אציע אפוא לחברַי כי נדחה את הערעור. עוד אציע, בנסיבות העניין, ומשלא נתבקשה תשובה, כי לא נעשה צו להוצאות.
 
 ניתן היום, כ&#34;ה אב תשפ&#34;ה (19 אוגוסט 2025).
 
-
-
-נעם סולברג 
+נעם סולברג
 
 משנה לנשיא
 
-
-
-
-
-
-
-דפנה ברק-ארז 
+דפנה ברק-ארז
 
 שופטת
 
-
-
-
-
-
-
-יחיאל כשר 
+יחיאל כשר
 
 שופט
         </div>
@@ -1723,7 +1918,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

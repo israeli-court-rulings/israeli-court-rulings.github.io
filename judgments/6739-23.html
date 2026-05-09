@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    05/08/2024 (לפני 638 ימים)
+                    05/08/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/6739-23.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="6739/23 - קבוצת קדם חיזוק וחידוש מבנים בע&#34;מ נ. אלמוסלינו אבי ו-17 אח&#39;"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F6739-23.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/8/5/2023-0-6739-25-2&amp;fileName=da8f02a965b54a04b4ffdaf2d530255d&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/8/5/2023-0-6739-25-2&amp;fileName=da8f02a965b54a04b4ffdaf2d530255d&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/8/5/2023-0-6739-25-2&amp;fileName=da8f02a965b54a04b4ffdaf2d530255d&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2024/8/5/2023-0-6739-25-2&amp;fileName=da8f02a965b54a04b4ffdaf2d530255d&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,13 +1829,7 @@
         <div class="nested-content" style="line-height: 1.8;">
             בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
- ע&#34;א 6739/23
-
-
-
- 
-
-
+ע&#34;א 6739/23
 
 לפני:
 
@@ -1572,21 +1837,11 @@
 כבוד השופטת גילה כנפי-שטייניץ
 כבוד השופט חאלד כבוב
 
-
-
-
-
 המערערת:
-
-
 
 קבוצת קדם חיזוק וחידוש מבנים בע&#34;מ
 
-
-
 נגד
-
-
 
 המשיבים:
 
@@ -1594,129 +1849,57 @@
 
 18. עו&#34;ד איתן ארז - בתפקידו כמפרק של המערערת
 
-
-
-
-
-ערעור על פסק דינו של בית המשפט המחוזי מרכז-לוד (השופטת ב&#39; טולקובסקי, סג&#34;נ) מיום 12.7.2023 בת&#34;א 29615-03-23 
-
-
-
-
-
-
+ערעור על פסק דינו של בית המשפט המחוזי מרכז-לוד (השופטת ב&#39; טולקובסקי, סג&#34;נ) מיום 12.7.2023 בת&#34;א 29615-03-23
 
 בשם המערערת:
 
-
-
 עו&#34;ד אילן מוריאנו
-
-
-
-
 
 בשם משיבים 17-1:
 
 עו&#34;ד אלמוג חכמון
 
-
-
 בשם משיב 18:
 
 בעצמו
 
-
-
-
-
 פסק-דין
-
-
-
-
 
 השופט ד&#39; מינץ:
 
+לפנינו בקשת המשיבים לדחיית הערעור על פסק דינו של בית המשפט המחוזי מרכז-לוד (השופטת ב&#39; טולקובסקי, סג&#34;נ) מיום 12.7.2023 בת&#34;א 29615-03-23 על הסף, ומנגד בקשת בא-כוח המערערת למחיקתו.
 
-
-	לפנינו בקשת המשיבים לדחיית הערעור על פסק דינו של בית המשפט המחוזי מרכז-לוד (השופטת ב&#39; טולקובסקי, סג&#34;נ) מיום 12.7.2023 בת&#34;א 29615-03-23 על הסף, ומנגד בקשת בא-כוח המערערת למחיקתו.	
-
-
-
-בתמצית, בין המערערת לבין המשיבים התגלע סכסוך בקשר להסכם תמ&#34;א 38 שנחתם ביניהם ביום 18.7.2013 (להלן: ההסכם) לגבי פרויקט בבניין ברחוב אנילביץ&#39; ברעננה. בהתאם לתניית בוררות הקבועה בהסכם, הסכסוך הועבר לבוררות, כאשר במהלך ניהול הבוררות נכנסה המערערת להליכי פירוק. ביום 8.1.2023 ניתן פסק הבוררות. 
-
-
+בתמצית, בין המערערת לבין המשיבים התגלע סכסוך בקשר להסכם תמ&#34;א 38 שנחתם ביניהם ביום 18.7.2013 (להלן: ההסכם) לגבי פרויקט בבניין ברחוב אנילביץ&#39; ברעננה. בהתאם לתניית בוררות הקבועה בהסכם, הסכסוך הועבר לבוררות, כאשר במהלך ניהול הבוררות נכנסה המערערת להליכי פירוק. ביום 8.1.2023 ניתן פסק הבוררות.
 
 בהתאם להוראת ההסכם אשר קובעת כי הכרעת הבורר תהא נתונה לערעור לפני בורר מכריע, פנה בא-כוח המערערת לבית המשפט של חדלות פירעון בבקשה לאשר לו להגיש בקשה למינוי בורר מכריע. ביום 5.3.2023 ניתנה החלטת בית משפט של חדלות פירעון (פר&#34;ק 40151-02-22), אשר אישר את הבקשה, לאור הצהרתו של בא-כוח המערערת כי הוא יהיה אחראי להוצאות הליך הערעור בבוררות. כמו כן, באותה החלטה נדחתה הצעת הממונה על הליכי חדלות פירעון ושיקום כלכלי להורות כי בא-כוח המערערת יפקיד מראש כספים להבטחת הוצאות הבוררות לפני הבורר המכריע כאשר נקבע כי אין זה מתפקידו של בית משפט של חדלות פירעון.
 
-
-
 ביום 13.3.2023 הגיש בא-כוח המערערת בקשה לבית המשפט המחוזי למינוי בורר מכריע לדון בערעור על הפסק. ביום 12.7.2023 ניתן &#34;פסק דין&#34; המורה על מינוי בורר, אך זאת בכפוף לשני תנאים. נקבע כי על המערערת להשיב למשיבים סך של 35,400 ש&#34;ח בגין תשלום שכר טרחת הבורר שלא שולם על ידה וכי עליה להפקיד סך של 150,000 ש&#34;ח בקופת בית המשפט להבטחת הוצאות הבוררות לפני הבורר המכריע, כאשר הלכה למעשה סכום זה הושת על בא-כוח המערערת.
 
-	
+על רקע האמור הוגש הערעור שלפנינו, בו נטען על ידי בא-כוח המערערת כי פסק דינו של בית המשפט המחוזי עומד בסתירה להחלטה שניתנה בהליך הפירוק ביום 5.3.2023, ובה נקבע כאמור כי אין מקום להורות לו על הפקדת כספים מראש להבטחת הוצאות הערעור וכי בית המשפט בהליך הבוררות היה נטול סמכות לשנות את החלטת בית המשפט של חדלות פירעון. כן נטען לגופו של עניין כי לא היה מקום להורות על הפקדת סכום מופרז של 150,000 ש&#34;ח להבטחת הוצאות הליך הבוררות בערעור.
 
-על רקע האמור הוגש הערעור שלפנינו, בו נטען על ידי בא-כוח המערערת כי פסק דינו של בית המשפט המחוזי עומד בסתירה להחלטה שניתנה בהליך הפירוק ביום 5.3.2023, ובה נקבע כאמור כי אין מקום להורות לו על הפקדת כספים מראש להבטחת הוצאות הערעור וכי בית המשפט בהליך הבוררות היה נטול סמכות לשנות את החלטת בית המשפט של חדלות פירעון. כן נטען לגופו של עניין כי לא היה מקום להורות על הפקדת סכום מופרז של 150,000 ש&#34;ח להבטחת הוצאות הליך הבוררות בערעור. 
-
-
-
-	בקשה לעיכוב ביצוע פסק דינו של בית המשפט המחוזי שהוגשה לבית משפט זה על ידי המערערת, נדחתה בהחלטה מיום 23.11.2023 ונקבע בה כי בא-כוח המערערת יישא בהוצאות המשיבים בסך של 2,500 ש&#34;ח.
-
-
+בקשה לעיכוב ביצוע פסק דינו של בית המשפט המחוזי שהוגשה לבית משפט זה על ידי המערערת, נדחתה בהחלטה מיום 23.11.2023 ונקבע בה כי בא-כוח המערערת יישא בהוצאות המשיבים בסך של 2,500 ש&#34;ח.
 
 ביום 29.2.2024 הוגשה תשובה לערעור על ידי הנאמן שמונה למערערת בהליכי הפירוק, ובה נטען כי הגשת הערעור נעשתה שלא בתיאום עמו. ביום 5.3.2024 הגישו המשיבים בקשה לדחיית הערעור על הסף, בטענה שבא-כוח המערערת הגיש את הערעור שלא כדין, ללא סמכות וללא תיאום כאמור עם הנאמן. כן התבקש בית המשפט להורות על חילוט סכום ההוצאות שנפסק לטובתם בהחלטה מיום 23.11.2023, מהפיקדון שהופקד על ידי המערערת.
 
+חרף כל המחלוקות דלעיל, ביום 2.7.2024 הודיע בא-כוח המערערת כי הפקיד את הסכום של 150,000 ש&#34;ח בהתאם להוראת פסק הדין ומונה בורר מכריע. לפיכך, בנסיבות האמורות מתייתר הצורך בקיום דיון בערעור ובית המשפט התבקש להורות על מחיקתו ללא צו להוצאות.
 
+המשיבים מנגד עמדו על בקשתם לדחיית הערעור על הסף, וביקשו לדחות את בקשת בא-כוח המערערת למחיקת ההליך.
 
-חרף כל המחלוקות דלעיל, ביום 2.7.2024 הודיע בא-כוח המערערת כי הפקיד את הסכום של 150,000 ש&#34;ח בהתאם להוראת פסק הדין ומונה בורר מכריע. לפיכך, בנסיבות האמורות מתייתר הצורך בקיום דיון בערעור ובית המשפט התבקש להורות על מחיקתו ללא צו להוצאות. 
-
-
-
-	המשיבים מנגד עמדו על בקשתם לדחיית הערעור על הסף, וביקשו לדחות את בקשת בא-כוח המערערת למחיקת ההליך. 
-
-
-
-בנסיבות האמורות, משהערעור התייתר ואין עוד מקום לדון בו, על פי הודעת בא-כוח המערערת, אכן דין הערעור להימחק. 
-
-
+בנסיבות האמורות, משהערעור התייתר ואין עוד מקום לדון בו, על פי הודעת בא-כוח המערערת, אכן דין הערעור להימחק.
 
 מעבר לכך. קיימים טעמים נוספים מצדיקים את מחיקת הערעור במקרה דנן. לערעור שהוגש על ידי חברה שבפירוק לא צורף אישור על ניהול ההליך, כאשר לדברי הנאמן הגשתו כלל לא תואמה עמו (סעיף 132(א)(1) לחוק חדלות פירעון ושיקום כלכלי, התשע&#34;ח-2018; וראו למשל: בע&#34;מ 7278/22 פלונית נ&#39; פלוני, פסקה 5 (15.11.2022)). כמו כן, משמדובר בהחלטה בענייני בוררות, שכן ב&#34;פסק דינו&#34; של בית המשפט המחוזי נקבעו תנאים למינוי בורר מכריע, למערערת כלל לא עומדת זכות ערעור (סעיף 38 לחוק הבוררות, התשכ&#34;ח-1968 ותקנה 147(ב)(2) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018; ע&#34;א 4886/00 גרוס נ&#39; קידר, פ&#34;ד נז(5) 933 (2003); רע&#34;א 150/24 נאות הרצליה הדר 19 בע&#34;מ נ&#39; רוזנשטיין (21.1.2024)). מעבר לכך, גם לגופו של עניין, על פניו, בית המשפט של חדלות פירעון לא החליט שאין מקום להטיל על בא-כוח המערערת את חובת הפקדת הוצאות הערעור בבוררות. אדרבה, נקבע כי אין זה תפקידו של בית המשפט של חדלות פירעון לעשות כן, ואל לו להתערב בשיקול דעתו של ערכאת הערעור בהליך הבוררות. מכאן שטענת בא-כוח המערערת בדבר מתן החלטה על ידי בית המשפט בהליך הבוררות בחוסר סמכות, נטולת יסוד.
 
- 
-
 דין הערעור להימחק אפוא ולא להידחות (גם קשה, מפאת חוסר הנפקות בין מחיקת הערעור לבין דחייתו לעת הזאת, לעמוד על התעקשות המשיבים שהערעור יידחה דווקא). כמו כן, ולו על רקע התנהלותו הדיונית המוקשית של בא-כוח המערערת, ועל רקע הטענה המקובלת עלינו כי לא היה מקום להגשת הערעור כפי שהוגש, בא-כוח המערערת יישא בהוצאות המשיבים בסך של 7,500 ש&#34;ח.
 
- 
-
-	בקשת המשיבים לחילוט מהפיקדון סכום ההוצאות שנפסק בהחלטה מיום 23.11.2023, תועבר לטיפול לשכת הרשמות.
-
-
-
-
+בקשת המשיבים לחילוט מהפיקדון סכום ההוצאות שנפסק בהחלטה מיום 23.11.2023, תועבר לטיפול לשכת הרשמות.
 
 ניתן היום, א&#39; אב תשפ&#34;ד (05 אוגוסט 2024).
 
-
-
-
-
-דוד מינץ, 
+דוד מינץ,
 
 שופט
 
-
-
-
-
-
-
 גילה כנפי-שטייניץ, שופטת
-
-
-
-
-
-
 
 חאלד כבוב,
 
@@ -1739,7 +1922,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

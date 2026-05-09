@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    02/02/2022 (לפני 1553 ימים)
+                    02/02/2022 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8351-21.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8351/21 - פלונית נ. פרקליטות המדינה - מחוז צפון"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8351-21.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/510/083/d04&amp;fileName=21083510.D04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/510/083/d04&amp;fileName=21083510.D04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/510/083/d04&amp;fileName=21083510.D04&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/510/083/d04&amp;fileName=21083510.D04&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,163 +1827,69 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון
 
+ע&#34;פ 8351/21
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון
-
-
-
-ע&#34;פ  8351/21
-
-
-
-לפני:	
+לפני:
 
 כבוד הרשמת שרית עבדיאן
-
-
 
 המערערת:
 
 פלונית
 
-	
-
-
-
-נ  ג  ד
-
-			     
+נ ג ד
 
 המשיבים:
 
 1. מדינת ישראל
 
-
-
 2. פלוני
 
-	
-
-בקשה למחיקת ערעור על הסף; תשובת המערערת מיום 26.12.2021; תשובת המדינה מיום 31.12.2021;  תגובת המערערת מיום 18.1.2022
-
-	
-
-
-
-
-
-	
+בקשה למחיקת ערעור על הסף; תשובת המערערת מיום 26.12.2021; תשובת המדינה מיום 31.12.2021; תגובת המערערת מיום 18.1.2022
 
 פסק-דין
 
-
-
-
-
 1.	הבקשה למחיקת הערעור שבכותרת על הסף הועברה לטיפולי בהחלטתו של כב&#39; השופט נ&#39; הנדל מיום 4.1.2022.
 
+2.	הערעור שבכותרת מופנה נגד פסק דינו של בית המשפט המחוזי בת&#34;פ 19264-08-21, בגדרו הורשע המשיב 2, על פי הודאתו, בעבירות של תקיפה סתם לפי סעיף 379 לחוק העונשין, התשל&#34;ז-1977. פסק הדין ניתן בהמשך להסדר טיעון בין המדינה למשיב 2 בו סוכם כי המשיב 2 יודה ויורשע בכתב אישום מתוקן ויושת עליו עונש מאסר שהוא מספר הימים שריצה מאז החל מעצרו, וכן מאסר על תנאי ותשלום פיצוי לקורבן העבירה (להלן: פסק הדין). הסדר הטיעון גובש לאחר שנוהל בין המשיב 2 למדינה הליך גישור בפני כב&#39; השופט א&#39; קולה.
 
+3.	אמה של נפגעת העבירה, אשר לא השלימה עם התוצאה של פסק הדין, הגישה את ההליך שבכותרת בשמה של נפגעת העבירה. ביום 20.12.2021 הגיש המשיב 2 בקשה למחיקת ההליך שבכותרת על הסף בטענה כי לנפגעת העבירה אין זכות שבדין להגיש ערעור על פסק דינו של בית המשפט המחוזי. בהחלטתו מיום 21.12.2021 הורה כב&#39; השופט הנדל לצדדים להגיש את תגובתם לבקשה למחיקת הליך.
 
-2.	הערעור שבכותרת מופנה נגד פסק דינו של בית המשפט המחוזי בת&#34;פ 19264-08-21, בגדרו הורשע המשיב 2, על פי הודאתו, בעבירות של תקיפה סתם לפי סעיף 379 לחוק העונשין, התשל&#34;ז-1977. פסק הדין ניתן בהמשך להסדר טיעון בין המדינה למשיב 2 בו סוכם כי המשיב 2 יודה ויורשע בכתב אישום מתוקן ויושת עליו עונש מאסר שהוא מספר הימים שריצה מאז החל מעצרו, וכן מאסר על תנאי ותשלום פיצוי לקורבן העבירה (להלן: פסק הדין). הסדר הטיעון גובש לאחר שנוהל בין המשיב 2 למדינה הליך גישור בפני כב&#39; השופט א&#39; קולה. 
+4. 	בתגובה מטעם המדינה נטען כי יש למחוק את ההליך שבכותרת על הסף, וזאת משום שהדין אינו מקנה לנפגעת העבירה זכות להגיש ערעור על פסק דינו של בית המשפט המחוזי. מכל מקום, המדינה ציינה כי עמדת אמה של נפגעת העבירה, אשר התנגדה להסדר הטיעון עם המשיב 2, נשמעה הן בהליך הגישור והן בפני פרקליטת המחוז.
 
+5. 	המערערת הגישה תשובה ביום 26.12.2021, וביום 18.1.2022 הגישה תגובה נוספת מטעמה. לטענת המערערת, זכויותיה כנפגעת עבירה הופרו בהליך הפלילי שנוהל בעניינו של המשיב 2 ובפרט בהליך הגישור, ומשכך קמה לה זכות להגיש ערעור על פסק דינו של בית המשפט המחוזי. לטענתה, היא הודרה מחלק מפגישות הגישור, וקולה לא נשמע כ&#34;שווה&#34; לשאר הצדדים להליך.
 
+6.	לאחר שעיינתי בבקשה, בתשובות לה וביתר החומרים שהונחו בפניי, הגעתי למסקנה כי אין מנוס אלא להורות על מחיקת הערעור על הסף.
 
-3.	אמה של נפגעת העבירה, אשר לא השלימה עם התוצאה של פסק הדין, הגישה את ההליך שבכותרת בשמה של נפגעת העבירה. ביום 20.12.2021 הגיש המשיב 2 בקשה למחיקת ההליך שבכותרת על הסף בטענה כי לנפגעת העבירה אין זכות שבדין להגיש ערעור על פסק דינו של בית המשפט המחוזי. בהחלטתו מיום 21.12.2021 הורה כב&#39; השופט הנדל לצדדים להגיש את תגובתם לבקשה למחיקת הליך. 
+7.	זכות הערעור תינתן רק מקום בו ניתן להצביע על מקור בדין לקיומה (ראו: בג&#34;ץ 87/85 ארג&#39;וב נ&#39; מפקד כוחות צה&#34;ל באזור יהודה ושומרון, פ&#39;&#39;ד מב(1) 353, 363-360, 380 (1988); ע&#34;פ 426/87 שוקרי נ&#39; מדינת ישראל, פ&#34;ד מב(1) 732, 735 (1988); בג&#34;ץ 8453/17 פלוני נ&#39; ועדת הערר הרפואית על פי תקנות מס הכנסה, פיסקה 14 לפסק דינו של כבוד השופט מ&#39; מזוז (24.6.2018)). בענייננו, מעמדה של המערערת הוא של נפגעת עבירה וכבר נקבע בפסיקה כי חוק זכויות נפגעי עבירה, התשס&#34;א-2001 (להלן: חוק זכויות נפגעי עבירה) אינו מקנה לנפגע העבירה או משפחתו זכות להגיש ערעור על פסק הדין שניתן בהליך הפלילי (ראו: ע&#34;פ 8417/13 פלוני נ&#39; מדינת ישראל, פיסקה 4 (23.4.2014); רע&#34;פ 9748/11 ארויו נ&#39; בן דוד (31.7.2013); דנ&#34;פ 5625/16 קארין נ&#39; בוקובזה, פיסקה 24 לפסק דינה של כבוד השופטת ד&#39; ברק-ארז, ופיסקה 3 לפסק דינו של כבוד השופט נ&#39; הנדל (13.9.2017); ע&#34;פ 2018/20 פלוני נ&#39; מדינת ישראל (7.5.2020) (להלן: ע&#34;פ 2018/20)).
 
+8.	רצונה של המערערת לשטוח את טענותיה בפני בית המשפט הוא מובן בהחלט, ואכן אחת מן המטרות העומדות בבסיס חוק זכויות נפגעי עבירה היא להבטיח את נגישותו של קורבן העבירה או משפחתו להליך הפלילי, מתוך הכרה באינטרס הלגיטימי שלהם בהליך המתנהל נגד הנאשם ובסנקציה העשויה להיות מוטלת עליו (ראו: רע&#34;פ 2976/01 אסף נ&#39; מדינת ישראל, פ&#39;&#39;ד נו(3) 418, 440 (2002); בג&#34;ץ 5961/07 פלוני נ&#39; פרקליט המדינה, פ&#39;&#39;ד סב(3) 206, 225-224 (2007) (להלן: בג&#34;ץ 5961/07)).
 
+9.	בהמשך למטרות אלה, סעיף 17 לחוק זכויות נפגעי עבירה קובע כי לנפגע עבירת מין או אלימות חמורה יש זכות להביע בפני התובע את עמדתו באשר לאפשרות לעריכת הסדר טיעון עם הנאשם (בהתאם לתנאים הקבועים בסעיף זה), וכבר נקבע כי &#34;על התביעה להוסיף וליתן משקל לעמדתו זו של נפגע העבירה במסגרת מכלול השיקולים הנשקלים על-ידה בהתייחס לאפשרות עריכתו של ההסדר&#34; (ראו: בג&#34;ץ 5961/07, בעמ&#39; 229. לעניין זכויות נפגע עבירה בהליך גישור פלילי ראו: הדר דנציג-רוזנברג ודנה פוגץ&#39; &#34;&#39;הדור הבא&#39; של זכויות נפגעי עבירה: הזכות החוקתית להליך הוגן&#34; עיוני משפט לו 549, 582, ה&#34;ש 132 (2015) (להלן: דנציג-רוזנברג ופוגץ&#39;)). זאת, כחלק מן הזכויות המוקנות לנפגע עבירה בחוק זכויות נפגעי עבירה על מנת שיוכל לממש את האינטרס שלו בהליך הפלילי, כפי שפורטו בע&#34;פ 2018/20:
 
-4. 	בתגובה מטעם המדינה נטען כי יש למחוק את ההליך שבכותרת על הסף, וזאת משום שהדין אינו מקנה לנפגעת העבירה זכות להגיש ערעור על פסק דינו של בית המשפט המחוזי. מכל מקום, המדינה ציינה כי עמדת אמה של נפגעת העבירה, אשר התנגדה להסדר הטיעון עם המשיב 2, נשמעה הן בהליך הגישור והן בפני פרקליטת המחוז.  
+&#34;... לפיכך, הוכרה זכותו של נפגע העבירה לקבל מידע אודות התנהלותו של ההליך הפלילי (סעיף 8 לחוק); לעיין בכתב האישום (סעיף 9 לחוק); להיות נוכח במשפט גם כאשר זה מתנהל בדלתיים סגורות (סעיף 15 לחוק); ולהצהיר בפני בית המשפט במהלך הטיעונים לעונש על הנזקים שנגרמו לו כתוצאה ממעשה העבירה (סעיף 18 לחוק). בנוסף, החוק מאפשר לנפגע עבירת מין או אלימות חמורה להביע עמדתו בכתב באשר להחלטה לעכב הליכים נגד נאשם (סעיף 16 לחוק) ואף להביע בפני התובע את עמדתו באשר לאפשרות לעריכת הסדר טיעון עם הנאשם (סעיף 17 לחוק), ואת עמדתו בפני ועדת שחרורים ובפני נשיא המדינה בבקשה לחנינה (סעיפים 20-19 לחוק) (וראו גם: הנחיה מס&#39; 14.7 להנחיות פרקליט המדינה בדבר סיוע לקורבן עבירה ולעדי תביעה בהליך הפלילי)&#34; (שם, בפיסקה 15).
 
-
-
-5. 	המערערת הגישה תשובה ביום 26.12.2021, וביום 18.1.2022 הגישה תגובה נוספת מטעמה. לטענת המערערת, זכויותיה כנפגעת עבירה הופרו בהליך הפלילי שנוהל בעניינו של המשיב 2 ובפרט בהליך הגישור, ומשכך קמה לה זכות להגיש ערעור על פסק דינו של בית המשפט המחוזי. לטענתה, היא הודרה מחלק מפגישות הגישור, וקולה לא נשמע כ&#34;שווה&#34; לשאר הצדדים להליך. 
-
-
-
-6.	לאחר שעיינתי בבקשה, בתשובות לה וביתר החומרים שהונחו בפניי, הגעתי למסקנה כי אין מנוס אלא להורות על מחיקת הערעור על הסף. 
-
-
-
-7.	זכות הערעור תינתן רק מקום בו ניתן להצביע על מקור בדין לקיומה (ראו: בג&#34;ץ 87/85 ארג&#39;וב נ&#39; מפקד כוחות צה&#34;ל באזור יהודה ושומרון, פ&#39;&#39;ד מב(1) 353, 363-360, 380 (1988); ע&#34;פ 426/87 שוקרי נ&#39; מדינת ישראל, פ&#34;ד מב(1) 732, 735 (1988); בג&#34;ץ 8453/17 פלוני נ&#39; ועדת הערר הרפואית על פי תקנות מס הכנסה, פיסקה 14 לפסק דינו של כבוד השופט מ&#39; מזוז (24.6.2018)). בענייננו, מעמדה של המערערת הוא של נפגעת עבירה וכבר נקבע בפסיקה כי חוק זכויות נפגעי עבירה, התשס&#34;א-2001 (להלן: חוק זכויות נפגעי עבירה) אינו מקנה לנפגע העבירה או משפחתו זכות להגיש ערעור על פסק הדין שניתן בהליך הפלילי (ראו: ע&#34;פ 8417/13 פלוני נ&#39; מדינת ישראל, פיסקה 4 (23.4.2014); רע&#34;פ 9748/11 ארויו נ&#39; בן דוד (31.7.2013); דנ&#34;פ 5625/16 קארין נ&#39; בוקובזה, פיסקה 24 לפסק דינה של כבוד השופטת ד&#39; ברק-ארז, ופיסקה 3 לפסק דינו של כבוד השופט נ&#39; הנדל (13.9.2017); ע&#34;פ 2018/20 פלוני נ&#39; מדינת ישראל (7.5.2020) (להלן: ע&#34;פ 2018/20)). 
-
-
-
-8.	רצונה של המערערת לשטוח את טענותיה בפני בית המשפט הוא מובן בהחלט, ואכן אחת מן המטרות העומדות בבסיס חוק זכויות נפגעי עבירה היא להבטיח את נגישותו של קורבן העבירה או משפחתו להליך הפלילי, מתוך הכרה באינטרס הלגיטימי שלהם בהליך המתנהל נגד הנאשם ובסנקציה העשויה להיות מוטלת עליו (ראו: רע&#34;פ 2976/01 אסף נ&#39; מדינת ישראל, פ&#39;&#39;ד נו(3) 418, 440 (2002); בג&#34;ץ 5961/07 פלוני נ&#39; פרקליט המדינה, פ&#39;&#39;ד סב(3) 206, 225-224 (2007) (להלן: בג&#34;ץ 5961/07)). 
-
-
-
-9.	בהמשך למטרות אלה, סעיף 17 לחוק זכויות נפגעי עבירה קובע כי לנפגע עבירת מין או אלימות חמורה יש זכות להביע בפני התובע את עמדתו באשר לאפשרות לעריכת הסדר טיעון עם הנאשם (בהתאם לתנאים הקבועים בסעיף זה), וכבר נקבע כי &#34;על התביעה להוסיף וליתן משקל לעמדתו זו של נפגע העבירה במסגרת מכלול השיקולים הנשקלים על-ידה בהתייחס לאפשרות עריכתו של ההסדר&#34; (ראו: בג&#34;ץ 5961/07, בעמ&#39; 229. לעניין זכויות נפגע עבירה בהליך גישור פלילי ראו: הדר דנציג-רוזנברג ודנה פוגץ&#39; &#34;&#39;הדור הבא&#39; של זכויות נפגעי עבירה: הזכות החוקתית להליך הוגן&#34; עיוני משפט לו 549, 582, ה&#34;ש 132 (2015) (להלן: דנציג-רוזנברג ופוגץ&#39;)). זאת, כחלק מן הזכויות המוקנות לנפגע עבירה בחוק זכויות נפגעי עבירה על מנת שיוכל לממש את האינטרס שלו בהליך הפלילי, כפי שפורטו בע&#34;פ 2018/20: 
-
-
-
-&#34;... לפיכך, הוכרה זכותו של נפגע העבירה לקבל מידע אודות התנהלותו של ההליך הפלילי (סעיף 8 לחוק); לעיין בכתב האישום (סעיף 9 לחוק); להיות נוכח במשפט גם כאשר זה מתנהל בדלתיים סגורות (סעיף 15 לחוק); ולהצהיר בפני בית המשפט במהלך הטיעונים לעונש על הנזקים שנגרמו לו כתוצאה ממעשה העבירה (סעיף 18 לחוק). בנוסף, החוק מאפשר לנפגע עבירת מין או אלימות חמורה להביע עמדתו בכתב באשר להחלטה לעכב הליכים נגד נאשם (סעיף 16 לחוק) ואף להביע בפני התובע את עמדתו באשר לאפשרות לעריכת הסדר טיעון עם הנאשם (סעיף 17 לחוק), ואת עמדתו בפני ועדת שחרורים ובפני נשיא המדינה בבקשה לחנינה (סעיפים 20-19 לחוק) (וראו גם: הנחיה מס&#39; 14.7 להנחיות פרקליט המדינה בדבר סיוע לקורבן עבירה ולעדי תביעה בהליך הפלילי)&#34; (שם, בפיסקה 15). 
-
-
-
-10.	חרף האמור, אין בזכויות אלה כדי להקנות לנפגע העבירה אפשרות להגיש ערעור על פסק הדין, וזו אף אינה המסגרת הדיונית להעלות את טענות נפגע העבירה לפיהן זכויותיו מכוח חוק נפגעי עבירה הופרו (ראו: בג&#34;ץ 2477/07 פלוני נ&#39; פרקליט המדינה (27.5.2007); בג&#34;ץ 5961/07, בעמ&#39; 230; דנציג-רוזנברג ופוגץ&#39;, בעמ&#39; 588-587). נוכח טענות הצדדים, אציין כי בע&#34;פ 8417/13 פלוני נ&#39; מדינת ישראל (23.4.2014) לא הוכרעה סוגיית הסמכות לדון בטענות נפגע העבירה בגדרי ערעור פלילי, תוך שכב&#39; השופט הנדל ציין כך: 
-
-
+10.	חרף האמור, אין בזכויות אלה כדי להקנות לנפגע העבירה אפשרות להגיש ערעור על פסק הדין, וזו אף אינה המסגרת הדיונית להעלות את טענות נפגע העבירה לפיהן זכויותיו מכוח חוק נפגעי עבירה הופרו (ראו: בג&#34;ץ 2477/07 פלוני נ&#39; פרקליט המדינה (27.5.2007); בג&#34;ץ 5961/07, בעמ&#39; 230; דנציג-רוזנברג ופוגץ&#39;, בעמ&#39; 588-587). נוכח טענות הצדדים, אציין כי בע&#34;פ 8417/13 פלוני נ&#39; מדינת ישראל (23.4.2014) לא הוכרעה סוגיית הסמכות לדון בטענות נפגע העבירה בגדרי ערעור פלילי, תוך שכב&#39; השופט הנדל ציין כך:
 
 &#34;אינני מביע עמדה באיזה מסלול דיוני ניתן וראוי היה לצעוד. די לומר כי לנוכח חשיבות העניין, [...], ואף הסכמת המדינה לדון בסוגיה במסגרת הדיונית הנוכחית – סבורים אנו כי ראוי להכריע בסוגיה לגופו של עניין. זאת בין אם יש לראות את ההסתייגות של המערער כערעור או כהליך מעין-בג&#34;ץ&#34;.
 
+11. נוכח האמור לעיל, וחרף ההבנה לרצונה של המערערת לשטוח את טענותיה בפני בית משפט זה, לא מצאתי כי נתונה לה זכות ערעור בדין. משכך, אין מנוס מאשר להורות על מחיקתו של ההליך שבכותרת (לעניין סמכות רשמים של בית משפט זה למחוק הליך שאין זכות בדין להגישו ראו: ע&#34;פ 8616/19 חברוני נ&#39; מדינת ישראל, פיסקה 8 (15.3.2020); והשוו: בש&#34;א 793/01 ועד הנאמנים (לנכסי הווקף המוסלמי) בתל-אביב-יפו נ&#39; יוסי חסון חברה להשקעת בע&#34;מ, פיסקה 6 (15.8.2001)). עוד אציין, למען הסדר הטוב, כי כבר נקבע שבהליכים פליליים אשר החוק אינו מסדיר מפורשות, לא קיימת חובת קיום דיון (ראו: ע&#34;פ 5135/13 יגרמן נ&#39; מדינת ישראל, פיסקאות 17-16 (2.6.2014)).
 
+12. סוף דבר: אני מורה על מחיקת ההליך שבכותרת.
 
-11.       נוכח האמור לעיל, וחרף ההבנה לרצונה של המערערת לשטוח את טענותיה בפני בית משפט זה, לא מצאתי כי נתונה לה זכות ערעור בדין. משכך, אין מנוס מאשר להורות על מחיקתו של ההליך שבכותרת (לעניין סמכות רשמים של בית משפט זה למחוק הליך שאין זכות בדין להגישו ראו: ע&#34;פ 8616/19 חברוני נ&#39; מדינת ישראל, פיסקה 8 (15.3.2020); והשוו: בש&#34;א 793/01 ועד הנאמנים (לנכסי הווקף המוסלמי) בתל-אביב-יפו נ&#39; יוסי חסון חברה להשקעת בע&#34;מ, פיסקה 6 (15.8.2001)). עוד אציין, למען הסדר הטוב, כי כבר נקבע שבהליכים פליליים אשר החוק אינו מסדיר מפורשות, לא קיימת חובת קיום דיון (ראו: ע&#34;פ 5135/13 יגרמן נ&#39; מדינת ישראל, פיסקאות 17-16 (2.6.2014)).
-
-
-
-12.       סוף דבר: אני מורה על מחיקת ההליך שבכותרת.
-
-
-
-	ניתן היום, ‏א&#39; באדר א התשפ&#34;ב (‏2.2.2022).
-
-
-
-
-
-
-
-
+ניתן היום, ‏א&#39; באדר א התשפ&#34;ב (‏2.2.2022).
 
 שרית עבדיאן
 
-
-
-
-
 ר ש מ ת
-
-
 
 _________________________
 
-   21083510_D04.docx   מש
+21083510_D04.docx מש
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1731,7 +1908,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

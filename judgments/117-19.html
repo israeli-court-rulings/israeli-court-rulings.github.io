@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    19/11/2020 (לפני 1993 ימים)
+                    19/11/2020 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/117-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="117/19 - האחים אוזן חברה לבנייה בע&#34;מ נ. אריאל כהן"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F117-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/170/001/z14&amp;fileName=19001170.Z14&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/170/001/z14&amp;fileName=19001170.Z14&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/170/001/z14&amp;fileName=19001170.Z14&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/170/001/z14&amp;fileName=19001170.Z14&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,665 +1827,329 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
-
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
-
-
-ע&#34;א  117/19
+ע&#34;א 117/19
 
 וערעור שכנגד
 
-
-
-לפני:	
+לפני:
 
 כבוד השופט נ&#39; הנדל
 
-
-
 כבוד השופט י&#39; עמית
-
-
 
 כבוד השופט ע&#39; גרוסקופף
 
-
-
 המערערת והמשיבה 1 בערעור שכנגד:
-
-
 
 האחים אוזן חברה לבנייה בע&#34;מ
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים בערעור ובערעור שכנגד:
 
-
-
 1. אריאל כהן
-
-
 
 2. אסתר כהן
 
-
-
 3. פורמלי שי ששון
-
-
 
 4. פורמלי טליה גבאי ששון
 
-
-
 5. אילן מזרחי
-
-
 
 6. מזל מזרחי
 
-
-
 7. דוד אזולאי
-
-
 
 8. עליזה אזולאי
 
-
-
 9. זאב ויליציג
-
-
 
 10. נעמה ויליציג
 
-
-
 11. אליהו באשר
-
-
 
 12. סימה באשר
 
-
-
 13. פורמלי טל נפתלי גורדו
-
-
 
 14. פורמלי יצחק ויצמן
 
-
-
 15. פורמלי מרגלית גלית ויצמן
-
-
 
 16. פורמלי שמעון אוחיון
 
-
-
 17. פורמלי קרן אוחיון
-
-
 
 18. עמוס מדר
 
-
-
 19. רחל מדר
-
-
 
 20. פורמלי שמעון איפרגן
 
-
-
 21. פורמלי פנינה איפרגן
-
-
 
 22. פורמלי ליאור לוי
 
-
-
 23. זהבה לוי
-
-
 
 24. יורם כהן
 
-
-
 25. גילה כהן
-
-
 
 26. שניר גל
 
-
-
 27. ליאת גל
-
-
 
 28. מרגלית מזרחי
 
-
-
 29. יוסף בן דוד
-
-
 
 30. מזל חיה בן דוד
 
-
-
 31. איתן בן עמי
-
-
 
 32. סמדר בן עמי
 
-
-
 33. פורמלי עוזי לוי
-
-
 
 34. פורמלי לירונה לוי
 
-
-
 35. פורמלי ברכה צבי כליפה
-
-
 
 36. אריה גל
 
-
-
 37. פנינה גל
-
-
 
 38. צבי זרגרי
 
-
-
 39. אורית זרגרי
-
-
 
 40. אמיר כהן
 
-
-
 41. לימור כהן
-
-
 
 42. פורמלי הנרי אלהרר
 
-
-
 43. אייל ישראלי
-
-
 
 44. שרית ישראלי
 
-
-
 45. לבנת גברא
-
-
 
 46. קרן לינדה וולך
 
-
-
 47. אריאל גוסטבו וולך
-
-
 
 48. חיים כהן
 
-
-
 49. שמחה כהן
-
-
 
 50. שרון יעקב
 
-
-
 51. קרן יעקב
-
-
 
 52. פורמלי אריאלה נסים
 
-
-
 53. פורמלי שאול נסים
-
-
 
 54. אשר לוטטי
 
-
-
 55. רבקה לוטטי
-
-
 
 56. שרה זזון
 
-
-
 57. פורמלי אמיר מן
-
-
 
 58. פורמלי לילך מן
 
-
-
 59. אורן זקן
-
-
 
 60. קרן זקן
 
-
-
 61. שמעון בן מוחה
-
-
 
 62. רחלי בן מוחה
 
-
-
 63. פורמלי אשר אטיאס
-
-
 
 64. פורמלי דינה אטיאס
 
-
-
 65. פורמלי אברהם דרעי
-
-
 
 66. פורמלי יפה דרעי
 
-
-
 67. פורמלי ירון יאיר ישפה
-
-
 
 68. פורמלי אתי ישפה
 
-
-
 69. פורמלי אביגיל מרים גז
-
-
 
 70. נורית ראובני
 
-
-
 71. יוני כורך
-
-
 
 72. תומר קמזון קליין
 
-
-
 73. בתיה בן יאיר
-
-
 
 74. פורמלי רון שניידר
 
-
-
 75. פורמלי ברוריה זקן
-
-
 
 76. שלמה יעל
 
-
-
 77. דגנית בונדי (יעל)
-
-
 
 78. פורמלי שלום אברהם חואטו סבן
 
-
-
 79. יהונתן זוליאן משה אמסלם
-
-
 
 80. ליאור קקון
 
-
-
 81. הילה קקון
-
-
 
 82. בן יניב זבולוני
 
-
-
 83. הדורה יפעת רזון זבולוני
-
-
 
 84. יורם חוברה
 
-
-
 85. מרים חוברה
-
-
 
 86. פורמלי שלמה קראוזה
 
-
-
 87. פורמלי מיטל קול
-
-
 
 88. מיה אפוטה
 
-
-
 89. יעקב אפוטה
-
-
 
 90. פורמלי שלמה טדגי
 
-
-
 91. פורמלי טל טדגי
-
-
 
 92. פורמלי אלון אבוחצירא
 
-
-
 93. פורמלי הדס בן חמו
-
-
 
 94. פורמלי משה יצחקי
 
-
-
 95. פורמלי שרה סנדרה יצחקי
-
-
 
 96. פרוספר מסעוד סבג
 
-
-
 97. דבורה סבג
-
-
 
 98. חמדה אהרון
 
-
-
 99. אמיר ביבי
-
-
 
 100. יחיאל סימון
 
-
-
 101. מאיר טובול
-
-
 
 102. שרה קולט טובול
 
-
-
 103. אסף חן
-
-
 
 104. קרן יצחקוב
 
-
-
 105. פורמלי מנשה לוי
-
-
 
 106. פורמלי פסיה לוי
 
-
-
 107. פורמלי נטע קסלסי
-
-
 
 108. פורמלי אריאל קסלסי
 
-
-
 109. עמירם גוטמן
-
-
 
 110. טטיאנה בוגדנובה
 
-
-
 111. ליאוניד אוליצקי
-
-
 
 112. אולגה אוליצקי
 
-
-
 113. פורמלי עיריית ירושלים
-
-
 
 114. פורמלי הוועדה המקומית לתכנון ובניה בירושלים
 
-
-
 115. פורמלי מדינת ישראל
-
-
 
 116. פורמלי מנהל מקרקעי ישראל
 
-
-
 117. צחי קאפילוטו
-
-
 
 118. סיגלית קאפילותו
 
-
-
 119. גיא עייאש
-
-
 
 המשיבים 49-48, 55-54, 60-59, 77-76 בערעור והמערערים בערעור שכנגד:
 
-
-
-
-
 חיים כהן
-
-
 
 שמחה כהן
 
-
-
 אשר לוטטי
-
-
 
 רבקה לוטטי
 
-
-
 אורן זקן
-
-
 
 קרן זקן
 
-
-
 שלמה יעל
-
-
 
 דגנית (בונדי) יעל
 
-
-
 ערעור וערעור שכנגד על פסק דינו של בית המשפט המחוזי ירושלים מיום 31.10.2018 בת&#34;א 24792-01-11 שניתן על ידי כבוד השופטת ת&#39; בזק-רפפורט
-
-
 
 תאריך הישיבה:
 
-ג&#39; בכסלו התשפ&#34;א       
+ג&#39; בכסלו התשפ&#34;א
 
-(19.11.2020) 
-
-
+(19.11.2020)
 
 בשם המערערת :
 
-עו&#34;ד עדי שוחט; עו&#34;ד אלעד גריינר 
-
-
+עו&#34;ד עדי שוחט; עו&#34;ד אלעד גריינר
 
 בשם המשיבים 51-45, 56-54, 62-59, 71-70, 73, 77-76, 79 ו-119-117:
 
-
-
-
-
 עו&#34;ד יהודה מרציאנו; עו&#34;ד עמוס לוי
-
-
 
 בשם המשיבים 2-1, 12-5, 19-14, 32-22, 41-36, 44-43:
 
-
-
 עו&#34;ד תוסיה-כהן אריה
-
-
 
 בשם המשיבים 85-80, 93-88, 102-96, 112-109:
 
-
-
 עו&#34;ד אסף בוטח
-
-
 
 בשם המשיבים 89-88, 104-103:
 
-
-
 עו&#34;ד נחום הרפז
-
-
-
-	
 
 פסק-דין
 
+עיינו בטענות הצדדים, שמענו את טענות באי כוח המערערת ובא כוח משיבים 51-45, 56-54, 62-59, 71-70, 73, 77-76, 79, ו-119-117, והצענו הצעה שהצדדים קיבלו לאחר שבא כוח המערערת התייעץ עם מרשתו.
 
+על פי המומלץ והמוסכם הערעור יידחה, והערעור שכנגד, מטעם חלק מן המשיבים שיוצגו בידי עו&#34;ד מרציאנו, מתקבל באופן שהמערערת תישא בחיובים הבאים:
 
+א. משיבים 48-49 (כהן) – סך של 31,000 ש&#34;ח.
 
+ב. משיבים 77-76 (יעל) – סך של 28,000 ש&#34;ח.
 
-           עיינו בטענות הצדדים, שמענו את טענות באי כוח המערערת ובא כוח משיבים 51-45, 56-54, 62-59, 71-70, 73, 77-76, 79, ו-119-117, והצענו הצעה שהצדדים קיבלו לאחר שבא כוח המערערת התייעץ עם מרשתו. 
+ג. משיבים 60-59 (זקן) – 28,000 ש&#34;ח.
 
+ד. משיבים 55-54 (לוטטי) – סך של 46,000 ש&#34;ח.
 
+לעניין תשלומי הריבית וההצמדה, החיוב בסכומים אלה הוא החל מתאריך 2.9.2009. אין צו להוצאות.
 
-           על פי המומלץ והמוסכם הערעור יידחה, והערעור שכנגד, מטעם חלק מן המשיבים שיוצגו בידי עו&#34;ד מרציאנו, מתקבל באופן שהמערערת תישא בחיובים הבאים: 
-
-
-
-           א.      משיבים 48-49 (כהן) – סך של 31,000 ש&#34;ח. 
-
-           ב.      משיבים 77-76 (יעל) – סך של 28,000 ש&#34;ח. 
-
-           ג.      משיבים 60-59 (זקן) – 28,000 ש&#34;ח. 
-
-           ד.      משיבים 55-54 (לוטטי) – סך של 46,000 ש&#34;ח. 
-
-
-
-           לעניין תשלומי הריבית וההצמדה, החיוב בסכומים אלה הוא החל מתאריך 2.9.2009. אין צו להוצאות. 
-
-
-
-
-
-	ניתן היום, ‏ג&#39; בכסלו התשפ&#34;א (‏19.11.2020).
-
-
+ניתן היום, ‏ג&#39; בכסלו התשפ&#34;א (‏19.11.2020).
 
 ש ו פ ט
 
@@ -2224,17 +2159,9 @@
 
 _________________________
 
-   19001170_Z14.docx   מא
+19001170_Z14.docx מא
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -2253,7 +2180,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

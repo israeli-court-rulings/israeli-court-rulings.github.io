@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    07/07/2022 (לפני 1398 ימים)
+                    07/07/2022 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/8716-21.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="8716/21 - יהודה שושני נ. כדורי חומרי בנין בע&#34;מ"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F8716-21.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/160/087/n06&amp;fileName=21087160.N06&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/160/087/n06&amp;fileName=21087160.N06&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/160/087/n06&amp;fileName=21087160.N06&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/21/160/087/n06&amp;fileName=21087160.N06&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,169 +1827,81 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            5
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
+ע&#34;א 8716/21
 
-
-
-
-1
-
-
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
-
-
-ע&#34;א  8716/21
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט ד&#39; מינץ
 
-
-
 כבוד השופטת י&#39; וילנר
 
-
-
 כבוד השופט א&#39; שטיין
-
-
 
 המערער:
 
 יהודה שושני
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. כדורי חומרי בנין בע&#34;מ
 
-
-
 2. עו&#34;ד איתן צנעני (הנאמן)
-
-
 
 3. כונס הנכסים הרשמי
 
-
-
 ערעור על פסק דינו של בית המשפט המחוזי בירושלים (כב&#39; השופט ע&#39; עאסי) מיום 3.11.2021 בפש&#34;ר 10352-07-20
-
-
 
 בשם המערער:
 
 עו&#34;ד רוי בר-קהן; עו&#34;ד קלרה פונרוב
 
-	
-
-	
-
 פסק-דין
-
-
 
 השופט ד&#39; מינץ:
 
-
-
-	לפנינו ערעור על פסק דינו של בית המשפט המחוזי בירושלים (כב&#39; השופט ע&#39; עאסי) מיום 3.11.2021 בפש&#34;ר 10352-07-20 בו נדחה ערעור המערער על הכרעת משיב 2 בתביעת חוב שהוגשה נגדו.
-
-
+לפנינו ערעור על פסק דינו של בית המשפט המחוזי בירושלים (כב&#39; השופט ע&#39; עאסי) מיום 3.11.2021 בפש&#34;ר 10352-07-20 בו נדחה ערעור המערער על הכרעת משיב 2 בתביעת חוב שהוגשה נגדו.
 
 הרקע לערעור
 
-בשנת 2008 הקימו המערער ושותפו, מר זאב גולדשטיין (להלן: גולדשטיין), שותפות שעיסוקה היה בתחום קבלנות בניין ושיפוצים (להלן: השותפות). בשנת 2009 התקשרה השותפות עם משיבה 1 (להלן: הנושה), בהסכם לרכישת ציוד וחומרי בניין (להלן: ההסכם). לצורך יישום ההסכם, מסרה השותפות לנושה שיק על סך של 74,576 ש&#34;ח החתום על שם שני השותפים (להלן: השטר). בנוסף, המערער חתם על ערבות אישית לצורך הבטחת חיוביה של השותפות כלפי הנושה (להלן: כתב הערבות). בשלהי שנת 2015 הופסקה פעילותה של השותפות, והיא הועברה לחברת גולדשטיין זאב חברה לבניין (ג.ז.) בע&#34;מ (להלן: החברה), שהוקמה על ידי השותפים בשנת 2010. 
-
-
+בשנת 2008 הקימו המערער ושותפו, מר זאב גולדשטיין (להלן: גולדשטיין), שותפות שעיסוקה היה בתחום קבלנות בניין ושיפוצים (להלן: השותפות). בשנת 2009 התקשרה השותפות עם משיבה 1 (להלן: הנושה), בהסכם לרכישת ציוד וחומרי בניין (להלן: ההסכם). לצורך יישום ההסכם, מסרה השותפות לנושה שיק על סך של 74,576 ש&#34;ח החתום על שם שני השותפים (להלן: השטר). בנוסף, המערער חתם על ערבות אישית לצורך הבטחת חיוביה של השותפות כלפי הנושה (להלן: כתב הערבות). בשלהי שנת 2015 הופסקה פעילותה של השותפות, והיא הועברה לחברת גולדשטיין זאב חברה לבניין (ג.ז.) בע&#34;מ (להלן: החברה), שהוקמה על ידי השותפים בשנת 2010.
 
 לאחר שהשטר חולל מחמת היעדר כיסוי, הגישה הנושה ביום 15.5.2017 בקשה לביצועו בלשכת ההוצאה לפועל בירושלים. תיק ההוצאה לפועל נפתח נגד המערער בלבד, מאחר שגולדשטיין שילם את חלקו בחוב בסך של 32,000 ש&#34;ח. ביום 28.6.2017 הגיש המערער התנגדות לביצוע השטר ובה הלין על כך שהנושה לא מיצתה דרכי פעולה אחרות טרם פעלה לגביית החוב בהוצאה לפועל. ביום 5.11.2017 דחה בית המשפט השלום בירושלים את ההתנגדות משקבע כי אין בפי המערער טענה העשויה להקים לו הגנה (ת&#34;ט 22510-07-17). ביני לביני, ביום 3.10.2017 ניתן צו כינוס לנכסיו של המערער לבקשתו, ומשיב 2 מונה למנהל המיוחד לנכסיו (פש&#34;ר 7844-10-17).
 
-
-
-ביום 24.1.2018 הגישה הנושה למנהל המיוחד תביעת חוב נגד המערער. משהתבקשה התייחסות המערער לתביעת החוב, ענה המערער כי מדובר בחוב שאמור להתחלק בינו לבין שותפו גולדשטיין. ביום 22.10.2018 אישר המנהל המיוחד את תביעת החוב על סך של 59,193 ש&#34;ח. סכום זה שיקף את הסכום הנקוב בשטר כולל הוצאות ריבית והצמדה, ולאחר קיזוז הסכום אותו שילם גולדשטיין על חשבון החוב. אלא שלאחר שפנה משיב 2 בבקשה לממש את דירת מגוריו של המערער ומונה שמאי להערכת שוויה, הגיש המערער ביום 23.9.2019 בקשה לבית המשפט בה טען כי נתגלו לו עובדות חדשות שלא היו ידועות לו בעבר וכי יש בהן כדי להצביע על ליקויים שנפלו בהכרעה בתביעות חוב שונות שהוגשו בעניינו. באשר לתביעת החוב מטעם הנושה, טען המערער כי כתב הערבות והשטר ניתנו להבטחת התחייבויות השותפות בלבד ולא להבטחת התחייבויות החברה, וכי השותפות סילקה זה מכבר את כל התחייבויותיה לנושה. 
-
-
+ביום 24.1.2018 הגישה הנושה למנהל המיוחד תביעת חוב נגד המערער. משהתבקשה התייחסות המערער לתביעת החוב, ענה המערער כי מדובר בחוב שאמור להתחלק בינו לבין שותפו גולדשטיין. ביום 22.10.2018 אישר המנהל המיוחד את תביעת החוב על סך של 59,193 ש&#34;ח. סכום זה שיקף את הסכום הנקוב בשטר כולל הוצאות ריבית והצמדה, ולאחר קיזוז הסכום אותו שילם גולדשטיין על חשבון החוב. אלא שלאחר שפנה משיב 2 בבקשה לממש את דירת מגוריו של המערער ומונה שמאי להערכת שוויה, הגיש המערער ביום 23.9.2019 בקשה לבית המשפט בה טען כי נתגלו לו עובדות חדשות שלא היו ידועות לו בעבר וכי יש בהן כדי להצביע על ליקויים שנפלו בהכרעה בתביעות חוב שונות שהוגשו בעניינו. באשר לתביעת החוב מטעם הנושה, טען המערער כי כתב הערבות והשטר ניתנו להבטחת התחייבויות השותפות בלבד ולא להבטחת התחייבויות החברה, וכי השותפות סילקה זה מכבר את כל התחייבויותיה לנושה.
 
 בדיון שהתקיים ביום 7.10.2019, הוכרז המערער פושט רגל, ומשיב 2 מונה לנאמן לנכסיו (להלן: הנאמן). בקשר לטענות המערער שהעלה בבקשתו מיום 23.9.2019 קבע בית המשפט בתום הדיון כי המערער רשאי לפנות לנאמן לצורך בירור הדברים, ולאחר מכן תוגש הודעה עדכנית מטעם הנאמן בעניין גובה החובות. בהתאם לכך, ביום 25.12.2019 הבהיר הנאמן כי אין מקום לטענות המערער בדבר ההכרעות שניתנו בתביעות החוב, וכי אלה סותרות טענות קודמות שהעלה.
 
-
-
 ביום 6.7.2020, בחלוף כמעט שנתיים מיום שהכריע הנאמן בתביעת החוב של הנושה, הגיש המערער לבית המשפט המחוזי ערעור על הכרעה זו. בערעורו העלה המערער טענות המכחישות את עצם החוב לנושה וכן טענות בקשר להחלטה שדחתה את התנגדותו לביצוע השטר. בין היתר נטען כי השטר נמסר כביטחון בלבד להבטחת התחייבויות השותפות ולא לצורך הבטחת התחייבויות החברה ועל כן לא היה מקום לקבל את תביעת החוב. כמו כן, נטען כי לא היה מקום לדחות את התנגדותו לביצוע השטר לאחר שכבר ניתן צו כינוס בעניינו וההליכים נגדו היו אמורים להיות מעוכבים.
 
-
-
-הנושה מצידה התנגדה לערעור וביקשה להורות על דחייתו. נטען כי ההכרעה בתביעת החוב ניתנה לאחר בירור עובדתי ממצה שערך הנאמן, בהתאם לראיות שהובאו לפניו ועל פי שיקול דעתו. בכלל זה התבסס הנאמן על הודאתו של המערער במסגרת התנגדותו לביצוע השטר בדבר קיומו של חוב לטובת החברה וחובתו האישית לשלם חוב זה. המערער העלה בערעורו טענות עובדתיות חדשות שלא נטענו קודם לכן, והן אף סותרות חזיתית את העמדה שהציג במסגרת התנגדותו לביצוע השטר. כמו כן נטען כי אין להלום את התנהגותו של המערער, אשר לאחר מתן ההכרעה בתביעת החוב פנה לנושה בהצעה להסדר נושים, ורק לאחר שלא הצליח להשיג את הרוב הדרוש לאישור ההצעה, הגיש את הערעור על הכרעת הנאמן בתביעת החוב. 
-
-
+הנושה מצידה התנגדה לערעור וביקשה להורות על דחייתו. נטען כי ההכרעה בתביעת החוב ניתנה לאחר בירור עובדתי ממצה שערך הנאמן, בהתאם לראיות שהובאו לפניו ועל פי שיקול דעתו. בכלל זה התבסס הנאמן על הודאתו של המערער במסגרת התנגדותו לביצוע השטר בדבר קיומו של חוב לטובת החברה וחובתו האישית לשלם חוב זה. המערער העלה בערעורו טענות עובדתיות חדשות שלא נטענו קודם לכן, והן אף סותרות חזיתית את העמדה שהציג במסגרת התנגדותו לביצוע השטר. כמו כן נטען כי אין להלום את התנהגותו של המערער, אשר לאחר מתן ההכרעה בתביעת החוב פנה לנושה בהצעה להסדר נושים, ורק לאחר שלא הצליח להשיג את הרוב הדרוש לאישור ההצעה, הגיש את הערעור על הכרעת הנאמן בתביעת החוב.
 
 הנאמן התנגד אף הוא לקבלת הערעור, בציינו כי המערער הכיר בחוב כלפי הנושה ולא הכחיש את חבותו מכוח ערבותו לשטר. הנאמן הוסיף כי ההכרעה בתביעת החוב ניתנה על בסיס המסמכים שהונחו לפניו ובהתאם להודאתו של המערער, ואין לשעות לטענות החדשות שהעלה לראשונה כשלוש שנים לאחר שהגישה הנושה את תביעת החוב.
 
-
-
-ביום 3.11.2021 דחה בית המשפט את הערעור על ההכרעה בתביעת החוב. נקבע כי לא נמצאה הצדקה להתערב בהכרעת הנאמן שהתבססה על העובדה שהמערער לא התכחש לשטר ולחוב הנטען. טענותיו של המערער לא נזכרו בהתנגדותו לביצוע השטר, על אף שהיה מיוצג, והן הועלו לראשונה במסגרת הערעור. צוין כי התנגדותו של המערער לביצוע השטר נדחתה לאחר שהעלה את טיעוניו לפני בית המשפט, וזאת על אף שההכרעה בעניין זה ניתנה לאחר צו הכינוס שניתן בעניינו. 
-
-
+ביום 3.11.2021 דחה בית המשפט את הערעור על ההכרעה בתביעת החוב. נקבע כי לא נמצאה הצדקה להתערב בהכרעת הנאמן שהתבססה על העובדה שהמערער לא התכחש לשטר ולחוב הנטען. טענותיו של המערער לא נזכרו בהתנגדותו לביצוע השטר, על אף שהיה מיוצג, והן הועלו לראשונה במסגרת הערעור. צוין כי התנגדותו של המערער לביצוע השטר נדחתה לאחר שהעלה את טיעוניו לפני בית המשפט, וזאת על אף שההכרעה בעניין זה ניתנה לאחר צו הכינוס שניתן בעניינו.
 
 מכאן הערעור שלפנינו, בגדרו טוען המערער כי בית המשפט המחוזי שגה בקבעו כי טענות המערער הועלו לראשונה במסגרת הערעור על תביעת החוב, שכן הוא העלה אותן כבר בבקשה שהגיש לבית המשפט ביום 23.9.2019; כי בית המשפט שגה בקבעו שהמערער היה מיוצג; וכי שגה בית המשפט בכך שנמנע מלדון לגופו של עניין בטיעון המשפטי שהעלה על פיו אין מקום לממש שטר ביטחון שניתן להבטחת חוב השותפות, בגין חובות החברה. עוד נטען כי נסיבות העניין מגלות כי הנאמן פועל נגד המערער בצורה לא עניינית, שכן &#34;טרם יבשה הדיו&#34; מהחלטת בית המשפט, והנאמן פנה לבית המשפט באופן מיידי בבקשה לממש את בית מגורי המערער.
 
-
-
 דיון והכרעה
 
-לאחר עיון בכתב הערעור ובנספחיו, הגענו לכלל מסקנה כי דינו להידחות לפי תקנה 138(א)(1) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018. 
-
-
+לאחר עיון בכתב הערעור ובנספחיו, הגענו לכלל מסקנה כי דינו להידחות לפי תקנה 138(א)(1) לתקנות סדר הדין האזרחי, התשע&#34;ט-2018.
 
 תפקידו של בית המשפט בדונו בערעור על הכרעת בעל תפקיד בתביעת חוב מצטמצם לפיקוח ובקרה על אופן ביצוע תפקידו ולבחינת תקינות הפעולות המתבצעות על ידו. הפיקוח השיפוטי על פעולותיו של בעל התפקיד מתאפיין בריסון ובהתערבות מצומצמת, ומוגבל למצבים חריגים של סטייה קיצונית ומהותית מסבירות ומתקינות ההחלטה או הפעולה מושא הביקורת (ע&#34;א 7753/21 בן דוד נ&#39; כונס הנכסים הרשמי, פסקה 14 (28.4.2022) (להלן: עניין בן דוד); ע&#34;א 8373/21 שושני נ&#39; אחד לבנין בע&#34;מ, פסקה 11 (3.4.2022) (להלן: עניין שושני) בו נדון גם כן עניינו של המערער).
 
-
-
 בענייננו, בית המשפט בחן את הכרעת הנאמן בתביעת החוב על פי אמות מידה אלה וקבע כי היא אינה מצדיקה התערבות. זאת, בשים לב לכך שהכרעת הנאמן התבססה בין היתר על אי-הכחשת החוב על ידי המערער, כאשר טענותיו לעניין החוב הועלו לראשונה בערעורו. נוכח האמור, לא נמצא כי נפל פגם המצדיק את התערבותו של בית משפט זה בפסק הדין, וזאת בהתחשב בהיקף התערבות ערכאה הערעור המוגש על פסק דינו של בית המשפט המחוזי בשבתו כערכאת ערעור על הכרעת נאמן בתביעת חוב (ע&#34;א 8316/20 אהרוני נ&#39; כונס הנכסים הרשמי, פסקה 3 (14.2.2022); עניין שושני, פסקה 11).
 
+אף אם אצא מתוך נקודת הנחה כי המערער לא היה מיוצג במסגרת הליך ההתנגדות לביצוע השטר, הרי שלא יהיה בכך כדי להועיל לו בנסיבות העניין. המערער העלה לראשונה טענות בקשר לעצם החוב המיוחס לו במסגרת הערעור על הכרעת החוב, וזאת כשלוש שנים לאחר הגשת תביעת החוב נגדו וכמעט שנתיים ימים לאחר שניתנה בה ההכרעה. לא רק שהמערער לא התכחש לחוב המיוחס לו במסגרת התנגדותו לביצוע השטר, אלא שאף במסגרת התייחסותו לתביעת החוב הוא הודה כי החוב נוצר בשל אספקת סחורה לידי החברה. מדובר בשיהוי ניכר ומשמעותי שלא ניתן לו כל הסבר או צידוק. יצוין כי גם טענתו של המערער לפיה ההחלטה מיום 5.11.2017 ניתנה לאחר מתן צו הכינוס, עת ההליכים בעניינו אמורים היו להיות מעוכבים, הועלתה בשיהוי ניכר ומשמעותי.
 
-
-אף אם אצא מתוך נקודת הנחה כי המערער לא היה מיוצג במסגרת הליך ההתנגדות לביצוע השטר, הרי שלא יהיה בכך כדי להועיל לו בנסיבות העניין. המערער העלה לראשונה טענות בקשר לעצם החוב המיוחס לו במסגרת הערעור על הכרעת החוב, וזאת כשלוש שנים לאחר הגשת תביעת החוב נגדו וכמעט שנתיים ימים לאחר שניתנה בה ההכרעה. לא רק שהמערער לא התכחש לחוב המיוחס לו במסגרת התנגדותו לביצוע השטר, אלא שאף במסגרת התייחסותו לתביעת החוב הוא הודה כי החוב נוצר בשל אספקת סחורה לידי החברה. מדובר בשיהוי ניכר ומשמעותי שלא ניתן לו כל הסבר או צידוק. יצוין כי גם טענתו של המערער לפיה ההחלטה מיום 5.11.2017 ניתנה לאחר מתן צו הכינוס, עת ההליכים בעניינו אמורים היו להיות מעוכבים, הועלתה בשיהוי ניכר ומשמעותי. 
-
-
-
-במסגרת זו אין בניסיונו של המערער להיבנות מכך שהטענה בדבר ייחוס השטר לחובות החברה הועלתה על ידו כבר בבקשה שהגיש לבית המשפט ביום 23.9.2019, כדי לסייע לו. זאת מפני שהבקשה הוגשה אף היא רק כשנה לאחר שהוכרעה תביעת החוב ואין בה כל צידוק או הסבר לכך שלא הועלתה טענה זו קודם לכן. זאת למעט הבהרה כללית שלא ניתן לקבלה בנסיבות העניין, כי מדובר ב&#34;עובדות חדשות&#34; שלא היו ידועות בעבר. המערער לא הבהיר אילו עובדות חדשות אשר לא ניתן היה לגלותן קודם לכן התגלו לו מאוחר יותר באופן שהיה בו כדי להצדיק אי-העלאת טענה זו בעבר.  
-
-
+במסגרת זו אין בניסיונו של המערער להיבנות מכך שהטענה בדבר ייחוס השטר לחובות החברה הועלתה על ידו כבר בבקשה שהגיש לבית המשפט ביום 23.9.2019, כדי לסייע לו. זאת מפני שהבקשה הוגשה אף היא רק כשנה לאחר שהוכרעה תביעת החוב ואין בה כל צידוק או הסבר לכך שלא הועלתה טענה זו קודם לכן. זאת למעט הבהרה כללית שלא ניתן לקבלה בנסיבות העניין, כי מדובר ב&#34;עובדות חדשות&#34; שלא היו ידועות בעבר. המערער לא הבהיר אילו עובדות חדשות אשר לא ניתן היה לגלותן קודם לכן התגלו לו מאוחר יותר באופן שהיה בו כדי להצדיק אי-העלאת טענה זו בעבר.
 
 בנוסף אין לשעות לטענת המערער בדבר היקף ההנמקה של הכרעת הנאמן בתביעת החוב. היקף ההנמקה הנדרש בהכרעת בעל תפקיד נגזר מנסיבות העניין. במקרה זה, בהתייחס לתשתית הראייתית שאינה מורכבת, באופן יחסי, אין מקום להתערב בהכרעת הנאמן רק בשל היותה מנומקת באופן תמציתי (ראו: ע&#34;א 4339/21 שמעון נ&#39; עו&#34;ד מרדכי מיכאל – מנהל מיוחד לנכסי המערערים, פסקה 11 (29.8.2021); עניין שושני, פסקה 11).
 
+הערעור נדחה אפוא בלא צורך בתשובה. לפנים משורת הדין, משלא התבקשה תשובה לערעור ובהתחשב במתכונת הדיונית שבה ניתנה ההכרעה ובמהות ההליך לא ייעשה צו להוצאות.
 
-
-	הערעור נדחה אפוא בלא צורך בתשובה. לפנים משורת הדין, משלא התבקשה תשובה לערעור ובהתחשב במתכונת הדיונית שבה ניתנה ההכרעה ובמהות ההליך לא ייעשה צו להוצאות. 
-
-
-
-
-
-	ניתן היום, ‏ח&#39; בתמוז התשפ&#34;ב (‏7.7.2022).
-
-
-
-
+ניתן היום, ‏ח&#39; בתמוז התשפ&#34;ב (‏7.7.2022).
 
 ש ו פ ט
 
@@ -1726,23 +1909,11 @@
 
 ש ו פ ט
 
-
-
 _________________________
 
-   21087160_N06.docx   הב
+21087160_N06.docx הב
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  https://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, https://supreme.court.gov.il
         </div>
     </section>
     
@@ -1761,7 +1932,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

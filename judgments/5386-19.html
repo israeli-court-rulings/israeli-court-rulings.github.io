@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    15/06/2020 (לפני 2150 ימים)
+                    15/06/2020 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5386-19.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5386/19 - פלוני נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5386-19.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/860/053/o07&amp;fileName=19053860.O07&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/860/053/o07&amp;fileName=19053860.O07&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/860/053/o07&amp;fileName=19053860.O07&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/19/860/053/o07&amp;fileName=19053860.O07&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,249 +1827,119 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            6
+            בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
 
+ע&#34;פ 5386/19
 
-
-
-
-1
-
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים פליליים
-
-
-
-ע&#34;פ  5386/19
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט נ&#39; סולברג
 
-
-
 כבוד השופט מ&#39; מזוז
 
-
-
 כבוד השופט ע&#39; גרוסקופף
-
-
 
 המערער:
 
 פלוני
 
-	
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבה:
 
 מדינת ישראל
 
-			     	
-
 ערעור על הכרעת הדין וגזר הדין של בית המשפט המחוזי בירושלים מיום 28.4.2020 ומיום 15.7.2019 בתפ&#34;ח 2079-11-16 שניתנו על ידי כבוד השופטים: א&#39; דראל, ע&#39; זינגר וח&#39; מאק-קלמנוביץ
-
-	
 
 תאריך הישיבה:
 
-י&#34;ב בסיון התש&#34;פ       
+י&#34;ב בסיון התש&#34;פ
 
 (4.6.2020)
 
-
-
 בשם המערער:
 
-עו&#34;ד דוד ברהום 
-
-
+עו&#34;ד דוד ברהום
 
 בשם המשיבה:
 
 עו&#34;ד סיגל בלום
 
-	
-
 בשם נפגע העבירה:
 
 עו&#34;ד יוהנה לרמן
 
-	
-
 פסק-דין
-
-
 
 השופט נ&#39; סולברג:
 
-
-
 1.	ערעור על גזר הדין של בית המשפט המחוזי בירושלים מיום 15.7.2019, בתפ&#34;ח 2079-11-16 (השופטים א&#39; דראל, ע&#39; זינגר ו-ח&#39; מאק-קלמנוביץ&#39;), בגדרו נגזרו על המערער 7 וחצי שנות מאסר בפועל ו-6 חודשי מאסר על-תנאי. כמו כן, חויב המערער בתשלום פיצוי כספי בסך של 50,000 ₪ למתלונן באישום הראשון, ובפיצוי בסך של 5,000 ₪ למתלונן באישום השני.
 
-
-
 2.	תחילה הוגש הערעור הן נגד הכרעת הדין, הן נגד גזר הדין, אולם בגמר הדיון, לאחר ששמענו את טענות באי כוח שני הצדדים, הבהרנו למערער כי אנחנו סבורים שהכרעת הדין מבוססת ומשכנעת. משכך, חזר בו המערער מחלק זה של ערעורו.
-
-
 
 עיקרי כתב האישום והכרעת הדין
 
 3.	נגד המערער הוגש כתב אישום ובו שלושה אישומים בגין עבירות מין שביצע בשלושה מתלוננים שונים. לאחר שמיעת ראיות, הרשיע בית המשפט המחוזי את המערער בשני האישומים הראשונים, וזיכה אותו מחמת הספק מן האישום השלישי.
 
-
-
 4.	האישום הראשון: בתקופה הרלבנטית לכתב האישום, התגורר המערער בשכנות לפלוני, יליד שנת 1991 (להלן: המתלונן 1), והתפלל עמו יחד באותו בית כנסת. בין השנים 2003-1997, ביצע המערער מעשים מיניים במתלונן 1, תוך שהוא נותן לו ממתקים ומשחק עמו &#39;תופסת&#39;, על מנת שישהה בקרבתו ויסכים לביצוע המעשים. כתב האישום מפרט מספר אירועי פגיעה: בעת שהמתלונן 1 שהה במקווה, ניגש אליו המערער, נגע באיבר מינו ולאחר מכן נתן לו סוכריות; ביושבם זה לצד זה בבית הכנסת, ליטף המערער את המתלונן 1 בכתף ובאיבר המין מעל הבגדים; בהיותם בבית הכנסת, לקח המערער את המתלונן 1 למטבח בית הכנסת, הכניס את ידו לתוך מכנסיו ונגע באיבר מינו. לאחר שהמתלונן 1 אמר שזה כואב לו, השיב לו המערער כי &#39;יעשה חלש&#39;; בשעת ערב, לקח המערער את מתלונן 1 לחדרון חיצוני מאחורי בית הכנסת, פשט את מכנסיו ותחתוניו, הרים אותו בידיו כך שראשו מופנה כלפי מטה, הכניס את איבר מינו של המתלונן 1 לתוך פיו ומצץ אותו; כחלק ממשחק &#39;תופסת&#39; ששיחקו המערער והמתלונן 1, הכניס המערער את המתלונן למשחקייה כשלא היה בה איש, פשט את מכנסיו ותחתוניו, הכניס את איבר מינו של המתלונן 1 לתוך פיו ומצץ אותו; בהיותם יחד בבית המערער, ישב המערער על הספה, כשהמתלונן 1 יושב מצדו האחד ובתו יושבת מן הצד השני. המערער סיפר לבתו סיפור, ובמקביל, ליטף את איבר מינו של המתלונן מעל הבגדים. מסכת הפגיעות פסקה רק בהיות המערער כבן 12, כך על-פי כתב האישום, וזאת לאחר שבית דין מקומי נידה את המערער מבית הכנסת.
-
-
 
 5.	האישום השני: באותה תקופה, התגורר המערער בשכנות לאלמוני, יליד שנת 1990 (להלן: המתלונן 2), והתפלל עמו באותו בית כנסת. בהיותו כבן 13, שהה המתלונן 2 במטבח בית הכנסת והניח תפילין. המערער נכנס למטבח, נעמד מאחורי המתלונן 2, תפס בידו האחת את שתי ידי המתלונן, ואת ידו השניה הכניס לתוך מכנסיו ונגע באיבר מינו, תוך שהוא מתחכך בגופו של המתלונן. לאחר כשתי דקות, הדף המתלונן 2 את המערער. אירוע נוסף התרחש כשבוע לאחר מכן, עם יציאתו של המתלונן 2 מבית הכנסת, בסיום תפילת ליל שבת. המערער המתין ליד דלת בית הכנסת, כשראה את המתלונן 2, ניגש אליו ונגע באיבר מינו מעל הבגדים. בתגובה, צעק עליו המתלונן: &#34;מה אתה נוגע לי בזין? מה אתה סוטה?&#34;.
 
-
-
 6.	בתשובתו לאישום, כפר המערער במיוחס לו. לאחר שמיעת העדויות, הרשיע בית המשפט המחוזי את המערער בעבירות שיוחסו לו בשני האישומים המתוארים. בגין האישום הראשון, הורשע המערער בריבוי עבירות של מעשה מגונה בקטין, לפי סעיף 348(א) בנסיבות סעיף 345(א)(3) לחוק העונשין, התשל&#34;ז-1977 (להלן: החוק), ובשתי עבירות של גרם מעשה סדום בקטין, לפי סעיף 347(ב) בנסיבות סעיף 345(א)(3) ובצירוף סעיף 350 לחוק. בגין האישום השני, הורשע המערער בשתי עבירות של מעשה מגונה בקטין, לפי סעיף 348(ב) בנסיבות סעיפים 345(ב)(1) ו-345(א)(1) לחוק.
-
-
 
 עיקרי גזר הדין
 
 7.	בית המשפט המחוזי תמצת את תסקיר נפגע העבירה שהוגש בעניינו של המתלונן 1. בעת מתן העדות, היה המתלונן 1 כבן 27, אברך בכולל, נשוי ואב לילדים. הפגיעות הקשות שעבר בעודו ילד רך בשנים המצוי בתהליכי גדילה והתפתחות, פגעו ביכולתו של המתלונן 1 לפתח זהות עצמית ומינית קוהרנטית. הפגיעה על-ידי אדם מבוגר בכ-30 שנים, יחד עם היותו חבר בקהילה סגורה ושמרנית, העצימו אצל המתלונן 1 את חוויית השבר הפנימי וגרמו לו לנזק קשה ומורכב במיוחד. המחשבות על אירועי הפגיעה, מציפות אותו וגורמות לו לחרדות ולקושי בניהול קשר בין אישי. העיסוק האינטנסיבי באירועי הפגיעה, מחליש ומתיש אותו. על רקע זה, בא שירות המבחן בהמלצה להשית חיוב כספי משמעותי על המערער, על מנת לסייע במימון הליכי טיפול עבור המתלונן 1. לאחר מכן, עמד בית המשפט על גיליון ההרשעות הקודמות של המערער. לחובת המערער שלוש הרשעות קודמות. הראשונה, עבירה של נהיגה פוחזת ברכב, בגינה ריצה המערער עונש מאסר בפועל למשך חודשיים. השניה, הרשעה בעבירה של חבלה חמורה, בגינה ריצה המערער עונש מאסר בפועל למשך 6 חודשים. השלישית, עבירת אלימות נוספת, בגינה לא ריצה המערער מאסר בפועל. ב&#34;כ המערער ציין, כי עברו הפלילי של המערער התיישן זה מכבר.
 
-
-
 8.	בית המשפט המחוזי עמד על חומרת העבירות, על הנזקים שנגרמו כתוצאה מהן, ועל הערכים המוגנים שנפגעו על-ידי המערער. צוין בין היתר, כי נפגעה שלמות גופם ונפשם של הקרבנות, נפגע כבודם ונפגעה זכותם לאוטונומיה על גופם. לאחר סקירה ארוכה של פסקי דין רלבנטיים, קבע בית המשפט המחוזי כי מתחם העונש ההולם בגין האישום הראשון עומד על 9-5 שנות מאסר, וכי המתחם בגין האישום השני נע בין מספר חודשי מאסר – אשר בנסיבות מסוימות (שאין ספק כי אינן מתקיימות במקרה זה), יכול שירוצו בדרך של עבודות שירות – לבין שנת מאסר בפועל.
-
-
 
 9.	על רקע האמור, פנה בית המשפט המחוזי לגזור על המערער את העונש המתאים. בית המשפט יחס משקל רב לנזק הכבד שנגרם למתלונן 1 בעטיין של הפגיעות הרבות שחווה. צוין בהקשר זה, כי עדות המתלונן 1 – שהיתה מרשימה במיוחד בכנותה ובפתיחותה – הבהירה כי מעשי המערער מלווים את המתלונן כל חייו, &#39;מושכים&#39; אותו לאחור ואינם מאפשרים לו להמשיך בחייו. בית המשפט ציין, כי לחובת המערער הרשעות קודמות, אך אלו ישנות מאד ועל כן משקלן אינו רב. בהתחשב בכל האמור, קבע בית המשפט המחוזי כי יש למקם את עונשו של המערער ברף הבינוני-גבוה של מתחם הענישה, וגזר עליו 7 שנות מאסר בפועל בגין האישום הראשון ו-9 חודשי מאסר בפועל בגין האישום השני. בית המשפט קבע, כי שלושה חודשים מתוך תשעת החודשים שנגזרו בגין האישום השני, ירוצו בחופף לעונש שנגזר בגין האישום הראשון. לצד עונש המאסר בפועל, השית בית המשפט על המערער עונש של מאסר על-תנאי, ופסק לטובת שני המתלוננים פיצוי כספי.
 
-
-
-	מכאן הערעור שלפנינו.
-
-
+מכאן הערעור שלפנינו.
 
 10.	המערער מלין על חומרת עונשו. לטענתו, העונש שנגזר עליו חורג באופן משמעותי ממדיניות הענישה הנהוגה במקרים דומים. המערער סבור, כי העבירות בהן הורשע מצויות ברף הנמוך של המעשים המגונים; כי יש ליתן משקל לכך שלא הורשע בעבירת מעשה סדום, אלא בגרם מעשה סדום בלבד; כי חלוף זמן של 22-16 שנים מעת שבוצעו המעשים, מהווה שיקול משמעותי לקולא; וכי לא נשקפת ממנו סכנה לציבור, שכן שנים רבות הוא מתהלך בחופשיות ולא נתפס בעוון מעשים דומים. המשיבה סבורה מנגד, כי ריבוי המעשים, אופיים וגיל המתלוננים, מובילים למסקנה כי העונש שהושת על המערער ראוי והולם. הודגש, כי המערער לא חסך מהמתלוננים את הצורך להעיד, לא לקח אחריות על מעשיו, ואף טרם שילם את הפיצויים שנפסקו לטובתם. לבסוף נטען, כי אילולא חלוף הזמן, ראוי היה לגזור על המערער עונש חמור הרבה יותר.
 
-
-
 11.	בדיון שהתקיים לפנינו, חזר ב&#34;כ המערער על טענותיו. הודגש שוב, כי חלוף הזמן צריך לקבל משקל כבד בעת גזירת העונש, וכך גם העדר המסוכנות. הוטעם, כי המערער כיום בן 56 שנים; כי העונש שנגזר עליו – כבד ביותר; וכי ניתן למצות את מטרות הענישה באמצעות השתת עונש קצר במידה ניכרת מזה שגזר בית המשפט המחוזי. ב&#34;כ המשיבה טענה לעומתו, כי התיק נשלח לפרקליטות המדינה מלווה בהמלצה להגשת ערעור על קולת העונש. לדידה, העונש אינו מספק, ואלמלא חלוף הזמן וגילו של המערער, ראוי היה להשית עליו עונש כבד הרבה יותר. ב&#34;כ המשיבה שבה והזכירה את הנזקים הקשים שנגרמו לקרבנות, בעיקר למתלונן 1, וכן את העדר קבלת אחריות מצדו של המערער.
-
-
 
 דיון והכרעה
 
 12.	לאחר שעיינתי בהכרעת הדין ובגזר הדין של בית המשפט המחוזי, ונתתי דעתי על טענות ב&#34;כ הצדדים, אלו שבכתב ואלו שבעל-פה, באתי לכלל מסקנה כי דין הערעור להידחות. כידוע, ערכאת הערעור אינה נוטה להתערב בקביעת העונש שנגזר בערכאה הדיונית, זולת מצבים חריגים שבהם נפלה טעות מהותית בגזר הדין, או שניכרת סטייה קיצונית ממדיניות הענישה הנהוגה במקרים דומים (ע&#34;פ 2564/19 אזברגה נ&#39; מדינת ישראל, פסקה 10 (18.07.2019)). המקרה שלפנינו אינו בא בקהל אותם מצבים חריגים.
 
-
-
 13.	המעשים שביצע המערער קשים, מקוממים, נזקיהם נראים למרחוק (סעיף 40ט (א)(4) לחוק). הם פגעו ביסודות אישיותו של המתלונן 1, זרעו הרס בנפשו. ניצול תמימותם של ילדים קטנים לצורך סיפוק מיני, מעמיד את תאוות הפוגע במרכז בבחינת &#39;אני ואפסי עוד&#39;. בתי המשפט מבקשים לשמש מגן וצינה לקטינים חסרי ישע, ולפיכך נוהגים ביד קשה עם עבריינים המנצלים אותם ופוגעים בנפשם הרגישה. אמת נכון הדבר, חלוף הזמן מעת ביצוע העבירה צריך להישקל בעת גזירת העונש המתאים; כך מורנו סעיף 40יא (10) לחוק. אולם בענייננו, גם לאחר ההתחשבות בשיקול זה, העונש שגזר בית המשפט המחוזי על המערער שקול, מאוזן, הולם את חומרת המעשים. לא מצאתי אפוא, כי יש הצדקה להתערב בו.
-
-
 
 14.	נוכח האמור, אציע לחברַי לדחות את הערעור.
 
-
-
-
-
-			
-
-			
-
-			        ש ו פ ט
-
-
+ש ו פ ט
 
 השופט מ&#39; מזוז:
 
+אני מסכים.
 
-
-אני מסכים. 
-
-
-
-			
-
-			
-
-			        ש ו פ ט
-
-
+ש ו פ ט
 
 השופט ע&#39; גרוסקופף:
 
+אני מסכים.
 
+ש ו פ ט
 
-אני מסכים. 
+לפיכך הוחלט כאמור בפסק הדין של השופט נעם סולברג.
 
+על המערער להתייצב לתחילת ריצוי עונשו בבימ&#34;ר ניצן, ביום 1.7.2020, לא יאוחר מהשעה 10:00, או על פי החלטת שב&#34;ס, כשברשותו תעודת זהות או דרכון. על המערער לתאם את הכניסה למאסר, כולל האפשרות למיון מוקדם, עם ענף אבחון ומיון של שב&#34;ס בטלפונים: 08-9787377, 08-9787336.
 
+ניתן היום, ‏כ&#34;ג בסיון התש&#34;פ (‏15.6.2020).
 
-			
+ש ו פ ט
 
-			
+ש ו פ ט
 
-			        ש ו פ ט
-
-
-
-
-
-	לפיכך הוחלט כאמור בפסק הדין של השופט נעם סולברג. 
-
-
-
-	על המערער להתייצב לתחילת ריצוי עונשו בבימ&#34;ר ניצן, ביום 1.7.2020, לא יאוחר מהשעה 10:00, או על פי החלטת שב&#34;ס, כשברשותו תעודת זהות או דרכון. על המערער לתאם את הכניסה למאסר, כולל האפשרות למיון מוקדם, עם ענף אבחון ומיון של שב&#34;ס בטלפונים: 08-9787377, 08-9787336.
-
-
-
-
-
-	ניתן היום, ‏כ&#34;ג בסיון התש&#34;פ (‏15.6.2020).
-
-
-
-
-
-
-
-			ש ו פ ט
-
-			      ש ו פ ט
-
-			        ש ו פ ט
-
-
+ש ו פ ט
 
 _________________________
 
-   19053860_O07.docx   שצ
+19053860_O07.docx שצ
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1817,7 +1958,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

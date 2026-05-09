@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    27/09/2004 (לפני 7890 ימים)
+                    27/09/2004 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/7938-04.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="7938/04 - אמנה - תנועת ההתיישבות של גוש אמונים - אגודה שיתופ נ. מפקד כ"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F7938-04.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/380/079/A05&amp;fileName=04079380_A05.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/380/079/A05&amp;fileName=04079380_A05.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/380/079/A05&amp;fileName=04079380_A05.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/04/380/079/A05&amp;fileName=04079380_A05.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,11 +1829,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק בג&#34;ץ 7938/04
 
-בבית המשפט העליון
-בשבתו כבית משפט גבוה לצדק
+בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
-בג&#34;ץ
-7938/04
+בג&#34;ץ 7938/04
 
 בפני:
 
@@ -1574,15 +1843,13 @@
 
 העותרת:
 
-אמנה - תנועת ההתיישבות של גוש אמונים - אגודה שיתופית מרכזית להתיישבות
-בע&#34;מ
+אמנה - תנועת ההתיישבות של גוש אמונים - אגודה שיתופית מרכזית להתיישבות בע&#34;מ
 
 נ ג ד
 
 המשיבים:
 
-1. מפקד כוחות
-צה&#34;ל באיו&#34;ש
+1. מפקד כוחות צה&#34;ל באיו&#34;ש
 
 2. ראש המנהל האזרחי באיו&#34;ש
 
@@ -1610,113 +1877,49 @@
 
 הנשיא א&#39; ברק:
 
-עתירה המופנית נגד צווי הריסה שהוציא
-משיב 2 לשלושה קרוואנים והפסקת עבודות בשטח הידוע כגוש 4 חלקה 132 באדמות הכפר
-ביתין (להלן – המקרקעין).
+עתירה המופנית נגד צווי הריסה שהוציא משיב 2 לשלושה קרוואנים והפסקת עבודות בשטח הידוע כגוש 4 חלקה 132 באדמות הכפר ביתין (להלן – המקרקעין).
 
 העובדות וההליכים
 
-1. העותרת הנה תנועה הפועלת להקמת יישובים.
-בין היתר, היא פועלת להקמת שכונה חדשה בשם &#34;גבעת אסף&#34; בסמוך לכביש הגישה
-ליישוב בית אל. ההחזקה במקרקעין עליהם עתידה לקום השכונה נמסרה לעותרת על-ידי
-&#34;הקרן שליד מדרשת ישראל&#34; (להלן – הקרן).
-הקרן ניהלה את המגעים לרכישת המקרקעין מול הבעלים הפלסטיניים, ומשהסתיימו מגעים
-אלה, ביקשה הקרן לרשום את זכויותיה במקרקעין. לאחר דין ודברים עם קמ&#34;ט רישום
-המקרקעין (להלן – הקמ&#34;ט), ובסופו של יום, לא נרשמה הקרן כבעלים
-של המקרקעין, עקב חששו של הקמ&#34;ט כי המסמכים שהגישה הקרן מזויפים. שאלת בעלותה
-של הקרן במקרקעין לא נדונה בענייננו והיא נושא העתירה בבג&#34;ץ 6184/04, שטרם
-הוכרעה. לענייננו יש לציין, כי למרות ההליכים השונים שמנהלת הקרן במטרה לרושמה
-כבעלים של המקרקעין, הרי שאין היא הבעלים הרשומים כיום.
+1. העותרת הנה תנועה הפועלת להקמת יישובים. בין היתר, היא פועלת להקמת שכונה חדשה בשם &#34;גבעת אסף&#34; בסמוך לכביש הגישה ליישוב בית אל. ההחזקה במקרקעין עליהם עתידה לקום השכונה נמסרה לעותרת על-ידי &#34;הקרן שליד מדרשת ישראל&#34; (להלן – הקרן). הקרן ניהלה את המגעים לרכישת המקרקעין מול הבעלים הפלסטיניים, ומשהסתיימו מגעים אלה, ביקשה הקרן לרשום את זכויותיה במקרקעין. לאחר דין ודברים עם קמ&#34;ט רישום המקרקעין (להלן – הקמ&#34;ט), ובסופו של יום, לא נרשמה הקרן כבעלים של המקרקעין, עקב חששו של הקמ&#34;ט כי המסמכים שהגישה הקרן מזויפים. שאלת בעלותה של הקרן במקרקעין לא נדונה בענייננו והיא נושא העתירה בבג&#34;ץ 6184/04, שטרם הוכרעה. לענייננו יש לציין, כי למרות ההליכים השונים שמנהלת הקרן במטרה לרושמה כבעלים של המקרקעין, הרי שאין היא הבעלים הרשומים כיום.
 
-2. במקביל להליכי הרישום, החלה העותרת
-בעבודות להכשרת המקרקעין לקראת בנייתה של השכונה החדשה. ביום 4.5.2004 איתרה יחידת
-הפיקוח המרכזית על הבנייה באזור יהודה ושומרון עבודות הכשרה שמטרתן הצבת מבנים
-יבילים במקרקעין. בהתאם לסעיף 38 לחוק תכנון ערים כפרים ובניינים מס&#39; 79 לשנת 1966
-(להלן – החוק הירדני) הוצאו צו להפסקת העבודות וזימון לדיון
-בוועדת המשנה לפיקוח על הבנייה (להלן – הוועדה). בדיון
-שהתקיים (ביום 3.6.2004), בו השתתף מזכ&#34;ל העותרת, החליטה הוועדה כי צו הפסקת
-העבודות יעמוד בתוקפו, ויצטרף אליו צו הריסה. עוד באותו יום יצא מאת המשיב 2
-&#34;צו סופי להפסקת עבודות ולהריסה&#34; במקרקעין. כמו כן נתנה הוועדה לעותרת
-ארכה של 14 יום להגשת בקשה להיתרי בנייה. ההנמקה שעמדה ביסוד החלטת הוועדה הייתה
-כי בהעדר בקשה להיתר בנייה או קיומו של היתר בנייה, הרי שמדובר בבנייה בלתי חוקית;
-מכאן צו ההריסה.
+2. במקביל להליכי הרישום, החלה העותרת בעבודות להכשרת המקרקעין לקראת בנייתה של השכונה החדשה. ביום 4.5.2004 איתרה יחידת הפיקוח המרכזית על הבנייה באזור יהודה ושומרון עבודות הכשרה שמטרתן הצבת מבנים יבילים במקרקעין. בהתאם לסעיף 38 לחוק תכנון ערים כפרים ובניינים מס&#39; 79 לשנת 1966 (להלן – החוק הירדני) הוצאו צו להפסקת העבודות וזימון לדיון בוועדת המשנה לפיקוח על הבנייה (להלן – הוועדה). בדיון שהתקיים (ביום 3.6.2004), בו השתתף מזכ&#34;ל העותרת, החליטה הוועדה כי צו הפסקת העבודות יעמוד בתוקפו, ויצטרף אליו צו הריסה. עוד באותו יום יצא מאת המשיב 2 &#34;צו סופי להפסקת עבודות ולהריסה&#34; במקרקעין. כמו כן נתנה הוועדה לעותרת ארכה של 14 יום להגשת בקשה להיתרי בנייה. ההנמקה שעמדה ביסוד החלטת הוועדה הייתה כי בהעדר בקשה להיתר בנייה או קיומו של היתר בנייה, הרי שמדובר בבנייה בלתי חוקית; מכאן צו ההריסה.
 
-3. לצד הליכים אלו הוציא אלוף פיקוד המרכז
-(ביום 9.5.2004) צו המכריז על גבעת אסף כשטח מתוחם (צו בדבר מבנים בלתי מורשים
-(הוראת שעה) (יהודה ושומרון) (מס&#39; 1539), התשס&#34;ד-2003; להלן – צו התיחום). צו
-התיחום חל, בין היתר, גם על המקרקעין. בהתאם לסעיף 10 לצו, הגישו העותרת והקרן
-השגות, שנדחו (ביום 12.8.2004). הטעמים לדחיית ההשגות היו, כי הקרן לא רשומה
-כבעלים, וכן כי לא הוצאו היתרי בנייה לגבי המקרקעין. בעקבות דחיית ההשגות העבירה
-העותרת את המבנים היבילים מחוץ לשטח המתוחם וכעת הם ניצבים על חלק אחר של
-המקרקעין, אשר גם לגביו חל צו ההריסה הסופי.
+3. לצד הליכים אלו הוציא אלוף פיקוד המרכז (ביום 9.5.2004) צו המכריז על גבעת אסף כשטח מתוחם (צו בדבר מבנים בלתי מורשים (הוראת שעה) (יהודה ושומרון) (מס&#39; 1539), התשס&#34;ד-2003; להלן – צו התיחום). צו התיחום חל, בין היתר, גם על המקרקעין. בהתאם לסעיף 10 לצו, הגישו העותרת והקרן השגות, שנדחו (ביום 12.8.2004). הטעמים לדחיית ההשגות היו, כי הקרן לא רשומה כבעלים, וכן כי לא הוצאו היתרי בנייה לגבי המקרקעין. בעקבות דחיית ההשגות העבירה העותרת את המבנים היבילים מחוץ לשטח המתוחם וכעת הם ניצבים על חלק אחר של המקרקעין, אשר גם לגביו חל צו ההריסה הסופי.
 
-4. העותרת לא פעלה להוצאת היתרי בנייה. היא
-פנתה לבית משפט זה בעתירה כנגד צו ההריסה. כן נתבקש צו ביניים. בית המשפט (השופטת
-א&#39; חיות) הוציא צו ביניים (ביום 30.8.2004), שהורה כי אין לפעול להריסתם או
-לפינויים של שלושת המבנים היבילים באזור שאינו מתוחם ב&#34;גבעת אסף&#34;.
-המשיבים הסכימו לצו הביניים תוך התניה, כי העותרת לא תבצע פעולות בנייה כלשהן
-במקרקעין.
+4. העותרת לא פעלה להוצאת היתרי בנייה. היא פנתה לבית משפט זה בעתירה כנגד צו ההריסה. כן נתבקש צו ביניים. בית המשפט (השופטת א&#39; חיות) הוציא צו ביניים (ביום 30.8.2004), שהורה כי אין לפעול להריסתם או לפינויים של שלושת המבנים היבילים באזור שאינו מתוחם ב&#34;גבעת אסף&#34;. המשיבים הסכימו לצו הביניים תוך התניה, כי העותרת לא תבצע פעולות בנייה כלשהן במקרקעין.
 
 טענות הצדדים
 
-5. טענתה המרכזית של העותרת היא כי המקרקעין
-נרכשו כדין על-ידי הקרן. קמ&#34;ט המקרקעין הוא זה אשר מעכב את רישומה של הקרן
-כבעלים החוקי במרשם ללא כל הצדקה. אין יסוד לטענתו כי חלק ממסמכי הרכישה נוגעים
-בזיוף. עקב הקשיים שמערים הקמ&#34;ט לא ניתן לרשום את העותרת כבעלים, וכל עוד זו
-לא נרשמה כבעלים לא ניתן לקבל היתרי בנייה כנדרש. צו ההריסה שהוצא מטעם המשיב 2
-מבקש להרוס מבנים שאילולא מחדלו של הקמ&#34;ט היו חוקיים, שכן היתרי הבנייה היו
-ניתנים. לבסוף, מבקשת העותרת ללמוד מבג&#34;ץ 7530/01 (שריטיח נ&#39; המנהל
-האזרחי לאזור יהודה ושומרון), שטרם הוכרע, לפיו במקרה דומה קיבלו
-העותרים ארכה לצורך הגשת היתרי בנייה כדי להכשיר בנייה קיימת בשטח. העותרת מבקשת
-אפוא כי צו הפסקת העבודות וההריסה יבוטל, וכי המשיבים לא יפעלו לפינויים או להסרתם
-של המבנים היבילים, וכן לא יעמדו בדרכה של העותרת לעשות שימוש במקרקעין. לעומתם,
-טוענים המשיבים כי אין כל עילה להתערבות בית המשפט בצו הפסקת העבודות וההריסה. עצם
-הטענה כי יש לעותרת זכות קניינית בקרקע, איננה יכולה לשמש תחליף להיתר בנייה הנדרש
-על-פי דין. לפיכך, יש לקיים את צו הפסקת העבודות וההריסה שהוציאה הוועדה.
+5. טענתה המרכזית של העותרת היא כי המקרקעין נרכשו כדין על-ידי הקרן. קמ&#34;ט המקרקעין הוא זה אשר מעכב את רישומה של הקרן כבעלים החוקי במרשם ללא כל הצדקה. אין יסוד לטענתו כי חלק ממסמכי הרכישה נוגעים בזיוף. עקב הקשיים שמערים הקמ&#34;ט לא ניתן לרשום את העותרת כבעלים, וכל עוד זו לא נרשמה כבעלים לא ניתן לקבל היתרי בנייה כנדרש. צו ההריסה שהוצא מטעם המשיב 2 מבקש להרוס מבנים שאילולא מחדלו של הקמ&#34;ט היו חוקיים, שכן היתרי הבנייה היו ניתנים. לבסוף, מבקשת העותרת ללמוד מבג&#34;ץ 7530/01 (שריטיח נ&#39; המנהל האזרחי לאזור יהודה ושומרון), שטרם הוכרע, לפיו במקרה דומה קיבלו העותרים ארכה לצורך הגשת היתרי בנייה כדי להכשיר בנייה קיימת בשטח. העותרת מבקשת אפוא כי צו הפסקת העבודות וההריסה יבוטל, וכי המשיבים לא יפעלו לפינויים או להסרתם של המבנים היבילים, וכן לא יעמדו בדרכה של העותרת לעשות שימוש במקרקעין. לעומתם, טוענים המשיבים כי אין כל עילה להתערבות בית המשפט בצו הפסקת העבודות וההריסה. עצם הטענה כי יש לעותרת זכות קניינית בקרקע, איננה יכולה לשמש תחליף להיתר בנייה הנדרש על-פי דין. לפיכך, יש לקיים את צו הפסקת העבודות וההריסה שהוציאה הוועדה.
 
 דיון
 
-6. לאחר עיון בחומר שלפנינו מסקנתנו היא כי
-דין העתירה להידחות. העותרת לא ביססה עילה המצדיקה את התערבותו של בית משפט זה.
-אין חולק כי העותרת אינה רשומה כבעלי המקרקעין. הקרן, שטוענת כי היא הבעלים, לא
-צורפה כלל כעותרת בעתירה זו, ומעמדה הקנייני טרם הוכרע.
+6. לאחר עיון בחומר שלפנינו מסקנתנו היא כי דין העתירה להידחות. העותרת לא ביססה עילה המצדיקה את התערבותו של בית משפט זה. אין חולק כי העותרת אינה רשומה כבעלי המקרקעין. הקרן, שטוענת כי היא הבעלים, לא צורפה כלל כעותרת בעתירה זו, ומעמדה הקנייני טרם הוכרע.
 
-7. הלכה היא כי &#34;רשות תכנון אינה ניגשת
-לבחינת בקשה לקבלת היתר, בטרם הבהיר המבקש את זכותו בקרקע, שאם לא כן היא עלולה
-להיקלע למצב בו היא מתירה בנייה תוך הסגת גבולו של הבעלים&#34; (בג&#34;ץ
-5194/03 גרוסמן נ&#39; שר הביטחון (טרם פורסם, פסקה 4)). יש
-להפריד אפוא בין הטענה במישור הקנייני לפיה יש לעותרת זכות קניינית בקרקע, לבין
-העדרו של היתר בנייה הנדרש במישור התכנוני. גם אם יש לעותרת זכות קניינית בקרקע,
-הרי שאין הדבר מזכה אותה בבנייה ללא היתר בנייה כנדרש (ראו סעיף 38 לחוק הירדני והשוו
-סעיף 145(א) לחוק התכנון והבנייה, תשכ&#34;ה-1965). די בכך
-כדי לדחות את העתירה.
+7. הלכה היא כי &#34;רשות תכנון אינה ניגשת לבחינת בקשה לקבלת היתר, בטרם הבהיר המבקש את זכותו בקרקע, שאם לא כן היא עלולה להיקלע למצב בו היא מתירה בנייה תוך הסגת גבולו של הבעלים&#34; (בג&#34;ץ 5194/03 גרוסמן נ&#39; שר הביטחון (טרם פורסם, פסקה 4)). יש להפריד אפוא בין הטענה במישור הקנייני לפיה יש לעותרת זכות קניינית בקרקע, לבין העדרו של היתר בנייה הנדרש במישור התכנוני. גם אם יש לעותרת זכות קניינית בקרקע, הרי שאין הדבר מזכה אותה בבנייה ללא היתר בנייה כנדרש (ראו סעיף 38 לחוק הירדני והשוו סעיף 145(א) לחוק התכנון והבנייה, תשכ&#34;ה-1965). די בכך כדי לדחות את העתירה.
 
 8. אשר על כן, העתירה נדחית.
 
-ה
-נ ש י א
+ה נ ש י א
 
 השופט א&#39; א&#39; לוי:
 
 אני מסכים.
 
-ש
-ו פ ט
+ש ו פ ט
 
 השופט י&#39; עדיאל:
 
 אני מסכים.
 
-ש
-ו פ ט
+ש ו פ ט
 
 הוחלט כאמור בפסק-דינו של הנשיא א&#39; ברק.
 
-ניתן היום, י&#34;ב בתשרי תשס&#34;ה
-(27.9.04).
+ניתן היום, י&#34;ב בתשרי תשס&#34;ה (27.9.04).
 
-ה נ ש י א ש ו פ ט ש
-ו פ ט
+ה נ ש י א ש ו פ ט ש ו פ ט
 
 _________________________
 
@@ -1741,7 +1944,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

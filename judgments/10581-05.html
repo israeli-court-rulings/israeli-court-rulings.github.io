@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    23/11/2005 (לפני 7468 ימים)
+                    23/11/2005 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/10581-05.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="10581/05 - יצחק זוזיאשווילי נ. מדינת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F10581-05.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/810/105/B03&amp;fileName=05105810_B03.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/810/105/B03&amp;fileName=05105810_B03.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/810/105/B03&amp;fileName=05105810_B03.txt&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/05/810/105/B03&amp;fileName=05105810_B03.txt&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1558,11 +1829,9 @@
         <div class="nested-content" style="line-height: 1.8;">
             פסק-דין בתיק בג&#34;ץ 10581/05
 
-בבית המשפט העליון
-בשבתו כבית משפט גבוה לצדק
+בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
-בג&#34;ץ
-10581/05
+בג&#34;ץ 10581/05
 
 בפני:
 
@@ -1580,8 +1849,7 @@
 
 המשיבים:
 
-1. מדינת
-ישראל
+1. מדינת ישראל
 
 2. בית המשפט המחוזי ירושלים כבוד השופטים סגל, נועם, כרמל
 
@@ -1595,69 +1863,23 @@
 
 השופטת ע&#39; ארבל:
 
-1. העותר עומד לדין בבית המשפט המחוזי
-בירושלים באשמת רצח השופט עדי אזר ז&#34;ל. בעתירה שבפנינו מבקש הוא כי נורה לבית
-המשפט המחוזי בירושלים לאפשר לו להעיד להגנתו לאחר שיעיין בכל חומר החקירה בעניינו
-ולהימנע מלהורות על סיום פרשת ההגנה כל עוד לא העיד.
+1. העותר עומד לדין בבית המשפט המחוזי בירושלים באשמת רצח השופט עדי אזר ז&#34;ל. בעתירה שבפנינו מבקש הוא כי נורה לבית המשפט המחוזי בירושלים לאפשר לו להעיד להגנתו לאחר שיעיין בכל חומר החקירה בעניינו ולהימנע מלהורות על סיום פרשת ההגנה כל עוד לא העיד.
 
-טענות העותר, בתמצית, הינן כי על אף שבית
-המשפט המחוזי הורה כי תינתן לו האפשרות לעיין בחומר החקירה נגדו, הרי שרשויות שירות
-בתי הסוהר מנעו זאת ממנו ועל כן פתח בשביתת רעב. לאחר שהסתיימה פרשת התביעה היה
-העותר אמור להעיד בשתי ישיבות שהתקיימו במשפטו. עדותו לא נשמעה בישיבה הראשונה
-מאחר שמצבו הגופני בשל שביתת הרעב לא אפשר לו להעיד ואילו בישיבה השניה הוא לא
-העיד לאחר שבית המשפט המחוזי דחה את בקשתו לדחות פעם נוספת את שמיעת עדותו עד לאחר
-שיתאפשר לו לעיין בכל חומר החקירה וקבע כי יש לראות בעותר כמי שויתר על מתן עדות.
-העותר טוען כי פועל יוצא של החלטת בית המשפט המחוזי הינו כי פרשת ההגנה מתנהלת
-בעניינו של הנאשם השני בלבד ואילו הגנתו שלו מקופחת.
+טענות העותר, בתמצית, הינן כי על אף שבית המשפט המחוזי הורה כי תינתן לו האפשרות לעיין בחומר החקירה נגדו, הרי שרשויות שירות בתי הסוהר מנעו זאת ממנו ועל כן פתח בשביתת רעב. לאחר שהסתיימה פרשת התביעה היה העותר אמור להעיד בשתי ישיבות שהתקיימו במשפטו. עדותו לא נשמעה בישיבה הראשונה מאחר שמצבו הגופני בשל שביתת הרעב לא אפשר לו להעיד ואילו בישיבה השניה הוא לא העיד לאחר שבית המשפט המחוזי דחה את בקשתו לדחות פעם נוספת את שמיעת עדותו עד לאחר שיתאפשר לו לעיין בכל חומר החקירה וקבע כי יש לראות בעותר כמי שויתר על מתן עדות. העותר טוען כי פועל יוצא של החלטת בית המשפט המחוזי הינו כי פרשת ההגנה מתנהלת בעניינו של הנאשם השני בלבד ואילו הגנתו שלו מקופחת.
 
-2. כעולה מהחלטות בית המשפט המחוזי שצורפו
-לעתירה, אי מתן עדותו של העותר עד כה והחלטת בית המשפט המחוזי לראות בו כמי שויתר
-על עדותו נובעים במידה רבה מהתנהלותו שלו ומהנחתו כי הוא, בצעדיו, יכתיב את סדר
-יומו של בית המשפט. טענות שהעלה העותר בעבר בדבר קשיים שמוערמים בפניו בנוגע לעיון
-בחומר החקירה ואשר הובאו בפני הפרקליטות זכו לטיפול מהיר מול שירות בתי הסוהר,
-אולם באי כוחו של העותר נמנעו מלהעלות עובר לישיבה שנקבעה ליום 3.11.05 את
-טענותיהם בדבר קשיים שמוערמים על העותר בעיון בחומר החקירה לא בפני הפרקליטות,
-שסייעה בידם במקרים קודמים, ולא בהודעה לבית המשפט. בנוסף, בית המשפט המחוזי הציע
-לעותר לחדול משביתת הרעב על מנת שיתאפשר לו להעיד, אולם זה ביכר להמשיך ולמנוע
-מזון מפיו גם לאחר שהובהר לו כי ככל שיתמיד בשביתת הרעב ויטען כי בעטיה אין
-באפשרות להעיד, יראה אותו בית המשפט כמי שהחליט שלא להעיד במשפטו. העותר לא שעה
-לדברי בית המשפט ובישיבה הבאה שב וביקש את דחיית הדיון מאותם טעמים, בציינו כי אין
-הוא ערוך למתן עדות. הנה כי כן, העותר מבקש לנהל את משפטו תחת בית המשפט ומשאין
-הדבר עולה בידו, פונה הוא אל בית משפט זה.
+2. כעולה מהחלטות בית המשפט המחוזי שצורפו לעתירה, אי מתן עדותו של העותר עד כה והחלטת בית המשפט המחוזי לראות בו כמי שויתר על עדותו נובעים במידה רבה מהתנהלותו שלו ומהנחתו כי הוא, בצעדיו, יכתיב את סדר יומו של בית המשפט. טענות שהעלה העותר בעבר בדבר קשיים שמוערמים בפניו בנוגע לעיון בחומר החקירה ואשר הובאו בפני הפרקליטות זכו לטיפול מהיר מול שירות בתי הסוהר, אולם באי כוחו של העותר נמנעו מלהעלות עובר לישיבה שנקבעה ליום 3.11.05 את טענותיהם בדבר קשיים שמוערמים על העותר בעיון בחומר החקירה לא בפני הפרקליטות, שסייעה בידם במקרים קודמים, ולא בהודעה לבית המשפט. בנוסף, בית המשפט המחוזי הציע לעותר לחדול משביתת הרעב על מנת שיתאפשר לו להעיד, אולם זה ביכר להמשיך ולמנוע מזון מפיו גם לאחר שהובהר לו כי ככל שיתמיד בשביתת הרעב ויטען כי בעטיה אין באפשרות להעיד, יראה אותו בית המשפט כמי שהחליט שלא להעיד במשפטו. העותר לא שעה לדברי בית המשפט ובישיבה הבאה שב וביקש את דחיית הדיון מאותם טעמים, בציינו כי אין הוא ערוך למתן עדות. הנה כי כן, העותר מבקש לנהל את משפטו תחת בית המשפט ומשאין הדבר עולה בידו, פונה הוא אל בית משפט זה.
 
-ההחלטה נגדה מכוונת העתירה הינה החלטת
-ביניים בהליך פלילי. בידוע הוא כי אין ערעור על החלטת ביניים בהליך פלילי באין
-הוראת חוק מפורשת המתירה זאת ואין לעקוף כלל זה על דרך של הגשת עתירה לבית המשפט
-הגבוה לצדק אלא במקרים חריגים שבחריגים (בג&#34;ץ 1598/03 גור נ&#39; בית המשפט המחוזי בתל אביב (לא פורסם, ניתן ביום 2.3.03); בג&#34;ץ 8445/02 עודה נ&#39; בית
-המשפט הצבאי בשומרון (לא פורסם, ניתן ביום 1.1.03); בג&#34;ץ 9663/02 עכאווי נ&#39; פרקליטות מחוז חיפה (לא פורסם, ניתן ביום 3.12.02)). אכן,
-הלכה היא מלפנינו כי בית משפט זה לא יתערב בהליכים אזרחיים או פליליים המתבררים
-בפני בתי המשפט הרגילים, אלא אם כן עולה טענה של העדר סמכות, או אם מתגלית תופעה
-קיצונית של שרירות בתחום מינהלי טהור (בג&#34;ץ 583/87 הלפרין נ&#39; סגן נשיא בית המשפט המחוזי בירושלים, פ&#34;ד מא(4)
-683, 702). כלל זה, ככל כלל, חריגים בצדו:
+ההחלטה נגדה מכוונת העתירה הינה החלטת ביניים בהליך פלילי. בידוע הוא כי אין ערעור על החלטת ביניים בהליך פלילי באין הוראת חוק מפורשת המתירה זאת ואין לעקוף כלל זה על דרך של הגשת עתירה לבית המשפט הגבוה לצדק אלא במקרים חריגים שבחריגים (בג&#34;ץ 1598/03 גור נ&#39; בית המשפט המחוזי בתל אביב (לא פורסם, ניתן ביום 2.3.03); בג&#34;ץ 8445/02 עודה נ&#39; בית המשפט הצבאי בשומרון (לא פורסם, ניתן ביום 1.1.03); בג&#34;ץ 9663/02 עכאווי נ&#39; פרקליטות מחוז חיפה (לא פורסם, ניתן ביום 3.12.02)). אכן, הלכה היא מלפנינו כי בית משפט זה לא יתערב בהליכים אזרחיים או פליליים המתבררים בפני בתי המשפט הרגילים, אלא אם כן עולה טענה של העדר סמכות, או אם מתגלית תופעה קיצונית של שרירות בתחום מינהלי טהור (בג&#34;ץ 583/87 הלפרין נ&#39; סגן נשיא בית המשפט המחוזי בירושלים, פ&#34;ד מא(4) 683, 702). כלל זה, ככל כלל, חריגים בצדו:
 
-&#34;כל כלל - כך למדנו ושנינו - חריגים ילוו אותו בדרכו, ואפשר
-החריגים הנזכרים בפרשת הלפרין אינם היחידים. אכן, שומה עלינו - כמקובל - לאתר את
-השיקולים המושכים לצדדים, ובמקום שהכף תיטה באורח ניכר לטובת היענות לנאשם -
-במקרים חריגים במיוחד - נלך בדרך הראויה. ואולם על דרך הכלל - כך ברובא - דרובא של
-המקרים - לא יתערב הבג&#34;ץ בהליכים פליליים&#34; (בג&#34;ץ 9663/02, שם).
+&#34;כל כלל - כך למדנו ושנינו - חריגים ילוו אותו בדרכו, ואפשר החריגים הנזכרים בפרשת הלפרין אינם היחידים. אכן, שומה עלינו - כמקובל - לאתר את השיקולים המושכים לצדדים, ובמקום שהכף תיטה באורח ניכר לטובת היענות לנאשם - במקרים חריגים במיוחד - נלך בדרך הראויה. ואולם על דרך הכלל - כך ברובא - דרובא של המקרים - לא יתערב הבג&#34;ץ בהליכים פליליים&#34; (בג&#34;ץ 9663/02, שם).
 
-עניינו של העותר אינו מצדיק סטייה מכללים
-אלה. החלטתו של בית המשפט המחוזי מצויה במתחם שיקול הדעת הרחב הנתון לבית המשפט
-המחוזי והיא נתקבלה לאחר שניתנו לעותר הזדמנויות להעיד אולם הוא עמד בסירובו גם
-לאחר שהובהר לו מה תהיינה משמעויותיה של ההימנעות מלהעיד במועד שנקבע. משמעויות אי
-מתן העדות נהירות אף לנו וככל שהן כבדות משקל הרי שעל רקע התנהלות העותר ובאי כוחו,
-כפי שהיא מצטיירת מהחומר שבפנינו, איננו מוצאים להתערב בהחלטת בית המשפט המחוזי.
-את טענותיו נגד ההחלטה שומה על העותר להעלות – אם וכאשר יגיע לכך - במסגרת הערעור
-על פסק הדין, אם יסבור שיש מקום להגישו. כמובן, פתוחה בידי העותר הדרך לפנות אל
-בית המשפט המחוזי בבקשה לאפשר לו להעיד בהקדם וללא דיחוי בטרם תסתיים פרשת ההגנה.
+עניינו של העותר אינו מצדיק סטייה מכללים אלה. החלטתו של בית המשפט המחוזי מצויה במתחם שיקול הדעת הרחב הנתון לבית המשפט המחוזי והיא נתקבלה לאחר שניתנו לעותר הזדמנויות להעיד אולם הוא עמד בסירובו גם לאחר שהובהר לו מה תהיינה משמעויותיה של ההימנעות מלהעיד במועד שנקבע. משמעויות אי מתן העדות נהירות אף לנו וככל שהן כבדות משקל הרי שעל רקע התנהלות העותר ובאי כוחו, כפי שהיא מצטיירת מהחומר שבפנינו, איננו מוצאים להתערב בהחלטת בית המשפט המחוזי. את טענותיו נגד ההחלטה שומה על העותר להעלות – אם וכאשר יגיע לכך - במסגרת הערעור על פסק הדין, אם יסבור שיש מקום להגישו. כמובן, פתוחה בידי העותר הדרך לפנות אל בית המשפט המחוזי בבקשה לאפשר לו להעיד בהקדם וללא דיחוי בטרם תסתיים פרשת ההגנה.
 
 העתירה נדחית.
 
-ניתנה היום, כ&#34;ב בחשון תשס&#34;ו
-(24.11.05).
+ניתנה היום, כ&#34;ב בחשון תשס&#34;ו (24.11.05).
 
-ש ו פ ט ש
-ו פ ט ת ש ו פ ט
+ש ו פ ט ש ו פ ט ת ש ו פ ט
 
 _________________________
 
@@ -1684,7 +1906,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

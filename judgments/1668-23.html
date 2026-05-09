@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    16/09/2024 (לפני 596 ימים)
+                    16/09/2024 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/1668-23.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="1668/23 - ראובן ברון נ. רכבת ישראל"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F1668-23.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/10/26/2023-0-1668-10-2&amp;fileName=90471d0992010000090037f6ab42b433&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/10/26/2023-0-1668-10-2&amp;fileName=90471d0992010000090037f6ab42b433&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/10/26/2023-0-1668-10-2&amp;fileName=90471d0992010000090037f6ab42b433&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=NetVerdicts/2025/10/26/2023-0-1668-10-2&amp;fileName=90471d0992010000090037f6ab42b433&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,22 +1827,10 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            3
+            בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
 
-
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט לערעורים אזרחיים
-
-	   ע&#34;א 1668/23     
+ע&#34;א 1668/23
 וערעור משיב לפי תקנה 137(ב)
-
-
-
-
 
 לפני:
 
@@ -1581,133 +1840,63 @@
 
 כבוד השופטת רות רונן
 
-
-
 המערערת והמשיבה בערעור משיב:
-
 
 רכבת ישראל בע&#34;מ
 
-
-
-    נגד
-
-
+נגד
 
 המשיב והמערער בערעור משיב:
 
-
 ראובן ברון
-
-
-
-
-
-
 
 ערעור וערעור משיב על פסק דינו של בית המשפט המחוזי מרכז-לוד בת&#34;צ 21458-03-14 מיום 31.12.2022 שניתן על ידי כב&#39; השופטת א&#39; שטמר
 
-
-
 תאריך הישיבה:
 
-ה&#39; באלול התשפ&#34;ד (8 ספטמבר 2024) 
-
-
+ה&#39; באלול התשפ&#34;ד (8 ספטמבר 2024)
 
 בשם המערערת והמשיבה בערעור משיב:
-
-
 
 עו&#34;ד מוטי ארד; עו&#34;ד נוי מצליח
 
 בשם המשיב והמערער בערעור משיב:
 
-
-
 עו&#34;ד שמואל אהרנסון; עו&#34;ד עופר לוי
-
-
-
-
 
 פסק-דין
 
+1.	הערעור שלפנינו נוגע לתביעה ייצוגית שאושרה בבית המשפט המחוזי בעילה של העדר הנגשה מלאה של חלק מתחנות הרכבת לאנשים בעלי לקות ראייה. בפסק דינו קבע בית המשפט המחוזי את שיעור הפיצוי לחברי הקבוצה בגין הפער בהנגשת התחנות לפי דרישת הדין לעומת הנגשת התחנות בפועל בתקופה הרלוונטית. הפיצוי שנפסק הוא פיצוי לא ממוני בגין פגיעה בכבודם של חברי הקבוצה ובנוחות השימוש שלהם ברכבת.
 
+2.	במהלך הדיון שהתקיים לפנינו ביום 8.9.2024, הסכימו שני הצדדים כי במסגרת פסק הדין שיינתן על ידינו, קבוצת התובעים תחולק לשתי תת-קבוצות: תת-הקבוצה הראשונה תכלול את חברי הקבוצה שהם בעלי תעודת עיוור ואשר מחזיקים בכרטיס &#34;רב-קו&#34; (להלן: תת- הקבוצה הראשונה); ותת-הקבוצה השנייה תכלול את יתר חברי הקבוצה (להלן: תת-הקבוצה השנייה). הפיצוי לתת-הקבוצה הראשונה ייעשה באמצעות תשלום הפיצוי לחברי הקבוצה עצמם; בעוד שביחס לתת-הקבוצה השנייה, ייקבע סכום פיצוי כולל אשר ישמש לביצוע פרויקטים לשיפור מערך ההנגשה לאנשים בעלי לקות ראיה ברכבת, וזאת מעבר לדרישות הדין בהקשר זה.
 
+כן הוסכם כי ההחלטה ביחס לפרויקטים שיבוצעו תוך שימוש בפיצוי האמור, תתקבל על ידי ועדה שתורכב משלושה נציגים – נציג אחד מטעם משרד התחבורה; נציג אחד מטעם נציבות שוויון זכויות לאנשים עם מוגבלות; ונציג אחד מטעם המרכז לעיוור, בכפוף להסכמתם של גופים אלה.
 
+הצדדים אף הסכימו כי פסק דינו של בית משפט זה באשר לסכומי הפיצוי לשתי תת-הקבוצות יינתן בהתאם לשיקול דעתו של בית המשפט. מכאן כי עלינו לקבוע לפי שיקול דעתנו את הסכום שיקבל כל אחד מחברי תת-הקבוצה הראשונה; וכן את הסכום הכולל שייפסק לטובת תת-הקבוצה השנייה.
 
-1.	הערעור שלפנינו נוגע לתביעה ייצוגית שאושרה בבית המשפט המחוזי בעילה של העדר  הנגשה מלאה של חלק מתחנות הרכבת לאנשים בעלי לקות ראייה. בפסק דינו קבע בית המשפט המחוזי את שיעור הפיצוי לחברי הקבוצה בגין הפער בהנגשת התחנות לפי דרישת הדין לעומת הנגשת התחנות בפועל בתקופה הרלוונטית. הפיצוי שנפסק הוא פיצוי לא ממוני בגין פגיעה בכבודם של חברי הקבוצה ובנוחות השימוש שלהם ברכבת.
+3.	לאחר שעיינו בכל החומר שהוצג לנו ושמענו את טיעוניהם של הצדדים בבית המשפט אנו קובעים כדלקמן –
 
+הפיצוי הכולל לחברי הקבוצה כולם (קרי, הן לתת-הקבוצה הראשונה והן לתת-הקבוצה שנייה), יעמוד על סכום כולל של 13,500,000 ש&#34;ח, כפי שקבע בית המשפט המחוזי (סכום זה יכונה להלן: סכום הפיצוי הכולל).
 
+כל אחד מחברי תת-הקבוצה הראשונה יהיה זכאי לפיצוי בסכום של 500 ש&#34;ח. בית המשפט המחוזי יקבע מנגנון תשלום לכל אחד מחברי תת-הקבוצה הראשונה בהתאם לנתונים המצויים בידי הרכבת, וכן ייתן הוראותיו באשר לפרק הזמן בו ישולם הפיצוי ולנוסח ההודעה שתישלח לחברי תת-הקבוצה.
 
-2.	במהלך הדיון שהתקיים לפנינו ביום 8.9.2024, הסכימו שני הצדדים כי במסגרת פסק הדין שיינתן על ידינו, קבוצת התובעים תחולק לשתי תת-קבוצות: תת-הקבוצה הראשונה תכלול את חברי הקבוצה שהם בעלי תעודת עיוור ואשר מחזיקים בכרטיס &#34;רב-קו&#34; (להלן: תת- הקבוצה הראשונה); ותת-הקבוצה השנייה תכלול את יתר חברי הקבוצה (להלן: תת-הקבוצה השנייה). הפיצוי לתת-הקבוצה הראשונה ייעשה באמצעות תשלום הפיצוי לחברי הקבוצה עצמם; בעוד שביחס לתת-הקבוצה השנייה, ייקבע סכום פיצוי כולל אשר ישמש לביצוע פרויקטים לשיפור מערך ההנגשה לאנשים בעלי לקות ראיה ברכבת, וזאת מעבר לדרישות הדין בהקשר זה. 
+עם השלמת תשלום הפיצוי לחברי תת-הקבוצה הראשונה, יועבר ההפרש בין סכום הפיצוי הכולל לבין הסכום ששולם לחברי תת-הקבוצה הראשונה, לטובת הפרויקטים לשיפור מערך ההנגשה בהתאם להחלטת הוועדה – כפי שפורט לעיל. בית המשפט המחוזי יקבע לוחות זמנים גם לעניין זה; וכן מערך בקרה כדי לוודא שהוועדה אכן מוקמת; מתכנסת; מקבלת החלטות על אודות הפרויקטים; וכי פרויקטים אלה אכן ממומנים ומבוצעים.
 
+4.	בא כוח התובע המייצג ערער גם על גובה שכר הטרחה שנפסק לזכותו. גם בנושא זה לא מצאנו לנכון להתערב. יחד עם זאת, לאור השינוי במנגנון התשלום (לעומת זה שנקבע בפסק דינו של בית המשפט המחוזי), יש מקום להידרש לאופן התשלום לבא כוח התובע המייצג. תשלום שכר הטרחה יתחלק לשניים – סך של 70% ישולם לבא כוח התובע המייצג תוך 30 יום מהיום; ויתרת הסכום תשולם בהתאם לקביעת בית המשפט המחוזי, והוא יורה על תשלום היתרה לאחר שיוודא כי פסק הדין קוים במלואו ביחס לשתי תת-הקבוצות לעיל, ובכלל זה כי סכום ההפרש אכן שימש בפועל לביצוע פרויקטים לשיפור מערך ההנגשה כפי שהובהר לעיל.
 
+התיק יוחזר אפוא לבית המשפט המחוזי לקביעת הרכיבים שצוינו בפסק דין זה.
 
-	כן הוסכם כי ההחלטה ביחס לפרויקטים שיבוצעו תוך שימוש בפיצוי האמור, תתקבל על ידי ועדה שתורכב משלושה נציגים – נציג אחד מטעם משרד התחבורה; נציג אחד מטעם נציבות שוויון זכויות לאנשים עם מוגבלות; ונציג אחד מטעם המרכז לעיוור, בכפוף להסכמתם של גופים אלה.  
-
-
-
-	הצדדים אף הסכימו כי פסק דינו של בית משפט זה באשר לסכומי הפיצוי לשתי תת-הקבוצות יינתן בהתאם לשיקול דעתו של בית המשפט. מכאן כי עלינו לקבוע לפי שיקול דעתנו את הסכום שיקבל כל אחד מחברי תת-הקבוצה הראשונה; וכן את הסכום הכולל שייפסק לטובת תת-הקבוצה השנייה. 
-
-
-
-3.	לאחר שעיינו בכל החומר שהוצג לנו ושמענו את טיעוניהם של הצדדים בבית המשפט אנו קובעים כדלקמן – 
-
-
-
-	הפיצוי הכולל לחברי הקבוצה כולם (קרי, הן לתת-הקבוצה הראשונה והן לתת-הקבוצה שנייה), יעמוד על סכום כולל של 13,500,000 ש&#34;ח, כפי שקבע בית המשפט המחוזי (סכום זה יכונה להלן: סכום הפיצוי הכולל). 
-
-
-
-	כל אחד מחברי תת-הקבוצה הראשונה יהיה זכאי לפיצוי בסכום של 500 ש&#34;ח. בית המשפט המחוזי יקבע מנגנון תשלום לכל אחד מחברי תת-הקבוצה הראשונה בהתאם לנתונים המצויים בידי הרכבת, וכן ייתן הוראותיו באשר לפרק הזמן בו ישולם הפיצוי ולנוסח ההודעה שתישלח לחברי תת-הקבוצה. 
-
-
-
-	עם השלמת תשלום הפיצוי לחברי תת-הקבוצה הראשונה, יועבר ההפרש בין סכום הפיצוי הכולל לבין הסכום ששולם לחברי תת-הקבוצה הראשונה, לטובת הפרויקטים לשיפור מערך ההנגשה בהתאם להחלטת הוועדה – כפי שפורט לעיל. בית המשפט המחוזי יקבע לוחות זמנים גם לעניין זה; וכן מערך בקרה כדי לוודא שהוועדה אכן מוקמת; מתכנסת; מקבלת החלטות על אודות הפרויקטים; וכי פרויקטים אלה אכן ממומנים ומבוצעים. 
-
-
-
-4.	בא כוח התובע המייצג ערער גם על גובה שכר הטרחה שנפסק לזכותו. גם בנושא זה לא מצאנו לנכון להתערב. יחד עם זאת, לאור השינוי במנגנון התשלום (לעומת זה שנקבע בפסק דינו של בית המשפט המחוזי), יש מקום להידרש לאופן התשלום לבא כוח התובע המייצג. תשלום שכר הטרחה יתחלק לשניים – סך של 70% ישולם לבא כוח התובע המייצג תוך 30 יום מהיום; ויתרת הסכום תשולם בהתאם לקביעת בית המשפט המחוזי, והוא יורה על תשלום היתרה לאחר שיוודא כי פסק הדין קוים במלואו ביחס לשתי תת-הקבוצות לעיל, ובכלל זה כי סכום ההפרש אכן שימש בפועל לביצוע פרויקטים לשיפור מערך ההנגשה כפי שהובהר לעיל. 
-
-
-
-	התיק יוחזר אפוא לבית המשפט המחוזי לקביעת הרכיבים שצוינו בפסק דין זה. 
-
-	
-
-	איננו עושים צו להוצאות בערכאה זו.  
-
-
+איננו עושים צו להוצאות בערכאה זו.
 
 ניתן ביום, י&#34;ג אלול תשפ&#34;ד (16 ספטמבר 2024).
 
 תוקן היום, ט&#34;ז באלול תשפ&#34;ד (19 ספטמבר 2024).
 
-	
-
-					        
-
-
-
 יוסף אלרון
 
 שופט
 
-
-
-
-
-
-
 גילה כנפי-שטייניץ שופטת
-
-
-
-
-
-
 
 רות רונן
 
@@ -1730,7 +1919,7 @@
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>

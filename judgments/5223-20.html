@@ -355,8 +355,12 @@
     }
 
     .full-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .full-text > .nested-content {
         background-color: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         white-space: pre-wrap;
@@ -446,11 +450,167 @@
         border-bottom: none;
     }
 
+    .qa-launcher {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 0.75rem;
+    }
+
+    .qa-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    .qa-launcher .qa-row,
+    .official-doc-links .doc-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qa-launcher a,
+    .qa-launcher button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .qa-launcher a:hover,
+    .qa-launcher button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .qa-launcher .qa-chatgpt,
+    .qa-launcher .qa-notebooklm,
+    .qa-launcher .qa-notebooklm-help {
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
+    }
+
+    .qa-launcher .qa-chatgpt:hover,
+    .qa-launcher .qa-notebooklm:hover,
+    .qa-launcher .qa-notebooklm-help:hover {
+        background-color: #dce8ff;
+    }
+
+    .qa-launcher .qa-notebooklm-group {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .qa-launcher .qa-notebooklm-help {
+        min-width: 34px;
+        justify-content: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .qa-launcher .qa-share {
+        color: #6b7280;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 500;
+        font-size: 0.85rem;
+    }
+
+    .qa-launcher .qa-share:hover {
+        background-color: #f0f0f0;
+        color: #374151;
+    }
+
+    .qa-launcher .qa-toast {
+        flex-basis: 100%;
+        color: #374151;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .qa-launcher .qa-help-panel {
+        flex-basis: 100%;
+        padding: 12px 16px;
+        border: 1px solid #fbbf24;
+        border-radius: 6px;
+        background: #fffbeb;
+        color: #374151;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .qa-launcher .qa-help-panel h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+        color: #92400e;
+    }
+
+    .qa-launcher .qa-help-panel ol {
+        margin: 0;
+        padding-right: 1.25rem;
+    }
+
+    .qa-launcher .qa-help-panel li {
+        margin-bottom: 0.45rem;
+    }
+
+    .qa-launcher .qa-help-panel-subtext {
+        font-size: 0.8rem;
+        margin: 0 0 0.5rem;
+        color: #6b7280;
+    }
+
+    .qa-launcher .nlm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #dadce0;
+        background: #fff;
+        color: #3c4043;
+        font-family: inherit;
+    }
+
+    .qa-launcher .nlm-btn-black {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+
+    .qa-launcher .nlm-btn-grey {
+        background: #f1f3f4;
+        border-color: #dadce0;
+    }
+
+    .qa-launcher .qa-toast[hidden],
+    .qa-launcher .qa-help-panel[hidden] {
+        display: none;
+    }
+
     .official-doc-links {
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
         margin-bottom: 1.5rem;
-        flex-wrap: wrap;
     }
 
     .official-doc-links a {
@@ -463,29 +623,28 @@
         font-weight: 600;
         text-decoration: none;
         border: 1px solid #ddd;
-        transition: background-color 0.15s;
-    }
-
-    .official-doc-links a:hover {
-        background-color: #f5f5f5;
+        transition: background-color 0.15s, border-color 0.15s;
     }
 
     .official-doc-links .doc-pdf {
-        color: #6a1b9a;
-        border-color: #ab47bc;
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-pdf:hover {
-        background-color: #f3e5f5;
+        background-color: #002855;
+        border-color: #002855;
     }
 
     .official-doc-links .doc-docx {
-        color: #1565c0;
-        border-color: #90caf9;
+        background: white;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 
     .official-doc-links .doc-docx:hover {
-        background-color: #e3f2fd;
+        background-color: #edf2f7;
     }
 
     /* News section */
@@ -525,7 +684,7 @@
     .full-text-header {
         border-bottom: 1px solid #eee;
         padding-bottom: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
     .full-text-heading {
@@ -540,7 +699,7 @@
             padding: 16px;
         }
 
-        .full-text {
+        .full-text > .nested-content {
             padding: 1rem;
             font-size: 1rem;
         }
@@ -571,6 +730,73 @@
                 toggleSection(target, btn);
             });
         });
+
+        const qaLauncher = document.querySelector('.qa-launcher');
+        if (!qaLauncher) return;
+
+        const pageUrl = qaLauncher.dataset.pageUrl;
+        const notebookUrl = qaLauncher.dataset.notebookUrl;
+        const title = qaLauncher.dataset.shareTitle;
+        const text = qaLauncher.dataset.shareText;
+        const notebookButton = qaLauncher.querySelector('.qa-notebooklm');
+        const notebookHelpButton = qaLauncher.querySelector('.qa-notebooklm-help');
+        const notebookHelpPanel = qaLauncher.querySelector('.qa-help-panel');
+        const shareButton = qaLauncher.querySelector('.qa-share');
+        const toast = qaLauncher.querySelector('.qa-toast');
+        let toastTimeoutId = null;
+
+        function showToast(message) {
+            if (!toast) return;
+            toast.textContent = message;
+            toast.hidden = false;
+            clearTimeout(toastTimeoutId);
+            toastTimeoutId = setTimeout(() => {
+                toast.hidden = true;
+            }, 3000);
+        }
+
+        function writeClipboardText(value) {
+            if (!navigator.clipboard) {
+                return Promise.reject(new Error('Clipboard API is unavailable.'));
+            }
+            return navigator.clipboard.writeText(value);
+        }
+
+        if (notebookButton) {
+            notebookButton.addEventListener('click', async function () {
+                window.open(notebookUrl, '_blank', 'noopener');
+                try {
+                    await writeClipboardText(pageUrl);
+                    showToast('הקישור הועתק. לחצו Add sources ← Websites ב-NotebookLM והדביקו.');
+                } catch (error) {
+                    showToast('לא ניתן היה להעתיק את הקישור. אפשר להעתיק אותו משורת הכתובת.');
+                }
+            });
+        }
+
+        if (notebookHelpButton && notebookHelpPanel) {
+            notebookHelpButton.addEventListener('click', function () {
+                const isExpanded = notebookHelpButton.getAttribute('aria-expanded') === 'true';
+                notebookHelpButton.setAttribute('aria-expanded', String(!isExpanded));
+                notebookHelpPanel.hidden = isExpanded;
+            });
+        }
+
+        if (shareButton) {
+            if (!navigator.share) {
+                shareButton.hidden = true;
+            } else {
+                shareButton.addEventListener('click', async function () {
+                    try {
+                        await navigator.share({ title, text, url: pageUrl });
+                    } catch (error) {
+                        if (!error || error.name !== 'AbortError') {
+                            showToast('לא ניתן היה לפתוח את תפריט השיתוף.');
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>
 
@@ -908,7 +1134,7 @@
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html">חיפוש</a></li>
                     <li class="nav-item"><a href="../topics/index.html">לפי נושאים</a></li>
-                    <li class="nav-item"><a href="../sitemap_index.html">ארכיון</a></li>
+                    <li class="nav-item"><a href="../archives.html">לפי תאריכים</a></li>
                     <li class="nav-item"><a href="../about.html">אודות</a></li>
                     <li class="nav-item"><a href="../faq.html">שאלות נפוצות</a></li>
                 </ul>
@@ -1297,7 +1523,7 @@
                 <div class="legend-chip" data-target="date" tabindex="0">
                     <b class="label">תאריך פרסום</b>
                     
-                    12/11/2020 (לפני 2000 ימים)
+                    12/11/2020 — תאריך פרסום פסק הדין על ידי בית המשפט.
                     
                 </div>
 
@@ -1539,13 +1765,58 @@
     
 
     
+    
+    <div class="qa-launcher" data-page-url="https://bagats.org.il/judgments/5223-20.html"
+        data-notebook-url="https://notebooklm.google.com/"
+        data-question-placeholder="[כתוב כאן את שאלתך]"
+        data-share-title="5223/20 - פלוני נ. שר הבטחון"
+        data-share-text="פסק דין באתר BagatsAI">
+        <span class="qa-section-label">שאלות על פסק הדין</span>
+        <div class="qa-row">
+            <a href="https://chatgpt.com/?q=%D7%A2%D7%A0%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%90%D7%9C%D7%94%20%D7%94%D7%91%D7%90%D7%94%20%D7%90%D7%9A%20%D7%95%D7%A8%D7%A7%20%D7%A2%D7%9C%20%D7%A1%D7%9E%D7%9A%20%D7%94%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%94%D7%9E%D7%A6%D7%95%D7%A8%D7%A3%3A%0A%0A%5B%D7%9B%D7%AA%D7%95%D7%91%20%D7%9B%D7%90%D7%9F%20%D7%90%D7%AA%20%D7%A9%D7%90%D7%9C%D7%AA%D7%9A%5D%0A%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%3A%20https%3A%2F%2Fbagats.org.il%2Fjudgments%2F5223-20.html" class="qa-chatgpt"
+                target="_blank"
+                rel="noopener">
+                שאל עם ChatGPT
+            </a>
+            <span class="qa-notebooklm-group">
+                <button type="button" class="qa-notebooklm">
+                    העתק קישור ל-NotebookLM
+                </button>
+                <button type="button" class="qa-notebooklm-help" aria-label="הוראות NotebookLM" aria-expanded="false"
+                    aria-controls="notebooklm-help-panel">
+                    ?
+                </button>
+            </span>
+            <button type="button" class="qa-share">
+                שתף עם אפליקציה…
+            </button>
+        </div>
+        <span class="qa-toast" hidden aria-live="polite"></span>
+        <div id="notebooklm-help-panel" class="qa-help-panel" hidden>
+            <h4>איך להשתמש ב-NotebookLM</h4>
+            <p class="qa-help-panel-subtext">NotebookLM הוא כלי AI של Google שמאפשר לשוחח ישירות עם מסמכים ולקבל תשובות מבוססות על תוכנם.</p>
+            <p class="qa-help-panel-subtext">אם נפתח מסך התחברות, התחברו קודם לחשבון Google.</p>
+            <ol>
+                <li>לחצו על <span class="nlm-btn nlm-btn-black">+ Create new</span> בפינה הימנית העליונה.</li>
+                <li>בפאנל Sources, לחצו על <span class="nlm-btn">+ Add sources</span></li>
+                <li>בחרו <span class="nlm-btn">🔗 Websites</span></li>
+                <li>הדביקו את הקישור שהועתק ולחצו <span class="nlm-btn nlm-btn-grey">Insert</span></li>
+                <li>אחרי שהמקור נטען, כתבו את שאלתכם בצ'אט.</li>
+            </ol>
+        </div>
+    </div>
+
+    
     <div class="official-doc-links">
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/230/052/o07&amp;fileName=20052230.O07&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
-            PDF פסק דין מקורי
-        </a>
-        <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/230/052/o07&amp;fileName=20052230.O07&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
-            DOCX פסק דין מקורי
-        </a>
+        <span class="qa-section-label">קבצי פסק הדין המקוריים</span>
+        <div class="doc-row">
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/230/052/o07&amp;fileName=20052230.O07&amp;type=4" class="doc-pdf" target="_blank" rel="noopener">
+                פתח פסק דין מקורי ב-PDF
+            </a>
+            <a href="https://supremedecisions.court.gov.il/Home/Download?path=HebrewVerdicts/20/230/052/o07&amp;fileName=20052230.O07&amp;type=5" class="doc-docx" target="_blank" rel="noopener">
+                הורד פסק דין מקורי ב-DOCX
+            </a>
+        </div>
     </div>
     
 
@@ -1556,171 +1827,87 @@
             <span class="collapse-btn">-</span>
         </div>
         <div class="nested-content" style="line-height: 1.8;">
-            4
+            בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
 
+בג&#34;ץ 5223/20
 
-
-
-
-1
-
-
-
-
-
-בבית המשפט העליון בשבתו כבית משפט גבוה לצדק
-
-בג&#34;ץ  5223/20
-
-
-
-לפני:	
+לפני:
 
 כבוד השופט י&#39; עמית
 
-
-
 כבוד השופט נ&#39; סולברג
 
-
-
 כבוד השופט ד&#39; מינץ
-
-
 
 העותרת:
 
 פלונית
 
-
-
-
-
-נ  ג  ד
-
-
+נ ג ד
 
 המשיבים:
 
 1. שר הביטחון
 
-
-
 2. ראש המטה הכללי, צבא ההגנה לישראל
-
-
 
 3. ראש אגף כוח אדם, צבא ההגנה לישראל
 
-
-
 4. קצין משטרה צבאית ראשי, צבא ההגנה לישראל
-
-
 
 בשם העותרת:
 
 עו&#34;ד בנימין מלכא
 
-
-
 בשם המשיבים:
 
 עו&#34;ד סיגל אבנון
-
-	
 
 פסק-דין
 
 השופט נ&#39; סולברג:
 
-
-
-האם עלינו להתערב בהחלטה מקצועית של גורמי הצבא, לשבץ חייל לתפקיד זה או אחר? זו השאלה שהונחה לפתחנו. 
-
-
+האם עלינו להתערב בהחלטה מקצועית של גורמי הצבא, לשבץ חייל לתפקיד זה או אחר? זו השאלה שהונחה לפתחנו.
 
 העותרת קיבלה פטור משירות ביטחון, מטעמים רפואיים. בהמשך, לפי בקשתה, זומנה העותרת להשלמת הליכי מיון, לשם בדיקת התאמתה לשירות צבאי. לאחר בדיקה שנערכה ביום 17.11.2019, על-ידי ועדה רפואית, נקבע כי העותרת מתאימה לשירות צבאי במסגרת התנדבותית, בכפוף למגבלות שיבוץ.
 
-
-
-על מנת לבחון היכן לשבצהּ, כמקובל לגבי מתנדבים לשירות ביטחון, זומנה העותרת לראיון ביום 20.1.2020, ובו ביקשה להשתבץ לתפקיד &#39;חוקרת&#39; ביחידת המשטרה הצבאית החוקרת (מצ&#34;ח). בהמשך, במסגרת הליכי המיון, נערך לעותרת ראיון ביום 23.4.2020, על-ידי רמ&#34;ד פיקוח חקירות ומפקד חוליית דיווח ומעקב במפקדת מצ&#34;ח. בראיון ציינה העותרת כי אביה (שהלך לעולמו) ואמה היו מעורבים בפלילים. כמו כן הוסיפה כי היא מתגוררת אצל דודהּ, ואינה מצויה בקשר עם אמה. 
-
-
+על מנת לבחון היכן לשבצהּ, כמקובל לגבי מתנדבים לשירות ביטחון, זומנה העותרת לראיון ביום 20.1.2020, ובו ביקשה להשתבץ לתפקיד &#39;חוקרת&#39; ביחידת המשטרה הצבאית החוקרת (מצ&#34;ח). בהמשך, במסגרת הליכי המיון, נערך לעותרת ראיון ביום 23.4.2020, על-ידי רמ&#34;ד פיקוח חקירות ומפקד חוליית דיווח ומעקב במפקדת מצ&#34;ח. בראיון ציינה העותרת כי אביה (שהלך לעולמו) ואמה היו מעורבים בפלילים. כמו כן הוסיפה כי היא מתגוררת אצל דודהּ, ואינה מצויה בקשר עם אמה.
 
 לאחר בחינת מכלול נתוניה של העותרת, נמצא כי היא מתאימה לשיבוץ ביחידת מצ&#34;ח, וסוכם עמה כי תצא לקורס רכזי מודיעין וחקירות. עם זאת, נוכח הדברים שמסרה בראיון, הוחלט כי אם תסיים העותרת את הקורס בהצלחה, תשובץ לתפקידי מטה במפקדת מצ&#34;ח, ולא כחוקרת. זאת, משום שתפקידי המטה אינם כוללים אפשרות גישה, ישירה או עקיפה, למערכות המידע הפלילי של משטרת ישראל ומצ&#34;ח, בשונה מתפקידי החוקרים. החלטה זו לא נמסרה לעותרת באותו שלב. יודגש כבר עתה, כי מדברי המשיבים עולה שלא כל החניכים המסיימים את הקורס האמור, הופכים לבסוף לחוקרים ביחידה. חלקם אכן משובצים כחוקרים, אך אחרים עשויים להיות משובצים לתפקידי מטה או לתפקידים אחרים ביחידה.
 
-
-
 העותרת החלה את השלב הראשון של הקורס ביום 7.5.2020. במסגרת ראיון פתיחה שנערך לה עם מפקדת הקורס, ולאחר שנשאלה שאלות כלליות על משפחתה, מסרה העותרת מיוזמתה פרטים נוספים לגבי מעורבותם של בני משפחתה בפלילים. בכלל זה, התייחסה העותרת לעבירות שבהן הורשע אביה, הוסיפה כי דודיה מצד אביה הורשעו בעבירות רצח, וכי אחד מדודיה אף נרצח. כמו כן הוסיפה, כי אחד מאחֶיה מרצה עונש מאסר בדרך של עבודות שירות, וכי גם אמה נחקרה. לצד זאת, הביעה העותרת מוטיבציה להשתתף בקורס, ולסיימו בהצטיינות.
-
-
 
 ביום 22.6.2020 סיימה העותרת את השלב הראשון של הקורס בהצלחה. על אף ההחלטה שלא לשבץ את העותרת לתפקידי שטח, נוכח מעורבותם של בני משפחתה בפלילים, החלה העותרת את שלב ההכשרה המעשית ביום 28.6.2020. זאת, לפי הנטען, בשל טעות אנוש.
 
-
-
 עם תחילתו של שלב זה, רואיינה העותרת על-ידי מפקד מרחב 6012 במצ&#34;ח, ובמסגרת זו מסרה כי חידשה את הקשר עם אמה, ושבה להתגורר עמה. עוד הוסיפה העותרת, כי יחד עמן מתגורר בבית גם בן הזוג של אמה, אשר לו רקע פלילי, ואשר על רקע זה נעשו כמה פעמים ניסיונות להתנקש בחייו. נוכח זאת, ביום 29.6.2020, יום אחד בלבד לאחר קליטתה לשלב ההכשרה המעשית, נערך לעותרת ראיון נוסף על-ידי רע&#34;ן חקירות ומודיעין ורמ&#34;ד פיקוח וחקירות במפקדת מצ&#34;ח, ובו נמסר לה כי לא תוכל להמשיך בשלבי ההכשרה המעשית, וכי תשובץ לתפקידי מטה במפקדת מצ&#34;ח. הוצע לעותרת מגוון תפקידים במטה מצ&#34;ח, אך העותרת סירבה להם. לאור זאת, ומשמדובר בשירות התנדבותי, הופנתה העותרת פעם נוספת, לבקשתה, למדור מתנדבים, לצורך שיבוץ מחדש (עותק מהראיון מיום 29.6.2020 צורף לתגובת המשיבים). כיום, לדברי המשיבים, &#34;העותרת שובצה לבקשתה בתפקיד מש&#34;קית מודיעין בחטיבת הקומנדו, תפקיד בו היא משרתת עד היום&#34;.
-
-
 
 טוענת העותרת בעתירתה, כי בסירובם לשבצהּ כחוקרת מצ&#34;ח, פוגעים המשיבים בעקרון השוויון, כאשר &#34;לא ברור הקשר הפלילי של בני משפחתה של העותרת לבין שירותה של העותרת כחוקרת מצ&#34;ח מקום בו נמצאה מתאימה לשרת כחוקרת מצ&#34;ח, בהתאם לנתוניה&#34;. העותרת מלינה גם על כך שההחלטה שלא לשבצהּ כחוקרת מצ&#34;ח נמסרה לה רק לאחר שעברה את השלב הראשון של קורס ההכשרה, ולא מלכתחילה. עוד מוסיפה העותרת וטוענת, כי אין לה נגיעה ישירה לעולם הפשע, וכי היה על המשיבים &#39;ללכת לקראתה&#39;, ולהוקיר את מאמציה לשרת שירות משמעותי, על אף הרקע הרפואי והמשפחתי. העותרת חותמת את דבריה בשאלה רטורית: האם אָבוֹת אָכְלוּ בֹּסֶר וְשִׁנֵּי בָּנִים תִּקְהֶינָה? (ירמיהו לא, כח).
 
-
-
-המשיבים מצדם טוענים כי יש לדחות את העתירה, בהעדר עילה להתערבות. לדבריהם, ההחלטה לשבץ את העותרת לתפקיד מטה במפקדת מצ&#34;ח, נתקבלה בסמכות, מטעמים ענייניים, ולאחר שנשקלו מכלול השיקולים הרלבנטיים. לטענת המשיבים, המידע שמסרה העותרת רלבנטי ביותר לשאלת שיבוצה בתפקיד המבוקש, שכן מדובר בתפקיד רגיש בתוככי מערכת אכיפת החוק, הכולל אפשרות גישה למאגר הרישום הפלילי של משטרת ישראל, למאגרי המידע של מצ&#34;ח, וכן למידע שעשוי לסייע לגורמי פשיעה. על כן, שיבוץ העותרת לתפקיד זה, בהינתן הקשר המשפחתי לגורמים עברייניים, מקים חשש, נוכח אפשרות הגישה למערכות ולמידע האמורים. המשיבים מדגישים את הערכתם לנכונותה של העותרת לשרת בהתנדבות בצה&#34;ל, אך בד בבד מבהירים כי הדבר אינו מקנה לעותרת זכות לקבוע מהו התפקיד שתבצע, או מהו המקום שבו תשרת. בהקשר זה, עומדים המשיבים על שיקול הדעת הרחב המסור להם בענייני כוח אדם והתאמה לתפקיד, ובפרט נוכח השיקולים העומדים בנסיבות העניין דנן על הפרק – שמירה על תפקודן התקין של מערכות אכיפת החוק, ומצ&#34;ח בכלל זה. המשיבים מזכירים את התפקיד שאליו שובצה העותרת לבסוף – מש&#34;קית מודיעין בחטיבת הקומנדו – ומדגישים כי הדבר נעשה לפי בקשתה, וכי &#34;תפקיד זה היה בעדיפות גבוהה מצידה&#34;. 
-
-
+המשיבים מצדם טוענים כי יש לדחות את העתירה, בהעדר עילה להתערבות. לדבריהם, ההחלטה לשבץ את העותרת לתפקיד מטה במפקדת מצ&#34;ח, נתקבלה בסמכות, מטעמים ענייניים, ולאחר שנשקלו מכלול השיקולים הרלבנטיים. לטענת המשיבים, המידע שמסרה העותרת רלבנטי ביותר לשאלת שיבוצה בתפקיד המבוקש, שכן מדובר בתפקיד רגיש בתוככי מערכת אכיפת החוק, הכולל אפשרות גישה למאגר הרישום הפלילי של משטרת ישראל, למאגרי המידע של מצ&#34;ח, וכן למידע שעשוי לסייע לגורמי פשיעה. על כן, שיבוץ העותרת לתפקיד זה, בהינתן הקשר המשפחתי לגורמים עברייניים, מקים חשש, נוכח אפשרות הגישה למערכות ולמידע האמורים. המשיבים מדגישים את הערכתם לנכונותה של העותרת לשרת בהתנדבות בצה&#34;ל, אך בד בבד מבהירים כי הדבר אינו מקנה לעותרת זכות לקבוע מהו התפקיד שתבצע, או מהו המקום שבו תשרת. בהקשר זה, עומדים המשיבים על שיקול הדעת הרחב המסור להם בענייני כוח אדם והתאמה לתפקיד, ובפרט נוכח השיקולים העומדים בנסיבות העניין דנן על הפרק – שמירה על תפקודן התקין של מערכות אכיפת החוק, ומצ&#34;ח בכלל זה. המשיבים מזכירים את התפקיד שאליו שובצה העותרת לבסוף – מש&#34;קית מודיעין בחטיבת הקומנדו – ומדגישים כי הדבר נעשה לפי בקשתה, וכי &#34;תפקיד זה היה בעדיפות גבוהה מצידה&#34;.
 
 נוכח דברי המשיבים בתגובתם, ובפרט בשים לב לתפקיד שאליו שובצה בינתיים, לבקשתה, הוריתי לעותרת להודיע האם עודנה עומדת על עתירתה. ביום 9.11.2020 הודיעה העותרת כי היא עומדת על עתירתה, והפנתה לאי-דיוקים שנפלו לטעמה בתגובת המשיבים. יש להצטער על כך שהעותרת בחרה שלא להתייחס לשיבוצה לתפקיד בחטיבת הקומנדו (אשר נטען כי הדבר נעשה לבקשתה), על אף האמור בהחלטתי הנ&#34;ל.
 
-
-
 לאחר עיון בעתירה ובתגובה, הגעתי לכלל מסקנה כי דינה להידחות. פעולות הנעשות על-ידי רשויות הצבא אינן פטורות באופן גורף מביקורת שיפוטית. עם זאת, כאשר מדובר בהחלטות מקצועיות, שיקול הדעת המסור לרשויות הצבא רחב ביותר, ההתערבות מצומצמת, ובפרט כאשר עסקינן בהחלטות מקצועיות הנוגעות לשיבוץ והכשרה של חיילים ומפקדים: &#34;הכלל הנקוט בידי בית-משפט זה הוא שאין הוא שם את שיקול-דעתו תחת שיקול-דעתה של רשות מינהלית. כלל זה חייב לחול ביתר שאת על החלטה כזאת הנדונה כאן, כי עניין לנו כאן בנושא של התאמה אישית לתפקיד צבאי, וכאמור מפקדי החייל, הם ולא אחרים, מסוגלים להעריך את התאמתו, בזכות מומחיותם ונסיונם המקצועי&#34; (בג&#34;ץ 279/72 עובד נ&#39; שר הביטחון, פ&#34;ד כז(1) 169, 176 (1973)).
-
-
 
 רצונה העז של העותרת לשרת שירות צבאי, בהתנדבות, על אף הרקע הרפואי, ראוי לכל שבח. עם זאת, בכל הנוגע לשיבוץ הספציפי המבוקש, המשיבים בחנו את מכלול הנסיבות שלפניהם, שקלו את הדברים, ולבסוף מצאו כי לא ניתן לשבץ אותה לתפקיד &#39;חוקרת מצ&#34;ח&#39;. הטעמים לכך ברורים ומובנים, ואין צורך להאריך בהם. מאגרי המידע של מערכת אכיפת החוק רגישים, נדרשת להם שמירה יתרה, והזהירות יפה להם. יודגש, אין בקביעה זו משום הטלת דופי חלילה בעותרת. המשיבים אינם טוענים כן, ובתגובתם אף מביעים הערכה למוטיבציה של העותרת לשרת בהתנדבות בצה&#34;ל. כעולה מהציטוט המלא של הפסוק שהזכירה העותרת בעתירתה: &#34;בַּיָּמִים הָהֵם לֹא יֹאמְרוּ עוֹד אָבוֹת אָכְלוּ בֹּסֶר וְשִׁנֵּי בָּנִים תִּקְהֶינָה&#34;. לא בכדי שובצה העותרת בתפקיד חשוב לא פחות, ביחידה מובחרת בצה&#34;ל.
 
-
-
-כאמור לעיל, חרף החלטתי מיום 8.11.2020, העותרת לא מסרה עמדתה בנוגע לתפקיד שאליו שובצה בינתיים, לפי בקשתה. מכל מקום, טוב תעשה העותרת אם תפיק את המירב מהתפקיד שבו היא משרתת עתה, תוסיף להפגין מוטיבציה גבוהה, ולוואי ותלך מחַיִל אל חַיִל. 
-
-
+כאמור לעיל, חרף החלטתי מיום 8.11.2020, העותרת לא מסרה עמדתה בנוגע לתפקיד שאליו שובצה בינתיים, לפי בקשתה. מכל מקום, טוב תעשה העותרת אם תפיק את המירב מהתפקיד שבו היא משרתת עתה, תוסיף להפגין מוטיבציה גבוהה, ולוואי ותלך מחַיִל אל חַיִל.
 
 אשר על כן, העתירה נדחית בזאת.
 
-
-
-	בנסיבות העניין, לא יֵעשה צו להוצאות.
-
-
-
-
+בנסיבות העניין, לא יֵעשה צו להוצאות.
 
 ש ו פ ט
 
 ש ו פ ט
 
 ש ו פ ט
-
-
 
 _________________________
 
-   20052230_O07.docx   פג
+20052230_O07.docx פג
 
-מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט,  http://supreme.court.gov.il
-
-
-
-
-
-
-
-
-
-1
+מרכז מידע, טל&#39; 077-2703333, 3852* ; אתר אינטרנט, http://supreme.court.gov.il
         </div>
     </section>
     
@@ -1739,7 +1926,7 @@ _________________________
             <a href="../faq.html">שאלות נפוצות</a> |
             <a href="../terms.html">תנאי שימוש</a> |
             <a href="../accessibility.html">הצהרת נגישות</a> |
-            <a href="../sitemap_index.html">ארכיון פסקי הדין</a> |
+            <a href="../archives.html">לפי תאריכים</a> |
             <a href="mailto:contact@bagats.org.il">דיווח על בעייה</a> |
             <a href="https://supreme.court.gov.il/Pages/fullsearch.aspx" target="_blank" rel="noopener noreferrer">חיפוש באתר הרשות השופטת</a>
         </div>
