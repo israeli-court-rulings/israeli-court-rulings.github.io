@@ -355,6 +355,7 @@
     }
 
     .full-text {
+        margin-top: 2rem;
         margin-bottom: 1.5rem;
     }
 
@@ -363,6 +364,18 @@
         padding: 1.5rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .full-text-content h3 {
+        margin: 0 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #eee;
+        color: var(--primary-color);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.1rem;
+    }
+
+    .full-text-body {
         white-space: pre-wrap;
         font-family: 'Times New Roman', Times, serif;
         font-size: 1.1rem;
@@ -403,36 +416,6 @@
 
     .nested-container {
         margin: 0.25rem 0;
-    }
-
-    /* Header row that puts the collapse button inline to the right of the title */
-    .collapsible-header {
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-    }
-
-    .collapse-btn {
-        cursor: pointer;
-        background: #f0f0f0;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        min-width: 20px;
-        height: 20px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        user-select: none;
-        font-size: 1rem;
-        flex-shrink: 0;
-        padding: 0 4px;
-    }
-
-    .collapsible.collapsed>.nested-content {
-        display: none;
     }
 
     .analysis-list {
@@ -523,16 +506,13 @@
     }
 
     .qa-launcher .qa-share {
-        color: #6b7280;
-        background: transparent;
-        border-color: transparent;
-        font-weight: 500;
-        font-size: 0.85rem;
+        color: #2f52b0;
+        background: #eff4ff;
+        border-color: #b6c8f5;
     }
 
     .qa-launcher .qa-share:hover {
-        background-color: #f0f0f0;
-        color: #374151;
+        background-color: #dce8ff;
     }
 
     .qa-launcher .qa-toast {
@@ -681,18 +661,6 @@
         margin-top: 0.2rem;
     }
 
-    .full-text-header {
-        border-bottom: 1px solid #eee;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .full-text-heading {
-        margin: 0;
-        cursor: pointer;
-        color: var(--primary-color);
-    }
-
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .judgment-meta-card {
@@ -708,29 +676,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        function toggleSection(target, btn) {
-            if (!target) return;
-            target.classList.toggle('collapsed');
-            target.classList.toggle('expanded');
-            if (btn) btn.textContent = target.classList.contains('collapsed') ? '+' : '-';
-        }
-
-        document.querySelectorAll('.collapse-btn').forEach(btn => {
-            btn.addEventListener('click', function (e) {
-                e.stopPropagation();
-                toggleSection(this.closest('.collapsible'), this);
-            });
-        });
-
-        document.querySelectorAll('.analysis-details > .collapsible-header .toggleable, .full-text > .collapsible-header .toggleable').forEach(heading => {
-            heading.addEventListener('click', function (e) {
-                e.stopPropagation();
-                const target = this.closest('.collapsible');
-                const btn = target ? target.querySelector(':scope > .collapsible-header > .collapse-btn') : null;
-                toggleSection(target, btn);
-            });
-        });
-
         const qaLauncher = document.querySelector('.qa-launcher');
         if (!qaLauncher) return;
 
@@ -1788,7 +1733,7 @@
                 </button>
             </span>
             <button type="button" class="qa-share">
-                שתף עם אפליקציה…
+                שתף/שלח קישור לפסק הדין…
             </button>
         </div>
         <span class="qa-toast" hidden aria-live="polite"></span>
@@ -1821,13 +1766,11 @@
     
 
     
-    <section class="full-text collapsible expanded">
-        <div class="collapsible-header full-text-header">
-            <h3 class="toggleable full-text-heading">פסק הדין המלא</h3>
-            <span class="collapse-btn">-</span>
-        </div>
-        <div class="nested-content" style="line-height: 1.8;">
-            讘讘讬转 讛诪砖驻讟 讛注诇讬讜谉 讘砖讘转讜 讻讘讬转 诪砖驻讟 讙讘讜讛 诇爪讚拽
+    <section id="raw-judgment-text" class="full-text">
+        <div class="nested-content full-text-content" style="line-height: 1.8;">
+            <h3>פסק הדין המלא</h3>
+            <div class="full-text-body">
+                讘讘讬转 讛诪砖驻讟 讛注诇讬讜谉 讘砖讘转讜 讻讘讬转 诪砖驻讟 讙讘讜讛 诇爪讚拽
 
 讘讙&#34;抓 2036/98
 
@@ -1864,6 +1807,7 @@
 砖诪专讬讛讜 讻讛谉 - 诪讝讻讬专 专讗砖讬
 
 98020360.I02
+            </div>
         </div>
     </section>
     
